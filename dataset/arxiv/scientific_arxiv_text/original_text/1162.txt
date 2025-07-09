@@ -1,0 +1,294 @@
+the ising model is a prototype of a statistical mechanical model for studying order - disorder transitions .
+it is also the first statistical model which has led to exact solution in one and two dimensions . since its inception@xcite
+this model has triggered an intense effort in investigation of other models resulting in an extensive literature on the subject @xcite .
+there are now a large library of statistical and quantum mechanical models , differing in their degrees of freedom , interaction type , the type and dimensions of lattices , and of course methods of solution @xcite .
+there are also models which can be called integrable , meaning that they allow sufficient number of conserved quantities , leading to a full determination of their spectra and other observable quantities . among the well - known classical models
+, we can mention particularly the @xmath0-state potts model @xcite , which is the simplest generalization of the ising model in that the degrees of freedom take @xmath0 instead of two different values and interact according to the hamiltonian [ hpot ] h=-_i , j ( s_i , s_j ) , where @xmath1 means that interactions are between nearest neighbors and @xmath2 takes @xmath0 different values .
+this is a classical model in that every configuration of the so - called spin variables @xmath2 is an energy eigenstate .
+the importance of this model , like ising model , is that it can be mapped to many other important models in science , i.e. the famous four - color problem in the case of potts model , @xcite .
+the ising model has a @xmath3 symmetry , meaning that the configurations @xmath4 and @xmath5 both have the same energy . ] in the potts model , this symmetry has been elevated to the @xmath6 group , where now due to the form of the hamiltonian ( [ hpot ] ) , one can shift all the spin variables by any integer value @xmath7 $ ] and the energy remains the same . this symmetry can be seen in a better way if we use an identity and write the local energy term as ( s , s)=_n=0^d-1 ^ns^-ns , where @xmath8 is a @xmath9th root of unity . + it is the purpose of this work to generalize the potts and indeed ising model to the case where the symmetry group is a finite ( non - abelian ) group .
+such a model , if properly defined will certainly have a very rich structure and will certainly deepen and widen our perspective of exactly solvable models of statistical mechanics and integrable models .
+moreover it has the potential of enriching our knowledge of order - disorder transitions in statistical mechanics .
+of course the model as defined now is mainly of theoretical interest and it may be difficult to make concrete connections with specific physical problems .
+we only hope with hindsight and in view of the experience with other more or less abstract models in statistical mechanics like the face models and vertex models @xcite , this new model will also find a proper place in the library of exactly solvable models , possibly with new applications in the future .
++ we will focus our attention to a one dimensional lattice and show that such a natural generalization is indeed possible and will define the non - abelian potts model .
+we determine the full spectrum and show that the ground states and indeed many of the excited states of this model are entangled .
+we will determine the amount of this entanglement both for a single site and for a block of finite length .
+we also determine the entanglement between two different sites of the lattice . in this sense
+the model is a quantum mechanical model , in contrast to classical models where there is no entanglement in their energy eigenstates .
+it turns our that the properties of irredudcible representations play an important role in the nature of the spectrum and its entanglement properties .
+we will also calculate the partition function of the model in two different ways , that is we follow an algebraic approach where we calculate the trace of the thermal state and a combinatorial approach where we also count the degeneracy of all energy levels .
+the results of the two approaches , which correspond respectively to the high and low temperature expansions , agree as they should . in all aspects
+the results pertaining to this model reduce to the potts model when the symmetry group @xmath10 reduces to the abelian group @xmath6 .
++ the structure of this paper is as follows : in section [ pre ] we review the preliminary material from theory of finite groups and their representations . in section [ model ] , we define the non - abelian model on a one dimensional lattice , which as we see , is a special case of the kitaev quantum double model @xcite . in two dimensions this correspondence in no longer true , since as is well known the kitaev model entails four - body interactions while our model entails two - body interactions , as it should as a generalization of potts model .
+in fact generalization of the potts model to two dimensions is a non - trivial problem as we will discuss in the discussion . in section [ spec ]
+we derive the ground states and determine their entanglement properties , and in section [ excited states ] we determine all the excited states , hence the full spectrum . in section [ part ] , we calculate the partition function in closed form , by summing up the terms in both high and low temperature expansions . in all our study
+we make contact with the simpler and special case where the group we are considering is the abelian group @xmath6 , and the model is the d - state potts model .
+let @xmath10 be a finite group of size @xmath11 .
+two elements @xmath12 and @xmath13 of the group @xmath10 are said to be conjugate if there is a @xmath14 , such that @xmath15 .
+this is an equivalence relation which partitions the group into conjugacy classes .
+the conjugacy class of an element @xmath12 is denoted by @xmath16 . the number of conjugacy classes is denoted by @xmath17 .
+this equals the number of irreducible representations of the group .
+it is customary to denote the former by latin indices and the latter by greek indices , hence we have @xmath18 as a conjugacy class and @xmath19 as an irreducible representation .
+the number of elements in @xmath18 is denoted by @xmath20 , and the dimension of an irreducible representation @xmath19 is denoted by @xmath21 .
+we then have @xmath22 .
+let @xmath23 be a vector space spanned by orthonormal vectors @xmath24 . on this vector space , two regular representations
+called left and right actions respectively , are defined as    l(g ) |h= |gh , r(g)|h=|hg^-1 .
+obviously the two kinds of actions commute with each other . for an abelian group , @xmath25=[r(g),r(g')]=0 $ ] leading to a simple disentangled spectrum as we will see in sections [ model ] , while for a non - abelian group this is no longer the case . +
+both regular representations decompose into a sum of irreducible representations , each representation @xmath19 occurring with a multiplicity equal to its dimension @xmath21 , hence we have the relation @xmath26    the matrix entries of an irreducible representation @xmath27 of an element @xmath14 are denoted by @xmath28 . for each set of labels @xmath29 ,
+a @xmath11 dimensional vector @xmath30 is defined as : [ basis ] |d_mn^:= _ gg d^_mn(g ) |g .
+this is in fact the fourier transform on the finite group @xmath10 .
+it is well known that these vectors provide an orthonormal and complete basis for @xmath31 @xcite .
+the orthonormality implies that    [ orthonormal ] d^_m , n|d^_p , q=^,_m , p_n , q , or [ orthonormality ] _ g g d^_mi(g ) = ^ _ mn _ ij .
+here @xmath32 denotes complex conjugate of @xmath33 .
+we will later use a graphical representation for @xmath34 which we depict in figure [ contraction ] .
++ for each representation @xmath19 , the character of a conjugacy class @xmath18 , is defined as @xmath35 , where @xmath36 .
+the significance of characters of irreducible representations is that they are orthonormal and complete in the sense that if we define the @xmath17 dimensional formal vectors @xmath37 , where @xmath38 s form a computational basis , then these new vectors form a complete orthonormal basis .
+the orthonormality implies that [ ccort ] _
+g g ^(g)=|g| ^ , .    finally note that the product of irreducible representations decomposes into sum of them in the form d^(g ) d^(g ) = _ f^,_d^(g ) , where @xmath39 are the ( clebsh - gordan ) or fusion coefficients of this group . taking the trace of both sides
+, this leads to [ chichi ] ^(g ) ^(g ) = _ f^,_^(g ) .
+we are now equipped with almost all the necessary ingredients of group theory to define and study the non - abelian potts model .
+s and their contraction : a ) a representation for @xmath34 .
+b ) a representation for @xmath40 . ]
+consider a periodic chain of length @xmath41 .
+let @xmath10 be a finite ( abelian or non - abelian ) group of size @xmath11 .
+to each site of the chain , a @xmath11 dimensional hilbert space @xmath23 is assigned with orthonormal basis vectors @xmath42 .
+therefore we have @xmath43 and @xmath44 .
+the dimensional of the full hilbert space @xmath45 is given by @xmath46 .
++ the hamiltonian of the model is the reduction of the quantum double hamiltonian @xcite , in which only the vertex operators are retained and all the plaquette operators are ignored . since in a one - dimensional lattice , there is a one to one correspondence between vertices and links , we have used this liberty to put the dynamical ( generalized spin ) variables on the vertices instead of the links .
+this makes the model much more akin to the other models of statistical mechanics , like the ising , potts and heisenberg models .
+to each pair of neighboring sites @xmath47 , we assign the following local hamiltonian [ localh ] h_i=_gg r_i(g ) l_i+1(g ) , where the indices @xmath48 and @xmath49 show that @xmath50 and @xmath51 act on these two sites respectively . it is easily verified that @xmath52 is a projector , namely @xmath53 and @xmath54=0,\ \ \forall \ \ i , j$ ] .
+therefore the eigenvalues of @xmath52 are restricted to @xmath55 and @xmath56 .
+the total hamiltonian is the sum of all these local hamiltonians , i.e.    [ hamiltonian ] h=- _
+i=1^n h_i , where periodic boundary condition @xmath57 is implied in all states and operators .
++ consider the special case where @xmath10 is an abelian group , and in particular @xmath6 the finite cyclic group of order @xmath0 , @xmath58 where the group operation is addition modulo @xmath0 .
+then we have + l(g ) |h= |h+g , r(g)|h=|h - g   h ,  gz_d , + leading to l(g ) x^g , r(g)x^-g , where @xmath59 is the shift operator or the @xmath9 dimensional generalization of the pauli matrix @xmath60 , and @xmath61 is @xmath62 to the power @xmath63 .
+therefore in the @xmath6 case , the local hamiltonian [ localh ] can be written as h_i= _
+g=0^d-1 x_i^-g x_i+1^g . to see the relevance of this local hamiltonian to the potts model
+, we note that in this abelian case and only in this case , all the operators @xmath64 can be diagonalized in the same basis , since @xmath25=0 $ ] for an abelian group .
+this is the basis in which the shift operator @xmath62 is diagonal .
+this operator has the property @xmath65 which means that its eigenvalues are @xmath66 , where @xmath8 is the @xmath9th root of unity , @xmath67 .
+the eigenvectors of @xmath62 are easily found    [ dstates ] |d^s:=_j=0^d-1 ^-js|j , x|d^s=^s|d^s .
+now any product state of the form |^*s*:=|d^s_1|d^s_2|d^s_i|d^s_i+1|d^s_n , is an eigestate of all @xmath52 s and hence the total @xmath68 .
+in such a basis , @xmath52 can be replaced with its eigenvalues .
+then we have h_i & & _ g=0^d-1^(s_i+1-s_i)g= _ s_i , s_i+1 .
+hence in the special case @xmath69 , we will have the classical @xmath9state potts model described by [ pottsdelta ] h=-_i=1^n _
+s_i , s_i+1 , where @xmath2 s take @xmath0 different values .
+we now turn to the spectrum when @xmath10 is a finite non - abelian group .
+first we find the ground states and then determine all the excited states .
+in order to find the ground states of the hamiltonian [ hamiltonian ] , we first consider the potts model which will act as a guideline for the more complicated non - abelian case . as equation
+[ pottsdelta ] indicates , the ground state of the potts model is when all the labels @xmath2 are equal to each other , so there are @xmath0 different ground states , namely     @xmath70 in [ dstates ] , we can rewrite this as |^s=_j_1 , j_2 , j_n^-j_1s^-j_2s^-j_ns|j_1 , j_2,j_n .
+this can be written as a matrix product state ( mps ) as |^s=_j_1 , j_2 , j_n^s(j_1 , j_2 , j_n)|j_1 , j_2,j_n , where [ mpspotts ] ^s(j_1 , j_2 , j_n)= ( d^s(j_1)d^s(j_2)d^s(j_n ) ) , in which @xmath71 is the @xmath72 representation of element @xmath73 .
++ we now go on to consider the spectrum of the non - abelian case .
+motivated by the mps representation of the abelian ( potts ) model in [ mpspotts ] , we form the following states : |^&:= & ( d^(g_1)d^(g_2)d^(g_n))|g_1 , g_2 , g_n&=&^(g_1g_2g_n)|g_1 , g_2 , g_n , where a sum over all group elements @xmath74 is implied .
+here @xmath75 is a normalization factor and @xmath76 is the matrix of @xmath63 in the irreducible representation @xmath19 .
+it is then obvious that these states are eigenstates of the operators @xmath52 . to see this we note that h_i|^&= & _ ggr_i(g)l_i+1(g)|^&= & _ gg^(g_1g_2g_n)|g_1 , g_2 g_ig^-1 , gg_i+1 , g_n=|^ , where in the last line we have relabeled the group elements @xmath77 to @xmath78 and @xmath79 to @xmath80 and have used the fact that a sum over all group elements is performed .
+therefore for each irreducible representation of the group we find one ground state .
+thus the ground state is @xmath17-fold degenerate , where @xmath17 is the number of in - equivalent irreducible representations , or equivalently the number of conjugacy classes . to find the normalization
+, we use the orthogonality relation of characters which reads from [ ccort ] @xmath81 or @xmath82 .
+therefore we find ^|^=_g_1 , g_n |(g_1g_n)|^2=|g|^n-1_gg|(g)|^2=|g|^n , giving the normalized ( in fact orthogonal ) ground states [ gs ] |^=^(g_1g_2g_n)|g_1 , g_2 , g_n .
+note that in contrast to the abelian case , the ground states are generally entangled .
+moreover consider the following string operators    t^=_g_1 , g_2 , g_n ^(g_1g_2g_n ) |g_1 , g_2 , g_ng_1 , g_2 , g_n| .
+we may ask what is the effect of this string operator on a given ground state . in view of the relation ( [ chichi ] ) , it turns out that t^|^=_f^,_|^ , implying that the ground space carries a representation of the fusion algebra of the group representation .
++          we now study the entanglement properties of the ground states .
+first we determine how much a given site is entangled with the rest of the lattice , when the whole system is in a given ground state .
+then we calculate the entanglement of a given block of length @xmath83 .
+third we determine the entanglement of two sites which are near each other or are far apart . before proceeding to the proofs , we present the main results .
+when the lattice is in a given ground state @xmath84 , + i ) the entanglement of any given site with the rest of the lattice , measured by the von - neumann entropy of the reduced density matrix of this site is @xmath85 .
++ ii ) the entanglement of any given block of length @xmath83 is given by @xmath86 } ) = \log(n^2_\mu)$ ] which is independent of the length of the block and verifies the area law .
++ iii ) any two sites which are not nearest neighbors are separable , their reduced density matrices is a product of those of individual sites .
++ iv ) any two neighboring sites are entangled and their entanglement measured by the negativity of the reduced density matrix of the two sides is given by @xmath87 .
++ these results are proved in appendix a.
+using the conventions of figure [ contraction ] and the form of the ground state in [ myground ] , we can graphically depict a ground state as in figure [ gsfig ] .
+this is again a generalization of the abelian potts model , where all the sites have been colored by one single color , here a color represents a label of an irreducible representation .
+each line between two bulbs means that the two adjacent indices of the matrices have been contracted ( i.e. made equal and summed over ) . to obtain the excited states of [ hamiltonian ] , consider now a cut in such a configuration as shown in figure [ exs ] .
+we will see that these cuts which separate connected regions of different colors ( i.e. labels of irreducible representations ) produce excited states . to prove this we remind the reader that local hamiltonians , being projectors , have eigenvalues only equal to @xmath55 or @xmath56 , therefore the exited states are those in which one or more of the vertex operators have @xmath55 eigenvalue
+. therefore we want to find states which are common eigenstates of all the local hamiltonians where one or more of these local hamiltonians have zero eigenvalues . to proceed , consider local states like @xmath88 .
+we first obtain the action of left and right operators on these states , which is easily verified to be as follows : [ l ] l(h)|d^_m , n= d^_m , p(h^-1)|d^_p , n    and    [ r ] r(h)|d^_m , n= |d^_m , pd^_p , n(h ) where summation over repeated latin indices are implied . from these two relations
+we find the action of @xmath52 on the two neighboring elementary states , @xmath89 .
+then from equations [ l ] and [ r ] we obtain : h_i|d^_m , n_i|d^_p ,
+q_i+1 = |d^_m , r_i ( _ g d^_r , n(g)d^_p , s(g^-1))|d^_s , q_i+1 .    using the orthonormality relation [ orthonormality ] , we find [ local action ] h_i|d^_m , n_i|d^_p , q_i+1 = _ n , p^,_r|d^_m , r_i|d^_r , q_i+1 . let us first consider the special case @xmath90 , where we have : [ exs1 ] h_i|d^_m , n_i|d^_p , q_i+1 = 0 .     and @xmath91 are different .
+c ) an excited state of the kind [ exs3 ] , where both the colors and matrix indices are the same . ]    this means that if the two colors @xmath92 and @xmath93 on the two sides of the cut are different , then the local hamiltonian @xmath52 annihilates the state and so the energy is raised by one unit .
+this kind of excited state is depicted in figure [ exs]a .
+another special case is when the two colors ( i.e. representation labels ) are the same , but the middle indices are different : [ exs2 ] h_i|d^_m , n_i| d^_p , q_i+1 = 0 np , these kinds of excited states are depicted in figure [ exs]b .
+finally we learn from [ local action ] that if @xmath94 and @xmath95 , then the right hand side of [ local action ] , although non - zero , is independent of @xmath96 , this means that for any two matrix indices @xmath97 [ exs3 ] h_i(|d^_m , n_i|d^_n , q_i+1-|d^_m , p_i|d^_p , q_i+1 ) = 0 .
+hence the third kind of excitations are depicted as in figure [ exs]c .    the number of these new kinds of excitations for a single cut in @xmath84 which are independent is @xmath98 .
+using the simple notation @xmath99 for brevity , they can be chosen to be @xmath100 ( @xmath101 ) or if we want to make them orthogonal we can choose them to be @xmath102 , @xmath103 , @xmath104 and so on which are obviously orthogonal .
+note that if we form their uniform summation as @xmath105 we will get a state whose eigenvalue for @xmath52 is @xmath56 , which is not an excitation any more .
++ all the excited states are derived by inserting one or more of these different kinds of cuts or excitations in a given ground state .
+this again generalizes a feature of the potts model , where only one type of cut exists which separates two different values of spins or colors . in the non - abelian case , where the representations are not one dimensional , the domain walls are more complex .
+they are designated by a pair of indices @xmath48 and @xmath91 .
+this completes our analysis of the spectrum of the non - abelian potts model .
+in this section we calculate the partition function which captures the statistical properties of the model .
+we follow two different approaches for calculating the partition function , an algebraic approach in which we calculate the trace of @xmath106 and a combinatorial approach in which we count the number of excited states of any given energy .
+the two approaches correspond respectively to high and low temperature expansions .
+the reason for this correspondence will be made clear in the derivations .
+since the local hamiltonians commute with each other we have z_(g)= e^-h = _ i=1^n e^h_i . noting that the local hamiltonians are projectors @xmath53 ,
+we can write the exponentials in the following linear form z_(g)= , where @xmath107 . this parameter , which for high temperatures is small and for @xmath108 approaches @xmath55 , will act as an expansion parameter . at high temperatures
+the first few terms of the expansion will be a good approximation of the partition function .
+however in the present case , we can exactly determine the partition function by calculating all the terms .
+we can write z_(g ) = _ n=0^n ^n z^(n)_(g ) , where @xmath109 is the trace of product of @xmath96 local hamiltonians . in appendix
+b we prove that    @xmath110 and @xmath111 . using these two results
+, we obtain the exact form of the partition function to be [ zg ] z_(g)= ( e^-1+|g|)^n + ( e^-1)^n(k-1 ) .
+it is instructive to first consider the abelian potts model .
+this will then teach us how to go about the non - abelian case . in the limit @xmath112
+, only the ground states contribute to the partition functions . at very low temperatures both the ground states and the low lying excited states
+contribute to the partition function .
+as we will see the low lying states corresponds to few domain walls in the configuration of spins .
+as the temperature rises more domain walls contribute and the low temperature expansion necessitates the counting of contribution of various configurations of domain walls . again in the present context , we can sum all the contributions exactly and obviously the result should be equal to that of the high - temperature expansion .    more precisely , we note that the ground state energy of the abelian potts model is equal to @xmath113 ( when all the spins are the same , or when all the spins are colored by one single color ) and the degeneracy of the ground state is equal to @xmath0 .
+coming to the excited states , for each neighboring pair where the two labels @xmath2 and @xmath114 are unequal , i.e. for each domain wall , an excited state is created .
+so for @xmath115 domain walls , the energy will be @xmath116 .
+the degeneracy of this energy is then equal to the total number of different configurations with @xmath115 domain walls .
+this degeneracy comes from the different positions of the @xmath115 walls and the different possible spin configurations ( which we call colors ) for each configuration of walls .
+the first factor is easy to calculate . with a periodic boundary condition ,
+it is simply given by @xmath117 .
+note that @xmath115 should be greater than @xmath56 , since in a periodic lattice , there can not be one single wall .
+calculation of the second factor , which we denote by @xmath118 , is done as follows .
+consider figure [ walls ] which shows @xmath115 different domains , separated by @xmath115 walls .
+for domain @xmath56 we have @xmath0 colors to choose . for the second domain
+we are left with @xmath119 walls , since the color of this domain has to be different from the first one . for the third domain we have again @xmath119 choices , since the color of this domain has to be different from the second one .
+so going around the circle and coming to the last domain @xmath115 we have @xmath120 different choices of colors , but in so counting , we have over - counted the number of colors , since the color of the last region @xmath115 should be different from that of region @xmath56 .
+the number of such configurations is simply @xmath121 , since in this case the two domains @xmath115 and @xmath56 merge into one single domain .
+thus we arrive at the recursion relation [ rr ] c_k(d ) = d ( d-1)^k-1 - c_k-1(d ) , c_0(d ) = d , the solution of which is [ cd ] c_k(d)=(d-1)^k+(d-1)(-1)^k .
+therefore the degree of degeneracy of each energy level @xmath122 is given by , leading to the partition function of the @xmath9 level potts model z _ ( ) = _
+k=0^n e^(n - k ) nk = ( e^-1+d)^n + ( e^-1)^n(d-1 ) .
+( for abelian group ) is characterized by the position of the walls and different possible colors . for a configuration with @xmath115 fixed walls ,
+there are @xmath123 different eigenstates as given in [ cd ] . ]
+we now go on to the quantum case . here
+the structure or the labels of a domain wall is more complex , since as in figure [ circle ] , each domain is characterized not only by a color ( a representation label @xmath124 ) but also by two matrix indices @xmath48 and @xmath91 . consider the first domain in figure [ circle ] .
+the total number of choices for this domain is thus @xmath125 .
+what is the number of possible choices for the next domain ? from the structure of excited states in [ exs1 ] , [ exs2 ] and [ exs3 ] , we see that from all the combinations of labels for this wall , only one combination does nt lead to an excitation at the position of the wall , hence there are @xmath126 possible choices for this second domain .
+the rest of reasoning is exactly the same as for the abelian case , namely we again have the same recursion relation as in [ rr ] , but with a different initial condition : c_k(g ) = |g| ( |g|-1)^k-1 - c_k-1(g ) , c_0(g ) = k , where we remind the reader that @xmath17 is the number of different irreducible representations or the number of conjugacy classes .
+this leads to [ cg ] c_k(g ) = ( |g|-1)^k + ( -1)^k ( k-1 ) , and @xmath127 $ ] and finally to the partition function [ pg ] z_(g)= ( e^-1+|g|)^n + ( e^-1)^n(k-1 ) , in accordance with [ zg ] .
+( for a general finite group ) is characterized by the position of the walls and the type of domains separated by them . for a configuration with @xmath115 fixed walls ,
+there are @xmath128 different eigenstates as given in [ cg ] . ]    in the limit @xmath112 , where @xmath129 , we find from [ pg ] that @xmath130 , as it should be , since in this limit only the ground states contribute to the partition function and there are @xmath17 ground states , each with energy @xmath113 .
+conversely in the high temperature limit , where @xmath131 , we find @xmath132 , meaning that all the states contribute equally to the partition function and the thermal density matrix is a completely mixed one . +
+we have introduced the non - abelian potts model , and have made a rather detailed study of its properties . in the same way that ising and potts model have led to a large number of applications in physics , it may also be the case that the non - abelian case , in view of its richer structure , may find such applications . on the theoretical side ,
+we believe that there are many avenues of research which are opened by this study . here
+are a few examples : + i ) the definition of the model on 2d lattices remains to be done .
+although in one dimensional lattices the local hamiltonian [ localh ] is the same as the one pertaining to the vertex operators of the quantum double model of kitaev @xcite , one can not simply carry this to 2d lattices since it would lead to a four - body interaction , while a natural generalization of the potts model should include two - body interactions
+. it may still be the case that a 2d model with two - body interaction as we have defined , is solvable , in the sense that its ground state and low - lying states can be determined in closed form , although in 2d lattice not all the local hamiltonians will commute with each other anymore .
+if this is the case , then the structure of the 2d model will be even more interesting and challenging to determine .
+one may even be able to establish a duality relation between the high and low temperature expansions in this case which will then enable one to determine the critical point without an exact solution . to find an exact solution for the 2d case
+, the first step may be to define the model on a one - dimensional ladder , where despite the incommutability of the operators , there is still some simplicity in the geometry of the lattice .
+this has already been exploited to find the explicit form of the full spectrum of the kitaev model on spin ladders @xcite .
++ ii ) one can also generalize this to lie groups on discrete lattices , or to lie groups on the real line , where a suitable definition of the model hamiltonian should be made . in view of the matrix product structure of the ground states
+, it may be the case that the generalization of matrix product formalism for quantum field theories as developed in @xcite will be a natural framework for studying this type of generalization .
++ iii ) one can add terms which pertain to an external magnetic field in the ising model . in the same way that adding an external transverse field to the ising model leads to a rich many - body system which undergoes a quantum phase transition , this may also happen for the non - abelian potts model .
+in such case , one anticipates that the solution will be highly non - trivial and technical , if an exact solution exists at all .
+moreover the meaning of transversality of the external field should also be clarified in this case .
++ iv ) it will also be interesting to study possible phase transitions between this type of order and other possibly topological orders in models where suitable interaction terms are added to the hamiltonian @xcite .
++ v ) finally it will be interesting to investigate the relation between this 1d quantum mechanical system and the 2d classical model . once
+a 2d classical possibly exactly solvable model is at hand , one can obtain the transfer matrix which represents a 1d quantum mechanical model . in the present case ,
+knowledge of the complete spectrum of the 1d model means that the 2d classical model , once properly defined , is exactly solvable .
+these studies are now underway by the authors .
++    ising , ernst .
+`` beitrag zur theorie des ferromagnetismus . ''
+zeitschrift fr physik a hadrons and nuclei 31.1 ( 1925 ) : 253 - 258
+.    binder , k. `` ising model . ''
+hazewinkel , michiel , encyclopedia of mathematics .
+springer ( 2001 ) .
+ashkin , julius , and edward teller .
+`` statistics of two - dimensional lattices with four components . '' physical review 64.5 - 6 ( 1943 ) : 178 .
+wu , fa - yueh .
+`` the potts model . ''
+reviews of modern physics 54.1 ( 1982 ) : 235 .
+lieb , e. , schultz , t. , mattis , d. `` two soluble models of an antiferromagnetic chain '' . in condensed matter physics and exactly soluble models ( pp . 543 - 601 ) .
+springer berlin heidelberg , ( 2004 ) .
+potts , renfrey b. , and john c. ward .
+`` the combinatrial method and the two - dimensional ising model . ''
+progress of theoretical physics 13.1 ( 1955 ) : 38 - 46 .
+montroll , elliott w. , renfrey b. potts , and john c. ward .
+`` correlations and spontaneous magnetization of the twodimensional ising model . ''
+journal of mathematical physics 4.2 ( 1963 ) : 308 - 322 .
+dyson , freeman j. `` existence of a phase - transition in a one - dimensional ising ferromagnet . ''
+communications in mathematical physics 12.2 ( 1969 ) : 91 - 107 .
+onsager , lars .
+`` crystal statistics . i. a two - dimensional model with an order - disorder transition . '' physical review 65.3 - 4 ( 1944 ) : 117 .    montroll , elliott w. , renfrey b. potts , and john c. ward . `` correlations and spontaneous magnetization of the twodimensional ising model . ''
+journal of mathematical physics 4.2 ( 1963 ) : 308 - 322 .
+potts , renfrey burnard .
+`` some generalized order - disorder transformations . ''
+mathematical proceedings of the cambridge philosophical society .
+01 . cambridge university press , 1952 .
+baxter , r. j. `` exactly solved models in statistical physics . '' academic , new york ( 1982 ) .
+baxter , r. j. `` the inversion relation method for some two - dimensional exactly solved models in lattice statistics . ''
+journal of statistical physics 28.1 ( 1982 ) : 1 - 41 .
+affleck , ian , et al .
+`` rigorous results on valence - bond ground states in antiferromagnets . '' physical review letters 59.7 ( 1987 ) : 799 .
+majumdar , chanchal k. , and dipan k. ghosh .
+`` on nextnearestneighbor interaction in linear chain . i. '' journal of mathematical physics 10.8 ( 1969 ) : 1388 - 1398 .
+stanley , h. eugene . `` dependence of critical properties on dimensionality of spins . '' physical review letters 20.12 ( 1968 ) : 589 .
+hopfield , john j. `` neural networks and physical systems with emergent collective computational abilities . ''
+proceedings of the national academy of sciences 79.8 ( 1982 ) : 2554 - 2558 .
+schneidman , elad , et al .
+`` weak pairwise correlations imply strongly correlated network states in a neural population . ''
+nature 440.7087 ( 2006 ) : 1007 - 1012 .
+friedrich , felix , et al .
+`` complexity penalized m - estimation : fast computation . ''
+journal of computational and graphical statistics 17.1 ( 2008 ) : 201 - 224 .
+boykov , yuri , olga veksler , and ramin zabih .
+`` fast approximate energy minimization via graph cuts . '' pattern analysis and machine intelligence , ieee transactions on 23.11 ( 2001 ) : 1222 - 1239 .
+kitaev , a. y. `` fault - tolerant quantum computation by anyons '' .
+annals of physics , 303(1 ) , 2 - 30 , ( 2003 ) .
+varadarajan , veeravalli seshadri .
+lie groups , lie algebras , and their representations .
+102 . springer science business media , ( 2013 ) .
+vahid karimipour , a complete characterization of the spectrum of the kitaev model on spin ladders , phys . rev .
+b 79 , 214435 ( 2009 ) .
+frank verstraete and jose ignacio cirac , continuous matrix product states for quantum fields , physical review letters , 104 , 190405 ( 2010 ) .
+vahid karimipour , laleh memarzadeh , parisa zarkeshian , the kitaev - ising model , transition between topological and ferromagnetic order , phys .
+a 87 , 032322 ( 2013 ) .
+razieh mohseninia , saeed s. jahromi , laleh memarzadeh , and vahid karimipour , quantum phase transition in the @xmath133 kitaev - potts model , phys . rev .
+b 91 , 245110 ( 2015 ) .
+gabor b. halasz and alioscia hamma , probing topological order with renyi entropy , physical rev .
+a. * 86 * , 062330 ( 2012 ) .
+m. d. schmidt , s. dusuel , r. orus , j. vidal and k. p. schmidt , breakdown of a perturbed @xmath134 topological phase , new journal of physics , * 14 * , 025005 ( 2012 ) .
+wonmin son , luigi amico , rosario fazio , alioscia hamma , saverio pascazio and vlatko vedral , quantum phase transition between cluster and antiferromagnetic states , europhysics letters . * 95 * , 50001 ( 2011 ) .
+in this appendix we prove the results in section ( [ entang ] ) on the entanglement properties of the ground states .
+we first calculate the reduced density matrix of one site , which due to periodicity we take it to be the first site .
+this calculation turns out to be straightforward if we use [ basis ] and cast the ground state [ gs ] into the equivalent form :    [ myground ] |^= _ [ i_1 , i_n ] |d^_i_1i_2|d^_i_2i_3  |d^_i_ni_1 , where @xmath135= \lbrace i_1,i_2, ...
+,i_n \rbrace$ ] , and the reduced density matrix of the first site is as follows : ^_1 = _
+| ^^| . here
+@xmath136 means trace over all of the spins , except the first one .
+therefore we have ^_1 = _ [ i_1,i_n ] , [ j_1,j_n ] |d^_i_1i_2d^_j_1j_2| ( d^_j_2j_3| d^_i_2i_3  d^_j_nj_1|d^_i_ni_1 ) . then using the orthonormality relation [ orthonormal ] , we find that the terms in parenthesis give a series of kronecker deltas as follows : ^_1= _ [ i_1,i_n ] , [ j_1,j_n ] _ i_1,j_1 _ i_2,j_2 [ _ i_3,j_3  _i_n , j_n ] |d^_i_1i_2d^_j_1j_2| . the sum over indices in the bracket
+@xmath137 $ ] produces a factor of @xmath138 leaving us with ^_1= _
+i_1,i_2    @xmath139 basis and has @xmath140 eigenvectors with @xmath141 eigenvalue and @xmath142 eigenvectors with 0 eigenvalue .
+thus its von - neumann entropy , as a measure of bipartite entanglement between this site and the rest of the system , is equal to : s(^_1 ) = -_n _ n ( _ n)= - n^2 _ ( ) = ( n^2 _ ) .
+this means that only the one dimensional representations lead to product ground states and the larger the dimension of a representation , the larger will be the entanglement of the corresponding ground state .
++ to obtain bipartite entanglement between a block and the rest of the system one should obtain the reduced density matrix of a block with length @xmath83 , say the block consisting of sites @xmath56 to @xmath83 .
+we denote this density matrix by @xmath143}$ ] and the calculation is done as follows : ^_[1,l ] = _
+| ^^| , where @xmath144}}$ ] means trace over all of the spins that are not in this block .
+using the same arguments as above one finds that : [ densityl ] ^_[1,l ] & = & _ [ i_1,i_n ] , [ j_1,j_n ] + & = & _ [ i_1,i_n ] , [ j_1,j_n ] _
+i_1 , j_1_i_l+1,j_l+1 + & & |d^_i_1i_2d^_i_1j_2| 
+|d^_i_li_l+1d^_j_l , i_l+1| + & = & _ i_1,i_l+1 |^_i_1,i_l+1(l )   ^_i_1,i_l+1(l)| , where |^_i_1,i_l+1(l ) = _ i_2 , i_3 , i_l|d_i_1 , i_2|d_i_2,i_3|d_i_l , i_l+1 .
+these states are not normalized and in fact they satisfy @xmath145 .
+the reduced density matrix is diagonal in terms of these new states and has @xmath140 eigenvectors with nonzero eigenvalues equal to @xmath141 and @xmath146 eigenvectors with 0 eigenvalue .
+therefore the von - neumann entropy of the reduced density matrix is equal to : s(^_[1,l ] ) = - n^2 _ ( ) = ( n^2 _ ) .
+therefore the entanglement of a block of length @xmath83 is independent of the length of the block , depending only on its two end points , which is nothing but a manifestation of area law in this exactly solvable quantum mechanical model .
++ finally we come to the entanglement of two different sites with each other .
+first we consider the entanglement of two non - adjacent sites .
+following exactly the same calculation which led to the above results , it is not hard to see that the density matrix of two distant sites , say sites @xmath56 and @xmath115 , will be given by ^_(1,k)=_i , j|d^_ijd^_ij|_m , n|d^_mnd^_mn|^_1^_k , which means that there is no entanglement between the two sites .
+if there is any entanglement , it is between adjacent sites .
+this is indeed true as we can verify .
+in fact we have already found the density matrix of a block of length @xmath83 in [ densityl ] .
+specializing [ densityl ] to @xmath147 , we find the density matrix of two neighboring sites , say @xmath56 and @xmath148 .
+^_(1,2)= _ i , k |^_i , k(2 )   ^_i , k(2)| , where |^_i , k(2 ) = _ j|d^_i , j|d^_j , k . we can find the negativity of @xmath149 by calculating its negativity in the form @xmath150 , where @xmath151 means partial transpose with respect to second subsystem and @xmath152 means the trace - norm of @xmath62 which is equal to @xmath153 .
+the partial transpose with respect to the second subsystem is equal to : ( ^_(1,2))^t_2 = _ j , j^ |d^_i , j d^_i , j^| |d^^*_j^,k d^^*_j , k | , where    @xmath154 and the negativity of this reduced density matrix is equal to : ( ^_(1,2))= , which means for the higher representations of the group the ground state contains more entanglement between the nearest neighbor spins .
+in this appendix we present details of the calculations of the partition function in the high temperature expansion .
+we have z_(g ) = _ n=0^n ^n z^(n)_(g ) , where @xmath109 is the trace of product of @xmath96 local hamiltonians .
+obviously we have @xmath155 .    to calculate the first order term , consider the trace of a single local hamiltonian like @xmath156 on the local hilbert spaces of the first two sites @xmath56 and @xmath148 , where it acts nontrivially .
+we write _ 12(h_1)&= & = _ g , h , kg h , k| r(g)l(g)|h , k&=&_g , h , k h , k|hg^-1 , gk=_g , h , k ( g , e)=|g| .
+this leads to @xmath157 , hence @xmath158 .
+in second order we face two types of terms , those which are adjacent connected like @xmath159 ( which we call connected segments ) or those which are far apart like @xmath160 with @xmath161 , terms like @xmath162 and so forth ( which we call disconnected ) .
+consider a disconnected terms first .
+for a disconnected term like @xmath162 we note that @xmath163 and therefore @xmath164 . for a connected term like @xmath159
+we have _ 123(h_1h_2)&= & & = & _ g_1,g_2,h , k , lg h , k , l| r(g_1)l(g_1)r(g_2)l(g_2)|h , k , l&=&_g_1,g_2,h , k , l h , k ,
+l|hg_1 ^ -1 , g_1kg_2 ^ -1,g_2  l. therefore _ 123(h_1h_2)=_g_1,g_2,h ,
+k , l ( g_1,e)(g_2,e)=|g| , leading to @xmath165 .
+therefore both types of connected and disconnected terms have the same trace which leads to a great simplification .
+this gives @xmath166 .
+this feature is true for all the terms up to and including the @xmath167-th term .
+therefore we have @xmath168 . for the last terms where we have a full cycle of terms , i.e. a closed loop , the situation is a little bit different .
+in this case we have @xmath169 or      ( h_1h_2h_n)= _ g_1 ,
+g_n_h_1(g_2 g_3g_n g_1 h_1g_1 ^ -1 g_n^-1g_2 ^ -1,h_1 ) . using the change of variable @xmath173 and performing the sum over all the other group elements @xmath174 to @xmath175 , we find where        z_(g)=_k=0^n-1 ^k nk |g|^n - k + ^n k or [ zg ] z_(g)= ( e^-1+|g|)^n + ( e^-1)^n(k-1 ) . equation ( [ zg ] ) gives the final expression for the partition function of the non - abelian potts model on a ring of @xmath41 sites for a finite group @xmath10 .
+apart from the obvious dependence on @xmath41 and @xmath178 , it depends on the size of the group and the number of its conjugacy classes or irreducible representations .

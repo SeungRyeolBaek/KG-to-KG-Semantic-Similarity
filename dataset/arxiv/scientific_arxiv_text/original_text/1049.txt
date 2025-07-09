@@ -1,0 +1,83 @@
+it is well known that quantum key distribution is one of the most interesting subjects in quantum information science , which was pioneered by c.bennett and g.brassard in 1984[1 ] . in the original paper of bennett ,
+single photon communication was employed as implementation of quantum key distribution . however , despite that it is not essential in great idea of bennett , many researchers employed single photon communication scheme to realize bb84 , b92[2 ] . because of the difficulties of single photon communication in practical sense , it was discussed whether one can realize a secure key distribution guaranteed by quantum nature based on light wave communication or not .    in 1998 ,
+h.p.yuen and a.kim[3 ] proposed another scheme for key distribution based on communication theory(signal detection theory ) .
+this scheme corresponds to an implementation of secret key sharing which was information theoretically predicted by maurer[4 ] , et al .
+however , yuen s idea was found independently from maurer s discussion . in the first paper of yuen - kim[3 ] , they showed that if noises of eve(eavesdropper ) and bob(receiver ) are statistically independent , secure key distribution can be realized even if they are classical noises , in which they employed a modification of b92 protocol[2 ] . following yk s first paper ,
+a simple experimental demonstration of yk protocol based on classical noise was reported[5 ] , and recently yk scheme with 1 gbps and 10 km long fiber system based on quantum shot noise was demonstrated[6 ]
+. however , these schemes are not unconditional secure .
+that is , ability of signal detection of eve can be superior to that of bob . as a result
+, an interesting question arises `` is it possible to create a system with current technology that could provide a communication in which always bob s error probability is superior to that of eve ? ''    in proceedings paper of qcm and c 2002 , yuen and his coworker reported that yk protocol can be unconditional secure , even if one uses conventional optical communication system[7 ] .
+this is interesting result for engineer , and will open a new trend of quantum cryptography .    in this report
+, we simulate practical feature of yuen - kim protocol for quantum key distribution with unconditional secure , and propose a scheme to implement them using our former experimental setup[6 ] .
+a fundamental concept of yuen - kim protocol follows the next remark . + * remark * : _ if there are statistically independent noises between eve and bob , there exist a secure key distribution based on communication . _ + they emphasized that the essential point of security of the key distribution is detectability of signals .
+this is quite different with the principle of bb-84 , et al which are followed by no cloning theorem .
+that is , bb-84 and others employ a principle of disturbance of quantum states to give a guarantee of security , but yk protocol employs a principle of communication theory .
+it was clarified that this scheme can be realized as a modification of b-92 . however ,
+this scheme allows us use of classical noise , and it can not provide unconditional secure .
+then , yuen and his coworker showed that yk scheme is to be unconditional secure in which a fundamental theorem in quantum detection theory was used for his proof of security as follows . + * theorem * : ( helstrom - holevo - yuen ) + _ signals with non commuting density operators can not be distinguished without error .
+_ + so if we assign non commuting density operators for bit signals 1 and 0 , then one can not distinguish without error .
+when the error is 1/2 based on quantum noise , there is no way to distinguish them .
+so we would like to make such a situation on process between alice and eve . to do so
+, a new version of yk scheme was given as follows :    _ _    * the sender(alice ) uses an explicit key(a short key:@xmath0 , expanded into a long key:@xmath1 by use of a stream cipher ) to modulate the parameters of a multimode coherent state .
+* state @xmath2 is prepared .
+bit encoding can be represented as follows : @xmath3 where @xmath4 . *
+alice uses the running key @xmath1 to specify a basis from a set of m uniformly distributed two - mode coherent state . * the message @xmath5 is encoded as @xmath6 .
+this mapping of the stream of bits is the key to be shared by alice and bob . because of his knowledge @xmath1
+, bob can demodulate from @xmath6 to @xmath5 .      here
+, let us introduce the original discussion on the security .
+the ciphering angle @xmath7 could have @xmath8 in general as discrete or continuous variable determined by distribution of keys .
+a ciphered two mode state may be @xmath9 the corresponding density operator for all possible choices of @xmath8 is @xmath10 , where @xmath11 or @xmath12 .
+the problem is to find the minimum error probability that eve can achieve in bit determination . to find the optimum detection process for discrimination between @xmath13 and @xmath14 is the problem of quantum detection theory .
+the solution is given by[8 ] @xmath15 as an example of encoding to create @xmath16 which is the error probability of eve , yuen et al suggested certain modulation scheme .
+in that case , closest values of a given @xmath8 can be associated with distinct bits from the bit at position @xmath8 , and two closest neighboring states represent distinct bits which means a set of base state . in this scheme
+, they assumed that one chooses a set of basis state(keying state for 1 and 0 ) for bits without overlap .
+the error probability for density operators @xmath13 and @xmath14 becomes 1/2 , when number of a set of basis state increases .
+asymptotic property of the error probability depends on the amplitude of coherent state[7][9 ] .
+original scheme of yk protocol in the above can be realized by practical devices . to apply them to fiber communication system
+, we would like to realize them by intensity modulation / direct detection scheme . if one does not want to get perfect yk scheme
+, one can more simplify the implementation of yk protocol .    from a fundamental principle in quantum detection theory
+, we can construct non - commuting density operators from sets based on non - orthogonal states when one does not allow overlap of the selection of a set of basis state for 1 and 0 .
+on the other hand , when we allow overlap for selection of a set of basis state , one can use orthogonal state to construct the same density operators for 1 and 0 .
+that is , @xmath17 .
+however , in this case , unknown factor for eve is only an initial short key , and a stream of bits that eve observed is perfectly the same as those of alice and bob , though eve can not estimate the bits at that time .
+this gives still insecure situation .
+so , here , we employ a combination of non - orthogonality and overlap selection in order to reduce the number of basis sets .
+let us assume that the maximum amplitude is fixed as @xmath18 .
+we divide it into 2 m .
+so we have m sets of basis state@xmath19 .
+total set of basis state is given as shown in fig.1 .
+each set of basis state is used for @xmath20 , and @xmath21 , depending on initial keys .
+@xmath22 so the density operators for 1 and 0 for eve are @xmath23 for the sets of @xmath24 , @xmath25,@xmath26 , let us assign 0 and 1 by the same way as eqs(4),(5 ) . in this case , eve can not get key information , but she can try to know the information of quantum states used for bit transmission .
+so this is the problem for discrimination of 2 m pure states .
+the error probability is given by @xmath27 although we have many results for calculation of optimum detection problems[10][11][12 ] , to solve this problem is still difficult at present time , because the set of states does not have complete symmetric structure .
+so we here give the lower bound and tight upper bound .
+the lower bound is given by the minimum error probability:@xmath28 for signal set @xmath29 which are neighboring states .
+it is given as follows : @xmath30 }      \right)\ ] ] the upper bound is given by applying square root measurement for 2 m pure states .
+the numerical properties are shown in fig.2-(a ) .
+thus if m increases , then her error for information on quantum states increases . in this case
+, pure guessing corresponds to @xmath31 .
+the error probability of bob , however , is independent of the number of set of basis state , and it is given as follows : @xmath32 we emphasize that eve can not get key information in this stage , because the information for 1 and 0 are modulated by the way of eqs(4),(5 ) .
+furthermore , this scheme can send 2 m bits by m sets of basis state .
+let us apply the original scheme such that m bits are sent by m sets of basis state . in this case , eve will try to get key information , so the density operators for eve become mixed states @xmath13 , @xmath14 consisting of set of states which send 1 and 0 , respectively .
+the numerical properties are shown in fig.2-(b ) .
+both schemes have almost same security , but the latter can only send m bits by m sets of basis state . in other word , the number of sets is reduced to 1/2 in the former scheme .
+in implementing yk protocol by conventional fiber communication system , we use here our proposed system .
+figure 3 shows the experimental setup .
+the laser diode serves as 1.3@xmath33 m light source .
+a pattern generator provides a signal pulse string to send keys . a modulator which selects basis state follows a driver of laser diode .
+the selector gives selection of amplitude and assignment of 1 and 0 , and is controlled by initial keys .
+the laser driver is driven by output signals of modulator .
+the optical divider corresponds to eve .
+the case 1 is a type of  opaque " , and the case 2 is a type of  translucent " .
+the channel consists of 10 km fiber and att .
+we can change the distance equivalently from 10 km to 200 km by att .
+the speed of pulse generator to drive laser diode is 311mbps , 622mbps , and 1.2gbps .
+the detector of bob is ingaas pin photo loaded by 50@xmath34 register , and it is connected to an error probability counter which can apply to 12 gbps .
+the dark current is 7@xmath35 and the minimum received power of our system is about -30 dbm .    in this system ,
+the problem for degree of security is only power advantage of eve which will be set in near transmitter(alice ) .
+when the eavesdropping is opaque , the error probability of bob increases drastically , and the error probability counter shows almost 1/2 , which means that the error of eve is also 1/2 . in this case , problem of communication distance is not so important . we can detect the existence of eve in any distance of channel . when the eavesdropping is translucent , eve has to take only few power(@xmath36 from the main stream of bits sequence in order to avoid the power level disturbance . in this case , the error of bob does not increase . as a result , alice and bob can not detect the existence of eve .
+the secure communication distance depends on the error probabilities of bob and eve .
+let @xmath37 be transparency of channel from alice to bob .
+the detectability for bob in this experiment setup depends on the signal distance(amplitude difference between two states as basis state ) : @xmath38 for @xmath39 , and that of eve depends on the signal distance : @xmath40 .
+here we assume that @xmath41 , and the total loss is 20db which corresponds to 100 km . since our receiver requires about -30 dbm , the transmitter is -10 dbm . when m increases , sufficiently the error of eve increases .
+we examined a simulation of yk protocol based on intensity modulation / direct detection fiber communication system , and showed a design of implementation of secure system based on our experimental setup which was used to demonstrate the first version of implementation of yk protocol . we will soon report complete demonstration in experiment by the above system .

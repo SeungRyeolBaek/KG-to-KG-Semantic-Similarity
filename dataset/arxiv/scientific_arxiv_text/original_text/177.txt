@@ -1,0 +1,196 @@
+the primary goal of tomography is to determine the internal structure of an object without cutting it , namely using data obtained by methods that leave the object under investigation undamaged .
+these data can be obtained by exploiting the interaction between the object and various kinds of probes including x - rays , electrons , and many others .
+after its interaction with the object under investigation , the probe is detected to produce what we call a projected distribution or tomogram , see fig .
+[ fig : profiles ] .
+tomography is a rapidly evolving field for its broad impact on issues of fundamental nature and for its important applications such as the development of diagnostic tools relevant to disparate fields , such as engineering , biomedical and archaeometry .
+moreover , tomography can be a powerful tool for many reconstruction problems coming from many areas of research , such as imaging , quantum information and computation , cryptography , lithography , metrology and many others , see fig .
+[ fig : tomography ] .        from the mathematical point of view
+the reconstruction problem can be formulated as follows : one wants to recover an unknown function through the knowledge of an appropriate family of integral transforms .
+it was proved by j. radon  @xcite that a smooth function @xmath0 on @xmath1 can be determined explicitly by means of its integrals over the lines in @xmath1 .
+let @xmath2 denote the integral of @xmath3 along the line @xmath4 ( tomogram )
+. then    @xmath5    where @xmath6 is the laplacian on @xmath1 , and its square root is defined by fourier transform ( see theorem  [ thm : inversioneformula ] ) .
+we now observe that the formula above has built in a remarkable duality : first one integrates over the set of points in a line , then one integrates over the set of lines passing through a given point .
+this formula can be extended to the @xmath7-dimensional case by computing the integrals of the function @xmath3 on all possible hyperplanes .
+this suggests to consider the transform @xmath8 defined as follows .
+if @xmath3 is a function on @xmath9 then @xmath10 is the function defined on the space of all possible @xmath11-dimensional planes in @xmath9 such that , given a hyperplane @xmath12 , the value of @xmath13 is given by the integral of @xmath3 along @xmath12 .
+the function @xmath10 is called _ radon transform _ of @xmath3 .
+there exist several important generalizations of the radon transform by john @xcite , gelfand @xcite , helgason @xcite and strichartz @xcite .
+more recent analysis has been boosted by margarita and volodya manko and has focused on symplectic transforms @xcite , on the deep relationship with classical systems and classical dynamics @xcite , on the formalism of star product quantization @xcite , and on the study of marginals along curves that are not straight lines @xcite .    in quantum mechanics
+the radon transform of the wigner function @xcite was considered in the tomographic approach to the study of quantum states @xcite and experimentally realized with different particles and in diverse situations . for
+a review on the modern mathematical aspects of classical and quantum tomography see  @xcite .
+good reviews on recent tomographic applications can be found in  @xcite and in  @xcite , where particular emphasis is given on maximum likelihood methods , that enable one to extract the maximum reliable information from the available data can be found .
+as explained above , from the mathematical point of view , the internal structure of the object is described by an unknown function @xmath3 ( density ) , that is connected via an operator to some measured quantity @xmath14 ( tomograms ) .
+the tomographic reconstruction problem can be stated as follows : for given data @xmath14 , the task is to find @xmath3 from the operator equation @xmath15 .
+there are many problems related to the implementation of effective tomographic techniques due to the instability of the reconstruction process .
+there are two principal reasons of this instability .
+the first one is the ill - posedness of the reconstruction problem : in order to obtain a satisfactory estimate of the unknown function it is necessary an extremely precise knowledge of its tomograms , which is in general physically unattainable  @xcite .
+the second reason is the discrete and possibly imperfect nature of data that allows to obtain only an approximation of the unknown function .
+the first question is whether a partial information still determines the function uniquely .
+a negative answer is given by a theorem of smith , solomon and wagner  @xcite , that states : `` a function @xmath3 with compact support in the plane is uniquely determined by any infinite set , but by no finite set of its tomograms '' .
+therefore , it is clear that one has to abandon the request of uniqueness in the applications of tomography .
+thus , due to the ill - posedness of reconstruction problem and to the loss of uniqueness in the inversion process , a regularization method has to be introduced to stabilize the inversion .
+a powerful approach is the introduction of a mumford - shah ( ms ) functional , first introduced in a different context for image denoising and segmentation  @xcite .
+the main motivation is that , in many practical applications , one is not only interested in the reconstruction of the density distribution @xmath3 , but also in the extraction of some specific features or patterns of the image .
+an example is the problem of the determination of the boundaries of inner organs . by minimizing the ms functional
+, one can find not only ( an approximation of ) the function but also its sharp contours .
+very recently a ms functional for applications to tomography has been introduced in the literature  @xcite .
+some preliminary results in this context are already available but there are also many interesting open problems and promising results in this direction , as we will try to explain in the second part of this article .    the article is organized as follows .
+section  [ sec : radon ] contains a short introduction to the radon transform , its dual map and the inversion formula .
+section  [ sec : ill ] is devoted to a brief discussion on the ill - posedness of the tomographic reconstruction and to the introduction of regularization methods . in section
+[ sec : ms ] a ms functional is applied to tomography as a regularization method . in particular , in subsection  [ subsec : ms ] the piecewise constant model and known results are discussed together with a short list of some interesting open problems .
+finally , in section  [ sec:3dinterpretation ] we present an electrostatic interpretation of the regularization method based on the ms functional , which motivates us to introduce an improved regularization method , based on the blake - zisserman functional  @xcite , as a relaxed version of the previous one .
+consider a body in the plane @xmath1 , and consider a beam of particles ( neutrons , electrons , x - rays , etc . ) emitted by a source .
+assume that the initial intensity of the beam is @xmath16 .
+when the particles pass through the body they are absorbed or scattered and the intensity of the beam traversing a length @xmath17 decreases by an amount proportional to the density of the body @xmath18 , namely @xmath19 so that @xmath20 a detector placed at the exit of the body measures the final intensity @xmath21 and then from @xmath22 one can record the value of the density @xmath18 integrated on a line . if another ray with a different direction is considered , with the same procedure one obtains the value of the integral of the density on that line .
+the mathematical model of the above setup is the following : given a smooth function @xmath23 on the plane , @xmath24 , and a line @xmath12 , consider its tomogram , given by @xmath25 where @xmath26 is the euclidean measure on the line @xmath12 . in this way
+, we have defined an operator @xmath27 that maps a smooth function @xmath3 on the plane @xmath1 into a function @xmath10 on @xmath28 , the manifold of the lines in @xmath1 .
+we ask the following question : if we know the family of tomograms @xmath29 , can we reconstruct the density function @xmath3 ?
+the answer is affirmative and in the following we will see how to obtain this result .
+let us generalize the above definitions to the case of an @xmath7-dimensional space .
+let @xmath3 be a function defined on @xmath9 , integrable on each hyperplane in @xmath9 and let @xmath30 be the manifold of all hyperplanes in @xmath9 .
+the radon transform of @xmath3 is defined by eq .
+( [ sharp lambda ] ) , where @xmath26 is the euclidean measure on the hyperplane @xmath12 .
+thus we have an operator @xmath27 , the _ radon transform _ , that maps a function @xmath3 on @xmath9 into a function @xmath10 on @xmath31 , namely @xmath32 .
+its dual transform , also called _ back projection operator _ , @xmath33 associates to a function @xmath14 on @xmath31 the function @xmath34 on @xmath9 given by @xmath35 where @xmath36 is the unique probability measure on the compact set @xmath37 which is invariant under the group of rotations around @xmath38 .     using its signed distance @xmath39 from the origin and a unit vector @xmath40 perpendicular to @xmath12.,scaledwidth=45.0% ]    let us consider the following covering of @xmath30 @xmath41 where @xmath42 is the unit sphere in @xmath9 .
+thus , the equation of the hyperplane @xmath12 is @xmath43 with @xmath44 denoting the euclidean inner product of @xmath45 .
+[ fig : radon nd ] . observe that the pairs @xmath46 are mapped into the same hyperplane @xmath47 . therefore ( [ double covering ] ) is a double covering of @xmath30 .
+thus @xmath30 has a canonical manifold structure with respect to which this covering mapping is differentiable .
+we identify continuous ( differentiable ) functions @xmath14 on @xmath30 with continuous ( differentiable ) functions @xmath14 on @xmath48 satisfying @xmath49 .
+we will momentarily work in the schwartz space @xmath50 of complex - valued rapidly decreasing functions on @xmath9 .
+in analogy with @xmath50 we define @xmath51 as the space of @xmath52 functions @xmath14 on @xmath48 which for any integers @xmath53 , any multiindex @xmath54 , and any differential operator @xmath55 on @xmath42 satisfy @xmath56 the space @xmath57 is then defined as the set of @xmath58 satisfying @xmath59 .
+now we want to obtain an inversion formula , namely we want to prove that one can recover a function @xmath3 on @xmath9 from the knowledge of its radon transform . in order to get this result
+we need a preliminary lemma , whose proof can be found in  @xcite , which suggests an interesting physical interpretation .
+[ sharp flat ] let @xmath60 and @xmath61 , @xmath62 , @xmath63 .
+then @xmath64 where @xmath65 depends only on the dimension @xmath7 , and @xmath66 denotes the convolution product , @xmath67     is the potential at @xmath38 generated by the charge distribution @xmath3.,scaledwidth=45.0% ]    a physical interpretation of lemma  [ sharp flat ] is the following : if @xmath3 is a charge distribution , then the potential at the point @xmath38 generated by that charge is exactly @xmath68 , see fig .  [
+fig : potential ] .
+notice , however , that the potential of a point charge scales always as the inverse distance _ independently _ of the dimension @xmath7 , and thus it is coulomb only for @xmath69 .
+the only dependence on @xmath7 is in the strength of the elementary charge @xmath65 .
+this fact is crucial : indeed , the associated poisson equation involves an @xmath7-dependent ( fractional ) power of the laplacian , which appears in the inversion formula for the radon transform .
+[ thm : inversioneformula ] let @xmath60 .
+then @xmath70 where @xmath71 , with @xmath72 , is a pseudodifferential operator whose action is @xmath73 where @xmath74 is the fourier transform of @xmath3 , @xmath75    the proof of theorem  [ thm : inversioneformula ] can be found in  @xcite .
+equation  ( [ inversion formula0 ] ) says that , modulo the final action of @xmath76 , the function @xmath3 can be recovered from its radon transform @xmath10 by the application of the dual mapping @xmath77 : first one integrates over the set of points in a hyperplane and then one integrates over the set of hyperplanes passing through a given point .
+explicitly we get @xmath78 which has the following remarkable interpretation .
+note that if one fixes a direction @xmath79 , then the function @xmath80 is constant on each plane perpendicular to @xmath40 , i.e.  it is a ( generalized ) plane wave .
+therefore , eq .  ( [ inversion formula ] ) gives a representation of @xmath3 in terms of a continuous superposition of plane waves .
+a well - known analogous decomposition is given by fourier transform .
+when @xmath81 , one recovers the inversion formula  ( [ eq : radoninversion ] ) originally found by radon @xcite .
+we have defined the radon transform of any function @xmath82 as @xmath10 .
+the following theorem  @xcite contains the characterization of the range of the radon linear operator @xmath27 and the extension of @xmath27 to the space of square integrable functions @xmath83 .
+[ th : radonbijection ] the radon transform @xmath27 is a linear one - to - one mapping of @xmath50 onto @xmath84 , where the space @xmath84 is defined as follows : @xmath85 if and only if @xmath86 and for any integer @xmath87 the integral @xmath88 is a homogeneous polynomial of degree @xmath89 in @xmath90 .
+moreover , the radon operator @xmath27 can be extended to a continuous operator from @xmath83 and @xmath91 .    in medical imaging ,
+computerized tomography is a widely used technique for the determination of the density @xmath3 of a sample from measurements of the attenuation of x - ray beams sent through the material along different angles and offsets .
+the measured data @xmath14 are connected to the density @xmath3 via the radon transform @xmath92 . to compute the density distribution @xmath3 the equation @xmath93 has to be inverted .
+unfortunately it is a well known fact that @xmath27 is not continuously invertible on @xmath91  @xcite , and this imply that the problem of inversion is ill - posed .
+for this reason , regularization methods have to be introduced to stabilize the inversion in the presence of data noise .
+we discuss ill - posed problems only in the framework of linear problems in hilbert spaces  @xcite .
+let @xmath94 be hilbert spaces and let @xmath95 be a linear bounded operator from @xmath96 into @xmath97 .
+the problem @xmath98 is called well - posed by hadamard ( 1932 ) if it is uniquely solvable for each @xmath99 and if the solution depends continuously on @xmath14 .
+otherwise , ( [ prob : inverseproblem ] ) is called ill - posed .
+this means that for an ill - posed problem the operator @xmath100 either does not exist , or is not defined on all of @xmath97 , or is not continuous .
+the practical difficulty with an ill - posed problem is that even if it is solvable , the solution of @xmath101 need not be close to the solution of @xmath102 if @xmath103 is close to @xmath14 .    in general @xmath100 is not a continuous operator . to restore continuity
+we introduce the notion of a regularization of @xmath100 .
+this is a family @xmath104 of linear continuous operators @xmath105 which are defined on all @xmath97 and for which @xmath106 on the domain of @xmath100 .
+obviously @xmath107 as @xmath108 if @xmath100 is not bounded .
+with the help of a regularization we can solve ( [ prob : inverseproblem ] ) approximately in the following sense . let @xmath109 be an approximation to @xmath14 such that @xmath110 .
+let @xmath111 be such that , as @xmath112 , @xmath113 then , as @xmath112 , @xmath114 hence , @xmath115 is close to @xmath116 if @xmath103 is close to @xmath14 . the number @xmath117 is called a _ regularization
+parameter_. determining a good regularization parameter is one of the crucial points in the application of regularization methods .
+there are several methods for constructing a regularization as the truncated singular value decomposition , the method of tikhonov - phillips or some iterative methods  @xcite . in the following section we present a regularization method based on the minimization of a mumford - shah type functional .
+in many practical applications one is not only interested in the reconstruction of the density distribution @xmath3 but also in the extraction of some specific features within the image which represents the density distribution of the sample .
+for example , the planning of surgery might require the determination of the boundaries of inner organs like liver or lung or the separation of cancerous and healthy tissue .
+segmenting a digital image means finding its _ homogeneous regions _ and its _ edges _ , or _
+boundaries_. of course , the homogeneous regions are supposed to correspond to meaningful parts of objects in the real world , and the edges to their apparent contours .
+the mumford - shah variational model is one of the principal models of image segmentation .
+it defines the segmentation problem as a joint smoothing / edge detection problem : given an image @xmath118 , one seeks simultaneously a `` piecewise smoothed image '' @xmath119 with a set @xmath120 of abrupt discontinuities , the `` edges '' of @xmath14 .
+the original mumford - shah functional  @xcite , is the following : @xmath121 where    * @xmath122 is an open set ( _ screen _ ) ; * @xmath123 is a closed set ( _ set of edges _ ) ; * @xmath124 ( _ cartoon _ ) ; * @xmath125 denotes the distributional gradient of @xmath126 ; * @xmath127 is the datum ( _ digital image _ ) ; * @xmath128 are parameters ( _ tuning parameters _ ) ; * @xmath129 denotes the @xmath11-dimensional hausdorff measure .
+the squared @xmath130 distance in ( [ defn : jms ] ) plays the role of a fidelity term : it imposes that the cartoon @xmath126 approximate the image @xmath14 . the second term in the functional imposes that the cartoon @xmath126 be piecewise smooth outside the edge set @xmath120 . in other word
+this term favors sharp contours rather than zones where a thin layer of gray is used to pass smoothly from white to black or viceversa .
+finally the third term in the functional imposes that the contour @xmath120 be `` small '' and as smooth as possible .
+what is expected from the minimization of this functional is a sketchy , cartoon - like version of the given image together with its contours .
+see fig .
+[ fig : cartooneye ] .    the minimization of the @xmath131 functional represents a compromise between accuracy and segmentation .
+the compromise depends on the tuning parameters @xmath132 and @xmath133 which have different roles .
+the parameter @xmath132 determines how much the cartoon @xmath126 can vary , if @xmath132 is small some variations of @xmath126 are allowed , while as @xmath132 increases @xmath126 tends to be a piecewise constant function .
+the parameter @xmath133 represents a scale parameter of the functional and measure the amount of contours : if @xmath133 is small , a lot of edges are allowed and we get a fine segmentation . as @xmath133 increases , the segmentation gets coarser . for more details on the model
+see the original paper  @xcite , and the book  @xcite .    ) .
+center : contours of the image in the mumford - shah model ( edges @xmath120 ) .
+right : piecewise smooth function approximating the image ( cartoon @xmath126 ) @xcite.,scaledwidth=45.0% ]    the minimization of the @xmath134 functional in ( [ defn : jms ] ) is performed among the admissible pairs @xmath135 such that @xmath120 is closed and @xmath136 .
+it is worth noticing that in this model there are two unknowns : a scalar function @xmath126 and the set @xmath120 of its discontinuities .
+for this reason this category of problems is often called `` free discontinuities problem '' .
+existence of minimizers of the @xmath134 functional in  ( [ defn : jms ] ) was proven by de giorgi , carriero , leaci in  @xcite in the framework of bounded variation functions without cantor part ( space sbv ) introduced by ambrosio and de giorgi in  @xcite .
+further regularity properties for optimal segmentation in the mumford - shah model were shown in  @xcite .    here
+we present a variation of the ms functional , adapted to the inversion problem of the radon transform .
+more precisely , we consider a regularization method that quantifies the edge sets together with images , i.e. a procedure that gives simultaneously a reconstruction and a segmentation of @xmath3 ( assumed to be supported in @xmath137 ) directly from the measured tomograms @xmath14 , based on the minimization of the mumford - shah type functional @xmath138 the only difference between the functionals @xmath134 and @xmath139 is the first term , i.e. the fidelity term , that ensures that the reconstruction for @xmath3 is close enough to a solution of the equation @xmath140 , whereas the other terms play exactly the same role explained for the functional @xmath134 .
+as explained above , in addition to the reconstruction of the density @xmath3 , we are interested in the reconstruction of its singularity set @xmath120 , i.e. the set of points where the solution @xmath3 is discontinuous .
+the main difference with respect to the standard mumford - shah functional  ( [ defn : jms ] ) is that we have to translate the information about the set of sharp discontinuities of @xmath14 ( and hence on the space of the radon transform ) into information about the strong discontinuities of @xmath3 .
+here we will review the results obtained by ramlau and ring  @xcite concerning the minimization of ( [ def : msfunctional ] ) restricted to piecewise constant functions @xmath3 , and then consider some interesting open problems .
+for medical applications , it is often a good approximation to restrict the reconstruction to densities @xmath3 that are constant with respect to a partition of the body , as the tissues of inner organs , bones , or muscles have approximately constant density .
+we introduce the space @xmath141 as the space of piecewise constant functions that attain at most @xmath142 different function values , where @xmath55 is an open and bounded subset of @xmath9 . in other words ,
+each @xmath143 is a linear combination of @xmath142 characteristic functions @xmath144 of sets @xmath145 which satisfy @xmath146 we assume that the @xmath147 s are open relatively to @xmath55 and we set @xmath148 for the boundary of @xmath147 with respect to the topology relative to the open domain @xmath55 .
+in this situation the edge set will be given by the union of the boundaries of @xmath147 s .
+for technical reasons it is necessary to assume a _ nondegeneracy _
+condition on the admissible partitions of @xmath55 : @xmath149 for some @xmath150 , for all @xmath151 , where @xmath152 denotes the lebesgue measure on @xmath9 .
+it turns out to be convenient to split the information encoded in a typical function , @xmath153 into a `` geometrical '' part described by the @xmath142-tuple of pairwise disjoint sets @xmath154 which cover @xmath55 up to a set of measure zero and a `` functional '' part given by the @xmath142-tuple of values @xmath155 .
+we also use the notation @xmath156 , for the boundaries @xmath157 of @xmath147 .    as usual
+when dealing with inverse problems , we have to assume that the data @xmath14 are not exactly known , but that we are only given noisy measured tomograms @xmath103 of a ( hypothetical ) exact data set @xmath14 with @xmath158 .
+if we restrict the functional ( [ def : msfunctional ] ) to functions in @xmath141 we obtain that the second term ( involving the derivatives of @xmath3 ) disappears , therefore it remains to minimize the functional @xmath159 over @xmath141 , with respect to the functional variable @xmath160 ( a vector of @xmath142 components ) and the geometric variable @xmath161 ( a partition of the domain @xmath55 with at most @xmath142 distinct regions satisfying the non degeneracy condition ( [ nondegeneracy - cond ] ) ) .
+so the problem is to find @xmath162 such that @xmath163 where @xmath164 it is clear that @xmath165 will depend on the regularization parameter @xmath133 and on the error level @xmath166 .
+now we can state the results concerning the functional @xmath167 in ( [ functional : jbeta ] ) .
+there are several technical details necessary for the precise statement and proof of the theorems , for which we refer to the original paper  @xcite . here
+we will give a simplified version of the theorems with the purpose of explain the main goal , without too many technical details .
+the first result is about the existence of minimizers of the functional @xmath167 in ( [ functional : jbeta ] )
+.    for all @xmath168 there exists a minimizer @xmath169 of the functional @xmath167 in ( [ functional : jbeta ] ) , with @xmath170 .
+the second result regards the stable dependence of the minimizers of the functional @xmath167 in ( [ functional : jbeta ] ) on the error level @xmath166 .
+let @xmath171 be a sequence of functions in @xmath172 and let @xmath168 .
+for all @xmath173 , let @xmath174 denote the minimizers of the functional @xmath167 with initial data @xmath175 .
+if @xmath176 in @xmath172 , as @xmath177 , then there exists a subsequence of @xmath174 such that @xmath178 as @xmath179 , and @xmath180 is a minimizer of @xmath167 with initial data @xmath103 .
+moreover , the limit of each convergent subsequence of @xmath174 is a minimizer of @xmath167 with initial data @xmath103 .
+finally the last theorem is a regularization result .
+let @xmath181 be given , @xmath182 and let @xmath183 .
+assume we have noisy data @xmath168 with @xmath184 .
+let us choose the parameter @xmath185 satisfying the conditions @xmath186 and @xmath187 as @xmath112 . for any sequence @xmath188 ,
+let @xmath189 denote the minimizers of the functional @xmath190 with initial data @xmath175 and regularization parameter @xmath191 .
+then there exists a convergent subsequence of @xmath189 .
+moreover , for every convergent subsequence with limit @xmath192 the function @xmath193 is a solution of the equation @xmath194 with a minimal perimeter .
+moreover if @xmath195 is the unique solution of this equation then the whole sequence converges @xmath196 when @xmath197 .
+finally , let us list some open problems in this context :    * is the nondegeneracy condition ( [ nondegeneracy - cond ] ) necessary ? * can one find an a priori optimal value for the number @xmath142 of different values ? *
+is it possible to give an a priori estimate on the @xmath198-norm of the solution ( maximum principle ) ? * and finally , it would be very important for applications to prove the existence of minimizers of the functional @xmath139 not restricted to piecewise constant functions @xmath3 .
+we observe that all these problems are quite natural , and have been completely solved in the case of the standard mumford - shah functional @xmath134 in ( [ defn : jms ] ) , see e.g.  @xcite .
+in this section we restrict our attention to the @xmath199-dimensional case .
+we propose an electrostatic interpretation of the regularization method based on the functional @xmath139 discussed in the previous section .
+the intent is to give a physical explanation of the fidelity term @xmath200 in the functional ( [ def : msfunctional ] ) , that provide the intuition for an improved regularization method . for @xmath69 , the inversion formula  ( [ inversion formula0 ] ) and the electrostatic identity  ( [ eq : electid ] ) particularize , respectively , as follows : for all @xmath201 one gets @xmath202 and @xmath203 where @xmath61 and @xmath204 is a constant .
+we present two preliminary lemmas .
+[ lemma : normrf ] for all real valued @xmath201 one has @xmath205    we know that @xmath206 , therefore @xmath207 ( x)\ , { \mathcal{i}}({\mathcal{r}}{f } ) ( x ) \ ; \textrm{d}x \nonumber \\ & & = \frac{1}{2(2\pi)^2 }   \int_{{\mathbb{r}}^3}| \nabla { \mathcal{i}}({\mathcal{r}}{f } ) ( x)|^2\ ; \textrm{d}x .
+\nonumber\end{aligned}\ ] ]    [ lemma : electricfield ] for all real valued @xmath201 define @xmath208 and @xmath209 then @xmath210    @xmath211    where we used the inversion formula  ( [ inversionformula_again ] ) .
+now we consider a measured tomogram @xmath212 and let us assume that @xmath213 for some @xmath214 . by lemma [ lemma : normrf]-[lemma : electricfield ]
+it follows immediately that the fidelity term @xmath215 can be rewritten as follows : @xmath216 where @xmath217 are the corresponding electric fields , while @xmath218 are the corresponding potentials .    with respect to the standard mumford - shah functional @xmath134 in ( [ defn : jms ] ) , the new fidelity term in the functional @xmath139 in ( [ def : msfunctional ] ) controls the distance between the radon transform of @xmath3 and the tomographic data @xmath14 .
+the relevant difference with respect to the original functional is that the function @xmath3 and its radon transform @xmath10 are defined in different spaces .
+let us try to interpret the fidelity term @xmath219 from a physical point of view .
+a key ingredient for this goal is the electrostatics formulation of the radon transform .
+this formulation can be summarized as follows : if we consider , in dimension @xmath199 , a function @xmath3 , we can think at it as a charge distribution density ; if we apply to @xmath3 first the radon operator @xmath27 and then its adjoint @xmath77 we obtain , up to a constant , the electrostatic potential generated by the charge distribution @xmath3 .
+this formulation can be stated in any dimension @xmath7 : the difference with general potential theory in dimension @xmath7 is that , in tomography , the potential produced by a point charge always scales like @xmath220 , which is the case of electrostatic potential only in dimension @xmath199 . from the electrostatic formulation of the radon
+transform we can prove that the fidelity term in the functional @xmath139 actually imposes that the electric field produced by the charge distribution @xmath3 must be close to the `` measured electric field '' . therefore we conclude that the term @xmath221 is a fidelity term in this weaker sense .    using this property based on the electrostatic interpretation of the tomographic reconstruction
+, we can try to minimize some appropriate functionals in the new variables @xmath222 ( electric field ) or @xmath223 ( electric potential ) and then compute the corresponding @xmath3 ( charge density ) .
+we manipulate the functional @xmath139 as follows : @xmath224 where @xmath225 is a new functional depending on a vector function @xmath222 and on a set @xmath120 , and we used the fact that @xmath226 , since @xmath222 is conservative .
+we observe that the functional @xmath227 is a second order functional for a vector field @xmath222 in which appears the measure of the set @xmath120 that is the set of discontinuities of @xmath3 and thus is the set of discontinuities of @xmath228 . in the functional @xmath225
+we recognize some similarities with a famous second - order free - discontinuity problem : the blake - zisserman model .
+this model is based on the minimization of the blake - zisserman functional @xmath229 among admissible triplets @xmath230 , where    * @xmath122 is an open set ; * @xmath231 are closed sets ; * @xmath232 is the set of discontinuities of @xmath233 ( jump set ) , and @xmath234 the the set of discontinuities of @xmath235 ( crease set ) ; * @xmath236 , @xmath237 is a scalar function ; * @xmath238 denotes the distributional laplacian of @xmath233 ; * @xmath239 is the datum ( grey intensity levels of the given image ) ; * @xmath240 are parameters ; * @xmath129 denotes the @xmath11-dimensional hausdorff measure .
+the blake - zisserman functional allows a more precise segmentation than the mumford - shah functional in the sense that also the curvature of the edges of the original picture is approximated . on the other hand ,
+minimizers may not always exist , depending on the values of the parameters @xmath241 and on the summability assumption on @xmath242 .
+we refer to @xcite for motivation and analysis of variational approach to image segmentation and digital image processing .
+in particular see @xcite for existence of minimizer results and @xcite for a counterexample to existence and @xcite for results concerning the regularity of minimizers .
+equation  ( [ eqnaeeay_manipulation ] ) implies that the functional @xmath139 can be rewritten in terms of the vector field @xmath222 and of the discontinuities set of @xmath228 , i.e. the set of creases of @xmath222 , using the terminology of the blake - zisserman model . the fact that in the functional @xmath225 the discontinuities set of @xmath222 is not present depends on the fact that we are assuming that the charge density @xmath3 in the functional @xmath139 do not concentrate on surfaces or on lines .
+if we admit concentrated charge layers we can consider the blake - zisserman model for the vector function @xmath222 as a relaxed version of the mumford - shah model for the charge @xmath3 .
+in other words we propose to investigate the connections between minimizers of @xmath139 and minimizers of the higher order functional @xmath243 : @xmath244 with the additional constraint @xmath245 .
+the main advantage of this approach is that the functional @xmath243 is a purely differential functional , while the functional @xmath139 is an integro - differential one .
+we expect that some results about the blake - zisserman model that could be rephrased into tomographic terms would provide immediately new results in tomography .
+conversely all the peculiar tomographic features as the intrinsic vector nature of the variable @xmath222 , the fact that its support can not be bounded and the extra - constraint @xmath246 , motivate new research directions in the study of free - discontinuities problems .
+for example , an interesting result in this context would be the determination of a good hypothesis on the datum @xmath247 that ensure that the charge density @xmath3 do not concentrate .
+we conclude this section with some comments :    * we proved that the measured data @xmath14 are actually the measured electric field produced by the unknown charge density , so the term @xmath200 in the functional is a fidelity term in a weak sense .
+* the problem of the reconstruction of the charge can be rephrased into a reconstruction problem for the electric field .
+the electric field is an irrotational vector field , so the new minimization problem is actually a constrained minimization . in order to avoid this constraint
+one could reformulate the reconstruction problem in terms of the electric potential @xmath223 ( @xmath248 ) obtaining a third - order functional in which the fidelity term is @xmath249 where the potentials are given by  ( [ eq : potentials ] ) . * all this
+considerations hold true in dimension  @xmath199 . in a generic dimension
+@xmath250 the situation is quite different because the inversion formula for the radon transform involves a ( possibly fractional ) power of the laplacian . in this case
+the electrostatic description of tomography given in this section fails . in order to restore it
+, it is necessary to consider another radon - type transform which involves integrals of @xmath3 over linear manifolds with codimension @xmath251 such that @xmath252 , i.e. @xmath253 , see e.g. @xcite .
+we thank g. devillanova , g. florio and f. maddalena for for helpful discussions .    this work was supported by `` fondazione cassa di risparmio di puglia '' and by the italian national group of mathematical physics ( gnfm - indam ) .

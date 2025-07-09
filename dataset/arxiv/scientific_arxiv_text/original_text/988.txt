@@ -1,0 +1,129 @@
+pablo picasso `` i paint objects as i think them , not as i see them ''    recently , generative adversarial networks ( gans ) @xcite have shown significant promise in synthetically generate natural images using the mnist @xcite , cifar-10 @xcite , cub-200 @xcite and lfw datasets @xcite . however
+, we could notice that all these datasets have some common characteristics : i ) most of the background / foreground are clearly distinguishable ; ii ) most of the images contain only one object per image and finally iii ) most of the objects have fairly structured shape such as numeric , vehicles , birds , face etc .        in this paper
+, we would like to investigate if machine can create ( more challenging ) images that do not exhibit any of the above characteristics , such as the artwork depicted in fig .
+[ fig : clscom ] .
+artwork is a mode of creative expression , coming in different kind of forms , including drawing , naturalistic , abstraction , etc .
+for instance , artwork can be non - figurative nor representable , e.g  _ abstract _ paintings .
+therefore , it is very hard to understand the background / foreground in the artwork .
+in addition , some artwork do not follow natural shapes , e.g  _ cubism _ paintings . in the philosophy of art , aesthetic judgement
+is always applied to artwork based on one s sentiment and taste , which shows one s appreciation of beauty .
+an artist teacher wrote an online article @xcite and pointed out that an effective learning in art domain requires one to focus on a particular type of skills ( e.g  practice to draw a particular object or one kind of movement ) at a time .
+meanwhile , the learning in gans only involves unlabeled data that does nt necessarily reflect on a particular subject . in order to imitate such learning pattern ,
+we propose to train gans focuses on a particular subject by inputting some additional information to it .
+a similar approach is the conditional gans ( condgan ) @xcite .
+the work feed a vector @xmath0 into @xmath1 and @xmath2 as an additional input layer . however , there is no feedback from @xmath0 to the intermediate layers .
+a natural extension is to train @xmath1 as a classifier with respect to @xmath0 alike to the categorical gans ( catgan ) @xcite and salimans et al .  @xcite . in the former , the work extended @xmath1 in gans to @xmath3 classes , instead of a binary output .
+then , they trained the catgan by either minimize or maximize the shannon entropy to control the uncertainty of @xmath1 . in the latter ,
+the work proposed a semi - supervised learning framework and used @xmath4 classes with an additional fake class .
+an advantage of such design is that it can be extended to include more ( adversarial ) classes , e.g  introspective adversarial networks ( ian ) @xcite used a ternary adversarial loss that forces @xmath1 to label a sample as reconstructed in addition to real or fake .
+however , such work do not use the information from the labels to train @xmath2 .    to this end
+, we propose a novel adversarial networks namely as agan that is close to condgan @xcite but it differs in such a way that we feed @xmath0 to @xmath2 only and back - propagate errors to @xmath2 .
+this allows @xmath2 to learn better by using the feedback information from the labels .
+at the same time , agan outputs @xmath4 classes in @xmath1 as to the @xcite but again we differ in two ways : first , we set a label to each generated images in @xmath1 based on @xmath0 .
+secondly , we use sigmoid function instead of softmax function in @xmath1 .
+this generalizes the agan architecture so that it can be extended to other works , e.g  multi - labels problem @xcite , open set recognition problem @xcite , etc .
+inspired by larsen et al .
+@xcite , we also added the l2 pixel - wise reconstruction loss along with the adversarial loss to train @xmath2 in order to improve the quality of the generated images .
+empirically , we show qualitatively that our model is capable to synthesize descent quality artwork that exhibit for instance famous artist styles such as vincent van vogh ( fig .
+[ vangogh2 ] ) . at the same time ,
+our model also able to create samples on cifar-10 that look more natural and contain clear object structures in them , compared to dcgan @xcite ( fig .
+[ fig : cifar ] ) .
+in this section , we present a novel framework built on gans @xcite . we begin with a brief concept of the gans framework .
+then , we introduce the agan .
+the gans framework @xcite was established with two competitors , the generator @xmath2 and discriminator @xmath1 .
+the task of @xmath1 is to distinguish the samples from @xmath2 and training data . while , @xmath2 is to confuse @xmath1 by generating samples with distribution close to the training data distribution .
+the gans objective function is given by : @xmath5 ) \label{eq : gan}\ ] ] where @xmath1 is trained by maximizing the probability of the training data ( first term ) , while minimizing the probability of the samples from @xmath2 ( second term ) .
+the basic structure of agan is similar to gans : it consists of a discriminator and a generator that are simultaneously trained using the minmax formulation of gans , as described in eq .
+[ eq : gan ] .
+the key innovation of our work is to allow feedback from the labels given to each generated image through the loss function in @xmath1 to @xmath2 .
+that is , we feed additional ( label ) information @xmath6 to the gans network to imitate how human learn to draw .
+this is almost similar to the condgan @xcite which is an extension of the gans in which both @xmath1 and @xmath2 receive an additional vector of information @xmath6 as input .
+that is , @xmath6 encodes the information of either the attributes or classes of the data to control the modes of the data to be generated .
+however , it has one limitation as the information of @xmath6 is not fully utilized through the back - propagation process to improve the quality of the generated images .
+therefore , a natural refinement is to train @xmath1 as a classifier with respect to @xmath6 . to this end
+, we modify @xmath1 to output probability distribution of the labels , as to catgan @xcite except that we set a label to each generated images in @xmath1 based on @xmath6 and use cross entropy to back - propagate the error to @xmath2 .
+this allows @xmath2 to learn better by using the feedback information from the labels .
+conceptually , this step not only help in speeding up the training process , but also assists the agan to grasp more abstract concepts , such as artistic styles which are crucial when generating fine art paintings .
+also , we use sigmoid function instead of softmax function in @xmath1 , and employ an additional l2 pixel - wise reconstruction loss as to larsen et al .
+@xcite along with adversarial loss to improve the training stability .
+contrast to larsen et al .
+@xcite , in agan architecture , the decoder @xmath1 shares the same network with encoder @xmath7 only .      fig .
+[ fig : ccgan ] depicts the overall architecture of the proposed agan .
+formally , @xmath1 maps an input image @xmath8 to a probability distribution @xmath9 , @xmath10 .
+generally , @xmath1 can be separated into two parts : an encoder @xmath7 that produces a latent feature @xmath11 followed by a classifier @xmath12 .
+similarly , @xmath2 is fed with a random vector @xmath13 concatenated with the label information @xmath14 and outputs a generated image @xmath15 , such that @xmath16\rightarrow \hat{\mathbf{x}}$ ] .
+@xmath2 composes of a @xmath17 that transforms the input to a latent space , followed by a decoder @xmath18 . in this context
+, @xmath19 is a normal - distributed random number generator with mean @xmath20 and standard standard deviation of @xmath21 , and @xmath22 is the number of elements in @xmath23 .    given @xmath3 labels and @xmath4 representing the fake class , @xmath24 and @xmath25 are denoted as one - hot vectors , such that @xmath26 $ ] and @xmath27 $ ] , where @xmath28 and @xmath29 , @xmath30 , @xmath31 when @xmath32 and @xmath33 are the true classes of the real and generated images , respectively .
+then , the data draw from the real distribution is denoted @xmath34 , where @xmath35 is the label of @xmath36 .
+meanwhile , @xmath37 is the noise distribution for @xmath23 . for simplicity
+, we use @xmath38 to express the output of @xmath2 , such that @xmath33 is randomly chosen .
+hence , we can minimize the loss function , @xmath39 w.r.t parameters @xmath40 in @xmath1 to update @xmath1 : @xmath41 \nonumber \\ & - \mathbb{e}_{\hat{\mathbf{z}}\sim p_{noise } , \hat{k}\sim \mathbf{k}}\big[\log ( 1-p(y_i|g(\hat{\mathbf{z}},\hat{\mathbf{y}}_{\hat{k } } ) , i < k+1 ) ) \nonumber \\ & + \log p(y_i|g(\hat{\mathbf{z}},\hat{\mathbf{y}}_{\hat{k}}),i = k+1)\big ] \label{eqld}\end{aligned}\ ] ] meanwhile , we maximize @xmath39 to update parameters @xmath42 in @xmath2 in order to compete with @xmath1 .
+hence , we can reformulate eq .
+[ eqld ] as a minimization problem @xmath43 : @xmath44 \label{eqla}\end{aligned}\ ] ]    in order to to improve the training stability in the agan , we added the l2 pixel - wise reconstruction loss @xmath45 along with @xmath43 .
+given the latent feature @xmath11 output from @xmath7 using @xmath36 as input , @xmath11 is fed into @xmath18 to reconstruct the image @xmath46 .
+hence , @xmath45 is defined as : @xmath47\ ] ]    where @xmath48 is the second - ordered norm .
+it should be noted that in the original vae @xcite , @xmath45 is used to update both the @xmath7 and @xmath18 .
+conversely , we found that @xmath45 degrades the quality of the generated images when it is used to update @xmath7 .
+hence , we only use @xmath45 when updating @xmath42 .
+the final form of the loss function for @xmath2 is @xmath49 .
+algorithm [ pseu ] illustrates the training process in our agan model .
+minibatch size , @xmath50 and learning rate , @xmath51 randomly initialize @xmath52 and @xmath42 denote parameters of @xmath18 , @xmath53 sample @xmath54\sim\mathcal{n}(0,1)^{n\times d}$ ] randomly set @xmath55 , \hat{k}_i\in\mathbf{k}$ ] sample minibatch @xmath56 $ ] and @xmath57 $ ] @xmath58 @xmath59 @xmath60 @xmath61 , @xmath62 @xmath63 @xmath64 @xmath65 , @xmath66 ,    @xmath67
+in this work , we used the publicly available wikiart dataset @xcite for our experiments .
+wikiart is the largest public available dataset that contains around 80,000 annotated artwork in terms of genre , artist and style class .
+however , not all the artwork are annotated in the 3 respective classes . to be specific ,
+all artwork are annotated for the _ style _ class .
+but , there are only 60,000 artwork annotated for the _ genre _ class , and only around 20,000 artwork are annotated for the _ artist _ class .
+we split the dataset into two parts : @xmath68 for testing and the rest for training .      in terms of the agan architectures , we used @xmath69 for all leaky relu . on the other hand , @xmath18 shares the layers deconv3 to deconv6 in @xmath2 ; and
+@xmath7 shares the layers conv1 to conv4 in @xmath1 .
+we trained the proposed agan and other models in the experiments for @xmath70 epochs with minibatch size of 128 . for stability
+, we used the adaptive learning method rmsprop @xcite for optimization .
+we set the decay rate to @xmath71 and initial learning rate to @xmath72 .
+we found out that reducing the learning rate during the training process will help in improving the image quality .
+hence , the learning rate is reduced by a factor of @xmath73 at epoch @xmath74 .
+0.1   [ dore1 ]    0.36   [ dore2 ]    0.1     0.36     0.1     0.36     * genre : * we compare the quality of the generated artwork trained based on the _ genre_. fig .
+[ fig : clscom ] shows sample of the artwork synthetically generated by our proposed agan , dcgan @xcite and gan / vae , respectively .
+we can visually notice that the generated artwork from the dcgan is relatively poor , with a lot of noises ( artefacts ) in it . in gan / vae
+, we could notice that the generated artwork are less noisy and look slightly more natural .
+however , we can observe that they are not as compelling .
+in contrast , the generated artwork from the proposed agan are a lot more natural visually in overall
+. + * artist : * fig . [ gogh ] illustrates artwork created by agan based on _ artist _ and interestingly , the agan is able to recognize the artist s preferences .
+for instance , most of the _ gustave dore s _ masterpieces are completed using engraving , which are usually dull in color as in fig .
+[ vangogh1]-top .
+such pattern was captured and led the agan to draw greyish images as depicted in figure [ vangogh2]-(top ) .
+similarly , most of the vincent van gogh s masterpieces in the wikiart dataset are annotated as _ sketch and study _ genre as illustrated in fig .
+[ vangogh1]-bottom . in this genre , van gogh s palette consisted mainly of sombre earth tones , particularly dark brown , and showed no sign of the vivid colours that distinguish his later work , e.g  the famous _ * the starry night * _ masterpiece . this explains why the artwork synthetically generated by agan is colourless ( fig .
+[ vangogh2]-bottom ) . + * style : * fig .
+[ ukiyo ] presents the artwork synthetically generated by agan based on _
+style_. one interesting observation can be seen on the _ ukiyo - e _ style paintings .
+generally , this painting style is produced using the woodblock printing for mass production and a large portion of these paintings appear to be yellowish as shown in figure [ unreal11 ] due to the paper material .
+such characteristic can be seen in the generated _ ukiyo - e _ style paintings .
+although the subjects in the paintings are hardly recognizable , it is noticeable that agan is trying to mimic the pattern of the subjects .
+.comparison between different gan models using log - likehood measured by parzen - window estimate .
+[ cols="^,^",options="header " , ]         we trained both the dcgan @xcite and agan to generate natural images using the cifar-10 dataset .
+the generated samples on cifar-10 are presented in fig .
+[ fig : cifar ] . as aforementioned ,
+the dcgan is able to generate much recognizable images , contrast to its failure in generating artwork .
+this implies our earlier statements that the objects in cifar-10 have a fairly structured shape , and so it is much easier to learn compared to the artwork that are abstract .
+even so , we could still notice some of the generated shapes are not as compelling due to cifar-10 exhibits huge variability in shapes compared to cub-200 dataset of birds and lfw dataset of face .
+meanwhile , we can observed that the proposed agan is able to generate much better images .
+for instance , we can see the auto - mobile and horse with clear shape .      by using the gan models trained previously
+, we measure the log - likelihood of the generated artwork .
+following goodfellow et al .
+@xcite , we measure the log - likehood using the parzen - window estimate . the results are reported in table [ parzen ] and show that the proposed agan performs the best among the compared models .
+however , we should note that these measurements might be misleading @xcite .
+in addition , we also find the nearest training examples of the generated artwork by using exhaustive search on l2 norm in the pixel space .
+the comparisons are visualized in fig .
+[ fig : nearest ] and it shows that the proposed agan does not simply memorize the training set .
+in this work , we proposed a novel agan to synthesize much challenging and complex images . in the empirical experiments , we showed that the feedback from the label information during the back - propagation step improves the quality of the generated artwork . a natural extension to this work
+is to use a deeper agan to encode more detail concepts .
+furthermore , we are also interested in jointly learn these modes , so that agan can create artwork based on the combination of several modes .
+in figure [ genccgan]-[fig : artist ] , we show more results on the _ genre _ and _ artist _ class . for instance , _ nicholas roerich _ had travelled to many asia countries and finally settled in the indian kullu valley in the himalayan foothills . hence , he has many paintings that are related to mountain using * symbolism * style .
+this can be seen in the generated paintings ( figure [ fig : artist ] , no . 8 from left ) which look like mountain even - though unrealistic . on another example
+, agan also shows that _ ivan shishkin _
+s persistent in drawing forest landscape paintings ( figure [ fig : artist ] , no .
+6 from left ) .
+_ ivan shishkin _ is one of the most prominent russian landscape painters . by his contemporaries
+, shishkin was given the nicknames  titan of the russian forest " ,  forest tsar " ,  old pine tree " and  lonely oak " as there was no one at that time who depicted trees more realistically , honestly and with greater love .
+in this section , we report more results on the cifar-10 dataset .
+figure [ cifar10 ] shows the generated images in each of the class . even though the objects in cifar-10 exhibit huge variability in shapes
+, we can see that agan is still able to generate object - specific appearances and shapes .

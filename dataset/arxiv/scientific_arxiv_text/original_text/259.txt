@@ -1,0 +1,190 @@
+differential geometry has proven to be highly valuable in extracting the geometric meaning of continuum vector theories .
+of particular interest has been the dirac - khler formulation of fermionic field theory @xcite , which uses the antisymmetry inherent in the product between differential forms to describe the clifford algebra . in order to regularize calculations ,
+we are required to introduce a discrete differential geometry scheme and it would be ideal if this had the same properties as the continuum and the correct continuum limit .
+however , defining such a scheme has proven to be very challenging .
+the difficulties are usually exhibited by the hodge star , which maps a form to its complement in the space , and the wedge product between forms . in a discretization , we would like the latter to allow the product rule to be satisfied and we would like both to be local .
+several discrete schemes have been proposed that address these difficulties with varying success .
+becher and joos @xcite used a lattice to define operators with many desirable properties , but that were non - local . to resolve the non - locality , they introduced translation operators .
+kanamori and kawamoto @xcite also used a lattice and introduced a specific non - commutativity between the fields and discrete forms .
+this allowed the product rule to be fulfilled , but they found that it became necessary to introduce a second orientation of form in order for their action to remain hermitian . instead of a lattice , balachandran _ et al _
+@xcite used a quantized phase space to regularize their system , leading to a fuzzy coordinate space @xcite .    in this paper
+, we shall build upon a proposal by adams @xcite in which he introduces two parallel lattices to maintain the locality of the hodge star and uses a finite element scheme to capture the properties of the wedge product .
+this proposal describes a local , discrete differential geometry for an arbitrary topological space and its formal aspects have been thoroughly studied by de beauc , samik sen , siddartha sen and czech @xcite .
+however , here we want to focus on its application to the dirac - khler formulation .    in lattice
+quantum chromodynamics ( lattice qcd ) calculations , it is common to see the staggered fermion formulation used to describe fermions @xcite .
+this formulation addresses the problem of fermion doubling @xcite by reducing the number of degenerate fermions to @xmath0 in @xmath1 dimensional space - time .
+it is frequently used with the quarter - root trick @xcite to provide a description of a single fermion on the lattice , although this approach has attracted some controversy @xcite .
+the continuous dirac - khler formulation is regarded as providing the continuum limit for the staggered fermion formulation and so a discrete dirac - khler formulation with continuum properties can potentially offer great insight into how to develop non - degenerate , doubler - free fermionic field theories for the lattice .    in this paper , we show how the two lattices of adams proposal can be used to describe chiral symmetry in the associated dirac - khler formulation .
+we also see how the idea of using more than one lattice can be extended to describe an exact flavour projection .
+we find that this necessitates the introduction of two new structures of lattice and a new operator .
+finally , we evaluate the path integral for this formulation , considering the effects of chiral and flavour projection .
+this builds on our previous work @xcite .
+our starting point is the _ complex _ , which is the space on which we define the discrete differential geometry .
+it comprises the points of the lattice , together with the links , faces , volumes and hyper - volumes between the points .
+each point , link , face , volume or hyper - volume is an example of a _ simplex _ and each simplex has an accompanying cochain .
+we denote a cochain by the vertices of its corresponding simplex .
+for example , we write the cochain for the simplex between vertices @xmath2 , @xmath3 , @xmath4 and @xmath5 from fig .
+[ twod ] as @xmath6 $ ] .
+each cochain is essentially a functional that acts upon a differential form of the same dimension as its simplex to give unity .
+for example ,
+@xmath6 $ ]
+is defined such that    @xmath7    the cochains act as the discrete differential forms of the theory and a general field is a linear combination of cochains . on the square @xmath8 , we write a general field as @xmath9)[a]+\tilde{\phi}([b])[b]+\tilde{\phi}([c])[c]+\tilde{\phi}([d])[d ] \\ & & + \tilde{\phi}([ab])[ab]+\tilde{\phi}([dc])[dc]+\tilde{\phi}([da])[da ] + \tilde{\phi}([cb])[cb ] \\ & & + \tilde{\phi}([abcd])[abcd ] \ . \end{array}\ ] ]    to define the wedge product between cochains , we must first introduce the whitney map , which maps from the complex to the continuum , and the de rham map , which maps the other way .
+the whitney map , @xmath10 , replaces a cochain with a differential form of the same dimension as its accompanying simplex and introduces functions to interpolate in the regions between simplexes .
+for example , taking @xmath8 to be a unit square with origin @xmath2 , we introduce the interpolation functions @xmath11 where @xmath12 is the coordinate vector and this allows us to write @xmath13)[a]+\tilde{\phi}([b])[b]+\tilde{\phi}([c])[c]+\tilde{\phi}([d])[d]\right ) = \tilde{\phi}([a])\mu_1(x)\mu_2(x ) \\   \hspace{0.4 cm }
++ \tilde{\phi}([b])(1-\mu_1(x))\mu_2(x ) + \tilde{\phi}([c])(1-\mu_1(x))(1-\mu_2(x ) ) \\ \hspace{0.4 cm } + \tilde{\phi}([d])\mu_1(x)(1-\mu_2(x ) ) \\ w\left(\tilde{\phi}([da])[da ] + \tilde{\phi}([cb])[cb]+\tilde{\phi}([dc])[dc]+\tilde{\phi}([ab])[ab]\right ) = \\ \hspace{0.4 cm } \tilde{\phi}([da])\mu_1(x ) dx^2 + \tilde{\phi}([cb])(1-\mu_1(x))dx^2 + \tilde{\phi}([dc])(1-\mu_2(x))dx^1 \\ \hspace{0.4 cm } + \tilde{\phi}([ab])\mu_2(x ) dx^1\\ w\left(\tilde{\phi}([abcd])[abcd]\right ) = \tilde{\phi}([abcd])dx^1\wedge dx^2   .
+\end{array}\ ] ] the de rham map , @xmath14 , discretizes a field by integrating over the simplexes whose dimension match that of the accompanying differential form .
+@xmath14 also introduces a cochain of the appropriate dimension .
+thus , @xmath15 ) & = & \phi(x)|_{x = a } & \tilde{\phi}([b ] ) & = & \phi(x)|_{x = b}\\   \tilde{\phi}([c ] ) & = & \phi(x)|_{x = c } & \tilde{\phi}([d ] ) & = & \phi(x)|_{x = d}\\   \tilde{\phi}([dc ] ) & = & \int_{dc } \phi(x ) dx^1 & \tilde{\phi}([ab ] ) & = & \int_{ab } \phi(x ) dx^1\\ \tilde{\phi}([da ] ) & = & \int_{da } \phi(x ) dx^2 & \tilde{\phi}([cb ] ) & = & \int_{cb } \phi(x ) dx^2\\ \tilde{\phi}([abcd ] ) & = & \int_{abcd } \phi(x ) dx^1\wedge dx^2   \end{array}\ ] ] and @xmath16 & = & \tilde{\phi}([a])[a ] + \tilde{\phi}([b])[b ] + \tilde{\phi}([c])[c ] + \tilde{\phi}([d])[d ] \\
+r\left[\phi(x,1)dx^1\right ] & = & \tilde{\phi}([dc])[dc]+\tilde{\phi}([ab])[ab ] \\ r\left[\phi(x,2)dx^2\right ] & = & \tilde{\phi}([da])[da]+\tilde{\phi}([cb])[cb ] \\
+r\left[\phi(x,12)dx^1\wedge dx^2\right ] & = & \tilde{\phi}([abcd])[abcd ] \ . \end{array}\ ] ]    the wedge product between two discrete fields , @xmath17 , now takes the form @xmath18 where @xmath19 is the wedge product of the continuum .
+we can take advantage of @xmath10 and @xmath14 to define the discrete exterior derivative as @xmath20 where @xmath21 is the exterior derivative from the continuum , @xmath22 .    in the continuum
+, the hodge star is defined to be @xmath23 where we have written @xmath24 as shorthand for the product of forms @xmath25 and @xmath26 is the complement of @xmath27 in the space .
+@xmath28 is the levi - civita tensor .
+the square of the hodge star has the property @xmath29 where @xmath30 is the dimension of the form and @xmath1 the dimension of the space .    to define
+the hodge star discretely requires the introduction of a second complex , known as the _ dual _ , in the same space as the first .
+the dual ( shown in fig .
+[ origcomp ] for two dimensions ) is aligned with the original complex so that the mid - points of complementary simplexes coincide .
+the hodge star is defined so that it maps a cochain from one complex to a cochain from the other complex with an aligned simplex .
+this gives the square of the operator , acting on a general cochain @xmath31 $ ] , the following local form : @xmath32 = ( -1)^{g(n - g)}[g]$ ] , where @xmath33 is dimension of the simplex and @xmath1 the dimension of the space .    with the hodge star in place
+, the adjoint derivative can be defined as @xmath34 = ( -1)^{ng+n+1}*d * [ g]\ ] ] and the laplacian can be written @xmath35 , where @xmath36 is the dirac - khler operator .    to define the inner product , we must introduce the barycentric subdivided complex @xcite .
+the vertices of this complex are formed from the midpoints of the simplexes on either the original or dual complex ( the result is the same , whichever we choose ) .
+these vertices are used in the construction of a new set of simplexes and a new whitney map , denoted @xmath37 , which interprets a cochain from either complex as a cochain on the barycentric subdivided complex and maps it to a product of differential forms and interpolating functions defined from the simplexes of the barycentric subdivided complex . the barycentric subdivided complex belonging to fig .
+[ origcomp ] is shown in fig .
+[ bary ] .
+this allows the inner product of two discrete fields , @xmath38 and @xmath39 , to be defined as @xmath40
+in the dirac - khler basis , the clifford algebra is implemented with the clifford product , @xmath41 , acting on differential forms , @xmath42 formally , @xmath41 is defined to be @xmath43 where @xmath44 . for a one - form , acting upon a general field @xmath45 where @xmath46 is the contraction operator @xmath47 and @xmath48 is the linear combination of forms @xmath49    the correspondence between the dirac spinor , @xmath50 , and the dirac - khler field , @xmath48 , is established with @xmath51 where @xmath52 is defined to be @xmath53 in euclidean space - time .
+@xmath54 is shorthand for the product of the matrices @xmath55 , where @xmath56 take the form @xmath57 and @xmath58 are the pauli matrices .
+the matrix @xmath52 is pivotal to this correspondence because it has the properties @xmath59 which mean that @xmath60 and @xmath61    the components @xmath62 and @xmath63 are explicitly related by @xmath64    on the complex , we find that the fields do not exhibit the properties of eqs .
+( [ corr1 ] ) and ( [ corr2 ] ) exactly .
+if this were the case , we would find that , referring to fig .
+[ twod ] , @xmath65+[ab]\right ) & \tilde{\wedge } & \left(\tilde{\phi}([ad])[ad]+\tilde{\phi}([cb])[cb]\right )   \\ & = & \int_{abcd}dx^1 dx^2 tr\left(\gamma_2\psi(x)\right)[abcd ] \ . \end{array}\ ] ] however , in the right hand side of this expression , the integration is over a domain of different dimension to that of the combination of @xmath66-matrices . using the definition of the de rham map and eq .
+( [ equiv ] ) , we can see that no such field exists in the discretization , so , instead , the left hand side evaluates to @xmath67+[ab]\right ) & \tilde{\wedge } & \left(\tilde{\phi}([ad])[ad]+\tilde{\phi}([cb])[cb]\right ) \\ & = & \frac{1}{2}\left(\tilde{\phi}([da])+\tilde{\phi}([cb])\right)[abcd ] \ , \end{array}\ ] ] which is a first order approximation to the right hand side of eq .
+( [ wedge ] ) .    in the continuum ,
+the columns of the four by four matrix , @xmath50 , each correspond to a separate flavour of field which can be isolated using the flavour projection @xmath68 , where @xmath69 and @xmath70    however , because the properties of eqs .
+( [ corr1 ] ) and ( [ corr2 ] ) are only approximately captured on the complex , we can not use the discrete counterparts to @xmath71 to facilitate flavour projection and @xmath72 to generate exact chiral symmetry .    however , we can take advantage of the relationship between the dual and the original complexes to implement an exact chiral symmetry , as we shall demonstrate in the next section . in subsequent sections ,
+we introduce additional complexes to implement exact flavour projection .
+it was shown by rabin that , in the continuum , the chiral symmetry of dirac - khler fields is related to the hodge star @xcite . using equation ( [ equiv ] )
+, we can show that the substitution @xmath73 is equivalent to the transformation @xmath74 where @xmath75 and @xmath76 are operators defined to be @xmath77    on the complex , the discrete fields are obtained from the continuous fields .
+as such , there is the potential to use @xmath78 to describe chiral symmetry .
+however , we can not use the formulation as it stands , because the fields associated with the simplexes from each complex are initially discretized by integrating over different domains .
+for example , referring to fig .
+[ origcomp ] , @xmath79)$ ] is obtained by sampling @xmath80 at @xmath2 and @xmath81)$ ] is obtained by integrating @xmath82 over @xmath83 . in this case , @xmath84 is not equivalent to @xmath85 because the domains do not agree . to attain this equivalence
+, we must modify the domain of integration used to initially discretize the fields on one of the complexes . whilst the choice is arbitrary
+, we will chose to modify the fields on the dual .
+we introduce a new de rham map , @xmath86 , that is identical to @xmath14 on the original complex , but that uses domains of integration on the dual that match simplices from the original complex .
+it is defined so that fields on the dual are discretized using domains of integration defined by the simplexes from the original complex related to the simplexes of the dual by their accompanying cochains and @xmath78 .
+formally , @xmath86 is defined to be @xmath87 & = & \sum_{h}\int_{h}\phi(x , h ) dx^h & \hspace{0.5cm}\mbox { on the original complex } \\ r_0[\phi(x , h)dx^h ] & = & \sum_{h}\int_{\bar{*}h}\phi(x , h ) dx^h & \hspace{0.5cm}\mbox { on the dual complex } .
+\end{array}\ ] ] here , @xmath27 is a simplex of the same space - time dimension as @xmath24 and @xmath88 maps a simplex from the dual to its counterpart on the original complex obtained as the simplex associated with the cochain @xmath89 $ ] .
+we continue to define the wedge product , clifford product , exterior derivative and adjoint derivative using @xmath14 . only for the initial discretization of the fields
+do we propose to use @xmath86 .    with the fields discretized in this manner
+, we can generate an exact chiral symmetry with the operator @xmath90 acting on @xmath38 which has the property @xmath91    to implement chiral projection , we deconstruct @xmath78 into @xmath92 , which is the hodge star mapping cochains from the original complex to the dual , and @xmath93 which is the hodge star mapping cochains from the dual complex to the original .
+this allows us to write chiral projection as @xmath94 if we write @xmath95 , where @xmath96 and @xmath97 are the discrete fields on the original and dual complexes , respectively , then @xmath98 will project the right handed degrees of freedom of @xmath99 onto the original complex and the left handed degrees of freedom onto the dual .
+the dirac - khler field enjoys global @xmath100 flavour symmetry in the continuum .
+however , as can be seen from eq .
+( [ dxproj ] ) , flavour projection only requires the subgroups generated by @xmath101 and @xmath102 .
+as we have seen , on the complex , the nive implementation of these symmetries is only approximate .
+however , just as we were able to use the dual and original complexes to describe an exact chiral symmetry , we can use the dual and original complexes to describe the @xmath103 symmetry needed for flavour projection .
+we write @xmath104 as the product of two operators @xmath105 and @xmath106 and @xmath107 as the product of the two projections @xmath108 and @xmath109 , such that @xmath110 where @xmath111 in the continuum , we can show that @xmath112 and we can use this to write @xmath106 as @xmath113    unfortunately , describing the symmetry generated by @xmath102 is more involved .
+when we apply @xmath114 to a general form , the form we obtain is complementary in all four dimensions to the original and this allows us to describe this process in terms of @xmath78 .
+if we consider applying @xmath115 to a general form , the form we obtain is complementary in the @xmath116 subspace , but equal to the original form in the @xmath117 subspace . by analogy
+, we need an operator that maps a form to its complement in the @xmath116 subspace , but not in the @xmath117 subspace .    to this end
+we introduce @xmath118 , which , in the continuum , we define to be @xmath119 here , we have introduced @xmath120 as the components of @xmath27 belonging to the @xmath116 subspace and @xmath121 as the complementary operator in the @xmath116 subspace .
+@xmath122 is equal to @xmath27 in the @xmath117 subspace and complementary to @xmath27 in the @xmath116 subspace and @xmath123 is the complement of @xmath120 in the @xmath116 subspace .
+the square of @xmath118 has the property    @xmath124 which is comparable to eq .
+( [ starsq ] ) . with @xmath118
+, we can show that @xmath125 where @xmath126 and @xmath127 is the number of components of @xmath27 in the @xmath116 subspace .    to describe @xmath118 in the discretization
+, we are required to introduce a new complex , just as adams was required to introduce the dual to describe @xmath78 .
+the new complex should align with the original complex so that simplexes that are complementary in the @xmath116 subspace , but not the @xmath117 subspace , share midpoints .    we christen the new complex the @xmath128 ( @xmath129-complement ) complex . in order to help visualize the alignment of the @xmath128 complex , in fig .
+[ 12c ] we show its analogue in two dimensions .
+here , the simplexes with coincident midpoints are complementary to each other in the @xmath130 direction , but not the @xmath131 direction and we would define the analogue of @xmath118 so that it maps between the following pairs of cochains from @xmath8 and @xmath83:- @xmath132 & \leftrightarrow & [ ab ] \\ { [ d ] } & \leftrightarrow & [ dc ] \\ { [ c ] } & \leftrightarrow & [ dc ] \\ { [ b ] } & \leftrightarrow & [ ab ] \\ { [ da ] } & \leftrightarrow & [ abcd ] \\ { [ cb ] } & \leftrightarrow & [ abcd ] \ .
+\end{array}\ ] ]    it is worth mentioning that , in a two dimensional theory , we would not need to introduce this complex to isolate the flavours because the origianl and dual complexes would be sufficient .
+it is simply an analogue to the @xmath128 complex .    in order to complete the description of flavour projection ,
+we must go further and define a fourth complex .
+the term proportional to @xmath133 in eq .
+( [ dxproj ] ) maps a form to its complement in the @xmath116 subspace , before mapping the resulting form to its complement in all four dimensions .
+the end result is a form complementary to the original in the @xmath117 subspace , but not in the @xmath116 subspace . in the continuum , this can be described as a combination of @xmath118 and @xmath78 , but to capture this map discretely requires us to introduce a fourth complex .
+the fourth complex is the dual of the @xmath128 complex ( or the @xmath129-complement of the dual , it can be viewed either way ) and we christen it the @xmath134 ( @xmath129 complement s dual ) complex . the two dimensional analogue of the @xmath134 complex , together with the original , dual and the analogue of the @xmath128 complex , is shown in fig .
+[ 12cd ] .    to enable flavour projection between these four complexes
+, we must ensure that the fields are initially discretized using compatible domains of integration . to this end
+, we extend the definition of @xmath86 so that the fields on all four complexes are initially discretized using domains of integration taken from the original complex .
+@xmath86 becomes @xmath87 & = & \sum_h \int_{h } \phi(x , h ) dx^h & \hspace{0.5cm}\mbox { on the original complex } \\ r_0[\phi(x , h)dx^h ] & = & \sum_h \int_{\bar{*}h } \phi(x , h ) dx^h & \hspace{0.5cm}\mbox { on the dual complex } \\
+r_0[\phi(x , h)dx^h ] & = & \sum_h \int_{\bar{\spadesuit}h } \phi(x , h)dx^h & \hspace{0.5cm}\mbox { on the $ 12c$ complex and } \\
+r_0[\phi(x , h)dx^h ] & = & \sum_h \int_{\bar{*}\bar{\spadesuit}h } \phi(x , h)dx^h & \hspace{0.5cm}\mbox { on the $ 12cd$ complex } , \end{array}\ ] ] where @xmath135 is defined as before and @xmath136 maps a simplex to its complement in the @xmath116 subspace , but not the @xmath117 subspace .
+formally , @xmath137 generates the simplex associated with the cochain generated by @xmath138 $ ] .
+we must also extend the definition of @xmath106 from eq .
+( [ projbeta ] ) to include the maps between the @xmath128 and @xmath134 complexes .
+if we rewrite @xmath99 as @xmath139 where @xmath140 and @xmath141 are the contributions from the @xmath128 and @xmath134 complexes , respectively , @xmath142 now takes the form @xmath143 where @xmath144 maps from the @xmath134 complex to the @xmath128 complex and @xmath145 maps the other way .    to describe @xmath105 ,
+we similarly deconstruct @xmath118 into @xmath146 which maps from the @xmath128 complex to the original , @xmath147 , which maps the other way , @xmath148 , which maps from the @xmath134 complex to the dual and @xmath149 which maps the other way .
+this allows us to write @xmath105 as @xmath150 and flavour projection can now be written as @xmath151 .
+one of the properties of the geometric discretization is that the dirac - khler operator maps the degrees of freedom from each complex in the same way .
+for example , referring to @xmath8 and @xmath83 from fig .
+[ origcomp ] , @xmath36 maps @xmath152)[abcd]$ ] to @xmath153)[da]$ ] and this is matched by the behaviour of @xmath36 on the dual which maps @xmath154)[c]$ ] to @xmath155)[dc]$ ] .
+consequently , the cancellation properties of @xmath152)$ ] and @xmath154)$ ] will be equally valid before and after the application of @xmath36 , so we have @xmath156\hat{\tilde{\phi}}=0 \ .\ ] ]    to illustrate @xmath104 , we shall consider the effect of @xmath157 on @xmath99 . in particular , we will consider @xmath157 in stages , so first we apply @xmath158 to @xmath99 .
+this leaves the degrees of freedom belonging to the first and third columns of @xmath159 on the ordinary and dual complexes and the degrees of freedom belonging to the second and fourth columns of @xmath159 on the @xmath128 and @xmath134 complexes .
+if we now apply @xmath160 to this system , it will project between the original and dual complexes to leave the degrees of freedom belonging to the first column of @xmath159 on the original complex and the degrees of freedom belonging to the third column of @xmath159 on the dual complex . between the @xmath128 and @xmath134 complexes
+, @xmath160 will leave the degrees of freedom belonging to the second column of @xmath159 on the @xmath128 complex and the degrees of freedom belonging to the fourth column of @xmath159 on the @xmath134 complex .
+in the previous two sections , we showed that it was possible to implement exact chiral symmetry using the original and dual complexes and flavour projection using the original , dual , @xmath128 and @xmath134 complexes .
+however , because both projections use the original and the dual complexes in different ways , we can not implement chiral and flavour projection simultaneously using the formulation as it stands .    to illustrate this point , we consider @xmath161 , which we write as @xmath162 .
+for the four complexes , @xmath163 becomes @xmath164    @xmath98 leaves the degrees of freedom belonging to the upper components of @xmath159 on the original and @xmath128 complexes and the degrees of freedom belonging to the lower components of @xmath159 on the dual and @xmath134 complexes . to this , we apply @xmath158 , which projects between the original and @xmath128 complexes to leave the degrees of freedom belonging to the upper components of the first and third columns of @xmath159 on the original complex and the degrees of freedom belonging to the upper components of the second and fourth columns of @xmath159 on the @xmath128 complex .
+@xmath158 also projects between the dual and @xmath134 complexes to leave the degrees of freedom belonging to the lower components of the first and third columns on the dual complex and the degrees of freedom belonging to the lower components of the second and fourth columns of @xmath159 on the @xmath134 complex .
+if we now consider applying @xmath160 to this system , we see that @xmath160 projects between the original and dual complexes to leave the degrees of freedom belonging to both the upper and lower components of the first and third columns on both complexes
+. it also projects between the @xmath128 and @xmath134 complexes to leave the degrees of freedom belonging to both the upper and lower components of the second and fourth columns on both complexes .    because @xmath106 and @xmath163 both map between the original and dual complexes and the @xmath128 and @xmath134 complexes in different ways , we can not use these definitions for @xmath104 and @xmath163 to isolate non - degenerate , chiral dirac - khler fermions
+however , we can overcome this difficulty , by introducing a second set of complexes that are duplicates of the existing four . by introducing a second set
+, we can redefine the chiral projection , so that it maps between complexes from different sets , whilst continuing to define the flavour projection so that it maps between complexes from the same set .
+this arrangement allows us to use @xmath163 to place only the degrees of freedom belonging to the right handed components of @xmath159 on one set of complexes and the degrees of freedom belonging to the left handed components of @xmath159 on the other .
+the flavour projection within each set will now no longer mix different chiralities of field .    to formally define this system , we label the first set of complexes @xmath2 and the duplicate set @xmath3 .
+we write the hodge star operator in the form @xmath165 , where @xmath166 labels the sets from which and to which the hodge star maps and @xmath167 label the complexes from which and to which it maps , respectively . because @xmath118 only maps between complexes of one set , it is unnecessary to modify its notation .
+the chiral projection operator now takes the form @xmath168 and we write @xmath169 .
+@xmath170 places the degrees of freedom belonging to the right handed components of @xmath159 on the complexes of set @xmath2 and the degrees of freedom belonging to the left handed components of @xmath159 on the complexes of set @xmath3 .
+the flavour projection operator is now @xmath171 , where @xmath172    as before , we describe the application of @xmath173 to @xmath98 in stages .
+@xmath174 leaves the degrees of freedom belonging to the upper components of the first and third columns of @xmath159 on the original and dual complexes of set @xmath2 and the lower components of the first and third columns on the original and dual complexes of set @xmath3 .
+it also leaves the degrees of freedom belonging to the upper components of the second and fourth columns of @xmath159 on the @xmath128 and @xmath134 complexes of set @xmath2 and the lower components of the second and fourth columns of @xmath159 on the @xmath128 and @xmath134 complexes of set @xmath3 .    applying @xmath160 to this system
+will leave the degrees of freedom belonging to the upper components of the first column of @xmath159 on the original complex of set @xmath2 and the lower components of the first column of @xmath159 on the original complex of set @xmath3 .
+it will also leave the degrees of freedom belonging to the upper components of the third column of @xmath159 on the dual complex of set @xmath2 and the lower components of the third column of @xmath159 on the dual complex of set @xmath3 .
+similarly , it will leave the degrees of freedom belonging to the upper components of the second column of @xmath159 on the @xmath128 complex of set @xmath2 and the lower components of the second column of @xmath159 on the @xmath128 complex of set @xmath3 .
+lastly , it will also leave the degrees of freedom belonging to the upper components of the fourth column of @xmath159 on the @xmath134 complex of set @xmath2 and the lower components of the fourth column of @xmath159 on the @xmath134 complex of set @xmath3 .    using these definitions , @xmath104 and @xmath163
+can now be used to isolate a non - degenerate , chiral dirac - khler fermion on each complex .
+the flavour and chiral projections have important consequences for the path integral . if we initially consider only flavour projection , the action must include contributions from all four complexes .
+@xmath175 where , on each complex , we have @xmath176 @xmath159 contributes different degrees of freedom to the fields on each complex whose cochains are related by @xmath118 and @xmath78 , so we can write the path integral as the product of four path integrals @xmath177[d\tilde{\phi}_i]e^{-s_i(\tilde{\bar{\phi}}_i,\tilde{\phi}_i)}\right)^{l_0 } , \ ] ] where @xmath178 is an as yet undefined constant .
+because each complex lies in a separate space , we can evaluate each contribution separately and , on each complex , we have the standard result @xmath179[d\tilde{\phi}_i]\left(e^{-<\tilde{\bar{\phi}}_i ,    ( d-\delta)\tilde{\phi}_i>}\right)^{l_0 } = det\left[(d-\delta)\right]^{l_0 } , \ ] ] where @xmath36 is defined as a matrix operator .
+consequently , the full path integral takes the form @xmath180^{4l_0}\ ] ] and for this to have the correct continuum limit , we require that @xmath181 .
+interestingly , this means that the form of the path integral on each complex , prior to flavour projection , is @xmath179[d\tilde{\phi}_i]\left(e^{-<\tilde{\bar{\phi}}_i ,    ( d-\delta)\tilde{\phi}_i>}\right)^{\frac{1}{4 } } , \ ] ] which is exactly equivalent to that used in the quarter - root trick of lattice qcd @xcite .
+applying flavour projection to this system changes the relationship between @xmath38 and @xmath159 so that @xmath182 and @xmath183 each describe the degrees of freedom belonging to one column of @xmath184 and @xmath159 , respectively .
+this applies to the measures of integration as well as the fields in the action .
+one consequence of this projection is that several fields on each complex come to share the same structure in terms of @xmath185 , @xmath56 and @xmath159 .
+for example , after flavour projection , referring to fig .
+[ twod ] , @xmath186)=\psi(x)_1^{(1)}|_{x = a } , \hspace{1 cm } \tilde{\phi}_o([abcd])=-\int_{abcd}dx^1\wedge dx^2 \psi(x)_1^{(1 ) } \ .\ ] ] however , because these fields are integrated over different domains , they are independent and the path integral is evaluated in the same way to give @xmath187 .
+if we now extend the path integral so that the action permits chiral projection , we must include the contribution from both sets of complexes .
+the action becomes @xmath188 and , prior to flavour projection , we can evaluate the path integral separately on each complex to obtain @xmath189^{8l_0 } , \ ] ] which requires us to set @xmath190 , in order to obtain the correct continuum limit . applying both chiral and flavour projection to this system , as in the previous section , changes the relationship between @xmath38 and @xmath159 so that the path integral comes to be a product of four , single flavour , right - handed path integrals and four , single flavour , left - handed path integrals .
+as in the previous case , fields sharing a similar structure of @xmath185 , @xmath56 and @xmath159 are independent because their domains of integration differ .
+however , because the components of @xmath99 on each complex can be unambiguously described as left or right handed , the chiral projection sends half the components to zero .
+consequently , the effective dimension of @xmath36 is halved on each complex .
+here we have shown that it is possible to describe exact chiral symmetry for dirac - khler fermions using the two complexes of the geometric discretization .
+we have extended this idea to describe exact flavour projection and we have shown that this necessitated the introduction of two new structures of complex as well as a new operator . to describe simultaneous chiral and flavour projection
+, we introduced a duplicate set of complexes and we were required to carefully define chiral projection so that it operates between sets and flavour projection so that it operates within sets .
+this allowed us to project a single flavour of chiral field onto each complex .
+we have observed that evaluating the path integral on each of the four complexes , prior to flavour projection and without the provision for simultaneous chiral projection , leads to a form equivalent to that used in the quarter - root trick of lattice qcd .
+999 e. kahler , der innere differentialkalkul , _ rend . mat .
+* 21 * ( 1962 ) , 425 p becher and h joos , the dirac - kahler equation and fermions on the lattice , _ z. phys .
+c _ * 15 * ( 1982 ) , 343 p becher and h joos , on the geometric lattice approximation to a realistic model of qcd , _ lett .
+nuovo cim . _
+* 38 * ( 1983 ) , 293 i kanamori and n kawamoto , dirac - kahler fermion from clifford product with non - commutative differential form on a lattice , _ int .
+* 19 * ( 2004 ) , 695 , arxiv : hep - th/0305094 i kanamori and n kawamoto , dirac - kahler fermion with non - commutative differential forms on a lattice , _ nucl . phys .
+* 129 * ( 2004 ) , 877 , arxiv : hep - lat/0309120 a p balachandran and s vaidya , instantons and chiral anomaly in fuzzy physics , _ int . j. mod
+a _ * 16 * ( 2001 ) , 17 , arxiv : hep - th/9910129 b ydri , fuzzy physics , ph.d . thesis ( 2001 ) , arxiv : hep - th/0110006 d oconnor and b ydri , monte carlo simulation of a nc gauge theory on the fuzzy sphere , _ j. high energy phys .
+_ * 0611 * ( 2006 ) , 016 , arxiv : hep - lat/0606013 x martin , a matrix phase for the phi**4 scalar field on the fuzzy field ,
+_ j. high energy phys . _ * 0404 * ( 2004 ) , 077 , arxiv : hep - th/0402230 d h adams , r torsion and linking numbers from simplicial abelian gauge theories , arxiv : hep - th/9612009 v de beauc and s sen , discretising differential geometry via a new product on the space of chains , arxiv : hep - th/0610065 v de beauc , towards an algebraic approach to the discretization of fermions , _
+pos lat2005 _ * 276 * ( 2006 ) , arxiv : hep - lat/0510028 v de beauc and s sen , discretizing geometry and preserving topology 1 , arxiv : hep - th/0403206 b czech , trace anomaly in geometric discretization , arxiv : hep - th/0701263 j kogut and l susskind , hamiltonian formulation of wilson s lattice gauge theories , _ phys . rev . d _ * 11 * ( 1975 ) , 395 t banks , l susskind and j kogut , strong coupling calculations of lattice gauge theories : ( 1 + 1)-dimensional exercises , _ phys . rev
+* 13 * ( 1976 ) , 1043 h rothe , lattice gauge theories : an introduction ( world sci .
+notes phys .
+* 74 * ( 2005 ) , 1 c t h davies _ et al _ , high precision lattice qcd confronts experiment , _ phys .
+* 92 * ( 2004 ) , 022001 , arxiv : hep - lat/0304004 c aubin _
+et al _ , light pseudoscalar decay constants , quark masses , and low energy constants from three - flavor lattice qcd , _ phys
+* 70 * ( 2004 ) , 114501 , arxiv : hep - lat/0407028 d h adams , on the fourth root prescription for dynamical staggered fermions , _ phys .
+* 72 * ( 2005 ) , 114512 , arxiv : hep - lat/0411030 b bunk , m della morte , k jansen and f knechtli , locality with staggered fermions , _ nucl .
+b _ * 697 * ( 2004 ) , 343 , arxiv : hep - lat/0403022 f maresca and m peardon , a path - integral representation of the free one - flavor staggered - fermion determinent , ( 2004 ) , arxiv : hep - lat/0411029 s watterson , a formulation of discrete differential geometry applied to fermionic lattice field theory and its implications for chiral symmetry , ph.d . thesis ( 2007 )
+s watterson , the flavour projection of staggered fermions and the quarter - root trick , _ j. high energy phys .
+_ * 0706 * ( 2007 ) , 048 , arxiv:0706.2090 [ hep - lat ] s watterson and j sexton , distributing the chiral and flavour components of dirac - kahler fermions across multiple lattices , _
+pos lat2005 _ * 277 * ( 2006 ) , arxiv : hep - lat/0510052 s sen , s sen , j c sexton and d h adams , a geometric discretization scheme applied to the abelian chern - simons theory , _ phys .
+* 61 * ( 2000 ) , 3174 , arxiv : hep - th/0001030 j m rabin , homology theory of lattice fermion doubling , _ nucl .
+b _ * 201 * ( 1982 ) , 315

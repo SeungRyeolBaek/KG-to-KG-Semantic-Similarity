@@ -1,0 +1,175 @@
+entanglement is considered to be the key resource of the rapidly developing fields of quantum information processing and quantum computation , for an introduction see e.g.  @xcite . among the early proposals concerning the applications of entangled states
+are those for quantum key distribution  @xcite , quantum dense coding  @xcite , and quantum teleportation  @xcite . despite the resulting great interest in entangled quantum states ,
+their complete characterization is still an unsolved problem .
+it is known that entanglement can be fully identified by applying all positive but not completely positive ( pncp ) maps to a given state  @xcite .
+the problem of this approach , however , consists in the fact that the general form of the pncp maps is essentially unknown . the presently best studied pncp map is the partial transposition ( pt )  @xcite .
+it is known that pt gives a complete characterization of entanglement in hilbert spaces of dimension @xmath0 and @xmath1  @xcite .
+bipartite entanglement can also be completely characterized via pt in infinite - dimensional hilbert spaces , as long as only gaussian states are considered , whose moments up to second order fully describe their properties  @xcite . by using higher - order moments ,
+a complete characterization has been given for those entangled states which exhibit negativities after application of the pt map  @xcite .
+this approach gives no insight into bound entangled states remaining positive after pt .
+to overcome this limitation , to the matrices of moments other kinds of pcnp maps have been applied  @xcite , including kossakowsky , choi and breuer maps  @xcite .
+the identification of bound entanglement in this way , however , turned out to be a cumbersome problem
+.    an equivalent approach of identifying entanglement is based on special types of hermitian operators , called entanglement witnesses .
+the witnesses were introduced as a class of linear operators , whose mean values are non - negative for separable states but can become negative for entangled states  @xcite .
+presently only some classes of entanglement witnesses are available .
+once a witness is known , an optimization can be performed  @xcite .
+also nonlinear witnesses have been studied  @xcite , which may increase the number of entangled states to be identified by a single witness , in comparison with a given linear witness . however ,
+if one is able to construct the general form of the linear witnesses , the problem of identifying entanglement is completely solved .    in the present contribution
+we show that any entanglement witness can be expressed in terms of completely positive hermitian operators , whose general form is well known . on this basis
+we derive entanglement inequalities , which are formulated solely in terms of general hermitian operators .
+we also provide an approach for optimizing such inequalities , by introducing a separability eigenvalue problem .
+our method is a powerful tool for analyzing experimental data , to verify any kind of entanglement .
+one may also identify general bound entangled states whose density operator has a positive partial transposition ( ppt ) .
+the paper is structured as follows . in sec .
+[ sec : ii ] we derive the most general form of entanglement conditions in terms of hermitian operators .
+this leads us to an optimization problem  the separability eigenvalue problem  which is studied in sec .
+[ sec : iii ] . in sec .
+[ sec : iv ] this problem is solved for a class of projection operators and a general numerical implementation of entanglement tests for arbitrary quantum states is given . a method for the identification of bound entangled states
+is considered in sec .
+[ sec : v ] . finally , in sec .
+[ sec : vi ] we give a brief summary and some conclusions .
+let us consider two systems @xmath2 and @xmath3 , represented by arbitrary hilbert spaces @xmath4 and @xmath5 with orthonormal bases being @xmath6 and @xmath7 respectively , with @xmath8 and @xmath9 being arbitrary sets .
+note that the hilbert spaces are not necessarily finite or separable .
+even spaces with an uncountable bases are under study .
+an entanglement witness is a bounded hermitian operator @xmath10 , which has positive expectation values for separable states and it has negative eigenvalues  @xcite . for our purposes
+a generalization of the class of entanglement witnesses is useful .
+one can think of bounded hermitian operators , which have positive expectation values for separable states : @xmath11 all operators fulfilling the conditions ( [ cond1 ] ) and ( [ cond2 ] ) shall define the set @xmath12 , operators in this set are called partial positive operators .
+all operators @xmath13 fulfilling the conditions @xmath14 @xmath15 together with eq .
+( [ cond2 ] ) , with @xmath13 in place of @xmath10 , shall denote the set @xmath16 of positive semi - definite operators .
+so all entanglement witnesses are elements of the difference of these sets : @xmath17 .
+it was shown by the horodeckis  @xcite , that for any entangled state @xmath18 there exists an entanglement witness @xmath19 , so that the expectation value becomes negative : @xmath20 .
+for this inseparability theorem only linear entanglement witnesses were used , which are sufficient to identify all entangled states . for this reason
+we restrict our considerations to linear witnesses , which are elements of the set @xmath12 .
+let us consider the important example of witnesses based on the pt map .
+recently it has been shown  @xcite , that for any state @xmath18 with a negative pt ( npt ) there exists an operator @xmath21 , such that @xmath22 these operators have been studied in detail as functions of the annihilation and creation operators of two harmonic oscillators : @xmath23 .
+all the resulting @xmath24 are examples of elements of @xmath12 , in particular they include all entanglement witnesses for npt states .
+now we will turn to the construction of entanglement witnesses in their most general form . as outlined above
+, the problem of finding all entanglement witnesses via pncp maps is very difficult . here
+we will introduce a different but equivalent approach to entanglement witnesses , which requires the class of @xmath16 operators only .
+a hermitian operator @xmath13 is positive , if and only if it can be written as @xmath25 in the first step we will now generate any entanglement witness out of a difference of positive operators .    for any entanglement witness @xmath10
+exists a real number @xmath26 and a positive hermitian operator @xmath13 so that @xmath10 can be written as @xmath27 .    proof .
+: :    the bounded operator in spectral decomposition is    @xmath28 , with    @xmath29 being a projection - valued measure and    @xmath30 the bounded set of eigenvalues .
+let the    supremum of all eigenvalues be    @xmath31 .
+for all separable quantum    states , @xmath10 must be a positive map , which implies    @xmath26 .
+@xmath32    which is the demanded form .
+to formulate a new entanglement theorem for positive hermitian operators , we need the definition of optimal entanglement witnesses as given by lewenstein _
+et al . _
+an entanglement witness @xmath33 is finer than @xmath34 , if and only if the entanglement of any state detected by @xmath35 is also detected by @xmath33 ( beside other entangled states , which are not detected by @xmath34 ) .
+an entanglement witness @xmath36 is optimal , if and only if no witness is finer than @xmath36 .
+therefore a state is separable , if and only if for all optimal entanglement witnesses the expectation value is positive . to find these witnesses , we need the function @xmath37 , which maps a general hermitian operator @xmath38 to its maximal expectation value for a separable state : @xmath39 it is obvious , that a hermitian operator @xmath27 is a general element of @xmath12 , if and only if @xmath40 . and
+it is optimal , if and only if @xmath41 .    [ theo1 ] a state @xmath18 is entangled , if and only if there exists @xmath42 : @xmath43 .    proof .
+: :    let @xmath36 be an optimal witness , which    detects the entanglement of @xmath18 :    @xmath44    the other way around , a state @xmath45 is separable , if and only if for all @xmath13 : @xmath46 .
+this is a kind of distance criterion .
+our entanglement theorem [ theo1 ] does no longer require the explicit form of any entanglement witness .
+entanglement is completely verified by hermitian operators @xmath47 , which are given by eq .
+( [ nonneg ] ) .
+the needed functions @xmath48 are readily obtained from eq .
+( [ distfct ] ) .
+let us now consider a bounded hermitian operator @xmath38 , which can always be expressed in terms of a positive operator @xmath13 and a real number @xmath49 , @xmath50 it is obvious , that all bounded hermitian operators can be written in the form of @xmath38 .
+this can be used to further simplify the theorem [ theo1 ] .
+[ theo2 ] a state @xmath18 is entangled , if and only if there exists a hermitian operators @xmath38 : @xmath51 .    proof .
+: :    note that @xmath52 .
+the function    @xmath53 is @xmath54 from theorem [ theo1 ]    follows : @xmath55    from theorem [ theo2 ] entanglement can be numerically tested .
+the set @xmath16 and the set of bounded hermitian operators have the same cardinality .
+now the construction of positive hermitian operators , eq .
+( [ nonneg ] ) , becomes superfluous and the number of tests does not increase .
+let us consider a simple implication of theorem  [ theo2 ] .
+the entanglement test for a bounded hermitian operator @xmath56 reads as @xmath57 the entanglement condition for the state @xmath58 with the operator @xmath59 is @xmath60 | a , b \rangle \ } & < { \rm tr}(\hat{\varrho}[-\hat{a}])\\      \leftrightarrow \quad \inf\ { \langle a , b | \hat{a } | a , b \rangle \ } & > { \rm tr}(\hat{\varrho}\hat{a}).\label{eq:2ndcond}\end{aligned}\ ] ] equation  ( [ eq:2ndcond ] ) is a second entanglement condition for the operator @xmath56 and it is equivalent to the original condition  ( [ eq : cond2 ] ) for the operator @xmath59 .
+entanglement witnesses of the form @xmath61 had been considered before , see  @xcite .
+here we gave the proof that any entanglement witness can be given in this form , which is a much stronger statement .
+this has been done for arbitrary dimensional hilbert spaces .
+let us consider the calculation of the function @xmath53 . the hermitian operator @xmath38 has the following projections : @xmath62= \langle a | \hat{a } | a\rangle , \\
+\hat{a}_b&={\rm tr}_b [ \hat{a } \left ( \hat{1}_a\otimes |b\rangle\langle b| \right ) ] = \langle b | \hat{a } | b\rangle.\end{aligned}\ ] ] now the extrema of @xmath63 can be obtained . from eq .
+( [ distfct ] ) , the extremum of the function @xmath64 is calculated under the constraints @xmath65 and @xmath66 .
+the functional derivatives are denoted by @xmath67 and @xmath68 .
+this leads to two lagrange multipliers @xmath69 and the conditions @xmath70 this can be written as : @xmath71 multiplying the first equation with @xmath72 and the second with @xmath73 , the lagrange multipliers are obtained as @xmath74 .
+this leads to    the equations @xmath75 with the constraints @xmath76 , are called separability eigenvalue equations .    the separability eigenvalue problem can be solved by computers or , in simple cases , by hand .
+the closed set @xmath77 is bounded in @xmath78 .
+the smooth function @xmath79 defined on this set is bounded by @xmath80 .
+therefore a solution of the separability eigenvalue equation exists . according to the calculation ( [ beginlem2 ] )  ( [ endlem2 ] ) we can formulate the following    the function @xmath53
+can be written as @xmath81 with @xmath82 being eigenvalues of the separability eigenvalue equations .
+: :    see the calculations ( [ beginlem2 ] )  ( [ endlem2 ] ) and eq .
+( [ distfct ] ) .
+we also obtain @xmath83 , with @xmath82 separability eigenvalue . in the following we want to consider some properties of the solution of the separability eigenvalue equations .
+let @xmath84 , @xmath85 be a solution of the separability eigenvalue problem of the bounded hermitian operator @xmath56
+the vector @xmath86 has a schmidt decomposition , see @xcite , with the term @xmath87 , @xmath88 2 .   if @xmath89 , @xmath90 ( or @xmath91 ) is another solution then @xmath92 ( or @xmath93 ) .
+if @xmath89 , @xmath94 is another solution then @xmath85 and @xmath94 are linearly independent .    proof . : :    1 .
+the general form of the vector is    @xmath95 .
+@xmath96 thus ,    @xmath97 .    2 .
+the first part of separability eigenvalue equations read as    @xmath98 these are eigenvalue equations for the    hermitian operator @xmath99  acting on    @xmath4  for different eigenvalues .
+thus ,    @xmath92 .    3 .
+assume linear dependence ,    @xmath100 . since    @xmath101 , we    obtain @xmath102 .
+this would imply    @xmath103 ,    which is a contradiction to @xmath89 .
+these properties of the separability eigenvalue equations can be easily seen for the solution of the example given in sec .
+[ ssec : a ] .
+in the following we want to study two aspects of the results obtained so far . in sec .  [
+ssec : a ] , an analytical solution of the separability eigenvalue problem will be derived for a special class of projection operators . in sec .  [
+ssec : b ] , a general entanglement test for arbitrary quantum states is under study .      for example , let us solve the separability eigenvalue equations for the special class of operators of the form @xmath104 .
+the normalized vector @xmath105 can be expanded as @xmath106 in the same way the vectors @xmath107 and @xmath108 can be written as @xmath109 and @xmath110 .
+the separability eigenvalue equations can be written for each component as @xmath111 inserting eqs .
+( [ exse1 ] ) and ( [ exse2 ] ) into each other and using eq .
+( [ beginlem2 ] ) in the form @xmath112 for @xmath113 ( @xmath114 being a trivial case ) we can separate eq .
+( [ exse1 ] ) from eq .
+( [ exse2 ] ) , @xmath115 with the interpretation @xmath116 we get @xmath117 the positive and compact operators @xmath118 and @xmath119 can be given in spectral decomposition as @xmath120 thus the non - trivial separability eigenvalues are @xmath121 . using @xmath122 and @xmath123 , the state reads as @xmath124 and @xmath125 are orthonormal in each hilbert space .
+this is the schmidt decomposition of @xmath105 , cf .
+e.g.  @xcite . by the above calculations we get the solutions
+@xmath126 for @xmath127 the state @xmath128 is factorized , and @xmath129 does not detect any entanglement . in all other cases , @xmath129 is useful to identify entanglement .
+now we can write the special condition for entanglement , by use of @xmath129 in theorem  [ theo2 ] , as @xmath130 let us consider the example of two harmonic oscillators in a mixture of a superposition of coherent states , @xmath131 , with vacuum , @xmath132 , @xmath133 where @xmath134 and @xmath135^{-1/2}$ ] .
+for this state , higher - order moments are needed to verify npt - entanglement even for @xmath136 , see @xcite .
+based on the bell state @xmath137 , with @xmath138 , the condition  ( [ purecond ] ) reads as @xmath139 it identifies entanglement of @xmath140 for certain values of @xmath141 , @xmath142 and @xmath143 . for other choices of @xmath105 , even the simple condition  ( [ purecond ] ) may identify entanglement for more general parameters of the mixed state under study .
+let us now deal with the general form of theorem  [ theo2 ] .
+we may explicitly construct all optimal entanglement witnesses as @xmath144 more generally , any element of @xmath12 can be written as @xmath145 ( @xmath146 ) .
+note that , if @xmath147 is a positive real number and @xmath10 an entanglement witness , then @xmath148 is also an entanglement witness , which is as fine as @xmath10 .    in the following we consider an implementation of our method for a finite dimensional hilbert space @xmath149 .
+a numerical implementation could be a set of hermitian operators @xmath150 with the properties : @xmath151 this is a kind of a spherical grid , with a maximal distance @xmath152 for any hermitian operator @xmath56 to at least one element @xmath153 , for arbitrarily small @xmath154 .    for example
+let us consider the following construction .
+we use the most general form of a hermitian operator @xmath38 together with the norm @xmath155 , @xmath156 with @xmath157 .
+we obtain each element of this set @xmath150 for instance by varying each @xmath158 in the following way .
+the absolute value @xmath159 can be increased from @xmath160 to @xmath161 with steps @xmath162 .
+the argument @xmath163 can be increased from @xmath160 to @xmath164 with steps @xmath165 .
+each operator has the norm @xmath166 .
+we neglect operators with @xmath167 and renormalize the other operators as @xmath168 . using the definition of the norm
+, we obtain that for each @xmath56 with @xmath169 exist one element @xmath153 with @xmath170 . in this way we may construct the test operators @xmath153 for a desired precision @xmath154 .
+now one can solve with an appropriate algorithm the separability eigenvalue equations for each @xmath171 .
+this gives the values of @xmath172 and according to equation ( [ optwitcr ] ) the optimal witnesses @xmath173 let us consider a grid of only 6 hermitian operators .
+figure  1 indicates , to which extend these optimal witnesses identify entanglement .
+the gray area represents those entangled states , which are not identified .
+identify a manyfold of entangled states , except those in the gray areas .
+the set of separable states is approximated by the @xmath174.,width=245 ]    the test for entanglement is connected with an error depending on the chosen value of @xmath154 . if @xmath154 becomes smaller , the gray area in fig
+.  1 is decreasing .
+for any given entangled state @xmath18 there exists an @xmath152 , so that its entanglement can be identified by at least one of the chosen hermitian operators @xmath171 . in practice
+, the possible values of @xmath154 can be related to the available experimental precision .
+the construction outlined above shows clearly that we need only a finite number of entanglement tests for the desired precission .
+as we have mentioned above , for npt states all witnesses can be given as @xmath175 .
+let us define the function @xmath176 .
+the following proposition shows that the solution of the separability eigenvalue problem for @xmath175 becomes superfluous .
+if a general bounded hermitian operator @xmath56 has the solution @xmath177 of the separability eigenvalue equations , then @xmath178 has the solution @xmath179 .
+it follows @xmath180 .
+: :    since for the hermitian operators    @xmath181 ,    we find for all @xmath182    @xmath183\\ & = { \rm tr } [ \hat{a}^{\rm pt } \left(|a\rangle\langle a| \otimes |b\rangle\langle b| \right)^{\rm pt}]\\ & = { \rm tr } [ \hat{a}^{\rm pt } \left(|a\rangle\langle a| \otimes |b^\ast\rangle\langle b^\ast| \right)]\\ & = g_{\rm pt}(a , b^\ast ) .
+\end{aligned}\ ] ] thus , the optimization will lead to the solutions    @xmath179 .
+we find for the operators @xmath184 presented in sec .
+[ ssec : a ] the function @xmath185 , with @xmath186 being the schmidt coefficients .
+since for this example @xmath114 is a separability eigenvalue as well , see eq .
+( [ eq : zeroeval ] ) , we get @xmath187 to obtain the known characterization for npt entangled states , @xmath188 , we use the entanglement condition as presented in eq .
+( [ eq:2ndcond ] ) , which simplifies to @xmath189^{\rm pt})<0 $ ] .    .
+from the npt side , a typical witness is @xmath190 .
+, width=283 ]    note that an arbitrary operator @xmath178 is a hermitian operator as well .
+since we can shift any operator @xmath191 without changing the entanglement witness , @xmath192 any entanglement test can be performed with an operator of the form @xmath175 .
+all entangled states which remain non - negative under pt are bound entangled ones , see @xcite .
+the following characterization of ppt bound entangled states can be given : @xmath193 the first condition refers to ppt .
+the second condition identifies entanglement .
+the difference between @xmath175 as a witness for npt entanglement and for entanglement in general is equal to @xmath194  the minimal separability eigenvalue , see fig .  2 .
+in the present paper we have proven the general form of entanglement witnesses . on this basis
+we have derived necessary and sufficient conditions for bipartite entanglement .
+optimal entanglement inequalities have been given in the most general form .
+they have been formulated with arbitrary hermitian operators , which are easy to handle because of their well known structure and they are useful for applications in experiments .
+separability eigenvalue equations have been formulated .
+they serve for the optimization of the entanglement conditions for all chosen hermitian operators .
+some properties of the solution of these equations have been analyzed .
+the separability eigenvalue problem resembles the ordinary eigenvalue problem of hermitian operators , with the additional restriction that the solution is a factorizable vector .
+we have analytically solved the separability eigenvalue equations for a special class of projection operators . using these solutions
+, we could demonstrate entanglement of a mixed state given in terms of continuous variables .
+a general entanglement test of the proposed form can be implemented numerically , with its error being related to the available experimental precision .
+the method under study can also be used to identify any bound entangled state with a positive partial transposition .
+this requires to test the given states for the negativity of its partial transposition .
+it turned out that the separability eigenvalues remain unchanged under partial transposition .
+eventually , bound entanglement can be demonstrated by a combination of a general entanglement test and a test for the negativity of the partial transposition of the state under study .

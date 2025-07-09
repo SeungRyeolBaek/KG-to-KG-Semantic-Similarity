@@ -1,0 +1,136 @@
+there have been a number of calculations  @xcite using light - front coordinates  @xcite as a convenient means of attacking field - theoretic problems nonperturbatively , particularly in 1 + 1 dimensions .
+efforts in more dimensions have generally been less successful , however , due to the need for regularization and renormalization . here two approaches that include consistent regularization
+are briefly reviewed in the context of specific model calculations  @xcite .
+one approach is pauli  villars ( pv ) regularization  @xcite , where massive negative - metric particles are added to a theory to provide the necessary cancellations  @xcite .
+the other is supersymmetry  @xcite . these are not the only approaches available on the light front ; in particular , one can find the transverse lattice technique  @xcite and similarity transformations  @xcite discussed elsewhere in this volume .
+the primary numerical method is discrete light - cone quantization ( dlcq )  @xcite , in which one imposes a discrete momentum grid , with length scales @xmath0 and @xmath1 , as @xmath2 and @xmath3 , and approximates integrals in the mass - squared eigenvalue problem with trapezoidal sums .
+the continuum limit @xmath4 can be exchanged for a limit in terms of the integer resolution @xmath5 , because light - cone momentum fractions @xmath6 are measured in units of @xmath7 .    for supersymmetric theories
+there is a supersymmetric version of dlcq ( sdlcq ) that preserves supersymmetry within the discrete approximation  @xcite .
+this is accomplished by discretizing the supercharge @xmath8 and constructing the hamiltonian @xmath9 from the superalgebra via the anticommutator : @xmath10 .
+this @xmath9 and the dlcq @xmath9 are equivalent in the @xmath11 limit .
+the matrix eigenvalue problems that result from these discretizations are large but sparse .
+an efficient means for extracting a few lowest eigenvalues and their eigenvectors is the lanczos algorithm  @xcite . in the case of pv - regulated theories , with their indefinite metrics , a special form  @xcite based on the biorthogonal algorithm  @xcite is required . in either case , the process is an iterative one that generates a tridiagonal matrix of much smaller size , which is easily diagonalized to yield approximate eigenvalues and eigenvectors .
+the number of iterations and the size of the tridiagonal matrix are determined by the rate of convergence .
+the primary difficulty that arises is that round - off error causes spurious copies to appear in the derived spectrum ; however , there are techniques for removing them  @xcite .    in the remaining sections we discuss an application of pv regularization to yukawa theory and a study of supersymmetric qcd ( sqcd ) with a chern  simons ( cs ) term in the large-@xmath12 approximation .
+as the action of the pv - regulated yukawa theory , we take + & & . -m_0_0_0 -(_1^_-(__1)^ ) _ 1+m_1_1_1 -g(_0 + _ 1)(_0 + _
+1)(_0 + _ 1 ) ] , with the subscript 0 indicating physical fields and 1 indicating pv fields .
+when fermion pairs are excluded , this action provides a light - cone hamiltonian of the form [ eq : yukawap- ] + & & + _ i , j , k , sd d\ { b_j , s^ ( ) a_k^ ( ) b_i ,- s(+ ) .
++ & & .    ' '' ''    + b_j , s^ ( ) a_k^()b_i , s(+ ) + h.c .
+} , where @xmath13 creates a boson and @xmath14 a fermion , u_j ( , ) , v_2s ( , ) , _
+2s-(2s , i ) , and = ( -1)^i_ij ( - ) , \{b_i , s(),b_j , s^( ) } = ( -1)^i_ij _ s , s ( - ) . the eigenfunction for the dressed - fermion state is expanded in a fock basis as & & + & & + _
+f_ijks(_1,_2 ) b_is^(-_1-_2 ) a_j^(_1)a_k^(_2)|0 +  it is normalized according to @xmath15 .
+the wave functions satisfy a coupled system of equations , derived from the fundamental mass - squared eigenvalue problem @xmath16 to be m_i^2z_i&+ & _
+i,j(-1)^i+j p^+ ^p^+ d \
+{ f_ij-()[v_+(-,)+v_-^ * ( , ) ] .
++ f_ij+()[u_i(-,)+u_i ( , ) ] } = m^2z_i,[eq : oneboson ] + & &    ' '' ''    .
++ z_i_s,+[u_i(-,)+u_i ( , ) ] } + & & + 2_i,kp^+ ^p^+-q^+ d \{f_ijk ,- s(, ) [ v_2s(--,)+v_-2s^*(-, ) ] .
++ & & .+f_ijks(, ) [ u_i(--,)+u_i(-, ) ] } = m^2f_ijs ( ) , + & & + _ i(-1)^ip^+ \{f_ij ,- s ( ) [ v_-2s^*(--,)+v_2s(- , ) ] .
++ & & + f_ijs ( ) [ u_i(--,)+u_i(- , ) ] + & & + f_ik ,- s ( ) [ v_-2s^*(--,)+v_2s(- , ) ] + & & .
++ f_iks ( ) [ u_i(--,)+u_i(- , ) ] } +  = m^2f_ijks ( , ) .
+these equations can be approximated directly by dlcq .
+we now have a well - defined numerical problem .
+the pv particles are kept in the dlcq basis and provide the necessary counterterms .
+the range of the now - finite transverse integrations is cut off by imposing @xmath17 for each particle in a fock state , to reduce the matrix problem to a finite size .
+the transverse momentum indices @xmath18 and @xmath19 are limited by the transverse resolution @xmath20 .
+the bare parameters @xmath21 and @xmath22 are fixed by fitting `` physical '' constraints , such as specifying the dressed - fermion mass @xmath23 and its radius .
+the limits of infinite resolution , infinite ( momentum ) volume , and infinite pv masses can then be explored .
+this process can be studied analytically in the case of a one - boson truncation  @xcite .
+the one - boson wave functions are f_ij+()&= & , + f_ij-()&= & ( _ k ( -1)^k+1z_k)v_+^*(- , ) .
+the bare - fermion amplitudes and the coupling satisfy a pair of algebraic equations [ eq : onefermion ] ( m^2-m_i^2)z_i & = & g^2_0 ^ 2 ( z_0-z_1)j+g^2 m_i(z_0m_0-z_1m_1 ) i_0 + & & + g^2_0[(z_0-z_1)m_i+z_0m_0-z_1m_1 ] i_1 , with i_n&= & _ jk , + j&= & _ jk = i_0 .
+the solution is [ eq : gofm ] g^2=- , = .
+@xcite contains many subsequent results .    for a two - boson truncation , the solution is no longer analytic , but the coupled equations can be reduced to eight equations for the two - particle amplitudes only , which are of the form + & & + _ abs_0 ^ 1dydq_^2 j_ijs , abs^(0)(y , q_;y,q_)f_abs(y,q _ ) + & & + _
+abs_0 ^ 1-ydydq_^2 j_ijs , abs^(2)(y , q_;y,q_)f_abs(y,q _ ) , with the angular dependence removed via @xmath24 and @xmath25 .
+here @xmath26 is a computable self - energy , @xmath27 is the kernel due to bare - fermion intermediate states , and @xmath28 is the kernel due to two - boson intermediate states .
+although one could impose a transverse cutoff and discretize these equations as per dlcq , alternative quadratures are more efficient .
+in particular , the transverse momentum @xmath29 can be mapped to a finite range that compresses the wave function s tail to a relatively small region , so that a gauss  legendre quadrature can yield a good approximation .
+a comparison of results is given in fig .
+[ fig : g2 ] .    , and the pv masses are @xmath30 .
+the longitudinal resolution is @xmath31 ; the transverse resolutions @xmath20 are specified in the legend.,width=491 ]
+as the action for ( 2 + 1)-dimensional @xmath32 sqcd - cs theory , we consider [ action ] s&=&d^3x\{-f_f^ + d_^d^+i| d_^. + & & .-g+^d_+^ + |}. the adjoint fields are the gauge boson @xmath33 ( gluons ) and a majorana fermion @xmath34 ( gluinos ) ; the fundamental fields are the dirac fermion @xmath35 ( quarks ) and a complex scalar @xmath36 ( squarks ) .
+the cs coupling @xmath37 induces a mass for the adjoint fields without breaking the supersymmetry ; this reduces formation of the long strings characteristic of super yang  mills theory .
+the covariant derivatives are d_=_+ig[a _ , ] , d_=_+iga _ , d_=_+iga_. the supersymmetry transformations are a_= _ , = f_^ , = , = -^d_. we reduce this theory to 1 + 1 dimensions by taking the fields to be independent of the transverse coordinate @xmath38 .    as usual , there are constraints and not all of the fields are dynamical . to separate the dynamical fields , we first introduce components for the fermi fields and the supercharge as = ( , ) ^t,=(,)^t , q=(q^+,q^-)^t
+. then , in light - cone gauge ( @xmath39 ) , the constraints are _ -&=&- ( [ a^2,]+i^-i^ ) , _ -=-a^2 + -/ , [ fcurrent ] + ^2_-a^-&=&g\{i[a^2,_-a^2]+ \ { , } + _ - a^2 -ih_-^+ i_-^+^}. when these constraints are used to eliminate the nondynamical fields , the supercharge becomes q^-&=&gdx^-\ { 2 ^ 3/4(i[a^2,_-a^2]-_-a^2 + \ { , } ) .
++ & & -(i _
+-^-i_-^+2^ ) .-2(^a^2+^a^2)}. the mode expansions of the dynamical fields are [ expanda2 ] a^2_ij(0,x^-)&=&_k=1^ ( a_ij(k)e^-ikx^-/l+a^_ji(k)e^ikx^-/l ) , + [ expandlambda ] _
+ij(0,x^-)&=&_k=1^ ( b_ij(k)e^-ikx^-/l+b^_ji(k)e^ikx^-/l ) , + [ expandxi ] _ i(0,x^-)&=&_k=1^ ( c_i(k)e^-ikx^-/l+c^_i(k)e^ikx^-/l ) , + [ expandpsi ] _ i(0,x^-)&=&_k=1^ ( d_i(k)e^-ikx^-/l+d^_i(k)e^ikx^-/l ) .
+the creation and annihilation operators obey the commutation relations ( for finite @xmath12 ) = ( _ il_kj-_ij_kl ) , \{b_ij , b^_kl}= ( _ il_kj-_ij_kl ) , = _
+ij,=_ij,\{d_i , d^_j}=_ij \{d_i , d^_j}=_ij . the solutions that we obtain are meson - like states @xmath40 , where @xmath41 or @xmath42 , and glueball states @xmath43|0\rangle$ ] .
+because of the supersymmetry , either could be a boson or a fermion . because we work in the large-@xmath12 limit
+, there is no mixing between these states , and they are composed of single traces .
+this simplifies the calculation , particularly with respect to the size of the matrices that are diagonalized ; however , study of baryons will require finite @xmath12 or additional approximations . to help reduce the size of the calculation further
+, there is an additional @xmath44 symmetry  @xcite @xmath45 , @xmath46 .
+this divides the states between those with even and odd numbers of gluons , and we diagonalize in each sector separately .
+a collection of results can be found in ref .
+the spectrum for mesons shows the existence of light states at strong coupling , a feature found previously in other supersymmetric theories  @xcite .
+methods for the nonperturbative solution of multidimensional field theories are now available ; they do , however , require more development . a number of calculations will soon be undertaken to further demonstrate and improve this capability . in yukawa theory , the two - fermion sector is of interest , particularly for a pseudo - scalar coupling with which the deuteron might be modelled .
+quantum electrodynamics is immediately treatable with the same techniques ; the anomalous magnetic moment of the electron can be computed .
+the full ( 2 + 1)-dimensional sqcd - cs theory can be solved , including finite-@xmath12 corrections to allow baryons and meson - glueball mixing .
+this work should bring us closer to the goal of being able to solve for hadron properties in quantum chromodynamics .
+the work summarized here was done in collaboration with s.j . brodsky and g. mccartor , and with s.s . pinsky and u. trittmann , and
+was supported in part by the us department of energy and the minnesota supercomputing institute .
+brodsky , h .- c .
+pauli , and s.s .
+pinsky , phys .
+* 301 * ( 1997 ) 299 ; j.r .
+hiller , nucl .
+b ( proc .  suppl . )
+* 90 * ( 2000 ) 170 .
+dirac , rev .
+* 21 * ( 1949 ) 392 .
+brodsky , j.r .
+hiller , and g.  mccartor , ann .
+* 305 * ( 2003 ) 266 [ hep - th/0209028 ] .
+hiller , s.s .
+pinsky , and u.  trittmann , phys .
+d * 67 * ( 2003 ) 115005 [ hep - ph/0304147 ] ; nucl .
+b * 661 * ( 2003 ) 99 [ hep - ph/0302119 ] . for earlier work on fundamental matter in sdlcq , see o. lunin and s. pinsky , phys .
+d * 63 * ( 2001 ) 045019 .
+w. pauli and f. villars , rev .  mod .
+* 21 * ( 1949 ) 4334 .
+brodsky , j.r .
+hiller , and g.  mccartor , phys .
+d * 58 * ( 1998 ) 025005 [ hep - th/9802120 ] ; phys .
+d * 60 * ( 1999 ) 054506 [ hep - ph/9903388 ] ; ann .
+* 296 * ( 2002 ) 406 [ hep - th/0107246 ] .
+brodsky , j.r .
+hiller , and g.  mccartor , phys .
+d * 64 * ( 2001 ) 114023 [ hep - ph/0107038 ] .
+o.  lunin and s.  pinsky , in _ new directions in quantum chromodynamics _ , edited by c .- r .
+ji and d .-
+min , aip conf .
+494 ( aip , melville , ny , 1999 ) , p.  140 , [ hep - th/9910222 ] .
+m.  burkardt and s.  dalley , prog .
+* 48 * ( 2002 ) 317 [ hep - ph/0112007 ] ; s.  dalley and b.  van  de  sande , phys .
+d * 67 * ( 2003 ) 114507 [ hep - ph/0212086 ] .
+glazek and j.  mlynik , phys .
+d * 67 * ( 2003 ) 045001 [ hep - th/0210110 ] ; st.d .
+glazek and m.  wieckowski , phys .
+d * 66 * ( 2002 ) 016001 [ hep - th/0204171 ] .
+pauli and s.j .
+brodsky , phys .
+d * 32 * ( 1985 ) 1993 ; * 32 * ( 1985 ) 2001 . for earlier , more formal work ,
+see t. maskawa and k. yamawaki , prog .
+* 56 * ( 1976 ) 270 .
+y.  matsumura , n.  sakai , and t.  sakai , phys .
+d * 52 * ( 1995 ) 2446 [ hep - th/9504150 ] . c. lanczos
+, j. res .
+bur .  stand .
+* 45 * ( 1950 ) 255 ; j. cullum and r.a .
+willoughby , _ lanczos algorithms for large symmetric eigenvalue computations _ ( birkhauser , boston , 1985 ) , vol . i and ii . j.h .
+wilkinson , _ the algebraic eigenvalue problem _ ( clarendon , oxford , 1965 ) ; y. saad , comput .
+* 53 * ( 1989 ) 71 ; s.k .
+kin and a.t .
+chronopoulos , j. comp .  and appl .
+math * 42 * ( 1992 ) 357 .
+j. cullum and r.a .
+willoughby , in _ large - scale eigenvalue problems _ , edited by j. cullum and r.a .
+willoughby , math .
+* 127 * ( elsevier , amsterdam , 1986 ) , p.  193 .
+d.  kutasov , nucl .
+b * 414 * ( 1994 ) 33 .
+hiller , s.s .
+pinsky , and u.  trittmann , phys .
+* 89 * ( 2002 ) 181602 [ hep - th/0203162 ] ; j.r .
+hiller , s.s .
+pinsky , and u.  trittmann , phys .
+b * 541 * ( 2002 ) 396 [ hep - th/0206197 ] .

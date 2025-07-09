@@ -1,0 +1,82 @@
+throughout this paper every graphs are simple .
+let us consider the following recursion of a graph polynomial .
+let @xmath2 and assume that @xmath3 satisfies the following recursion formula @xmath4 where @xmath5 denotes the following graph .
+we delete the vertices @xmath6 and @xmath7 from @xmath1 and replace it with a vetrex @xmath8 which we connect to those vertices of @xmath9 which were adjacent to exactly one of @xmath6 and @xmath7 in @xmath1 . in other words , we connect @xmath8 with the symmetric difference of @xmath10 and @xmath11 .
+the @xmath12 refers to the symmetric difference in the recursive formula .
+let @xmath13 be the empty graph on @xmath14 vertices and let @xmath15 .
+this completely determines the graph polynomial @xmath3 by induction on the number of edges . on the other hand ,
+it is not clear at all that this graph polynomial exists since we can determine @xmath3 by choosing edges in different order and we have to get the same polynomial .
+it will turn out that this polynomial indeed exists and it is a specialization of the tutte polynomial .
+let us call this graph polynomial co - adjoint polynomial until we do nt find a better name .    what motivates this recursive formula of @xmath3 ?
+let us consider the following three graph polynomials .
+let @xmath16 be the ( modified ) matching polynomial @xcite where @xmath17 denotes the number of matchings of size @xmath18 with the convention @xmath19 .
+then @xmath20 satisfies the following recursive formula : let @xmath2 then @xmath21 where @xmath22 denotes the following graph .
+we delete the vertices @xmath23 from @xmath1 and replace it with a vertex @xmath8 which we do not connect with anything .
+let @xmath24 be the chromatic polynomial @xcite .
+it is known that it satisfies the following recursive formula .
+let @xmath2 then @xmath25 where @xmath26 denotes the following graph .
+we delete the vertices @xmath23 from @xmath1 and replace it with a vertex @xmath8 which we connect with the _ union _ of @xmath10 and @xmath11 .
+let @xmath27 be the following graph polynomial .
+let @xmath28 be the number of ways one can cover the vertex set of the graph @xmath1 with exactly @xmath18 disjoint cliques of @xmath1 .
+let @xmath29 the graph polynomial @xmath27 is called adjoint polynomial @xcite ( most often without alternating signs of the coefficients ) . then @xmath27 satisfies the following recursive formula .
+let @xmath2 then @xmath30 where @xmath31 denotes the following graph .
+we delete the vertices @xmath23 from @xmath1 and replace it with a vertex @xmath8 which we connect with the _ intersection _ of @xmath10 and @xmath11 .
+now it is clear that the co - adjoint polynomial is the natural fourth member of this family .
+this paper is organized as follows . in the next section
+we prove that the co - adjoint polynomial is a specialization of the tutte polynomial . in the third section we concern with the corollaries of this result . in the last section we study the co - adjoint polynomials of complete graphs and balanced complete bipartite graphs .
+the tutte polynomial of a graph @xmath1 is defined as follows .
+@xmath32 where @xmath33 denotes the number of connected components of the graph @xmath34
+.    in statistical physics one often studies the following form of the tutte polynomial : @xmath35 the two forms are essentially equivalent : @xmath36 both forms have several advantages .
+for instance , it is easy to generalize the latter one to define the multivarite tutte - polynomial .
+let us assign a variable @xmath37 to each edge and set @xmath38    note that the chromatic polynomial of graph @xmath1 is @xmath39 the main result of this section is the following .
+[ tutte ] let @xmath1 be a simple graph and let @xmath3 be the co - adjoint polynomial , @xmath40 be the tutte polynomial of the graph @xmath1 then @xmath41    it is known that the tutte polynomial satisfies the following recursive formulas : @xmath42 if e is neither a loop nor a bridge and @xmath43 if @xmath44 is a bridge and @xmath45 if @xmath44 is a loop .
+this formulas provide a straightforward way to prove theorem  [ tutte ] by induction .
+we will not follow this route since whenever we use these recursive formulas we have to distinguish some cases according to the edge being a bridge or not .
+after some steps the proof would split into too many cases .
+instead we use the simple form provided by the polynomial @xmath46 .
+let @xmath47 and let us write @xmath48 and @xmath49 set @xmath50 we have to prove that @xmath51 for all graph @xmath1 .
+we prove it by induction on the number of edges of @xmath1 .
+if @xmath1 is the empty graph on @xmath14 vertices then both polynomials are @xmath52 and we are done . by the recursive formula
+@xmath53 we have @xmath54 for an arbitrary edge @xmath44 .
+now let us consider @xmath55 .
+let @xmath44 be an arbitrary edge .
+clearly , in the sum corresponding to @xmath55 the sets @xmath56 s not containing the edge @xmath44 contribute @xmath57 to the sum . by induction @xmath58 .
+now let us consider a set @xmath56 containing the edge @xmath44
+. then one can consider @xmath59 as a set of edges in @xmath60 for which @xmath61 whence we get that these sets contribute a sum @xmath62 ; note that @xmath63 , but @xmath60 has only @xmath64 vertices so the divison and multiplication by @xmath65 cancels each other and only the term @xmath66 remains from the term @xmath67 .
+hence @xmath68 thus we only need to prove that @xmath69 so far we did not use anything about @xmath5 . observe that @xmath5 is nothing else but the graph obtained from @xmath60 by deleting the multiple edges .
+let us consider the multiple edges @xmath70 and @xmath71 .
+assume that for some edge set @xmath56 of @xmath60 not containing @xmath72 we have @xmath73 .
+then @xmath74 as well and they contribute to the sum @xmath75 hence we can delete the multiple edges from @xmath60 without changing the value of @xmath76 : @xmath77 by induction we have @xmath78 .
+hence @xmath79    by the recursive formula @xmath80 it is easy to prove that the coefficients @xmath81 have alternating signs . on the other hand ,
+it is not clear from the expressions @xmath55 .
+a surprising corollary of theorem  [ tutte ] is that @xmath82 or @xmath83 and it is @xmath83 if and only if the graph is eulerian , i.e. , all degrees are even .
+it follows from the fact that @xmath84 counts the nowhere-@xmath85 @xmath86-flows ( note that the flow polynomial is also a specialization of the tutte polynomial ) . since nowhere-@xmath85 @xmath86-flow is simply a flow taking the value @xmath83 on all edges , this immediately implies the claim .
+in the introduction we considered four graph polynomials : the matching polynomial , the chromatic polynomial , the adjoint polynomial and our new graph polynomial , the co - adjoint polynomial . surprisingly , they all belong to a very special class of graph polynomials , the so - called exponential type graph polynomials .
+we say that the graph polynomial @xmath87 is of exponential type if for every graph @xmath88 we have @xmath89 and @xmath90 satisfies that @xmath0,x)f(g[v\setminus s],y)=f(g , x+y).\ ] ]    note that gus wiseman @xcite calls these graph polynomials _ binomial - type_.    one can deduce from the definition that the chromatic polynomial is of exponential type . for the matching polynomial and the adjoint polynomial
+this follows from theorem  [ exp - b ] below .
+this is a structure theorem for the exponential type graph polynomials proven in @xcite . for the co - adjoint polynomial this is simply the special case of the following much more general statement .
+@xcite for the multivariate tutte - polynomial @xmath91 we have @xmath92}(q_1,\underline{v})z_{g[v\setminus        s]}(q_2,\underline{v})=z_g(q_1+q_2,\underline{v}).\ ] ]    the following theorem characterizes exponential type graph polynomials , see theorem 5.1 of @xcite .
+@xcite [ exp - b ] let @xmath93 be a function from the class of graphs to the complex numbers .
+let us define the graph polynomial @xmath94 as follows .
+set @xmath95 where the summation goes over the set @xmath96 of all partitions of @xmath97 into exactly @xmath18 non - empty sets .
+then let @xmath98 where @xmath99 .
+then    \(a ) for any function @xmath93 , the graph polynomial @xmath100 is of exponential type .
+\(b ) for any exponential type graph polynomial @xmath87 , there exist a graph function @xmath93 such that @xmath101 .
+more precisely , if @xmath102 is the coefficient of @xmath103 in @xmath90 then @xmath104 .    for the matching
+polynomial take @xmath105 @xmath106 and @xmath107 otherwise . for the adjoint polynomial
+consider @xmath108 for complete graphs @xmath109 and @xmath110 otherwise .
+this proves that the matching and the adjoint polynomials are indeed of exponential type .    by the method of alan sokal @xcite one can prove that the root of @xmath3 of largest modulus has absolute value at most @xmath111 where @xmath112 is the largest degree and @xmath113 alan sokal proved this statement for the chromatic polynomial . on the other hand , one can simply copy his argument to prove this statement for the co - adjoint polynomial .
+alternatively , theorem 1.6 of @xcite or the paper @xcite provide a weaker , but still linear bound .
+in this section we give the co - adjoint polynomial of some small graphs .
+@xmath114 @xmath115 @xmath116 @xmath117 @xmath118 @xmath119 @xmath120 @xmath121    clearly , the coefficient of the the term @xmath103 in @xmath3 is @xmath122 by theorem  [ tutte ] .
+it is known that @xmath123 counts the number of alternating permutations on @xmath124 elements .
+let @xmath125 .
+the graph polynomial @xmath3 is of exponential type , applying this observation to the complete graphs we obtain that @xmath126 hence the polynomials @xmath127 are binomial - type and we know that @xmath128 where @xmath129 the exponential generating functions of the alternating polynomials is known , we only need to integrate it since the coefficients are translated : @xmath130      the sequence of the coefficients of @xmath103 seems to be very interesting . note that not only these numbers are @xmath137 , but the values of @xmath138 are also these numbers .
+the same phenomenon occurs at @xmath139 and the coefficients of @xmath140 .
+in fact , these are known results .
+the latter one is quite well - known , but both results are very special cases of the main result of @xcite which asserts that under some condition @xmath141 although we do not give the condition of their theorem here , but we note that the complete graphs and complete bipartite graphs satisfy the conditions if @xmath142 is an edge .    *
+* we are very grateful for mikls bna for various useful comments .
+we are also very grateful for the authors of @xcite for including a table about @xmath143 into their paper , it was crucial for us to make the right guess about the studied graph polynomial .
+b. jackson , a. procacci , and a. d. sokal : _ complex zero - free regions at large @xmath146 for multivariate tutte polynomials ( alias potts - model partition functions ) with general complex edge weights _ , journal of combinatorial theory series b * 103*(1 ) ( 2013 ) , pp .
+21 - 45          a. d. scott and a. d. sokal : _ some variants of the exponential formula , with application to the multivariate tutte - polynomial ( alias potts model ) _ , sminaire lotharingien combin . *
+61a * ( 2009 ) , article b61ae , 33 pp .

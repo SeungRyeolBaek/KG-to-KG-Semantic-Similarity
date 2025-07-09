@@ -1,0 +1,467 @@
+{
+  "nodes": [
+    {
+      "id": "3D Incompressible Navier-Stokes Equation",
+      "type": "Equation",
+      "properties": {}
+    },
+    {
+      "id": "Numerical Resolution",
+      "type": "Method",
+      "properties": {}
+    },
+    {
+      "id": "Spectral Simulation",
+      "type": "Method",
+      "properties": {}
+    },
+    {
+      "id": "Material Point Battery Grid",
+      "type": "Grid",
+      "properties": {}
+    },
+    {
+      "id": "Large-Scale Body Force",
+      "type": "Force",
+      "properties": {}
+    },
+    {
+      "id": "Turbulent Stream",
+      "type": "Stream",
+      "properties": {}
+    },
+    {
+      "id": "Microscale Reynolds Number",
+      "type": "Number",
+      "properties": {}
+    },
+    {
+      "id": "Solution",
+      "type": "Result",
+      "properties": {}
+    },
+    {
+      "id": "Turnover Time",
+      "type": "Time",
+      "properties": {}
+    },
+    {
+      "id": "Velocity Field",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "Pressure",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "Vorticity Isosurfaces",
+      "type": "Visualization",
+      "properties": {}
+    },
+    {
+      "id": "Vortex",
+      "type": "Structure",
+      "properties": {}
+    },
+    {
+      "id": "Scale",
+      "type": "Measurement",
+      "properties": {}
+    },
+    {
+      "id": "Filter",
+      "type": "Tool",
+      "properties": {}
+    },
+    {
+      "id": "Surface",
+      "type": "Structure",
+      "properties": {}
+    },
+    {
+      "id": "Domain",
+      "type": "Area",
+      "properties": {}
+    },
+    {
+      "id": "Color Scheme",
+      "type": "Visualization",
+      "properties": {}
+    },
+    {
+      "id": "Alignment",
+      "type": "Property",
+      "properties": {}
+    },
+    {
+      "id": "Anti-Alignment",
+      "type": "Property",
+      "properties": {}
+    },
+    {
+      "id": "Swirl Tube",
+      "type": "Structure",
+      "properties": {}
+    },
+    {
+      "id": "Cascade",
+      "type": "Phenomenon",
+      "properties": {}
+    },
+    {
+      "id": "Kinetic Energy",
+      "type": "Energy",
+      "properties": {}
+    },
+    {
+      "id": "Helicity Cascade",
+      "type": "Phenomenon",
+      "properties": {}
+    },
+    {
+      "id": "Inertial Range",
+      "type": "Range",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "3D Incompressible Navier-Stokes Equation",
+        "type": "Equation",
+        "properties": {}
+      },
+      "target": {
+        "id": "Numerical Resolution",
+        "type": "Method",
+        "properties": {}
+      },
+      "type": "RESOLVED_WITH",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Numerical Resolution",
+        "type": "Method",
+        "properties": {}
+      },
+      "target": {
+        "id": "Spectral Simulation",
+        "type": "Method",
+        "properties": {}
+      },
+      "type": "UTILIZES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Spectral Simulation",
+        "type": "Method",
+        "properties": {}
+      },
+      "target": {
+        "id": "Material Point Battery Grid",
+        "type": "Grid",
+        "properties": {}
+      },
+      "type": "APPLIED_ON",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Large-Scale Body Force",
+        "type": "Force",
+        "properties": {}
+      },
+      "target": {
+        "id": "Turbulent Stream",
+        "type": "Stream",
+        "properties": {}
+      },
+      "type": "DRIVES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Turbulent Stream",
+        "type": "Stream",
+        "properties": {}
+      },
+      "target": {
+        "id": "Microscale Reynolds Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "type": "CHARACTERIZED_BY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Solution",
+        "type": "Result",
+        "properties": {}
+      },
+      "target": {
+        "id": "Snapshots",
+        "type": "Data point",
+        "properties": {}
+      },
+      "type": "STORED_AS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Snapshots",
+        "type": "Data point",
+        "properties": {}
+      },
+      "target": {
+        "id": "Http://Turbulence.Pha.Jhu.Edu",
+        "type": "Website",
+        "properties": {}
+      },
+      "type": "ACCESSIBLE_AT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Velocity Field",
+        "type": "Field",
+        "properties": {}
+      },
+      "target": {
+        "id": "Pressure",
+        "type": "Field",
+        "properties": {}
+      },
+      "type": "FILTERED_TO_OBTAIN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Velocity Field",
+        "type": "Field",
+        "properties": {}
+      },
+      "target": {
+        "id": "Vorticity Isosurfaces",
+        "type": "Visualization",
+        "properties": {}
+      },
+      "type": "USED_TO_VISUALIZE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vorticity Isosurfaces",
+        "type": "Visualization",
+        "properties": {}
+      },
+      "target": {
+        "id": "Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "type": "DEPICTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Complex System",
+        "type": "System",
+        "properties": {}
+      },
+      "type": "COMPRISES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Dataset",
+        "type": "Data",
+        "properties": {}
+      },
+      "type": "VISUALIZED_AS_NOISY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Different Approach",
+        "type": "Approach",
+        "properties": {}
+      },
+      "type": "FOLLOWS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Different Approach",
+        "type": "Approach",
+        "properties": {}
+      },
+      "target": {
+        "id": "Substitute Amount",
+        "type": "Premise",
+        "properties": {}
+      },
+      "type": "UTILIZES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Substitute Amount",
+        "type": "Premise",
+        "properties": {}
+      },
+      "target": {
+        "id": "3D Space",
+        "type": "Domain",
+        "properties": {}
+      },
+      "type": "DEFINES_WITHIN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vorticity",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Small Scale",
+        "type": "Scale",
+        "properties": {}
+      },
+      "type": "FILTERED_AT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vorticity",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Large Scale",
+        "type": "Scale",
+        "properties": {}
+      },
+      "type": "FILTERED_AT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vorticity",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Color Scheme",
+        "type": "Visualization",
+        "properties": {}
+      },
+      "type": "UTILIZES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Structure",
+        "type": "Structure",
+        "properties": {}
+      },
+      "type": "REVEALS_ADDITIONAL_STRUCTURE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Small-Scale Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Large-Scale Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "type": "CONTAINED_WITHIN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Small-Scale Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Distorted By Large-Scale Motion",
+        "type": "Motion",
+        "properties": {}
+      },
+      "type": "AFFECTED_BY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Small-Scale Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Kinetic Energy",
+        "type": "Energy",
+        "properties": {}
+      },
+      "type": "GAINS_ENERGY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Small-Scale Vortex",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Twisted By Large-Scale Motion",
+        "type": "Motion",
+        "properties": {}
+      },
+      "type": "ASSOCIATED_WITH_HELICITY_CASCADE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Inertial Range",
+        "type": "Range",
+        "properties": {}
+      },
+      "target": {
+        "id": "Turbulent Cascade",
+        "type": "Cascade",
+        "properties": {}
+      },
+      "type": "PART_OF",
+      "properties": {}
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+dissipationless n - body simulations of stellar systems indicate that scaling relations such as the so - called ` fundamental plane ' ( hereon , fp ) , that is , the systematic deviation from the expectations of the virial theorem applied to these systems , could be reproduced from the final products of hierarchical merging of galactic model progenitors @xcite
+. however , not all evolutionary conditions lead to fp - like relations : simple gravitational collapses do not .
+that is , objects resulted from mergers form a slightly non - homologous family ( and a fp - like relation ) , whereas collapses are homologous among themselves ( and show no deviation from the virial expectations ; see @xcite ) .    at the same time ,
+kandrup and collaborators @xcite argued on the existence of ` mesoscopic constraints ' of pure gravitational origin in systems relaxing towards virialization ( hereon , the ` kandrup effect ' ) .
+these constraints were inferred from the general preservation of the ` coarse - grained ' partitioning of the ranked energy distribution of particles , and seemed to regulate somehow the gravitational evolution of these galaxy models towards equilibrium .
+these constraints were also indirectly shown to be partially ` broken ' ( violated ) in mergers and fully operative in collapses @xcite .    the effect of incomplete mixing of phase space in dissipationless gravitational collapses was known already since the decade of 80s ( e.g. , * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+the surviving memory of initial conditions in the sense of an almost linear dependence of the final ( after the collapse ) energies with the initial energies ( in cosmological initial conditions ) was first demonstrated in @xcite .
+a more detailed investigation of this effect in n - body systems resulting from cosmological collapses is given in @xcite .
+such clues lead us to inquire whether the ` kandrup effect ' and the scaling relations of gravitational systems ( like the fp ) could be deeply related in some way . here
+we present a ` global map ' indicating where mesoscopic constraints could be mostly operative , in a full cosmological simulation .
+this paper is organized as follows . in section 2 ,
+we study the ` kandrup effect ' in terms of dark matter halos . in section 3 , we investigate the behaviour of halos in terms of arnold s theorem on the ordering of charcteristic frequencies under the imposition of a linear constraint . in section 4 , we discuss our results .
+in the study of kandrup et al . , the distribution of the energy of the particles in systems resulting from collisions and merging of two model galaxies was analysed in detail .
+they have found that there is a ` coarse - grained ' sense in which the _ ordering _ of the mean energy of given collections of particles of the systems is strictly _ not violated _ through the gravitational evolution of the models towards equilibrium .
+the method consists of sorting the particles of a given initial model according to their energies .
+the models are partitioned into a few , ` mesoscopic ' ( around 5 to 10 ) bins of equal number of particles and for each of these bins , the mean energy is calculated .
+finally , the bins are ranked with the first one initially containing the most bound particles ( the most negative mean energy ) whereas the last bin contains the least bounded particles ( the least negative mean energy ) .
+the mean energies of these same collections of particles are then recalculated for the final model and compared with their initial values . from such an analysis ,
+kandrup et al . found that the mean energy rank ordering of fixed collections of particles is preserved along the evolution .
+here analyse the ` kandrup effect ' in larger gravitationally - dominated structures , like clusters and superclusters of galaxies ( see also @xcite ) . to this end , we have analysed a @xmath0-cdm n - body simulation output of the virgo consortium .
+the analysis is identical to that of @xcite , but here the initial condition is the z=10 simulation box , and the final condition , the z=0 box ( the boxes have a @xmath1 mpc comoving size , where each particle has a mass of @xmath2 ) .
+signs of the ` kandrup effect ' were searched for the @xmath3 most massive halos found in the z=0 box , identified by the use of a simple ` friends - of - friends ' algorithm ( @xcite ) , setting periodic boundary conditions and a searching length of @xmath4 mpc .
+the energy of a particle considered in our work is the mechanical comoving one - particle energy .
+it was not calculated with respect to the local center of mass of the particular clumps , but with respect to the comoving reference frame ( that is , the frame which moves with the cosmological expansion of the simulation box ) .
+the comoving energy of a particle @xmath5 was calculated classically from :    @xmath6    with comoving position @xmath7 and peculiar velocity @xmath8 .
+units used were mpc for length , gyr for time and @xmath9 for mass .
+the energy associated to the dynamics of expansion of the cosmological box does not enter into the above computations .    at this point
+we remark that in the present simulation scenario ( @xmath0-cdm ) , the nonlinear collapse of sub - galactic mass halos are the first expected events after recombination .
+these small mass units will subsequently cluster together in a hierarchy of larger and larger objects ( bottom - up structure formation scenario ) .
+this is in contrast to top - down pictures where the formation of very massive objects comes first , as for instance , in the hot dark matter scenario . from the spherical top - hat collapse model , a reasonable estimate for the limit to the redshift
+at which a given halo becames virialized or formed ( @xmath10 ) is @xcite :    @xmath11    the less massive halo analysed from the set of 31 objects has a mass of @xmath12 . assuming that its velocity dispersion is of order @xmath13 ( a typical figure for that mass scale ) and the last term of the expression above is of order @xmath14 , we find that @xmath10 for this halo is approximately @xmath15 .
+higher mass halos will have their @xmath10 s even smaller than in above case .
+for instance , the most massive halo in the simulation has @xmath16 .
+assuming @xmath17 , we find @xmath18 .
+since all the 31 halos analysed have masses within that range , their condition at @xmath19 ( the initial dump of the simulation ) reasonably represents a linear stage of their evolution .
+another way to see this point is that the particle mass of the simulation is @xmath20 .
+hence , such a particle is representing a large sub - galactic object , and considering its internal velocity dispersion of @xmath21 , then @xmath22 .
+of course , this is the mass resolution of the simulation , it is assumed to already represent a collapsed unit at @xmath19 . in other words ,
+that gives an idea of the redshift formation limit for the smallest mass unit resolved in the simulation .
+hence , the 31 most massive halos at @xmath19 ( the first redshift dump available from the simulation ) are safely in their linear phases of evolution , so that the comparison of the ` kandrup effect ' seems quite satisfactory to be performed in reasonably equal grounds for all 31 halos .
+we have defined a ` violation ' parameter rate , @xmath23 , which measures _ the degree of rank ordering violation of the mean energy of @xmath24 fixed collections of particles _ , compared at @xmath19 and @xmath25 , so that if @xmath26 , we retrieve the ` kandrup effect ' ( no energy rank ordering violation ) , whereas @xmath27 means that all energy bins presented ordering violation .
+notice that the @xmath23 parameter  penalizes " cases where there is a significant relative change in energy cell position ( in the sense of ordering ) .
+for example , if only the 10th energy cell crosses all the other @xmath28 cells , and all these @xmath28 cells keep their ordering unaltered , the @xmath23 parameter in this case is _ not _ assigned @xmath29 ( meaning that only one energy cell , out of @xmath24 , crosses some other cell - whatever how many places in ordering ) , but in fact our criteria assigns @xmath30 , meaning that _ all _ cells are relatively crossed in this case .
+so the @xmath23 parameter , although not a weighted parameter , measures in fact a relative crossing percentage .
+an illustration of the ` kandrup effect ' and its violation , measured by the @xmath23 parameter , is presented in figures 1a and 1b , for the 31 halos in order of increasing mass .
+we remark that one expects that the values of energies of the particles in a clump ( after the formation - collapse of it ) are spread in a wider range than the range of their initial energies . during the collapse and relaxation , a number of particles in the clump loose energy and they are trapped in a deeper potential well near the center of the clump , while other particles gain energy and they may even escape the clump after the collapse .
+this produces a wider range of energies at the final configuration .
+however , in the various panels of figs .
+1a and 1b we see that the final energies are almost always distributed in a smaller range than the initial energies ( with only three or four exceptions ) .
+such a description is generally the correct expectation for energies evaluated at a fixed background .
+but in the present case , the energies are calculated with respect to the comoving frame .
+a qualitative understanding of the results of figures 1a and 1b is the following .
+first , consider two particles ( @xmath4 and @xmath31 ) comoving with the expansion .
+then , after a given time @xmath32 ( where @xmath33 is the initial time considered ) , their comoving coordinates are @xmath34 ; @xmath35 , and their potential energy ( with respect to the comoving frame ) is unchanged , although they might seem drifting apart from each other for an observer at a fixed reference frame . now consider that the two particles just detach from the expansion ( ` turn - around ' ) : even though with respect to a fixed frame their potential energy may look unchanged , it does get more negative with respect to the comoving frame ( because @xmath36 ; @xmath37 ) .
+subsequently , the particles get bound , their potential energy gets more negative in both fixed and comoving frames , but it is then clear that it gets even more negative in the latter case , because the background is expanding . the same reasoning is natural to escaping particles . also , notice that the velocity used is the peculiar velocity , which is the velocity substracted from the velocity of expansion .
+the overall result to the energy calculated this way is that the particles will present final energies almost always distributed in a smaller range than the initial energies .
+notice that figs .
+1a and 1b refer to the initial and final _
+mean _ energies of fixed collections of particles .
+the particles have been initially ranked according to their energies ( comoving ) , and binned to a fixed number of particles per ranked energy cell .
+the initial distribution of the energies within a given ` mesoscopic ' energy cell is relatively uniform .
+however , when the halos collapse or merge , this distribution tends to get skewed towards more negative energy values .
+some few particles do escape and carry energy , forming a tail in the distribution .
+the mean energy per cell gets more negative due to the effect explained above .    also , in most cases of figs .
+1a and 1b , the final energies are concentrated in lower values than the initial energies , but in one case particles seem to have gained energy as they form a clump .
+the method used to isolate the cosmological halos is friends - of - friends , which tends to extract overdensities in a given distribution of points .
+we expect that several such overdensities may be considered as virialized or quasi - virialized halos , but some ( few ) could in fact be artifacts , one of which may be the suspect case mentioned here .    in figure 2 , @xmath23 is plotted in terms of the mass of the identified structures in the z=0 box .
+this figure shows that _ there is a sense in which larger and larger structures seem to evolve towards a preservation of the ` mesoscopic ' mean energies _ , whereas smaller and smaller structures tend to violate the ` kandrup effect ' .
+intermediate - sized structures present intermediate values of @xmath23 .    from the above trend
+, we infer that the dynamics of the smaller structures is probably being dominated by merging processes , whereas larger structures seem to be ruled by the collapse mechanism ( intermediate - sized clusters could be collapsing structures accreting small mass systems ) . in order to address this question , we attempt to quantify whether it is mainly the inner radial bins of the halo which violate mean energy rank , or the outer ones .    at this point , it is important to notice that in a spherical gravitational potential , @xmath38 , the orbit of a given particle is confined to a plane defined by its angular momentum vector , @xmath39 .
+the circular orbits are the ones which have the greatest @xmath40 by unit mass . for a given energy per unit mass , @xmath41 , among all possible
+@xmath40s , there will be a maximum @xmath42 , which corresponds to the circular orbit ( c.f .
+the curve @xmath42 divides the [ e , l ] plane into a forbidden ( above the curve ) and a populated ( below the curve ) region , were the particles of a given gravitational system will lie .
+( deviations from spherical symmetry are recognized as the presence of a few particles above the @xmath42 curve in the forbidden region ) .
+it can be easily shown that the curve @xmath42 tends asimptotically to @xmath43 for very bound ( negative ) particle energies , and @xmath44 for @xmath45 .
+hence , particles with very negative energies ( boundest particles ) tend to have lower @xmath40 , and tend to be at the inner radii of the system ; on the other hand , particles less gravitationally bound tend to have a larger range of @xmath40s and mainly populate the outer radii of the system . hence it can be reasonalbly assumed that the most negative energy bins analysed are composed of particles mostly at the inner radii of the halos .
+having said this , we have analysed the behaviour of the 3 innermost and 3 outermost energy bins , as explained in the following .
+for each halo , we have assigned a value of 1 ( = yes ) whenever rank violation is found within each of these two sets of 3 bins ( separately ) , and assigned value 0 ( = no ) if rank is preserved .
+figure 3 illustrates the results found .
+it can be seen that the 3 outermost energy bins violate rank ordering in 19 out of the 31 halos , whereas for the 3 innermost bins the statistics is 29 out of 31 .
+so , whenever rank violation occurs , it does mainly at the most bounded energy bins , which means that , for the most part , the particles at the inner radii of the model are mainly affected , not the outer ones .
+at this point , two natural questions are : first , could the phenomenum observed in fig .
+[ fa4.5.mer ] be artificaly created solely because of the different number of particles involved in each halo ? that is , could it be that , depending on the number of particles ( namely , mass ) of the individual halo in question , the system could artifically be more fine - partitioned relatively to a system with more particles , and hence the former system could show up more violation of the ` kandrup effect ' than the latter ?
+in fact , kandrup et al . have analysed the problem of coarse - graining ( partitioning the energy space into 5 and 20 bins ) and found no significant dependence on coarse - graining .
+we adopt a cautionary position and identify the halos in which poor statistics may be a problem .
+we find that 7 out of the 31 evaluated halos have total number of particles less than 200 , which implies less than 20 particles per bin .
+figure 2 indicates the halos where the phenomenum ( namely , rank violation as mass decreases ) could be an artifact due to mass ( particle ) resolution .
+however , for the majority of halos , the number of particles per energy cell is reasonably larger than the number of coarse - grained cells adopted ( @xmath24 cells , in the present case ) .
+a second , related question is : ( i ) what is the coarse - graining level relevant to the observation of the ` kandrup effect ' , and ( ii ) why it happens ? concerning the latter part of the question , one of the possible explanations for the ` kandrup effect ' , given by kandrup et al .
+themselves , but not proven , is the existence of some _ constraint _ operative only at the level of _ collections _ of particles ranked by mean energy .
+we try to find some clues on this problem by attempting to answer the first part of the above question .
+one independent method which may prove interesting is to directly verify the validity of the theorem described by @xcite , concerning the behaviour of the characteristic frequencies of a dynamical system under the imposition of a linear constraint .
+arnold s theorem describes how the characteristic frequencies ( @xmath46 ) of a system with @xmath47 degrees of freedom are distributed relatively to the characteristic frequencies ( @xmath48 ) of a system obtained from the former under the imposition of a linear contraint , reducing the dimensionality of the given system to @xmath49 .
+the theorem goes as follows .
+let @xmath50 be the @xmath47 characteristic frequencies of the original system where no constraints are imposed , and @xmath51 the @xmath49 characteristic frequencies of the system with a constraint .
+then the theorem asserts that : @xmath52    let us define the characteristic frequency of a particle of the simulation as @xmath53 , where @xmath39 is the angular momentum of the particle relatively to the comoving center of mass ( cm ) of the system and @xmath54 the comoving distance of the given particle to the cm .
+we have taken the mean frequency values of particles grouped according to the same rank ordering method of kandrup et al . , and then proceeded as follows .
+we focused on the five halos that mostly violate the ` kandrup effect ' and the five ones mostly obeying it .
+we have partitioned these halos into @xmath28 orderly energy coarse grainings ( bins ) at @xmath25 . at @xmath19 , however , the @xmath28 corresponding bins were repartitioned into @xmath24 bins .
+this allowed us to directly compare the characteristic mean frequencies of each bin per halo at the two different redshifts .
+that is , from eq.(4 ) above , the primed values now refer to the mean frequencies of each of the @xmath28 bins analysed at @xmath25 ( per halo ) , and the unprimed values , to the @xmath24 bins at @xmath19 ( per halo ) .
+then , for each halo , we were able to analyse whether arnold s theorem ( eq .
+4 ) would be violated or not , and at what level .
+we found that the percentages of halos matching arnold s theorem , bin by bin , for the halos mostly obeying the ` kandrup effect ' ( in order of decreasing mass ) , were : @xmath55 , @xmath55 , @xmath56 , @xmath57 , and @xmath58 .
+for the halos violating energy rank : @xmath59 , @xmath60 , @xmath57 , @xmath57 , and @xmath61 .
+hence , the most massive halos tend to obey arnold s theorem ( on the ordering of the characteristic frequencies ) more frequently than less massive halos .
+our general conclusion is drawn from a combination of previous and present clues on the phenomenum of relaxation .
+collapses are quite different from mergers , despite the fact that both are the end results of a dynamics based on fluctuations on the gravitational potential .
+these main differences are at the heart of the connection between the ` kandrup effect ' and the fp @xmath62 virial relations .    from the current interpretation ,
+merging of stellar systems occurs due to a transfer of the orbital energy to the particles within the systems through tidal interactions .
+this mechanism increases the internal energy of the systems at the expense of their orbital energy .
+if the orbital energy is less negative ( approaches @xmath63 ) , there is plenty of time for the particles to withdraw energy from the orbit of the pair of merging models .
+this process involves periodically , slowly evolving , large fluctuations on the potential , which takes a larger amount of time to stabilize .
+it was already evident that such slow of stabilization process could be responsable for producing non - homology among the simulated mergers @xcite .
+collapses , on the contrary , are generally much more ` violent ' than mergers , even those resulting from relatively ` warm ' initial conditions .
+the present analysis corroborates the idea that collapses and mergers behave differently from the point of view of their energy rank preservation / violation , considering that both mechanisms are dominant at different scaling ( mass ) regimes .
+indeed , we find that :    * more massive halos tend to better preserve their mean energy rank ordering than less massive halos .
+* whenever rank violation occurs , it does mainly at the most bounded energy bins , which means that , for the most part , the particles at the inner radii of the model are mainly affected , not the outer ones .
+this is in agreement with the qualitative idea that the central region of the halo is where the gravitational potential fluctuates more strongly during the collapse , whereas in the outer regions of the halo the fluctuations are softer and dump rapidly . in the case of mergers , however , it is expected that the outer regions will be submitted to equally large fluctuations because of the anisotropy of the merging geometry as compared to a simple , isotropic collapse .
+indeed it is interesting to notice that rank violation of the 3 outermost bins does occur much more frequently for less massive halos , where merging is expected to occur more frequently as well . *
+the process of mesoscopic ` mixing ' in the energy space seems to be inefficient as compared with ` mixing ' in configuration and/or velocity space , an effect which is at odds with lynden - bell s theory of complete ` violent relaxation ' @xcite ; see discussion in kandrup et al .
+however , this effect seems to be more evident depending on the process of virialization ( collapses seem more prone to energy rank preservation ) .
+* we provide a general method to evaluate the coarse - graining level ( number of particles per energy cell ) relevant to reasonably measure signatures of the ` kandrup effect ' .
+we have observed that arnold s theorem , applied to the collections of particles of each energy bin , tends to be valid more frequently when the ` kandrup effect ' is operative , than when it is not .
+this may be related to the presence of a ` mesoscopic constraint ' operative at the level of particles , as observed by kandrup et al . alternatively ,
+when arnold s theorem is shown not to be valid , the ` kandrup effect ' is expected to be violated . in this case
+, one could suspect of small particle number statistics or , otherwise , intrinsic ( real ) energy rank violation .
+we briefly assess how our results could be affected by a different choice of evaluation of energies .
+kandrup et al .
+analysed the merging of two galaxies and have computed the energy of a given particle considering two choices :      kandrup et al .
+show that , if the initial center of mass velocity is relatively small , the tendency ( preservation of the ordering of the mean ranked energies of collections of particles ) is little affected ( methods 1 and 2 give similar results ) , although the effect does get weaker if the velocity of the cm is reasonably large .
+notice however that the simulations of kandrup et al . were performed on a fixed background . in the present situation
+the energies are all comoving quantities , the velocity of expansion of the cosmological background does not enter into the above computations , so it is our opinion that our choice of evalutation of energies is reasonable in the cosmological set .
+a posteriori , our results ( fig.1a and 1b ) do reproduce the ` kandrup effect ' .
+we also consider the question whether our results depend on the position of the particular clump inside the simulation box .
+a qualitative reasoning indicates that they must not , since we calculate the comoving energies with no reference to the relative location within the simulation box . also , the halos analysed in the paper are distributed at several locations within the simulation box , and the results are reasonably similar among them , irrespective of their position , depending mostly on the halo mass .
+we would like to draw attention to the relation of our results to those of the recent paper by @xcite .
+these authors have studied the velocity distribution function ( vdf ) of different gravitational systems ( from isotropic to highly non - isotropic structures ) , simulated from diverse n - body experiments , including cosmological ones , and found that the vdf has a universal profile .
+this may indicate that some fraction of the particles of a gravitational system exchange energy during the relaxation process only until the universal vdf has been reached
+. it would be highly interesting to understand the relation between energy rank preservation and the universal vdf .
+in summary , the scenario presented here , although admittedly schematic , does offer some preliminary important clues on the origin of the scaling relations of virialized systems .
+however , a rigorous understanding of the relaxation process still lacking @xcite , in order to reach a complete understanding of the phenomena outlined in this paper .
+the simulations in this paper were carried out by the virgo supercomputing consortium using computers based at computing centre of the max - planck society in garching and at the edinburgh parallel computing centre .
+the data are publicly available at www.mpa-garching.mpg.de/numcos .
+we thank dr .
+andr l. b. ribeiro for several discussions , and the anonymous referee for useful suggestions .
+thanks instituto nacional de pesquisas espaciais ( inpe ) , diviso de astrofsica ( das / cea ) , brazil , for using its facilities when most part of this paper was written .
+99 arnold , v. i. , _ mathematical methods of classical mechanics _ , 2nd . edition , 1989 , springer - verlag , new york .
+bekki , k. , 1998 , apj , 496 , 713 .
+binney & tremaine , galactic dynamics , princeton university press .
+capelato , h. v. , de carvalho , r. r. & carlberg , r. g. , 1995 , apj , 451 , 525 .
+dantas , c. c. , ribeiro , a. l. b. , capelato , h. v. , and de carvalho , r. r. , 2000 , apj , 528 , l5 .
+dantas , c. c. , capelato , h. v. , de carvalho , r. r. , & ribeiro , a. l. b. , 2002 , a&a , 384 , 772 .
+dantas , c. c. , capelato , h. v. , ribeiro , a. l. b. & de carvalho , r. r. , 2003 , mnras , 340 , 398 .
+dantas , c. c. & ramos , f. m. , 2005 , apj , submitted .
+djorgovski , s. g. & davis , m. , apj , 1987 , 313 , 59 .
+djorgovski , s. g. , in proc .
+moriond astrophysics workshop , 1988 , starbursts and galaxy evolution , ed .
+t. x. thuan et al .
+( gif sur yvette : editions frontires ) , 549 .
+djorgovski , s. g. , in cosmology and large - scale structure in the universe , asp conference series , vo . 24 , 1992 , reinaldo r. de carvalho , ( ed . ) , 19 .
+djogorvski , s. g. & santiago , b. x. , 1993 , in _ structure , dynamics and chemical evolution of elliptical galaxies _ , proc
+. eso / eipc workshop , ed .
+i. j. danziger , w. w. zeilinger , & k. kjar ( eso conf . and
+workshop proc . 45 ) ( garching : eso ) , 59 dressler , a. , lynden - bell , d. , burstein , d. , davies , r. l. , faber , s. m. , terlevich , r. j. , & wegner , g. , 1987 , apj , 313 , 42 .
+fof algorithm , http://www-hpcc.astro.washington.edu/tools/fof.html .
+hansen , s. h. et al .
+, astro - ph/0505420 hjorth , j. & madsen , j. , 1995 , apj 445 , 55 .
+kadrup , h. e. , mahon , m. e. , & smith , h. , 1993 , a&a 271 , 440 .
+longair , m. , galaxy formation , springer , page 366 .
+lynden - bell , d. , 1967 , mnras 136 101 .
+may & van albada , 1984 , mnras , 209 , 15 padmanabhan , t. , 1990 , physics reports , 188 , no.5 , 285 - 362 .
+pahre , m. , 1998 , phd thesis , california institute of technology .
+quinn & zurek , 1988 , apj , 331 , 1 van albada 1982 , mnras , 201 , 939 voglis , hiotelis & hoeflich , 1991 , a & a , 249 , 5 voglis , hiotelis & harsoula , 1994 , astrophysics and space science , 226 , 213 .
+zaroubi et al . , 1996 ,
+apj , 457 , 50 white , s. , 1979 , mnras , 189 , 831    ) at @xmath25 ( final condition ) and @xmath19 ( initial condition ) , connected by line segments in order to illustrate the ordering of the mean energy of given collections of particles , from the most gravitationally bounded ones ( most negative energies ) to the less bounded ones ( less negative energies ) .
+the panels are ordered from the less massive halos ( top left panel ) to the most massive halos ( bottom right panel ) .
+the second panel ( from left to right ) at the third row is possibly an overdensity artifact ( not a virialized halo ) .
+[ kan],width=642,height=718 ]      ) as a function of the halo mass in a z=0 @xmath0-cdm cosmological box .
+possible dynamical events are identified in this figure .
+the object marked with an ` x ' is possibly an overdensity artifact ( not a virialized halo ) .
+[ fa4.5.mer],width=604,height=453 ]

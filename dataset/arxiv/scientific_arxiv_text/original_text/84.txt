@@ -1,0 +1,166 @@
+over the past 70 years , there have been multiple attempts to dynamically model the movement of polymer chains with brownian dynamics  @xcite , which have more recently been used as a model for dna filament dynamics  @xcite .
+one of the first and simplest descriptions was given as the rouse model  @xcite , which is a bead - spring model  @xcite , where the continuous filament is modelled at a mesoscopic scale with beads connected by springs .
+the only forces exerted on beads are spring forces from adjacent springs , as well as gaussian noise .
+hydrodynamic forces between beads and excluded volume effects are neglected in the model in favour of simplicity and computational speed , but the model manages to agree with several properties of polymer chains from experiments  @xcite .
+other models exist , for example the zimm model introduces hydrodynamic forces  @xcite between beads , or bending potentials can be introduced to form a wormlike chain and give a notion of persistence length  @xcite , see , for example , review article  @xcite or books  @xcite on this subject .
+most of the aforementioned models consider the filament on only a single scale . in some applications ,
+a modeller is interested in a relatively small region of a complex system .
+then it is often possible to use a hybrid model which is more accurate in the region of interest , and couple this with a model which is more computationally efficient in the rest of the simulated domain  @xcite .
+an application area for hybrid models of polymer chains is binding of a protein to the dna filament , which we study in this paper . the model which we have created uses rouse dynamics for a chain of dna , along with a freely diffusing particle to represent a binding protein .
+as the protein approaches the dna , we increase the resolution in the nearby dna filament to increase accuracy of our simulations , whilst keeping them computationally efficient .
+in this paper we use the rouse model for analysis due to its mathematical tractability and small computational load .
+such a model is applicable to modelling dna dynamics when we consider relatively low resolutions , when hydrodynamic forces are negligible and persistence length is significantly shorter than the kuhn length between each bead  @xcite .
+the situation becomes more complicated when we consider dna modelling at higher spatial resolutions .
+inside the cell nucleus , genetic information is stored within strands of long and thin dna fibres , which are separated into chromosomes .
+these dna fibres are folded into structures related to their function .
+different genes can be enhanced or inhibited depending upon this structure  @xcite .
+folding also minimises space taken up in the cell by dna  @xcite , and can be unfolded when required by the cell for different stages in the cell cycle or to alter gene expression .
+the folding of dna occurs on multiple scales . on a microscopic scale ,
+dna is wrapped around histone proteins to form the nucleosome structure  @xcite .
+this in turn gets folded into a chromatin fibre which gets packaged into progressively higher order structures until we reach the level of the entire chromosome  @xcite .
+the finer points of how the nucleosome packing occurs on the chromatin fibre and how these are then packaged into higher - order structures is still a subject of much debate , with long - held views regarding mesoscopic helical fibres becoming less fashionable in favour of more irregular structures in vivo  @xcite .    in the most compact form of chromatin ,
+many areas of dna are not reachable for vital reactions such as transcription  @xcite .
+one potential explanation to how this is overcome by the cell is to position target dna segments at the surface of condensed domains when it is needed  @xcite , so that transcription factors can find expressed genes without having to fit into these tightly - packed structures .
+this complexity is not captured by the multiscale model of protein binding presented in this paper . however ,
+if one uses the developed refinement of the rouse model together with a more detailed modelling approach in a small region of dna next to the binding protein , then such a hybrid model can be used to study the effects of microscopic details on processes over system - level spatial and temporal scales .
+when taking this multiscale approach , it is necessary to understand the error from including the less accurate model in the hybrid model and how the accuracy of the method depends on its parameters .
+these are the main questions studied in this paper .
+the rest of the paper is organized as follows . in section  [ secmrbs ] , we introduce a multi - resolution bead - spring model which generalizes the rouse model . we also introduce a discretized version of this model which enables the use of different timesteps in different spatial regions . in section  [ section3 ]
+, we analyze the main properties of the multi - resolution bead - spring model .
+we prove two main lemmas giving formulas for the diffusion constant and the end - to - end distance .
+we also study the appropriate choice of timesteps for numerical simulations of the model and support our analysis by the results of illustrative computer simulations .
+our main application area is studied in section  [ section4 ] where we present and analyze a dna binding model .
+we develop a method to increase the resolution in existing segments on - the - fly using the metropolis - hastings algorithm . in section  [ secdiscussion ] ,
+we conclude our paper by discussing possible extensions of the presented multiscale approach ( by including more detailed models of dna dynamics ) and other multiscale methods developed in the literature .
+we generalize the classical rouse bead - spring polymer model  @xcite to include beads of variable sizes and springs with variable spring constants . in definition
+[ defmrbs ] , we formulate the evolution equation for this model as a system of stochastic differential equations ( sdes )
+. we will also introduce a discretized version of this model in algorithm  [ algoneiter ] , which will be useful in sections  [ section3 ]  and  [ section4 ] where we use the multi - resolution bead - spring model to develop and analyze multiscale models for dna dynamics .
+[ defmrbs ] let @xmath0 be a positive integer .
+a multi - resolution bead - spring polymer of size @xmath1 consists of a chain of @xmath1 beads of radius @xmath2 , for @xmath3 , connected by @xmath4 springs which are characterized by their spring constants @xmath5 , for @xmath6 .
+the positions @xmath7 $ ] of beads evolve according to the system of sdes ( for @xmath3 ) @xmath8 where @xmath9 is the frictional drag coefficient of the @xmath10-th bead given by stokes theorem , @xmath11 is the solvent viscosity , @xmath12 $ ] is a wiener process , @xmath13 is absolute temperature , @xmath14 is boltzmann s constant and we assume that each spring constant @xmath5 can be equivalently expressed in terms of the corresponding kuhn length @xmath15 by @xmath16 we assume that the behaviour of boundary beads ( for @xmath17 and @xmath18 ) is also given by equation @xmath19 simplified by postulating @xmath20 and @xmath21    _ [ figmrbeadspring ] ]    in figure  [ figmrbeadspring ] , we schematically illustrate a multi - resolution bead - spring polymer for @xmath22 .
+the region between the @xmath23-th and the @xmath24-th bead is described with the highest resolution by considering smaller beads and springs with larger spring constants ( or equivalently with smaller kuhn lengths ) .
+the scalings of different parameters in definition  [ defmrbs ] are chosen so that we recover the classical rouse model  @xcite if we assume @xmath25 and @xmath26
+. then equation ( [ sdedef ] ) simplifies to @xmath27 where @xmath28 , @xmath29 and we again define @xmath20 and @xmath30 in equations for boundary beads . in the polymer physics literature
+@xcite , the rouse model ( [ sderouse ] ) is equivalently written as @xmath31 where random thermal noises @xmath32 exerted on the beads from brownian motion are characterized by the moments  @xcite @xmath33 where @xmath34 and @xmath35 . for the remainder of this paper
+, we will use the sde notation as given in  ( [ sderouse ] ) , because we will often study numerical schemes for simulating polymer dynamics models .
+the simplest discretization of ( [ sderouse ] ) is given by the euler - maruyama method  @xcite , which uses the finite timestep @xmath36 and calculates the position vector @xmath37 of the @xmath10-th bead , @xmath38 , at discretised time @xmath39 by @xmath40 for @xmath41 , where @xmath42 is normally distributed random variable with zero mean and unit variance ( i.e. @xmath43 ) for @xmath44 . in order to discretize the multi - resolution bead - spring model ,
+we allow for variable timesteps .
+[ defvartimestep ] let @xmath45 and let @xmath46 , @xmath47 be positive integers such that @xmath48 or @xmath49 for @xmath50 .
+let us assume that at least one of the values of @xmath46 is equal to 1 .
+we define @xmath51 for @xmath6 and we call @xmath52 a timestep associated with the @xmath10-th spring .
+definition  [ defvartimestep ] specifies that all timesteps must be integer multiples of the smallest timestep @xmath36 .
+the timesteps associated with two adjacent springs are also multiples of each other .
+the time evolution of the multi - resolution bead - spring model is computed at integer multiples of @xmath36 .
+one iteration of the algorithm is shown in algorithm  [ algoneiter ] .
+the position of the @xmath10-th bead is updated at integer multiples of @xmath53 by calculating the random displacement due to brownian motion , with displacement caused by springs attached to the bead also updated at integer multiples of the timesteps associated with each spring , i.e. @xmath54 or @xmath55 considering the situation that all beads , springs and timesteps are the same , then one can easily deduce the following result .
+update positions of internal beads which are connected to two springs : + update of the first bead : + update of the last bead : +    [ lemconsnum ] let @xmath56 , @xmath57 , @xmath58 and @xmath45 be positive constants and @xmath0 be an integer .
+consider a multi - resolution bead - spring polymer of size @xmath1 with @xmath59 , @xmath60 , for @xmath3 , and @xmath61 , for @xmath6 .
+let the timesteps associated with each spring be equal to @xmath36 , i.e. @xmath62 in definition  @xmath63 then algorithm @xmath64 is equivalent to the euler - maruyama discretization of the rouse model given as equation @xmath65 .
+lemma  [ lemconsnum ] shows that the multi - resolution bead - spring model is a generalization of the rouse model . in the next section
+, we will study properties of this model which will help us to select the appropriate parameter values for this model and use it in multiscale simulations of dna dynamics .
+we have formulated a multiscale rouse model which varies the kuhn lengths throughout the filament , but we would like to keep properties of the overall filament constant regardless of the resolution regime being considered for the filament .
+we consider a global statistic for the system to be _ consistent _ if the expected value of the statistic is invariant to the resolution regime being considered for the filament .
+we consider the _ self diffusion constant _ and _ root mean squared ( rms ) end - to - end distance _ as two statistics we wish to be consistent in our system , which can be ensured by varying the bead radius and the number of beads respectively .
+the precise way to vary these properties will be explored in this section .
+the _ self diffusion constant _ is defined as @xmath66 where @xmath67 is the _ centre of mass _ of the polymer chain at time @xmath39 , which is defined by @xmath68 definition ( [ eq : com ] ) is an extension to the definition given by doi and edwards  @xcite for the centre of mass of a continuous chain on only one scale . if all beads have the same radius @xmath69 ( i.e. if @xmath59 for @xmath70 ) , then equation ( [ eq : com ] ) simplifies to the centre of mass definition for the classical rouse model . in this case , the self diffusion constant is given by  @xcite @xmath71 where @xmath1 is the number of beads .
+this result explains the , on the face of it , counterintuitive scaling of equation ( [ eq : com ] ) with @xmath2 .
+if we suppose that each bead had the same density , then the mass of each bead would be proportional to its volume , i.e. to @xmath72 . however , in definition ( [ eq : com ] ) , we have used weights @xmath2 instead of @xmath73 because beads do not represent physical bead objects like nucleosomes , but representations of the filament around it , so the bead radius scales with the amount of surrounding filament , which is linear in bead radius in this formulation .
+if we consider dna applications , we could imagine each bead as a tracker for individual base pairs at intervals of , say , thousands of base pairs away from each other along the dna filament .
+the filament in the model is then drawn between adjacent beads .
+this linear scaling with @xmath2 can also be confirmed using equation  ( [ eq : rousediff ] ) for the classical rouse model .
+if we describe the same polymer using a more detailed model consisting of twice as many beads ( i.e. if we change @xmath1 to @xmath74 ) , then we have to halve the bead radius ( i.e. change @xmath69 to @xmath75 ) to get a polymer model with the same diffusion constant  ( [ eq : rousediff ] ) .
+in particular , the mass of a bead scales with @xmath69 ( and not with @xmath76 ) . in the next lemma
+, we extend result  ( [ eq : rousediff ] ) to a general multi - resolution bead - spring model .
+[ lemdg ] let us consider a multi - resolution bead - spring polymer of size @xmath1 and a set of timesteps associated with each spring satisfying the assumptions of definitions  @xmath77 and @xmath78 .
+then the self diffusion constant of the polymer evolution described by algorithm  @xmath64 is given by @xmath79    algorithm  @xmath64 describes one iteration of our numerical scheme . multiplying the steps corresponding to the @xmath10-th bead by @xmath2 and summing over all beads ,
+we obtain how @xmath80 changes during one timestep @xmath36 . since @xmath9 ,
+tension terms cancel after summation and the evolution rule for @xmath80 simplifies to @xmath81 where @xmath82 $ ] and function @xmath83 is defined for positive integers @xmath84 and @xmath85 by @xmath86 let us denote by @xmath87 the least common multiple of @xmath88 every bead is updated in algorithm  @xmath64 at integer multiples of @xmath89 .
+we can eliminate function @xmath90 from equation ( [ rgequation ] ) if we consider the evolution of @xmath91 when time @xmath39 is evaluated at integer multiples of @xmath89 .
+we obtain the evolution rule @xmath92 for @xmath93 $ ] , where we used the fact that the sum of normally distributed random variables is again normally distributed . dividing equation ( [ rgequation2 ] ) by @xmath94
+, we obtain @xmath95.\ ] ] using definition ( [ dgdef ] ) , we obtain ( [ eq : sdc ] ) .    the formula ( [ eq : sdc ] ) is a generalization of equation ( [ eq : rousediff ] ) obtained for the rouse model .
+it is invariant to the resolutions provided that the mass of the filament @xmath94 remains constant through selection of the number of beads and bead radius , therefore the self diffusion constant is consistent .
+we define the _ end - to - end vector _ @xmath96 from one end of the filament to the other  @xcite .
+an important statistic to consider related to this is the _ root mean squared ( rms ) end - to - end distance _ of the filament @xmath97 .
+the expected value of the long - time limit of the rms end - to - end distance , denoted @xmath98 , for the classical rouse model is given by  @xcite @xmath99 we generalize this result in the following lemma .
+[ lemrms ] let us consider a multi - resolution bead - spring polymer of size @xmath1 satisfying the assumptions of definition  @xmath77 .
+then @xmath100 and the long - time limit of the rms end - to - end distance is given by @xmath101    equations ( [ sdedef ] ) describe a system of @xmath102 linear sdes .
+however , the sdes corresponding to different spatial dimensions are not coupled .
+we therefore restrict our investigation to the behaviour of the first coordinates of each vector in  ( [ rmsbond ] ) .
+let us arrange the differences of the first coordinates of subsequent beads into the @xmath103-dimensional vector @xmath104.\ ] ] then sdes ( [ sdedef ] ) can be rewritten to the system of sdes for @xmath105 in the matrix form @xmath106 where @xmath107 is a three - diagonal matrix given by @xmath108 @xmath109 is a two - diagonal matrix given by @xmath110 and @xmath111 is @xmath1-dimensional noise vector @xmath112^t . $ ]
+the stationary covariance matrix , defined by @xmath113 is the solution of lyapunov equation  @xcite @xmath114 .
+it can be easily verified that the unique solution of this equation is diagonal matrix @xmath115 with diagonal elements @xmath116 @xmath117 multiplying this result by 3 ( the number of coordinates ) , we obtain  ( [ rmsbond ] ) . the end - to - end distance can be rewritten as @xmath118 substituting into  ( [ eqrmsend ] ) , using  ( [ rmsbond ] ) and the fact that the stationary covariance matrix @xmath119 is diagonal , we obtain  ( [ eqrmsend ] ) .
+lemmas  [ lemdg ] and  [ lemrms ] describe theoretical results which have been derived under slightly different assumptions .
+lemma  [ lemdg ] is formulated as a property of algorithm  [ algoneiter ] , but the same result , equation ( [ eq : sdc ] ) , also holds when we calculate the self - diffusion coefficient of the sde formulation of the multi - resolution bead - spring model ( [ sdedef ] ) .
+algorithm  [ algoneiter ] is designed in such a way that all force terms corresponding to springs cancel when the evolution equation for @xmath120 is derived ( see equation ( [ rgequation ] ) ) . in particular ,
+lemma  [ lemdg ] holds for any choices of the lengths of timesteps associated with different springs .    on the other hand ,
+lemma  [ lemrms ] describes the property of the sde formulation ( [ sdedef ] ) .
+if we use a discretized version of ( [ sdedef ] ) , then we introduce a discretization error .
+this error can be made smaller by choosing smaller timesteps . in this section ,
+we show that the smallest timesteps are only required in the regions with the highest spatial resolution .
+we define a family of optimal multi - resolution ( omr ) models designed to have macroscopic properties invariant to resolution regime .
+[ defomr ] let us consider a bead - spring polymer consisting of @xmath1 beads of radius @xmath69 connected by @xmath103 springs with the kuhn length @xmath121 and simulated by @xmath65 with timestep @xmath36 .
+let us divide the polymer into @xmath122 regions containing @xmath123 , @xmath124 , consecutive springs , i.e. @xmath125 the first region contains springs indexed by @xmath126 and the @xmath84-th region , @xmath127 , contains springs indexed by @xmath128 .
+let us associate with each region an integer resolution @xmath129 , where @xmath130 or @xmath131 , for @xmath127 , and @xmath132 for @xmath133 , with at least one region in resolution @xmath134 which is the region with the finest detail .
+larger values of @xmath135 represent coarser representations of the filament .
+we define the omr model as the multi - resolution bead - spring model which consists of @xmath136 regions of consecutive beads and springs . in the @xmath84-th region
+, we have @xmath137 springs with kuhn length @xmath138 and associated time steps @xmath139 given by @xmath140 where @xmath141 is the radius of beads which are connected to two springs which have the same kuhn length @xmath138 .
+we assume that the bead radius of beads on region boundaries sharing springs with kuhn lengths @xmath142 and @xmath138 is @xmath143 , for @xmath144 moreover , we assume that the bead radius of the first and last bead of the polymer chain are equal to @xmath145 and @xmath146 , respectively .    substituting scalings ( [ sjscalings ] ) into ( [ eq : com ] ) , and using ( [ nm1assum ] )
+, we obtain that the omr model satisfies @xmath147 substituting into ( [ eq : sdc ] ) , we deduce that the omr model has the same self - diffusion constant as the original detailed model ( given by ( [ eq : rousediff ] ) ) .
+considering the limit @xmath148 , we can use lemma  [ lemrms ] and scalings ( [ sjscalings ] ) to derive the expected rms end - to - end distance for the filament : @xmath149 which is again independent of the choice of resolutions @xmath129 , @xmath124 . as
+the kuhn length and bead radius vary across resolutions , it is important to consider the numerical stability of the model  @xcite .
+we choose timesteps to be sufficiently small so that solutions do not grow exponentially large . in discretized equations of algorithm  [ algoneiter ]
+, drift terms appear in the form @xmath150 , which is proportional in the @xmath84-th region of the omr model to @xmath151 using scalings ( [ sjscalings ] ) and assuming that @xmath152 is of the same order as the kuhn length @xmath138 , we obtain that the size of ( [ driftscal ] ) scales with @xmath129 . assuming that @xmath36 is chosen in the original fine scale model so that @xmath153 is small compared to the kuhn length @xmath121 , then the drift term of the omr model , given by ( [ driftscal ] ) is also small compared to @xmath154 the characteristic lengthscale of the omr model in the @xmath84-th region , @xmath155    next , we compare the number of calculations made by the original detailed single - scale rouse model with the omr model .
+the @xmath84-th region has @xmath137 springs simulated with timestep @xmath139 . using scalings ( [ sjscalings ] )
+, we obtain that we use @xmath156-times fewer calculations in the @xmath84-th region by advancing fewer beads over larger timesteps . assuming that the computational intensity of the simulation of the detailed model in each region is proportional to the size of the region , @xmath157
+, we can quantify the fraction of computational time which is spent by the omr model ( as compared to the detailed model ) by @xmath158 for example , if we coarse - grained the detailed model everywhere using the integer resolution @xmath159 , then ( [ nm1assum ] ) and ( [ fraccost ] ) implies that we speed up our simulations by the factor of 64 .      in this section
+we show that simulations of the omr method match the original single - scale rouse model .
+we also compare this to analytic results predicted from equations  ( [ eq : sdc ] ) and  ( [ eq : rmse2e ] ) for the rms end - to - end distance and the self diffusion constant of a filament in an equilibrium state . for the detailed model ,
+we choose the parameters : @xmath160 where the kuhn length is chosen to be longer than the persistence length of dna  @xcite , and the other parameters are chosen arbitrarily . for the remainder of this paper , we shall use @xmath161 , @xmath162 and @xmath163 the viscosity of water .
+we compare two resolution regimes for the same system , with the single scale model considering the full system in high resolution and a multiscale model considering the middle @xmath164 of the filament in high resolution and the remainder in low resolution .
+the corresponding parameters of the omr model are given in table  [ tab : consistencyparams ] .
+the omr model contains 69 beads connected by 68 springs , while the original detailed model is given by 501 beads connected by 500 springs .
+._parameters of the omr model system used to demonstrate consistency . _
+[ tab : consistencyparams ] [ cols="^,^,^,^",options="header " , ]     at different initial starting distances the model runs until the protein is either bound or has escaped the filament . in figure
+[ fig : transcriptionresults ] , we present the probability of binding of the protein to the filament , @xmath165 , as a function of the initial distance @xmath166 $ ] of the protein from the middle bead of the filament .
+we estimate @xmath165 as a fraction of simulations which end up with the protein bound to dna .
+each data point in figure  [ fig : transcriptionresults ] represents the value of @xmath165 estimated from @xmath167 independent realizations of the process . if @xmath168 , then the protein is immediately bound to dna , i.e. @xmath169 for @xmath168 .
+if @xmath170 , then the probability of binding is nonzero , because the initial placement , @xmath171 , is the distance of the protein from the centre of the filament . in particular , the minimum distance from protein to filament is less than or equal to the initial placement distance , @xmath171 , and the simulations ( with the possibility of binding ) take place even if @xmath170 .
+, depending on starting distance , @xmath171 , from the filament for the single - scale ( black points ) and omr ( blue line ) models .
+error bars give a 95% confidence interval based on the wilson score interval for binomial distributions  @xcite .
+_ [ fig : transcriptionresults ] ]    due to computational constraints of the single - scale model we consider a selection of initial distances at points @xmath172 m , @xmath173 ( black points ) , where error bars give a 95% confidence interval based on the wilson score interval for binomial distributions  @xcite .
+we run simulations for more initial distances , @xmath174 m , @xmath175 ( blue line ) , using the computationally efficient omr model and present our results as the blue line in figure  [ fig : transcriptionresults ] .
+we see that @xmath165 is very similar between the single - scale and omr models .
+the model also succeeds in reducing computational time . for @xmath167 simulations with the protein starting @xmath176 from the middle bead , with parameters given in table  [ tab : transcriptionparmas ] ,
+the omr model represented a 3.2-times speedup compared to the detailed model , with only a 3-times resolution difference .
+we expect for larger resolution differences to see greater improvements in speed .
+in this paper we have extended basic filament modelling techniques to multiple scales by developing omr methods .
+we have presented an mcmc approach for increasing the resolution along a static filament segment , as well as an extension to the rouse model to dynamically model a filament which considers multiple scales .
+the bead radius , as well as the number of beads associated with each resolution , is altered to maintain consistency with the end - to - end distance and diffusion of a filament across multiple scales , as well as the timestep to ensure numerical convergence .
+we have then illustrated the omr methodology using a simple model of protein binding to a dna filament , in which the omr model gave similar results to the single - scale model .
+we have also observed a 3.2-times speed - up in computational time on a model which considers only a 3-times increase in resolution , which illustrates the use of the omr approach as a method to speed up simulations whilst maintaining the same degree of accuracy as the more computationally intensive single - scale model .
+the speed - up in computational time could be further increased by replacing brownian dynamics based on time - discretization ( [ eq : particlediffuse ] ) by event - based algorithms such as the fpkmc ( first passage kinetic monte carlo ) and gfrd ( green s function reaction dynamics ) methods  @xcite .
+when considering the zooming out of the dna binding model , note that it is generally possible to zoom in and out repetitively , as long as the dynamics are such that we can generate a high resolution structure independent from the previous one ( i.e. , once we zoom out , the microscopic structure is completely forgotten ) . however , particularly in the case of chromatin , histone modification and some dna - binding proteins may act as long - term memory at a microscopic scale below the scales currently considered . to reflect the effect of the memory , some properties of the microscopic structure should be maintained even after zooming out .
+fractal dimension may serve as a candidate of indices  @xcite , which can be also estimated in living cells by single - molecule tracking experiments  @xcite .
+the omr method could be applied to modern simulations of dna and other biological polymers which use the rouse model  @xcite in situations where certain regions of the polymer require higher resolutions than other regions .
+the model considered in this report uses rouse dynamics , which is moderately accurate given its simplicity , but as we zoom in further towards a binding site , then we will need to start to consider hydrodynamic forces and excluded volume effects acting between beads .
+models which include hydrodynamic interactions such as the zimm model  @xcite have previously been used to look at filament dynamics  @xcite .
+therefore it is of interest to have a hybrid model which uses the rouse model in low resolutions and the zimm model in high resolutions . the combination of different dynamical models might give interesting results regarding hierarchical structures forming as we move between resolutions .
+as we go into higher resolutions , strands of dna can be modelled as smooth  @xcite , unlike the fjc model where angles between beads are unconstrained .
+the wormlike chain model of kratky and porod  @xcite , implemented via algorithm by hagermann and zimm  @xcite , gives a non - uniform probability distribution for the angles between each bead .
+allison  @xcite then implements the zimm model dynamics on top of the static formulation to give bending as well as stretching forces .
+another interesting open multiscale problem is to implement this at higher resolutions , with the rouse model at lower resolutions , in order to design a hybrid model .    to introduce even more realism
+, we would see individual histones and consider forces between these as in the model of rosa and everaers  @xcite which includes lennard - jones and fene forces between beads .
+as we approach an atomistic level , it may be interesting to consider a molecular dynamics approach to modelling the dna filament .
+coarser brownian dynamics models can be estimated from molecular dynamics models either analytically  @xcite or numerically  @xcite , depending on the complexity of the molecular dynamics model .
+a variety of structure - based coarse - grained models have been used for chromatin ( e.g.  @xcite ) , also with transcription factors  @xcite .
+multiscale modelling techniques ( e.g.  @xcite with iterative coarse - graining ) , as well as adaptive resolution models ( e.g.  @xcite for solvent molecules ) , have been developed .
+we expect these studies will connect with polymer - like models at a certain appropriate length and time scale . on top of this , models for the target searching process by proteins such as transcription factors could be improved ( for example , by incorporating facilitated diffusion under crowded environment  @xcite ) .
+the need for developing and analyzing multiscale models of dna which use one of the above detailed simulation approaches for small parts of the dna filament is further stimulated by recent experimental results .
+chromosome conformation capture ( 3c)-related techniques , particularly at a genome - wide level using high - throughput sequencing ( hi - c  @xcite ) , provide the three - dimensional structure of the chromosomes in an averaged manner .
+moreover , recent imaging techniques have enabled us to observe simultaneously the motion and transcription of designated gene loci in living cells  @xcite .
+simulated processes could be compared with such experimental results .
+recent hi - c experiments also revealed fine structures such as loops induced by dna - binding proteins  @xcite . to develop more realistic models ,
+information about the binding sites for these proteins may be utilized when we increase the resolution in our scheme .
+s. shinkai , t. nozaki , k. maeshima , and y. togashi .
+dynamic nucleosome movement provides structural information of topological chromatin domains in living human cells .
+biorxiv doi:10.1101/059147 , 2016 .

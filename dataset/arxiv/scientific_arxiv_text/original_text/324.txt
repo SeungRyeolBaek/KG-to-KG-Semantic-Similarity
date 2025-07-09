@@ -1,0 +1,30 @@
+following the main text , the evolution operator associated with the embedding hamiltonian @xmath90 can be implemented via 4 control-@xmath91 gates ( @xmath92 ) , and a single qubit rotation @xmath93 .
+these gates act as @xmath94 with @xmath95 , and @xmath96 . the indices @xmath97 and @xmath98 indicate on which particle the operators act .
+the circuit for the embedding quantum simulator consists of a sequence of gates applied in the following order : @xmath99 simple algebra shows that this expression can be recast as @xmath100 explicitly exhibiting the equivalence between the gate sequence and the evolution under the hamiltonian of interest .
+the evolution of the reduced circuit is given by a @xmath93 rotation of qubit @xmath16 , followed by two consecutive control - z gates on qubits @xmath51 and @xmath12 , both controlled on qubit @xmath16 , see fig .
+[ fig : sm1 ]  ( a ) .
+these logic operations are experimentally implemented by devices that change the polarization of the photons , where the qubits are encoded , with transformations as depicted in fig .
+[ fig : sm1 ]  ( b ) . for single qubit rotations , we make use of half - wave plates ( hwp s ) , which shift the linear polarization of photons . for the two - qubit gates , we make use of two kinds of partially - polarizing beam splitters ( ppbs s ) .
+ppbs s of type @xmath51 have transmittances @xmath101 and @xmath102 for horizontal and vertical polarizations , respectively .
+ppbs s of type @xmath12 , on the other hand , have transmittances @xmath103 and @xmath104 . their effect can be expressed in terms of polarization dependant input - output relations  with the transmitted mode corresponding to the output mode  of the bosonic creation operators as @xmath105 where @xmath106 ( @xmath107 ) stands for the @xmath97-th input ( output ) port of a ppbs with transmittance @xmath108 for @xmath109-polarized photons .
+our circuit is implemented as follows : the first @xmath93 rotation is implemented via a hwp oriented at an angle @xmath110 with respect to its optical axis .
+the rest of the target circuit , corresponding to the sequence of two control - z gates , can be expressed in terms of the transformation of the input to output creation operators as @xmath111 where @xmath112 , @xmath113 , and @xmath114 denote the creation operators acting on qubits @xmath16 , @xmath51 , and @xmath12 , respectively .
+these polarization transformations can be implemented with a probability of @xmath115 via a @xmath22-fold coincidence detection in the circuit depicted in fig .
+[ fig : sm1 ]  ( b ) . in this dual - rail representation of the circuit , interactions of modes @xmath116 and
+@xmath117 with vacuum modes are left implicit .
+the @xmath118 and @xmath119 single qubit gates in fig .
+[ fig : sm1 ]  ( b ) are implemented by hwp s with angles @xmath120 and @xmath16 , respectively . in terms of bosonic operators ,
+these gates imply the following transformations , @xmath121    according to all the input - output relations involved , it can be calculated that the optical elements in fig .
+[ fig : sm1 ]  ( b ) implement the following transformations @xmath122 if events with @xmath16 photons in some of the three output lines of the circuit are discarded .
+thus , this linear optics implementation corresponds to the evolution of interest with success probability @xmath123 .
+given the probabilistic nature and low efficiency of down - conversion processes , multi - photon experiments are importantly limited by low count - rates . in our case ,
+typical two - photon rates from source are around @xmath124  khz at @xmath74 pump ( two - photon rates are approx . linear with pump power ) , which after setup transmission ( @xmath125 ) and @xmath126 success probability of one controlled - sign gate , are reduced to about @xmath127  khz ( @xmath51  khz ) at @xmath74 ( @xmath72 ) pump .
+these count - rates make it possible to run the two - photon protocol , described in the main text , at low powers in a reasonable amount of time .
+however , this situation is drastically different in the three - photon protocol , where we start with @xmath128  hz of @xmath39-fold events from the source , in which case after setup transmission , @xmath115 success probability of two gates , and @xmath129 transmission in each of two @xmath12  nm filters used for this case , we are left with as few as @xmath130  mhz ( @xmath131  mhz ) at @xmath74 ( @xmath72 ) pump ( @xmath39-fold events reduce quadratically with pump ) .
+consequently , long integration times are needed to accumulate meaningful statistics , imposing a limit in the number of measured experimental settings .
+to estimate the effect of power - dependent higher - order terms in the performance of our protocols , we inspect the pump power dependence of extracted concurrence from both methods .
+[ fig : sm2 ] shows that the performances of both protocols decrease at roughly the same rate with increasing pump power , indicating that in both methods the extracted concurrence at @xmath72 pump is close to performance saturation .
+the principal difference between the two methods is that in the three - qubit protocol one of the photons originates from an independent down - conversion event and as such will present a slightly different spectral shape due to a difficulty in optimizing the phase - matching condition for both forward and backward directions simultaneously . to reduce this spectral mismatch , we used two @xmath12  nm filters at the output of the two spatial modes where interference from independent events occurs , see fig .
+[ fig : sm3 ] .
+note that not identical spectra are observed .
+this limitation would be avoided with a source that presented simultaneous high indistinguishability between all interfering photons .

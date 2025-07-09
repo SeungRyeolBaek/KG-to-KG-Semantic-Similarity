@@ -1,0 +1,429 @@
+{
+  "nodes": [
+    {
+      "id": "Franklin County",
+      "type": "Location",
+      "properties": {}
+    },
+    {
+      "id": "Inmate",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Drug",
+      "type": "Substance",
+      "properties": {}
+    },
+    {
+      "id": "Opioids",
+      "type": "Substance",
+      "properties": {}
+    },
+    {
+      "id": "Facility",
+      "type": "Location",
+      "properties": {}
+    },
+    {
+      "id": "Technology",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Jail",
+      "type": "Location",
+      "properties": {}
+    },
+    {
+      "id": "Incident",
+      "type": "Event",
+      "properties": {}
+    },
+    {
+      "id": "Female Inmates",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Mercy Hospital",
+      "type": "Location",
+      "properties": {}
+    },
+    {
+      "id": "Washington",
+      "type": "Location",
+      "properties": {}
+    },
+    {
+      "id": "Detention Deputies",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Sheriff Steve Pelton",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Suspect",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Body Cavity",
+      "type": "Body part",
+      "properties": {}
+    },
+    {
+      "id": "Prisons",
+      "type": "Location",
+      "properties": {}
+    },
+    {
+      "id": "Authorities",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Probable Cause",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Judge",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Search Warrant",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Medical Officials",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Hospital",
+      "type": "Location",
+      "properties": {}
+    },
+    {
+      "id": "Security Devices",
+      "type": "Tool",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Inmate",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Facility",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "LOCATED_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Inmate",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Jail",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "LOCATED_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Inmate",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Drug",
+        "type": "Substance",
+        "properties": {}
+      },
+      "type": "SMUGGLED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Inmate",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Opioids",
+        "type": "Substance",
+        "properties": {}
+      },
+      "type": "SMUGGLED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Facility",
+        "type": "Location",
+        "properties": {}
+      },
+      "target": {
+        "id": "Technology",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "REQUIRES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Facility",
+        "type": "Location",
+        "properties": {}
+      },
+      "target": {
+        "id": "Jail",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "DIFFERENT_THAN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Incident",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Female Inmates",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "INVOLVED_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Incident",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Mercy Hospital",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "OCCURRED_AT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Female Inmates",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Mercy Hospital",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "TRANSFERRED_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Female Inmates",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Jail",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "RETURNED_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Detention Deputies",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Facility",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "RESPONSIBLE_FOR",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Sheriff Steve Pelton",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Facility",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "RESPONSIBLE_FOR",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Suspect",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Drug",
+        "type": "Substance",
+        "properties": {}
+      },
+      "type": "HID_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Suspect",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Body Cavity",
+        "type": "Body part",
+        "properties": {}
+      },
+      "type": "HID_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Jail",
+        "type": "Location",
+        "properties": {}
+      },
+      "target": {
+        "id": "Prisons",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "DIFFERENT_THAN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Authorities",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Probable Cause",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "REQUIRES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Authorities",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Judge",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "GETS_APPROVAL_FROM",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Authorities",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Search Warrant",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "GETS_APPROVAL_FROM",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Authorities",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Medical Officials",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "CONDUCTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Sheriff Steve Pelton",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Hospital",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "TRANSFER_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Jail",
+        "type": "Location",
+        "properties": {}
+      },
+      "target": {
+        "id": "Hospital",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "TRANSFER_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Jail",
+        "type": "Location",
+        "properties": {}
+      },
+      "target": {
+        "id": "Security Devices",
+        "type": "Tool",
+        "properties": {}
+      },
+      "type": "PURCHASING",
+      "properties": {}
+    }
+  ]
+}

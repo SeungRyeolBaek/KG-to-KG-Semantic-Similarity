@@ -1,0 +1,321 @@
+{
+  "nodes": [
+    {
+      "id": "Comsol Multiphysics Software",
+      "type": "Software",
+      "properties": {}
+    },
+    {
+      "id": "Linear Optical Response",
+      "type": "Simulation",
+      "properties": {}
+    },
+    {
+      "id": "Sic Pillar",
+      "type": "Structure",
+      "properties": {}
+    },
+    {
+      "id": "Floquet Boundary Conditions",
+      "type": "Boundary condition",
+      "properties": {}
+    },
+    {
+      "id": "Periodic Boundary Conditions",
+      "type": "Boundary condition",
+      "properties": {}
+    },
+    {
+      "id": "P-Polarized Plane Wave",
+      "type": "Wave",
+      "properties": {}
+    },
+    {
+      "id": "Electric Field",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "Nonlinear Polarization",
+      "type": "Polarization",
+      "properties": {}
+    },
+    {
+      "id": "Nonlinear Susceptibility",
+      "type": "Susceptibility",
+      "properties": {}
+    },
+    {
+      "id": "Scattered Electric Field",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "id": "Shg Output",
+      "type": "Output",
+      "properties": {}
+    },
+    {
+      "id": "Power Flow",
+      "type": "Flow",
+      "properties": {}
+    },
+    {
+      "id": "Fundamental Frequency",
+      "type": "Frequency",
+      "properties": {}
+    },
+    {
+      "id": "Sic Susceptibilities",
+      "type": "Susceptibility",
+      "properties": {}
+    },
+    {
+      "id": "Shg Spectra",
+      "type": "Spectra",
+      "properties": {}
+    },
+    {
+      "id": "Input Power Density",
+      "type": "Power density",
+      "properties": {}
+    },
+    {
+      "id": "Shg Output Power",
+      "type": "Output power",
+      "properties": {}
+    },
+    {
+      "id": "Area",
+      "type": "Area",
+      "properties": {}
+    },
+    {
+      "id": "Peak",
+      "type": "Peak",
+      "properties": {}
+    },
+    {
+      "id": "Excitation",
+      "type": "Excitation",
+      "properties": {}
+    },
+    {
+      "id": "Sphp Monopole Mode",
+      "type": "Mode",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Comsol Multiphysics Software",
+        "type": "Software",
+        "properties": {}
+      },
+      "target": {
+        "id": "Linear Optical Response",
+        "type": "Simulation",
+        "properties": {}
+      },
+      "type": "UTILIZED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Simulation",
+        "type": "Simulation",
+        "properties": {}
+      },
+      "target": {
+        "id": "Sic Pillar",
+        "type": "Structure",
+        "properties": {}
+      },
+      "type": "CONSTRUCTED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Sic Pillar",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Floquet Boundary Conditions",
+        "type": "Boundary condition",
+        "properties": {}
+      },
+      "type": "APPLIED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Sic Pillar",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Periodic Boundary Conditions",
+        "type": "Boundary condition",
+        "properties": {}
+      },
+      "type": "APPLIED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "P-Polarized Plane Wave",
+        "type": "Wave",
+        "properties": {}
+      },
+      "target": {
+        "id": "Sic Pillar",
+        "type": "Structure",
+        "properties": {}
+      },
+      "type": "LAUNCHED_TOWARDS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Sic Pillar",
+        "type": "Structure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Electric Field",
+        "type": "Field",
+        "properties": {}
+      },
+      "type": "RECORDED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Electric Field",
+        "type": "Field",
+        "properties": {}
+      },
+      "target": {
+        "id": "Nonlinear Polarization",
+        "type": "Polarization",
+        "properties": {}
+      },
+      "type": "TRANSLATED_INTO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Nonlinear Polarization",
+        "type": "Polarization",
+        "properties": {}
+      },
+      "target": {
+        "id": "Scattered Electric Field",
+        "type": "Field",
+        "properties": {}
+      },
+      "type": "CONSIDERED_AS_SOURCE_OF",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Scattered Electric Field",
+        "type": "Field",
+        "properties": {}
+      },
+      "target": {
+        "id": "Shg Output",
+        "type": "Output",
+        "properties": {}
+      },
+      "type": "GENERATED_BY_INTEGRATING_POWER_FLOW_THROUGH",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Fundamental Frequency",
+        "type": "Frequency",
+        "properties": {}
+      },
+      "target": {
+        "id": "Sic Susceptibilities",
+        "type": "Susceptibility",
+        "properties": {}
+      },
+      "type": "USED_FOR_CALCULATING_SHG_SPECTRA",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shg Spectra",
+        "type": "Spectra",
+        "properties": {}
+      },
+      "target": {
+        "id": "Samples",
+        "type": "Samples",
+        "properties": {}
+      },
+      "type": "CALCULATED_FOR_SAMPLES_WITH_VARIOUS_PERIODICITY_OF_PILLARS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Input Power Density",
+        "type": "Power density",
+        "properties": {}
+      },
+      "target": {
+        "id": "Shg Output Power",
+        "type": "Output power",
+        "properties": {}
+      },
+      "type": "KEPT_CONSTANT_FOR_CALCULATIONS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shg Output Power",
+        "type": "Output power",
+        "properties": {}
+      },
+      "target": {
+        "id": "Area",
+        "type": "Area",
+        "properties": {}
+      },
+      "type": "NORMALIZED_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shg Spectra",
+        "type": "Spectra",
+        "properties": {}
+      },
+      "target": {
+        "id": "Peak",
+        "type": "Peak",
+        "properties": {}
+      },
+      "type": "DEMONSTRATED_SINGLE_PRONOUNCED_PEAK_CORRESPONDING_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Peak",
+        "type": "Peak",
+        "properties": {}
+      },
+      "target": {
+        "id": "Sphp Monopole Mode",
+        "type": "Mode",
+        "properties": {}
+      },
+      "type": "CORRESPONDING_TO_EXCITATION_OF",
+      "properties": {}
+    }
+  ]
+}

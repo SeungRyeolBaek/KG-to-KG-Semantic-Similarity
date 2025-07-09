@@ -1,0 +1,151 @@
+set theory was proposed with the intended use to the fields of pattern classification and information processing [ 1 ] .
+indeed , it has attracted many researchers , and their applications to real - life problems are of a great significance .
+simpson [ 2 ] presented the fuzzy min max neural network ( fmm ) , which makes the soft decisions to organize hyperboxes by its degree of belongingness to a particular class , which is known as a membership function .
+hyperbox is a convex box , completely represented by min and max points .
+fmm classification results are completely characterized with the help of a membership function .
+along with this elegant proposal , [ 2 ] also presented the characteristics for a good classifier , among which , nonlinear separability , overlapping classes and tuning parameters have proved to be of a great interest to a research community .
+simpson also presented a clustering approach using fmm in [ 3 ] .
+but many problems in real - life require both classification and clustering . to address this issue ,
+gfmm [ 4 ] brought this generality . besides generality
+, the more significant contribution has proved to be modification to the membership function .
+the presented membership function computes the belongingness to the hyperbox so that the membership value decreases uniformly as we move away from the hyperbox .
+another weakness of fmm was the patterns belonging to overlapped region , where the rate of misclassification is considerably high .
+the tuning parameter , theta ( @xmath0 ) , which controls the size of a hyperbox , has a great impact on this overlapped region .
+smaller theta values produce less overlaps producing high training accuracy , but the efficacy of the network gets compromised , and for larger theta values , accuracy gets decreased .
+multiple approaches were presented to tackle this problem .
+earlier , the process of contraction [ 1][4 ] was employed , which used to eliminate all the overlapping regions .
+this method had the intrinsic problem of representing patterns not belonging to any of the hyperbox , in turn lessening the accuracy .
+exclusion / inclusion fuzzy classification ( hefc ) network was introduced in [ 5 ] , which further reduced the number of hyperboxes and increased the accuracy .
+inclusion hyperboxes were used to represent patterns belonging to the same class , while exclusion hyperboxes were used to denote the overlapped region , treated as if it is a hyperbox .
+this notion is used as it is in almost all the newly introduced models [ 6][7][8][9 ] .
+fuzzy min - max neural network classifier with compensatory neurons ( fmcn ) was acquainted in [ 7 ] .
+authors categorized the overlap into three parts , namely , full containment , partial overlap and no overlap , and then a new membership function to accommodate belongingness based on the compensation value .
+authors also analyzed that neatly taking care of overlapped region automatically brings the insensitivity to the hyperbox size parameter , @xmath0 .
+data core based fuzzy min - max neural network ( dcfmn ) [ 8 ] further improved upon fmcn .
+authors eliminated the need of overlap categorization .
+they also suggest a new membership function based on noise , geometric center and data cores of the hyperbox .
+wherein dcfmn improved the accuracy in few cases , there are some serious drawbacks .
+*   * dcfmn introduces two new user controlled variables , @xmath1 and @xmath2 .
+@xmath1 is used to suppress the influence of the noise and @xmath2 is used to control the descending speed of the membership function .
+these two variables greatly impact the performance of the model and naturally , defining their values is a tedious job .
+* there exists an underlying assumption that noise within all the hyperboxes is similar , which may not be true .
+moreover , the sequence of the training exemplars plays a role as well .
+* mlf conveys that this membership function is not always preferred , in that , it does not work well for high percentage of samples belonging to overlapped area .
+multi - level fuzzy min max neural network ( mlf ) [ 9 ] addresses the problem of overlapped region with an elegant approach .
+it uses separate levels for overlapping regions , and monotonically decreases the hyperbox size ( @xmath0 ) . for most cases , mlf produces 100% training accuracy .
+though mlf achieves a significant milestone , entertaining testing accuracy is rather more important than training accuracy , as it greatly sways the usage of the algorithm in practical scenarios . in this brief , we identify and define a new boundary region , where misclassification rate is substantial . to the best of our knowledge
+, this kind of approach is presented for the first time , at least we did not come across any similar published work .
+hence we propose a method , based on data centroids , to evidentially prove that handling this newly introduced area of confusion between hyperboxes of different classes significantly increases the testing accuracy .    the paper is organized as follows .
+mlf is reviewed in section ii .
+we introduced d - mlf algorithm in section iii .
+an illustrative example and comparative results of d - mlf with mlf model are presented in section iv and v , respectively .
+finally , conclusion is given in section vi .
+multi - level fuzzy min max neural network ( mlf ) is a classifier which efficiently caters misclassification of patterns belonging to overlapped region by maintaining a tree structure , which is a homogeneous tree [ 9 ] .    in mlf training phase
+, exemplars are continuously recurred to form the hyperboxes and overlaps , each recursion resulting in one level .
+this recursive procedure is carried till the predefined maximum depth or till overlap exists .
+hyperbox expansion , based on hyperbox size controlling parameter ( @xmath0 ) , is validated using equation ( 1 ) and expansion is carried out by equation ( 2 ) .
+@xmath3 @xmath4    where , @xmath5 and @xmath6 are min point and max point of hyperbox _ b _ respectively , @xmath7 is the @xmath8 dimension of pattern _ a _ and _ d _ is the number of dimensions . also , prior to each recursion , @xmath0 is updated using equation ( 3 )    @xmath9    where , @xmath10 and @xmath11 thetas for next level and previous level , respectively and @xmath12 , being the value between 0 and 1 , ensures that size of hyperbox in overlapped region is less than its previous level .    in the testing phase
+, overlap regions are first traversed recursively , to discover appropriate subnet to which a test pattern belongs to .
+thence , in that level , a class of hyperbox having highest membership value with the hyperboxes in the discovered subnet , is selected as a predicted class .
+mlf is able to achieve higher accuracy rates than previous fmm methods .
+this is due to an elegant treatment to the boundary region  a confusion area .
+but , after training , there exists a room for yet another boundary .
+the region where membership function generates very close by values , it becomes difficult to assign a class with high degree of assurance .
+as per our experiments , mlf , and all the previous classifiers , do not perform well in this area . hence , a definition of this new region , and a methodology to solve it is proposed .
+in this section , we give details about a newly proposed algorithm , specifically , we define a new boundary region generated due to trained network and propose a solution to correctly classify test patterns belonging to it .
+_ figure 1 _ describes the d - mlf structure , each node in s@xmath13net contains two segments , hyperboxes segment ( hbs ) and overlapped segment ( ols ) .
+hbs represents hyperboxes generated in that level , whereas ols represents overlaps in that level .
+along with hyperbox information , data centroid ( dc ) .
+_ figure 2 _ shows the area of confusion considered by mlf and d - mlf .
+we introduce a boundary region that exists between any two hyperboxes , where , according to our experiments , the rate of misclassification is comparatively high . in the proposed method ,
+the recommendations of mlf are intact , in addition to it , we use distance with the data centroids to improve a classification rate in the anew boundary region .
+similar to the mlf learning procedure , d - mlf maintains @xmath14 using hbs and ols structures .
+first , all the patterns are passed through , resulting in creation and expansion of hyperboxes using equations ( 1 ) and ( 2 ) .
+then each hyperbox is checked with the rest of hyperboxes to detect the overlap using equation ( 4 ) .
+@xmath15    where @xmath16 and @xmath17 are the max points and @xmath18 and @xmath19 are the min points of the two hyperboxes , among which overlap is tested . moreover , d - mlf adds a new step at the learning phase , known as data centroid ( dc ) computation , where dc of all input patterns belonging to each hyperbox is maintained in the hbs .
+dc is computed as follows : @xmath20 where @xmath21 is the data centroid of the @xmath22 hyperbox , @xmath23 is number of patterns belonging to @xmath22 hyperbox and @xmath24 is the @xmath8 pattern in @xmath22 hyperbox .
+if there exists an overlap , patterns belonging to the overlapped region are again sent to training procedure , where hbs and ols creation takes place for the next level .
+this process of recursion is followed afterward to train all the patterns . due to computation of ols and process of finding patterns belonging to ols ,
+d - mlf and mlf are not single pass algorithms .
+in general , given the n overlaps in the first level , entire training data has to be traversed n times .
+thereafter , in the subsequent stages , data belonging to overlapped region is traversed in order of magnitude of number of overlaps in that region .
+this is a novel finding , and contradictory to what mlf authors have mentioned [ 9 ] .
+note that , the patterns belonging to overlapped region are not part of the dc computation .
+this step makes sure that training patterns balloting for more than one class are omitted in the final decision making .
++    net = d - mlf - train(net , @xmath0 ) + @xmath25    @xmath26 = h.centroid / h.membercount return null h.centroid + = sample ; h.membercount + = 1 ; create new hyperbox h ; h.centroid = sample ; h.membercount = 1 ; sdata = samples which inhabit in i region ; hi.centroid -= s ; hi.membercount -= 1 ; create an overlap - box as @xmath27 and add to ols @xmath28 = d - mlf - train ( sdata , @xmath29 ) ; link @xmath27 to @xmath28 with link @xmath30 ;    @xmath31      the original mlf used a decision making based on the subnets decision .
+the selected subnet need not be a leaf node in the tree .
+we do not alter this model , rather enhance the process of how subnet marks the choice .
+membership function mentioned in the equation ( 11 ) is used against overlapped boxes .
+after recursively traversing the ols an appropriate subnet is discovered , to which test pattern belongs to .
+a membership function explained in the equation ( 6 ) is used , this time , to compute the membership with the hyperboxes within the selected subnet .
+@xmath32  \\ [ 1- f(v_i^j - a_h^i,\gamma_i ) ] ) )
+\\      f(x,\gamma)=\begin{cases}{1}\;\;\;\ ; if \ ; x\gamma\;>\;1 \\ { x}\;\;\;\ ; if \
+; 0\;\leq\;x\gamma\;\leq\;1 \\ { 0}\;\;\;\ ; if \ ; x\gamma\;<\;0 \end{cases } \end{split}\ ] ]    where @xmath33 represents belongingness of sample @xmath34 with @xmath35 hyperbox .
+@xmath36 is a difference between min and max point with sample @xmath34 and @xmath37 is a tuning parameter to control fuzziness .    within these membership values , hyperboxes with highest two values are selected to define a boundary .
+medial region of these hyperboxes , controlled by @xmath38 , is treated as a boundary region .
+@xmath38 is a user controlled variable , mentioned in the percentage value . at this point , it is necessary to check if test pattern belongs to the boundary region .
+we define @xmath391 and @xmath392 as incident angles between test pattern and two hyperboxes , respectively .
+inclusion value is evaluated as follows : @xmath40    further , based on the inclusion value , output class is chosen .
+if pattern exists in the area outside of the defined boundary , we simply follow a path of mlf , and classify the pattern based on the maximum membership value , which is already computed .
+if the pattern belongs to the boundary region , euclidean distance [ 10 ] between test pattern and the data centroids of the selected hyperboxes is computed .
+hence , centered on the inclusion value , the output of the network is denoted as either the class of maximum @xmath41 among all the hyperboxes , or as a minimum of the distances of the topmost two hyperboxes    @xmath42    where @xmath43 is given by ; @xmath44    where @xmath45 is the @xmath8 class membership for the test sample in @xmath46 subnet , @xmath47 is edge between subnet @xmath46 and the corresponding overlap box that enables the subnet if test sample is in this overlap box . and
+@xmath48 is the output of ols , which is given by equation ( 10 ) @xmath49    where @xmath50 is number of overlap boxes in ols and @xmath51 is membership function of the @xmath35 overlap box for test sample @xmath34 , given by equation ( 11 ) @xmath52    and @xmath53 is given by equation(12 ) @xmath54    where @xmath55 is the euclidean distance computed amongst sample @xmath46 and the data centroid of the topmost @xmath8 hyperbox using equation ( 13 ) @xmath56    out = d - mlf - test(net , sample ) + @xmath25    out = d - mlf - test ( @xmath28 , sample ) ; return null ; mv = [ ] ; mv + = membership ( sample , @xmath57 ) ; = [ max(mv ) , max(mv ( mv @xmath58 max(mv ) ) ) ] d = eudistance(sample , h1.dc , h2.dc ) ; out = min(d).class ; out = max ( mv).class ;    @xmath31
+in this illustration , we describe the effectiveness of the proposed model , clearly pointing out the identification and handling of the stated area of confusion .
+_ figure 3 _ illustrates the 2-diamentional data space .
+we consider 14 data samples for training and 6 data samples for testing .
+hyperbox size parameter ( @xmath0 ) is fixed at 0.3 and a boundary parameter ( @xmath38 ) is fixed at 5% .
+both mlf and d - mlf create two hyperboxes at @xmath59 layer .
+d - mlf also computes data centroids ( dc ) for each hyperbox , @xmath60 and @xmath61 . here ,
+data centroids of @xmath60 and @xmath61 are @xmath62 and @xmath63 , respectively .
+patterns which do not belong to boundary region are classified correctly by mlf .
+but when it comes to boundary region , it fails to correctly classify the patterns . whereas the proposed d - mlf works better in the boundary region as well , as its decision making is not completely based on the membership value , but it also considers data centroids .
+it can be noted that the patterns in the above example are not uniformly spread out . which is a very common scenario in real - world examples .
+it occurs because of the dominance of the parameters such as outliers , temporal nature of the variables , etc . due to them ,
+most of the times , the patterns within the overall data , and in case of fuzzy min max hierarchy , within hyperboxes , will not be steadily spread across all the dimensions .
+as demonstrated above , our proposed method treats them elegantly , without many of the modifications to the state of the art .
+performance of proposed method ( d - mlf ) is studied on the basis of the classification rate .
+various experiments were carried out to test d - mlf on different standard datasets .
+standard datasets such as iris , glass , wine , wisconsin breast cancer ( wbc ) , wisconsin diagnostic breast cancer ( wdbc ) and ionosphere were used .
+these datasets were obtained from the uci repository of machine learning databases [ 11 ] . in these experiments , hyperbox size parameter ( @xmath0 )
+was chosen as 0.2 , 0.5 and 0.9 .
+this was to perform the measurements across the spectrum .
+as we increase the size of the hyperbox , the number of overlaps increase , and so does the misclassification rate .
+we split the data evenly for training and testing .
+the average results are shown over 100 experiments .
+for each iteration , training and testing data is chosen randomly .
+_ table 1 _ shows results , we compare our results to mlf method , as it has been already proven to perform better than the previously proposed fmm methods [ 9 ] .
+.results [ cols="^,^,^,^",options="header " , ]
+in this brief , we introduced a new boundary region and distance based mlf classification method to handle patterns belonging to that boundary region . a data centroid based method , d - mlf , minimizes significance of outliers and similar errors in decision making .
+it has been evidentially proven that the proposal outperforms all the previously proposed fmm methods .
+more importantly , we have proposed a model suited for data in the real world , extending the state of the art .
+d - mlf will help humongous application areas such as security , natural language processing , biomedical reasoning , etc .
+l. a. zadeh , fuzzy sets , information and control , vol .
+3 , pp . 338 - 353 , 1965 .
+p. k. simpson , fuzzy min - max neural networks .
+classification , ieee trans .
+neural network , vol .
+5 , pp . 776786 , sep . 1992 . simpson , p. k. , fuzzy min - max neural networks - part 2 : clustering , ieee trans fuzzy systems 1 , 3245 1993 .
+b. gabrys and a. bargiela , general fuzzy min - max neural network for clustering and classification , ieee trans .
+neural networks , vol .
+11 , pp . 769783 , 2000 .
+bargiela , w. pedrycz , and m. tanaka , an inclusion / exclusion fuzzy hyperbox classifier , int .
+based intell .
+, vol . 8 , no .
+2 , pp . 9198 , 2004 .
+a. rizzi , m. panella , and f. m. f. mascioli , adaptive resolution min - max classifiers , ieee trans .
+neural netw .
+2 , pp . 402414 , mar .
+a. v. nandedkar and p. k. biswas , a fuzzy min - max neural network classifier with compensatory neuron architecture , ieee trans .
+neural netw .
+1 , pp . 4254 , jan . 2007
+. h. zhang , j. liu , d. ma , and z.wang , data - core - based fuzzy min 
+max neural network for pattern classification , ieee trans .
+neural netw .
+12 , pp . 23392352 , dec .
+r. davtalab , m. h. dezfoulian and m. mansourizade , multi - level fuzzy min - max neural network classifier , ieee trans .
+neural netw .
+3 , pp.470 - 481 , mar .
+w. bezdel and h. j. chandler , results of an analysis and recognition of vowels by computer using zero - crossing data , proc .
+2060 - 2066 , nov .
+k. bache and m. lichman . , uci machine learning repository , school inf .
+california , irvine , ca , usa . , 2013.[online available ] http://archive.ics.uci.edu/ml

@@ -1,0 +1,202 @@
+epidemic models are classically phrased in ordinary differential equation ( ode ) systems for the host population divided in classes of susceptible individuals and infected ones ( sis system ) , or in addition , a class of recovered individuals due to immunity after an infection to the respective pathogen ( sir epidemics ) .
+the infection term includes a product of two variables , hence a non - linearity which in extended systems can cause complicated dynamics . though these simple sis and sir models only show fixed points as equilibrium solutions , they already show non - trivial equilibria arising from bifurcations , and in stochastic versions of the system critical fluctuations at the threshold .
+further refinements of the sir model in terms of external forcing or distinction of infections with different strains of a pathogen , hence classes of infected with one or another strain recovered from one or another strain , infected with more than one strain etc .
+, can induce more complicated dynamical attractors including equilibria , limit cycles , tori and chaotic attractors .
+classical examples of chaos in epidemiological models are childhood diseases with extremely high infection rates , so that a moderate seasonal forcing can generate feigenbaum sequences of period doubling bifurcations into chaos .
+the success in analysing childhood diseases in terms of modelling and data comparison lies in the fact that they are just childhood diseases with such high infectivity .
+otherwise host populations can not sustain the respective pathogens .
+in other infectious diseases much lower forces of infection have to be considered leading to further conceptual problems with noise affecting the system more than the deterministic part , leading even to critical fluctuations with power law behaviour , when considering evolutionary processes of harmless strains of pathogens versus occasional accidents of pathogenic mutants @xcite . only explicitly stochastic models , of which the classical ode models are mean field versions , can capture the fluctuations observed in time series data @xcite .
+more recently it has been demonstrated that the interaction of various strains on the infection of the host with eventual cross - immunities or other interactions between host immune system and multiple strains can generate complicated dynamic attractors .
+a prime example is dengue fever .
+a first infection is often mild or even asymptomatic and leads to life long immunity against this strain .
+however , a subsequent infection with another strain of the virus often causes clinical complications up to life threatening conditions and hospitalization , due to ade .
+more on the biology of dengue and its consequences for the detailed epidemiological model structure can be found in aguiar and stollenwerk @xcite including literature on previous modelling attempts , see also @xcite . on the biological evidence for ade
+see e.g. @xcite . besides the difference in the force of infection between primary and secondary infection , parametrized by a so called ade parameter @xmath1 , which has been demonstrated to show chaotic attractors in a certain parameter region , another effect , the temporary cross - immunity after a first infection against all dengue virus strains , parametrized by the temporary cross - immunity rate @xmath2 , shows bifurcations up to chaotic attractors in a much wider and biologically more realistic parameter region .
+the model presented in the appendix has been described in detail in @xcite and has recently been analysed for a parameter value of @xmath3 corresponding to on average half a year of temporary cross immunity which is biologically plausible @xcite . for increasing ade parameter @xmath1 first an equilibrium which bifurcates via a hopf bifurcation into a stable limit cycle and
+then after further continuation the limit cycle becomes unstable in a torus bifurcation .
+this torus bifurcation can be located using numerical bifurcation software based on continuation methods tracking known equilibria or limit cycles up to bifurcation points @xcite .
+the continuation techniques and the theory behind it are described e.g. in kuznetsov @xcite .
+complementary methods like lyapunov exponent spectra can also characterize chaotic attractor @xcite , and led ultimately to the detection of coexisting attractors to the main limit cycles and tori originated from the analytically accessible fixed point for small @xmath1 .
+such coexisting structures are often missed in bifurcation analysis of higher dimensional dynamical systems but are demonstrated to be crucial at times in understanding qualitatively the real world data , as for example demonstrated previously in a childhood disease study @xcite . in such a study first the understanding of the deterministic system s attractor structure is needed , and then eventually the interplay between attractors mediated by population noise in the stochastic version of the system gives the full understanding of the data .
+here we present for the first time extended results of the bifurcation structure for various parameter values of the temporary cross immunity @xmath2 in the region of biological relevance and multi - parameter bifurcation analysis .
+this reveals besides the torus bifurcation route to chaos also the classical feigenbaum period doubling sequence and the origin of so called isola solutions .
+the symmetry of the different strains leads to symmerty breaking bifurcations of limit cycles , which are rarely described in the epidemiological literature but well known in the biochemical literature , e.g for coupled identical cells .
+the interplay between different numerical procedures and basic analytic insight in terms of symmetries help to understand the attractor structure of multi - strain interactions in the present case of dengue fever , and will contribute to the final understanding of dengue epidemiology including the observed fluctuations in real world data . in the literature the multi - strain interaction leading to deterministic chaos via ade has been described previously , e.g. @xcite but neglecting temporary cross immunity and hence getting stuck in rather unbiological parameter regions , whereas more recently the first considerations of temporary cross immunity in rather complicated and up to now not in detail analysed models including all kinds of interations have appeared @xcite , in this case failing to investigate closer the possible dynamical structures .
+the multistrain model under investigation can be given as an ode system @xmath4 for the state vector of the epidemiological host classes @xmath5 and besides other fixed parameters which are biologically undisputed the parameter vector of varied parameters @xmath6 .
+for a detailed description of the biological content of state variables and parameters see @xcite .
+the ode equations and fixed parameter values are given in the appendix .
+the equilibrium values @xmath7 are given by the equilibrium condition @xmath8 , respectively for limit cycles @xmath9 with period @xmath10 .
+for chaotic attractors the trajectory of the dynamical system reaches in the time limit of infinity the attractor trajectory @xmath11 , equally for tori with irrational winding ratios . in all cases
+the stability can be analysed considering small perturbations @xmath12 around the attractor trajectories @xmath13 here , any attractor is notified by @xmath14 , be it an equilibrium , periodic orbit or chaotic attractor . in this ode system
+the linearized dynamics is given with the jacobian matrix @xmath15 of the ode system eq .
+( [ dynamicsf ] ) evaluated at the trajectory points @xmath14 given in notation of @xmath16 .
+the jacobian matrix is analyzed for equilibria in terms of eigenvalues to determine stability and the loss of it at bifurcation points , negative real part indicating stability .
+for the stability and loss of it for limit cylces floquet multipliers are more common ( essentially the exponentials of eigenvalues ) , multipliers inside the unit circle indicating stability , and where they leave eventually the unit circle determining the type of limit cycle bifurcations . and for chaotic systems lyapunov exponents are determined from the jacobian around the trajectory , positive largest exponents showing deterministic chaos , zero largest showing limit cycles including tori , largest smaller zero indicating fixed points .      to investigate the bifurcation structure of the system under investigation we first observe the symmetries due to the multi - strain structure of the model .
+this becomes important for the time being for equilibria and limit cycles .
+we introduce the following notation : with a symmetry transformation matrix @xmath17 @xmath18{c c c c c c c c c c }      1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\       0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\       0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\       0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\       0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\       0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\       0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\       0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\       0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\       0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \label{symmetrymatrix } \end{array } \right)\ ] ] we have the following symmetry : @xmath19    with @xmath20 equilibrium values or @xmath21 limit cycle for all times @xmath22 $ ] . for the right hand side @xmath23 of the ode system
+( [ dynamicsf ] ) the kind of symmetry found above is called @xmath0-symmetry when the following equivariance condition holds @xmath24 with @xmath17 a matrix that obeys @xmath25 and @xmath26 , where @xmath27 is the unit matrix .
+observe that besides @xmath17 also @xmath27 satisfies  ( [ eqn : equivariancecondition ] ) .
+the symmetry transformation matrix @xmath17 in eq .
+( [ symmetrymatrix ] ) fulfills these requirements .
+it is easy to verify that the @xmath0-equivariance conditions eq .
+( [ eqn : equivariancecondition ] ) and the properties of @xmath28 are satisfied for our ode system . in seydel @xcite a simplified version of the famous brusselator that shows this type of symmetry is discussed .
+there , an equilibrium and also a limit cycle show a pitchfork bifurcation with symmetry breaking .
+an equilibrium @xmath20 is called _ fixed _
+when @xmath29 ( see @xcite ) .
+two equilibria @xmath30 where @xmath31 , are called @xmath17-conjugate if their corresponding solutions satisfy @xmath32 ( and because @xmath26 also @xmath33 ) . for limit cycles
+a similar terminology is introduced .
+a periodic solution is called _ fixed _ when @xmath34 and the associated limit cycles are also called _ fixed _ @xcite .
+there is another type of periodic solution that is not fixed but called _ symmetric _ when    @xmath35    where @xmath10 is the period . again
+the associated limit cycles are also called _ symmetric_.
+both types of limit cycles @xmath36 are @xmath17-invariant as curves : @xmath37 .
+that is , in the phase - plane where time parameterizes the orbit , the cycle and the transformed cycle are equal .
+a @xmath17-invariant cycle is either fixed or symmetric .
+two noninvariant limit cycles ( @xmath38 ) are called @xmath17-conjugate if their corresponding periodic solutions satisfy @xmath39 .
+the properties of the symmetric systems and the introduced terminology are used below with the interpretation of the numerical bifurcation analysis results .
+we refer to @xcite for an overview of the possible bifurcations of equilibria and limit cycles of @xmath0-equivariant systems .
+we show the results of the bifurcation analysis in bifurcation diagrams for several @xmath40 values , varying @xmath1 continuously . besides the previously investigated case of @xmath41 , we show also a case of smaller and a case of larger @xmath40 value , obtaining more information on the bifurcations possible in the model as a whole .
+the above mentioned symmetries help in understanding the present bifurcation structure .
+for @xmath42 the one - parameter bifurcation diagram is shown in fig .
+[ fig : bifdia1phi ] a ) . starting with @xmath43 there is a stable fixed equilibrium , fixed in the above mentioned notion for symmetric systems .
+this equilibrium becomes unstable at a hopf bifurcation @xmath44 at @xmath45 .
+a stable fixed limit cycle originates at this hopf bifurcation .
+this limit cycle shows a supercritical pitch - fork bifurcation @xmath46 , i.e. a bifurcation of a limit cycle with floquet multiplier 1 , splitting the original limit cycle into two new ones . besides the now unstable branch two new branches originate for the pair of conjugated limit cycles .
+the branches merge again at another supercritical pitch - fork bifurcation @xmath46 , after which the limit cycle is stable again for higher @xmath47-values .
+the pair of @xmath17-conjugate limit cycles become unstable at a torus bifurcation @xmath48 at @xmath49 .
+\a ) = 3.3 cm @xmath50 b ) = 3.3 cm @xmath50 c ) = 3.3 cm @xmath50    besides this main bifurcation pattern we found two isolas , that is an isolated solution branch of limit cycles @xcite .
+these isola cycles @xmath36 are not @xmath17-invariant , that is @xmath51 .
+isolas consisting of isolated limit cycles exist between two tangent bifurcations .
+one isola consists of a stable and an unstable branch .
+the other shows more complex bifurcation patterns .
+there is no full stable branch . for @xmath52 at the tangent bifurcation @xmath10 a stable and an unstable limit cycle collide .
+the stable branch becomes unstable via a flip bifurcation or periodic doubling bifurcation @xmath53 , with floquet multiplier @xmath54 , at @xmath55 which is also pitchfork bifurcation for the period - two limit cycles . at the other end of that branch at the tangent bifurcation @xmath10 at @xmath56
+both colliding limit cycles are unstable .
+close to this point at one branch there is a torus bifurcation @xmath48 , also called neimark - sacker bifurcation , at @xmath57 and a flip bifurcation @xmath53 at @xmath58 which is again a pitchfork bifurcation @xmath59 for the period - two limit cycles .
+contiuation of the stable branch originating for the flip bifurcation @xmath53 at @xmath60 gives another flip bifurcation @xmath53 at @xmath61 and one closed to the other end at @xmath58 , namely at @xmath62 .
+these results suggest that for this isola two classical routes to chaos can exist , namely via the torus or neimark - sacker bifurcation where the dynamics on the originating torus is chaotic , and the cascade of period doubling route to chaos .      for @xmath63 the one - parameter bifurcation diagram
+is shown in fig .
+[ fig : bifdia1phi ] b ) .
+the stable fixed equilibrium becomes unstable at a supercritical hopf bifurcation @xmath44 at @xmath64 where a stable fixed limit cycle originates .
+this stable limit cycle becomes unstable at a superciritcal pitchfork bifurcation point @xmath46 at @xmath65 for a limit cycle .
+this point marks the origin of a pair of @xmath17-conjugate stable limit cycles besides the now unstable fixed limit cycle .
+here one has to consider the two infected subpopulations @xmath66 and @xmath67 to distinguish the conjugate limit cycles .
+because the two variables @xmath66 and @xmath67 are interchangeable this can also be interpreted as the stable limit cycles for the single variable say @xmath66 .
+the fixed stable equilibrium below the hopf bifurcation where we have @xmath68 , @xmath69 , @xmath70 and @xmath71 is a fixed equilibrium . for the fixed limit cycle in the parameter interval between the hopf bifurcation and the pitchfork bifurcation we have @xmath72 , @xmath73 , @xmath74 and @xmath75
+this means that at the hopf bifurcation @xmath44 the stable fixed equilibrium becomes an unstable fixed equilibrium . in the parameter interval between the two pitchfork bifurcations @xmath46 at @xmath65 and subcritical @xmath76 at @xmath77 , two stable limit cycles coexist and these limit cycles are @xmath17-conjugate . at the pitchfork
+bifurcation points the fixed limit cycle becomes unstable and remains fixed , and two stable @xmath17-conjugate limit cycles originate ( see ( * ? ? ?
+* theorem 7.7 ) ) .
+the invariant plane @xmath78 forms the separatrix between the pair of stable @xmath17-conjugate limit cycles @xmath79 and @xmath80 .
+the initial values of the two state variables @xmath81 and @xmath82 together with the point on the invariant plane , determine to which limit cycle the system converges .
+continuation of the stable symmetric limit cycle gives a torus or neimark - sacker bifurcation at point denoted by @xmath48 at @xmath83 . at his point
+the limit cycles become unstable because a pair of complex - conjugate multipliers crosses the unit circle .
+observe that at this point in the time series plot ( * ? ? ?
+* there fig .
+12 ) the chaotic region starts . in @xcite the following route to chaos ,
+namely the sequence of neimark - sacker bifurcations into chaos , is mentioned . increasing the bifurcation parameter @xmath47 along the now unstable pair of @xmath17-conjugate limit cycles leads to a tangent bifurcation @xmath10 at @xmath84 where a pair of two unstable limit cycles collide .
+this branch terminates at the second pitchfork bifurcation point denoted by @xmath85 at @xmath77 . because the first fold point gave rise to a stable limit cycle and this fold point to an unstable limit cycle we call the first pitchfork bifurcation supercritical and the latter pitchfork bifurcation subcritical .
+these results agree very well with the simulation results shown in the bifurcation diagram for the maxima and minima of the overall infected ( * ? ? ?
+* there fig .
+notice that auto @xcite calculates only the global extrema during a cycle , not the local extrema . fig .
+[ fig : bifdia1phi ] b ) shows also two isolas similar to those for @xmath86 in fig .
+[ fig : bifdia1phi ] a ) .      for @xmath87
+the bifurcation diagram is shown in fig [ fig : bifdia1phi ] c ) . in the lower @xmath47 parameter range there is bistability of two limit cycles in an interval bounded by two tangent bifurcations @xmath10 .
+the stable manifold of the intermediate saddle limit cycle acts as a separatrix .
+inceasing @xmath47 the stable limit cycles become unstable at the pitchfork bifurcation @xmath59 at @xmath88 . following the unstable primary branch , for larger values of @xmath47
+we observe an open loop bounded by two tangent bifurcations @xmath10 .
+the extreme value for @xmath47 is at @xmath89 .
+then lowering @xmath47 there is a pitchfork bifurcation @xmath59 at @xmath90 .
+later we will return to the description of this point .
+lowering @xmath47 further the limit cycle becomes stable again at the tangent bifurcations @xmath10 at @xmath91 .
+increasing @xmath47 this limit cycle becomes unstable again at the pitchfork bifurcation @xmath59 at @xmath92 .
+continuation of the secondary branch of the two @xmath17-conjugated limit cycles from this point reveals that the stable limit cycle becomes unstable at a torus bifurcation @xmath48 at @xmath93 .
+the simulation results depicted in ( * ? ? ?
+13 ) show that there is chaos beyond this point .
+the secondary pair of @xmath17-conjugate limit cycles that originate from pitchfork bifurcation @xmath59 at @xmath88 becomes unstable at a flip bifurcation @xmath53 .
+increasing @xmath47 further it becomes stable again at a flip bifurcation @xmath53 .
+below we return to the interval between these two flip bifurcations .
+the stable part becomes unstable at a tangent bifurcation @xmath10 , then continuing , after a tangent bifurcation @xmath10 and a neimark - sacker bifurcation @xmath48 .
+this bifurcation can lead to a sequence of neimark - sacker bifurcations into chaos .
+the unstable limit cycles terminates via a tangent bifurcation @xmath53 where the primary limit cycle possesses a pitchfork bifurcation @xmath59 at @xmath90 . at the flip bifurcation
+@xmath53 the cycle becomes unstable and a new stable limit cycle with double period emanates .
+the stable branch becomes unstable at a flip bifurcation again .
+we conclude that there is a cascade of period doubling route to chaos .
+similarly this happens in reversed order ending at the flip bifurcation where the secondary branch becomes stable again .
+\a ) = 3.3 cm @xmath50 b ) = 3.3 cm @xmath50 c ) = 3.3 cm @xmath50    fig .
+[ fig : bifdia1iphidd ] a ) gives the results for the interval @xmath94 where only the minima are show . in this plot also a `` period three '' limit cycle is shown . in a small region
+it is stable and coexists together with the `` period one '' limit cycle .
+the cycles are shown in fig .
+[ fig : bifdia1iphidd ] b ) and c ) for @xmath95 . the one in c )
+looks like a period-3 limit cycle . in fig .
+[ fig : bifdia1iphidd ] continuation of the limit cycle gives a closed graph bounded at the two ends by trangent bifurcations @xmath10 where a stable and an unstable limit cycle collide .
+the intervals where the limit cycle is stable , are on the other end bounded by flip bifurcations @xmath53 .
+one unstable part intersects the higher period cycles that originate via the cascade of period doubling between the period-1 limit cycle flip bifurcations @xmath53 at @xmath96 and @xmath97 .
+this suggest that the period-3 limit cycle is associated with a `` period-3 window '' of the chaotic attractor .
+we conjecture that this interval is bounded by two homoclinic bifurcations for a period-3 limit cycle ( see @xcite ) .
+the bifurcation diagram shown in ( * ? ? ?
+* there fig .
+13 ) shows the point where the chaotic attractor disappears abruptly , possible at one of the two homoclinic bifurcations .
+in that region the two conjugated limit cycles that originate at the pitchfork bifurcation @xmath59 at @xmath92 are the attractors .
+these results suggest that there are chaotic attractors associated with the period-1 limit cycle , one occurs via a cascade of flip bifurcations originating from the two ends at @xmath96 and @xmath97 and one via a neimark - sacker bifurcation @xmath48 at @xmath93 .
+we will now link the three studies of the different @xmath2 values by investigating a two - parameter diagram for @xmath47 and @xmath2 , concentrating especially on the creation of isolated limit cycles , which sometimes lead to further bifurcations inside the isola region .
+[ fig : phialphad ] gives a two - parameter bifurcation diagram where @xmath47 and @xmath98 are the free parameters . for low @xmath47-values
+there is the hopf bifurcation @xmath44 and all other curves are tangent bifurcation curves .
+= 4.0 cm    isolas appear or disappears upon crossing an isola variety . at an elliptic isola point
+an isolated solution branch is born , while at a hyperbolic isola point an isolated solution branch vanishes by coalescence with another branch @xcite . from fig .
+[ fig : phialphad ] we see that at two values of @xmath99 isolas are born .
+furthermore , period doubling bifurcations appear for lower @xmath100 values , indicating the feigenbaum route to chaos .
+however , only the calculation of lyapunov exponents , which are discussed in the next section , can clearly indicate chaos .
+the lyapunov exponents are the logarithms of the eigenvalues of the jacobian matrix along the integrated trajectories , eq .
+( [ dynamicsdeltaf ] ) , in the limit of large integration times . besides for very simple iterated maps
+no analytic expressions for chaotic systems can be given for the lyapunov exponents .
+for the calculation of the iterated jacobian matrix and its eigenvalues , we use the qr decomposition algorithm @xcite .
+\a ) = 3.3 cm @xmath50 b ) = 3.3 cm @xmath50 c ) = 3.3 cm @xmath50    in fig .
+[ fig : lyapspect6 ] we show for various @xmath2 values the four largest lyapunov exponents in the @xmath1 range between zero and one . for @xmath101 in fig .
+[ fig : lyapspect6 ] a ) we see for small @xmath1 values fixed point behaviour indicated by a negative largest lyapunov exponent up to around @xmath102 . there , at the hopf bifurcation point , the largest lyapunov exponent becomes zero , indicating limit cycle behaviour for the whole range of @xmath1 , apart from the final bit before @xmath103 , where a small spike with positive lyapunov exponent might be present , but difficult to distinguish from the noisy numerical background .    for @xmath104 in fig .
+[ fig : lyapspect6 ] b ) however , we see a large window with positive largest lyapunov exponent , well separated from the second largest being zero .
+this is s clear sign of deterministically chaotic attractors present for this @xmath1 range .
+just a few windows with periodic attractors , indicated by the zero largest lyapunov exponent are visible in the region of @xmath105 . for smaller @xmath1 values
+we observe qualitatively the same behaviour as already seen for @xmath101 .
+for the smaller value of @xmath106 in fig .
+[ fig : lyapspect6 ] c ) the chaotic window is even larger than for @xmath104 .
+hence deterministic chaos is present for temporary cross immunity in the range around @xmath107 in the range of @xmath1 between zero and one .
+we have presented a detailed bifurcation analysis for a multi - strain dengue fever model in terms of the ade parameter @xmath1 , in the previously not well investigated region between zero and one , and a parameter for the temporary cross immunity @xmath2 .
+the symmetries implied by the strain structure , are taken into account in the analysis .
+many of the possible bifurcations of equilibria and limit cycles of @xmath0-equivariant systems can be distinguished . using auto @xcite
+the different dynamical structures were calculated .
+future time series analysis of epidemiological data has good chances to give insight into the relevant parameter values purely on topological information of the dynamics , rather than classical parameter estimation of which application is in general restricted to farely simple dynamical scenarios .
+this work has been supported by the european union under the marie curie grant mext - ct-2004 - 14338 .
+we thank gabriela gomes and luis sanchez , lisbon , for scientific support .
+99    , _ evolution towards criticality in an epidemiological model for meningococcal disease _ , physics letters a * 317 * ( 2003 ) 8796 .
+, _ diversity in pathogenicity can cause outbreaks of menigococcal disease _ , proc .
+usa * 101 * ( 2004 ) 1022910234 .    ,
+_ a new chaotic attractor in a basic multi - strain epidemiological model with temporary cross - immunity _ , arxiv:0704.3174v1 [ nlin.cd ] ( 2007 ) ( accessible electronically at http://arxive.org ) .    ,
+_ scale - free network for a dengue epidemic
+_ , applied mathematics and computation * 159 * ( 2008 ) 376381 .
+, _ neutralization and antibody - dependent enhancement of dengue viruses _
+, advances in virus research * 60 * ( 2003 ) 42167 .    , _ epidemiology of dengue fever : a model with temporary cross - immunity and possible secondary infection shows bifurcations and chaotic behaviour in wide parameter regions _ , submitted ( 2008 ) .
+, _ auto 07p  continuation and bifurcation software for ordinary differential equations _ ,
+technical report : concordia university , montreal , canada ( 2007 ) ( accessible electronically at http://indy.cs.concordia.ca/auto/ ) .
+, _ elements of applied bifurcation theory _ applied mathematical sciences * 112 * , springer - verlag , 3 edition , new york , 2004 .    , _ chaotic evolution and strange attractors _ , cambridge university press , cambridge , 1989 .    , _ chaos in dynamical systems _ , cambridge university press , cambridge , 2002 .    , _ nonlinear time series analysis of empirical population dynamics _
+, ecological modelling * 75*/*76 * ( 1994 ) 171181 .    , _ the effect of antibody - dependent enhancement on the transmission dynamics and persistence of multiple - strain pathogens _ , proc .
+usa * 96 * ( 1999 ) 79094 .    , _ instabilities in multiserotype disease models with antibody - dependent enhancement _
+, journal of theoretical biology * 246 * ( 2007 ) 1827 .
+, _ ecological and immunological determinants of dengue epidemics _ , proc .
+usa * 103 * ( 2006 ) 1180211807 .
+, _ decreases in dengue transmission may act to increase the incidence of dengue hemorrhagic fever _ , proc .
+sci * 105 * ( 2008 ) 22382243 .    ,
+_ practical bifurcation and stability analysis - from equilibrium to chaos _ , springer - verlag , new york , 1994 .
+, _ singularities and groups in bifurcation theory _ , springer , new york , 1985 .    , _ routes to chaos in high - dimensional dynamical systems : a qualitative numerical study _ , physica d * 223 * ( 2006 ) 194207 .    ,
+_ homoclinic and heteroclinic orbits in a tri - trophic food chain _ , journal of mathematical biology * 39 * ( 1999 ) 1938 .    , _ multiple attractors and boundary crises in a tri - trophic food chain _ , mathematical biosciences * 169 * ( 2001 ) 109128 .
+, _ chaotic behaviour of a predator - prey system _ , dynamics of continuous , discrete and impulsive systems , series b : applications and algorithms * 10 * ( 2003 ) 259272 .    , _ consequence of symbiosis for food web dynamics _ , journal of mathematical biology * 49 * ( 2004 ) 227271 .
+, _ liapunov exponents from time series _ , phys .
+a * 34 * ( 1986 ) 49719 .
+the complete system of ordinary differential equations for a two strain epidemiological system allowing for differences in primary versus secondary infection and temporary cross immunity is given by @xmath108 for two different strains , @xmath109 and @xmath110 , we label the sir classes for the hosts that have seen the individual strains .
+susceptibles to both strains ( s ) get infected with strain @xmath109 ( @xmath66 ) or strain @xmath110 ( @xmath67 ) , with infection rate @xmath111 .
+they recover from infection with strain @xmath109 ( becoming temporary cross - immune @xmath112 ) or from strain @xmath110 ( becoming @xmath113 ) , with recovery rate @xmath114 etc .. with rate @xmath98 , the @xmath112 and @xmath113 enter again in the susceptible classes ( @xmath115 being immune against strain 1 but susceptible to 2 , respectively @xmath116 ) , where the index represents the first infection strain .
+now , @xmath115 can be reinfected with strain @xmath110 ( becoming @xmath117 ) , meeting @xmath67 with infection rate @xmath111 or meeting @xmath117 with infection rate @xmath118 , secondary infected contributing differently to the force of infection than primary infected , etc ..    we include demography of the host population denoting the birth and death rate by @xmath119 . for constant population size
+@xmath120 we have for the immune to all strains @xmath121 and therefore we only need to consider the first 9 equations of eq .
+( [ ode2strain ] ) , giving 9 lyapunov exponents . in our numerical studies
+we take the population size equal to @xmath122 so that numbers of susceptibles , infected etc .
+are given in percentage .
+as fixed parameter values we take @xmath123 , @xmath124 , @xmath125 .
+the parameters @xmath1 and @xmath2 are varied .

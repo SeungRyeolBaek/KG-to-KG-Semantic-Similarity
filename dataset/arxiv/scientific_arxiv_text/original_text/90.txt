@@ -1,0 +1,281 @@
+the increasing ability of the direct @xmath0-body method to provide reliable models of the dynamical evolution of star clusters has closely mirrored increases in computing power ( heggie 2011 ) .
+the community has progressed from small-@xmath0 models performed on workstations ( e.g. von hoerner 1963 ; mcmillan , hut & makino 1990 ; giersz & heggie 1997 ) to models of old open clusters and into the @xmath9 regime ( baumgardt & makino 2003 ) by making use of special - purpose grape hardware ( makino 2002 ) .
+software advances over a similar timeframe have produced sophisticated codes ( aarseth 1999 ; portegies zwart et al .
+2001 ) that increase the realism of the models by incorporating stellar and binary evolution , binary formation , three - body effects and external potentials . as a result
+, @xmath0-body models have been used in numerous ways to understand the evolution of globular clusters ( gcs : vesperini & heggie 1997 ; baumgardt & makino 2003 ; zonoozi et al .
+2011 ) , even though the best models still only touch the lower end of the gc mass - function ( see aarseth 2003 and heggie & hut 2003 for a more detailed review of previous work ) . at the other end of the spectrum , monte
+carlo ( mc ) models have proven effective at producing dynamical models of @xmath10particles ( giersz & heggie 2011 ) .
+these models have shown that clusters previously defined as non - core - collapse can actually be in a fluctuating post - core - collapse phase ( heggie & giersz 2008 ) . in practice
+the two methods are complimentary with mc informing the more laborious @xmath0-body approach ( such as refining initial conditions ) and @xmath0-body calibrating aspects of mc .
+in this paper we present an @xmath0-body simulation of star cluster evolution that begins with @xmath1 stars and binaries .
+this extends the @xmath0 parameter space covered by direct @xmath0-body models and performs two important functions .
+firstly it provides a new calibration point for the mc method  this statistical method is increasingly valid for increasing @xmath0 so calibrations at higher @xmath0 are more reliable .
+it also allows us to further develop our theoretical understanding of star cluster evolution and investigate how well inferences drawn from models of smaller @xmath0 scale to larger values .
+the latter is the focus of this current paper .
+a good example of the small-@xmath0 models that we wish to compare with is the comprehensive study of star cluster evolution presented by giersz & heggie ( 1997 ) using models that included a mass function , stellar evolution and the tidal field of a point - mass galaxy , albeit starting with @xmath7 stars instead of @xmath11 .
+more recent examples for comparison include baumgardt & makino ( 2003 ) and kpper et al .
+we were also motivated to produce a model that exhibited core - collapse close to a hubble time without dissolving by that time .
+what we find when interpreting this model is that much of the behaviour reported previously for smaller @xmath0-body models stands up well in comparison but that the actions of a binary comprised of two black holes ( bhs ) provides a late twist to the evolution of the cluster core .    in section 2
+we describe the setup of the model .
+this is followed by a presentation of the results in sections 3 to 7 focussing on general evolution ( cluster mass and structure ) , the impact of the bh - bh binary , mass segregation , velocity distributions and binaries ( binary fraction and binding energies ) . throughout these sections
+the results are discussed and compared to previous work where applicable .
+then in section 8 we specifically look at how the evolution timescale of the new model compares to findings presented in the past .
+for our simulation we used the nbody4 code ( aarseth 1999 ) on a grape-6 board ( makino 2002 ) located at the american museum of natural history .
+nbody4 uses the 4th - order hermite integration scheme and an individual timestep algorithm to follow the orbits of cluster members and invokes regularization schemes to deal with the internal evolution of small-@xmath0 subsystems ( see aarseth 2003 for details )
+. stellar and binary evolution of the cluster stars are performed in concert with the dynamical integration as described in hurley et al .
+( 2001 ) .
+the simulation started with @xmath2 single stars and @xmath3 binaries .
+we will refer to this as the k200 model .
+the binary fraction of 0.025 is guided by the findings of davis et al .
+( 2008 ) which indicated a present day binary fraction of @xmath12 for the globular cluster ngc@xmath13 , measured near the half - light radius of the cluster . as shown in hurley , aarseth & shara ( 2007 ) and discussed in hurley et al .
+( 2008 ) , this can be taken as representative of the initial binary fraction of the cluster .
+thus we adopted this value for our model .
+validation of the binary fraction approach will be provided in section 7 .
+masses for the single stars were drawn from the initial mass function ( imf ) of kroupa , tout & gilmore ( 1993 ) between the mass limits of 0.1 and @xmath14 .
+each binary mass was chosen from the imf of kroupa , tout & gilmore ( 1991 ) , as this had not been corrected for the effect of binaries , and the component masses were set by choosing a mass - ratio from a uniform distribution . in nbody4
+we assume that all stars are on the zero - age main sequence when the simulation begins and that any residual gas from the star formation process has been removed .
+a metallicity of @xmath15 was set for all stars .
+the orbital separations of the @xmath3 primordial binaries were drawn from the log - normal distribution suggested by eggleton , fitchett & tout ( 1989 ) with a peak at @xmath16au and a maximum of @xmath17au .
+orbital eccentricities of the primordial binaries were assumed to follow a thermal distribution ( heggie 1975 ) .    for the tidal field of the parent galaxy we have used the point - mass galaxy approach with the model cluster on a circular orbit at @xmath18kpc with an orbital velocity of @xmath19 . in setting @xmath20
+we have been primarily guided by a desire for the cluster to have its moment of core - collapse between @xmath21gyr .
+previous experience suggested that @xmath22kpc would provide this for a model starting with @xmath1 .
+we used a plummer density profile ( plummer 1911 ; aarseth , hnon & wielen 1974 ) and assumed the stars and binaries are in virial equilibrium when assigning the initial positions and velocities .
+the plummer profile formally extends to infinite radius so in practice a cut - off at a radius of @xmath23 is applied , where @xmath24 is the half - mass radius .
+this is to avoid rare cases of large distance in the initial distribution .
+the tidal field sets a tidal radius according to : @xmath25 where @xmath26 is the gravitational constant and @xmath27 is the cluster mass ( see giersz & heggie 1997 ) .
+we chose the @xmath0-body length - scale of our model so that the outermost star of the initial model sits at @xmath28 .
+this reflects the expansion expected when gas leftover from star formation is removed from the potential well ( which we do not model ) , hence our initial model should be more radially extended than a compact protocluster .
+stars were removed from the simulation when their distance from the density centre exceeds twice that of the tidal radius of the cluster .    with these choices
+the initial parameters of the k200 model were @xmath29 , @xmath30pc and @xmath31pc .
+the half - mass relaxation timescale of the initial model was @xmath32myr .
+much of the behaviour of this model will be compared to that reported by hurley et al .
+( 2008 ) for a model that started with @xmath33 single stars and @xmath3 binaries .
+this will be referred to as the k100 model .
+the k100 model was placed on a circular orbit about a point - mass galaxy at a radial distance of @xmath34kpc .
+it had the same number of binaries as the k200 model but twice the binary fraction .
+the parameters of the stars and binaries were set up in the same manner as described above for the k200 model .
+model orbiting at @xmath18kpc ( solid line ) , the hurley et al .
+( 2008 ) @xmath35 ( k100 ) model orbiting at @xmath34kpc ( dashed line ) and a @xmath35 model orbiting at @xmath36kpc ( dotted line ) .
+[ f : fig1],width=317 ]
+in figure  [ f : fig1 ] we look at the evolution of the total cluster mass with time for the k200 model .
+this simulation was stopped for analysis at @xmath4gyr having satisfied the goal of providing a post - core - collapse model ( see below ) at the approximate age of a milky way globular cluster . at this point
+the model cluster has lost @xmath37 of its initial mass . in terms of stars remaining at @xmath4gyr the k200 model
+has @xmath38 comprised of @xmath39 single stars and @xmath40 binaries .
+we include the evolution of the k100 model from hurley et al .
+( 2008 ) in figure  [ f : fig1 ] and see that at @xmath4gyr the two model clusters have the same amount of mass remaining ( after starting with a factor of two difference ) . for comparison
+we also show in figure  [ f : fig1 ] a model that started with @xmath8 stars on the same orbit as the k200 model .
+as expected this model does not last for a hubble time and is completely dissolved after about @xmath41gyr .
+the slope in the mass - age plane is similar to that of the k200 model and distinct from that of the k100 model with @xmath34kpc .
+an investigation of the mass - loss rates and dissolution times of star clusters as a function of orbit within the galaxy will be the subject of another paper ( madrid et al .
+2012 ) .
+figure  [ f : fig2 ] shows the behaviour of the core radius , the half - mass radius and the tidal radius as the k200 model evolves .
+both the half - mass and core radii show an initial increase corresponding to stellar evolution mass - loss from massive stars , which are mostly found in the inner regions of the cluster .
+the half - mass radius then plateaus before appearing to follow the decreasing trend of the tidal radius at later times . at @xmath4gyr
+we have @xmath42pc which is comparable to the average effective radius found for globular clusters
+( e.g. jordn et al . 2005 ) .
+the core - radius shows a deep minimum at @xmath5gyr which we identify as the moment that the initial core - collapse phase ends .
+this is based purely on inspection of figure  [ f : fig2 ] , noting that the same method 
+looking for the first deep minimum of the density- or mass - dependent central radius  has been commonly employed in the past ( e.g. baumgardt & makino 2003 ; hurley et al .
+2004 ; kpper et al . 2008 ) .
+at this point the core density is @xmath43 , increased from an initial value of @xmath44 .
+subsequently the core fluctuates markedly , corresponding to post - core - collapse oscillations highlighted by heggie & giersz ( 2009 ) .
+however , we note that the core exhibits fluctuating behaviour leading up to the moment of core - collapse as well .    -body core radius ( + symbols ) , the half - mass radius ( lower solid line ) and tidal radius ( upper solid line ) for the @xmath1 model . all radii are three - dimensional .
+the vertical dotted line at @xmath5gyr denotes the time we have identified with the end of the initial core - collapse phase .
+[ f : fig2],width=317 ]    the core radius in figure  [ f : fig2 ] is the density radius commonly used in @xmath0-body simulations ( casertano & hut 1985 ) , calculated from the density weighted average of the distance of each star from the density centre ( aarseth 2003 ) . following heggie & giersz ( 2009 )
+we have also looked at the dynamical core radius used in their monte carlo models , calculated as @xmath45 where @xmath46 is the mass - weighted central velocity dispersion and @xmath47 is the central density , both calculated from the innermost 20 stars . we find that @xmath48 and @xmath49 cover a similar range at all times .
+in particular , for the period @xmath50gyr , i.e. @xmath6gyr after core - collapse , both oscillate between 0.1 to @xmath51pc for the majority of the time . for reference ,
+the radius containing the inner 1% of the cluster mass is @xmath52pc over this period and is thus a good proxy for the average core radius . also following heggie & giersz ( 2009 )
+we have used the autocorrelation method to determine if there is any clear periodicity in the fluctuations of the @xmath0-body core radius in the @xmath6gyr subsequent to core - collapse .
+this showed a period of about @xmath53myr : greater than the crossing time ( few myr ) and less than the relaxation time ( @xmath54myr ) . in comparison ,
+heggie & giersz ( 2009 ) reported an oscillation period of @xmath55myr for their @xmath0-body model - body model was evolved for @xmath6gyr starting from a post - collapse monte carlo model at an age of @xmath4gyr .
+] , although this contained more @xmath0 than our post - collapse k200 model and correspondingly had a higher half - mass relaxation timescale of @xmath56myr .
+it is of interest to examine how previous @xmath0-body results reported for smaller @xmath0 models hold up in comparison to our new model .
+the k100 model of hurley et al .
+( 2008 ) reached a similar core radius at the end of core - collapse as did our k200 model ( @xmath57pc ) , albeit at a later time ( @xmath58gyr compared to @xmath5gyr ) .
+as noted above , the average value of @xmath48 near core - collapse is similar to the 1% lagrangian radius for the k200 model . for the k100 model @xmath48
+evolves similarly to the 2% lagrangian radius ( although it does dip down to the 1% radius on occasion ) and for the @xmath59 models of giersz & heggie ( 1997 ) @xmath48 is at the 5% lagrangian radius or greater .
+thus it seems that with increasing @xmath0 the depth of core - collapse increases relative to the cluster mass distribution . if we look instead at scaled quantities , particularly the evolution of the ratio @xmath60 as a function of age scaled by the half - mass relaxation timescale , we find that the k200 and k100 simulations track each other very well .
+the ratio starts at @xmath61 and steadily decreases to an average value of @xmath62 at the end of core - collapse .
+giersz & heggie ( 1997 ) find @xmath63 for their models at core - collapse , noting that they use @xmath49 rather than the casertano & hut ( 1985 ) definition and that latter is about twice as large in the post - collapse phase for their models ( we found that the two gave similar average values ) .
+mcmillan ( 1993 ) performed models with @xmath64 , primordial binaries and a tidal field . for these models
+@xmath60 stabilized at about 0.1 in good agreement with prior models of isolated clusters ( see mcmillan 1993 for details ) .
+it therefore seems that this can be taken as a reliable value for clusters at the end of core - collapse ( although see the next section for mention of some unusual cases ) .
+a remarkable feature in figure  [ f : fig2 ] is the sharp change in the behaviour of the core at @xmath65gyr , the last deep minimum , when the size of the core suddenly increases and evolves steadily from that point onwards .
+this change is related to an interaction within the core involving a binary comprised of two bhs .
+the binary in question is non - primordial . each bh formed from a massive single star within the first @xmath66myr of evolution with masses of @xmath67 and @xmath68 , respectively .
+the two bhs formed a binary at @xmath69myr in a four - body interaction , initially with a very high eccentricity and long orbital period of @xmath70d .
+it resided in the core for the majority of its lifetime and suffered a series of perturbations and interactions that saw the eccentricity vary between 0.2 to 0.95 and the orbital period reduced to @xmath71d at @xmath72myr . at that time the bh - binary becomes
+embroiled in a strong interaction with a binary comprised of two main - sequence stars ( masses of @xmath73 and @xmath74 ) .
+the second binary is broken - up and the two main - sequence stars are ejected rapidly from the cluster ( velocities of @xmath75 and @xmath76 ) .
+this causes a recoil of the bh - binary which leaves the core and then the cluster entirely ( @xmath66myr later with a velocity of @xmath77 )
+. the domination of the central region of the cluster by this bh - binary and its subsequent ejection are similar to the processes described by aarseth ( 2012 ) .
+the sudden loss of mass from the core  the average mass drops by 30% ( see next section )  combined with the rapid ejection of the two main - sequence stars causes the core to expand .
+we see that after this event the core radius does start to decrease once more but without fluctuations .
+thus , the influence of one strong interaction involving a massive binary has halted the core oscillation process . compared to the point that we identified as the end of the initial core - collapse phase the core radius has increased by a factor of about six .
+the structure of globular clusters is often quantified by the concentration parameter @xmath78 ( king 1966 ) .
+milky way gcs exhibit a range of @xmath79 values ( harris 1996 ) with the most obvious core collapse examples having @xmath80 but with @xmath81 generally taken as indicative of a high - density cluster or a possible core - collapse cluster ( mateo 1987 ) . at the end of the core - collapse phase our k200 model has @xmath82 and this decreases to @xmath83 after the bh - binary is ejected from the core .
+thus , the cluster would not be expected to appear as a core - collapse cluster if observed at this point .
+hurley ( 2007 ) showed that the presence of a long - lived bh - bh binary in the core , with both bhs being of stellar mass , could significantly increase the @xmath60 ratio of a model with @xmath8 stars .
+the bh - bh binary in our @xmath1 model has not produced a similar inflation of the ratio .
+mackey et al .
+( 2007 ) performed @xmath0-body simulations with @xmath9 in which they retained @xmath84 stellar mass bhs .
+they found that the bhs formed a dense core in which interactions were common and bhs could be ejected from the cluster , leading to a significantly inflated core radius .
+it is our intention in the near future to look at a wide range of @xmath0-body simulations and document in detail the statistics and outcomes of bh - bh binaries in the cores of model clusters .
+this will include fitting king ( 1966 ) models to the density profiles of the model clusters so as to properly calculate the concentration parameter rather than using @xmath0-body values as we have done here in our preliminary analysis .     model .
+the vertical dotted line marks the end of the initial core - collapse phase as in figure  [ f : fig2 ] .
+[ f : fig3],width=317 ]
+figure  [ f : fig3 ] looks at how the average stellar mass behaves for the k200 model , focussing on four different lagrangian regions : a central volume that encompasses the inner 1% of the cluster mass , a central shell that lies between radii enclosing 1% and 10% of the cluster mass , an intermediate shell that lies between the 10% and 50% lagrangian radii , and an outer shell that includes all stars beyond the 50% lagrangian radius . note that binaries are included and are assumed to be unresolved .
+the average stellar mass throughout the entire cluster is @xmath85 at the start of the simulation  there is no primordial mass segregation  and drops initially in all regions owing to stellar evolution mass - loss of massive stars for the first @xmath86myr .
+we then see that the effect of mass segregation driven by two - body encounters takes over , causing an increase in the average stellar mass in the inner regions and a corresponding decrease in the outer region . by the time
+that one half - mass relaxation timescale has elapsed ( @xmath87myr ) there is a clear distinction between the average mass in each of the regions . in the central regions
+the average stellar mass continues to increase up to the end of core - collapse and then flattens post - collapse ( until the ejection of the bh - bh binary ) .
+the value in the very centre is noisy owing to a smaller number of objects and the cycling of these objects in and out of the region .
+we see a marked increase in this central value as the cluster gets closer to the end of core - collapse ( note the correlation with @xmath48 in figure  [ f : fig2 ] ) .
+the decreasing average mass in the outer region is gradually arrested by the effect of the external tide which preferentially removes the lower - mass stars that have been pushed out to this region .
+we see that from @xmath88myr onwards the average mass in the outer region is now increasing and that this effect is also felt in the intermediate region .     but now showing the velocity dispersion . [
+f : fig4],width=317 ]    if we instead look at the behaviour in two - dimensional projected regions we find that the average mass is the same in the two outermost regions but drops by about 5% in the 1 - 10% region and 10 - 15% in the central region ( after the first gyr ) .
+giersz & heggie ( 1997 ) look at the evolution of average mass in different regions , as we have done in figure  [ f : fig3 ] .
+they see very similar behaviour which can be summarised as : ( i ) a sharp increase of the average mass within the 1% lagrangian region towards core - collapse ; ( ii ) a decrease in the outer regions that flattens out with time and then increases at late times ; and ( iii ) similar trends in the intermediate regions . however , in their @xmath59 models they find that the timescale for the initial phase of mass segregation is about the same as the core - collapse timescale , whereas we find that mass segregation is fully established well before core - collapse
+. the @xmath89 models of baumgardt & makino ( 2003 ) agree with our k200 model in that respect and with the general behaviour , including the flattening of the average mass in the central regions post - collapse .     but now showing the anisotropy parameter .
+[ f : fig5],width=317 ]
+in figure  [ f : fig4 ] we show the velocity dispersion for the same lagrangian regions as in figure  [ f : fig3 ] .
+all regions show a rapid initial decrease owing to an overall expansion of the cluster .
+this is followed by a more gradual decrease as the cluster evolves towards core - collapse , with all regions declining in an almost homologous manner . as the model cluster nears the end of core - collapse
+there is a pronounced upturn in the velocity dispersion within the 1% radius .
+this is also seen out to the 10% radius and even at the half - mass radius , although to a much smaller extent .
+note that the behaviour for two - dimensional velocities in projected lagrangian regions is the same but with values that are typically 20% less .
+the main features of our new model mirror those in the smaller-@xmath0 models of giersz & heggie ( 1997 ) .
+these features are the following : the values within the 1% and 10% regions overlap ; the velocity dispersion in the outer regions is clearly lower than for these inner regions ; and the values for the 50% region are much closer to those of the inner regions than the outer regions .    another aspect of velocity to consider is the anisotropy . we have chosen to define this as the ratio of the mean square transverse to radial velocity components , @xmath90 ( as in giersz & heggie 1997 ) and the result is shown in figure  [ f : fig5 ] . in three dimensions
+this is equal to two for isotropy , greater than two for a tangentially anisotropic distribution and less than two for a radially anisotropic distribution .
+an alternative is to use the anisotropy parameter @xmath91 ( binney & tremaine 1987 ; baumgardt & makino 2003 ; wilkinson et al .
+2003 ) where @xmath92 is isotropic , @xmath93 is tangentially anisotropic and @xmath94 is radially anisotropic .
+we see from figure  [ f : fig5 ] that the inner regions of the cluster remain close to isotropic throughout the evolution while the outer region develops an increasing tangential anisotropy over the first @xmath95gyr and then flattens out to a constant value for the remainder of the evolution .
+this overall behaviour is similar to that observed by baumgardt & makino ( 2003 ) in their models .
+it is also similar to the behaviour for the k100 model , although the degree of anisotropy in the outer region is about 30% less than in the k200 model . also , because the k100 model is evolved well past core - collapse it is possible to see that the anisotropy is reduced post - collapse and tends towards isotropy in the final stages of evolution ( as was noted by baumgardt & makino 2003 ) .
+the tangential anisotropy in the outer region is contrary to previous findings of radial anisotropy for smaller-@xmath0 models ( giersz & heggie 1997 ; wilkinson et al .
+tangential anisotropy can be explained by stars expelled from the central regions on radial orbits preferentially escaping from the cluster at the expense of stars on tangential orbits which find it harder to escape . in the very central region ( within the 1% lagrangian radius ) the anisotropy parameter is very noisy and fluctuates between radial and tangential anisotropy .
+however , the average behaviour is isotropy .     model . shown
+are the binary fraction of the entire cluster ( dashed line ) , within the 10% lagrangian radius ( black dotted line ) and within the core ( red solid line ) .
+also shown is the binary fraction of main - sequence stars and binaries near the half - mass radius ( red dotted line : which closely follows the binary fraction of the entire cluster ) .
+compare with figure  3 of hurley , aarseth & shara ( 2007 ) .
+the vertical dotted line once again marks the end of the initial core - collapse phase as in figure  [ f : fig2 ] . [
+f : fig6],width=317 ]
+hurley , aarseth & shara ( 2007 ) documented the evolution of binary fraction with time for a range of @xmath0-body models covering @xmath96 to @xmath8 and primordial binary fractions from 0.05 to 0.5 . in all cases they found that the binary fraction within the cluster core and the 10% lagrangian radius increases as the cluster evolves towards core - collapse while the overall binary fraction of the cluster stays close to the primordial value .
+figure  [ f : fig6 ] shows the same evolution for the k200 model .
+similar results are seen in that the core binary fraction increases markedly as the cluster evolves , particularly towards core - collapse when it becomes a factor of six or more greater than the primordial value , while the overall binary fraction does stay close to the primordial value ( although the inclusion of a large proportion of initially wide binaries would lead to an initial decrease ) .
+this gives added confidence in the results of hurley , aarseth & shara ( 2007 ) although models of greater @xmath0 ( and density ) are still required before the situation for the majority of the milky way globular clusters can be firmly established .
+davis et al .
+( 2008 ) measured the binary fraction amongst main - sequence stars near the half - mass radius of ngc@xmath13 and found it to be a few per cent .
+this was taken as representative of the primordial binary fraction of ngc@xmath13 by leaning on the result from hurley et al .
+( 2008 ) showing that the binary fraction measured near the half - mass radius of a cluster can be taken as a good indication of the primordial binary fraction .
+this is reinforced in figure  [ f : fig6 ] for our k200 model where we show that the binary fraction of main - sequence stars and binaries near the half - mass radius of the cluster stays at roughly the same value throughout the evolution .
+the vertical dotted line denotes the time identified with the end of the initial core - collapse phase for this model .
+[ f : fig7],width=317 ]     but now for the k100 model .
+the vertical dotted line denotes the time identified with the end of the initial core - collapse phase for this model .
+[ f : fig8],width=317 ]    next we look at the energy in binaries for the k200 simulation in figure  [ f : fig7 ] and for the k100 simulation in figure  [ f : fig8 ] . here
+we see that for the @xmath97% lagrangian mass regions the values and behaviour for the two simulations are very similar . as expected the average energy per binary increases as we move inwards towards the cluster centre , although the values within the 1 - 10% and 10 - 50% regions are converging towards the end of the simulation .
+we note that the binary binding energy is calculated in arbitrary yet physical units of @xmath98 to enable direct comparison between the internal energies of the two binary populations .
+conversion to cluster units of @xmath99 t based on the average kinetic energy of the cluster stars ( e.g. mcmillan 1993 ) increases the k100 values by a factor of three compared to the k200 values , i.e. the binaries have relatively more internal energy in the simulation with less stars .
+sharp dips in the binding energy occur throughout the simulations when binaries escape ( as documented by kpper , kroupa & baumgardt 2008 ) although these are less evident in figure  [ f : fig8 ] owing to less frequent sampling .    the energy per binary in the inner 1% region by mass starts off similarly for both simulations , oscillating about the 1 - 10% values .
+however , the influence of the bh - binary in the k200 simulation from @xmath100gyr onwards is clear to see , increasing the average energy by almost two orders of magnitude before a sharp drop when the binary is removed from the core .
+noticeable increases in binding energy are also evident at other times and arise from the creation of tight binaries by various means .
+for example , the spike in the 50 - 100% lagrangian region at @xmath101myr in figure  [ f : fig7 ] results from a primordial binary in which common - envelope evolution creates a short - period binary comprised of two white dwarfs which subsequently come into contact and merge .
+thus the binary dominates the energy in this region for a short time and then disappears .
+we see a more persistent increase in the average energy within the 1% region at @xmath102myr in figure  [ f : fig7 ] .
+this is caused when a main - sequence star and a black hole form a short - period binary via an exchange interaction .
+the binary survives for about @xmath103myr in the cluster core before the main - sequence star is consumed by the black hole .
+it is worthwhile to ask if the signatures of these short - lived energetic binaries be observed ?
+the binary that resulted in the merger of two wds did not produce a wd with a mass in excess of the chandrasekhar limit so could not be a potential type ia supernova ( see shara & hurley 2002 ) .
+however , the resulting wd will be relatively massive , hot and _ young_. thus it could be expected to remain one of the brightest wds in the cluster for several gyrs and would be easily observed .
+the other binary mentioned resulted in a main - sequence star being tidally disrupted and swallowed by a black - hole of @xmath104 .
+this could be expected to give rise to a burst of x - rays and perhaps gamma - rays , along the lines of burrows et al .
+( 2011 : albeit for a supermassive black hole ) .    .
+comparison of core - collapse , @xmath105 , and relaxation timescales , @xmath106 , for the k200 and k100 simulations .
+note that the averaged @xmath106 is calculated to @xmath107gyr and @xmath108gyr for the k200 and k100 simulations , respectively .
+also shown is the time for the cluster to lose half of the initial mass , @xmath109 .
+[ t : table1 ] [ cols="<,>,>",options="header " , ]
+timescales for star cluster evolution are important to understand , with the time until core - collapse and the time until dissolution being quantities of interest ( e.g. gnedin & ostriker 1997 ) .
+furthermore , the scaling of these with @xmath0 or related properties of clusters / models is necessary ( baumgardt 2001 ) , particularly while direct models of globular clusters remain out of reach .    in table
+[ t : table1 ] we summarize the significant timescales for the k200 and k100 simulations : the time for half of the initial mass to be lost , the time until the end of the core - collapse phase and the half - mass relaxation time at various key points .
+kpper et al .
+( 2008 ) presented a range of open cluster models in a steady tidal field and found that the core - collapse time scaled by the initial half - mass relaxation time ranged from 17 for clusters starting well within their tidal radii ( smaller @xmath110 ) to 9 for clusters that fill their tidal radii from the start ( larger @xmath110 ) .
+our k200 model and the k100 model of hurley et al .
+( 2008 ) start by filling their tidal radius and have @xmath111 which is in good agreement with kpper et al .
+( 2008 ) .
+baumgardt ( 2001 ) looked at the scaling of @xmath0-body models using simulations of up to @xmath112 equal - mass stars . in this work
+the time for a cluster to lose half of its mass , @xmath109 , was taken as an indication of the cluster lifetime with @xmath113 shown to be the appropriate scaling .
+baumgardt & makino ( 2003 ) subsequently used their larger-@xmath0 models ( up to @xmath114 stars ) to once again show that scaling the dissolution time as @xmath115 is appropriate , this time for multi - mass models that included stellar evolution .
+however , we see from table  [ t : table1 ] that the half - mass relaxation time varies considerably across the lifetime of a cluster and it is not immediately clear which value to use when scaling timescales . for an observed cluster
+it will be the value at the current age of the cluster
+. a fairer comparison would be to use the average half - mass relaxation time across the lifetime of the cluster , @xmath116  of course this is not known for an observed cluster . for the k200 and k100 models
+we find that @xmath117 is the same for both simulations , so the agreement for this key timescale is in excellent agreement with the previous suggestion .
+we also find that @xmath109 scales quite well with @xmath118 .
+however , if we instead use @xmath119 then we do not find good agreement for either the core - collapse or half - life timescales .
+thus our agreement with the scalings found in previous works is dependent on which @xmath106 is used .
+we have presented an @xmath0-body model that started with @xmath11 stars and binaries , evolves to the moment of core - collapse at @xmath5gyr and has @xmath120 stars remaining at @xmath4gyr .
+we have used our direct @xmath0-body model to confirm the post - core - collapse fluctuations described in the monte carlo model of heggie & giersz ( 2008 ) and the hybrid @xmath0-body / mc approach of heggie & giersz ( 2009 ) .
+we have also shown that these fluctuations can be halted by the ejection of a dominant bh - binary from the core .
+this produces a core that shows no sign that it has previously evolved through core - collapse .
+we have looked at how the results of previous works compare to a model of larger @xmath0 and find good agreement provided that appropriate scalings are used ( such as the core - radius to half - mass radius ratio at core - collapse ) . in terms of raw values
+some variations exist : the core radius at core - collapse reaches deeper in to the mass distribution for larger @xmath0 , for example .
+the behaviour of quantities such as average stellar mass and velocity dispersion have been documented and the general behaviour matches expectations from earlier models .
+looking at time scales such as the time to core - collapse and the dissolution time we also find agreement with scaling relations previously reported in the literature , however this is dependent on which value of the half - mass relaxation timescale is used . in particular ,
+the scaling of dissolution time with @xmath115 reported by baumgardt ( 2001 ) could be reproduced provided that the average @xmath106 was used and not the initial @xmath106 .
+the @xmath1 simulation reported in this work took the best part of a year on a grape-6 board to complete .
+it continues the gradual increase of @xmath0 used in realistic @xmath0-body models from the @xmath59 model of giersz & heggie ( 1997 ) to the @xmath89 model of baumgardt & makino ( 2003 ) .
+however , with only @xmath121 remaining in our model at an age of @xmath107gyr we are still only touching the lower end of the globular cluster mass - function .
+this is after considerable effort .
+in particular , we are still some way from the goal of a full million - body model of a globular cluster ( heggie & hut 2003 )
+. how can we push forward to reach that goal ?
+the shift towards graphics processing units ( gpus ) as the central computing engine for @xmath0-body codes , combined with sophisticated software development , offers hope ( nitadori & aarseth 2012 ) . simulations of @xmath8 stars can be performed comfortably on a single - gpu ( hurley & mackey 2010 ; zonoozi et al .
+2011 ) and the introduction of multiple - gpu support will likely make simulations of the type presented here commonplace in the near future .
+further hardware advances and a revisiting of efforts to parallelize direct @xmath0-body codes ( spurzem 1999 ) will also aid the push towards greater @xmath0 .    in a follow - up paper
+we will conduct a full investigation of the stellar and binary populations of our model .
+it is also our intention to make model snapshots  saved at frequent intervals across the lifetime of the simulation 
+available for others to _ observe _ and analyse .
+these can be obtained by contacting the authors . at the beginning of this paper
+we indicated that an important function of a large-@xmath0 model would be to aid in the calibration of the monte carlo technique .
+this is currently underway ( giersz et al . 2012 ) and will include a direct comparison of @xmath0-body and mc models starting from the same initial conditions .
+we acknowledge the generous support of the cordelia corporation and that of edward norton which has enabled amnh to purchase grape-6 boards and supporting hardware .
+we thank harvey richer for helping to provide the motivation for this model and ivan king for many helpful suggestions .
+aarseth s. j.,1999 , pasp , 111 , 1333 aarseth s.j . , 2003 ,
+gravitational n - body simulations : tools and algorithms ( cambridge monographs on mathematical physics ) .
+cambridge university press , cambridge aarseth s. j. , 2012 , mnras , 422 , 841 aarseth s. , hnon m. , wielen r. , 1974 , a&a , 37 , 183 baumgardt h. , 2001 , mnras , 325 , 1323 baumgardt h. , makino j. , 2003 , mnras , 340 , 227 binney j. , tremain s. , 1987 , galactic dynamics .
+princeton university press , princeton burrows d.n .
+, et al . , 2011 , nature , 476 , 421 casertano s. , hut p. , 1985
+, apj , 298 , 80 davis d.s . , richer h.b . , anderson j. , brewer j. , hurley j. , kalirai j. , rich r.m . , stetson , p.b . , 2008 ,
+aj , 135 , 2155 eggleton p.p . , fitchett m. , tout c.a . , 1989 , apj , 347 , 998 giersz m. , heggie d.c . , 1997 , mnras , 286 , 709 giersz m. , heggie d. c. , 2011 , mnras , 410 , 2698 giersz m. , heggie d.c .
+, hurley j. , hypki a. , 2012 , mnras ( arxiv:1112.6246 ) gnedin o.y . , ostriker j.p . , 1997 ,
+apj , 474 , 223 harris w.e .
+, 1996 , aj , 112 , 1487 heggie d.c
+. , 1975 , mnras , 173 , 729 heggie d.c . , 2011 , bulletin of the astronomical society of india , 39 , 69 heggie d.c .
+, giersz m. , 2008 , mnras , 389 , 1858 heggie d.c . , giersz m. , 2009 , mnras , 397 , l46 heggie d.c . , hut p. , 2003
+, the gravitational million body problem . cambridge university press , cambridge hurley j. r. , tout c. a. , aarseth s. j. , pols o.r . , 2001 , mnras , 323 , 630 hurley j. r. , tout c. a. , aarseth s. j. , pols o.r . , 2004 , mnras , 355 , 1207 hurley j.r . , 2007 , mnras , 379 , 93 hurley j.r . , aarseth s.j . , shara m.m . , 2007 , mnras , 665 , 707 hurley j.r . , shara m.m . , richer h.b . , king i.r
+. , davis s.d .
+, kalirai j.s . ,
+hansen b.m.s .
+, dotter a. , anderson j. , fahlman g.g . ,
+rich r.m . , 2008 ,
+aj , 135 , 2129 hurley j.r . , mackey a.d .
+2010 , mnras , 408 , 2353 jordn a. , et al . , 2005 ,
+apj , 634 , 1002 king i.r . , 1966 , aj , 71 , 64 kroupa p. , tout c. a. , gilmore g. , 1991 , mnras , 251 , 293 kroupa p. , tout c. a. , gilmore g. , 1993 , mnras , 262 , 545 kpper a.h.w .
+, kroupa p. , baumgardt h. , 2008 , mnras , 389 , 889 mackey a.d .
+, wilkinson m.i . , davies m.b . ,
+gilmore g.f . , 2007 , mnras , 379 , l40 madrid j.p . , hurley j.r . ,
+sippel a.c . , 2012 ,
+apj , accepted ( arxiv:1208.0340 ) makino j. , 2002 , in shara m.m . , ed , asp conference series 263 , stellar collisions , mergers and their consequences .
+asp , san francisco , p. 389 mateo m. , 1987 , apj , 323 , l41 mcmillan s.l.w .
+, 1993 , in djorgovski s. , meylan g. , eds , asp conference series 50 , dynamics of globular clusters .
+asp , san francisco , p. 171
+mcmillan s. , hut p. , makino j. , 1990 , apj , 362 , 522 nitadori k. , aarseth s. j. , 2012 , mnras , 424 , 545 plummer h.c .
+, 1911 , mnras , 71 , 460 portegies zwart s.f . ,
+mcmillan s.l.w . ,
+hut p. , makino j. , 2001 , mnras , 321 , 199 shara m.m .
+, hurley j.r . , 2002 ,
+apj , 571 , 830 spurzem r. , 1999 , journal of computational and applied mathematics , 109 , 407 vesperini e. , heggie d.c . , 1997 , mnras , 289 , 898 von hoerner s. , 1963 , z. astrophys . , 57 , 47 wilkinson m.i . ,
+hurley j.r . ,
+mackey a.d . ,
+gilmore g.f .
+, tout c.a .
+, 2003 , mnras , 343 , 1025 zonoozi a.h .
+, kpper a.h.w . , baumgardt h. , haghi h. , kroupa p. , hilker , m. , 2011 , mnras , 411 , 1989

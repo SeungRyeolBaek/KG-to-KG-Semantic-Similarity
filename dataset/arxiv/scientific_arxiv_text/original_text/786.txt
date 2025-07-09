@@ -1,0 +1,131 @@
+stellar multiplicity plays a crucial role in many fields of astronomy . star formation and evolution , galactic chemical evolution , nuclear astrophysics , and cosmology
+are all influenced by our understanding of the multiplicity properties of an underlying stellar population .
+binary interactions lead to phenomena as diverse as cataclysmic variables , classical novae , x - ray binaries , gamma - ray bursts , and type ia supernovae .
+stellar interactions are also the cause of the anomalous surface abundances measured in ba stars , ch stars , and the majority of carbon - enhanced metal - poor stars @xcite .
+the rates of these phenomena depend on the multiplicity properties such as the fraction of stars with companions and the distributions of separations and mass ratios .
+how these properties are in turn affected by variables such as stellar age , metallicity , and dynamical environment remains poorly understood .
+@xcite find no significant trends with metallicity for o- and b - stars , but more work is needed for lower - mass stars .
+the recent review by @xcite summarizes the state of the art in multiplicity studies .
+the fraction of systems with companions is known to be a strong function of stellar mass @xcite , and there are hints that lower mass systems have smaller separations @xcite .
+studies of the solar neighborhood also indicate that lower metallicity stars are more likely to have stellar companions @xcite .
+these results are based on heterogeneous samples of a few hundred stars at most , often dominated by wide systems which will never become interacting binaries .
+the spectroscopic surveys that reach small periods are labor intensive because large numbers of radial velocities ( @xmath2 ) are required to find the orbital solution of each target .
+this leads to small sample sizes , which have only increased modestly in the past two decades , from 167 in @xcite to 454 in @xcite .
+the drive to collect complete samples has limited previous spectroscopic studies to the solar neighborhood or specific stellar clusters , but neither of these strategies can probe the full range of metallicities and ages spanning the field stars of the milky way ( mw ) disk and halo components .
+these limits bias the interpretation of data against the global properties of , and variation within , the mw field .
+thus , we are motivated to take a statistical approach with a sample of stars located throughout the field in order to investigate their multiplicity properties with respect to age , @xmath3}$ ] , and component membership .    with the advent of multiplexed spectroscopic surveys like sdss @xcite and lamost @xcite
+, we can use multiple @xmath4  measurements of thousands of stars to study the properties of stellar multiplicity that are more representative of the entire galaxy .
+sdss data release 8 @xcite contains over 1.8 million optical spectra from the original sdss spectrographs including over 600,000 stellar spectra . in this work
+we employ a lesser known sdss feature , the time - resolved dimension . to facilitate cosmic ray removal
+, spectra were constructed through co - addition of several individual sub - exposures , typically 15 minutes in duration .
+although under - utilized , the benefit of the sub - exposure domain is recognized in works such as @xcite and @xcite .
+portions of the sky were also re - observed for calibration and scientific purposes .
+these additional pointings , combined with the sub - exposures , yield a time dimension where single stars have exposure coverage ranging from 3 sub - exposures up to over 40 sub - exposures , and time gaps from hours to nearly a decade .
+the techniques employed herein follow the time - resolved work by @xcite and @xcite .
+f - type dwarfs are chosen for our sample because of the large number of stars targeted by sdss with repeat observations , and their relatively mild variability and activity . additionally , f - stars have main sequence ( ms ) lifetimes greater than @xmath5 , allowing us to select ms stars from both the younger disk and older halo .
+the sloan stellar parameter pipeline ( sspp ; @xcite ) was developed to determine parameters for stellar spectra in the sdss archive , including metallicity @xmath3}$ ] , effective temperature @xmath6 , and surface gravity @xmath7 .
+sample selection began with identifying science primary objects from segue-1 @xcite and segue-2 ( rockosi et al .
+, in prep . )
+in the sspp that were classified as an f - type star by the `` hammer '' classification code @xcite . to minimize the effects of stellar evolution on multiplicity , we selected only dwarf stars ( @xmath8 ) .
+stars with multiple fiber pluggings were identified astrometrically and joined with the appropriate science primary fibers .    after measuring stellar @xmath2  ( section [ ssec : rv ] ) , systematics were revealed in the sdss sub - exposure spectra .
+these correlations appear as similar shifts in @xmath2  for many fibers located on the same plate , typically affecting neighboring fibers on the ccd . after plate - wide comparisons of f - stars ,
+@xmath4  correlations were corrected where possible .
+corrections applied to the @xmath9 @xmath2  are as large as @xmath10 with a standard deviation of @xmath11 .
+not all correlations could be identified automatically because of multiple groups of correlated shifts , opposite in direction , on some plates .
+visual inspection of plates containing numerous false binary detections lead to the removal of 25 plates including 1155 stars .
+we urge individuals using sub - exposure spectroscopy in sdss to consider these systematic shifts in the wavelength solutions .
+quality control consisted of the removal of : stars without valid parameters in sspp , fibers located on ` bad ' plates , sub - exposures with a median pixel signal - to - noise ratio ( @xmath12 ) less than 20 or with fewer than 3000 unflagged pixels , stars with time lags @xmath13 , stars with less than three clean sub - exposures , and corrupt or misclassified spectra ( from visual inspection of stars with the largest rv variation or non - characteristic @xmath6 ) .
+the final sample consists of 14,302 stars ( 16,894 fibers ) with as many as 47 sub - exposures , spanning up to nine years of observations ( figure [ fig : feh_baseline ] ) .
+our cleaned sample is characterized by metallicities ranging from @xmath14}}}\leq+0.52 $ ] .
+to aid comparison in our analysis , the final sample was sub - divided into three groups of equal size by cuts in metallicity at @xmath15}}}={\ensuremath{-1.43}}$ ] and @xmath15}}}={\ensuremath{-0.66}}$ ] ( figure [ fig : feh_baseline ] ) .
+the majority of the stars have three or four sub - exposures ( @xmath16 ) , typically taken about 15 minutes apart .
+the median time lag for a star is 2 hours , however more than three years between observations can be seen in more than 250 stars ( figure [ fig : feh_baseline ] ) . @xmath12s for sub - exposures lie in the range @xmath17 with a median value of @xmath18 .
+@xmath4  measurements were attained through cross - correlation of sub - exposures with a master template constructed from 7207 sample - star , co - added spectra where the co - added @xmath19 .
+the spectra were de - shifted using the redshift value assigned to the co - adds by the sdss pipeline , continuum - normalized , and averaged together .
+sub - exposures were independently prepared and cross - correlated with the template .
+spectra were continuum - normalized by dividing the spectrum with a highly smoothed version of itself using a fft smoothing algorithm , and then cross - correlated with the template at various integer pixel lags .
+each spectrum had a cross - correlation function ( ccf ) that was fit with a smooth spline interpolation
+. with spectral resolution of @xmath20 , the peak lag in pixels translates to the spectrum s redshift at @xmath21
+. the mean and standard deviation of @xmath2  for individual stars are shown in the figure [ fig : comborv ] distributions .
+the velocity dispersion of the mean rvs decreases with increasing @xmath3}$ ] , indicating that our @xmath3}$]-groups sample both the disk and halo components of the mw .
+the standard deviation of @xmath2  within individual stars is larger for the metal - poor group ; however , empirically estimated uncertainties also show larger measurement errors for metal - poor stars .
+this underscores the importance of the use of proper error analysis in a method such as ours .
+it is well known that uncertainties in ccf peaks must be estimated empirically or through some monte carlo method ( e.g. ,  @xcite ) . for this work we determined @xmath4  uncertainties empirically by quantifying the spread in measurements for spectra of similar quality . the median absolute deviation ( @xmath22 )
+is a robust measure of the variability of a sample and is related to the standard deviation by @xmath23 , where @xmath24 @xcite .
+all measurements were de - shifted into the rest frame using the sdss estimates of the co - add redshift , and placed into bins of similar metallicity ( @xmath15}}}\pm 0.25 $ ] ) and signal - to - noise ( @xmath25 ) .
+initial tests showed no correlations between measurement spreads and either @xmath7  or @xmath6 .
+estimates for the uncertainty of @xmath4  measurements within a bin were calculated using @xmath22  values . here , it is assumed that the majority of stars do not have detectable variability over the observed time baseline , and that effects from intrinsic variations in @xmath4  are minimized by adopting median values . after performing this process for all bins , a functional form for assigning @xmath4  measurement uncertainties @xmath26  was fit with an inverse proportionality to @xmath12 , and with a linear correction in @xmath3}$ ] .
+the measurement uncertainty as a function of @xmath3}$ ]  and @xmath12  is , in @xmath27 , @xmath28}}},{\ensuremath{\mathrm{snr}}}\right ) = \frac{(-26.51{\ensuremath{\mathrm{[fe / h]}}}+ 50.52)}{{\ensuremath{\mathrm{snr } } } } + 1.23.\ ] ] uncertainties are sub - pixel , falling below the spectral resolution of @xmath21 . for exposures with @xmath29 ,
+uncertainties range from @xmath30 to @xmath31 , with a median value of @xmath32 .
+exposures with @xmath33 have uncertainties in the range @xmath34 to @xmath35 , with a median value of @xmath36 .
+the probability of a star having a companion was determined through model comparison using a trans - dimensional , hierarchical , markov chain monte carlo ( mcmc ) method .
+two models were compared : a single - star model @xmath37 , and a binary - star model @xmath38 .
+the hyperparameter @xmath39 , indexes the model choice at each step in the mcmc chain .
+we evaluated the hierarchical model using the python package _ emcee _
+, a mcmc ensemble sampler @xcite .
+the single - star model @xmath37 , fits a star with non - varying @xmath2 , parameterized by a systemic velocity @xmath40 .
+because intra - plate systematics are known to exist , it is reasonable to assume inter - plate systematics exist as well . in light of this ,
+@xmath41 additional parameters @xmath42 , were included for each star , where @xmath43 is the number of plate - mjd pluggings composing the star .
+these plate - shift parameters allow all @xmath2  from plate @xmath44 to shift by some amount @xmath42 , relative to the first plate @xmath45 . for the majority of stars @xmath46 ,
+no plate - shift parameters are necessary , and @xmath37  is a 1-parameter model .    in the binary star model @xmath38 ,
+the sparsely sampled @xmath2  are fit by a sinusoid defined by four - parameters : the log of the semi - amplitude @xmath47 , the log of the period @xmath48 , the phase @xmath49 , and the systemic velocity @xmath40 .
+we assume circular orbits ( eccentricity , @xmath50 ) , which is a safe assumption for tidally circularized , short - period orbits ( @xmath51 days ; @xcite ) , where we are most sensitive .
+a small number of the binaries found in this study may have longer periods and could have non - zero eccentricities , but this does not affect our results .
+plate - shift parameters were also adopted in @xmath38  wherever @xmath52 .
+uninformative priors were used in the mcmc .
+the model index @xmath39 , has a flat prior from 0 to 1 , where @xmath53 denotes @xmath37  and @xmath54 denotes @xmath38 .
+the semi - amplitude prior is log - uniform from @xmath55 , comparable to the measurement uncertainties where @xmath37  and @xmath38  become degenerate , to @xmath56 , greater than the largest @xmath4  differences in the sample .
+the prior on the period is uniform in the range @xmath57 .
+the lower limit @xmath58 is equal to the orbital period at which stellar contact is certain for low - mass companions . above @xmath59 ,
+@xmath4  amplitudes in binary systems are comparable to the measurement uncertainties . combined with the sparsity of the @xmath4  data , systems with periods longer than @xmath59 are outside our range of sensitivity .
+priors are also uniform for the phase ( @xmath60 ) and systemic velocity ( @xmath61 ) .
+markov chains were run independently on every star with an ensemble of @xmath62 parallel chain `` walkers '' for a total of @xmath63 samples , then burned and thinned to @xmath64 independent samples of the posterior .
+evidence for detection of a companion star is reflected by the relative probabilities of @xmath39 .
+we define the probability for the binary model , @xmath65 as the fraction of samples in the marginalized posterior having @xmath66 .
+we note that the value of @xmath65 is dependent on the choice of priors , and is sensitive to the treatment of the sdss systematics .
+moreover , a degeneracy arises as the @xmath4  curve of a long - period , low - amplitude system becomes indistinguishable from a single - star system . with this mind
+, we stress that values for @xmath65 are not absolute probabilities of a system having a companion , but reflect the ability of the data to rule out models under the given prior . however , the @xmath3}$]-groups can be compared , relatively , by considering the fraction of systems where @xmath65 is large and @xmath37  is strongly disfavored .
+the results are shown in figure [ fig : etahist ]    we also investigated the @xmath67  parameter proposed by @xcite as a metric for identifying the stars with large @xmath4  variations .
+we find that the @xmath67  parameter singles out many of the same stars as our more sophisticated mcmc - based inference .
+our method not only takes into account deviations in @xmath4  from the mean , but also how well the data fit the expected periodicity of a binary system .
+analysis of the posterior , and visual inspections of the binary model fits , show that 681 stars with @xmath68 are true spectroscopic binaries , though given the sparsity of the rv curve sampling , there are sometimes large uncertainties in the fitted values for specific model parameters .
+another natural break point is @xmath69 ; these are 209 stars for which the determination and analysis of accurate individual model parameters should be possible ( and will be characterized in future work ) .
+an intermediate cut at @xmath70 is a compromise between these limits , yielding a larger sample of stars ( 406 ) with modest model constraints .
+the values of the binary fractions that we derive below are insensitive , within the uncertainties , to the exact choice of cut in @xmath65 .
+this implies that the @xmath4  variations for our binary detections are sufficiently above the measurement uncertainties , and that the binary fractions reported are not biased due to differences in @xmath12  or absorption features .
+figure [ fig : logp ] shows the @xmath48  posteriors for each @xmath3}$]-group , marginalized over all binary systems ( @xmath70 ) .
+the posterior distributions of @xmath48  for many of these stars are complex : many are multimodal , affected by aliasing or other issues related to the sparse , biased time sampling .
+one such effect is the increase in probability at @xmath71 . here
+the metal - rich and -intermediate groups contain more stars than the metal - poor group with @xmath72 .
+systems with periods as short as this are extremely rare @xcite , and our increased probability in this area may be due to overfitting . additionally , the gap at @xmath73 ( figure [ fig : feh_baseline ] ) may affect the estimate of a period .
+we defer a more sophisticated analysis to a future paper , but these effects should not alter the ability to rule out a single - star model . for now , figure [ fig : logp ] illustrates that we are mainly sensitive to periods in the range @xmath74 , or less than about 12 days .
+we emphasize that a more detailed analysis will be necessary to estimate the true underlying @xmath48  distribution in our sample .
+in figure [ fig : binaryfractions ] we show @xmath75 , the measured lower bound for the fraction of stars with short - period companions @xmath76 for each metallicity group , normalized to the metal - rich binary fraction .
+@xmath75  is a lower limit because of non - detections as a result of sparsely sampled @xmath2  and high orbital inclinations , resulting in low amplitudes .
+we see agreement in @xmath75  measured for all three choices in @xmath65 cutoff ( 0.65 , 0.80 , 0.95 ) . with a cutoff of @xmath77 , values of @xmath75  for the metal - poor , -intermediate , and -rich groups respectively are :
+@xmath78 , @xmath79 , and @xmath80 .
+since the observational biases that affect binary detection are mostly due to the sparsity of the rv coverage , which is nt metallicity - dependent , we conclude that the field f - type ms stars in our metal - rich sample are , at a 2-sigma level , @xmath1 more likely than those in our metal - poor sample to have close binary companions .
+our metal - rich and metal - poor samples mostly trace the mw disk and halo .
+differences in the fraction of short - period systems can stem from differences in the star - formation process , dynamical interactions after star formation , or some combination of the two .
+three - dimensional hydrodynamic models from @xcite actually suggest a _ higher _ frequency of binaries formed through cloud fragmentation for metal - poor clusters , due to the decreased requirement of a cloud s initial rotation energy to fragment .
+moreover , their models yield systems with shorter initial separations at lower metallicities .
+the increased @xmath75  observed for metal - rich stars in this work can more likely be explained by dynamical processes than by formation processes .
+the observed differences in @xmath75  could be explained if the clusters that yielded halo field stars had larger stellar densities and/or gas densities than those of the disk .
+@xcite explore the effects of gas - induced orbital decay on period distributions in clusters .
+they note that an increased density of gas in a newly formed cluster will lead to a larger number of short - period system mergers shortly after formation .
+@xcite describe how clusters with higher stellar densities destroy wide binaries through dynamical interactions .
+an increase in the destruction of high - mass , wide - binary systems leads to the ejection of former f - star secondaries into the field .
+these orphaned , single - star systems would increase the total number of f - star systems in the halo field , effectively decreasing the short - period binary fraction measured .
+observational evidence of these denser cluster environments is needed to support these arguments for a lower @xmath75  in the halo .    additionally , some close binaries may also transfer mass and covert themselves into blue stragglers @xcite .
+evidence for an abundance of blue stragglers in the halo has been seen @xcite , and may contribute to the lower @xmath75  observed in the metal - poor group . also ,
+@xcite show a decrease in @xmath75  with age for solar - type stars , although this result is based on visual binaries with wider periods , and is poorly constrained due to limited sample sizes .
+we note that the recent results of @xcite and @xcite , using data from sdss , show a larger binary fraction for metal - poor than metal - rich fgk stars in the field .
+in addition to probing longer periods , the former work does not make use of sub - exposure information ( using only two @xmath4  epochs per star ) and relies on the correctness of model values for the period distribution , mass ratio distribution , and initial mass function . the latter work , which uses photometric color deviations to infer companions , shows a modest metallicity dependence on total binary fraction . since their method is not sensitive to period , the binary fractions they report are strongly dominated by more common , wider - period systems near the peak of a log - normal period distribution ( @xmath81 for nearby , solar - like stars ; @xcite ) .
+it is clear that conclusions about binary fraction depend on a number of factors , especially the range of periods to which the search is sensitive and assumptions made about the overall period distribution .
+our mcmc analysis yields posterior probabilities in parameter space , allowing for a more detailed study of binary properties ( e.g. , period and separation distributions ) , which will be presented in future work .
+the techniques in this work have direct applications for current and future multiplexed spectroscopic surveys .
+we thank ewan cameron , dan maoz , jeffrey newman , chad schafer , and the referee for useful discussions .
+t.h . and t.c.b .
+acknowledge partial support from grants phy 08 - 22648 ; physics frontier center / jina , and phy 14 - 30152 ; physics frontier center / jina center for the evolution of the elements ( jina - cee ) , awarded by the us national science foundation .
+funding for sdss - iii has been provided by the alfred p. sloan foundation , the participating institutions , the national science foundation , and the u.s .
+department of energy office of science .

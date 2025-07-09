@@ -1,0 +1,233 @@
+{
+  "nodes": [
+    {
+      "id": "Wall Street",
+      "type": "Organization",
+      "properties": {}
+    },
+    {
+      "id": "Investors",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Cash",
+      "type": "Asset",
+      "properties": {}
+    },
+    {
+      "id": "Brokers",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Instruments",
+      "type": "Asset",
+      "properties": {}
+    },
+    {
+      "id": "Issuers",
+      "type": "Organization",
+      "properties": {}
+    },
+    {
+      "id": "Banks",
+      "type": "Organization",
+      "properties": {}
+    },
+    {
+      "id": "Markets",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Auctions",
+      "type": "Event",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Wall Street",
+        "type": "Organization",
+        "properties": {}
+      },
+      "target": {
+        "id": "Auctions",
+        "type": "Event",
+        "properties": {}
+      },
+      "type": "WITHDREW_SUPPORT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Investors",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Cash",
+        "type": "Asset",
+        "properties": {}
+      },
+      "type": "DISCOVERED_TRAPPED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Brokers",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Investors",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "INFORMED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Instruments",
+        "type": "Asset",
+        "properties": {}
+      },
+      "target": {
+        "id": "Cash",
+        "type": "Asset",
+        "properties": {}
+      },
+      "type": "MARKETED_AS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Issuers",
+        "type": "Organization",
+        "properties": {}
+      },
+      "target": {
+        "id": "Securities",
+        "type": "Asset",
+        "properties": {}
+      },
+      "type": "DEPENDED_ON",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Banks",
+        "type": "Organization",
+        "properties": {}
+      },
+      "target": {
+        "id": "Issuers",
+        "type": "Organization",
+        "properties": {}
+      },
+      "type": "TELLING_TO_REFINANCE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Banks",
+        "type": "Organization",
+        "properties": {}
+      },
+      "target": {
+        "id": "Markets",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "ALLOWED_COLLAPSE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Auctions",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Banks",
+        "type": "Organization",
+        "properties": {}
+      },
+      "type": "PULLBACK",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Auctions",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Brokerages",
+        "type": "Organization",
+        "properties": {}
+      },
+      "type": "PULLBACK",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Auctions",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Investors",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "CAUGHT_OFF_GUARD",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Auctions",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Issuers",
+        "type": "Organization",
+        "properties": {}
+      },
+      "type": "CAUGHT_OFF_GUARD",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Auctions",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Financial Institutions",
+        "type": "Organization",
+        "properties": {}
+      },
+      "type": "CAUGHT_OFF_GUARD",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Brokers",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Auctions",
+        "type": "Event",
+        "properties": {}
+      },
+      "type": "LEARNED_AFTER",
+      "properties": {}
+    }
+  ]
+}

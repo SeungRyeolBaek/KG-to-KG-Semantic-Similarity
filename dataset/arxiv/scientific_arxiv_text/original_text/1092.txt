@@ -1,0 +1,204 @@
+rules express general knowledge about actions or conclusions in given circumstances and also principles in given domains . in the if - then format , rules are an easy way to represent cognitive processes in psychology and a useful means to encode expert knowledge . in another perspective , rules are important because they can help scientists understand problems and engineers solve problems .
+these observations would account for the fact that rule learning or discovery has become a major topic in both machine learning and data mining research .
+the former discipline concerns the construction of computer programs which learn knowledge or skill while the latter is about the discovery of patterns or rules hidden in the data .
+the fundamental concepts of rule learning are discussed in [ 16 ] .
+methods for learning sets of rules include symbolic heuristic search [ 3 , 5 ] , decision trees [ 17 - 18 ] , inductive logic programming [ 13 ] , neural networks [ 2 , 7 , 20 ] , and genetic algorithms [ 10 ] . a methodology comparison can be found in our previous work [ 9 ] . despite the differences in their computational frameworks , these methods perform a certain kind of search in the rule space ( i.e. , the space of possible rules ) in conjunction with some optimization criterion .
+complete search is difficult unless the domain is small , and a computer scientist is not interested in exhaustive search due to its exponential computational complexity .
+it is clear that significant issues have limited the effectiveness of all the approaches described .
+in particular , we should point out that all the algorithms except exhaustive search guarantee only local but not global optimization .
+for example , a sequential covering algorithm such as cn2 [ 5 ] performs a greedy search for a single rule at each sequential stage without backtracking and could make a suboptimal choice at any stage ; a simultaneous covering algorithm such as id3 [ 18 ] learns the entire set of rules simultaneously but it searches incompletely through the hypothesis space because of attribute ordering ; a neural network algorithm which adopts gradient - descent search is prone to local minima .    in this paper , we introduce a new machine learning theory based on multi - channel parallel adaptation that shows great promise in learning the target rules from data by parallel global convergence .
+this theory is distinct from the familiar parallel - distributed adaptation theory of neural networks in terms of channel - based convergence to the target rules .
+we describe a system named cfrule which implements this theory .
+cfrule bases its computational characteristics on the certain factor ( cf ) model [ 4 , 22 ] it adopts .
+the cf model is a calculus of uncertainty mangement and has been used to approximate standard probability theory [ 1 ] in artificial intelligence .
+it has been found that certainty factors associated with rules can be revised by a neural network [ 6 , 12 , 15 ] .
+our research has further indicated that the cf model used as the neuron activation function ( for combining inputs ) can improve the neural - network performance [ 8 ] .
+the rest of the paper is organized as follows .
+section  [ sec : mcrlm ] describes the multi - channel rule learning model .
+section  [ sec : mrr ] examines the formal properties of rule encoding .
+section  [ sec : mac ] derives the model parameter adaptation rule , presents a novel optimization strategy to deal with the local minimum problem due to gradient descent , and proves a property related to asynchronous parallel convergence , which is a critical element of the main theory .
+section  [ sec : re ] formulates a rule extraction algorithm .
+section  [ sec : app ] demonstrates practical applications
+. then we draw conclusions in the final section .
+cfrule is a rule - learning system based on multi - level parameter optimization .
+the kernel of cfrule is a multi - channel rule learning model .
+cfrule can be embodied as an artificial neural network , but the neural network structure is not essential .
+we start with formal definitions about the model .
+[ def : mcrl ] the multi - channel rule learning model @xmath0 is defined by @xmath1 ( @xmath2 ) channels ( @xmath3 s ) , an input vector ( @xmath4 ) , and an output ( @xmath5 ) as follows : @xmath6 where @xmath7 and @xmath8 such that @xmath9 is the input dimensionality and @xmath10 for all @xmath11 .
+the model has only a single output because here we assume the problem is a single - class , multi - rule learning problem .
+the framework can be easily extended to the multi - class case .
+[ def : channel ] each channel ( @xmath12 ) is defined by an output weight ( @xmath13 ) , a set of input weights ( @xmath14 s ) , activation ( @xmath15 ) , and influence ( @xmath16 ) as follows : @xmath17 where @xmath18 is the bias , @xmath19 , and @xmath20 for all @xmath11 .
+the input weight vector @xmath21 defines the channel s pattern .
+[ def : chact ] each channel s activation is defined by @xmath22 where @xmath23 is the cf - combining function [ 4 , 22 ] , as defined below .
+[ def : cf ] the cf - combining function is given by @xmath24 where @xmath25 @xmath26 @xmath27 s are nonnegative numbers and @xmath28 s are negative numbers .
+as we will see , the cf - combining function contributes to several important computational properties instrumental to rule discovery .
+[ def : chinf ] each channel s influence on the output is defined by @xmath29    [ def : output ] the model output @xmath5 is defined by
+@xmath30    we call the class whose rules to be learned the _ target class _ , and define rules inferring ( or explaining ) that class to be the _ target rules_. for instance , if the disease diabetes is the target class , then the diagnostic rules for diabetes would be the target rules .
+each target rule defines a condition under which the given class can be inferred .
+note that we do not consider rules which deny the target class , though such rules can be defined by reversing the class concept .
+the task of rule learning is to learn or discover a set of target rules from given instances called training instances ( data ) .
+it is important that rules learned should be generally applicable to the entire domain , not just the training data .
+how well the target rules learned from the training data can be applied to unseen data determines the generalization performance .
+instances which belong to the target class are called positive instances , else , called negative instances .
+ideally , a positive training instance should match at least one target rule learned and vice versa , whereas a negative training instance should match none .
+so , if there is only a single target rule learned , then it must be matched by all ( or most ) positive training instances .
+but if multiple target rules are learned , then each rule is matched by some ( rather than all ) positive training instances .
+since the number of possible rule sets is far greater than the number of possible rules , the problem of learning multiple rules is naturally much more complex than that of learning single rules .    in the multi - channel rule
+learning theory , the model learns to sort out instances so that instances belonging to different rules flow through different channels , and at the same time , channels are adapted to accommodate their pertinent instances and learn corresponding rules .
+notice that this is a mutual process and it can not occur all at once . in the beginning , the rules are not learned and the channels are not properly shaped , both information flow and adaptation are more or less random , but through self - adaptation , the cfrule model will gradually converge to the correct rules , each encoded by a channel .
+the essence of this paper is to prove this property .    in the model design ,
+a legitimate question is what the optimal number of channels is .
+this is just like the question raised for a neural network of how many hidden ( internal computing ) units should be used .
+it is true that too many hidden units cause data overfitting and make generalization worse [ 7 ] .
+thus , a general principle is to use a minimal number of hidden units .
+the same principle can be equally well applied to the cfrule model . however , there is a difference . in ordinary neural networks ,
+the number of hidden units is determined by the sample size , while in the cfrule model , the number of channels should match the number of rules embedded in the data . since , however , we do not know how many rules are present in the data , our strategy is to use a minimal number of channels that admits convergence on the training data .
+the model s behavior is characterized by three aspects :    * information processing : compute the model output for a given input vector .
+* learning or training : adjust channels parameters ( output and input weights ) so that the input vector is mapped into the output for every instance in the training data . * rule extraction :
+extract rules from a trained model .
+the first aspect has been described already .
+the if - then rule ( i.e. , if the premise , then the action ) is a major knowledge representation paradigm in artificial intelligence . here
+we make analysis of how such rules can be represented with proper semantics in the cfrule model .
+[ def : rule ] cfrule learns rules in the form of    if @xmath31 , ... ,
+@xmath32 , ... , @xmath33 , . .
+, @xmath34 , . .
+, then the target class with a certainty factor .    where @xmath35 is a positive antecedent ( in the positive form ) , @xmath36 a negated antecedent ( in the negative form ) , and @xmath37 reads `` not . ''
+each antecedent can be a discrete or discretized attribute ( feature ) , variable , or a logic proposition .
+the if part must not be empty . the attached certainty factor in the then part , called the rule cf , is a positive real @xmath38 .
+the rule s premise is restricted to a conjunction , and no disjunction is allowed .
+the collection of rules for a certain class can be formulated as a dnf ( disjunctive normal form ) logic expression , namely , the disjunction of conjunctions , which implies the class .
+however , rules defined here are not traditional logic rules because of the attached rule cfs meant to capture uncertainty .
+we interpret a rule by saying when its premise holds ( that is , all positive antecedents mentioned are true and all negated antecedents mentioned are false ) , the target concept holds at the given confidence level .
+cfrule can also learn rules with weighted antecedents ( a kind of fuzzy rules ) , but we will not consider this case here .    there is increasing evidence to indicate that good rule encoding capability actually facilitates rule discovery in the data . in the theorems that follow ,
+we show how the cfrule model can explicitly and precisely encode any given rule set .
+we note that the ordinary sigmoid - function neural network can only implicitly and approximately does this . also , we note although the threshold function of the perceptron model enables it to learn conjunctions or disjunctions , the non - differentiability of this function prohibits the use of an adaptive procedure in a multilayer construct .
+[ thm : rule - rep ] for any rule represented by definition  [ def : rule ] , there exists a channel in the cfrule model to encode the rule so that if an instance matches the rule , the channel s activation is 1 , else 0 .
+( proof ) : this can be proven by construction .
+suppose we implement channel @xmath39 by setting the bias weight to 1 , the input weights associated with all positive attributes in the rule s premise to 1 , the input weights associated with all negated attributes in the rule s premise to @xmath40 , the rest of the input weights to 0 , and finally the output weight to the rule cf .
+assume that each instance is encoded by a bipolar vector in which for each attribute , 1 means true and @xmath40 false .
+when an instance matches the rule , the following conditions hold : @xmath41 if @xmath27 is part of the rule s premise , @xmath42 if @xmath43 is part of the rule s premise , and otherwise @xmath27 can be of any value .
+for such an instance , given the above construction , it is true that @xmath44 1 or 0 for all @xmath11 .
+thus , the channel s activation ( by definition  [ def : chact ] ) , @xmath45 must be 1 according to @xmath46 .
+on the other hand , if an instance does not match the rule , then there exists @xmath11 such that @xmath47 . since @xmath18 ( the bias weight ) = 1 ,
+the channel s activation is 0 due to @xmath46 .
+@xmath48    [ thm : ruleset - rep ] assume that rule cf s @xmath49 ( @xmath50 ) .
+for any set of rules represented by definition  [ def : rule ] , there exists a cfrule model to encode the rule set so that if an instance matches any of the given rules , the model output is @xmath49 , else 0 .
+( proof ) : suppose there are @xmath1 rules in the set . as suggested in the proof of theorem  [ thm : rule - rep ] , we construct @xmath1 channels , each encoding a different rule in the given rule set so that if an instance matches , say rule @xmath39 , then the activation ( @xmath15 ) of channel @xmath39 is 1 . in this case , since the channel s influence @xmath16 is given by @xmath51 ( where @xmath13 is set to the rule cf ) and the rule cf @xmath49 , it follows that @xmath52 .
+it is then clear that the model output must be @xmath49 since it combines influences from all channels that @xmath53 but at least one @xmath49 . on the other hand , if an instance fails to match any of the rules , all the channels activations are zero , so is the model output . @xmath48
+in neural computing , the backpropagation algorithm [ 19 ] can be viewed as a multilayer , parallel optimization strategy that enables the network to converge to a local optimum solution .
+the black - box nature of the neural network solution is reflected by the fact that the pattern ( the input weight vector ) learned by each neuron does not bear meaningful knowledge .
+the cfrule model departs from traditional neural computing in that its internal knowledge is comprehensible .
+furthermore , when the model converges upon training , each channel converges to a target rule .
+how to achieve this objective and what is the mathematical theory are the main issues to be addressed .
+the cfrule model learns to map a set of input vectors ( e.g. , extracted features ) into a set of outputs ( e.g. , class information ) by training .
+an input vector along with its target output constitute a training instance .
+the input vector is encoded as a @xmath54 bipolar vector .
+the target output is 1 for a positive instance and 0 for a negative instance .    starting with a random or estimated weight setting ,
+the model is trained to adapt itself to the characteristics of the training instances by changing weights ( both output and input weights ) for every channel in the model .
+typically , instances are presented to the model one at a time .
+when all instances are examined ( called an epoch ) , the network will start over with the first instance and repeat .
+iterations continue until the system performance has reached a satisfactory level .
+the learning rule of the cfrule model is derived in the same way as the backpropagation algorithm [ 19 ] .
+the training objective is to minimize the sum of squared errors in the data . in each learning cycle , a training instance is given and the weights of channel @xmath39 ( for all @xmath39 ) are updated by @xmath55 @xmath56 where @xmath13 : the output weight , @xmath14 : an input weight , the argument @xmath57 denotes iteration @xmath57 , and @xmath58 the adjustment .
+the weight adjustment on the current instance is based on gradient descent .
+consider channel @xmath39 .
+for the output weight ( @xmath13 ) , @xmath59 ( @xmath60 : the learning rate ) where @xmath61 ( @xmath62 : the target output , @xmath5 : the model output ) .
+let @xmath63 the partial derivative in eq .
+( [ eq : gr - u ] ) can be rewritten with the calculus chain rule to yield @xmath64 then we apply this result to eq .
+( [ eq : gr - u ] ) and obtain the following definition .
+the learning rule for output weight @xmath13 of channel @xmath39 is given by @xmath65    for the input weights ( @xmath14 s ) , again based on gradient descent , @xmath66 the partial derivative in eq .
+( [ eq : gr - w ] ) is equivalent to @xmath67 since @xmath15 is not directly related to @xmath68 , the first partial derivative on the right hand side of the above equation is expanded by the chain rule again to obtain @xmath69 substituting these results into eq .
+( [ eq : gr - w ] ) leads to the following definition .
+the learning rule for input weight @xmath14 of channel @xmath39 is given by @xmath70 where @xmath71    assume that @xmath72 suppose @xmath73 and @xmath74 .
+the partial derivative @xmath75 can be computed as follows .
+* case ( a ) if @xmath76 , @xmath77 * case ( b ) if @xmath78 , @xmath79    it is easy to show that if @xmath80 in case ( a ) or @xmath81 in case ( b ) , @xmath82 .
+it is known that gradient descent can only find a local - minimum .
+when the error surface is flat or very convoluted , such an algorithm often ends up with a bad local minimum .
+moreover , the learning performance is measured by the error on unseen data independent of the training set .
+such error is referred to as generalization error .
+we note that minimization of the training error by the backpropagation algorithm does not guarantee simultaneous minimization of generalization error .
+what is worse , generalization error may instead rise after some point along the training curve due to an undesired phenomenon known as overfitting [ 7 ] .
+thus , global optimization techniques for network training ( e.g. , [ 21 ] ) do not necessarily offer help as far as generalization is concerned . to address this issue
+, cfrule uses a novel optimization strategy called multi - channel regression - based optimization ( mcro ) .    in definition  [ def : cf ] ,
+@xmath83 and @xmath84 can also be expressed as @xmath85 @xmath86 when the arguments ( @xmath27 s and @xmath87 s ) are small , the cf function behaves somewhat like a linear function .
+it can be seen that if the magnitude of every argument is @xmath88 , the first order approximation of the cf function is within an error of 10% or so . since
+when learning starts , all the weights take on small values , this analysis has motivated the mcro strategy for improving the gradient descent solution .
+the basic idea behind mcro is to choose a starting point based on the linear regression analysis , in contrast to gradient descent which uses a random starting point .
+if we can use regression analysis to estimate the initial influence of each input variable on the model output , how can we know how to distribute this estimate over multiple channels ?
+in fact , this is the most intricate part of the whole idea since each channel s structure and parameters are yet to be learned .
+the answer will soon be clear .    in cfrule , each channel s activation is defined by @xmath89 suppose we separate the linear component from the nonlinear component ( @xmath90 ) in @xmath15 to obtain @xmath91 we apply the same treatment to the model output ( definition  [ def : output ] ) @xmath92 so that @xmath93 then we substitute eq.([eq : phi - app ] ) into eq.([eq : sys - app ] ) to obtain @xmath94 in which the right hand side is equivalent to @xmath95 + r_{acc}\ ] ] note that @xmath96    suppose linear regression analysis produces the following estimation equation for the model output : @xmath97 ( all the input variables and the output transformed to the range from 0 to 1 ) .
+the mcro strategy is defined by @xmath98 for each @xmath99    that is , at iteration @xmath100 when learning starts , the initial weights are randomized but subject to these @xmath101 constraints .
+.the target rules in the simulation experiment . [ cols= " < , <
+if global optimization is a main issue for automated rule discovery from data , then current machine learning theories do not seem adequate . for instance , the decision - tree and neural - network based algorithms , which dodge the complexity of exhaustive search , guarantee only local but not global optimization . in this paper
+, we introduce a new machine learning theory based on multi - channel parallel adaptation that shows great promise in learning the target rules from data by parallel global convergence .
+the basic idea is that when a model consisting of multiple parallel channels is optimized according to a certain global error criterion , each of its channels converges to a target rule .
+while the theory sounds attractive , the main question is how to implement it . in this paper , we show how to realize this theory in a learning system named cfrule .
+cfrule is a parallel weight - based model , which can be optimized by weight adaptation .
+the parameter adaptation rule follows the gradient - descent idea which is generalized in a multi - level parallel context . however , the central idea of the multi - channel rule - learning theory is not about how the parameters are adapted but rather , how each channel can converge to a target rule .
+we have noticed that cfrule exhibits the necessary conditions to ensure such convergence behavior .
+we have further found that the cfrule s behavior can be attributed to the use of the cf ( certainty factor ) model for combining the inputs and the channels .
+since the gradient descent technique seeks only a local minimum , the learning model may well be settled in a solution where each rule is optimal in a local sense . a strategy called multi - channel regression - based optimization ( mcro ) has been developed to address this issue .
+this strategy has proven effective by statistical validation .
+we have formally proven two important properties that account for the parallel rule - learning behavior of cfrule .
+first , we show that any given rule set can be explicitly and precisely encoded by the cfrule model .
+secondly , we show that once a channel is settled in a target rule , it barely moves .
+these two conditions encourage the model to move toward the target rules .
+an empirical weight convergence graph clearly showed how each channel converged to a target rule in an asynchronous manner .
+notice , however , we have not been able to prove or demonstrate this rule - oriented convergence behavior in other neural networks .
+we have then examined the application of this methodology to dna promoter recognition and hepatitis prognosis prediction . in both domains , cfrule is superior to c4.5 ( a rule - learning method based on the decision tree ) based on cross - validation .
+rules learned are also consistent with knowledge in the literature .    in conclusion , the multi - channel parallel adaptive rule - learning theory is not just theoretically sound and supported by computer simulation but also practically useful . in light of its significance , this theory would hopefully point out a new direction for machine learning and data mining .
+this work is supported by national science foundation under the grant ecs-9615909 .
+the author is deeply indebted to edward shortliffe who contributed his expertise and time in the discussion of this paper .
+1 .   j.b .
+adams , `` probabilistic reasoning and certainty factors '' , in _ rule - based expert systems _ , addison - wesley , reading , ma , 1984 . 2 .
+alexander and m.c .
+mozer , `` template - based algorithms for connectionist rule extraction '' , in _ advances in neural information processing systems _ , mit press , cambridge , ma , 1995 . 3 .
+b.g . buchanan and t.m .
+mitchell , `` model - directed learning of production rules '' , in _ pattern - directed inference systems _ , academic press , new york , 1978 .
+b.g . buchanan and e.h .
+shortliffe ( eds . ) , _ rule - based expert systems _ , addison - wesley , reading , ma , 1984 . 5 .
+p. clark and r. niblett , `` the cn2 induction algorithm '' , _ machine learning _ , 3 , pp .
+261 - 284 , 1989 . 6 .
+fu , `` knowledge - based connectionism for revising domain theories '' , _ ieee transactions on systems , man , and cybernetics _ , 23(1 ) , pp . 173182 , 1993 .
+fu , _ neural networks in computer intelligence _ , mcgraw hill , inc . , new york , ny , 1994
+fu , `` learning in certainty factor based multilayer neural networks for classification '' , _ ieee transactions on neural networks_. 9(1 ) , pp .
+151 - 158 , 1998 . 9 .
+fu and e.h .
+shortliffe , `` the application of certainty factors to neural computing for rule discovery '' , _ ieee transactions on neural networks _ , 11(3 ) , pp .
+647 - 657 , 2000 . 10 .
+janikow , `` a knowledge - intensive genetic algorithm for supervised learning '' , _ machine learning _ , 13 , pp .
+189 - 228 , 1993 . 11 .
+koudelka , s.c .
+harrison , and m. ptashne , `` effect of non - contacted bases on the affinity of 434 operator for 434 repressor and cro '' , _ nature _ , 326 , pp .
+886 - 888 , 1987 . 12 .
+lacher , s.i .
+hruska , and d.c .
+kuncicky , `` back - propagation learning in expert networks '' , _ ieee transactions on neural networks _ , 3(1 ) , pp . 6272 , 1992 .
+n. lavrac and s. dzeroski , _ inductive logic programming : techniques and applications _ , ellis horwood , new york , 1994 .
+lawrence , _ the gene _ , plenum press , new york , ny , 1987 . 15 .
+mahoney and r. mooney , `` combining connectionist and symbolic learning to refine certainty - factor rule bases '' , _ connection science _
+, 5 , pp . 339 - 364 , 1993 . 16 .
+t. mitchell , _ machine learning _
+, mcgraw hill , inc .
+, new york , ny . , 1997 .
+quinlan , `` rule induction with statistical data  a comparison with multiple regression '' , _ journal of the operational research society _ , 38 , pp .
+347 - 352 , 1987 . 18 .
+quinlan , _
+c4.5 : programs for machine learning _ ,
+morgan kaufmann , san mateo , ca . , 1993 .
+rumelhart , g.e .
+hinton , and r.j .
+williams , `` learning internal representation by error propagation '' , in _ parallel distributed processing : explorations in the microstructures of cognition _ , vol .
+1 . mit press , cambridge , ma , 1986 . 20 .
+r. setiono and h. liu , `` symbolic representation of neural networks '' , _ computer _ , 29(3 ) , pp .
+71 - 77 , 1996 . 21 .
+y. shang and b.w .
+wah , `` global optimization for neural network training '' , _ computer _ , 29(3 ) , pp .
+45 - 54 , 1996 . 22 .
+shortliffe and b.g .
+buchanan , `` a model of inexact reasoning in medicine '' , _ mathematical biosciences _
+, 23 , pp .
+351 - 379 , 1975 . 23 .
+towell and j.w .
+shavlik , `` knowledge - based artificial neural networks '' , _ artificial intelligence_. 70(1 - 2 ) , pp
+. 119 - 165 , 1994 .

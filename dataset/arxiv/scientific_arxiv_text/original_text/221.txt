@@ -1,0 +1,266 @@
+efficient mechanisms to generate coherent superpositions of quantum states are central to a rich variety of applications in modern quantum physics . quantum logic gates ,
+i.e. the key components of a quantum computer  @xcite , rely on superpositions of two degenerate quantum states as qubits  @xcite .
+quantum tunnelling and localization in a double well potential can be controlled  @xcite by techniques that require preparation of coherent superpositions .
+numerous authors have noted that nonlinear optical processes , e.g. resonantly enhanced frequency mixing in atomic vapours , can be significantly improved  @xcite by preparing the nonlinear optical medium in a coherent superposition of nondegenerate quantum states .
+whereas numerous techniques exist to prepare coherent superpositions of degenerate states , as needed for qubits in quantum computing , nonlinear optics still hold challenges .
+for example , frequency conversion to short wavelength radiation involves high - lying states , requiring excitation by multi - photon transitions .
+procedures based on adiabatic passage driven by coherent interactions  @xcite provide reliable and robust tools for the creation of superpositions .
+unlike diabatic techniques , which rely on precise control of individual pulses , adiabatic processes are insensitive to small variations of pulse duration and peak intensity .
+high - intensity laser systems , commonly used for efficient frequency conversion , exhibit fluctuations in intensity and other parameters .
+thus robust techniques are most appropriate to support nonlinear optical processes driven by the high - intensity lasers .
+in what follows we will discuss adiabatic passage in a three - state system involving two near - resonant laser pulses .
+we assume that initially the atom is in the ground state 1 of energy @xmath0 and that the first laser field , of frequency @xmath1 , links this with an excited state 2 of energy @xmath2 while the second field , of frequency @xmath3 , links this state with a final target state 3 of energy @xmath4 we assume that the two fields , though near resonant with the specified transitions , are far from resonance with any other transition .
+the relative ordering of the third - state energy @xmath5 is not significant ; we shall assume that it lies above @xmath2 as is appropriate for application to nonlinear optics , so that the linkages form a ladder .
+figure [ scheme_config ] shows this linkage pattern , along with spectroscopic labels appropriate to implementation in mercury .    , the rabi frequencies @xmath6 and the stark shift @xmath7 .
+dotted lines show transitions for four - wave mixing , through a nonresonant state 4 . to the left
+are the spectroscopic labels appropriate to implementation with mercury . ]
+our modeling is based upon the three - state time - dependent schrdinger equation in the rotating wave approximation ( rwa )   @xcite , for which the hamiltonian is @xmath8.\ ] ] the elements of this rwa hamiltonian are the detunings _ 2 = ( e_2 - e_1)/- _ 1 , _ 3 = ( e_3 - e_2)/- _ 2 . and the pulsed rabi frequencies @xmath9 and @xmath10 that parametrize the laser - induced excitation interaction with the dipole - transition moments @xmath11 of the transition between states @xmath12 and @xmath13 and the electric field envelopes @xmath14 and @xmath15 .
+a third laser , nonresonant with either of these transitions , induces dynamic stark shifts of the energies . for the ladder - like linkage
+the shift is expected to be largest for state 3 ; we denote that shift as @xmath7 and we neglect shifts of the other states .    in the rwa the statevector has the expansion ( t ) = c_1(t ) _ 1 + c_2(t ) e^-i_1 t
+_ 2 + c_3(t ) e^-i(_1+_2 ) t _ 3 where @xmath16 is a unit vector representing quantum state @xmath12 .
+our principal objective is to create , for times @xmath17 later than the conclusion of a pulse sequence at @xmath18 , an equal - probability superposition of states @xmath19 and @xmath20 , specifically @xmath21 ,   \qquad t > t_f\ ] ] where @xmath22 is a time independent phase defining the relative sign of the superposition .
+this particular superposition , with equal probabilities @xmath23 of the two constituent nondegenerate states , provides the basis of a technique referred to as `` nonlinear optics at maximum coherence ''  @xcite , that substantially improves the efficiency of nonlinear frequency conversion processes .
+the following section reviews how the efficiency of four - wave mixing is enhanced by preparing the atomic medium in the coherent superposition of eqn .
+( [ final_super ] ) with equal probability amplitudes .
+we review in section [ sec - background ] two techniques recently suggested to generate coherent superpositions of this form : ( i ) fractionally - completed stimulated raman adiabatic passage ( f - stirap ) and ( ) half - completed stark - chirped rapid adiabatic passage ( half - scrap ) .
+section [ sec - sacs ] describes our proposed method , stark - assisted coherent superposition ( sacs ) , in which two near - resonant fields , accompanied by a laser - induced ac stark shift , produce adiabatic passage into the desired superposition .
+section [ sec - simulation ] illustrates different techniques by presenting simulations of excitation of mercury vapor , a medium of significant interest for applications in frequency conversion .
+the starting point for nonlinear optical phenomena is the wave equation describing the propagation of the electric field @xmath24 through matter .
+the effects of matter are incorporated into a polarization @xmath25 that serves as an inhomogeneous term in the wave equation , & & ( t , ) = _ 0 ^2 t^2 ( t , ) .
+[ 12.2 - 25 ] we idealize the medium as a uniform distribution of identical motionless atoms , of number density @xmath26 .
+then the polarization is the @xmath26 time the expectation value @xmath27 of the single - atom dipole moment : ( t , ) = ( t , ) . in the following we idealize the laser fields as plane waves traveling along the @xmath28 axis .
+we suppose that there are several such fields , each characterized by a common polarization vector @xmath29 but different carrier frequency @xmath30 .
+we express the resulting electric vector as ( t , ) = _ k _ k(t ) ( _ k t + _ k ) where @xmath31 the presence of the laser fields causes changes of the material . with these changes come changes in the individual dipole expectation values and hence of the polarization @xmath32 we will discuss a four - wave mixing process in an atomic gas , as are typical for the generation of short - wavelength radiation , i.e. vacuum- or extreme - ultraviolet . for application to four - wave mixing in mercury , the three states depicted in fig .
+[ scheme_config ] are : ( 1 ) , ( 2 ) and ( 3 ) .    for the four - wave mixing processes , two fields at frequencies @xmath1 and @xmath3 create an induced dipole moment .
+this dipole moment , together with a third field of frequency @xmath33 far from resonance with any state @xmath34 combine to produce a dipole moment that varies at the frequency @xmath35 . following the definition of the expectation value of the dipole moment
+@xmath36 it can be expressed as a function of the probability amplitude ( t ) & = & 2 .
+the last term serves as the source of an electric field at the frequency @xmath37 for a detuning @xmath38 much larger than the rabi frequency @xmath39 one can adiabatically eliminate the state @xmath40  @xcite .
+the amplitude @xmath41 is then given by _
+4(t)= _ 3(t)+ _
+1(t ) . when @xmath42 is small compared to @xmath43 ,
+as it is initially , the source term of the electric field at frequency @xmath44 is [ source_term4 ] _
+4(t ) = c^_3(t ) _ 1(t ) _
+3(t ) e^i_4 t where @xmath45 , for @xmath46=(1,2,3,4 ) , is defined from the expression ( t)=2 .
+these successive equations show that the induced polarization , and hence the efficiency of any subsequent nonlinear optical process , depends on the product @xmath47 , i.e. on the coherence , established between the ground and the excited state .
+laser fields typically exhibit inhomogeneities in time , space or phase . if there is a dynamical contribution to the phase , these inhomogeneities will , when averaged , tend to reduce any coherence to nearly zero . to generate the desired radiation at the frequency @xmath44 it is thus crucial that the relative phase of the components @xmath48 and @xmath49 in the superposition state of eqn .
+( [ final_super ] ) does not depend on the time integrated rabi frequencies , as dynamical phases do .
+if this condition is fulfilled , the source term of eqn .
+( [ source_term4 ] ) reaches a maximum value when the atomic coherence is maximum , i.e. when @xmath50 .
+the polarization , the efficiency of four - wave mixing and thus the intensity of the generated radiation at frequency @xmath44 will be enhanced , if the atomic medium is prepared in maximum coherence ( [ final_super ] ) .
+as will be discussed below , to produce this superposition we make use of adiabatic states @xmath51 and adiabatic eigenvalues , @xmath52 , defined as instantaneous solutions to the eigenvalue equation of the rwa hamiltonian h(t ) _
+k(t ) = _ k(t ) _ k(t ) . prior to describing the proposed technique , we comment on two common adiabatic techniques , first intended for complete population transfer but later applied to the preparation of superposition states .
+figure [ scheme_comparison ] illustrates the three schemes .
+stimulated raman adiabatic passage ( stirap )  @xcite is well established as an appropriate tool to drive complete population transfer in a three - state lambda - type system  @xcite . with suitable modification  @xcite , the technique provides a means of creating superpositions of initial and final states .
+essentially the evolution is adiabatically stopped just when half of the population is transferred .
+we refer to this as fractional stirap ( f - stirap ) .
+the basic stirap procedure is based on a lambda linkage in which @xmath53 , i.e. a stimulated raman process ( see fig .
+[ scheme_comparison]a ) .
+it works also in a ladder linkage if the lifetime of the uppermost state is much longer than the interaction time , i.e. the pulse duration  which we will assume in the following .
+the process relies on interaction of the system with two laser pulses , termed stokes and pump , which produce overlapping but not coincident interactions , parameterized by rabi frequencies , @xmath54 and @xmath55 .
+the stokes pulse , linking states 2 and 3 , precedes the pump pulse , linking states 1 and 2 .
+adiabatic evolution requires that the time integral of the rabi frequencies is much larger than 1 . under these conditions
+( and two - photon resonance , @xmath56 ) the statevector remains at all times aligned with one particular adiabatic state , the dark state or population trapping state , @xmath57\ ] ] where @xmath58 is the difference between stokes and pump phases . at the beginning of the interaction in f - stirap , i.e. when the stokes is strong and the pump pulse is negligible , the adiabatic state @xmath59 coincides with the initial state @xmath19 .
+stirap proceeds to completion when the pump field is strong and the stokes field is negligible , i.e. at the end of the interaction .
+the adiabatic state @xmath59 is then aligned with @xmath20 , and complete population transfer has occurred .    by contrast , in f - stirap the pulses need to be terminated simultaneously ( see fig .
+[ scheme_comparison]b ) .
+once the pump pulse has produced the desired fractional transfer , both pulses must diminish simultaneously while maintaining a fixed ratio of the two rabi frequencies , @xmath60 as with stirap , it is necessary to maintain the two - photon resonance condition @xmath61 . when the mixing angle @xmath62 remains constant as the pulses diminish ,
+the result is the statevector ^()(t ) = _
+1- e^-ie^-i(_p+_s)t _ 3 , t > t_f .
+( note the phases that appear here , a consequence of the steady rotation of the coordinates of the adiabatic states . )
+the desired superposition of the ground and target states , eqn .
+( [ final_super ] ) , requires @xmath63 i.e. equal rabi frequencies as the pulse sequence concludes . because f - stirap , in contrast to regular stirap , demands laser pulses of specific temporal shape and duration , it is difficult to implement experimentally in a system having a ladder - type configuration .
+two - photon excitations in ladder systems , involving absorption of two photons from one radiation field , permit population transfer to high - lying excited states without the need for lasers with very short wavelength .
+however , because such two - photon interactions involve nonresonant couplings to intermediate states ( which can be summarized in a virtual state ) , strong two - photon excitation is inevitably accompanied by dynamic stark shifts .
+such shifts , when produced by nonresonant fields , can be put to good use as a means of sweeping the two - photon detuning through resonance and thereby inducing stark chirped rapid adiabatic passage ( scrap )  @xcite . like stirap , scrap was initially developed as a technique for complete population transfer .
+subsequently , it has been used to create transient superpositions for use in enhancing frequency conversion  @xcite .
+a modification of scrap has been suggested for the preparation of persistant superposition states , the so - called half - scrap process  @xcite . the half - scrap technique
+( see fig .
+[ scheme_comparison]c ) employs an intense pump laser field that couples , e.g. via a two - photon transition , a ground state @xmath19 and a target state @xmath20 .
+there is no resonance with an intermediate state .
+the interaction that links states @xmath19 and @xmath20 is represented by an effective two - photon rabi frequency @xmath64 proportional to the intensity of the pump laser .
+the pump field induces dynamic stark shifts of the energies @xmath65 .
+an additional stark - shifting laser pulse induces further energy shifts , which should be larger than the stark shifts induced by the pump laser .
+experimentally this is easy to implement , required a strong , fixed - frequency stark - shifting laser is available .
+typically the polarizability of the upper state greatly exceeds the polarizability of the ground state , thus only the stark shifts of the energy @xmath5 need be considered .
+the resulting detuning of the pump laser from two - photon resonance is _
+( t ) = ( e_3 - e_1)/- 2 _ p - _ s(t ) - _ p(t ) where @xmath66 is the pump - field carrier frequency , @xmath67 is the ( small ) energy shift induced by the pump field and @xmath68 the ( large ) shift induced by the stark - shifting field . under appropriate conditions
+the combination of the two pulses will produce , apart from an overall phase factor , the superposition ^(t ) = _
+1-e^-i e^-2i_p t _ 3 , t > t_f where the mixing angle @xmath69 , defined by the equation @xmath70 , is here evaluated at the time @xmath18 , and where @xmath58 is the phase of the pump field .
+the half - scrap process requires that the following conditions be met : ( i ) the stark - shifting pulse must precede the pump pulse , ( ) the adiabatic condition , @xmath71 must be fulfilled and ( iii ) at the end of the interaction the effective two - photon rabi frequency @xmath72 must be much larger than the effective detuning @xmath73    although the half - scrap technique relies on an adiabatic process , and hence offers the robustness of any adiabatic process , it has two practical disadvantages .
+as noted , the pump - induced two - photon coupling @xmath64 is accompanied by a dynamical stark shift included in @xmath74 these two interactions are both proportional to the intensity of the pump pulse .
+the pump laser - induced dynamic stark shift has to be compensated by an additional static two - photon detuning , such that at the end of the interaction @xmath75 in contrast to techniques utilizing one - photon transitions , half - scrap as described above requires a pump laser of large intensity to drive a two - photon transition sufficiently strongly .
+we propose an alternative technique to prepare the coherent superposition of eqn .
+( [ final_super ] ) . the mechanism , termed stark - assisted coherent superposition ( sacs ) ,
+is based on adiabatic passage and uses the dark state of eqn .
+( [ dark_state_stirap ] ) .
+in contrast to stirap and f - stirap two simultaneous , rather than delayed radiation fields with a similar temporal shape are applied . as in scrap ,
+a non - resonant stark - shifting pulse varies the energy @xmath5 by @xmath76 ( see fig . [ scheme_comparison]d ) .
+our starting point is the rwa hamiltonian of eqn .
+( [ hamiltonian-3state ] ) . in the following
+we assume the two rabi frequencies to be equal , @xmath77 and we require two - photon resonance , @xmath78 without loss of generality we assume that the stark shift is negative @xmath79 thus we deal with the rwa hamiltonian @xmath80.\ ] ] because we focus on adiabatic evolution , the statevector @xmath81 for this system should at all times be aligned with an adiabatic state @xmath51 of this hamiltonian .
+the eigenvalues @xmath52 and eigenvectors @xmath51 are readily obtained for any time @xmath17 by numerical means . in two important limiting cases they have simple properties that underly our proposed method .
+when the interaction is absent , i.e. @xmath82 , but a stark shift ( and positive @xmath83 ) is present , the three adiabatic states align with the diabatic states @xmath16 . the eigenvalues and eigenstates
+are then & _ - = -_s , & _
+-(t ) = = _ 3 , + & _ 0 = 0 , & _ 0(t ) = = _ 1 , + & _ + = _ 2 , & _
++ ( t ) = = _ 2 .
+when , in addition , no stark shift is present , then the adiabatic states @xmath84 and @xmath85 are degenerate and can be taken as any superposition of states @xmath19 and @xmath20 ; we take these to be the choices presented here .    in the other limiting case ,
+when no stark shift is present , @xmath86 , the interaction @xmath87 moves the adiabatic states away from alignment with the diabatic states .
+the eigenvalues are then _ - & = & , + _ 0 & = & 0 , + _ + & = & .
+of particular interest is the null - eigenvalue adiabatic state ; i.e. the `` dark state '' superposition _ 0(t ) = = .
+[ dark_state_sacs ]    the proposed excitation process can be understood by observing the three adiabatic eigenvalues @xmath52 as they vary due to changes of the rwa hamiltonian .
+figure [ surface_starap ] displays these three energies , evaluated numerically , as a function of the two parameters @xmath88 and @xmath7 that define this hamiltonian .
+similar figures have earlier been used to explain adiabatic processes ; the topology of the surfaces can exhibit conical intersections and avoided crossings  @xcite .     and of the stark shift @xmath7 ( in units of @xmath83 ) .
+the path represented by the ( blue ) curve on the intermediate surface gives values of the couple ( @xmath87 , @xmath7 ) that connect the initial state @xmath19 to the superposition of eqn .
+( [ final_super ] ) . ]
+the two - photon resonance condition ensures that initially , when no interaction is present , two of the adiabatic states , @xmath85 and @xmath84 share the eigenvalue zero . a large dot on the figure indicates this point in parameter space ( the initial system point that characterizes the system in the parameter space as the initial statevector characterizes it in the time space ) .
+at this time the remaining eigenstate , @xmath89 , aligned with the bare state @xmath90 , has the eigenvalue @xmath83 , also denoted by a dot in the figure . when @xmath82 the three adiabatic states align uniquely with the diabatic basis states , @xmath16
+.    the sacs process can be described by a path on a surface in the parametric space of fig .
+[ surface_starap ] . at the beginning
+no fields are present ; the statevector is aligned with state @xmath19 and with the adiabatic state @xmath85 .
+subsequently the detuning @xmath7 grows , while the rabi frequency remains null . in the vertical plane at @xmath91 the energy line with constant value 0
+is associated with the adiabatic state @xmath85 , while the constant value @xmath83 belongs to adiabatic state @xmath89 .
+the adiabatic state @xmath84 has an energy that varies linearly with the stark shift @xmath7 .
+because there is no interaction to alter the composition of the adiabatic states , the statevector remains aligned with the initial state @xmath19 during the growth of the stark - shifting pulse .
+once @xmath7 has reached a satisfactory value , the interaction fields @xmath87 are applied .
+thereafter the system point moves , on the energy surface of @xmath85 , away from the plane at @xmath82 , along the path , shown as a dark ( blue ) line in fig .
+[ surface_starap ] . eventually the stark shift ceases , and the system point evolves in the vertical plane of @xmath86 . as the driving field diminishes , the system point moves towards the origin . along this path
+there is an interaction @xmath87 , and thus the adiabatic state @xmath85 is a superposition of the two diabatic states [ see eqn .
+( [ dark_state_sacs ] ) ] .
+the population is thus shared between the states @xmath19 and @xmath20 .
+we will show , in section [ numerical_simulation_starkstirap ] , that the relative composition of this superposition can be altered by changing either the detuning @xmath83 or the ratio of the two rabi frequencies @xmath92 and @xmath93 at the conclusion of the pulse sequence .
+an earlier paper  @xcite discussed similar adiabatic evolution , but with a delay between the two driving laser pulses . in that work
+the stark - shifting pulse coincided with one of the driving fields  @xcite . under these conditions
+, the system is divided between two adiabatic states of the hamiltonian of eqn .
+( [ hamiltonian_starap ] ) .
+the relative phase of the resulting superposition depends on the time integral of the difference between the two associated eigenvalues .
+many applications require the control of this dynamical phase , i.e. the time integral of the rabi frequency must then be controlled .
+we have here considered the case where the driving pulses are synchronized and delayed with respect to the stark pulse .
+in contrast to the sequence discussed in ref .
+@xcite , the dynamics of sacs follows a unique eigenstate and the relative phase of the superposition is reduced to the sum of the two driving frequencies .      as can be seen from viewing the energy surfaces of fig .
+[ surface_starap ] , many paths in the two - dimensional parameter space link the initial state with the desired final - state superposition . it is only required that the evolution be adiabatic and that the system remains on the surface associated with the adiabatic state @xmath85 . in general , the adiabaticity requirement implies that the time integrated rabi frequencies are much larger than 1 .
+this , together with the requirement that the transition to the intermediate state is near resonant , @xmath94 , leads to the condition @xmath95 where @xmath96 is the duration ( fwhm ) of the driving and stark pulse , assuming gaussian temporal shapes .
+as was done earlier  @xcite , we fix the detuning @xmath83 and minimize the non - adiabatic losses by adjusting the peak values of the rabi frequency @xmath97 , the stark - shift @xmath98 and the delay between the pulses . that earlier work , modeling a two - level system driven by a chirped pulse , found that the non - adiabatic losses are minimized ( for fixed pulse shape and peak rabi frequency ) when the system point follows a trajectory of constant energy ( i.e. a level line ) in the adiabatic energy space generated by the rabi frequency and the detuning .    in a temporal representation ,
+the non - adiabatic couplings between two adiabatic eigenstates are minimized when the associated eigenvalues exhibit parallel temporal evolution .
+following ref .
+@xcite , we used the criteria of parallel evolution to find laser parameters that minimized the non - adiabatic couplings between the energy of the adiabatic state followed by the system and the closest alternative adiabatic energy .    ) as a function of @xmath88 and @xmath7 ( in units of @xmath83 ) .
+the white line is an ideal trajectory that would optimize adiabaticity during population transfer .
+the dark trajectories are associated with the realisation of the transfer with sine - squared pulses .
+in contrast to the dotted ( red ) trajectory , the dashed ( blue ) trajectory follows approximately the optimal level line . ]
+figure [ contour_starap_adia ] shows the difference of the two lowest energy surfaces of fig .
+[ surface_starap ] .
+this contour plot exhibits level lines continuously connected to state @xmath19 and to the desired superposition state . a path in the parameter space
+is represented by a closed loop starting and ending at @xmath99 , @xmath86 .
+the white trajectory follows a level line .
+it is thus associated with a population transfer process which minimizes non - adiabatic losses .
+this trajectory will lead to parallel lines in the temporal evolution of eigenenergies for @xmath100 and @xmath101 an inspection of the ideal loop gives the optimized peak amplitudes @xmath102 for a given temporal duration @xmath103 we first chose the value of @xmath83 satisfying ( [ cond_adia_starap_delta ] ) .
+the conditions ( [ cond_mini_adiab ] ) give the values of the parameters @xmath104 and @xmath105 which minimize the non - adiabatic losses .
+the delay between the pulses , and their shapes , have to be chosen such that the system follows the ideal trajectory as closely as possible .
+we suggest a possible implementation of the proposed technique to the preparation of a coherent superposition that could enhance four - wave mixing in mercury vapor .
+the three states of interest are chosen from the degenerate energy levels , and , as indicated in fig .
+[ scheme_config ] .
+when the laser fields have definite polarizations , as we assume , the resulting magnetic - sublevel selection rule makes the excitation ladder a simple three - state system .
+table [ table_hg ] lists the relevant properties of these states .
+.spectroscopic values of the considered transitions in mercury .
+@xmath106 is the wavelength of the transition . here
+@xmath107 is the einstein coefficient for the spontaneous emission and @xmath108 is the dipole - transition moment . [
+cols="^,^,^,^",options="header " , ]     in the following simulations we assume laser pulses whose temporal shape follows a sine - squared pattern within one period .
+such pulses are very similar to the gaussian pulses often found in experiments , and they have the mathematical advantage of vanishing identically outside a finite pulse duration ; they have finite support .
+the use of such pulses simplifies the identification of temporal regions where the two interactions vanish , and for which the adiabatic states have exact analytic expressions .
+specifically , we used the profiles , @xmath109 , \quad   \omega(t)=0 \quad \hbox{elsewhere } , \\ & & \nonumber   \delta_s(t)=\delta_s^{\max }   \sin\left(t / t\right)^2 \quad \hbox{for } \quad t\in[0 , \pi t ] , \quad   \delta_s(t)=0 \quad \hbox{elsewhere},\end{aligned}\ ] ] with equal widths of @xmath110ns . from table
+[ table_hg ] we deduce the relation between the rabi frequencies and the laser intensities as
+_ 1^  [ ^-1 ] = 5.610 ^ 7  [ ^2 ] , _ 2^  [ ^-1 ] = 3.810 ^ 7  [ ^2 ] . for our simulations we chose the peak intensities as @xmath111 mw/@xmath112 and @xmath113 mw/@xmath112 for the transitions 1 and 2 .
+these choices give equal peak rabi frequencies of @xmath114 ns@xmath115 for both transitions .
+the delay between the driving pulses and the stark pulse is @xmath116 ns . the stark shift of state 3 is evaluated from the expression _
+j summed over all the non - resonant intermediate states j. here @xmath117 and @xmath118 are the electric field envelope and the carrier frequency of the stark pulse respectively .
+the energy of state 3 shifts by a maximum of @xmath119 ns@xmath120 this shift can be achieve using a stark laser with the wavelength @xmath121 nm and with the intensity @xmath122 mw/@xmath123 we evaluate the stark shift , taking into account the relevant states @xmath124 and @xmath125 , as _ s^  [ ^-1]=-1885i_s  [ ^2 ] .
+we neglect the shifts of states 1 and 2 , as is usually the case for lower - lying states .
+this approximation was confirmed from estimations of the stark shifts .
+these parameters have been chosen based on the following criteria .
+the pulse durations were fixed at @xmath110 ns .
+the fields 1 and 2 were detuned by @xmath126 to satisfy the condition ( [ cond_adia_starap_delta ] ) .
+the intensities were chosen such that @xmath127 .
+the stark shift satisfies @xmath128 to fulfill eqn .
+( [ cond_mini_adiab ] ) .
+the delay between the stark and driving pulses was adjusted such that , in fig .
+[ contour_starap_adia ] , the trajectory of the system point in the parameter space ( blue dashed line ) follows as closely as possible the ideal level line ( white level line ) . at the beginning of the sequence ,
+when the driving pulses 1 and 2 are still absent the populated adiabatic state coincides with the initial state @xmath129 at the end of the process , when the stark pulse is absent , this adiabatic state corresponds with the dark state of eqn .
+( [ dark_state_stirap ] ) . because the rabi frequencies @xmath130 remain equal as they diminish , the populations @xmath131 and @xmath132 are both equal to 0.50 and the state of the system , for @xmath133 , is ( t ) with @xmath134s@xmath115 , corresponding to a wavelength of 157 nm .
+the optimization of the pulse parameters to minimize the non - adiabatic losses can produce a variety of superpositions . by changing the relative intensity of the pulses , and hence the relative peak rabi frequencies @xmath135 and @xmath136 ) , we cause the trajectory of the system point to deviate from a contour line ( red dotted line in fig .
+[ contour_starap_adia ] ) and the populations become @xmath137 and @xmath138    figure [ dyn_starap_hg ] shows results of numerical simulation of sacs in mercury .
+the upper frames show the pulse sequence , while the middle frames show the time varying adiabatic eigenvalues .
+the thick line marks the eigenvalue associated with the adiabatic state that coincides with @xmath19 before the pump pulses are present and with the dark adiabatic state @xmath85 , eqn .
+( [ dark_state_stirap ] ) , after the stark pulse vanishes .
+the lower frame shows the populations . in this example
+, they evolve into a 50:50 superposition of states 1 and 3 .     as a function of time .
+middle frame : eigenvalues versus time .
+lower frame : populations @xmath139 as a function of time ( @xmath140 , dotted line ; @xmath141 full thin line and @xmath142 full thick line),title="fig : " ] ( -80,75 ) ( -60,34 ) ( -104,28 ) ( -124,170 ) ( -40,185 )    a maximum coherence , once formed , can be used in any subsequent frequency mixing process .
+the atoms act like a local oscillator at the two - photon transition frequency @xmath143 .
+this can beat with an additional radiation field of frequency @xmath33 to generate new radiation fields , e.g. at the sum of all the contributing frequencies @xmath144 . when applied to four - wave mixing in mercury
+, the introduction of a tunable probe laser field with wavelength in the visible regime will generate radiation deep in the vacuum - ultraviolet spectrum .
+in contrast to conventional frequency mixing techniques , the maximum coherence maximizes the induced polarization in the medium , and thereby enhances the efficiency of the frequency mixing process .
+moreover , the coherence in the medium decays only as slowly as the excited state lifetime , and so the mixing process is also possible when the probe laser is delayed with respect to the driving fields .
+this feature has no counterpart in conventional nonlinear optics , which requires coincident radiation fields .
+the proposed sacs technique offers the possibility of constructing any superposition of states 1 and 3 with controllable weights by changing the two - photon detuning @xmath145 our analytical analysis and concomitant discussion assumed two - photon resonance .
+it is instructive to see the consequences of relaxing this condition .
+figure [ ctrl_weight_super_hg ] shows the population of states 1 and 3 after the interaction with the pulse sequence for various detunings @xmath145 the pulse parameters are identical to the ones of fig .
+[ dyn_starap_hg ] .
+when the two - photon detuning is far from zero and negative ( @xmath146 ) , the population is left in the ground state . in the opposite case , ( @xmath147 ) ,
+there is complete transfer into state 3 . for intermediate detunings
+the populations are shared between states 1 and 3 with various weigths .
+when two - photon detuning is present additional phases appear in the expression of the superposition ( see  @xcite ) .
+( dotted line ) , and @xmath142 ( full line ) at the end of the pulse sequence as a function of the two - photon detuning @xmath145,title="fig : " ] ( -140,70 ) ( -140,34 )    the relative weights of the components @xmath19 and @xmath20 can be altered by changing either the two - photon detuning or the ratio of the rabi frequencies @xmath148 at the end of the pulse sequence .
+indeed , the superposition state created by the two pulses is exactly the stirap dark state , eqn .
+( [ dark_state_stirap ] ) . from the latter expression , it is obvious that the rabi frequencies at the end of the interaction can be used as control parameters for the superposition of states @xmath19 and @xmath20 .
+the stark pulse of sacs allows successful implementation with a large variety of pulse shapes .
+the dark state in f - stirap , eqn .
+( [ dark_state_stirap ] ) , connects state @xmath19 to the target superposition of eqn .
+( [ final_super ] ) , as long as the pump and stokes pulses maintain a constant ratio of rabi frequencies as they vanish . in sacs , the stark pulse lifts the degeneracy of the adiabatic states , thereby permitting implementation with simultaneous driving pulses 1 and 2 of similar shape and width .
+figures [ contour_stirap_delay ] and [ ctrl_weight_super_hg ] illustrates this flexibility with simulations using gaussian pulses , _
+p(t)&=&_p^e^-(t / t)^2 + _
+s(t)&=&_s^e^-((t-)/t ) , + _ s(t)&=&_s^e^-((t--1)/t)^2 .
+[ gausspulses ] each of these figures depicts the populations of states 1 and 3 at the end of the sacs process as a function of the stokes peak amplitude and of the delay between the stokes and pump pulses . for fig .
+[ contour_stirap_delay ] the stark shifting pulse is absent ( the process thus corresponds to stirap ) .
+population transfer exhibits very clear rabi oscillations , as indicated by the curved bands .
+by contrast , the simulations of fig .
+[ ctrl_weight_super_hg ] include a stark shift .
+the contour patterns here are indicative of adiabatic passage , as contrasted with rabi oscillations .     and of the delay @xmath149 between pump and stokes pulses for the f - stirap process .
+the stark field is here absent .
+the parameters are the following : the detunings @xmath150 are equal to @xmath151 .
+the pulse shapes are gaussian , as specified in eqn .
+( [ gausspulses ] ) , with @xmath152 the four outset plots show pulse sequences for four couples of values ( @xmath153 , @xmath154 ) correspond to the dots ( a ) , ( b ) , ( c ) , and ( d ) . in those plots
+the pump field @xmath155 is a full line and the stokes field @xmath156 is a dashed line . ]    .
+parameters are as in that figure , but there is a stark shift , @xmath157 in the outset frames the pump pulse @xmath155 is a full line , the stokes pulse @xmath156 is a dashed line and the stark shift @xmath7 is a dotted line . ]
+viewing fig .
+[ contour_stirap_delay ] one can identify two distinct regimes for the f - stirap process . for a small delay between the pump and stokes pulses , rabi oscillations of the population occur between the states 1 and 3 .
+for sufficiently large delay , the dynamics becomes adiabatic and there occurs an equal - weight superposition of states 1 and 3 .
+viewing fig .
+[ contour_starap_delay ] we see that when the stark shift is sufficiently large the rabi oscillations disappear and the dynamics becomes adiabatic even if there is no delay between pulses 1 and 2 .
+the weights of the superposition components then depend on the ratio of rabi frequencies @xmath148 at the end of the sequence .
+when a stark shift of the energy of state 3 occurs the two - photon resonance condition is generally not fulfilled , and the adiabatic state followed by the statevector does not coincide with the dark state of stirap , eqn .
+( [ dark_state_stirap ] ) . under these circumstances
+the intermediate state @xmath90 is populated when both stark and driving pulses are present . for adiabatic transfer to succeed it
+is necessary that the lifetime of the intermediate state be much longer than the duration of the overlapping between pulses .
+the scrap technique , applied to excite high - lying states , is usually based on a two - photon transition with no resonantly driven intermediate state .
+thus it requires higher intensities than processes that rely on a combination of single - photon near - resonant excitations , as sacs does . to illustrate the main differences between sacs and half - scrap , we calculate the intensity of the driving field we would need to excite the transition 6@xmath158 - 7@xmath158 by half - scrap with a similar rabi frequency to the one used in the sacs technique .
+as above , the states 1 and 3 are taken to be 6@xmath158 and 7@xmath158 . a pump laser at wavelength 313 nm drives a two - photon transition between these two states .
+the effective two - photon rabi frequency is calculated as = _ j . in this sum
+we included only the intermediate states 6@xmath159 6@xmath160 7@xmath161 and 9@xmath161 .
+other states give only minor contributions .
+we calculate the effective two - photon rabi frequency to be ^  [ ^-1]= 37 i_p  [ ^2 ] . the adiabatic condition @xmath162 can be fulfilled for a pulse duration of @xmath110 ns with a pump intensity of @xmath1631.3 gw/@xmath112 .
+the pump intensity needed for half - scrap is thus three orders of magnitude larger than the intensities of the pulses 1 and 2 used in the sacs technique for the same adiabatic condition @xmath164 on the other hand , with the scrap technique the intermediate states are far from resonance , and so they are never populated during the dynamics .
+four - wave mixing , and other nonlinear optics processes , are enhanced by preparing the nonlinear medium in a maximally coherent quantum state , thereby maximizing the induced polarization field . for such purposes
+it is necessary to create superpositions of nondegenerate quantum states .
+we have introduced an alternative adiabatic technique , sacs , for the preparation of coherent superpositions of two nondegenerate states , 1 and 3 , coupled by a two - photon process .
+the technique uses two pulses , each near resonance with an intermediate state 2 .
+the time dependent rabi frequencies of these two pulses are assumed to have identical pulse shapes . additionally , a stark - shifting pulse manipulates the energy of state 3 .
+the weights of the components of the superposition can be controlled by adjusting the two - photon detuning or by changing the ratio of the driving pulses at the end of the sequence .
+we gave a set of optimal parameters that minimize the non - adiabatic losses .
+the sacs technique has potential advantages over alternative techniques for preparing such nondegenerate superpositions .
+the sacs method requires less laser power than half - scrap .
+it also offers a larger choice than does f - stirap for the pulse shape of the fields and for the delay between pulses .
+we acknowledge s. gurin and h.r .
+jauslin for preliminary discussions .
+n.s . acknowledges financial supports from the eu network quacs under contract no .
+hprn - ct-2002 - 0039 and from la fondation carnot .
+bws is grateful to prof .
+k. bergmann for hospitality under the max planck forschungspreis 2003 .

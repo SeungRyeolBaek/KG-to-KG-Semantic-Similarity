@@ -1,0 +1,216 @@
+{
+  "nodes": [
+    {
+      "id": "Schools",
+      "type": "Place",
+      "properties": {}
+    },
+    {
+      "id": "Layoffs",
+      "type": "Event",
+      "properties": {}
+    },
+    {
+      "id": "Forced Attrition",
+      "type": "Event",
+      "properties": {}
+    },
+    {
+      "id": "Vacancies",
+      "type": "Event",
+      "properties": {}
+    },
+    {
+      "id": "Teachers",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Workers",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Retire",
+      "type": "Event",
+      "properties": {}
+    },
+    {
+      "id": "Service",
+      "type": "Event",
+      "properties": {}
+    },
+    {
+      "id": "Consequences",
+      "type": "Event",
+      "properties": {}
+    },
+    {
+      "id": "School Districts",
+      "type": "Organization",
+      "properties": {}
+    },
+    {
+      "id": "Employees",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Staff",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Superintendent",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Pennsylvania",
+      "type": "Place",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Schools",
+        "type": "Place",
+        "properties": {}
+      },
+      "target": {
+        "id": "Layoffs",
+        "type": "Event",
+        "properties": {}
+      },
+      "type": "OCCURS_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Schools",
+        "type": "Place",
+        "properties": {}
+      },
+      "target": {
+        "id": "Forced Attrition",
+        "type": "Event",
+        "properties": {}
+      },
+      "type": "OCCURS_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Schools",
+        "type": "Place",
+        "properties": {}
+      },
+      "target": {
+        "id": "Vacancies",
+        "type": "Event",
+        "properties": {}
+      },
+      "type": "LEADS_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Teachers",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Retire",
+        "type": "Event",
+        "properties": {}
+      },
+      "type": "OCCURS_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Workers",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Retire",
+        "type": "Event",
+        "properties": {}
+      },
+      "type": "OCCURS_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Workers",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Service",
+        "type": "Event",
+        "properties": {}
+      },
+      "type": "LEAVES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Consequences",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "School Districts",
+        "type": "Organization",
+        "properties": {}
+      },
+      "type": "RESULTS_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "School Districts",
+        "type": "Organization",
+        "properties": {}
+      },
+      "target": {
+        "id": "Employees",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "MOVES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Employees",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Staff",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "COMPENSATES_FOR",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Superintendent",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Pennsylvania",
+        "type": "Place",
+        "properties": {}
+      },
+      "type": "FROM",
+      "properties": {}
+    }
+  ]
+}

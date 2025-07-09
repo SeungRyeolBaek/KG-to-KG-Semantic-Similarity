@@ -1,0 +1,344 @@
+as hetnet provides flexible and efficient topology to boost spectral efficiency , it has recently aroused immense interest in both academia and industry . as illustrated in fig .
+[ fig : hetnet_2tiers ] , a hetnet consists of a diverse set of regular macro base stations ( bs ) overlaid with low power pico bss .
+since this overlaid structure may lead to severe interference problem , it is extremely critical to control interference via rrm in hetnet .
+there has been much research conducted on rrm optimization for traditional cellular networks . in @xcite ,
+the authors considered power and user scheduling in single - carrier cellular networks . in @xcite ,
+the game theoretical approaches are proposed for distributed resource allocation . in @xcite , the authors proposed a dynamic fractional frequency reuse scheme to combat the inter - sector interference under a game - based optimization by each sector .
+the coordinated multipoint transmission ( comp ) @xcite is another important technique to handle the inter - cell interference .
+for example , in @xcite , the authors exploited the uplink - downlink duality to do joint optimization of power allocation and beamforming vectors . in @xcite ,
+a wmmse algorithm is proposed to find a stationary point of the weighted sum - rate maximization problem for multi - cell downlink systems .
+while the above algorithms achieve comparably good performance , they require global channel state information ( csi ) for centralized implementation @xcite or over - the - air iterations and global message passing for distributed implementation @xcite .
+it is quite controversial whether comp is effective or not in lte systems due to large signaling overhead , signaling latency , inaccurate csit , and the complexity of the algorithm .    on the other hand ,
+solutions for traditional cellular networks can not be applied directly to hetnet due to the unique difference in hetnet topology .
+first , the inter - cell interference in hetnet is more complicated , e.g. , there is _ co - tier interference _ among the pico bss and among the macro bss as well as the _ cross - tier interference _ between the macro and pico bss .
+furthermore , due to load balancing , some of the mobiles in hetnet may be assigned to a pico bs which is not the strongest bs @xcite and the mobiles in the pico cell may suffer from strong interference from the macro bss . to solve these problems , some eicic techniques , such as the abs control @xcite ,
+have been proposed in lte and lte - a @xcite . in @xcite ,
+the authors analyzed the performance for abs in hetnet under different cell range extension ( re ) biases .
+however , they focused on numerical analysis for the existing heuristic eicic schemes , which are the baselines of this paper .
+in @xcite , the authors proposed an algorithm for victim pico user partition and optimal synchronous abs rate selection .
+however , they used a universal abs rate for the whole network , and as a result , their scheme could not adapt to dynamic network loading for different macro cells .    in this paper , we focus on the resource optimization in the downlink of a hetnet without comp .
+we consider _ dynamic abrb _ for interference control and dynamic user scheduling to exploit _ multi - user diversity_. the abrb is similar to the abs but it is scheduled over both time and frequency domain .
+unlike @xcite , we do not restrict the abrb rate to be the same for all macro bss and thus a better performance can be achieved .
+however , this also causes several new technical challenges as elaborated below .    * * exponential complexity for dynamic abrb : * optimization of abrb patterns is challenging due to the combinatorial nature and exponentially large solution space .
+for example , in a hetnet with @xmath0 macro bss , there are @xmath1 different abrb pattern combinations . hence , brute force solutions are highly undesirable . * * complex interactions between dynamic user scheduling and dynamic abrb * : there is complex coupling between the dynamic user scheduling and abrb control .
+for instance , the abrb pattern will affect the user sets eligible for user scheduling .
+furthermore , the optimization objective of abrb control depends on user scheduling policy and there is no closed form characterization . * * challenges in rrm architecture : * most existing solutions for resource optimization of hetnet requires global knowledge of csi and centralized implementations . yet ,
+such designs are not scalable for large networks and they are not robust with respect to ( w.r.t . )
+latency in backhaul .    to address the above challenges ,
+we propose a two timescale control structure where the long term controls , such as dynamic abrb , are adaptive to the large scale fading . on the other hand ,
+the short term control , such as the user scheduling , is adaptive to the local csi within a pico / macro bs .
+such a multi - timescale structure allows _ hierarchical rrm _ design , where the long term control decisions can be implemented on a rrm server for inter - cell interference coordination .
+the short - term control decisions can be done locally at each bs with only local csi .
+such design has the advantages of low signaling overhead , good scalability , and robustness w.r.t .
+latency of backhaul signaling . while there are previous works on two timescale rrm @xcite , those approaches are heuristic ( i.e. the rrm algorithms are not coming from a single optimization problem ) .
+our contribution in this paper is a formal study of two timescale rrm algorithms for hetnet based on optimization theory . to overcome the exponential complexity for abrb control
+, we exploit the sparsity in the _ interference graph _ of the hetnet topology and derive structural properties for the optimal abrb control .
+based on that , we propose a _ two timescale alternative optimization _
+solution for user scheduling and abrb control .
+the algorithm has low complexity and is asymptotically optimal at high snr .
+simulations show that the proposed solution has significant performance gain over various baselines .
+_ notations _ : let @xmath2 denote the indication function such that @xmath3 if the event @xmath4 is true and @xmath5 otherwise .
+for a set @xmath6 , @xmath7 denotes the cardinality of @xmath6 .
+consider the downlink of a two - tier hetnet as illustrated in fig .
+[ fig : hetnet_2tiers ]
+. there are @xmath0 macro bss , @xmath8 pico bss , and @xmath9 users , sharing @xmath10 ofdm subbands .
+denote the set of the macro bss as @xmath11 , and denote the set of the pico bss as @xmath12 .    a two - tier heterogeneous network with macro and pico base stations , width=332 ]    the hetnet topology ( i.e. , the network connectivity and csi of each link ) is represented by a topology graph as defined below .
+[ hetnet topology graph]define the _ topology graph _ of the hetnet as a bipartite graph @xmath13 , where @xmath14 denotes the set of all macro and pico bs nodes , @xmath15 denotes the set of all user nodes , and @xmath16 is the set of all edges between the bss and users .
+an edge @xmath17 between bs node @xmath18 and user node @xmath19 represents a wireless link between them .
+each edge @xmath17 is associated with a csi label @xmath20 , where @xmath21 represents the channel coefficient between bs @xmath22 and user @xmath23 on subband @xmath24 . for each bs
+node @xmath22 , let @xmath25 denote the set of associated users . for each user
+node @xmath23 , define @xmath26 as the set of neighbor macro bss and @xmath27 as the set of neighbor pico bss .    in the topology graph
+, @xmath28 means that the path gain between user @xmath23 and bs @xmath22 is sufficiently small compared to the direct link path gain , and thus the interference from bs @xmath22 will have negligible effect on the data rate of user @xmath23 .
+we have the following assumption on the channel fading process @xmath29 .
+[ asm : fory]the channel fading coefficient has a two timescale structure given by @xmath30 .
+the small scale fading process @xmath31 is identically distributed w.r.t .
+the subframe and subband indices ( @xmath32 ) , and it is i.i.d .
+user and bs indices ( @xmath33 ) .
+moreover , for given @xmath34 , @xmath31 is a continuous random variable .
+the large scale fading process @xmath35 is assumed to be a slow ergodic process ( i.e. , @xmath36 remains constant for several _ _ super - frames _ _ subframes ] . ) according to a general distribution .
+the two timescale fading model has been adopted in many standard channel models .
+the large scale fading @xmath36 is usually caused by path loss and shadow fading , which changes much slowly compared to the small scale fading .
+we consider the following _ biased cell selection _ mechanism to balance the loading between macro and pico bss @xcite .
+let @xmath37 denote the serving bs of user @xmath23 .
+let @xmath38 denote the cell selection bias and let @xmath39 denote the transmit power of bs @xmath22 on a single sub - band .
+let @xmath40 and @xmath41 respectively be the strongest macro bs and pico bs for user @xmath23 . if @xmath42 , user @xmath23 will be associated to pico cell @xmath43 , i.e. , @xmath44 ; otherwise @xmath45 .
+if a user only has a single edge with its serving bs , it will not receive inter - cell interference from other bss and thus its performance is noise limited ; otherwise , it will suffer from strong inter - cell interference if any of its neighbor bss is transmitting data and thus its performance is interference limited .
+this insight is useful in the control algorithm design later and it is convenient to formally define the interference and noise limited users .    [
+interference / noise limited user][def : inuser]if a user @xmath23 has a single edge with its serving bs @xmath37 only , i.e. , @xmath46 , then it is called a _ noise limited user _ (
+n - user ) ; otherwise , it is called an _ interference limited user _ ( i - user ) .    fig .
+[ fig : abs_intro ] illustrates an example of the hetnet topology graph . in fig .
+[ fig : abs_intro](a ) , an arrow from a bs to a user indicates a direct link and the dash circle indicates the coverage area of each bs .
+an i - user which lies in the coverage area of a macro bs is connected to this macro bs , while a n - user does not have connections with the neighbor macro bss in the topology graph as illustrated in fig .
+[ fig : abs_intro](b ) .
+we consider a two timescale hierarchical rrm control structure where the control variables are partitioned into _ long - term _ and _ short - term _ control variables .
+the long - term control variables are adaptive to the large scale fading @xmath47 and they are implemented at the radio resource management server ( rrms ) .
+the short - term control variables are adaptive to the instantaneous csi @xmath48 and they are implemented locally at each macro / pico bs .
+abs is introduced in lte systems @xcite for interference mitigation among control channels in hetnet .
+it can also be used to control the _ co - tier _ and _ cross - tier interference _ among the data channels . in lte systems ,
+abs is only scheduled over time domain . in this paper
+, we consider dynamic abrb control for interference coordination .
+the abrb is similar to abs but it is scheduled over both time and frequency domain . it is a generalization of abs and enables more fine - grained resource allocation .
+when an abrb is scheduled in a macro bs , a rb with blank payload will be transmitted at a given frequency and time slice and this eliminates the interference from this macro bs to the pico bss and the adjacent macro bss .
+hence , as illustrated in fig .
+[ fig : abs_intro ] , scheduling abrb over both time and frequency domain allows us to control both the _ macro - macro _ bs and _ macro - pico _ bs interference .
+we want to control the abrb dynamically w.r.t .
+the large scale fading because the optimal abrb pattern depends on the hetnet topology graph .
+for example , when there are a lot of pico cell i - users , we should allocate more abrbs at the macro bs to support more pico cell i - users . on the other hand , when there are only a few pico cell i - users
+, we should allocate less abrbs to improve the spatial spectrum efficiency .
+for any given subframe , define @xmath49 to indicate if abrb is scheduled ( @xmath50 ) for subband @xmath24 at macro bs @xmath22 .
+let @xmath51^{t}\in\mathcal{a}$ ] be the abrb pattern vector for subband @xmath24 and @xmath52 is the set of all possible abrb patterns macro bss can either schedule an abrb or not for the @xmath53-th rb ( i.e. , subframe @xmath54 and subband @xmath24 ) , there are @xmath1 possible abrb patterns . hence , the size of @xmath52 is @xmath1 . ] . in the proposed dynamic abrb control , each macro bs
+is allowed to dynamically change the ratio of abrb transmission on each subband and this ratio can be any positive real number . to facilitate implementation , we consider randomized abrb control policy as defined below .
+[ randomized abrb control policy ] an abrb control policy of the @xmath24-th subband @xmath55 is a mapping from the abrb pattern space @xmath52 to a probability in [ 0,1 ] . at any subframe ,
+the instantaneous abrb pattern vector for subband @xmath24 is stochastically determined according to the probabilities @xmath56 , where @xmath57 denote the probability that the @xmath58 subband is in abrb pattern @xmath59 .      to facilitate structural abrb design
+, we partition the users into two types .
+[ partitioning of user set][def : user - set - partition ] the mobile user set is partitioned into two subsets @xmath60 , where @xmath61 denotes the set of _ type a users _ and is defined as @xmath62 and @xmath63 denotes the set of _ type b users_.    the type a users include all pico cell users and macro cell n - users , while the type b users include all macro cell i - users . for type a users , it will not lose optimality by imposing a _
+synchronous abrb structure _ where the transmissions of the abrb at all macro bss are aligned as much as possible . the formal definition of the synchronous abrb structure is given in theorem [ thm : absreduce ] .
+as will be shown in theorem [ thm : absreduce ] , if there is only type a users , imposing the synchronous abrb structure can dramatically reduce the number of abrb control variables from exponential large ( @xmath1 ) to only @xmath0 and this complex reduction is achieved without loss of optimality .
+on contrast , the performance of the macro cell i - users is very poor under the synchronous abrb structure because aligning the data transmissions of all macro bss will cause strong inter - cell interference for macro cell i - users .
+motivated by these observations , we partition the @xmath10 subbands into two groups , namely @xmath64 and @xmath65 , and use different abrb control policies for type a and type b users on these two groups of subbands respectively .
+the variable @xmath66 controls the fraction of _ type a _ subbands .      at each subframe , each bs @xmath22 dynamically selects a user from @xmath25 for each subband @xmath24 based on the knowledge of current abrb pattern @xmath59 and channel realization @xmath67 to exploit _ multi - user diversity_. let @xmath68 be the user scheduling variable ( of user @xmath23 at bs @xmath37 ) of subband @xmath24 and @xmath69 $ ] be the associated vectorized variable .
+the set of all feasible user scheduling vectors at bs @xmath22 for the @xmath24-th subbands with abrb pattern @xmath59 is given by @xmath70 where @xmath71 is the set of users that can not be scheduled on a type a subband under abrb pattern @xmath59 ; and @xmath72 .
+the physical meaning of @xmath73 is elaborated below .
+first , if a macro bs is transmitting abrb , none of its associated users can be scheduled for transmission . moreover , due to large cross - tier interference from macro bss , a pico cell i - user can not be scheduled for transmission if any of its neighbor macro bss @xmath74 is transmitting data subframe ( i.e. , @xmath75 ) .
+as will be seen in section [ sub : structural - properties - ofpa ] , explicitly imposing this user scheduling constraint for the pico cell i - users is useful for the structural abrb design .
+the user scheduling policy @xmath76 of the @xmath24-th sub - band is defined below .
+[ user scheduling policy][def : randomized - user - scheduling ] a user scheduling policy of the @xmath22-th bs and @xmath24-th sub - band @xmath77 is a mapping : @xmath78 , where @xmath79 is the csi space .
+specifically , under the abrb pattern @xmath59 and csi realization @xmath67 , the user scheduling vector of bs @xmath22 is given by @xmath80 .
+let @xmath81 denote the overall user scheduling policy on sub - band @xmath24 .
+assuming perfect csi at the receiver ( csir ) and treating interference as noise , the instantaneous data rate of user @xmath23 is given by : @xmath82 where @xmath83 , @xmath84 ; @xmath85 is the mutual information of user @xmath23 contributed by the @xmath24-th subband ; and @xmath86 is the interference - plus - noise power at user @xmath23 on subband @xmath24 .    for a given policy @xmath87 and large scale fading state @xmath88 ,
+the average data rate of user @xmath23 is given by :    @xmath89=\sum_{m\in\mathcal{m}\left(k\right)}\overline{\mathcal{i}}_{m , k}\left(q_{m},\pi_{m}\right),\ ] ] where the average mutual information on subband @xmath24 is @xmath90 and @xmath91 $ ] .
+for conciseness , the abrb pattern @xmath59 for a specific subband @xmath24 is denoted as @xmath92 $ ] when there is no ambiguity .
+the performance of the hetnet is characterized by a utility function @xmath93 , where @xmath94 $ ] is the average rate vector .
+we make the following assumptions on @xmath93 .
+[ asm : ufun]the utility function can be expressed as @xmath95 , where @xmath96 is the weight for user @xmath23 , @xmath97 is assumed to be a concave and increasing function . moreover , for any @xmath98 such that @xmath99 and @xmath100 belongs to the domain of @xmath97 , @xmath101 satisfies @xmath102 where @xmath103 and @xmath104 are some scalar functions of @xmath105 .
+the above assumption is imposed to facilitate the problem decomposition in section [ sub : problem - decomposition ] .
+this utility function captures a lot of interesting cases below .    *
+* weighted sum throughput : * the utility function is @xmath106 . * * @xmath107-fair @xcite : * @xmath107-fair can be used to compromise between the fairness to users and the utilization of resources .
+the utility function is * * @xmath108 * * proportional fair @xcite : * this is a special case of @xmath107-fair when @xmath109 .    due to the statistical symmetry of the @xmath10 subbands ,
+there is no loss of optimality to consider symmetric policy @xmath110 , where @xmath111 ( @xmath112 ) and @xmath113 ( @xmath114 ) if @xmath115 ( @xmath65 ) .
+[ optimality of symmetric policy][lem : optimality - of - symmetric]there exists a symmetric policy @xmath116 such that it is the optimal solution of the following optimization problem :    @xmath117    please refer to appendix [ proof - of - lemma symp ] for the proof .    moreover , we have @xmath118 and @xmath119 . as a result , the utility function under a symmetric policy @xmath120 can be expressed as : @xmath121 where @xmath122 , @xmath123 , and @xmath124 ( @xmath125 ) can be any type a ( type b ) subband .
+finally , for a given hetnet topology graph @xmath13 , the two timescale rrm optimization is given by :    @xmath126    where ( [ eq : qeccon1a ] ) and ( [ eq : qeccon2a ] ) ensure that @xmath127 and @xmath128 satisfy the definition of probability mass function ( pmf ) .
+using primal decomposition , problem @xmath129 can be decomposed into the following subproblems .    *
+subproblem a * ( * cross - tier interference control * ) : optimization of abrb @xmath130 and user scheduling @xmath131 . @xmath132    * subproblem b * ( * co - tier interference control * ) : * * optimization of abrb @xmath112 and user scheduling @xmath114 .
+@xmath133    * subproblem c * ( * subband partitioning * ) : optimization of subband partitioning @xmath134 .    @xmath135    note that the solution of @xmath136/@xmath137 is independent of the value of @xmath134 because both @xmath138 and @xmath139 are independent of @xmath134 . after solving @xmath136 and @xmath137 ,
+the optimal @xmath134 can be easily solved by bisection search . on the other hand ,
+the optimization of @xmath131/@xmath114 is a stochastic optimization problem because the @xmath140/@xmath141 involves stochastic expectation over csi realizations and they do not have closed form characterization .
+furthermore , the number of abrb control variables in @xmath136/@xmath137 is exponential w.r.t . the number of macro bss @xmath0 .
+we shall tackle these challenges in section [ sec : solution - of - pa ] and [ sub : solution - of - subproblempb ] .
+in this section , we first derive structural properties of @xmath136 and reformulate @xmath136 into a simpler form with reduced solution space .
+then , we develop an efficient algorithm for @xmath136 .    we require the following assumption to derive the results in this section .    [
+asm : picoiedge]for any @xmath142 , let @xmath143 denote the set of all pico cell i - users in pico cell @xmath22 .
+then we have @xmath144 and define @xmath145 as the set of neighbor macro bss of pico cell @xmath22 .
+the above assumption states that a macro bs will interfere with all the i - users in a pico cell as long as it interferes with any user in the pico cell .
+this is reasonable since the coverage area of a macro bs is much larger than that of a pico bs .
+we exploit the interference structure in the hetnet topology @xmath146 to derive the structural properties of @xmath136 . throughout this section
+, we will use the following example problem to illustrate the intuition behind the main results .
+[ exm - problema]consider @xmath147 for the hetnet in fig .
+[ fig : abs_intro ] with @xmath148 macro bss and @xmath149 pico bs .
+the set of type a users is @xmath150 and the objective function is specified as @xmath151 ( i.e. , we consider sum - rate utility ) . for illustration ,
+we focus on the case when the marginal probability that a macro bs is transmitting abrb is transmitting abrb is @xmath152 . ]
+is fixed as @xmath153^{t}=[0.7,0.5]^{t}$ ] .
+define two sets of abrb patterns @xmath154 and @xmath155 for each bs @xmath22 . for macro bs , @xmath154 is the set of abrb patterns under which macro bs @xmath22 is transmitting data .
+for pico bs , @xmath154 is the set of abrb patterns under which all of its neighbor macro bss is transmitting abrb . using the configuration in example [ exm - problema ] , we have @xmath156,\left[1,1\right]\right\ } $ ] , @xmath157,\left[1,1\right]\right\ } $ ] and @xmath158,\left[1,0\right]\right\ } $ ] ( the formal definition of @xmath154 and @xmath159 for general cases is in appendix [ sub : spageneral ] ) .    in observation
+[ clm : effect - of - abrb - mi ] , we find that the abrb pattern @xmath160 only affects the data rate of a type a user in cell @xmath22 by whether @xmath161 or not . based on that , we find that the policy space for both the abrb control @xmath130 and user scheduling @xmath131 can be significantly reduced in observation [ clm : qareduction ] and [ clm : policy - space - reductionpia ] . while these observations are made for the specific configuration in example [ exm - problema ] , they are also correct for general configurations and are formally stated in lemma [ lem : sysman ] , theorem [ thm : absreduce ] and theorem [ thm : policy - space - reductionpia ] in appendix [ sub : spageneral ] . finally , using the above results , we transform the complicated problem @xmath136 to a much simpler problem with @xmath162 as the optimization variables .
+[ clm : effect - of - abrb - mi]for given csi @xmath163 and a feasible user scheduling vector @xmath164 , the mutual information @xmath165 of a type a user @xmath23 in cell @xmath22 only depends on whether the abrb pattern @xmath161 or not , i.e. , @xmath166,@xmath167 ( or @xmath168 )
+. moreover , we have @xmath169 for any @xmath170 .
+let us illustrate the above observation using the configuration in example [ exm - problema ] .
+there are 4 type a users : @xmath150 . for user 1 in macro cell 1
+( n - user ) , it is scheduled for transmission whenever macro bs 1 is not transmitting abrb ( i.e. , @xmath171 ) .
+hence the mutual information is @xmath172 , which only depends on whether @xmath171 ( i.e. , @xmath173 ) or not .
+moreover , the mutual information is higher if @xmath173 because @xmath174 . for user 4 in pico cell 3 ( i - user ) , if @xmath175 , its neighbor macro bs 2 is transmitting abrb and the mutual information is @xmath176 ; otherwise ( @xmath177 ) , macro bs 2 is transmitting data and we have @xmath178 and @xmath179 .
+similar observations can be made for user 2 and 3 .
+based on observation [ clm : effect - of - abrb - mi ] , the abrb control policy space can be significantly reduced .
+[ clm : qareduction]consider @xmath147 for the configuration in example [ exm - problema ] .
+the optimal abrb control of @xmath147 conditioned on a given marginal probability vector @xmath180^{t}$ ] , denoted by @xmath181 , has the _ _ synchronous abrb structure__. ] where the transmissions of abrb at the macro bss are aligned as much as possible . as a result , there are only @xmath182 active abrb patterns @xmath183,[0,1],[1,1]\right\ } $ ] and the corresponding pmf @xmath184 is given by a function of @xmath185 as illustrated in fig .
+[ fig : abs_reduction ] .
+illustration of the structure of the optimal @xmath186 conditioned on a given @xmath185,width=332 ]    in general , for a hetnet with @xmath0 macro bss , there are only @xmath187 active abrb patterns under synchronous abrb structure , which is significantly smaller than the number of all possible abrb patterns @xmath1 . as a result , the optimization @xmath147
+w.r.t @xmath130 ( with @xmath1 variables ) can be reduced to an equivalent optimization w.r.t . @xmath185
+( with @xmath0 variables ) with much lower dimensions .
+observation [ clm : qareduction ] can be understood as follows . by observation [ clm :
+effect - of - abrb - mi ] , a higher average mutual information can be achieved for user @xmath188 under the abrb patterns @xmath161 .
+hence , for given marginal probabilities @xmath180^{t}$ ] , the average mutual information region will be maximized if we can simultaneously maximize @xmath189 for all bss @xmath190 . for macro bss @xmath191 , we have @xmath192 , which is fixed for given @xmath185 . for pico bss @xmath193 , we have @xmath194 , and the equality holds if and only if @xmath130 has the synchronous abrb structure in fig .
+[ fig : abs_reduction ] .
+similarly , we can reduce the user scheduling policy space using observation [ clm : effect - of - abrb - mi ] .
+[ clm : policy - space - reductionpia]consider @xmath147 for the configuration in example [ exm - problema ] . for given csi @xmath163 and abrb pattern @xmath160 ,
+the optimal user scheduling at bs @xmath22 is given by @xmath195 by observation [ clm : effect - of - abrb - mi ] , if @xmath196 solves the maximization problem ( [ eq : argmaxruo ] ) for certain @xmath161 , it solves ( [ eq : argmaxruo ] ) for all @xmath161 .
+hence , it will not loss optimality by imposing an additional constraint on the user scheduling such that @xmath197 ( or @xmath168 ) .    for convenience ,
+let @xmath198 denote the set of all feasible user scheduling policies satisfying the above constraint in observation [ clm : policy - space - reductionpia ] ( the formal definition of @xmath198 is given in theorem [ thm : policy - space - reductionpia ] ) .
+then for given @xmath185 , @xmath199 and under the synchronous abrb , the corresponding objective function of @xmath136 can be rewritten as @xmath200 , where @xmath201 and @xmath202 is the corresponding average mutual information given in ( [ eq : ibarak ] ) of appendix [ sub : spageneral ] . as a result
+, the subproblem @xmath147 can be transformed into a simpler problem with @xmath203 solution space .
+[ equivalent problem transformation of @xmath147][cor : equivalent - problem - pa]let @xmath205 denote the optimal solution of the following joint optimization problem .
+@xmath206 where @xmath207,\forall j\right\ } $ ] .
+then @xmath208 , @xmath209 is the optimal solution of problem @xmath147 .
+furthermore , problem ( [ eq : plare ] ) is a bi - convex problem , i.e. , for fixed @xmath131 , problem ( [ eq : plare ] ) is convex w.r.t .
+@xmath185 , and for fixed @xmath185 , problem ( [ eq : plare ] ) is also convex w.r.t . @xmath131 .
+please refer to appendix [ sub : proof - of - corollaypa ] for the proof .      by corollary [ cor : equivalent - problem - pa ] , we only need to solve the equivalent problem of @xmath136 in ( [ eq : plare ] ) .
+since problem ( [ eq : plare ] ) is bi - convex , we propose the following _ two timescale alternating optimization ( ao ) _ algorithm . for notation convenience , time index @xmath54 and @xmath210
+are used to denote the subframe index and super - frame index respectively , where a super - frame consists of @xmath211 subframes .
+_ algorithm ao_a _ ( two timescale ao for @xmath147 ) :    * * initialization * * : choose proper initial @xmath212,@xmath213 . set @xmath214 .    * * step 1 * * ( short timescale user scheduling optimization ) : for fixed @xmath215 , let @xmath216 , where @xmath217 is given by @xmath218 where @xmath219 is the average data rate of user @xmath23 under @xmath215 and user scheduling policy @xmath220 . for each subframe
+@xmath221 $ ] , the user scheduling vector of bs @xmath22 is given by @xmath222 , where @xmath163 and @xmath223 are the csi and abrb pattern at the @xmath54-th subframe .
+* step 2 * ( long timescale abrb optimization ) : * * find the optimal solution @xmath224 of problem ( [ eq : plare ] ) under fixed @xmath220 using e.g. , ellipsoid method .
+let @xmath225 .
+* * return to step 1 until @xmath226 * * or the maximum number of iterations is reached .    while ( [ eq : plare ] ) is a bi - convex problem and ao algorithm
+is known to converge to local optimal solutions only , we exploit the hidden convexity of the problem and show below that algorithm ao_a can converge to the global optimal solution under certain conditions .
+[ global convergence of algorithm ao_a][thm : global - convergence - la]let @xmath227=\mathcal{f}\left(\left[\mathbf{q}_{a}^{(t)},\pi_{a}^{(t-1)}\right]\right)$ ] denote the iterate sequence of algorithm ao_a began at @xmath228 , and denote the set of fixed points of the mapping @xmath229 as @xmath230\right.$ ] @xmath231\right)\right\ } $ ] . for
+any @xmath232 that is not a fixed point of @xmath229 , assume that @xmath233 , where @xmath234=\mathcal{f}\left(\left[\mathbf{q}_{a},\pi_{a}\right]\right)$ ] .
+then :    1 .
+algorithm ao_a converges to a fixed point @xmath235\in\delta$ ] of @xmath229 .
+any fixed point @xmath235\in\delta$ ] is a globally optimal solution of problem ( [ eq : plare ] )
+.    please refer to appendix [ sub : proof - of - theoremla ] for the proof .
+step 1 of algorithm ao_a requires the knowledge of the average data rate @xmath236 under @xmath215 and @xmath220 .
+we adopt a reasonable approximation on @xmath236 using a moving average data rate @xmath237 $ ] given by @xcite @xmath238 where @xmath239 is the data rate delivered to user @xmath23 at subframe @xmath54 .
+if we replace @xmath236 in step 1 of algorithm ao_a with the approximation @xmath240 in ( [ eq : rbarappr ] ) , the global convergence result in theorem [ thm : global - convergence - la ] no longer holds .
+however , it has been shown in @xcite that @xmath240 converges to @xmath236 as @xmath241 . hence , with the approximation @xmath240 , algorithm ao_a is still asymptotically optimal for large super frame length @xmath211 .    in step 2 of algorithm ao_a ,
+the average mutual information @xmath242 in the optimization objective contains two intermediate problem parameters @xmath243 and @xmath244 defined under ( [ eq : ibarak ] ) in appendix [ sub : spageneral ] .
+the calculation of @xmath243 s and @xmath244 s requires the knowledge of the distribution of all the channel coefficients , which is usually difficult to obtain offline .
+however , these terms can be easily estimated online using the time average of the sampled data rates delivered to user @xmath23 under abrb patterns @xmath245 and @xmath246 respectively . the abrb control @xmath224 is then obtained by solving the long timescale problem in step 2 with say , the ellipsoid method based on these estimates .
+the number of abrb control variables @xmath247 is exponentially large w.r.t . @xmath0 . to simplify @xmath137
+, we introduce an auxiliary variable called the _ abrb profile _ and decompose @xmath137 .
+we first define the abrb profile .
+[ abrb profile ] the abrb profile @xmath248 is a subset of abrb patterns for type b subbands .    using the notion of abrb profile and primal decomposition , @xmath249 can be approximated by two subproblems :    * optimization of @xmath112 and @xmath114 for a given abrb profile @xmath250 .
+* @xmath251    * optimization of abrb profile @xmath250 . * @xmath252    in @xmath253 , we restrict the size of @xmath250 to be no more than @xmath254 . in appendix
+[ sub : proof - of - theoremequpb ] , we prove that at the asymptotically optimal solution of @xmath249 as snr becomes high , the number of active abrb patterns is indeed less than or equal to @xmath254 .
+let @xmath256 denote the @xmath257 abrb pattern in @xmath250 .
+then the average mutual information @xmath141 can be rewritten as @xmath258 where @xmath259 $ ] with @xmath260 denoting the probability that the abrb pattern @xmath256 is used .
+hence @xmath261 can be reformulated as    @xmath262    similar to ( [ eq : plare ] ) , we propose a two timescale ao to solve for problem ( [ eq : plbequ ] ) w.r.t . @xmath114 and @xmath263 .
+_ algorithm ao_b _ ( two timescale ao for @xmath261 ) :    * * initialization * * : choose proper initial @xmath264,@xmath265 . set @xmath214 .    * * step 1 * * ( short timescale user scheduling optimization ) : for fixed @xmath266 , let @xmath267 , where @xmath268 is given by @xmath269 where @xmath270 is the average data rate of user @xmath23 under @xmath266 and user scheduling policy @xmath271 . for each subframe
+@xmath221 $ ] , the user scheduling vector of bs @xmath22 is given by @xmath272 , where @xmath273 and @xmath274 are the csi and abrb pattern at the @xmath54-th subframe .
+* step 2 * ( long timescale abrb optimization ) : * * find the optimal solution @xmath275 of problem ( [ eq : plbequ ] ) under fixed @xmath276 s using e.g. , interior point method .
+let @xmath225 .
+* * return to step 1 until @xmath277 * * or the maximum number of iterations is reached .    using similar proof as that in appendix [ sub : proof - of - theoremla ] , it can be shown that algorithm ao_b converges to the global optimal solution for problem ( [ eq : plbequ ] ) under similar assumption as in theorem [ thm : global - convergence - la ] .
+the average data rate @xmath236 and the mutual information @xmath276 can be estimated online in a similar way as in algorithm ao_a .
+problem @xmath253 is a difficult combinatorial problem and the complexity of finding the optimal abrb profile is extremely high . in this section ,
+we illustrate the top level method for finding a good abrb profile .
+the detailed algorithm to solve @xmath253 is given in appendix [ sub : proof - of - theoremequpb ] .
+a good abrb profile can be found based on an _ interference graph _ extracted from the topology graph .
+[ interference graph][def : igraph]for a hetnet topology graph @xmath13 , define an undirected interference graph @xmath278 , where @xmath279 is the vertex set and @xmath280 is edge set with @xmath281 denoting the edge between @xmath282 and @xmath283 . for any @xmath284 , if @xmath285 , @xmath286 , otherwise , @xmath287 , where @xmath288 is the void set .
+[ fig : ifc_graph1 ] illustrates how to extract the interference graph from the topology graph using an example hetnet . given an interference graph @xmath289 for the hetnet , any two links @xmath290 having an edge ( i.e. , @xmath286 )
+should not be scheduled for transmission simultaneously . on the other hand , we should `` turn on '' as many `` non - conflicting '' links as possible to maximize the spatial reuse efficiency .
+this intuition suggests that the optimal abrb profile is highly related to the _ maximal independent set _ of the interference graph @xmath289 .
+an example of extracting the interference graph from the hetnet topology graph , width=332 ]    [ maximal independent set ( mis)]a subset @xmath291 of @xmath292 is an _
+independent set _ of @xmath278 if @xmath293 .
+maximal independent set _
+( mis ) is an independent set that is not a proper subset of any other independent set . for any mis @xmath291 ,
+define @xmath294 as the _ maximal independent macro bs set _ corresponding to @xmath291 .
+let @xmath295 denote the set of all miss of @xmath289 .
+for example , the set of all miss of the interference graph in fig .
+[ fig : ifc_graph1 ] is @xmath296 .
+define a set @xmath297 then the top level flow of finding a good abrb profile is summarized in table . [
+tab : flowpb ] . in step 2 , we need to find a set of miss @xmath298 . for the example in fig .
+[ fig : ifc_graph1 ] , @xmath299 has a unique element given by @xmath300 and thus @xmath301 . in step 3 , the mapping from @xmath302 to the abrb profile @xmath303 is @xmath304 , where @xmath305 $ ] with @xmath306 and @xmath307 .
+for example , for the hetnet in fig .
+[ fig : ifc_graph1 ] , we have @xmath301 and thus @xmath308 , where @xmath309 $ ] , @xmath310 $ ] and @xmath311 $ ] . since @xmath312 in this case , @xmath303 can be reduced to @xmath313,\left[0,1,0\right]\right\ } $ ] .
+.[tab : flowpb]top level flow of finding a good abrb profile [ cols= " < " , ]      fig .
+[ fig : conva ] shows the utility @xmath314 in ( [ eq : plare ] ) of the type a users versus the number of super - frames .
+the utility increases rapidly and then approaches to a steady state after only @xmath315 updates .
+the figure demonstrates a fast convergence behavior of algorithm ao_a .
+similar convergence behavior was also observed for algorithm ao_b and the simulation result is not shown here due to limited space .
+utility of the type a users versus the number of super - frames , width=321 ]      we compare the complexity of the baselines and proposed rrm algorithms .
+the complexity can be evaluated in the following 3 aspects .
+\1 ) for the short term user scheduling , the proposed scheme and baseline 1 - 3 have the same complexity order of @xmath316 , while the baseline 4 has a complexity of @xmath317 @xcite , where @xmath318 is a proportionality constant that corresponds to some matrix and vector operations with dimension @xmath319 , and @xmath320 is the number of bss in each cooperative cluster .
+\2 ) for the long term abrb control variables @xmath185 and @xmath263 , as they are updated by solving standard convex optimization problems in step 2 of algorithm ao_a and ao_b respectively , the complexities are polynomial w.r.t .
+the number of the associated optimization variables .
+specifically , for control variable @xmath185 , the complexity is polynomial w.r.t . the number of macro bss @xmath0 . for control
+variable @xmath321 , the complexity is polynomial w.r.t .
+the size of the abrb profile @xmath303 : @xmath322 .
+in addition , they are only updated once in each super - frame .
+\3 ) the abrb profile @xmath303 is computed using algorithm b2 in every several super - frames to adapt to the large scale fading . in step 1 of algorithm b2 ,
+the complexity of solving the convex problem ( [ eq : fixthetapdet ] ) is polynomial w.r.t .
+@xmath323 . in step 2 of algorithm b2 ,
+if the mwis algorithm in @xcite is used to solve problem ( [ eq : mwisp ] ) , the complexity is @xmath324 , where @xmath325 is the number of edges in the interference graph @xmath278 .
+we propose a two - timescale hierarchical rrm for hetnet with dynamic abrb . to facilitate structural abrb design for cross - tier and co - tier interference ,
+the @xmath10 subbands are partitioned into type a and type b subbands .
+consequently , the two timescale rrm problem is decomposed into subproblems @xmath136 and @xmath137 which respectively optimizes the abrb control and user scheduling for the type a and type b subbands .
+both subproblems involve non - trivial multi - stage optimization with exponential large solution space w.r.t . the number of macro bss @xmath0 .
+we exploit the sparsity in the hetnet interference graph and derive the structural properties to reduce the solution space .
+based on that , we propose two timescale ao algorithm to solve @xmath136 and @xmath137 .
+the overall solution is asymptotically optimal at high snr and has low complexity , low signaling overhead as well as robust w.r.t .
+latency of backhaul signaling .
+define the average rate region as @xmath326\in\mathbb{r}_{+}^{k}:\ : x_{k}\le\overline{r}_{k}\left(\lambda\right),\forall k\right\ } .\ ] ] for any utility function that is concave and increasing w.r.t . to the average data rates @xmath327
+, the optimal policy of @xmath328 must achieve a pareto boundary point of @xmath329 .
+hence , we only need to show that any pareto boundary point of @xmath329 can be achieved by a symmetric policy .
+define the average rate region under fixed @xmath134 as @xmath330\in\mathbb{r}_{+}^{k}:\\   &   & x_{k}\le\overline{r}_{k}\left(\left\ { q_{s},\left\ { q_{m}\right\ } , \left\ { \pi_{m}\right\ } \right\ } \right),\forall k\bigg\}.\end{aligned}\ ] ] then we only need to show that any pareto boundary point of @xmath331 can be achieved by a symmetric policy @xmath110 .
+define the average mutual information region _ _ for subband @xmath115 as : @xmath332_{\forall k\in\mathcal{u}_{a}}\in\mathbb{r}_{+}^{\left|\mathcal{u}_{a}\right|}:\nonumber \\   &   & x_{k}\le\overline{\mathcal{i}}_{m , k}\left(q_{m},\pi_{m}\right),\forall k\in\mathcal{u}_{a}\bigg\}.\label{eq : ratereg1g-1}\end{aligned}\ ] ] define the average mutual information region _
+_ for subband @xmath333 as : @xmath332_{\forall k\in\mathcal{u}_{b}}\in\mathbb{r}_{+}^{\left|\mathcal{u}_{b}\right|}:\nonumber \\   &   & x_{k}\le\overline{\mathcal{i}}_{m , k}\left(q_{m},\pi_{m}\right),\forall k\in\mathcal{u}_{b}\bigg\}.\label{eq : ratereg2g-1}\end{aligned}\ ] ] it can be verified that @xmath334 is a convex region in @xmath335 and @xmath336 is a convex region in @xmath337 . moreover , due to the statistical symmetry of the subbands , we have @xmath338 let @xmath339 and @xmath340
+. from the convexity of @xmath341 and ( [ eq : ra]-[eq : rb ] ) , we have @xmath342 hence , for any pareto boundary point @xmath343^{t}$ ] of @xmath331 , @xmath344_{k\in\mathcal{u}_{a}}\in\mathbb{r}_{+}^{\left|\mathcal{u}_{a}\right|}$ ] is a pareto boundary point of @xmath345 and @xmath346_{k\in\mathcal{u}_{b}}\in\mathbb{r}_{+}^{\left|\mathcal{u}_{b}\right|}$ ] is a pareto boundary point of @xmath347 . due to the statistical symmetry of the subbands
+, there exists an abrb control policy and a user scheduling policy @xmath348 such that @xmath349 can be achieved for all subbands @xmath115 .
+similarly , there exists an abrb control policy and a user scheduling policy @xmath350 such that @xmath351 can be achieved for all subbands @xmath333 .
+hence , @xmath352 can be achieved using the symmetric policy @xmath353 .
+this completes the proof .    [
+[ structural - properties - of - mathcalp_a - for - general - casessubspageneral ] ] structural properties of @xmath136 for general cases[sub : spageneral ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~        1 .
+@xmath167 , we have @xmath358 and @xmath359 @xmath360 .
+the same is true if we replace @xmath154 with @xmath159 .
+2 .   for given abrb patterns
+@xmath170 and user scheduling vector @xmath361 , there exists @xmath362 such that @xmath363 .    by definition [ def : inuser ] , there is no inter - cell interference for macro cell n - users . by the definition of @xmath364 ,
+a pico cell i - user @xmath357 can not be scheduled for transmission if any of the neighbor macro bss in @xmath365 is transmitting data subframe ( i.e. , the current abrb pattern @xmath366 ) . on the other hand ,
+if all of the neighbor macro bss is transmitting abrb ( i.e. , the current abrb pattern @xmath161 ) , the interference from the macro bss is negligible .
+finally , by definition [ def : inuser ] , there is no inter - cell interference for pico cell n - users .
+then lemma 1 follows straightforwardly from the above analysis and the definition of @xmath367 .
+[ rem : usefulassumptions]note that in the proof of lemma [ lem : sysman ] , we have used the fact that the inter - cell interference seen at a n - user is negligible .
+we have also used assumption [ asm : picoiedge ] , which states that the sets of neighbor macro bss of the pico cell i - users belonging to the same pico cell are identical .
+[ policy space reduction for @xmath130][thm : absreduce]given a marginal probability vector that each macro bs is transmitting abrb @xmath369 , the optimal abrb control policy of @xmath147 conditioned on has the following synchronous abrb structure :        by lemma [ lem : sysman ] , for given marginal probabilities @xmath185 , the average mutual information region will be maximized if we maximize @xmath189 for all @xmath382 . for @xmath383
+, we have @xmath192 . for @xmath384
+, we have @xmath385 , where the equality holds if and only if @xmath130 has the structure in theorem [ thm : absreduce ] .
+this completes the proof .
+define the _ achievable mutual information region _ for subband @xmath390 as @xmath391_{\forall k\in\mathcal{u}_{a}}:x_{k}\le\overline{\mathcal{i}}_{m_{a},k}\left(q_{a},\pi_{a}\right)\right\ } , \label{eq : ratereg1g}\ ] ] where @xmath392 .
+it can be verified that @xmath393 is a convex region in @xmath335 . since the utility function @xmath138 is concave and increasing w.r.t .
+@xmath394 , the optimal policy @xmath395 must achieve a pareto boundary point of @xmath393 . for given abrb pattern @xmath160 and bs @xmath22 ,
+define a region as @xmath396_{\forall k\in\mathcal{u}_{a}\cap\mathcal{u}_{n}}:\ : x_{k}\le i_{m_{a},k}\left(\pi_{a},\mathbf{a}\right)\right\ } .\ ] ] it can be verified that @xmath397 is a convex region . from lemma [ lem :
+sysman ] , we have @xmath398 for convenience , define @xmath399 then @xmath400 , we have @xmath401 . from ( [ eq : rma]-[eq : rmabar ] ) and the fact that @xmath402_{\forall k\in\mathcal{u}_{a}}$ ] is a pareto boundary point of @xmath393 , it follows that @xmath403_{\forall k\in\mathcal{u}_{a}\cap\mathcal{u}_{n}}$ ] is a pareto boundary point of @xmath404 and @xmath405_{\forall k\in\mathcal{u}_{a}\cap\mathcal{u}_{n}}$ ] is a pareto boundary point of @xmath406 .
+hence , there exists user scheduling policy @xmath407 satisfying @xmath408 and @xmath409 for all @xmath410 .
+then it follows that @xmath402_{\forall k\in\mathcal{u}_{a}}$ ] can be achieved by the control policy @xmath411 .
+[ [ proof - of - corollary - corequivalent - problem - pa - subproof - of - corollaypa ] ] proof of corollary [ cor : equivalent - problem - pa ] [ sub : proof - of - corollaypa ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    the first part of the corollary follows straightforward from theorem [ thm : absreduce ] and [ clm : policy - space - reductionpia ] .
+we only need to prove that problem ( [ eq : plare ] ) is bi - convex .
+the average mutual information in ( [ eq : uaobj ] ) can be expressed as @xmath412 where @xmath413 , @xmath414 , @xmath415 is the set of macro cell n - users , @xmath416 is the set of pico cell n - users , and @xmath417 is the set of pico cell i - users .
+it is easy to verify that @xmath418 is a concave function w.r.t . @xmath185 for fixed @xmath131 .
+using the vector composition rule for concave function @xcite , the objective in ( [ eq : plare ] ) is also concave w.r.t .
+@xmath185 and thus problem ( [ eq : plare ] ) is convex w.r.t . @xmath185 for fixed @xmath131 . for fixed @xmath185 , @xmath418 is a linear function of the user scheduling variables @xmath419 .
+hence problem ( [ eq : plare ] ) is also convex w.r.t . @xmath131 for fixed @xmath185 .    [
+[ proof - of - theorem - thmglobal - convergence - lasubproof - of - theoremla ] ] proof of theorem [ thm : global - convergence - la][sub : proof - of - theoremla ] ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    it is clear that @xmath420 . by the assumption in theorem [ thm : global - convergence - la ] , we have @xmath421 if @xmath422 is not a fixed point of @xmath229 . combining the above and the fact that @xmath314 is upper bounded , ao_a must converge to a fixed point @xmath235\in\delta$ ] .
+the rest is to prove that any @xmath235\in\delta$ ] is globally optimal for problem ( [ eq : plare ] ) .
+note that problem ( [ eq : plare ] ) is equivalent to the problem @xmath423_{\forall k\in\mathcal{u}_{a}}\in\mathcal{r}_{m_{a}}.\label{eq : equplapre}\ ] ] since the objective in ( [ eq : equplapre ] ) is a concave function w.r.t .
+@xmath424 , and @xmath393 is a convex region , the following lemma holds .    [ optimality condition for ( [ eq : plare])][lem : opt - cond - pa]a solution @xmath425 , @xmath209 is optimal for problem ( [ eq : plare ] ) if and only if its average mutual information @xmath426 satisfies @xmath427_{\forall k\in\mathcal{u}_{a}}\in\mathcal{r}_{m_{a}}\ ] ]    according to the step 1 of ao_a , for any abrb pattern @xmath428 and csi realization @xmath355 , the user scheduling vector @xmath429 of bs @xmath22 under @xmath430 is the optimal solution of @xmath431 where @xmath432 and @xmath433 is the average mutual information under @xmath434 . combining ( [ eq : optpiatuta ] ) and the fact that @xmath435 is the optimal solution of problem ( [ eq : plare ] ) with fixed @xmath430 , we have @xmath436 .
+this implies that @xmath434 satisfy the optimality condition in lemma [ lem : opt - cond - pa ] , and thus is the globally optimal solution .
+* * step 1 * * ( update the coefficients @xmath442 ) : for fixed @xmath443 , obtain the optimal solution @xmath444_{j=1, ... ,\left|\theta^{(i)}\right|}$ ] of the following convex optimization problem @xmath445,\forall j\:\textrm{and}\:\sum_{j=1}^{\left|\theta^{(i)}\right|}\check{q}_{j}=1,\nonumber \end{aligned}\ ] ] where @xmath446_{j=1, ...
+,\left|\theta^{(i)}\right|}$ ] , and @xmath447 is the @xmath257 mis in @xmath443 .
+[ asymptotically optimal abrb profile][thm : asymptotic - equivalence - ofpb]algorithm b2 always converges to an abrb profile @xmath303 with @xmath322 .
+furthermore , the converged result is asymptotically optimal for high snr .
+i.e. @xmath456 , where @xmath457 for some positive constants @xmath458 s , and @xmath459 is the optimal objective value of @xmath249
+.    consider problem @xmath460 which is the same as @xmath249 except that there are two differences : 1 ) the fading channel @xmath461 is replaced by a _ deterministic channel _ with the channel gain between bs @xmath22 and user @xmath23 given by the corresponding large scale fading factor @xmath462 ; 2 ) an additional constraint is added to the user scheduling policy such that any two links @xmath290 having an edge ( i.e. , @xmath286 ) in the interference graph @xmath289 can not be scheduled for transmission simultaneously .
+it can be shown that the optimal solution of problem @xmath460 is asymptotically optimal for @xmath249 at high snr . moreover , using the fact that the achievable mutual information region in the deterministic channel is a convex polytope with @xmath463 as the set of _ pareto boundary _ vertices , it can be shown that @xmath460 is equivalent to the following problem @xmath464 where @xmath465 is the @xmath257 mis in @xmath448 . to complete the proof of theorem [ thm : asymptotic - equivalence - ofpb ] , we only need to further prove that algorithm b2 converges to the optimal solution of problem ( [ eq : pdet ] ) . using the fact that any point in a @xmath466-dimensional convex polytope can be expressed as a convex combination of no more than @xmath254 vertices , it can be shown that there are at most @xmath254 non - zero elements in @xmath467 in step 1 of algorithm b2 .
+hence @xmath468 .
+moreover , it can be verified that @xmath469 if @xmath443 is not optimal for ( [ eq : pdet ] ) . combining the above and the fact that @xmath470 is upper bounded by @xmath471
+, algorithm b2 must converge to the optimal solution of ( [ eq : pdet ] ) .
+this completes the proof .    in step 2 of algorithm b2 , problem ( [ eq : mwisp ] ) is equivalent to finding a _ maximum weighted independent set _ ( mwis ) in the interference graph @xmath289 with the weights of the vertex nodes given by @xmath472 .
+the mwis problem has been well studied in the literature @xcite .
+although it is in general np hard , there exists low complexity algorithms for finding near - optimal solutions @xcite .
+although the asymptotic global optimality of algorithm b2 is not guaranteed when step 2 is replaced by a low complexity solution of ( [ eq : mwisp ] ) , we can still prove its monotone convergence .
+d.  gesbert , s.  kiani , a.  gjendemsj _ et  al .
+_ , `` adaptation , coordination , and distributed resource allocation in interference - limited wireless networks , '' _ proceedings of the ieee _ , vol .  95 , no .  12 , pp . 23932409 , 2007 .
+a.  l. stolyar and h.  viswanathan , `` self - organizing dynamic fractional frequency reuse in ofdma systems , '' in _
+infocom 2008 .
+the 27th conference on computer communications .
+ieee_.1em plus 0.5em minus 0.4emieee , 2008 , pp .
+691699 .
+r.  irmer , h.  droste , p.  marsch , m.  grieger , g.  fettweis , s.  brueck , h.  mayer , l.  thiele , and v.  jungnickel , `` coordinated multipoint : concepts , performance , and field trial results , '' _ ieee communications magazine _ , vol .
+49 , no .  2 ,
+pp . 102111 , 2011 .
+q.  shi , m.  razaviyayn , z .- q . luo , and c.  he , `` an iteratively weighted mmse approach to distributed sum - utility maximization for a mimo interfering broadcast channel , '' _ ieee trans . signal processing _
+59 , no .  9 , pp .
+43314340 , sept .
+2011 .
+y.  wang and k.  i. pedersen , `` performance analysis of enhanced inter - cell interference coordination in lte - advanced heterogeneous networks , '' in _ vehicular technology conference ( vtc spring ) , 2012 ieee 75th_. 1em plus 0.5em minus 0.4emieee , 2012 , pp .
+j.  pang , j.  wang , d.  wang , g.  shen , q.  jiang , and j.  liu , `` optimized time - domain resource partitioning for enhanced inter - cell interference coordination in heterogeneous networks , '' in _ wireless communications and networking conference ( wcnc ) , 2012 ieee_.1em plus 0.5em minus 0.4emieee , 2012 , pp .
+16131617 .
+m.  hong , r .- y .
+sun , h.  baligh , and z .- q .
+luo , `` joint base station clustering and beamformer design for partial coordinated transmission in heterogenous networks , '' 2012 .
+[ online ] .
+available : http://arxiv.org/abs/1203.6390          r.  ghaffar and r.  knopp , `` fractional frequency reuse and interference suppression for ofdma networks , '' in _ proceedings of the 8th international symposium on modeling and optimization in mobile , ad hoc and wireless networks _ , 2010 , pp .
+273277 .
+o.  somekh , o.  simeone , y.  bar - ness , a.  haimovich , and s.  shamai , `` cooperative multicell zero - forcing beamforming in cellular downlink channels , '' _ ieee trans .
+inf . theory _
+55 , no .  7 , pp .
+32063219 , 2009 .

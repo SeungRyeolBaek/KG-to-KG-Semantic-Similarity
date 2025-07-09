@@ -1,0 +1,717 @@
+markov s principle has a special status in constructive mathematics . one way to formulate this principle
+is that if it is impossible that a given algorithm does not terminate , then it does terminate .
+it is equivalent to the fact that if a set of natural number and its complement are both computably enumerable , then this set is decidable .
+this form is often used in recursivity theory .
+this principle was first formulated by markov , who called it `` leningrad s principle '' , and founded a branch of constructive mathematics around this principle @xcite .
+this principle is also equivalent to the fact that if a given real number is _ not _ equal to @xmath0 then this number is _ apart _ from @xmath0 ( that is this number is @xmath1 or @xmath2 for some rational number @xmath3 ) . on this form ,
+it was explicitly _ refuted _ by brouwer in intuitionistic mathematics , who gave an example of a real number ( well defined intuitionistically ) which is not equal to @xmath0 , but also not apart from @xmath0 .
+( the motivation of brouwer for this example was to show the necessity of using _ negation _ in intuitionistic mathematics @xcite . )
+the idea of brouwer can be represented formally using topological models @xcite .    in a neutral approach to mathematics , such as bishop s @xcite ,
+markov s principle is simply left undecided .
+we also expect to be able to prove that markov s principle is _ not _ provable in formal system in which we can express bishop s mathematics .
+for instance , kreisel @xcite introduced _
+modified realizability _ to show that markov s principle is not derivable in the formal system @xmath4 .
+similarly , one would expect that markov s principle is _ not _ derivable in martin - lf type theory @xcite , but , as far as we know , such a result has not been established yet .
+we say that a statement @xmath5 is _ independent _ of some formal system if @xmath5 can not be derived in that system .
+a statement in the formal system of martin - lf type theory ( @xmath6 ) is represented by a closed type .
+a statement / type @xmath5 is derivable if it is inhabited by some term @xmath7 ( written @xmath8 ) .
+this is the so - called propositions - as - types principle .
+correspondingly we say that a statement @xmath5 ( represented as a type ) is independent of @xmath6 if there is no term @xmath7 such that @xmath8 .    the main result of this paper is to show that markov s principle is independent of martin - lf type theory .
+the main idea for proving this independence is to follow brouwer s argument .
+we want to extend type theory with a `` generic '' infinite sequence of @xmath0 and @xmath9 and establish that it is both absurd that this generic sequence is never @xmath0 , but also that we can not show that it _ has to _ take the value @xmath0 . to add such a generic sequence is exactly like adding a _ cohen real _
+@xcite in forcing extension of set theory .
+a natural attempt for doing this will be to consider a _
+topological model _ of type theory ( sheaf model over cantor space ) , extending the work @xcite to type theory .
+however , while it is well understood how to represent universes in _ presheaf _ model @xcite , it has turned out to be surprisingly difficult to represent universes in _ sheaf _ models , see @xcite and @xcite .
+our approach is here instead a purely _ syntactical _ description of a forcing extension of type theory ( refining previous work of @xcite ) , which contains a formal symbol for the generic sequence and a proof that it is absurd that this generic sequence is never @xmath0 , together with a _ normalization _
+theorem , from which we can deduce that we _ can not _ prove that this generic sequence has to take the value @xmath0 . since this formal system is an extension of type theory , the independence of markov s principle follows .    as stated in @xcite , which describes an elegant generalization of this principle in type theory , markov s principle is an important technical tool for proving termination of computations , and thus can play a crucial role if type theory is extended with general recursion as in @xcite .
+this paper is organized as follows .
+we first describe the rules of the version of type theory we are considering .
+this version can be seen as a simplified version of type theory as represented in the system agda @xcite , and in particular , contrary to the work @xcite , we allow @xmath10-conversion , and we express conversion as _
+judgment_. markov s principle can be formulated in a natural way in this formal system .
+we describe then the forcing extension of type theory , where we add a cohen real . for proving normalization ,
+we follow tait s computability method @xcite , but we have to consider an extension of this with a computability _ relation _ in order to interpret the conversion judgment .
+this can be seen as a forcing extension of the technique used in @xcite .
+using this computability argument , it is then possible to show that we can not show that the generic sequence has to take the value @xmath0 .
+we end by a refinement of this method , giving a consistent extension of type theory where the _ negation _ of markov s principle is provable
+the syntax of our type theory is given by the grammar : @xmath11    we use the notation @xmath12 as a short hand for the term @xmath13 , where @xmath14 is the successor constructor .
+we describe a type theory with one universe  la russell , natural numbers , functional extensionality and surjective pairing , hereafter referred to as @xmath6.-conversion and surjective pairing . ]    * natural numbers : *    * booleans : *    * unit type : *    * empty type : *    * dependent functions : *    * dependent pairs : *    * universe : *    * congruence : *    the following four rules are admissible in the this type system @xcite , we consider them as rules of our type system :      markov s principle can be represented in type theory by the type @xmath15\ ] ] where @xmath16 is defined by @xmath17 .
+note that @xmath18 is inhabited when @xmath19 and empty when @xmath20 .
+thus @xmath21 is inhabited if there is @xmath22 such that @xmath19 .
+the main result of this paper is the following :    thmmainresult [ thm : mainresult ] there is no term @xmath7 such that @xmath23 .
+an _ extension _ of @xmath6 is given by introducing new objects , judgment forms and derivation rules .
+this means in particular that any judgment valid in @xmath6 is valid in the extension .
+consistent _ extension is one in which the type @xmath24 is uninhabited .    to show theorem [ thm : mainresult ] we will form a consistent extension of @xmath6 with a new constant @xmath25 where @xmath26 .
+we will then show that @xmath27 is derivable while @xmath28 is not derivable . thus showing that @xmath29 is not derivable in this extension and consequently not derivable in @xmath6 .    while this is sufficient to establish independence in the sense of non - derivability of @xmath30 . to establish the independence of @xmath30 in the stronger sense one also needs to show that @xmath31 is not derivable in @xmath6 .
+this can achieved by reference to the work of aczel @xcite where it is shown that @xmath6 extended with @xmath32 is consistent .
+since @xmath33 we have @xmath34 .
+if we let @xmath35 we get that @xmath36 . by @xmath37 abstraction
+we have @xmath38 .
+we can then conclude that there is no term @xmath7 such that @xmath39 .
+finally , we will refine the result of theorem [ thm : mainresult ] by building a consistent extension of @xmath6 where @xmath31 is derivable .      a _ condition _
+@xmath40 is a graph of a partial finite function from @xmath41 to @xmath42 .
+we denote by @xmath43 the empty condition .
+we write @xmath44 when @xmath45 .
+we say @xmath46 _ extends _ @xmath40 ( written @xmath47 ) if @xmath40 is a subset of @xmath46 .
+a condition can be thought of as a basic compact open in cantor space @xmath48 .
+two conditions @xmath40 and @xmath46 are _ compatible _ if @xmath49 is a condition and we write @xmath50 for @xmath49 . if @xmath51 we write @xmath52 for @xmath53 and @xmath54 for @xmath55 .
+we define the notion of _ partition _ corresponding to the notion of finite covering of a compact open in cantor space .
+we write @xmath56 to say that @xmath57 is a partition of @xmath40 and we define it as follows :    1 .
+2 .   if @xmath51 and @xmath59 and @xmath60 then @xmath61 .    note that if @xmath56 then any @xmath62 and @xmath63 are incompatible unless @xmath64 .
+if moreover @xmath65 then @xmath66 .
+we extend the given type theory by annotating the judgments with conditions , i.e.  replacing each judgment @xmath67 in the given type system with a judgment @xmath68 .
+in addition we add the locality rule :    we add a term @xmath25 for the generic point along with the introduction and conversion rules :    we add a term @xmath69 and the rule :    since @xmath69 inhabits the type @xmath70 , our goal is then to show that no term inhabits the type @xmath71 .
+it follows directly from the description of the forcing extension that :    [ lem : extension ] @xmath72 in standard type theory then @xmath73 .    note that if @xmath74 and @xmath68 then @xmath75 ( monotonicity ) .
+a statement @xmath5 ( represented as a closed type ) is derivable in this extension if @xmath76 for some @xmath7 , which implies @xmath77 for all @xmath40 .    similarly to @xcite we can state a conservativity result for this extension .
+let @xmath78 and @xmath79 be two terms of standard type theory .
+we say that @xmath80 is compatible with a condition @xmath40
+if @xmath80 is such that @xmath81 whenever @xmath45 and @xmath82 otherwise .
+we say that @xmath83 is compatible with a condition @xmath40 if @xmath80 is compatible with @xmath40 and @xmath83 is given by @xmath84 where @xmath85 is the smallest natural number such that @xmath86 . to see that @xmath83 is well typed , note that by design @xmath87 thus @xmath88 and @xmath89 .
+we have then @xmath90 , thus @xmath91 .
+let @xmath92 and @xmath79 be compatible with some condition @xmath40 . if @xmath93 then @xmath94 \vdash j[g/{\mathsf{f}},v/{\mathsf{w}}]$ ] , i.e.  replacing @xmath25 with @xmath80 then @xmath69 with @xmath83 we obtain a valid judgment in standard type theory .
+in particular , if @xmath95 where neither @xmath25 nor @xmath69 occur in @xmath96 or @xmath97 then @xmath72 is a valid judgment in standard type theory .
+the proof is by induction on the type system and it is straightforward for all the standard rules . for ( @xmath25-eval )
+we have @xmath98 \coloneqq g\ , {     \sbox{\myboxa}{$\m@thn$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi}$ ] and since @xmath80 is compatible with @xmath40 we have @xmath99\vdash g\ , {     \sbox{\myboxa}{$\m@thn$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi}= p(n){\!:\!}{{\mathsf{n}_2}}$ ] whenever @xmath100 . for ( @xmath69-term )
+we have @xmath101 & \coloneqq ( { \mathsf{w}}{\!:\!}\neg\neg ( \sigma(x{\!:\!}{\mathsf{n}})\ , { \mathsf{iszero}}\,(g\,x)))[v/{\mathsf{w}}]\\ & \coloneqq v{\!:\!}\neg\neg ( \sigma(x{\!:\!}{\mathsf{n}})\,{\mathsf{iszero}}\,(g\,x ) ) .
+\end{aligned}\ ] ]    for ( loc ) the statement follows from the observation that when @xmath80 is compatible with @xmath40 and @xmath56 then @xmath80 is compatible with exactly one @xmath102
+in this section we outline a semantics for the forcing extension given in the previous section .
+we will interpret the judgments of type theory by computability predicates and relations defined by reducibility to computable weak head normal forms .
+we extend the @xmath103 conversion with @xmath104 whenever @xmath45 . to ease the presentation of the proofs and definitions we introduce _ evaluation contexts _ following @xcite .
+@xmath105 \mid \mathbb{e}\ , u \mid \mathbb{e}{.1}\mid \mathbb{e}{.2}\mid { \mathsf{s}}\,\mathbb{e } \mid { \mathsf{f}}\ , \mathbb{e}\\ & { { \mathsf{rec}_{{\mathsf{n}_0}}}}(\lambda x. c)\,\mathbb{e } \mid { { \mathsf{rec}_{{\mathsf{n}_1}}}}(\lambda x. c)\,a\,\mathbb{e } \mid { { \mathsf{rec}_{{\mathsf{n}_2}}}}(\lambda x. c)\ , a_0\,a_1\,\mathbb{e}\mid { { \mathsf{rec}_{\mathsf{n}}}}(\lambda x. c)\ , c_z\,g\,\mathbb{e}\end{aligned}\ ] ]    an expression @xmath106 $ ] is then the expression resulting from replacing the hole @xmath107 $ ] by @xmath108 .
+we have the following reduction rules :    note that we reduce under @xmath14 . also note that the relation @xmath109 is monotone , that is if @xmath47 and @xmath110 then @xmath111 . in the following
+we will show that @xmath109 is also local , i.e.  if @xmath56 and @xmath112 for all @xmath62 then @xmath113 .
+[ untypedredislocal ] if @xmath114 and @xmath115 and @xmath116 then @xmath113 .
+by induction on the derivation of @xmath115 . if @xmath115 is derived by ( @xmath25-red ) then @xmath117 and @xmath118 for some @xmath119 .
+but since we also have a reduction @xmath120 , we have @xmath121 which could only be the case if @xmath122 .
+thus we have a reduction @xmath123 .
+if on the other hand we have a derivation @xmath124 , then we have @xmath113 directly .
+if the derivation @xmath115 has the form @xmath106{\rightarrowtriangle}_{p(m\mapsto { \mathsf{0 } } ) } \mathbb{e}[e']$ ] then we have @xmath125 and the statement follows by induction .
+[ reductionislevelbehaved ] let @xmath74 .
+if @xmath112 then @xmath113 or @xmath7 has the form @xmath126 $ ] for some @xmath127 .    by induction on the derivation of @xmath112 .
+if the reduction @xmath112 has the form @xmath128 then either @xmath129 and the statement follows or @xmath122 and we have @xmath113 . if on the other hand we have @xmath124 then @xmath113 immediately . if @xmath112 has the form @xmath106 { \rightarrowtriangle}_q \mathbb{e}[e']$ ] then @xmath130 and the statement follows by induction .
+[ eitherreduceorstuck ] let @xmath115 and @xmath131 for some @xmath132 .
+if @xmath133 then @xmath113 ; otherwise , @xmath7 has the form @xmath126 $ ] .
+define @xmath134 to mean @xmath113 and @xmath135 and write @xmath136 for @xmath137 .
+note that it holds that if @xmath138 and @xmath139 then @xmath140 $ ] and if @xmath141 then @xmath142 and @xmath143 $ ] .
+we define a closure for this relation as follows :    we will write @xmath144 as a short hand for @xmath145 .
+a term @xmath7 is _ in _
+@xmath40-whnf if whenever @xmath146 then @xmath147 .
+a whnf is _ canonical _ if it has one of the forms : @xmath148    a @xmath40-whnf is _ proper _ if it is canonical or it is of the form @xmath149 $ ] for @xmath129 .
+a canonical @xmath40-whnf has no further reduction at any @xmath74 .
+a non - canonical proper @xmath40-whnf , i.e.  of the form @xmath149 $ ] for @xmath129 , have further reduction at some @xmath74 , namely when @xmath150 .
+we have the following corollaries to lemma  [ untypedredislocal ] and corollary  [ eitherreduceorstuck ] .
+[ typedreduceorstuck ] let @xmath114 .
+let @xmath151 and @xmath152 .
+if @xmath133 then @xmath134 ; otherwise @xmath7 has the form @xmath126 $ ] .
+[ onestepredmonolocal ] let @xmath56 and @xmath153 for all @xmath62 .
+we have @xmath134 .    by induction on @xmath57 . if @xmath154 the the statement follows .
+assume the statement holds for @xmath155 and @xmath156 and let @xmath157 .
+by ih , @xmath158 and @xmath159 .
+from lemma  [ untypedredislocal ] , @xmath113 . since @xmath160 and @xmath161 , then @xmath162 . thus @xmath163 .    note that if @xmath74 and @xmath164 then @xmath165 .
+however if @xmath166 and @xmath167 it is not necessarily the case that @xmath168 .
+e.g.  we have that @xmath169 and @xmath170 but it is _ not _ true that @xmath171    for a closed term @xmath77 , we say that @xmath7 _ has _ a @xmath40-whnf if @xmath164 and @xmath172 is in @xmath40-whnf .
+if @xmath172 is canonical , respectively proper , we say that @xmath7 has a canonical , respectively proper , @xmath40-whnf .
+since the reduction relation is deterministic we have :    [ lem : uniquenessofwhnf ] a term @xmath77 has at most one @xmath40-whnf
+.    [ properwhnflocal ] let @xmath77 and @xmath114 .
+if @xmath7 has proper @xmath173-whnf and a proper @xmath174-whnf then @xmath7 has a proper @xmath40-whnf .
+let @xmath166 and @xmath175 with @xmath172 in proper @xmath173-whnf and @xmath83 in proper @xmath174-whnf . if @xmath147 or @xmath176 then @xmath7 is already in proper @xmath40-whnf .
+alternatively we have reductions @xmath177 and @xmath178 . by corollary  [ typedreduceorstuck ] either @xmath7 is in proper @xmath40-whnf or @xmath179 and @xmath180 .
+it then follows by induction that @xmath181 , and thus @xmath7 , has a proper @xmath40-whnf .
+we define inductively a forcing relation @xmath182 to express that a type @xmath5 is computable at @xmath40 . mutually by recursion
+we define relations @xmath183 ( @xmath184 computable of type @xmath5 at @xmath40 ) , @xmath185 ( @xmath5 and @xmath186 are computably equal at @xmath40 ) , and @xmath187 ( @xmath184 is computably equal to @xmath188 of type @xmath5 at @xmath40 ) .
+we write @xmath189 for @xmath190 and @xmath191 .
+the definition fits the generalized mutual induction - recursion schema @xcite .
+the following rules have an implicit ( hidden ) premise @xmath192    1 .
+assuming @xmath182 by @xmath193 1 .   assuming @xmath194 then
+@xmath185 if 1 .
+2 .   @xmath196 $ ] , @xmath197 and @xmath198 .
+@xmath199 for all @xmath7 .
+@xmath200 for all @xmath7 and @xmath172 .
+2 .   assuming @xmath182 by @xmath201 1 .   assuming @xmath194 then
+@xmath185 if 1 .
+2 .   @xmath196 $ ] , @xmath197 and @xmath198 .
+2 .   @xmath203 if 1 .
+@xmath204 2 .
+@xmath205{\!:\!}a$ ] , @xmath129 and @xmath206 .
+3 .   assuming @xmath207 and @xmath208 then @xmath209 if 1 .
+@xmath204 and @xmath210 .
+2 .   @xmath204 and @xmath211 { \!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath212 .
+@xmath205{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath212 .
+3 .   assuming @xmath182 by @xmath213 1 .   assuming @xmath194 then
+@xmath185 if 1 .   @xmath214
+2 .   @xmath196 $ ] , @xmath197 and @xmath198 .
+2 .   @xmath203 if 1 .
+@xmath215 , @xmath216 .
+2 .   @xmath205 $ ] , @xmath129 and @xmath206 .
+3 .   assuming @xmath207 and @xmath208 then @xmath209 if 1 .
+@xmath215 and @xmath217 , @xmath216 .
+@xmath215 , @xmath216 and @xmath211{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath212 .
+@xmath205{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath212 .
+4 .   assuming @xmath182 by @xmath218 1 .   assuming @xmath194 then
+@xmath185 if 1 .
+2 .   @xmath196 $ ] , @xmath197 and @xmath198 .
+2 .   @xmath203 if 1 .   @xmath220 .
+2 .   @xmath205 $ ] , @xmath129 and @xmath206 .
+3 .   assuming @xmath207 and @xmath208 then @xmath209 if 1 .
+@xmath220 and @xmath221 .
+2 .   @xmath220 and @xmath211{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath212 .
+@xmath205{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath212 .
+5 .   assuming @xmath182 by @xmath222 ( let @xmath223 ) .
+1 .   assuming @xmath194 and @xmath224 then @xmath185 if 1 .
+@xmath225 and @xmath226 and @xmath227=e[a])$ ] .
+2 .   @xmath196 $ ] , @xmath197 and @xmath198 .
+2 .   assuming @xmath77 then @xmath203 if 1 .
+@xmath228 $ ] and @xmath229)$ ] .
+3 .   assuming @xmath207 and @xmath208 and @xmath162 then @xmath209 if 1 .
+@xmath230)$ ] 6 .
+assuming @xmath182 by @xmath231 ( let @xmath232 ) .
+1 .   assuming @xmath194 and @xmath224 then @xmath185 if 1 .
+@xmath233 and @xmath226 and @xmath227=e[a])$ ] .
+2 .   @xmath196 $ ] , @xmath197 and @xmath198 .
+2 .   assuming @xmath77 then @xmath203 if 1 .
+@xmath234 and @xmath235 $ ] 3 .   assuming @xmath207 and @xmath208 and @xmath162 then @xmath209 if 1 .
+@xmath236 and @xmath237 $ ] 7 .
+assuming @xmath182 by @xmath238 ( i.e.  @xmath239 ) .
+1 .   assuming @xmath194 then @xmath185 if @xmath240 2 .
+assuming @xmath241 then @xmath242 if 1 .
+@xmath243 with @xmath244 2 .
+@xmath245 and @xmath246 and + @xmath247 { \!:\!}a)$ ] and @xmath248=g[b ] { \!:\!}a)$ ] .
+3 .   @xmath249 $ ] , @xmath129 and @xmath250 .
+3 .   assuming @xmath251 and @xmath252 and @xmath253 then @xmath254 if 1 .
+@xmath243 and @xmath255 for @xmath256 .
+2 .   @xmath257 and @xmath258 and + @xmath259 and @xmath247 = e[a ] { \!:\!}a)$ ] 3 .
+@xmath260 and @xmath261 and + @xmath259 and @xmath247 = e[a ] { \!:\!}a)$ ] 4 .
+@xmath262 and @xmath263 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath264 . 5 .
+@xmath265 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath264
+assuming @xmath182 by @xmath266 ( i.e.  @xmath267 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath268 ) .
+1 .   assuming @xmath194 and @xmath269 then @xmath185 if @xmath198 2 .   assuming @xmath77 then
+@xmath203 if @xmath206 .
+3 .   assuming @xmath207 and @xmath208 and @xmath162 then @xmath209 if @xmath270 .
+note from the definition that when @xmath185 then @xmath182 and @xmath194 , when @xmath183 then @xmath182 and when @xmath187 then @xmath183 and @xmath271 .
+it follows also from the definition that @xmath272 whenever @xmath190 .
+the clause ( @xmath273 ) gives semantics to _
+variable types_. for example , if @xmath274 and @xmath275 the type @xmath276 has reductions @xmath277 and @xmath278 .
+thus @xmath279 and @xmath280 and since @xmath281 we have @xmath282 .    [ forcedtypeslocallyreducetocanonical ]
+if @xmath182 then there is a partition @xmath56 where @xmath5 has a canonical @xmath46-whnf for all @xmath62 . if @xmath185 then there is a partition @xmath56 where @xmath5 and @xmath186 have similar canonical @xmath46-whnf for all @xmath62 , i.e.  @xmath283 and @xmath284 where @xmath285 is of the form @xmath286 , @xmath287 , @xmath288 , @xmath289 , @xmath290 , @xmath291 , or @xmath292 .    the statement follows from the definition by induction on the derivation of @xmath182    [ existenceofpwhnfislocal ] let @xmath56 . if @xmath293 for all @xmath62 then @xmath5 has a proper @xmath40-whnf
+.    follows from lemma  [ forcedtypeslocallyreducetocanonical ] and corollary  [ properwhnflocal ] by induction .
+we will now proceed to prove properties of the forcing relation , monotonicity , locality , reflexivity , symmetry and transitivity . in the premise of any forcing @xmath190
+there are a number of typing judgments .
+since the type system satisfy these properties we will largely ignore these typing judgment in the proofs .
+[ lem : typeintromonotone ] if @xmath182 and @xmath74 then @xmath293 .
+let @xmath182 and @xmath74 .
+by induction on the derivation of @xmath182    1 .
+( derivation by @xmath193 , @xmath201 , @xmath213 , @xmath218 or @xmath238 . )
+let @xmath294 for @xmath295 .
+since the reduction is monotone we have @xmath296 , thus @xmath293 .
+( derivation by @xmath222 or @xmath231 . )
+let @xmath297 . from the premise @xmath298 , by ih
+, it follows that @xmath299 . from @xmath300)$ ] and @xmath301=g[b])$ ] it follows directly that @xmath302)$ ] and @xmath303=g[b])$ ] . hence @xmath293 .
+( derivation by @xmath266 . )
+let @xmath304 , m\notin { \textup{dom(}p\textup{)}}$ ] .
+if @xmath305 then @xmath306 .
+since @xmath307 with a derivation strictly smaller than the derivation of @xmath182 then by ih @xmath293
+. alternatively , @xmath308 $ ] but then @xmath309 . by ih we have @xmath310 and thus @xmath293 .
+[ lem : typeeqmonotone ] if @xmath185 and @xmath74 then @xmath311 .
+let @xmath185 and @xmath74 .
+we have then that @xmath182 and @xmath194 . by lemma  [ lem : typeintromonotone ] we have that @xmath293 and @xmath312 . by induction on the derivation of @xmath182    1 .
+[ floctypeq ] let @xmath182 by @xmath266 , i.e.  @xmath267 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath313 .
+by induction on the derivation of @xmath185 .
+if @xmath314 then @xmath315 . since the derivation of @xmath316 is strictly smaller than that of @xmath317 , by ih @xmath311
+otherwise , @xmath318 and @xmath319 $ ] and since @xmath320 , by ih , @xmath321 . by the definition @xmath311 .
+2 .   let @xmath182 by @xmath218 ( i.e.  @xmath322 ) .
+by induction on the derivation of @xmath185 1 .
+let @xmath219 .
+we have directly that @xmath311 by monotonicity of the reduction .
+2 .   let @xmath196 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath313 .
+the statement then follows similarly to ( [ floctypeq ] ) .
++ the statement follows similarly when @xmath182 holds by @xmath323 .
+3 .   let @xmath223 .
+by induction on the derivation of @xmath185 1 .
+let @xmath324 and @xmath226 and @xmath325=e[a])$ ] . by ih @xmath326 .
+directly we have @xmath327=e[a])$ ] .
+thus @xmath311 .
+2 .   let @xmath196 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath313 .
+the statement then follows similarly to ( [ floctypeq ] ) .
++ the statement follows similarly when @xmath182 holds by @xmath231 .
+( derivation by @xmath238 ) we have then that @xmath240 and thus @xmath311 .
+[ lem : termintromonotone ] if @xmath207 and @xmath74 then @xmath328 .
+let @xmath207 and @xmath74 . from the definition we have that @xmath182 .
+from lemma [ lem : typeintromonotone ] we have that @xmath293 . by induction on the derivation of @xmath182 .    1 .
+let @xmath182 by @xmath218 .
+by induction on the derivation of @xmath207
+let @xmath329 .
+then @xmath330 and @xmath328 .
+2 .   let @xmath205{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath331 . if @xmath150 then @xmath332 , since the derivation of @xmath333 is strictly smaller than the derivation @xmath207 , by ih , @xmath328 . otherwise , @xmath334 and @xmath335 { \!:\!}a$ ] .
+but @xmath336 and by ih @xmath337 . by the definition @xmath328 .
++ the statement follows similarly when @xmath182 is derived by @xmath201 or @xmath213 .
+2 .   let @xmath182 by @xmath238 .
+the statement follows similarly to lemma  [ lem : typeintromonotone ] .
+3 .   let @xmath182 by @xmath222 and let @xmath223 . from @xmath338)$ ] and
+@xmath339)$ ] we have directly that @xmath340)$ ] and @xmath341)$ ] . thus @xmath328 .
+4 .   let @xmath182 by @xmath231 and let @xmath232 .
+by induction on the derivation of @xmath207 . from @xmath234 and
+@xmath235 $ ] , by ih , @xmath342 and @xmath343 $ ] , thus @xmath328 .
+let @xmath182 by @xmath266 and let @xmath267 , k\notin { \textup{dom(}p\textup{)}}$ ] and @xmath268 .
+by induction on the derivation of @xmath207 .
+if @xmath314 then @xmath315 from the premise @xmath331 , by ih , @xmath328
+. otherwise , @xmath334 and @xmath319 $ ] ( i.e.  @xmath293 by @xmath266 ) . since @xmath344 , by the ih , @xmath337 . by the definition @xmath328 .
+[ lem : termeqmonotone ] if @xmath345 and @xmath74 then @xmath346 .
+let @xmath209 and @xmath74 .
+we have then that @xmath182 , @xmath207 , and @xmath208 . by lemma  [ lem : typeintromonotone ] @xmath293 . by lemma  [ lem : termintromonotone ] @xmath347 and @xmath348 . by induction on the derivation @xmath182 .    1 .
+let @xmath182 by @xmath218 .
+by induction on the derivation of @xmath345
+let @xmath329 and @xmath349 .
+by monotonicity of reduction @xmath346 .
+[ localtermeqforcingismonotone ] let @xmath329 and @xmath205{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath350 .
+if @xmath150 then @xmath332 , by ih , @xmath346 . otherwise , @xmath335{\!:\!}a$ ] . but @xmath336 and by ih @xmath351 . by the definition @xmath346 .
+3 .   let @xmath205{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] .
+the statement follows similarly to ( [ localtermeqforcingismonotone ] ) .
++ the statement follows similarly for when @xmath182 holds by @xmath201 or @xmath213 .
+2 .   let @xmath182 by @xmath238 .
+the statement follows by a proof similar to that of lemma  [ lem : typeeqmonotone ] .
+3 .   let @xmath182 by @xmath222 and let @xmath223 . from @xmath352)$
+] we have directly that @xmath353)$ ] .
+hence @xmath346 .
+4 .   let @xmath182 by @xmath231 and let @xmath232 .
+by induction on the derivation of @xmath345 . from @xmath354 and
+@xmath355 $ ] , by ih we have @xmath356 and @xmath357 $ ] , thus @xmath346 . 5 .
+let @xmath182 by @xmath266 and let @xmath267 , k \notin{\textup{dom(}p\textup{)}}$ ] .
+by induction on the derivation of @xmath209 . if @xmath150 then the statement follows by ih . if @xmath334 then @xmath319 $ ] ( i.e.  @xmath293 by @xmath266 ) and since @xmath358 , by ih , @xmath359 .
+hence @xmath346 .
+we collect the results of lemmas  [ lem : typeintromonotone ] , [ lem : termintromonotone ] , [ lem : termeqmonotone ] , and [ lem : typeeqmonotone ] in the following corollary .
+[ cor : monotonicity ] if @xmath190 and @xmath74 then @xmath191 .
+we write @xmath360 when @xmath361 . by monotonicity
+@xmath360 iff @xmath190 for all @xmath40 .
+[ lem : localitysublemma1 ] let @xmath182 and @xmath194 . if @xmath362 and @xmath363 then @xmath185 .    by induction on the derivation of @xmath182 .    1 .
+let @xmath182 by @xmath218 .
+by induction on the derivation of @xmath194 1 .   if @xmath194 by @xmath218 then @xmath185 immediately .
+[ typeqrightloc ] if @xmath194 by @xmath266 .
+the statement follows similarly to  ( [ loctypeqloc ] ) below .
++ the statement follows similarly when @xmath182 is derived by @xmath364 and @xmath213 .
+2 .   let @xmath182 by @xmath222 and let @xmath223 .
+by induction on the derivation of @xmath194 1 .
+let @xmath194 by @xmath222 and let @xmath225 . since @xmath182 and @xmath194 we have @xmath298 and @xmath365 .
+from the premise @xmath366 and by ih @xmath226 .
++ let @xmath74 and @xmath367 . if @xmath368 then @xmath369=e[a]$ ] and @xmath185 .
+otherwise , since @xmath309 , by monotonicity @xmath370=e[a]$ ] .
+from @xmath182 we have that @xmath369 $ ] and from @xmath194 we have that @xmath371 $ ] . by ih @xmath369 = e[a]$ ] .
+we thus have @xmath185 .
+2 .   let @xmath194 by @xmath266 .
+the statement then follows similarly to ( [ loctypeqloc ] ) below .
++ the statement follows similarly when @xmath182 is derived by @xmath231 .
+3 .   if @xmath182 by @xmath238 then @xmath372 and @xmath185 .
+[ loctypeqloc ] if @xmath182 by @xmath266 .
+let @xmath267 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath268
+if @xmath373 then we have @xmath185 by the definition .
+2 .   if @xmath374 . by monotonicity @xmath268 and @xmath375 and @xmath376 and @xmath377 .
+the derivation of @xmath378 is strictly smaller than the derivation of @xmath182 . by ih
+we have @xmath379 . by the definition @xmath185 .
+[ lem : typeintrolocal ] if @xmath380 for some @xmath114 then @xmath182 .
+the proof is by by induction on the derivations @xmath381 .
+note that from @xmath380 we have that @xmath5 has proper @xmath173-whnf and @xmath174-whnf and by corollary  [ existenceofpwhnfislocal ] @xmath5 has a proper @xmath40-whnf .    1 .
+let @xmath381 by @xmath218 1 .   if @xmath5 has a canonical @xmath40-whnf then @xmath322 and @xmath182 .
+2 .   otherwise ,
+@xmath382 , k\notin{\textup{dom(}p\textup{)}}$ ] . since @xmath5 has a canonical @xmath173-whnf we have that @xmath373 and by the definition we have @xmath182 by @xmath266 + the statement follows similarly when @xmath383 holds by @xmath193 , @xmath201 or @xmath213 .
+2 .   let @xmath381 by @xmath222 1 .   if @xmath5 has a canonical @xmath40-whnf then @xmath223 .
+from @xmath384 we have @xmath385 . by ih @xmath298 .
+let @xmath74 1 .   if @xmath305 then @xmath306 . assume , w.l.o.g , @xmath386 , then @xmath387)$ ] and @xmath388=g[b])$ ] .
+2 .   if @xmath389 then @xmath390 . let @xmath367 , by monotonicity @xmath391 . since @xmath309 , by the definition
+@xmath370 $ ] and by ih @xmath369 $ ] .
+let @xmath392 , by monotonicity @xmath393 . but
+then @xmath394 $ ] and @xmath395 $ ] and @xmath394=g[b]$ ] . by lemma  [ lem : localitysublemma1 ] we have @xmath369=g[b]$ ] .
++ the statement follows similarly when @xmath383 holds by @xmath231 .
+3 .   let @xmath381 by @xmath238 then @xmath396 and @xmath182 .
+4 .   let @xmath381 by @xmath266 .
+since @xmath5 does nt have a canonical @xmath173-whnf @xmath5 does nt have a canonical @xmath40-whnf .
+since @xmath5 has a proper @xmath40-whnf we have @xmath267 , k\notin{\textup{dom(}p\textup{)}}$ ] .
+1 .   if @xmath373 then by the definition we have @xmath182 by @xmath266 2 .   if @xmath374 then @xmath397 , k\notin{\textup{dom(}p\textup{)}}$ ] .
+hence @xmath398 by @xmath266 .
+we have then @xmath399 and @xmath400 . by ih @xmath401 and @xmath402 . by the definition @xmath182 .
+[ lem : typeeqlocal ] if @xmath362 and @xmath363 for @xmath132 then @xmath185 .    by the definition @xmath380 and @xmath403 . by lemma  [ lem : typeintrolocal ] @xmath182 and @xmath194 . by lemma  [ lem : localitysublemma1 ] @xmath185 .
+[ lem : termintroeqlocal ]    1 .   if @xmath404 and @xmath405 for some @xmath114 then @xmath207 .
+2 .   if @xmath406 and @xmath407 for some @xmath114 then @xmath345 .
+we prove the two statements mutually by induction .    1 .
+[ termintromontone ] from @xmath408 we have @xmath380 and by lemma  [ lem : typeintrolocal ] @xmath182 . by induction on the derivation of @xmath182
+[ natlocaltermforced ] let @xmath182 by @xmath218 .
+since @xmath7 has proper @xmath173-whnf and @xmath174-whnf . by lemma  [ properwhnflocal ] @xmath7 has a proper @xmath40-whnf . by induction on the derivation of @xmath409 . 1 .
+let @xmath410 1 .
+if @xmath7 has a canonical @xmath40-whnf then @xmath329 and @xmath207 directly .
+2 .   otherwise , @xmath205{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] .
+but then we have that @xmath373 and by the definition @xmath207 .
+2 .   let @xmath411,k\notin{\textup{dom(}p(m\mapsto { \mathsf{0}})\textup{)}}$ ] and @xmath412 .
+by monotonicity @xmath413 . by ih @xmath331 and by the definition @xmath207 .
++ the statement follows similarly when @xmath182 by @xmath201 and @xmath213 .
+[ pilocaltermforced ] let @xmath182 by @xmath222 and @xmath223 .
+let @xmath74 .
+if @xmath368 then we have directly @xmath414 $ ] and @xmath415 $ ] . otherwise , we have @xmath309 .
+let @xmath367 .
+by monotonicity @xmath416 and we have @xmath417 $ ] . by ih
+we have @xmath418 $ ] .
+let @xmath392 .
+by monotonicity @xmath393 and we have @xmath419 $ ] . by ih ( [ termeqlocal ] )
+@xmath420 $ ] .
+thus we have @xmath207 .
+[ sigmalocaltermforced ] let @xmath182 by @xmath231 and let @xmath232 .
+we have @xmath421 and @xmath422 $ ] . by ih @xmath234 and
+@xmath235 $ ] .
+thus @xmath207 .
+4 .   let @xmath182 by @xmath238 .
+the statement then follows similarly to lemma  [ lem : typeintrolocal ] .
+[ locallocaltermforced ] let @xmath182 by @xmath266 and let @xmath267 , k\notin{\textup{dom(}p\textup{)}}$ ] .
+if @xmath373 then by the definition @xmath207 . if @xmath374 then by monotonicity @xmath423 and @xmath424 . by ih @xmath331 . by the definition @xmath207 .
+[ termeqlocal ] from @xmath425 we have @xmath408 and @xmath426 and @xmath380 . by lemma  [ lem : typeintrolocal ] @xmath182 . by induction on the derivation of @xmath182
+let @xmath182 by @xmath218 .
+by ( [ natlocaltermforced ] ) we have @xmath207 . by induction on the derivation of @xmath207
+. 1 .   if @xmath329
+by induction on the derivation of @xmath208 1 .
+if @xmath172 has a canonical @xmath40-whnf then @xmath349 and @xmath345 .
+[ natermeqlocalright ] otherwise , @xmath427{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] .
+if @xmath373 then by the definition @xmath209 . if @xmath374 then by monotonicity @xmath428 and @xmath429 . by ih , @xmath350 . by the definition @xmath345 .
+2 .   if @xmath205{\!:\!}a , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath331 .
+the statement follows similarly to ( [ natermeqlocalright ] ) .
++ the statement follows similarly when @xmath182 holds by @xmath201 and @xmath213 .
+2 .   let @xmath182 by @xmath222 and @xmath223 .
+by ( [ pilocaltermforced ] ) we have @xmath207 and @xmath208 .
+let @xmath74 .
+if @xmath368 then we have @xmath430 $ ] . otherwise , we have @xmath309 .
+let @xmath367 .
+by monotonicity @xmath416 and we have @xmath431 $ ] . by ih
+we have @xmath432 $ ]
+. thus @xmath345 .
+[ sigmalocaltermforced ] let @xmath182 by @xmath231 and let @xmath232 . by ( [ sigmalocaltermforced ] ) @xmath207 and @xmath208 .
+we have @xmath433 and @xmath434 $ ] . by ih @xmath354 . since we have @xmath435 $ ] then by ih([termintromontone ] ) @xmath436 $ ] . by ih
+we have @xmath237 $ ] .
+thus we have @xmath345 .
+4 .   let @xmath182 by @xmath238 .
+the statement then follows similarly to lemma  [ lem : typeeqlocal ] .
+let @xmath182 by @xmath266 and let @xmath267 , k\notin{\textup{dom(}p\textup{)}}$ ] . by ( [ locallocaltermforced ] ) @xmath207 and @xmath208 .
+if @xmath373 then by the definition @xmath345 . if @xmath374 then by monotonicity @xmath437 and @xmath438 . by ih @xmath350 . by the definition @xmath345 .
+[ lem : localcharacter ] if @xmath439 and @xmath440 for all @xmath62 then @xmath190
+.    follows from lemma  [ lem : typeintrolocal ] , lemma  [ lem : termintroeqlocal ] , and lemma  [ lem : typeeqlocal ] by induction .
+[ lem : basetypecanonicity ] let @xmath441 . if @xmath207 then there is a partition @xmath56 where @xmath7 has a canonical @xmath46-whnf for all @xmath62 . if @xmath345 then there is a partition @xmath56 where @xmath7 and @xmath172 have the same canonical @xmath46-whnf for each @xmath62
+.    follows from the definition .
+[ lem : equivalenttypeshaveequalpers ]    let @xmath185 .    1 .   if @xmath442 then @xmath443 and if @xmath444 then @xmath208 .
+2 .   if @xmath445 then @xmath446 and if @xmath447 then @xmath448 .    by induction on the derivations of @xmath182 , @xmath194 and @xmath185    1 .   let @xmath322 and @xmath219 1 .
+let @xmath207 .
+by lemma  [ lem : basetypecanonicity ] there is a partition @xmath56 where for each @xmath62 @xmath330 for some @xmath449 .
+but then @xmath450 and @xmath451 . by local character @xmath452 . similarly if @xmath444 then @xmath208 .
+2 .   let @xmath345 then there is a partition @xmath56 where for each @xmath62 @xmath330 and @xmath453 for some @xmath449 .
+but then @xmath450 and @xmath454 and @xmath455 . by local character @xmath456 .
+similarly @xmath457 whenever @xmath458 2 .
+let @xmath223 and @xmath225
+let @xmath207 and @xmath74 .
+let @xmath459 .
+from @xmath185 we get @xmath226 and by monotonicity @xmath326 . by ih @xmath367 .
+thus we have @xmath418 $ ] and since @xmath369=e[a]$ ] we get @xmath460 $ ] . similarly if @xmath461 by monotonicity @xmath461 and by ih @xmath392 .
+thus @xmath462 $ ] and since @xmath369=e[a]$ ] we get @xmath463 $ ] .
+similarly @xmath208 when @xmath444 .
+2 .   let @xmath345 and @xmath74 .
+let @xmath459 . similarly to the above we get @xmath464 $ ] .
+thus showing @xmath455 .
+similarly we have @xmath465 when @xmath466 3 .
+let @xmath232 and @xmath233
+let @xmath207 .
+we have @xmath234 and @xmath235 $ ] . from @xmath185
+we get @xmath226 and by ih @xmath467 . from @xmath185
+we get @xmath468=e[t{.1}]$ ] and by ih @xmath469 $ ] .
+thus @xmath452 .
+similarly we have @xmath208 when @xmath444 .
+2 .   let @xmath345 .
+we have @xmath354 and @xmath355 $ ] . from @xmath185
+we get @xmath226 and by ih @xmath470 . from @xmath185
+we get @xmath468=e[t{.1}]$ ] and by ih @xmath471 $ ] .
+thus @xmath456 .
+similarly we have @xmath457 when @xmath458 .
+if either @xmath5 or @xmath186 does not reduce to a canonical @xmath40-whnf then by lemma  [ forcedtypeslocallyreducetocanonical ] we have a partition @xmath56 where for each @xmath102 both @xmath5 and @xmath186 have canonical whnf and we can show the statement for each @xmath62 by the above . by local character the statement follows for @xmath40 .    immediately from the definition we have    if @xmath472 then @xmath473 .
+if @xmath185 then @xmath474 .
+if both @xmath5 and @xmath186 have canonical @xmath40-whnf then the statement follows by induction from the definition and lemma  [ lem : equivalenttypeshaveequalpers ] .
+otherwise , by lemma  [ forcedtypeslocallyreducetocanonical ] we have a partition @xmath56 where both @xmath5 and @xmath186 have canonical @xmath46-whnf for all @xmath62 . by monotonicity @xmath311 and it follows by the above that @xmath475 . by local character @xmath474 .
+[ lem : typeequiv_refl , symm , trans ] if @xmath185 and @xmath476 then @xmath477 .
+let @xmath185 and @xmath476 .
+we then have that @xmath182 , @xmath194 and @xmath478 .
+thus @xmath5 , @xmath186 and @xmath479 have proper @xmath40-whnf .
+if any of these proper @xmath40-wnf is not canonical then by lemma  [ forcedtypeslocallyreducetocanonical ] we can find a partition @xmath56 where all three have canonical @xmath46-whnf for all @xmath62 . by monotonicity @xmath311 and @xmath480 for all @xmath62 . if we can then show that @xmath481 for all @xmath62 then by local character we will have @xmath482 .
+thus we can assume w.l.o.g that @xmath5 , @xmath186 and @xmath479 have canonical @xmath40-whnf .
+by induction on the derivations of @xmath182 ,    1 .
+let @xmath182 by @xmath218 .
+since by assumption @xmath186 has a canonical @xmath40-wnf and @xmath185 then @xmath219 . similarly @xmath483 and we have @xmath482 + the statement follows similarly when @xmath182 holds by @xmath193 , @xmath201 and @xmath213 .
+2 .   let @xmath182 by @xmath222 and @xmath223 . from @xmath185 and since by assumption
+@xmath186 has a canonical @xmath40-whnf we have @xmath225 and @xmath226 and @xmath484=e[a])$ ] . since @xmath476 and by assumption @xmath186 has a canonical @xmath40-whnf we have @xmath485 and @xmath486 and @xmath487=r[b])$ ] . + by ih @xmath488 .
+let @xmath74 and @xmath367 .
+by monotonicity @xmath326 and by lemma  [ lem : equivalenttypeshaveequalpers ] @xmath459 .
+thus @xmath371=r[a]$ ] . but @xmath369=e[a]$ ] . by ih
+@xmath369=r[a]$ ] .
+thus we have @xmath482 .
++ the statement follows similarly when @xmath182 holds by @xmath231 .
+3 .   since @xmath185 and @xmath476 ,
+we have @xmath240 and @xmath489 and the statements follows .    immediately from the definition we have the following    if @xmath207 then @xmath490 .    if @xmath345 and then @xmath491 .
+let @xmath345 .
+we have @xmath207 , @xmath208 and @xmath182 . by induction on the derivation of @xmath182 .    1 .
+let @xmath182 by @xmath218 .
+since @xmath345 we have a partition ( lemma  [ lem : basetypecanonicity ] ) @xmath56 where for each @xmath62 we have @xmath330 and @xmath453 for some @xmath449 .
+hence @xmath492 for all @xmath62 . by local character @xmath345 .
++ the statement follows similarly when @xmath182 is derived by @xmath201 and @xmath213 .
+2 .   let @xmath182 by @xmath222 and let @xmath223 .
+let @xmath74 and @xmath367 we then have @xmath493 $ ] .
+we have @xmath369 $ ] and by ih @xmath494 $ ] .
+thus @xmath495 .
+3 .   let @xmath182 by @xmath231 and let @xmath232 .
+we have @xmath354 and @xmath237 $ ] .
+since @xmath299 , by ih @xmath496 .
+since @xmath182 we have @xmath468=g[u{.1}]$ ] . by lemma  [ lem : equivalenttypeshaveequalpers ]
+@xmath497 $ ] .
+since @xmath498 $ ] , by ih @xmath499 $ ] .
+thus @xmath495 .
+4 .   let @xmath182 by @xmath238 .
+the statement then follows similarly to lemma  [ lem : typeequiv_refl , symm , trans ] 5 .
+let @xmath182 by @xmath266 and let @xmath267 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath268 .
+since @xmath345 we have that @xmath500 . by ih @xmath501 . by the definition @xmath495 .    if @xmath345 and @xmath502 then @xmath503 .
+let @xmath345 and @xmath502 .
+we have @xmath182 , @xmath207 , @xmath208 and @xmath504 . by induction on the derivation of @xmath182 .    1 .
+let @xmath182 by @xmath218 .
+by lemma  [ lem : basetypecanonicity ] there is a partition @xmath56 where for each @xmath62 we have @xmath330 , @xmath453 , and @xmath505 .
+thus @xmath506 for all @xmath62 . by local character @xmath506 .
++ the statement follows similarly when @xmath182 by @xmath201 and @xmath213 2 .
+let @xmath182 by @xmath222 and let @xmath223 .
+let @xmath74 and @xmath367 .
+we have then @xmath493 $ ] and @xmath507 $ ] . by ih @xmath508
+$ ] . thus @xmath503 .
+3 .   let @xmath182 by @xmath231 and let @xmath232 .
+since @xmath345 we have that @xmath236 and @xmath237 $ ] .
+similarly we have that @xmath509 and @xmath510 $ ] .
+since @xmath182 we have that @xmath468=g[u{.1}]$ ] and by lemma  [ lem : equivalenttypeshaveequalpers ] @xmath511 $ ] . by ih we have @xmath512 and @xmath513 $ ] .
+we have then that @xmath514 .
+4 .   let @xmath182 by @xmath238 .
+the statement then follows similarly to lemma  [ lem : typeequiv_refl , symm , trans ] .
+let @xmath182 by @xmath266 and let @xmath267 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath268 .
+we have that @xmath500 and @xmath515 . by ih @xmath516 . by the definition @xmath503 .
+in this section we show that the type theory described in section  [ sec : forcingextensionoftypetheory ] is sound with respect to the semantics described in section  [ sec : semantics ] .
+i.e.  we aim to show that @xmath190 whenever @xmath272 .
+[ lem : types_reductionimplyequiv ] if @xmath517 and @xmath194 then @xmath182 and @xmath185
+.    follows from the definition .
+[ lem : terms_onestepreductionimplyequiv ] let @xmath182 . if @xmath518 and @xmath208 then @xmath207 and @xmath345 .
+let @xmath518 and @xmath208 .
+by induction on the derivation of @xmath182 .    1 .
+let @xmath182 by @xmath238 .
+the statement follows similarly to lemma  [ lem : types_reductionimplyequiv ] .
+2 .   let @xmath182 by @xmath218 .
+by induction on the derivation of @xmath208 . if @xmath519 then @xmath520 and the statement follows by the definition . if @xmath211{\!:\!}a , k\notin { \textup{dom(}p\textup{)}}$ ] and @xmath521 then since @xmath522 , by ih @xmath331 and @xmath212 . by the definition @xmath207 and @xmath209 .
++ the statement follows similarly for @xmath201 and @xmath213 .
+3 .   let @xmath182 by @xmath222 and let @xmath523 .
+let @xmath74 and @xmath367 .
+we have @xmath524 $ ] . by ih @xmath525 $ ] and
+@xmath493 $ ] .
+if @xmath526 we similarly get @xmath527 $ ] and @xmath528 $ ] . since @xmath369=g[b]$ ] , by lemma  [ lem : equivalenttypeshaveequalpers ] @xmath529 $ ] . but @xmath530 $ ] . by symmetry and transitivity
+@xmath462 $ ] . thus @xmath207 and @xmath345 .
+4 .   let @xmath182 by @xmath222 and let @xmath531 .
+from @xmath163 we have @xmath77 and we have @xmath142 and @xmath532 $ ] . by the induction @xmath234 and @xmath236 . by the induction
+@xmath533 $ ] and @xmath497 $ ] .
+but since @xmath182 and we have shown @xmath236 we get @xmath468=g[u{.1}]$ ] . by lemma  [ lem : equivalenttypeshaveequalpers ]
+@xmath235 $ ] and @xmath355 $ ] .
+thus @xmath203 and @xmath534 5 .
+let @xmath182 by @xmath266 .
+let @xmath267 , k\notin{\textup{dom(}p\textup{)}}$ ] and @xmath268 .
+since @xmath208 we have @xmath521 .
+but we have @xmath522 . by ih @xmath331 and @xmath535 . by the definition @xmath207 and @xmath209 .
+[ cor : terms_reductionimplyequiv ] let @xmath146 and @xmath182 .
+if @xmath208 then @xmath207 and @xmath345 .
+[ cor : genericwelltyped ] @xmath536 .
+it s direct to see that @xmath537 . for
+an arbitrary condition @xmath40 let @xmath538 .
+by lemma  [ lem : basetypecanonicity ] we have a partition @xmath56 where for each @xmath62 , @xmath539 for some @xmath540 .
+we have thus a reduction @xmath541 . if @xmath305 then @xmath542 and by definition @xmath543 . if @xmath544 then @xmath545 and @xmath546 .
+thus @xmath547 .
+by the definition @xmath543 .
+we thus have that @xmath543 for all @xmath62 and by local character @xmath548 .
+let @xmath549 .
+by lemma  [ lem : basetypecanonicity ] there is a partition @xmath56 where for each @xmath62 , @xmath550 and @xmath551 for some @xmath552 .
+we then have @xmath553 and @xmath554 . if @xmath305 then @xmath555 and @xmath556 . by corollary  [ cor : terms_reductionimplyequiv ] ,
+symmetry and transitivity @xmath557 . if on the other hand @xmath558 then @xmath559 and @xmath560 . by the definition @xmath561 .
+thus @xmath561 for all @xmath62 .
+by local character @xmath562 .
+hence @xmath536 .
+[ lem : forcingtermnegation ] if @xmath563 and @xmath182 then @xmath564 iff for all @xmath74 there is no term @xmath172 such that @xmath565 .
+let @xmath182 and @xmath563 .
+we have directly that @xmath566 .
+assume @xmath564 . if @xmath567 for some @xmath74 , then @xmath568 which is impossible .
+conversely , assume it is the case that for all @xmath47 there is no @xmath172 for which @xmath565 . since @xmath569 and @xmath570 never hold for any @xmath571 , the statements `` @xmath572 '' and `` @xmath573 '' hold trivially .
+[ lem : markovpremisewitnesswelltyped ] @xmath574 .    by lemma  [ lem : forcingtermnegation ]
+it is enough to show that for all @xmath46 there is no term @xmath172 for which @xmath575 .
+assume @xmath575 for some @xmath172 .
+let @xmath576 we have then @xmath577 thus @xmath578 which is impossible .
+let @xmath579 and @xmath580 .
+let @xmath581 $ ] .
+we write @xmath582 if @xmath583 for all @xmath584 . letting @xmath585
+, we write @xmath586 if @xmath587 for all @xmath584 .
+we write @xmath588 if @xmath589 for all @xmath584 and @xmath590 if @xmath591 for all @xmath584 .
+[ lem : evalissub ] if @xmath592 then @xmath593 . if @xmath594 then @xmath595
+.    follows from the definition .    1 .
+we write @xmath596 if @xmath597 and
+for all @xmath74 whenever @xmath598 then @xmath599 and whenever @xmath600 then @xmath601 .
+we write @xmath602 if @xmath603 , @xmath596 and for all @xmath74 whenever @xmath598 then @xmath604 and whenever @xmath605 then @xmath606 .
+we write @xmath607 if @xmath608 , @xmath596 , @xmath609 and for all @xmath74 whenever @xmath598 then @xmath610 .
+we write @xmath611 if @xmath612 , @xmath602 , @xmath613 and for all @xmath74 whenever @xmath598 then @xmath614 .    in the following
+we will show that whenever we have a rule in the type system then it holds that . which is sufficient to show soundness
+.    follows from corollary  [ lem : localcharacter ] .
+[ soundpiintro ]    let @xmath74 and @xmath598 .
+let @xmath615 and @xmath616 .
+we have @xmath617 . since @xmath618 we have @xmath619 and by lemma  [ lem : equivalenttypeshaveequalpers ] @xmath620 .
+thus @xmath621 .
+we have @xmath622 $ ] and @xmath622=g\sigma[a]$ ] . if moreover @xmath623 then @xmath624 .
+thus @xmath622=g\rho[b]$ ] . by the definition @xmath625 and @xmath626 .
+[ soundpieq ]    let @xmath74 and @xmath598 .
+similarly to lemma  [ soundpiintro ] , we can show @xmath627 , @xmath628 , @xmath629 , and @xmath630 .    from the premise
+let @xmath615 and @xmath616 .
+we have then @xmath617
+. thus @xmath622=e\rho[a]$ ] . by the definition @xmath632 and @xmath633 .
+[ soundlambdaintro ]    let @xmath74 and @xmath598 .
+by lemma  [ lem : evalissub ] @xmath634 .
+let @xmath615 and @xmath635 .
+since @xmath636 we have that @xmath637 . since @xmath638 we have @xmath639{\!:\!}g\rho[d]$ ] . by the reduction rules @xmath640 $ ] .
+thus @xmath641{\!:\!}g\rho[d]$ ] . but @xmath642 , hence , @xmath643{\!:\!}g\rho[d]$ ] .
+by lemma  [ lem : terms_onestepreductionimplyequiv ] we have that @xmath644 $ ] and @xmath645{\!:\!}g\rho[d]$ ] .
+let @xmath646 we have similarly that @xmath647{\!:\!}g\rho[e]$ ] .
+we have also that @xmath648 $ ] , thus @xmath643=t\rho[e]{\!:\!}g\rho[d]$ ] and @xmath649=g\rho[e]$ ] . by lemma  [ lem : equivalenttypeshaveequalpers ] we have @xmath647{\!:\!}g\rho[d]$ ] . by symmetry and transitivity
+we have @xmath650 $ ] .
+thus @xmath651 .
+let @xmath600 .
+we get @xmath652 . similarly to the above we can show @xmath653 .
+let @xmath615 and @xmath616 .
+by lemma  [ lem : equivalenttypeshaveequalpers ] @xmath620 . we then have @xmath621 .
+thus we have @xmath622=g\sigma[a]$ ] .
+thus @xmath654 and by lemma  [ lem : equivalenttypeshaveequalpers ] @xmath655 .
+we have @xmath656=t\sigma[a]{\!:\!}g\rho[a]$ ] . but @xmath657{\!:\!}g\rho[a]$ ] and @xmath658 { \!:\!}g\sigma[a]$ ] . by lemma  [ lem : equivalenttypeshaveequalpers ] @xmath658 { \!:\!}g\rho[a]$ ] . by symmetry and transitivity
+@xmath659 $ ] . thus @xmath660 .
+[ soundbeta ]    let @xmath74 and @xmath598 .
+we have @xmath661 . as in lemma  [ soundlambdaintro ] @xmath662\rho { \!:\!}g[a]\rho$ ] which by lemma  [ lem : terms_onestepreductionimplyequiv ]
+imply that @xmath663\rho { \!:\!}g\rho[a]$ ] .
+[ soundapptyp ]    let @xmath74 and @xmath598 .
+we have @xmath664 and @xmath661 . by the definition @xmath665\rho$ ] .
+let @xmath666 .
+we have then @xmath667 and @xmath668 . from the definition @xmath669\rho$ ] . from the definition @xmath670\rho$ ] . by transitivity @xmath671\rho$ ] .    [ soundappeq ] ( 1 )
+( 2 )    let @xmath74 and @xmath598 .    1
+.   we have @xmath664 and @xmath672 . from the definition get @xmath673\rho$ ] .
+we have @xmath674 and @xmath675 . from the definition we get @xmath676\rho$ ] .    [ soundfunext ]
+let @xmath74 and @xmath598 .
+we have @xmath677 and @xmath678 .
+let @xmath615 and @xmath616 .
+we have then that @xmath679 .
+thus @xmath680 $ ] . by the definition @xmath674 .
+[ soundpairing ]    let @xmath74 and @xmath598 .
+by the typing rules @xmath681 and @xmath682 $ ] .
+but @xmath634 .
+by substitution we have @xmath683 and @xmath684\rho$ ] . but @xmath685 and @xmath686 . thus @xmath687 and @xmath688\rho$ ] . from the premise @xmath661 and @xmath689\rho$ ] . by lemma  [ lem : terms_onestepreductionimplyequiv ] @xmath690 and @xmath691\rho$ ] . by lemma  [ lem : terms_onestepreductionimplyequiv ] @xmath692 , thus @xmath693 . hence @xmath369\rho
+= g[(a , b){.1}]\rho$ ] . by lemma  [ lem : equivalenttypeshaveequalpers ] @xmath694\rho$ ] . by the definition we have then that @xmath695 .
+let @xmath605 .
+similarly we can show @xmath696 .
+we have that @xmath668 and @xmath697\rho$ ] .
+we have also @xmath698 we thus have @xmath369\rho = g[a]\sigma$ ] . by lemma  [ lem : terms_onestepreductionimplyequiv ] @xmath699\sigma$ ] . by lemma  [ lem : equivalenttypeshaveequalpers ] @xmath699\rho$ ] .
+but we also have by lemma  [ lem : terms_onestepreductionimplyequiv ] that @xmath700 . hence , by lemma
+[ lem : equivalenttypeshaveequalpers ] , we have @xmath701 . by symmetry and transitivity
+we then have that @xmath702 and @xmath703\rho$ ] .
+thus we have that @xmath704 .
+[ soundproj ]    \(1 ) ( 2 )    let @xmath74 and @xmath598 .    1 .
+we have @xmath705 and @xmath706\rho$ ] . by substitution
+we get @xmath707 .
+but @xmath708 , thus @xmath709 . we have that @xmath710 .
+thus by lemma  [ lem : terms_onestepreductionimplyequiv ] @xmath711 and @xmath712 .
+similarly we have @xmath713 $ ] .
+since @xmath714\rho$ ] , by lemma  [ lem : terms_onestepreductionimplyequiv ] , we have that @xmath715\rho$ ] and @xmath716 $ ] .
+[ soundprojtypeq ]    \(1 ) ( 2 )    let @xmath74 and @xmath598 .    1
+.   we have @xmath717 . by the definition we have @xmath718 and @xmath719\rho$ ] .
+let @xmath605 .
+we have that @xmath720 . by the definition @xmath721 and @xmath722\rho$ ] .
+we have @xmath723 . by the definition @xmath724 and @xmath725\rho$ ] .    [ soundpairext ]
+let @xmath74 and @xmath598 .
+we have @xmath717 and @xmath726 .
+we also have @xmath727 and @xmath728\rho$ ] . by the definition @xmath729 .
+[ soundnat ]    \(1 ) ( 2 ) ( 3 )    \(1 ) and ( 2 ) follow directly from the definition while ( 3 ) follows from lemma  [ lem : basetypecanonicity ] .
+[ soundnessnatrec ]    let @xmath74 and @xmath598 .
+we have then that @xmath730 , hence , @xmath731 . let @xmath615 .
+let @xmath732 , @xmath733 and @xmath734 .
+by lemma  [ lem : basetypecanonicity ] there is a partition @xmath735 such that for each @xmath736 , @xmath737 and @xmath738 . in order to show that @xmath739 we need to show that @xmath740 $ ] , @xmath741 $ ] , and @xmath742 $ ] . by local character
+it will be sufficient to show that for each @xmath736 we have @xmath743 $ ] , @xmath744 $ ] , and @xmath745 $ ] .
+we have that @xmath746\\ & s\vdash ( { { \mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\rho\,b   { { \rightarrowtriangle}^\ast}({{\mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\rho\ , {     \sbox{\myboxa}{$\m@thn$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi } { \!:\!}f\rho[b]\end{aligned}\ ] ] let @xmath747 . by induction on @xmath748 . if @xmath749 then @xmath750\\ & s\vdash ( { { \mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\rho\,b   { { \rightarrowtriangle}^\ast}({{\mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\rho\,{\mathsf{0}}{\rightarrowtriangle}a_0\rho { \!:\!}f\rho[b]\end{aligned}\ ] ] by lemma  [ lem : equivalenttypeshaveequalpers ] we have then that @xmath751 & \hphantom{space } s{\vdash}({{\mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\rho\,b   = a_0\rho { \!:\!}f\rho[b]\end{aligned}\ ] ]    since @xmath752 we have @xmath753 and thus @xmath754=f\rho[b]$ ] . by lemma  [ lem : equivalenttypeshaveequalpers ] ,
+symmetry and transitivity @xmath755 $ ] .
+assume the statement holds for @xmath756 .
+let @xmath757 .
+we have then @xmath758\\ & s\vdash ( { { \mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\rho\,b   { { \rightarrowtriangle}^\ast}g\rho \ , {     \sbox{\myboxa}{$\m@th\ell$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi}\ , ( ( { { \mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\rho\ , {     \sbox{\myboxa}{$\m@th\ell$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi } ) { \!:\!}f\rho[{\mathsf{s}}\ , {     \sbox{\myboxa}{$\m@th\ell$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi}]\end{aligned}\ ] ] by ih @xmath759 $ ] .
+but we have @xmath760\rightarrow f[{\mathsf{s}}\,x])$ ] and thus @xmath761 $ ] . by corollary  [ cor : terms_reductionimplyequiv ] , symmetry and transitivity we get that @xmath762 $ ] , @xmath763 $ ] , and @xmath764 $ ] .
+but @xmath765 , thus , @xmath754=f\rho[{\mathsf{s}}\ , {     \sbox{\myboxa}{$\m@th\ell$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi}]$ ] . by lemma  [
+lem : equivalenttypeshaveequalpers ] we get then that @xmath766 $ ] .
+as indicated above , this is sufficient to show @xmath767 .
+similarly we can show @xmath768 .    to show that @xmath769 we need to show that whenever @xmath616 for some @xmath615 we have @xmath770 $ ] .
+let @xmath771 for @xmath615 .
+by lemma  [ lem : basetypecanonicity ] we have a partition @xmath735 where for each @xmath736 we have @xmath737 . as above it
+is sufficient to show @xmath772 $ ] for all @xmath736 .
+let @xmath773 .
+by induction on @xmath748 .
+if @xmath749 then as above @xmath751 & \hphantom{space } s{\vdash}({{\mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\sigma\,a   = a_0\sigma { \!:\!}f\sigma[b]\end{aligned}\ ] ]    since @xmath774 we have @xmath775 .
+we have then that @xmath754=f\sigma[a]$ ] .
+but we also have that @xmath776 $ ] . by lemma  [ lem : equivalenttypeshaveequalpers ] , symmetry and transitivity
+it then follows that @xmath777 $ ] .
+assume the statement holds for @xmath756 .
+let @xmath757 . as before we have that @xmath758\\ & s\vdash ( { { \mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\sigma\,a   { { \rightarrowtriangle}^\ast}g\sigma \ , {     \sbox{\myboxa}{$\m@th\ell$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi}\ , ( ( { { \mathsf{rec}_{\mathsf{n}}}}(\lambda x. f)\,a_0\ , g)\sigma\ , {     \sbox{\myboxa}{$\m@th\ell$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi } ) { \!:\!}f\sigma[{\mathsf{s}}\ , {     \sbox{\myboxa}{$\m@th\ell$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi}]\end{aligned}\ ] ] by ih @xmath778 $ ] . but @xmath779\rightarrow f[{\mathsf{s}}\,x]))\rho$ ] , thus @xmath780 $ ] but @xmath781=f\sigma[{\mathsf{s}}\ , {     \sbox{\myboxa}{$\m@th\ell$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi}]$ ] and @xmath782=f\rho[{\mathsf{s}}\ , {     \sbox{\myboxa}{$\m@th\ell$ }     \setbox\myboxb\null     \ht\myboxb=\ht\myboxa     \dp\myboxb=\dp\myboxa     \wd\myboxb=0.75\wd\myboxa     \sbox\myboxb{$\m@th\overline{\copy\myboxb}$ }     \setlength\mylena{\the\wd\myboxa }     \addtolength\mylena{-\the\wd\myboxb }     \ifdim\wd\myboxb<\wd\myboxa        \rlap{\hskip 0.5\mylena\usebox\myboxb}{\usebox\myboxa }     \else          \hskip -0.5\mylena\rlap{\usebox\myboxa}{\hskip 0.5\mylena\usebox\myboxb }     \fi}]$ ] . by lemma  [ lem : equivalenttypeshaveequalpers ] ,
+symmetry and transitivity we have then that @xmath783 $ ] which is sufficient to show @xmath784    [ soundnatrec0 ]    let @xmath74 and @xmath598 .
+we have @xmath634 and thus we get that @xmath785 $ ] . but @xmath786 .
+thus @xmath787 $ ] .
+but @xmath788 $ ] . by lemma  [ lem : terms_onestepreductionimplyequiv ] we have @xmath789 $ ] .
+[ soundnatrecsuc ]    let @xmath74 and @xmath598 .
+we have @xmath790 . by lemma  [ lem : basetypecanonicity ]
+there is a partition @xmath791 such that for each @xmath736 there is @xmath552 and @xmath792 .
+thus @xmath793 .
+we have then that @xmath794\end{aligned}\ ] ]    but @xmath795 $ ] . by corollary  [ cor : terms_reductionimplyequiv ] ,
+symmetry and transitivity @xmath796 $ ] . since @xmath797
+we have that @xmath798 = f\rho[{\mathsf{s}}\ , n\rho]$ ] . by lemma  [ lem : equivalenttypeshaveequalpers ] we thus have that @xmath799\rho$ ] . by local character @xmath800\rho$ ]    [ soundnatreccong ]    the proof follows by an argument similar to that used to prove lemma  [ soundnessnatrec ] .    for the congruence rules , soundness follows by reflexivity , symmetry and transitivity of the forcing relation .
+soundness for rules of @xmath24 , @xmath801 and @xmath802 follow similarly to those of @xmath803 .
+soundness for the rules of @xmath804 follows similarly to soundness of typing rules .
+we have then the following corollary :    [ lem : soundness ] if @xmath93 then @xmath805    [ thm : fundamentalthm ] if @xmath272 then @xmath190 .
+follows from corollary  [ lem : soundness ] .
+now we have enough machinery to show the independence of @xmath30 from type theory .
+the idea is that if a judgment @xmath97 is derivable in type theory ( i.e.  @xmath806 ) then it is derivable in the forcing extension ( i.e.  @xmath807 ) and by theorem  [ thm : fundamentalthm ] it holds in the interpretation ( i.e.  @xmath360 ) .
+it thus suffices to show that there no @xmath7 such that @xmath808 to establish the independence of @xmath30 from type theory .
+first we recall the formulation of @xmath30 .
+@xmath809\end{aligned}\ ] ] where @xmath16 is given by @xmath810 .
+[ lem : markovconclusionnowitness ] there is no term @xmath7 such that @xmath811 .
+assume @xmath811 for some @xmath7 .
+we then have @xmath812 and @xmath813 . by lemma  [ lem : basetypecanonicity ]
+one has a partition @xmath814 where for each @xmath62 , @xmath815 .
+hence @xmath816 and by lemma  [ lem : types_reductionimplyequiv ] @xmath817 .
+but , by definition , the partition @xmath57 must contain a condition , say @xmath818 , such that @xmath819 whenever @xmath820 ( this holds vacuously for @xmath821 ) .
+let @xmath822 .
+assume @xmath823 , then @xmath824 .
+by monotonicity , from @xmath813 we get @xmath825 . but
+@xmath826 thus @xmath827 .
+hence , by lemma  [ lem : equivalenttypeshaveequalpers ] , @xmath828 which is impossible , thus contradicting our assumption .
+if on the other hand @xmath829 then , since @xmath830 , we can apply the above argument with @xmath831 instead of @xmath818 .
+[ lem : markovnotforcible ] there is no term @xmath7 such that @xmath808 .
+assume @xmath808 for some @xmath7 .
+from the definition , whenever @xmath832 we have @xmath833 . since by corollary
+[ cor : genericwelltyped ] , @xmath536 we have @xmath834 . since by lemma  [ lem : markovpremisewitnesswelltyped ] @xmath835 we have @xmath836 which is impossible by lemma  [ lem : markovconclusionnowitness ] .    from theorem  [ thm : fundamentalthm ] ,
+lemma  [ lem : markovnotforcible ] , and lemma  [ lem : extension ] we can then conclude :      we extend the type system in section  [ sec : forcingextensionoftypetheory ] further by adding a generic point @xmath837 for each condition @xmath46 .
+the introduction and conversion rules for @xmath837 are given by :    with the reduction rules :    we observe that with these added rules the reduction relation is still monotone .    for each @xmath837
+we add a term :    finally we add a term @xmath838 witnessing the negation of @xmath30    by analogy to corollary  [ cor : genericwelltyped ] we have    [ lem : qgenericpointforced ] @xmath839 for all @xmath46 .
+[ lem : qmarkovpermisewitnessforced ] @xmath840 for all @xmath46 .
+assume @xmath841 for some @xmath40 and @xmath7 .
+let @xmath842 , we have @xmath843 .
+thus @xmath844 and @xmath845 which is impossible .
+[ lem : qmarkovconclusionnowitness ] there is no term @xmath7 for which @xmath846 .
+assume @xmath846 for some @xmath7 .
+we then have @xmath847 and @xmath848 . by lemma  [ lem : basetypecanonicity ]
+one has a partition @xmath849 where for each @xmath584 , @xmath850 for some @xmath851 .
+hence @xmath852 . but
+any partition of @xmath46 contain a condition , say @xmath853 , where @xmath854 whenever @xmath855 and @xmath856 .
+assume @xmath857 .
+if @xmath858 then @xmath859 and if @xmath860 then @xmath861 . thus @xmath862 and by lemma  [ lem : types_reductionimplyequiv ] @xmath863 . from @xmath813 by monotonicity and lemma  [ lem : equivalenttypeshaveequalpers ] we have @xmath864 which is impossible . if on the other hand @xmath865 then since @xmath866 we can apply the above argument with @xmath867 instead of @xmath853 .
+@xmath868    assume @xmath869 for some @xmath40 and @xmath7 .
+thus whenever @xmath74 and @xmath870 then @xmath871 .
+but we have @xmath872 by lemma  [ lem : qgenericpointforced ] .
+hence @xmath873 . but @xmath874 by lemma  [ lem : qmarkovpermisewitnessforced ] .
+thus @xmath875 which is impossible by lemma  [ lem : qmarkovconclusionnowitness ] .
+we have then that this extension is sound with respect to the interpretation .
+hence we have shown the following statement .
+there is a consistent extension of @xmath6 where @xmath31 is derivable .
+recall that @xmath876 .
+we have then a term @xmath877 .
+thus in this extension we have a term @xmath878 .
+we would like to thank simon huber , thomas streicher , martn escard and chuangjie xu .

@@ -1,0 +1,127 @@
+over the course of the last decade , network science has attracted an ever growing interest since it provides important insights on a large class of interacting complex systems .
+one of the features that has drawn much attention is the structure of interactions highlighted by the network representation .
+indeed , it has become increasingly clear that global structural patterns emerge in most real networks @xcite .
+one such pattern , where links and nodes are aggregated into larger groups , is called the community structure of a network .    while the exact definition of communities is still not agreed upon @xcite ,
+the general consensus is that these groups should be denser than the rest of the network .
+the notion that communities form some sort of independent units ( families , friend circles , coworkers , protein complexes , etc . ) within the network is thus embedded in that broader definition .
+it follows that communities represent functional modules , and that understanding their layout as well as their organization on a global level is crucial to a fuller understanding of the system under scrutiny @xcite .    by developing techniques to extract this organization
+, one assumes that communities are encoded in the way nodes are interconnected , and that their structure may be recovered from limited , incomplete topological information . various algorithms and models
+have been proposed to tackle the problem , each featuring a different definition of the community structure while sharing the same general objective .
+although these tools have been used with success in several different contexts @xcite , a number of shortcomings are still to be addressed .    in this report
+, we show how to improve existing algorithms independent of the procedure or the definitions they use .
+more precisely , we first show that present algorithms tend to overlook small communities found in the neighborhood of larger , denser ones .
+then , we propose and develop a _ cascading _ approach to community detection that greatly enhance their performance .
+it is known that a resolution limit exists for a large class of community detection algorithms that rely on the optimization of a quality function ( e.g. , modularity @xcite ) over non - overlapping partitions of the network @xcite .
+indeed , it appears that the size of the smallest detectable community is related to the size of the network .
+this leads to counterintuitive cases where clearly separated clusters of nodes are considered as one larger community because they are too small to be resolved by the detecting algorithm .
+a possible solution could be to conduct a second analysis on all detected communities in order to verify that no smaller modules can be identified .
+however , the optimal partition of a network should include overlapping communities , as they capture the multiplicity of functions that a node might fulfill since nodes can then be shared between many communities .
+we argue that a different resolution limit , due to an effect that we refer to as _ shadowing _ , arises in detection algorithms that :    1 .
+allow such _ overlapping communities _ ; 2 .
+rely on some _ global resolution parameter_.    shadowing typically occurs when large / dense communities act as screens hence preventing the detection of smaller / sparser adjacent communities . to illustrate this phenomenon , we study two families of detection algorithms based on two different paradigms of community structure , namely nodes and links communities .
+the clique percolation algorithm ( cpa ) @xcite defines communities as maximal _
+@xmath0-clique _ percolation chains , where a @xmath0-clique is a fully connected subgraphs of @xmath0 nodes , and where a percolation chain is a group of cliques that can be reached from one adjacent - cliques are said to be adjacent if they share @xmath1 nodes . ]
+@xmath0-clique to another @xcite .
+the complete community structure is obtained by detecting every maximal percolation chains for a given value of @xmath0 .
+it is noteworthy that the definition of a community in this context is consistent with the general description of communities outlined in sec .
+[ sec : intro ] .
+indeed , @xmath0-clique percolation chains are dense by definition , and a sparser neighboring region is required to stop a @xmath0-clique percolation chain , ensuring that communities are denser than their surroundings .
+we expect shadowing as both conditions listed in sec .
+[ sec : intro ] are met :    1 .
+since percolation chains  communities  consist of @xmath0-cliques sharing @xmath1 nodes , overlapping communities occur whenever two cliques share less than @xmath1 nodes ; 2 .
+the size of the cliques , @xmath0 , acts as a global resolution parameter .
+let us explain this last point . in principle ,
+low values of @xmath0 lead to a more flexible detection of communities as a smaller clique size allows a wider range of configurations .
+however , low values of @xmath0 often yield an excessively coarse - grained community structure of the network since percolation chains may grow almost unhindered and include a significant fraction of the nodes . in contrast
+, large values of @xmath0 may leave most of the network uncharted as only large and dense clusters of nodes are then detected as communities .
+an _ optimal value _  corresponding to a compromise between these two extreme outcomes must therefore be chosen . as this value of @xmath0 attempts to balance these two unwanted effects for the entire network as a whole
+, a shadowing effect is expected to arise causing the algorithm to overlook smaller communities , or to merge them with larger ones .
+see fig .
+[ fig : cpa_shadowing ] for an illustration of this effect .       and
+@xmath2 are respectively colored in green and blue . from eq .
+( [ eq : similarity_ahn ] ) , we have that @xmath3 .
+note that apart from nodes @xmath4 and @xmath5 , the neighboring nodes of the keystone @xmath0 ( colored in yellow ) are not considered in this calculation of @xmath6 . ]
+the link clustering algorithm ( lca ) @xcite aggregates links  and hence the nodes they connect  into communities based on the similarity of their respective neighborhood . denoting @xmath7 the link between nodes @xmath8 and @xmath9 , the similarity of two adjacent links @xmath10 and @xmath11 ( attached to a same node @xmath0 called the _ keystone _ ) is quantified through a jaccard index @xmath12 where @xmath13 is the set of node @xmath14 and its neighbors , and @xmath15 is the cardinality of the set . figure  [ fig : similarity_ahn ] illustrates the calculation of @xmath16 .
+once the similarity has been calculated for all adjacent pair of links , communities are built by iteratively aggregating adjacent links whose similarity exceeds a given threshold @xmath17 .
+we refer to links that are left after this process ( i.e. , communities consisting of one single link ) as _ unassigned_.    , @xmath18 and @xmath19 contain considerably more elements that their corresponding intersections since nodes @xmath8 , @xmath9 and @xmath20 all have high degrees . according to eq .
+[ eq : similarity_ahn ] , this implies that @xmath7 , @xmath21 and @xmath22 share lower similarities 
+namely @xmath23 and @xmath24than if the triangle had been isolated ( see sec .  [
+sec : cascading ] ) .
+it is therefore likely that these three links will be left unassigned . ]    again , a shadowing effect is expected , as the two aforementioned conditions are fulfilled :    1 .
+because communities are built by aggregating links , this algorithm naturally allows communities to overlap ( to share nodes ) since a node can belong to as many communities as its degree ( number of links it is attached to ) can allow ; 2 .
+the similarity threshold @xmath17 acts as a global resolution parameter as it dictates whether two links belong to the same community or not .    to elucidate the global aspect of @xmath17
+, we describe how its value is chosen ( as proposed in @xcite ) .
+let us first define the density @xmath25 of community @xmath5 as @xmath26 where @xmath27 and @xmath28 are the number of links and nodes in community @xmath5 , respectively .
+considering that a community of @xmath29 nodes must at least include @xmath30 links , @xmath25 computes the fraction of potential `` excess links '' that are present in the community .
+the similarity threshold @xmath17 is then chosen such that it maximizes the overall density of the communities @xmath31 where @xmath32 is the set of communities detected for a given @xmath17 , @xmath33 is the total number of links assigned to communities of more than one link ( i.e. , @xmath34 ) .
+note that @xmath35 is typically a well - behaved function of @xmath17 and normally displays a single maximal plateau @xcite . the value of @xmath17 corresponding to this plateau is then selected as it leads , on average , to the denser set of communities , hence its global nature .
+following an analysis similar to sec .
+[ sec : cfinder ] , we expect small communities to be left undetected as they are eclipsed by larger and denser ones .
+this is mainly due to the use of a resolution parameter ( @xmath17 ) that can not be adjusted locally .
+for instance , links in a small community could exhibit vanishing similarities because some of the associated nodes are hubs ( nodes of high degree ) .
+this is especially true in the vicinity of large and dense clusters whose nodes are typically of high degree ( see fig .  [
+fig : ahn_shadowing ] for an illustration ) .
+figures  [ fig : cpa_shadowing ]  and  [ fig : ahn_shadowing ] suggest that the inability to detect small or sparse communities in the vicinity of larger or denser ones  the shadowing effect  could be circumvented by removing these structures from the networks .
+we formalize this idea and propose a _ cascading _ approach to community detection that proceeds as follows :    1 .   identify large or dense communities  by tuning the resolution parameter accordingly  using a given community detection algorithm ; 2 .   remove the internal links of the communities identified in step 1 ; 3 .
+repeat until no new significant communities are found .
+the first iteration of this algorithm detects the communities that are normally targeted by detection algorithms , thus ensuring that the cascading approach retains the main features of the `` canonical '' community structure .
+after removal of links involved in the detected communities , a new iteration of the detection algorithm is then performed on a sparser network in which previously hidden communities are now apparent .
+this process is repeated until a final and more thorough partition of the network into overlapping communities is eventually obtained .
+for example , in the case of the cpa , a high value of @xmath0 ( which leads to the traditional community structure ) is selected for the first iteration of the algorithm .
+the network then becomes significantly sparser since all cliques of size @xmath36 are destroyed by the removal of internal links in step 2 .
+subsequent iterations of the detection algorithm can thus be conducted at lower @xmath0 , unveiling finer structures , as the pathways formed by dense cluster are no longer available .
+the process naturally comes to a halt at @xmath37 , since @xmath38 only detects the disjoint components of the network . in the case of the lca ,
+the detection is stopped _ before _
+the partition density reaches zero , for @xmath39 only detects chains of links ( the keystone ensures a non - vanishing similarity ) , which in general are not classified as significant communities .
+it is worth mentioning that conducting this repeated analysis does not increase the computational cost significantly , since the cascading algorithm scales exactly like the community detection algorithm used at each iteration , and since the number of iterations that can be carried is small ( typically less than 10 ) .
+moreover , the size of the networks ( number of links and nodes ) effectively decreases after each iteration , further reducing the cost .
+to investigate the efficiency and the behavior of the cascading detection , we have applied our approach to 10 network datasets : arxiv cond - mat circa 2004 ( arxiv ) @xcite , brightkite online ( brightkite ) @xcite , university rovira i virgili email exchanges ( email ) @xcite , gnutella peer - to - peer data ( gnutella ) @xcite , internet autonomous systems ( internet ) @xcite , mathscinet co - authorship ( mathsci ) @xcite , pretty - good - privacy data exchange ( pgp ) @xcite , western states power grid ( power ) @xcite , protein - protein interactions ( protein ) @xcite and word associations ( words ) @xcite .
+at the first iteration , leading to an immediate complete detection of the community structure .
+( _ right _ ) results of a canonical use of the lca are shown in white and shades of blue correspond to subsequent iterations . the final state is again shown in black .
+note that all results are normalized to the number of assignable links in the original network .
+for the cpa , this corresponds to the number of links that belong to at least one 3-clique . for the lca
+, a link is considered assignable if at least one of the two nodes it joins have a degree greater than one . ]    first and foremost , our results show that cascading detection _ always _ improves the thoroughness of the community structure detection .
+indeed , fig .
+[ fig : cascading_detection ] shows that while a traditional use of the algorithms yields partitions with high fractions of unassigned links , the cascading approach leads to community structures where this fraction is significantly reduced .
+more precisely , the percentage of remaining assignable  links drops from 54.1% to 26.3% on average in the case of cpa , and from 41.0% to 5.3% in the case of lca .
+note how cascading detection is more efficient when applied to the lca .
+this is due to the fact that the effective network gets increasingly sparser with each iteration , and that link clustering works equally well on sparse and dense networks , whereas clique percolation requires a high level of clustering to yield any results .
+figure  [ fig : size_distribution ] confirms that as the cascading detection proceeds , smaller  and previously masked 
+communities are detected , regardless of the algorithm used .
+for instance , fig .
+[ fig : size_distribution_wa_cp ] clearly shows how a significant number of 3-cliques are overlooked by `` traditional '' use of the cpa .
+however , large communities are also found after many iterations , suggesting that the shadowing effect is not restricted to small communities .
++    visual inspection of the detected communities not only verifies the quality of the hidden communities , but also confirms our intuition of the shadowing effect .
+for instance , fig .
+[ fig : wordassahn1 ] shows a triangle detected at the third iteration ( out of five ) of the lca on the words network .
+this structure was most likely missed during the initial detection due to the high degree of its three nodes , as speculated in fig .
+[ fig : ahn_shadowing ] . similarly , although @xmath40 was initially chosen ( according to the criterion discussed in sec .
+[ sec : cfinder ] ) for the cpa on the words network , a second iteration using @xmath37 has permitted the detection of other significant communities such as the one shown in fig .  [
+fig : wordasscfinder ] .
+more complex structures and correlations are also brought to light using this approach .
+figure  [ fig : wordassahn2 ] presents a star of high - degree nodes detected at the third iteration of the lca on the word association network .
+none of these nodes are directly connected to each other , but they share many neighbors . hence , once the main communities were removed  here semantic fields related to toys , theatre and music  the shadow was lifted such that this correlated , but unconnected structure could be detected . whether this particular structure should be defined as a relevant community is up for debate . keeping in mind that there are no consensus on the definition of a proper _ community _ in complex networks ,
+the role of algorithms , and consequently of the cascading method , is to infer plausible significant structures .
+internal link removal is destructive in the sense that information about shadowed communities is lost in the process , as some of the internal links are shared by more than one community @xcite .
+leaving these links untouched would certainly enhance the quality of the detected communities while further reducing the uncharted portion of the network . nevertheless , without using refined algorithm and by only resorting to our simple idea ,
+we obtain surprisingly good results .
+this suggest that shadowing is not necessarily due to the density of the prominent communities but rather to the stiffness of the resolution parameter . indeed , by using a cascading approach , we allow this parameter to vary artificially from a region of the network to the other , as the algorithm is effectively applied to a new network  partially retaining the structure of the original network  at each iteration .
+a once rigid global parameter can now flexibly adapt to small changes in the topology of the network to better reveal subtle structures .
+in conclusion , we have managed to significantly reduce the uncharted portion of a network by assigning an important fraction of seemingly random links to relevant communities .
+this significant improvement in community detection will help shrink the gap between analytical models and their real network counterparts .
+the difficult problem of accurately modeling the dynamical properties of real networks might be better tackled if one includes complex community structure through comprehensive distributions or solved motifs @xcite , two applications for which a reliable and complete partition is fundamental .
+moreover , this work opens the way to more subtle cascading approach , as envisioned at the end of the previous section .
+for instance , we could build an extreme version of the algorithm where communities are detected one by one .
+such an approach would enable a perfect adaptation of the resolution parameter to the situation at hand . and while it would certainly come to significant computational cost , it could lead to the mapping of the community detection problem unto simpler problems .
+if we accept to detect communities one at a time , the detection of the most significant ones can be done through well optimized methods , such as modularity optimization @xcite , which would otherwise be incapable of detecting overlapping communities .
+finally , perhaps the most significant observation that emerges from our work could be simply stated : since community structure occurs at all scales , global partitioning of overlapping communities must be done sequentially , cascading through the organizational layers of the network .
+.*summary of the results presented in fig .
+[ fig : cascading_detection ] . * cpa@xmath41 and lca@xmath41 are the percentages of remaining assignable links for a _
+normal _ use of the cpa and lca , respectively , whereas cpa@xmath42 and lca@xmath42 are the _ final _ percentages using a cascading approach .
+the number of iterations to reach the final state is also given . [ cols="<,^,^,^,^,^,^",options="header " , ]
+the authors wish to thank the gephi @xcite development team for their visualization tool ; yong - yeol ahn _
+et al . _ for the link community algorithm ; gergely palla _ et al . _ for the clique percolation algorithm ; all the authors of the cited papers for providing the network data ; and calcul qubec for computing facilities .
+this research was funded by cihr , nserc and frq  nt .
+e.  cho , s.a .
+myers , & j.   leskovec ,  friendship and mobility : user movement in location - based social networks ,  _ acm sigkdd international conference on knowledge discovery and data mining ( kdd ) _ , ( 2011 ) .
+m.  ripeanu , i.  foster , & a.  iamnitchi ,  mapping the gnutella network : properties of large - scale peer - to - peer systems and implications for system design ,  _ ieee internet computing journal _ , * 6 * , 50 - 57 , ( 2002 ) .

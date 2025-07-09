@@ -1,0 +1,119 @@
+given an input sequence , _ segmentation _ is the problem of identifying and assigning tags to its subsequences .
+many natural language processing ( nlp ) tasks can be cast into the segmentation problem , like named entity recognition @xcite , opinion extraction @xcite , and chinese word segmentation @xcite . properly representing _ segment _ is critical for good segmentation performance .
+widely used sequence labeling models like conditional random fields @xcite represent the contextual information of the segment boundary as a proxy to entire segment and achieve segmentation by labeling input units ( e.g. words or characters ) with boundary tags .
+compared with sequence labeling model , models that directly represent segment are attractive because they are not bounded by local tag dependencies and can effectively adopt segment - level information .
+semi - markov crf ( or semi - crf ) @xcite is one of the models that directly represent the entire segment . in semi - crf ,
+the conditional probability of a semi - markov chain on the input sequence is explicitly modeled , whose each state corresponds to a subsequence of input units , which makes semi - crf a natural choice for segmentation problem
+.    however , to achieve good segmentation performance , conventional semi - crf models require carefully hand - crafted features to represent the segment .
+recent years witness a trend of applying neural network models to nlp tasks .
+the key strengths of neural approaches in nlp are their ability for modeling the compositionality of language and learning distributed representation from large - scale unlabeled data . representing
+a segment with neural network is appealing in semi - crf because various neural network structures @xcite have been proposed to compose sequential inputs of a segment and the well - studied word embedding methods @xcite make it possible to learn entire segment representation from unlabeled data .    in this paper
+, we combine neural network with semi - crf and make a thorough study on the problem of representing a segment in neural semi - crf .
+@xcite proposed a segmental recurrent neural network ( srnn ) which represents a segment by composing input units with rnn .
+we study alternative network structures besides the srnn .
+we also study segment - level representation using _ segment embedding _ which encodes the entire segment explicitly .
+we conduct extensive experiments on two typical nlp segmentation tasks : named entity recognition ( ner ) and chinese word segmentation ( cws ) .
+experimental results show that our concatenation alternative achieves comparable performance with the original srnn but runs 1.7 times faster and our neural semi - crf greatly benefits from the segment embeddings . in the ner experiments , our neural semi - crf model with segment embeddings
+achieves an improvement of 0.7 f - score over the baseline and the result is competitive with state - of - the - art systems . in the cws experiments ,
+our model achieves more than 2.0 f - score improvements on average . on the pku and msr datasets ,
+state - of - the - art f - scores of 95.67% and 97.58% are achieved respectively .
+we release our code at https://github.com/expresults/segrep-for-nn-semicrf .
+figure [ fig : ne - and - cws ] shows examples of named entity recognition and chinese word segmentation . for the input word sequence in the ner example , its segments ( _ `` michael jordan'':per , `` is'':none , `` a'':none , `` professor'':none , `` at'':none , `` berkeley'':org _ )
+reveal that `` michaels jordan '' is a person name and `` berkeley '' is an organization . in the cws example , the subsequences (    utf8gkai``/pudong '' , `` /development '' , `` /and '' , `` /construction ''    ) of the input character sequence are recognized as words .
+both ner and cws take an input sequence and partition it into disjoint subsequences .    formally , for an input sequence @xmath0 of length @xmath1 , let @xmath2 denote its subsequence @xmath3 .
+segment _ of @xmath4 is defined as @xmath5 which means the subsequence @xmath6 is associated with label @xmath7 .
+a _ segmentation _ of @xmath4 is a _ segment _ sequence @xmath8 , where @xmath9 and @xmath10 .
+given an input sequence @xmath4 , the _ segmentation _ problem can be defined as the problem of finding @xmath4 s most probable _ segment _ sequence @xmath11 .
+0.241       0.241       0.241       0.241
+semi - markov crf ( or semi - crf , figure [ fig : std ] ) @xcite models the conditional probability of @xmath11 on @xmath4 as @xmath12 where @xmath13 is the feature function , @xmath14 is the weight vector and @xmath15 is the normalize factor of all possible _ segmentations _ @xmath16 over @xmath4 .    by restricting the scope of feature function within a segment and ignoring label transition between segments ( 0-order semi - crf )
+, @xmath13 can be decomposed as @xmath17 where @xmath18 maps segment @xmath19 into its representation .
+such decomposition allows using efficient dynamic programming algorithm for inference . to find the best segmentation in semi - crf ,
+let @xmath20 denote the best segmentation ends with @xmath21^th^ input and @xmath20 is recursively calculated as @xmath22 where @xmath23 is the maximum length manually defined and @xmath24 is the transition weight for @xmath25 in which @xmath26 .
+previous semi - crf works @xcite parameterize @xmath27 as a sparse vector , each dimension of which represents the value of corresponding feature function . generally , these feature functions fall into two types : 1 ) the _ crf style features _ which represent input unit - level information such as `` the specific words at location @xmath28 '' 2 ) the _ semi - crf style features _ which represent segment - level information such as `` the length of the segment '' .
+@xcite proposed the segmental recurrent neural network model ( srnn , see figure [ fig : rnn ] ) which combines the semi - crf and the neural network model . in srnn , @xmath29 is parameterized as a bidirectional lstm ( bi - lstm ) .
+for a segment @xmath9 , each input unit @xmath30 in subsequence @xmath31 is encoded as _ embedding _ and fed into the bi - lstm .
+the rectified linear combination of the final hidden layers from bi - lstm is used as @xmath29 .
+@xcite pioneers in representing a segment in neural semi - crf .
+bi - lstm can be regarded as `` neuralized '' _ crf style features _ which model the input unit - level compositionality .
+however , in the srnn work , only the bi - lstm was employed without considering other input unit - level composition functions .
+what is more , the _ semi - crf styled _ segment - level information as an important representation was not studied . in the following sections , we first study alternative input unit - level composition functions ( [ sec : alt - inp - rep ] ) .
+then , we study the problem of representing a segment at segment - level ( [ sec : seg - rep ] ) .        besides recurrent neural network ( rnn ) and
+its variants , another widely used neural network architecture for composing and representing variable - length input is the convolutional neural network ( cnn ) @xcite . in cnn ,
+one or more filter functions are employed to convert a fix - width segment in sequence into one vector .
+with filter function `` sliding '' over the input sequence , contextual information is encoded .
+finally , a pooling function is used to merge the vectors into one . in this paper
+, we use a filter function of width 2 and max - pooling function to compose input units of a segment .
+following srnn , we name our cnn segment representation as scnn ( see figure [ fig : cnn ] ) .
+however , one problem of using cnn to compose input units into segment representation lies in the fact that the max - pooling function is insensitive to input position .
+two different segments sharing the same vocabulary can be treated without difference . in a cws example ,    utf8gkai`` '' ( racket for sell ) and ``  '' ( ball audition )    will be encoded into the same vector in scnn if the vector of    utf8gkai`` ''    that produced by filter function is always preserved by max - pooling .
+concatenation is also widely used in neural network models to represent fixed - length input .
+although not designed to handle variable - length input , we see that in the inference of semi - crf , a maximum length @xmath23 is adopted , which make it possible to use padding technique to transform the variable - length representation problem into fixed - length of @xmath23
+. meanwhile , concatenation preserves the positions of inputs because they are directly mapped into the certain positions in the resulting vector . in this paper
+, we study an alternative concatenation function to compose input units into segment representation , namely the sconcate model ( see figure [ fig : concate ] ) .
+compared with srnn , sconcate requires less computation when representing one segment , thus can speed up the inference .      for segmentation problems ,
+a segment is generally considered more informative and less ambiguous than an individual input . incorporating segment - level features
+usually lead performance improvement in previous semi - crf work .
+segment representations in section [ sec : alt - inp - rep ] only model the composition of input units .
+it can be expected that the segment embedding which encodes an entire subsequence as a vector can be an effective way for representing a segment .    in this paper
+, we treat the segment embedding as a lookup - based representation , which retrieves the embedding table with the surface string of entire segment . with the entire segment properly embed , it is straightforward to combine the segment embedding with the composed vector from the input so that multi - level information of a segment is used in our model ( see figure [ fig : with - seg ] ) .
+however , how to obtain such embeddings is not a trivial problem .
+a natural solution for obtaining the segment embeddings can be collecting all the `` correct '' segments from training data into a lexicon and learning their embeddings as model parameters .
+however , the in - lexicon segment is a strong clue for a subsequence being a correct segment , which makes our model vulnerable to overfitting .
+unsupervised pre - training has been proved an effective technique for improving the robustness of neural network model @xcite . to mitigate the overfitting problem , we initialize our segment embeddings with the pre - trained one .    word embedding gains a lot of research interest in recent years @xcite and is mainly carried on english texts which are naturally segmented .
+different from the word embedding works , our segment embedding requires large - scale segmented data , which can not be directly obtained .
+following @xcite which utilize automatically segmented data to enhance their model , we obtain the auto - segmented data with our neural semi - crf baselines ( srnn , scnn , and sconcate ) and use the auto - segmented data to learn our segment embeddings .
+another line of research shows that machine learning algorithms can be boosted by ensembling _
+heterogeneous _ models .
+our neural semi - crf model can take knowledge from heterogeneous models by using the segment embeddings learned on the data segmented by the heterogeneous models . in this paper
+, we also obtain the auto - segmented data from a conventional crf model which utilizes hand - crafted sparse features . once obtaining the auto - segmented data , we learn the segment embeddings in the same with word embeddings .
+a problem that arises is the fine - tuning of segment embeddings .
+fine - tuning can learn a task - specific segment embeddings for the segments that occur in the training data , but it breaks their relations with the un - tuned out - of - vocabulary segments .
+figure [ fig : wo - ft ] illustrates this problem . since oov segments can affect the testing performance , we also try learning our model without fine - tuning the segment embeddings .      in this section ,
+we describe the detailed architecture for our neural semi - crf model .
+following @xcite , we use a bi - lstm to represent the input sequence . to obtain the input unit representation ,
+we use the technique in @xcite and separately use two parts of input unit embeddings : the pre - trained embeddings @xmath32 without fine - tuning and fine - tuned embeddings @xmath33 . for the @xmath28th input , @xmath34 and @xmath35
+are merged together through linear combination and form the input unit representation @xmath36 + b^\mathcal{i})\ ] ] where the notation of @xmath37 $ ] equals to @xmath38 s linear combination @xmath39 and @xmath40 is the bias . after obtaining the representation for each input unit ,
+a sequence @xmath41 is fed to a bi - lstm .
+the hidden layer of forward lstm @xmath42 and backward lstm @xmath43 are combined as @xmath44+b^\mathcal{h})\ ] ] and used as the @xmath28^th^ input unit s final representation .
+given a segment @xmath9 , a generic function scomp@xmath45 stands for the segment representation that composes the input unit representations @xmath46 . in this work
+, scomp is instantiated with three different functions : srnn , scnn and sconcate . besides composing input units
+, we also employ the segment embeddings as segment - level representation .
+embedding of the segment @xmath9 is denoted as a generic function semb@xmath47 which converts the subsequence @xmath48 into its embedding through a lookup table . at last
+, the representation of segment @xmath19 is calculated as @xmath49+b^\mathcal{s})\ ] ] where @xmath50 is the embedding for the label of a segment .
+.hyper - parameter settings
+[ cols= " > , < " , ]     table [ tbl : cws - stoa ] shows the comparison with the state - of - the - art cws systems .
+the first block of table [ tbl : cws - stoa ] shows the neural cws models and second block shows the non - neural models .
+our neural semi - crf model with multi - level segment representation achieves the state - of - the - art performance on pku and msr data . on ctb6 data ,
+our model s performance is also close to @xcite which uses semi - supervised features extracted auto - segmented unlabeled data . according to @xcite ,
+significant improvements can be achieved by replacing character embeddings with character - bigram embeddings .
+however we did nt employ this trick considering the unification of our model .
+semi - crf has been successfully used in many nlp tasks like information extraction @xcite , opinion extraction @xcite and chinese word segmentation @xcite .
+its combination with neural network is relatively less studied . to the best of our knowledge ,
+our work is the first one that achieves state - of - the - art performance with neural semi - crf model .
+domain specific knowledge like capitalization has been proved effective in named entity recognition @xcite . segment - level abstraction like whether the segment matches a lexicon entry also leads performance improvement @xcite . to keep the simplicity of our model
+, we did nt employ such features in our ner experiments .
+but our model can easily take these features and it is hopeful the ner performance can be further improved .    utilizing auto - segmented data to enhance
+chinese word segmentation has been studied in @xcite .
+however , only statistics features counted on the auto - segmented data was introduced to help to determine segment boundary and the entire segment was not considered in their work .
+our model explicitly uses the entire segment .
+in this paper , we systematically study the problem of representing a segment in neural semi - crf model .
+we propose a concatenation alternative for representing segment by composing input units which is equally accurate but runs faster than srnn .
+we also propose an effective way of incorporating segment embeddings as segment - level representation and it significantly improves the performance . experiments on named entity recognition and chinese word segmentation show that the neural semi - crf benefits from rich segment representation and achieves state - of - the - art performance .
+this work was supported by the national key basic research program of china via grant 2014cb340503 and the national natural science foundation of china ( nsfc ) via grant 61133012 and 61370164 .
+chris dyer , miguel ballesteros , wang ling , austin matthews , and noah  a. smith .
+transition - based dependency parsing with stack long short - term memory . in _ acl-2015 _ , pages 334343 ,
+beijing , china , july 2015 .
+acl .
+wenbin jiang , meng sun , yajuan l , yating yang , and qun liu .
+discriminative learning with natural annotations : word segmentation as a case study . in _
+acl-2013 _ , pages 761769 , sofia , bulgaria , august 2013 .
+john  d. lafferty , andrew mccallum , and fernando c.  n. pereira .
+conditional random fields : probabilistic models for segmenting and labeling sequence data . in _
+icml 01 _ , pages 282289 , san francisco , ca , usa , 2001 .
+daisuke okanohara , yusuke miyao , yoshimasa tsuruoka , and junichi tsujii . improving the scalability of semi - markov conditional random fields for named entity recognition . in _ acl-2006 _ , pages 465472 ,
+sydney , australia , july 2006 .
+acl .
+xu  sun , yaozhong zhang , takuya matsuzaki , yoshimasa tsuruoka , and junichi tsujii . a discriminative latent variable chinese segmenter with hybrid word / character information . in
+naacl-2009 _ , pages 5664 , boulder , colorado , june 2009 .
+yiou wang , junichi kazama , yoshimasa tsuruoka , wenliang chen , yujie zhang , and kentaro torisawa .
+improving chinese word segmentation and pos tagging with semi - supervised methods using large auto - analyzed data . in _ ijcnlp-2011 _ , pages 309317 , chiang mai , thailand , november 2011 .

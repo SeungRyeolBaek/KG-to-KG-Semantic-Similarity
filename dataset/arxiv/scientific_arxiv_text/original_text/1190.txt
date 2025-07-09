@@ -1,0 +1,158 @@
+in recent years , renewable energy has gained much popularity and attention because of it s potential in economic and environmental advantages . some of the benefits include- high stainability , low carbon emission , reduction of environmental impact , saving fuel cost and so on .
+other advantages include economical benefits to remote communities and supporting the microgrids during the operation in islanded mode .
+although renewable energy , e.g. , wind and solar , offers huge benefits  @xcite , their practical use is limited due to their intermittent nature which makes it very challenging to ensure a steady power supply in the grid  @xcite . because of the variable nature of the renewable energy based power generation sources , transmission and distribution system operators need advanced monitoring and control .
+wind power generation relies on wind speed which varies depending on location and time . for economic and stable operation of the wind power plant ,
+accurate forecasting of wind power is critical .
+there are two main wind power forecasting approaches , physical method and statistical method . in the first approach
+, the physical system and power translation processes are modelled in detail . therefore , physical approaches not only need the information of historical wind speed data but also other information , i.e. , meteorological output , hub height of the turbine and physical modelling of power conversion process from wind speed are essential  @xcite . on the other hand , in a statistical approach ,
+wind power output is modelled as a time - series where the power output at any time instant depends on its previous observation values .
+the physical approach provides good accuracy for long term forecasting but not so good for short term forecasting as it is computationally very demanding . on the contrary ,
+statistical approaches are well suited for short therm forecasting .    for short term wind power forecasting , different approaches are well studied  @xcite . in a conventional statistical approach
+, wind power output behaviour is modelled as a time - series .
+autoregressive ( ar ) model has been used for wind energy forecasting in  @xcite and autoregressive moving average ( arma ) model has been used in  @xcite . the artificial neural network ( ann )
+is also widely used  @xcite . however , the ann based approaches has very slow convergence during the training phase  @xcite . on the other hand ,
+statistical regressive models are computationally very efficient and widely used for short term forecasting  @xcite .    in the statistical approaches ,
+the forecasting accuracy is highly dependent on the estimated model of the wind power output behaviour .
+therefore , it is important to identify the estimated model parameters accurately .
+different methods are widely used to estimate the ar model parameters , such as , ordinary least squares ( ls ) approach , forward backward ( fb ) approach , geometric lattice ( gl ) approach and yule - walker ( yw ) approach , etc  @xcite .
+as the wind power output has variable characteristics , the error function obtained from the estimated model may have many local minima .
+for short - term load forecasting , it has been shown that the particle swarm optimization ( pso ) , one of the major paradigms of the computational swarm intelligence , converges to the global optimal solution of a complex error surface and finds better solution compared with gradient search based stochastic time - series techniques  @xcite .
+previously , pso has been widely used in different applications of power system  @xcite . in this work ,
+a modified variant of pso based on constriction factor ( cf ) is employed to identify the ar parameters more accurately .
+the proposed cf - pso based identified ar parameters have better error minimization profiles compared to the well - established ls , fb , gl and yw based approaches .
+the organization of this paper is as follows- the formulation of basic pso and cf - pso is discussed in section  [ psos ] .
+autoregressive model order selection and parameter estimation methodology is described in section  [ armodel ] .
+the proposed ar parameter estimation method based on cf - pso is illustrated in section  [ psomodel ] . in section  [ rnd ] , results obtained from this experiment are given and compared with four standard techniques . finally , the paper concludes with some brief remarks in section  [ secend ] .
+pso is a multi - objective optimization technique which finds the global optimum solution by searching iteratively in a large space of candidate solutions .
+the description of basic pso and cf - pso formulation is discussed in the following subsections :      this meta - heuristic is initialized by generating random population which is referred as a swarm .
+the dimension of the swarm depends on the problem size . in a swarm ,
+each individual possible solution is represented as a ` particle ' . at each iteration
+, positions and velocities of particles are updated depending on their individual and collective behavior .
+generally , objective functions are formulated for solving minimization problems ; however , the duality principle can be used to search the maximum value of the objective function  @xcite . at the first step of the optimization process , an _
+n_-dimensional initial population ( swarm ) and control parameters are initialized .
+each particle of a swarm is associated with the position vector and the velocity vector , which can be written as + velocity vector , @xmath0 $ ] and    position vector , @xmath1 $ ] + where n represents the search space dimension . before going to the basic pso loop ,
+the position and velocity of each particle is initialized .
+generally , the initial position of the @xmath2 particle @xmath3 can be obtained from uniformly distributed random vector u ( @xmath4 ) , where @xmath5 and @xmath6 represents the lower and upper limits of the solution space respectively .    during the optimization procedure ,
+position of each particle is updated using  ( [ peq ] ) @xmath7 where @xmath8 and @xmath9 .
++ at each iteration , new velocity for each particle is updated which drives the optimization process .
+the new velocity of any particle is calculated based on its previous velocity , the particle s best known position and the swarm s best known position .
+particle s best known position is it s location at which the best fitness value so far has been achieved by itself and swarm s best known position is the location at which the best fitness value so far has been achieved by any particle of the entire swarm  @xcite .
+the velocity equation drives the optimization process which is updated using  ( [ veq ] )    @xmath10    in this equation , _ w _ is the inertia weight .
+@xmath11 represents the ` self influence ' of each particle which quantifies the performance of each particle with it s previous performances .
+the component @xmath12 represents the ` social cognition ' among different particles within a swarm and quantify the performance relative to other neighboring particles .
+the learning co - efficients @xmath13 and @xmath14 represent the trade - off between the self influence part and the social cognition part of the particles  @xcite .
+the values of @xmath13 and @xmath14 are adopted from previous research and is typically set to 2  @xcite . in eqn  ( [ veq ] ) , @xmath15 is particle s best known position and @xmath16 is swarm s best known position .    in the solution loop of pso , the algorithm continues to run iteratively , until one of the following stopping conditions is satisfied  @xcite .    1 .
+number of iterations reach the maximum limit , e.g. , 100 iterations .
+no improvement is observed over a number of iterations , e.g. , error less than @xmath17  =  0.001      to achieve better stability and convergent behavior of pso , a constriction factor has been introduced by clerc and kennedy in  @xcite . the superiority of cf - pso over inertia - weight pso is discussed in  @xcite .
+basically , the search procedure of cf - pso is improved using the eigenvalue analysis and the system behavior can be controlled which ensures a convergent and efficient search procedure  @xcite . to formulate cf - pso , ( [ veq ] )
+is replaced by  ( [ veqcons])-([kcons2])@xcite .
+@xmath18 \label{veqcons}\ ] ]    where    @xmath19    and    @xmath20    here the value of @xmath21 must be greater than 4 to ensure a stable and convergent behavior  @xcite .
+usually , the value of @xmath21 is set to 4.1 ( @xmath22 ) ; therefore , the value of _ k _ becomes 0.7298  @xcite .
+boundary condition  @xcite , which helps to keep the particles within allowable solution space , is also applied in this research as shown below : @xmath23 +
+ar is a univariate time - series analysis model that is widely used for model estimation and forecasting . in an ar model
+, the output variable has linear association with its own previous observations . for a sample period of @xmath24^t$ ] , a @xmath25-order ar model can be written following the expression below  @xcite : @xmath26 where , @xmath27 are the lag parameters of the model , @xmath28 is the constant term , and @xmath29 is the white gaussian noise with zero mean .    to select the minimal appropriate lag order @xmath25
+, akaike information criteria is used following  ( [ aiceq ] ) , where @xmath30 is the number of parameters in the ar model , @xmath31 is the effective number of observations , @xmath32 is the maximum likelihood of the estimate of the error covariance  @xcite .
+the best fitted model has the minimum aic value .
+@xmath33     +
+firstly , the structure of the ar model is selected based on  ( [ areq ] ) for a predetermined order @xmath25 . after that
+the model parameters are estimated using cf - pso . during the optimization loop
+, the algorithm determines the optimal parameters by minimizing the residual sum of squares ( rss ) of the estimated model as shown in ( [ rsseq ] ) , where @xmath34 is the actual data that need to be predicted and @xmath35 is the estimated data .
+@xmath36 the steps of cf - pso based ar parameter estimation are discussed below .
+1 .   initialize particle s position @xmath37  and velocity @xmath38 in an _
+n_-dimensional search space . here ,
+the dimension _
+n _ represents the order @xmath25 of the ar model and each vector of the particle position indicates a potential solution .
+2 .   calculate the rss for each ` initial ' particle positions and determine the particle s best known position @xmath39 and swarm s best known position @xmath40 .
+3 .   update particle s position @xmath37 and velocity @xmath38 following ( [ peq ] ) and ( [ veq ] ) if necessary .
+4 .   calculate the rss with the updated velocity @xmath38 and position @xmath37 .
+repeat ( 3 ) and ( 4 ) until the stopping criteria is satisfied , i.e. , there is not significant change in rss over a good number of iterations or the algorithm reaches it s maximum iteration limit .
+here maximum iteration is considered 100 .
+the proposed cf - pso based ar model parameter estimation algorithm is implemented on the practical wind power output data of the _ capital wind farm _ , obtained from the australian energy market operator  @xcite .
+the algorithm is implemented using matlab and standard ls , fb , gl and yw based approaches are evaluated using ` system identification toolbox '  @xcite .    to compare the performance of the proposed method and four aforementioned well - established methods , following evaluation indices
+are used :    1 .   mean square error ( mse ) : @xmath41 where @xmath42 is the actual data and @xmath43 is the data from the estimated model .
+2 .   akaike s final prediction error ( fpe )
+@xcite : @xmath44 where , @xmath45 is the number of parameters in the estimated model , @xmath46 is the number of values of the model and @xmath47 is the loss function . 3 .
+normalized mean square error ( nmse )  @xcite : @xmath48 ^ 2\\     { \delta^2}=\frac{1}{n-1 } \sum_{i=1}^n[{y_i } - mean({y_i})]^2\\    \end{split}\ ] ] where @xmath42 is the actual data and @xmath43 is the data from the estimated model .
+the value of nmse varies between ` -inf ' to ` 1 ' .
+while ` -inf ' indicates a bad fit , 1 represents the perfect fit of the data .
+firstly , the appropriate lag order is determined . in order to do that the value of @xmath49 is varied from @xmath50 to @xmath51 and for each value of @xmath49
+, the aic is calculated following the information criterion in  ( [ aiceq ] ) .
+once all aic value is known , @xmath49 is selected for that fitted ar(@xmath49 ) model which leads to the minimum aic value .
+considering @xmath52 , in this analysis aic value is observed when @xmath53 for all four standard methods as shown in fig .
+[ aiclbl ] .
+now , the wind power output data ( first week of march 2012 with 5 minute interval ) of the ` capital wind farm ' is used to evaluate the performance of the five approaches including the cf - pso based ar model . for the proposed method ,
+the results are documented considering the mean value of 30 individual runs .
+the obtained results are summarized in the table .
+[ case1results ] and the best results among all approaches are highlighted .
+results presented in table .  [ case1results ] shows that the proposed method outperforms the other approaches for this test case .
+considering the error value ( mse and fpe ) of the ls approach as a base scenario , the error minimization performance ( emp ) of other approaches are evaluated following  ( [ myindex ] ) , where @xmath54 is the mse or fpe of the ls method and @xmath55 is the corresponding mse or fpe of other approaches .
+the positive value of emp indicates an improvement of error minimization performance over ls approach while negative value represents that the performance is worse than the ls approach .
+@xmath56    in order to justify the performance , the proposed method is employed considering another data set , second week 5s interval data of the month march 2012 for capital wind farm .
+results from this method is shown in table  [ case1results2 ] . in this test case ,
+the proposed cf - pso based ar model reduces the error indices most .
+compared with ls , almost 40% reduction of error is achieved for this test data . moreover , the nmse for the standard ls , fb , gl and yw based approaches are around 96.7% while proposed method experiences 98.9% , as shown in table .
+[ case1results2 ] .
+as the value of nmse close to unity indicates the best performance , proposed method also shows it superiority for this test case .
+.performance of ar parameter estimation considering the first week data of march 2012 [ cols="^,^,^,^,^,^ " , ]     fig .
+[ actest ] shows the actual wind output data and the estimated model data using the proposed method .
+the convergence characteristics of the cf - pso based proposed algorithm is shown in fig .
+[ cfpsolbl ] . from the figure , the algorithm convergence within 40 iterations . according to the results shown in table .
+[ case1results ] and table .
+[ case1results2 ] , the best improvement is observed considering the cf - pso based ar modelling among these five approaches for both of the test data sets .
+the cf - pso based ar parameter estimation method finds a better solution compared to the gradient based methods due to its global search capabilities .
+it is important to mention that these well - established gradient based methods may trap in local minima as referred by huang et al  @xcite . on the other hand ,
+cf - pso finds a global optimal solution . in our analysis
+, we found that the performance of the cf - pso varied based on the wind data characteristics .
+if wind data has a global minima that is very close to the local minima , the performance of the cf - pso is slightly improved compared with other algorithms ( as observed in table .
+i ) . on the other hand ,
+if the local minimum is far from the global minima value , significant improvement is observed using the cf - pso algorithm ( as observed in table .
+in this paper , constriction factor based pso is employed to enhance the performance of the time - series autoregressive model .
+the proposed algorithm is implemented to estimate the wind power output considering practical wind data . using the global search capable cf - pso based proposed ar model ,
+the results obtained in this experiment show that the algorithm finds the solution very accurately and efficiently ( within 40 iterations ) . to justify the results obtained from the proposed method ,
+four algorithms including the widely used least - square method and yule - walker method are employed for comparison .
+experimental results conducted in this experiments show that the proposed method enhances the ar estimation model with better accuracy compared to other four well - established method . in this experiment ,
+the exogenous input variables are not considered during the model estimation , which will be included in the future work .
+since the proposed model enhances the performance of the autoregressive model by minimizing model estimation errors more effectively , in the future work the forecasting performance will also be explored in detail .
+a.  anwar and h.  pota , `` optimum allocation and sizing of dg unit for efficiency enhancement of distribution system , '' in _ ieee international power engineering and optimization conference ( peoco ) _ , jun .
+p.  eriksen , t.  ackermann , h.  abildgaard , p.  smith , w.  winter , and j.  rodriguez  garcia , `` system operation with high wind penetration , '' _ ieee power and energy magazine _
+, vol .  3 , no .  6 ,
+6574 , 2005 .    a.  anwar and h.  pota , `` loss reduction of power distribution network using optimum size and location of distributed generation , '' in _
+21st australasian universities power engineering conference ( aupec ) _ , sept .
+2011 , pp . 16 .    c.  lei and l.  ran , `` short - term wind speed forecasting model for wind farm based on wavelet decomposition , '' in _ third international conference on electric utility deregulation and restructuring and power technologies _ , 2008 .
+m.  lei , l.  shiyan , j.  chuanwen , l.  hongling , and z.  yan , `` a review on the forecasting of wind speed and generated power , '' _ renewable and sustainable energy reviews _ , vol .  13 , no .  4 , pp . 915
+ 920 , 2009 .
+d.  hill , d.  mcmillan , k.  r.  w. bell , and d.  infield , `` application of auto - regressive models to u.k .
+wind speed data for power system impact studies , '' _ ieee transactions on sustainable energy _ , vol .  3 , no .  1 , pp .
+134141 , 2012 .
+p.  poggi , m.  muselli , g.  notton , c.  cristofari , and a.  louche , `` forecasting and simulating wind speed in corsica by using an autoregressive model , '' _ energy conversion and management _ , vol .
+44 , no .  20 , pp .
+3177  3196 , 2003 .
+g.  venayagamoorthy , k.  rohrig , and i.  erlich , `` one step ahead : short - term wind power forecasting and intelligent predictive control based on data analytics , '' _ ieee power and energy magazine _ , vol .  10 , no .  5 , pp .
+7078 , 2012 .
+k.  methaprayoon , c.  yingvivatanapong , w .- j .
+lee , and j.  liao , `` an integration of ann wind power estimation into unit commitment considering the forecasting uncertainty , '' _ ieee transactions on industry applications _ , vol .
+43 , no .  6 , pp .
+14411448 , 2007 .
+huang , c .- j .
+huang , and m .- l .
+wang , `` a particle swarm optimization to identifying the armax model for short - term load forecasting , '' _ ieee transactions on power systems _ , vol .
+20 , no .  2 ,
+pp . 11261133 , 2005 .
+m.  karen , v.  ramos , and t.  razafindralambo , `` using efficiently autoregressive estimation in wireless sensor networks , '' in _ international conference on computer , information , and telecommunication systems ( cits ) _ , 2013 .        y.  del valle , g.  venayagamoorthy , s.  mohagheghi , j .- c .
+hernandez , and r.  harley , `` particle swarm optimization : basic concepts , variants and applications in power systems , '' _ ieee transactions on evolutionary computation _
+12 , no .  2 ,
+pp . 171195 , 2008 .
+r.  eberhart and y.  shi , `` comparing inertia weights and constriction factors in particle swarm optimization , '' in _ proceedings of the 2000 congress on evolutionary computation _ , vol .  1 , 2000 , pp . 8488
+.    h.  zeineldin , e.  el - saadany , m.  salama , a.  alaboudy , and w.  woon , `` optimal sizing of thyristor - controlled impedance for smart grids with multiple configurations , '' _ ieee transactions on smart grid _ , vol .  2 , no .  3 , pp . 528537 ,
+2011 .
+m.  clerc and j.  kennedy , `` the particle swarm - explosion , stability , and convergence in a multidimensional complex space , '' _ ieee transactions on evolutionary computation _ , vol .
+6 , no .  1 ,
+5873 , feb 2002 .
+j.  vlachogiannis and k.  lee , `` a comparative study on particle swarm optimization for optimal steady - state performance of power systems , '' _ ieee transactions on power systems _ , vol .
+21 , no .  4 ,
+17181728 , nov .
+r.  a. krohling and l.  dos santos  coelho , `` coevolutionary particle swarm optimization using gaussian distribution for solving constrained optimization problems , '' _ ieee transactions on systems , man , and cybernetics , part b : cybernetics _ , vol .  36 , no .  6 , pp .
+14071416 , dec . 2006 .
+j.  heo , k.  lee , and r.  garduno - ramirez , `` multiobjective control of power plants using particle swarm optimization techniques , '' _ ieee transactions on energy conversion _
+21 , no .  2 ,
+pp . 552561 , june 2006 .

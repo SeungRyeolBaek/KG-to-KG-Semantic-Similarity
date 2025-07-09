@@ -1,0 +1,344 @@
+given competing mathematical models to describe a process , we wish to know whether our data is compatible with the candidate models . often comparing models requires optimization and fitting time course data to estimate parameter values and then applying an information criterion to select a ` best ' model @xcite .
+however sometimes it is not feasible to estimate the value of these unknown parameters ( e.g. large parameter space , nonlinear objective function , nonidentifiable etc ) .
+the parameter problem has motivated the growth of fields that embrace a parameter - free flavour such as chemical reaction network theory and stoichiometric theory @xcite .
+however many of these approaches are limited to comparing the behavior of models at steady - state @xcite .
+inspired by techniques commonly used in applied algebraic geometry @xcite and algebraic statistics @xcite , methods for discriminating between models without estimating parameters has been developed for steady - state data @xcite , applied to models in wnt signaling @xcite , and then generalized to only include one data point @xcite .
+briefly , these approaches characterize a model @xmath0 in only observable variables @xmath1 using techniques from computational algebraic geometry and tests whether the steady - state data are coplanar with this new characterization of the model , called a _ steady - state invariant _ @xcite .
+notably the method does nt require parameter estimation , and also includes a statistical cut - off for model compatibility with noisy data .    here
+, we present a method for comparing models with _ time course data _ via computing a _
+differential invariant_. we consider models of the form @xmath2 and @xmath3 where @xmath4 is a known input into the system , @xmath5 , @xmath6 is a known output ( measurement ) from the system , @xmath7 , @xmath8 are species variables , @xmath9 , @xmath10 is the unknown @xmath11dimensional parameter vector , and the functions @xmath12 are rational functions of their arguments .
+the dynamics of the model can be observed in terms of a time series where @xmath13 is the input at discrete points and @xmath14 is the output .    in this setting , we aim to characterize our ode models by eliminating variables we can not measure using differential elimination from differential algebra . from the elimination , we form a differential invariant , where the differential monomials have coefficients that are functions of the parameters @xmath15 .
+we obtain a system of equations in 0,1 , and higher order derivatives and we write this implicit system of equations as @xmath16 , @xmath7 , and call these the input - output equations our _ differential invariants_. specifically , we have equations of the form : @xmath17 where @xmath18 are rational functions of the parameters and @xmath19 are differential monomials , i.e. monomials in @xmath20 .
+we will see shortly that in the linear case , @xmath21 is a linear differential equation . for non - linear models ,
+@xmath21 is nonlinear .
+if we substitute into the differential invariant available data into the observable monomials for each of the time points , we can form a linear system of equations ( each row is a different time point ) .
+then we ask : does there exist a @xmath22 such that @xmath23 .
+if @xmath24 of course we are guaranteed a zero trivial solution and the non - trivial case can be determined via a rank test ( i.e. , svd ) and can perform the statistical criterion developed in @xcite with the bound improved in @xcite , but for @xmath23 there may be no solutions .
+thus , we must check if the linear system of equations @xmath23 is consistent , i.e. has one or infinitely many solutions .
+assuming measurement noise is known , we derive a statistical cut - off for when the model is incompatible with the data .
+however suppose that one does not have data points for the higher order derivative data , then these need to be estimated .
+we present a method using gaussian process regression ( gpr ) to estimate the time course data using a gpr . since the derivative of a gp is also gp , so we can estimate the higher order derivative of the data as well as the measurement noise introduced and estimate the error introduced during the gpr ( so we can discard points with too much gpr estimation error ) .
+this enables us to input derivative data into the differential invariant and test model compatibility using the solvability test with the statistical cut - off we present .
+we showcase our method throughout with examples from linear and nonlinear models .
+we now give some background on differential algebra since a crucial step in our algorithm is to perform differential elimination to obtain equations purely in terms of input variables , output variables , and parameters .
+for this reason , we will only give background on the ideas from differential algebra required to understand the differential elimination process .
+for a more detailed description of differential algebra and the algorithms listed below , see @xcite . in
+what follows , we assume the reader is familiar with concepts such as _ rings _ and _ ideals _ , which are covered in great detail in @xcite .
+a ring @xmath25 is said to be a _ differential ring _
+if there is a derivative defined on @xmath25 and @xmath25 is closed under differentiation .
+differential ideal _ is an ideal which is closed under differentiation .
+a useful description of a differential ideal is called a _
+differential characteristic set _ , which is a finite description of a possibly infinite set of differential polynomials .
+we give the technical definition from @xcite :    let @xmath26 be a set of differential polynomials , not necessarily finite .
+if @xmath27 is an auto - reduced set , such that no lower ranked auto - reduced set can be formed in @xmath26 , then @xmath28 is called a _
+differential characteristic set_.    a well - known fact in differential algebra is that differential ideals need not be finitely generated @xcite .
+however , a radical differential ideal is finitely generated by the _ ritt - raudenbush basis theorem _ @xcite .
+this result gives rise to ritt s pseudodivision algorithm ( see below ) , allowing us to compute the differential characteristic set of a radical differential ideal .
+we now describe various methods to find a differential characteristic set and other related notions , and we describe why they are relevant to our problem , namely , they can be used to find the _ input - output equations_.    consider an ode system of the form @xmath29 and @xmath30 for @xmath7 with @xmath31 and @xmath32 rational functions of their arguments .
+let our differential ideal be generated by the differential polynomials obtained by subtracting the right - hand - side from the ode system to obtain @xmath33 and @xmath34 for @xmath7 .
+then a differential characteristic set is of the form @xcite : @xmath35 the first @xmath36 terms of the differential characteristic set , @xmath37 , are those terms independent of the state variables and when set to zero form the _ input - output equations _ : @xmath38 specifically , the @xmath36 input - output equations @xmath39 are polynomial equations in the variables @xmath40 with rational coefficients in the parameter vector @xmath10 .
+note that the differential characteristic set is in general non - unique , but the coefficients of the input - output equations can be fixed uniquely by normalizing the equations to make them monic .
+we now discuss several methods to find the input - output equations . the first method ( ritt s pseudodivision algorithm )
+can be used to find a differential characteristic set for a radical differential ideal .
+the second method ( rosenfeldgroebner ) gives a representation of the radical of the differential ideal as an intersection of regular differential ideals and can also be used to find a differential characteristic set under certain conditions @xcite .
+finally , we discuss grbner basis methods to find the _ input - output equations_.      a differential characteristic set of a prime differential ideal is a set of generators for the ideal @xcite . an algorithm to find a differential characteristic set of a radical ( in particular , prime ) differential ideal generated by a finite set of differential polynomals is called ritt s pseudodivision algorithm .
+we describe the process in detail below , which comes from the description in @xcite .
+note that our differential ideal as described above is a prime differential ideal @xcite .
+let @xmath41 be the leader of a polynomial @xmath42 , which is the highest ranking derivative of the variables appearing in that polynomial .
+a polynomial @xmath43 is said to be of _ lower rank _ than @xmath42 if @xmath44 or , whenever @xmath45 , the algebraic degree of the leader of @xmath43 is less than the algebraic degree of the leader of @xmath42 .
+a polynomial @xmath43 is _ reduced with respect to a polynomial _ @xmath42 if @xmath43 contains neither the leader of @xmath42 with equal or greater algebraic degree , nor its derivatives .
+if @xmath43 is not reduced with respect to @xmath42 , it can be reduced by using the pseudodivision algorithm below .    1 .
+if @xmath43 contains the @xmath46 derivative @xmath47 of the leader of @xmath42 , @xmath42 is differentiated @xmath48 times so its leader becomes @xmath47 .
+2 .   multiply the polynomial @xmath43 by the coefficient of the highest power of @xmath47 ; let @xmath49 be the remainder of the division of this new polynomial by @xmath50 with respect to the variable @xmath47 .
+then @xmath49 is reduced with respect to @xmath50 .
+the polynomial @xmath49 is called the _ pseudoremainder _ of the pseudodivision .
+the polynomial @xmath43 is replaced by the pseudoremainder @xmath49 and the process is iterated using @xmath51 in place of @xmath50 and so on , until the pseudoremainder is reduced with respect to @xmath42 .
+this algorithm is applied to a set of differential polynomials , such that each polynomial is reduced with respect to each other , to form an auto - reduced set .
+the result is a differential characteristic set .      using the differentialalgebra package in maple
+, one can find a representation of the radical of a differential ideal generated by some equations , as an intersection of radical differential ideals with respect to a given ranking and rewrites a prime differential ideal using a different ranking @xcite .
+specifically , the rosenfeldgroebner command in maple takes two arguments : sys and r , where sys is a list of set of differential equations or inequations which are all rational in the independent and dependent variables and their derivatives and r is a differential polynomial ring built by the command differentialring specifying the independent and dependent variables and a ranking for them @xcite . then rosenfeldgroebner returns a representation of the radical of the differential ideal generated by sys , as an intersection of radical differential ideals saturated by the multiplicative family generated by the inequations found in sys
+this representation consists of a list of regular differential chains with respect to the ranking of r. note that rosenfeldgroebner returns a differential characteristic set if the differential ideal is prime @xcite .      finally ,
+both algebraic and differential grbner bases can be employed to find the input - output equations . to use an algebraic grbner basis , one can take a sufficient number of derivatives of the model equations and then treat the derivatives of the variables as indeterminates in the polynomial ring in @xmath52 , @xmath53 , @xmath54 , ... ,
+@xmath55 , @xmath56 , @xmath57 , ... ,
+@xmath58 , @xmath59 , @xmath60 , ... , etc .
+then a grbner basis of the ideal generated by this full system of ( differential ) equations with an elimination ordering where the state variables and their derivatives are eliminated first can be found .
+details of this approach can be found in @xcite .
+differential grbner bases have been developed by carr ferro @xcite , ollivier @xcite , and mansfield @xcite , but currently there are no implementations in computer algebra systems @xcite .
+we now discuss how to use the differential invariants obtained from differential elimination ( using ritt s pseudodivision , differential groebner bases , or some other method ) for model selection / rejection .
+recall our input - output relations , or differential invariants , are of the form : @xmath17 the functions @xmath19 are differential monomials , i.e. monomials in the input / output variables @xmath61 , @xmath62 , @xmath63 , etc , and the functions @xmath18 are rational functions in the unknown parameter vector @xmath10 . in order to uniquely fix the rational coefficients @xmath18 to the differential monomials @xmath19
+, we normalize each input / output equation to make it monic . in other words
+, we can re - write our input - output relations as : @xmath64 here @xmath65 is a differential polynomial in the input / output variables @xmath61 , @xmath62 , @xmath63 , etc .
+if the values of @xmath61,@xmath62 , @xmath63 , etc , were known at a sufficient number of time instances @xmath66 , then one could substitute in values of @xmath19 and @xmath65 at each of these time instances to obtain a linear system of equations in the variables @xmath67 .
+first consider the case of a single input - output equation .
+if there are @xmath68 unknown coefficients @xmath67 , we obtain the system : @xmath69    we write this linear system as @xmath23 , where @xmath28 is an @xmath70 by @xmath68 matrix of the form : @xmath71 @xmath22 is the vector of unknown coefficients @xmath72^t$ ] , and @xmath73 is of the form @xmath74^t$ ] .    for the case of multiple input - output equations , we get the following block diagonal system of equations @xmath23 : @xmath75 where @xmath28 is a @xmath76 by @xmath77 matrix .    for noise - free ( perfect ) data , this system @xmath23 should have a unique solution for @xmath22 @xcite . in other words ,
+the coefficients @xmath67 of the input - output equations can be uniquely determined from enough input / output data @xcite .
+the main idea of this paper is the following . given a set of candidate models , we find their associated differential invariants and then substitute in values of @xmath20 , etc , at many time instances @xmath78 , thus setting up the linear system @xmath23 for each model .
+the solution to @xmath23 should be unique for the correct model , but there should be no solution for each of the incorrect models .
+thus under ideal circumstances , one should be able to select the correct model since the input / output data corresponding to that model should satisfy its differential invariant .
+likewise , one should be able to reject the incorrect models since the input / output data should not satisfy their differential invariants .
+however , with imperfect data , there could be no solution to @xmath23 even for the correct model .
+thus , with imperfect data , one may be unable to select the correct model . on the other hand , if there is no solution to @xmath23 for each of the candidate models , then the goal is to determine how `` badly '' each of the models fail and reject models accordingly .
+we now describe criteria to reject models .
+let @xmath80 and consider the linear system @xmath81 where @xmath82 .
+note , in our case , @xmath83 , so @xmath84 is just the vector @xmath73 . here , we study the solvability of under ( a specific form of ) perturbation of both @xmath28 and @xmath84 .
+let @xmath85 and @xmath86 denote the perturbed versions of @xmath28 and @xmath84 , respectively , and assume that @xmath87 and @xmath88 depend only on @xmath85 and @xmath86 , respectively .
+our goal is to infer the _ unsolvability _ of the unperturbed system from observation of @xmath85 and @xmath86 only .
+we will describe how to detect the rank of an augmented matrix , but first introduce notation .
+the singular values of a matrix @xmath80 will be denoted by @xmath89 ( note that we have trivially extended the number of singular values of @xmath28 from @xmath90 to @xmath68 . ) the rank of @xmath28 is written @xmath91 .
+the range of @xmath28 is denoted @xmath92 . throughout
+, @xmath93 refers to the euclidean norm .
+the basic strategy will be to assume as a null hypothesis that has a solution , i.e. , @xmath94 , and then to derive its consequences in terms of @xmath85 and @xmath86 .
+if these consequences are not met , then we conclude by contradiction that is unsolvable . in other words
+, we will provide _ sufficient but not necessary _ conditions for to have no solution , i.e. , we can only reject ( but not confirm ) the null hypothesis .
+we will refer to this procedure as _ testing _ the null hypothesis .
+we first collect some useful results .
+the first , weyl s inequality , is quite standard .
+let @xmath95 .
+then @xmath96    weyl s inequality can be used to test @xmath91 using knowledge of only @xmath85 .
+let @xmath97 and assume that @xmath98 .
+then @xmath99 [ cor : weyl - rank ]    therefore , if is not satisfied , then @xmath100 .
+assume the null hypothesis .
+then @xmath94 , so @xmath101 ) = \operatorname{rank}(a ) \leq \min ( m , n)$ ] . therefore ,
+@xmath102 ) = 0 $ ] .
+but we do not have access to @xmath103 $ ] and so must consider instead the perturbed augmented matrix @xmath104 $ ] .    under the null hypothesis , @xmath105 )
+\leq \| [ \tilde{a } - a , \tilde{b } - b ] \| \leq \| \tilde{a } - a \| + \| \tilde{b } - b \| .
+\label{eqn : augmented - sigma }    \end{aligned}\ ] ] [ thm : augmented - matrix ]    apply corollary [ cor : weyl - rank ] .    in other words , if does not hold , then has no solution .
+this approach can fail to correctly reject the null hypothesis if @xmath28 is ( numerically ) low - rank . as an example , suppose that @xmath106 and let @xmath107 consist of a single vector ( @xmath108 ) . then @xmath101 ) \leq n$ ] , so @xmath102 ) = 0 $ ] ( or is small ) .
+assuming that @xmath109 and @xmath110 are small , @xmath111)$ ] will hence also be small .    in principle
+, we should test directly the assertion that @xmath101 ) = \operatorname{rank}(a)$ ] .
+however , we can only establish lower bounds on the matrix rank ( we can only tell if a singular value is `` too large '' ) , so this is not feasible in practice .
+an alternative approach is to consider only _ numerical _ ranks obtained by thresholding . how to choose such a threshold , however , is not at all clear and can be a very delicate matter especially if the data have high dynamic range .
+the theorem is uninformative if @xmath112 since then @xmath102 ) = \sigma_{n + 1 } ( \tilde{a } , \tilde{b } ) = 0 $ ] trivially .
+however , this is not a significant disadvantage beyond that described above since if @xmath28 is full - rank , then it must be true that is solvable .      as a proof of principle , we first apply theorem [ thm : augmented - matrix ] to a simple linear model .
+we start by taking perfect input and output data and then add a specific amount of noise to the output data and attempt to reject the incorrect model .
+in the subsequent sections , we will see how to interpret theorem [ thm : augmented - matrix ] statistically under a particular `` noise '' model for the perturbations .    here ,
+we take data from a linear 3-compartment model , add noise , and try to reject the general form of the linear 2-compartment model with the same input / output compartments .
+[ ex : mainex ] let our model be a 3-compartment model of the following form : @xmath113 @xmath114 here we have an input to the first compartment of the form @xmath115 and the first compartment is measured , so that @xmath116 represents the output .
+the solution to this system of odes can be easily found of the form : @xmath117    so that @xmath118 .
+the input - output equation for a @xmath119 compartment model with a single input / output to the first compartment has the form : @xmath120 where @xmath121 are the coefficients of the characteristic polynomial of the matrix @xmath28 and @xmath122 are the coefficients of the characteristic polynomial of the matrix @xmath123 which has the first row and first column of @xmath28 removed .
+we now substitute values of @xmath124 at time instances @xmath125 into our input - output equation and solved the resulting linear system of equations for @xmath126 .
+we get that @xmath127 , which agrees with the coefficients of the characteristic polynomials of @xmath28 and @xmath123 .
+we now attempt to reject the 2-compartment model using 3-compartment model data .
+we find the input - output equations for a @xmath128 compartment model with a single input / output to the first compartment , which has the form : @xmath129 where again @xmath130 are the coefficients of the characteristic polynomial of the matrix @xmath28 and @xmath131 is the coefficient of the characteristic polynomial of the matrix @xmath123 which has the first row and first column of @xmath28 removed .
+we substitute values of @xmath132 at time instances @xmath133 into our input - output equation and attempt to solve the resulting linear system of equations for @xmath134 .
+the singular values for the matrix @xmath28 with the substituted values of @xmath135 at time instances @xmath133 are : @xmath136 the singular values of the matrix @xmath137 with the substituted values of @xmath132 at time instances @xmath133 are : @xmath138 we add noise to our matrix a in the following way . to each entry @xmath139 , and @xmath140
+, we add @xmath141 where @xmath142 is a random real number between @xmath143 and @xmath144 , and @xmath145 equals @xmath146 .
+then the noisy matrix @xmath85 has the following singular values : @xmath147 we now add noise to our vector @xmath73 in the following way .
+to each entry @xmath148 , we add @xmath141 where @xmath142 is a random real number between @xmath143 and @xmath144 , and @xmath145 equals @xmath146 .
+then the noisy matrix @xmath149 has the following singular values : @xmath150 we find the matrix @xmath151 and compare the norm of this matrix to the smallest singular value of @xmath149 .
+since the frobenius norm of @xmath151 is @xmath152 , which is _ less than _ the smallest singular value @xmath153 , we can reject this model .
+thus , using noisy 3-compartment model data , we are able to reject the 2-compartment model .
+we now consider the statistical inference of the solvability of .
+first , we need a noise model .
+if the perturbations @xmath109 and @xmath110 are bounded , e.g. , @xmath154 and @xmath155 for some @xmath156 ( representing a relative accuracy of @xmath145 in the `` measurements '' @xmath85 and @xmath86 ) , then theorem [ thm : augmented - matrix ] can be used at once .
+however , it is customary to model such perturbations as normal random variables , which are not bounded . here , we will assume a noise model of the form @xmath157 where @xmath158 is a ( computable ) matrix that depends on @xmath85 and similarly with @xmath159
+, @xmath160 denotes the hadamard ( entrywise ) matrix product @xmath161 , and @xmath162 is a matrix - valued random variable whose entries @xmath163 are independent standard normals .    in our application of interest , the entries of @xmath158
+depend on those of @xmath85 as follows .
+let @xmath164 for some input vector @xmath165 but suppose that we can only observe the `` noisy '' vector @xmath166 .
+then the corresponding perturbed matrix entries are @xmath167 by the additivity formula @xmath168 for standard gaussians .
+however , the statistical conclusion is still valid since @xmath169 `` dominates '' @xmath170 in the sense that the former has variance @xmath171 , while the latter has variance only @xmath172 . in other words
+, we were wrong but in the conservative direction .
+this was taken into account in @xcite . ]
+@xmath173 therefore , @xmath174 so , to first order in @xmath145 , @xmath175 an analogous derivation holds for @xmath159 .
+each of the bounds in the theorems above are linear in @xmath109 and @xmath110 ( for theorem [ thm : augmented - matrix ] , the bound is simply the sum of these two ) and so may be written as @xmath176 by absorbing constants .
+the basic strategy is now as follows .
+let @xmath177 be a test statistic , i.e. , @xmath111)$ ] in  [ sec : augmented - matrix ] . then since @xmath178 where we have made explicit the dependence of both sides on the same underlying random mechanism @xmath179 , the ( cumulative ) distribution function of @xmath177 must dominate that of @xmath176 , i.e. , @xmath180 thus ,    @xmath181    [ eqn : prob - tau ]    note that if , e.g. , @xmath182 ( i.e. , if @xmath84 were known exactly ) , then simplifies to just @xmath183 .
+using , we can associate a @xmath184-value to any given realization of @xmath177 by referencing upper tail bounds for quantities of the form @xmath185 . recall that @xmath186 under the null hypothesis . in a classical statistical hypothesis testing framework , we may therefore reject the null hypothesis if is at most @xmath187 , where @xmath187 is the desired significance level ( e.g. , @xmath188 ) .
+we now turn to bounding @xmath189 , where we will assume that @xmath190 .
+this can be done in several ways .
+one easy way is to recognize that @xmath191 where @xmath192 is the frobenius norm , so @xmath193 but @xmath194 has a chi distribution ) . ] with @xmath195 degrees of freedom .
+therefore , @xmath196 however , each inequality in can be quite loose : the first is loose in the sense that @xmath197 while the second in that @xmath198 but @xmath199    a slightly better approach is to use the inequality @xcite @xmath200 where @xmath201 and @xmath202 denote the @xmath203th row and @xmath204th column , respectively , of @xmath205 .
+the @xmath206 term can then be handled using a chi distribution via @xmath207 as above or directly using a concentration bound ( see below ) .
+variations on this undoubtedly exist .    here , we will appeal to a result by tropp @xcite .
+the following is from  4.3 in @xcite .
+let @xmath190 , where each @xmath163 .
+then for any @xmath208 , @xmath209 [ thm : hadamard - gaussian ]      the bound for @xmath210 can then be computed as follows .
+let @xmath211 so that @xmath212
+. then by theorem [ thm : hadamard - gaussian ] , @xmath213 \ , dt ,   \end{aligned}\ ] ] where @xmath214 and @xmath215 are the `` variance '' parameters in the theorem for @xmath158 and @xmath159 , respectively .
+the term in parentheses simplifies to @xmath216\\    & = \frac{1}{\sigma_{a}^{2 } \sigma_{b}^{2 } } \left [ ( \sigma_{a}^{2 } + \sigma_{b}^{2 } ) \left ( t - \frac{\sigma_{a}^{2}}{\sigma_{a}^{2 } + \sigma_{b}^{2 } } x \right)^{2 } + \sigma_{a}^{2 } \left ( 1 - \frac{\sigma_{a}^{2}}{\sigma_{a}^{2 } + \sigma_{b}^{2 } } \right ) x^{2 } \right]\\    & = \frac{1}{\sigma_{a}^{2 } \sigma_{b}^{2 } } \left [ ( \sigma_{a}^{2 } + \sigma_{b}^{2 } ) \left ( t - \frac{\sigma_{a}^{2}}{\sigma_{a}^{2 } + \sigma_{b}^{2 } } x \right)^{2 } + \frac{\sigma_{a}^{2 } \sigma_{b}^{2}}{\sigma_{a}^{2 } + \sigma_{b}^{2 } } x^{2 } \right]\\    & = \frac{\sigma_{a}^{2 } + \sigma_{b}^{2}}{\sigma_{a}^{2 } \sigma_{b}^{2 } } \left ( t - \frac{\sigma_{a}^{2}}{\sigma_{a}^{2 } + \sigma_{b}^{2 } } x \right)^{2 } + \frac{x^{2}}{\sigma_{a}^{2 } + \sigma_{b}^{2 } }   \end{aligned}\ ] ] on completing the square .
+therefore , @xmath217 \int_{0}^{x } \exp \left [ -\frac{1}{2 } \left ( \frac{\sigma_{a}^{2 } + \sigma_{b}^{2}}{\sigma_{a}^{2 } \sigma_{b}^{2 } } \right ) \left ( t - \frac{\sigma_{a}^{2}}{\sigma_{a}^{2 } + \sigma_{b}^{2 } } x \right)^{2 } \right ] dt .
+\end{aligned}\ ] ] now set @xmath218 so that the integral becomes @xmath219 dt = \int_{0}^{x } \exp \left [ -\frac{(t - \alpha x)^{2}}{2 \sigma^{2 } } \right ] dt .
+\end{aligned}\ ] ] the variable substitution @xmath220 then gives @xmath221 dt = \sigma \int_{-\alpha x / \sigma}^{(1 - \alpha ) x / \sigma } e^{-u^{2}/2 } \ , du = \sqrt{2 \pi } \sigma \left [ \phi \left ( \frac{(1 - \alpha ) x}{\sigma } \right ) - \phi \left ( -\frac{\alpha x}{\sigma } \right ) \right ] ,   \end{aligned}\ ] ] where @xmath222 is the standard normal distribution function .
+thus , @xmath223 \exp \left [ -\frac{1}{2 } \left ( \frac{x^{2}}{\sigma_{a}^{2 } + \sigma_{b}^{2 } } \right ) \right ] .
+\label{eqn : p1 }   \end{aligned}\ ] ] a similar ( but much simpler ) analysis yields @xmath224
+we next present a method for estimating higher order derivatives and the estimation error using gaussian process regression and then apply the differential invariant method to both linear and nonlinear models in the subsequent sections .    a gaussian process ( gp ) is a stochastic process @xmath225 , where @xmath226 is a mean function and @xmath227 a covariance function .
+gps are often used for regression / prediction as follows .
+suppose that there is an underlying deterministic function @xmath228 that we can only observe with some measurement noise as @xmath229 , where @xmath230 for @xmath231 the dirac delta .
+we consider the problem of finding @xmath228 in a bayesian setting by assuming it to be a gp with prior mean and covariance functions @xmath232 and @xmath233 , respectively .
+then the joint distribution of @xmath234^{{\mathsf{t}}}$ ] at the observation points @xmath235^{{\mathsf{t}}}$ ] and @xmath236^{{\mathsf{t}}}$ ] at the prediction points @xmath237^{{\mathsf{t}}}$ ] is @xmath238 the conditional distribution of @xmath239 given @xmath240 is also gaussian : @xmath241 where @xmath242 are the posterior mean and covariance , respectively .
+this allows us to infer @xmath239 on the basis of observing @xmath243 .
+the diagonal entries of @xmath244 are the posterior variances and quantify the uncertainty associated with this inference procedure .
+equation provides an estimate for the function values @xmath239 .
+what if we want to estimate its derivatives ?
+let @xmath245 for some covariance function @xmath48
+. then @xmath246 by linearity of differentiation .
+thus , @xmath247     \hat{x } ( \boldsymbol{t } ) \cr\-     x(\boldsymbol{s } ) \cr     x'(\boldsymbol{s } ) \cr     \vdots \cr     x^{(n ) } ( \boldsymbol{s } ) \cr    \end{pmat } \sim { \mathcal{n}}\left (    \begin{pmat}[{. } ]     \mu_{{\text{prior } } } ( \boldsymbol{t } ) \cr\-     \mu_{{\text{prior } } } ( \boldsymbol{s } ) \cr     \mu_{{\text{prior}}}^{(1 ) } ( \boldsymbol{s } ) \cr     \vdots
+\cr     \mu_{{\text{prior}}}^{(n ) } ( \boldsymbol{s } ) \cr    \end{pmat } ,    \begin{pmat}[{| ... } ]     \sigma_{{\text{prior } } } ( \boldsymbol{t } , \boldsymbol{t } ) + \sigma^{2 } ( \boldsymbol{t } ) i & \sigma_{{\text{prior}}}^{{\mathsf{t } } } ( \boldsymbol{s } , \boldsymbol{t } ) & \sigma_{{\text{prior}}}^{(1,0),{\mathsf{t } } } ( \boldsymbol{s } , \boldsymbol{t } ) & \cdots & \sigma_{{\text{prior}}}^{(n,0 ) , { \mathsf{t } } } ( \boldsymbol{s } , \boldsymbol{t } ) \cr\-     \sigma_{{\text{prior } } } ( \boldsymbol{s } , \boldsymbol{t } ) & \sigma_{{\text{prior } } } ( \boldsymbol{s } , \boldsymbol{s } ) & \sigma_{{\text{prior}}}^{(1,0 ) , { \mathsf{t } } } ( \boldsymbol{s } , \boldsymbol{s } ) & \cdots & \sigma_{{\text{prior}}}^{(n,0 ) , { \mathsf{t } } } ( \boldsymbol{s } , \boldsymbol{s } ) \cr     \sigma_{{\text{prior}}}^{(1,0 ) } ( \boldsymbol{s } , \boldsymbol{t } ) & \sigma_{{\text{prior}}}^{(1,0 ) } ( \boldsymbol{s } , \boldsymbol{s } ) & \sigma_{{\text{prior}}}^{(1,1 ) } ( \boldsymbol{s } , \boldsymbol{s } ) & \cdots & \sigma_{{\text{prior}}}^{(n,1 ) , { \mathsf{t } } } ( \boldsymbol{s } , \boldsymbol{s } ) \cr     \vdots & \vdots & \vdots & \ddots & \vdots \cr     \sigma_{{\text{prior}}}^{(n,0 ) } ( \boldsymbol{s } , \boldsymbol{t } ) & \sigma_{{\text{prior}}}^{(n,0 ) } ( \boldsymbol{s } , \boldsymbol{s } ) & \sigma_{{\text{prior}}}^{(n,1 ) } ( \boldsymbol{s } , \boldsymbol{s } ) & \cdots & \sigma_{(n , n ) } ( \boldsymbol{s } , \boldsymbol{s } ) \cr    \end{pmat } \right ) ,   \end{aligned}\ ] ] where @xmath248 is the prior mean for @xmath249 and @xmath250 .
+this joint distribution is exactly of the form .
+an analogous application of then yields the posterior estimate of @xmath251 for all @xmath252 .
+alternatively , if we are interested only in the posterior variances of each @xmath253 , then it suffices to consider each @xmath254 block independently : @xmath255 the cost of computing @xmath256 can clearly be amortized over all @xmath203 .
+we now consider the specific case of the squared exponential ( se ) covariance function @xmath257 ,   \end{aligned}\ ] ] where @xmath258 is the signal variance and @xmath90 is a length scale .
+the se function is one of the most widely used covariance functions in practice .
+its derivatives can be expressed in terms of the ( probabilists ) hermite polynomials @xmath259 ( these are also sometimes denoted @xmath260 ) .
+the first few hermite polynomials are @xmath261 , @xmath262 , and @xmath263 .
+we need to compute the derivatives @xmath264 .
+let @xmath265 so that @xmath266
+. then @xmath267 and @xmath268 .
+therefore , @xmath269    the gp regression requires us to have the values of the hyperparameters @xmath270 , @xmath271 , and @xmath90 . in practice , however , these are hardly ever known . in the examples below
+, we deal with this by estimating the hyperparameters from the data by maximizing the likelihood .
+we do this by using a nonlinear conjugate gradient algorithm , which can be quite sensitive to the initial starting point , so we initialize multiple runs over a small grid in hyperparameter space and return the best estimate found .
+this increases the quality of the estimated hyperparameters but can still sometimes fail .
+we showcase our method on competing models : linear compartment models ( 2 and 3 species ) , lotka - volterra models ( 2 and 3 species ) and lorenz .
+as the linear compartment differential invariants were presented in an earlier section , we compute the differential invariants of the lotka - volterra and lorenz using rosenfeldgroebner .
+we simulate each of these models to generate time course data , add varying levels of noise , and estimate the necessary higher order derivatives using gp regression . as described in the earlier section , we require the estimation of the higher order derivatives to satisfy a negative log likelihood value , otherwise the gp fit is not ` good ' . in some cases ,
+this can be remedied by increase the number of data points . using the estimated gp regression data
+, we test each of the models using the differential invariant method on other models .
+[ ex : lv2 ] the two species lotka - volterra model is : @xmath272 where @xmath273 and @xmath274 are variables , and @xmath275 are parameters .
+we assume only @xmath273 is observable and perform differential elimination and obtain our differential invariant in terms of only @xmath276 : @xmath277    [ ex : lv3 ] by including an additional variable @xmath278 , the three species lotka - volterra model is : @xmath279    assuming only @xmath116 is observable .
+after differential elimination , the differential invariant is :    @xmath280    [ ex : lor ] another three species model , the lorenz model , is described by the system of equations : @xmath281 we assume only @xmath116 is observable , perform differential elimination , and obtain the following invariant : @xmath282    [ ex : lc2 ] a linear 2-compartment model without input can be written as : @xmath283 where @xmath273 and @xmath274 are variables , and @xmath284 are parameters .
+we assume only @xmath273 is observable and perform differential elimination and obtain our differential invariant in terms of only @xmath276 : @xmath285    [ ex : lc3 ] the linear 3-compartment model without input is : @xmath286 where @xmath287 are variables , and @xmath288 are parameters . we assume only @xmath273 is observable and
+perform differential elimination and obtain our differential invariant in terms of only @xmath276 : @xmath289    by assuming @xmath116 in examples 6.16.5 represents the same observable variable , we apply our method to data simulated from each model and perform model comparison .
+the models are simulated and 100 time points are obtained variable @xmath165 in each model .
+we add different levels of gaussian noise to the simulated data , and then estimate the higher order derivatives from the data .
+for example , during our study we found that for some parameters of the lotka - volterra three species model , e.g. @xmath290 $ ] , we obtained a positive log - likelihood , which meant that we could not estimate the higher order derivatives of the data . once the data is obtained and derivative data are estimated through the gp regression , each model data set is tested against the other differential invariants .
+results are shown in figure  [ fig - four ] , where a value of 0 , means model rejected , and 1 means model is compatible .
+we find that we can reject the three species lotka - volterra model and lorenz model for data simulated from the lotka - volterra two species ; however both linear compartment models are compatible . for data from the three species lotka - volterra model , the linear compartment models and two - species lotka - volterra
+can be rejected until the noise increases and then the method can no longer reject any models .
+finally data generated from the lorenz model can only reject the two species linear compartment and two species lotka - volterra model .
+$ ] and initial condition @xmath291 $ ] .
+( b ) data simulated from three species lotka - volterra model with parameter values @xmath292 $ ] and initial condition @xmath293 $ ] .
+( c ) data simulated from the lorenz model with parameter values @xmath294 $ ] and initial condition @xmath293 $ ] .
+( d ) data simulated from the linear compartment three species model with parameter values @xmath295 $ ] and initial condition @xmath296 $ ] . ]
+we have demonstrated our model discrimination algorithm on various models . in this section ,
+we consider some other theoretical points regarding differential invariants .    note
+that we have assumed that the parameters are all unknown and we have not taken any possible algebraic dependencies among the coefficients into account .
+this latter point is another reason our algorithm only concerns model rejection and not model selection .
+thus , each unknown coefficient is essential treated as an independent unknown variable in our linear system of equations .
+however , there may be instances where we d like to consider incorporating this additional information .
+we first consider the effect of incorporating known parameter values .    in @xcite , an explicit formula for the input - output equations for linear models was derived .
+in particular , it was shown that all linear @xmath297compartment models corresponding to strongly connected graphs with at least one leak and having the same input and output compartments will have the same differential polynomial form of the input - output equations .
+for example , a linear 2-compartment model with a single input and output in the same compartment and corresponding to a strongly connected graph with at least one leak has the form : @xmath298    thus , our model discrimination method would not work for two distinct linear 2-compartment models with the above - mentioned form . in order to discriminate between two such models , we need to take other information into account , e.g. known parameter values .
+consider the following two linear 2-compartment models :    @xmath299    @xmath300    whose corresponding input - output equations are of the form : @xmath301    notice that both of these equations are of the above - mentioned form , i.e. both 2-compartment models have a single input and output in the same compartment and correspond to strongly connected graphs with at least one leak . in the first model , there is a leak from the first compartment and an exchange between compartments @xmath144 and @xmath128 . in the second model
+, there is a leak from the second compartment and an exchange between compartments @xmath144 and @xmath128 .
+assume that the parameter @xmath302 is known .
+in the first model , this changes our invariant to : @xmath303    in the second model , our invariant is : @xmath304    in this case , the right - hand sides of the two equations are the same , but the first equation has two variables ( coefficients ) while the second equation has three variables ( coefficients ) .
+thus , if we had data from the second model , we could try to reject the first model ( much like the 3-compartment versus 2-compartment model discrimination in the examples below ) .
+in other words , a vector in the span of @xmath305 and @xmath306 for @xmath307 may not be in the span of @xmath139 and @xmath140 only .
+we next consider the effect of incorporating coefficient dependency relationships . while we can not incorporate the polynomial algebraic dependency relationships among the coefficients in our linear algebraic approach to model rejection
+, we can include certain dependency conditions , such as certain coefficients becoming known constants .
+we have already seen one way in which this can happen in the previous example ( from known nonzero parameter values ) .
+we now explore the case where certain coefficients go to zero . from the explicit formula for input - output equations from @xcite
+, we get that a linear model without any leaks has a zero term for the coefficient of @xmath140 . thus a linear 2-compartment model with a single input and output in the same compartment and corresponding to a strongly connected graph without any leaks
+has the form :    @xmath308    thus to discriminate between two distinct linear 2-compartment models , one with leaks and one without any leaks , we should incorporate this zero coefficient into our invariant .
+consider the following two linear 2-compartment models :    @xmath309    @xmath310    whose corresponding input - output equations are of the form : @xmath311 in the first model , there is a leak from the first compartment and an exchange between compartments @xmath144 and @xmath128 . in the second model
+, there is an exchange between compartments @xmath144 and @xmath128 and no leaks .
+thus , our invariants can be written as : @xmath312    again , the right - hand sides of the two equations are the same , but the first equation has three variables ( coefficients ) while the second equation has two variables ( coefficients ) .
+thus , if we had data from the first model , we could try to reject the second model .
+in other words , a vector in the span of @xmath305 and @xmath306 for @xmath307 may not be in the span of @xmath139 and @xmath306 only .
+finally , we consider the identifiability properties of our models .
+if the number of parameters is greater than the number of coefficients , then the model is unidentifiable . on the other hand ,
+if the number of parameters is less than or equal to the number of coefficients , then the model could possibly be identifiable .
+clearly , an identifiable model is preferred over an unidentifiable model .
+we note that , in our approach of forming the linear system @xmath23 from the input - output equations , we could in theory solve for the coefficients @xmath22 and then solve for the parameters from these known coefficient values if the model is identifiable @xcite .
+however , this is not a commonly used method to estimate parameter values in practice .
+as noted above , the possible algebraic dependency relationships among the coefficients are not taken into account in our linear algebra approach .
+this means that there could be many different models with the same differential polynomial form of the input - output equations .
+if such a model can not be rejected , we note that an identifiable model satisfying a particular input - output relationship is preferred over an unidentifiable one satisying the same form of the input - output relations , as we see in the following example .
+consider the following two linear 2-compartment models :    @xmath299    @xmath313    whose corresponding input - output equations are of the form : @xmath314    in the first model , there is a leak from the first compartment and an exchange between compartments @xmath144 and @xmath128 . in the second model ,
+there are leaks from both compartments and an exchange between compartments @xmath144 and @xmath128 .
+thus , both models have invariants of the form : @xmath298    since the first model is identifiable and the second model is unidentifiable , we prefer to use the form of the first model if the model s invariant can not be rejected .
+after performing this differential algebraic statistics model rejection , one has already obtained the input - output equations to test structural identifiability @xcite . in a sense
+, our method extends the current spectrum of potential approaches for comparing models with time course data , in that one first can reject incompatible models , then test structural identifiability of compatible models using input - output equations obtained from the differential elimination , infer parameter values of the admissible models , and apply an information criterion model selection method to assert the best model .
+notably the presented differential algebraic statistics method does not penalize for model complexity , unlike traditional model selection techniques .
+rather , we reject when a model can not , for any parameter values , be compatible with the given data .
+we found that simpler models , such as the linear 2 compartment model could be rejected when data was generated from a more complex model , such as the three species lotka - volterra model , which elicits a wider range of behavior . on the other hand ,
+more complex models , such as the lorenz model , were often not rejected , from data simulated from less complex models . in future
+it would be helpful to better understand the relationship between differential invariants and dynamics .
+we also think it would be beneficial to investigate algebraic properties of sloppiness @xcite .
+we believe there is large scope for additional parameter - free coplanarity model comparison methods
+. it would be beneficial to explore which algorithms for differential elimination can handle larger systems , and whether this area could be extended .
+the authors acknowledge funding from the american institute of mathematics ( aim ) where this research commenced .
+the authors thank mauricio barahona , mike osborne , and seth sullivant for helpful discussions .
+we are especially grateful to paul kirk for discussions on gps and providing his gp code , which served as an initial template to get started .
+nm was partially supported by the david and lucille packard foundation .
+hah acknowledges funding from ams simons travel grant ,
+epsrc fellowship ep / k041096/1 and mph stumpf leverhulme trust grant .      c. aistleitner , _ relations between grbner bases , differential grbner bases , and differential characteristic sets _ , masters thesis , johannes kepler universitt , 2010 . h.  akaike , _ a new look at the statistical model identification _ , ieee trans .
+automat . control , * 19 * ( 1974 ) ,  pp .  716723 .
+f. boulier , _ differential elimination and biological modelling _ , radon series comp .
+math . , * 2 * ( 2007 ) ,  pp .  111 - 139
+. f. boulier , d. lazard , f. ollivier , m. petitot , _ representation for the radical of a finitely generated differential ideal _ , in : issac 95 : proceedings of the 1995 international symposium on symbolic and algebraic computation , pp 158 - 166 .
+acm press , 1995 .
+g. carr ferro , em grbner bases and differential algebra , in l. huguet and a. poli , editors , proceedings of the 5th international symposium on applied algebra , algebraic algorithms and error - correcting codes , volume 356 of lecture notes in computer science , pp .
+131 - 140 .
+springer , 1987 .
+clarke , _ stoichiometric network analysis _ , cell biophys .
+, 12 ( 1988 ) , pp .
+d. cox , j. little , and donal oshea , _ ideals , varieties , and algorithms _ , springer , new york , 2007 .
+c. conradi , j. saez - rodriguez , e.d .
+gilles , j. raisch , _ using chemical reaction network theory to discard a kinetic mechanism hypothesis _ , iee proc .
+152 ( 2005 ) ,  pp .
+s. diop , _ differential algebraic decision methods and some applications to system theory _ ,
+* 98 * ( 1992 ) ,  pp .  137 - 161 .
+m. drton , b. sturmfels , s. sullivant , _ lectures on algebraic statistics _ , oberwolfach seminars ( springer , basel ) vol
+. 39 . 2009 .
+m. feinberg , _ chemical reaction network structure and the stability of complex isothermal reactors 
+i . the deficiency zero and deficiency one theorems _ , chem .
+, * 42 * ( 1987 ) ,  pp .  22292268
+. m. feinberg , _ chemical reaction network structure and the stability of complex isothermal reactors  ii .
+multiple steady states for networks of deficiency one _ , chem .
+, * 43 * ( 1988 ) , pp .  125
+. k. forsman , _ constructive commutative algebra in nonlinear control theory _ , phd thesis , linkping university , 1991 .
+o. golubitsky , m. kondratieva , m. m. maza , and a. ovchinnikov , _ a bound for the rosenfeld - grbner algorithm _ , j. symbolic comput . ,
+* 43 * ( 2008 ) ,  pp .  582 - 610 .
+e. gross , h.a .
+harrington , z. rosen , b. sturmfels , _ algebraic systems biology : a case study for the wnt pathway _ , bull .
+biol . , * 78*(1 ) ( 2016 ) ,  pp .  21 - 51 .
+e. gross , b. davis , k.l .
+ho , d. bates , h. harrington , _ numerical algebraic geometry for model selection _ , submitted .
+j. gunawardena , _ distributivity and processivity in multisite phosphorylation can be distinguished through steady - state invariants _ , biophys .
+j. , 93 ( 2007 ) ,  pp .
+gutenkunst , j.j .
+waterfall , f.p .
+casey , k.s .
+brown , c.r .
+myers , j.p .
+sethna , _ universally sloppy parameter sensitivities in systems biology models _ , plos comput .
+biol . , 3 ( 2007 ) ,
+harrington , k.l . ho , t. thorne , m.p.h .
+stumpf , _ parameter - free model discrimination criterion based on steady - state coplanarity _ , proc .
+, * 109*(39 ) ( 2012 ) , pp . 1574615751 .
+i. kaplansky , _ an introduction to differential algebra _ , hermann , paris , 1957 .
+e. r. kolchin , _ differential algebra and algebraic groups _ , pure appl . math .
+, * 54 * ( 1973 ) . l. ljung and t. glad , _ on global identifiability for arbitrary model parameterization _ , automatica , * 30*(2 ) ( 1994 ) , pp .
+265 - 276 .
+maclean , z. rosen , h.m .
+byrne , h.a .
+harrington , _ parameter - free methods distinguish wnt pathway models and guide design of experiments _ , proc .
+, * 112*(9 ) ( 2015 ) , pp . 26522657 .
+e. mansfield , _ differential grbner bases _ , phd thesis , university of sydney , 1991 . a.k .
+manrai , j. gunawardena , _ the geometry of multisite phosphorylation _ ,
+j. , * 95 * ( 2008 ) , pp .  55335543 .
+maple documentation .
+url http://www.maplesoft.com/support/help/maple/view.aspx?path=differentialalgebra n. meshkat , c. anderson , and j. j. distefano iii , _ alternative to ritt s pseudodivision for finding the input - output equations of multi - output models _ , math biosci . ,
+* 239 * ( 2012 ) ,  pp .  117 - 123 .
+n. meshkat , s. sullivant , and m. eisenberg , _ identifiability results for several classes of linear compartment models _ , bull . math . biol . ,
+* 77 * ( 2015 ) ,  pp .  1620 - 1651 .
+f. ollivier , _ le probleme de lidentifiabilite structurelle globale : etude theoretique , methodes effectives and bornes de complexite _ , phd thesis , ecole polytechnique , 1990 .
+f. ollivier , _ standard bases of differential ideals_. in s. sakata , editor , proceedings of the 8th international symposium on applied algebra , algorithms , and error - correcting codes , volume 508 of lecture notes in computer science , pp .
+304 - 321 .
+springer , 1991 .
+orth , i. thiele , b. .
+palsson , _ what is flux balance analysis ? _ nature biotechnol . ,
+* 28 * ( 2010 ) ,  pp .
+rasmussen , c.k.i .
+williams , _
+gaussian processes for machine learning_. the mit press : cambridge , 2006 .
+j. f. ritt , _ differential algebra _ ,
+dover ( 1950 ) .
+m. p. saccomani , s. audoly , and l. dangi , _ parameter identifiability of nonlinear systems : the role of initial conditions _ ,
+automatica * 39 * ( 2003 ) ,  pp .  619 - 632 .
+user - friendly tail bounds for sums of random matrices . found .
+12 : 389434 , 2012 .
+inequalities for the singular values of hadamard products .
+siam j. matrix anal .
+18 ( 4 ) : 10931095 , 1997 .

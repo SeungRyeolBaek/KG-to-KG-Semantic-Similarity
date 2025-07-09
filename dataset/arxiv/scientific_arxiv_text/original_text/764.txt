@@ -1,0 +1,340 @@
+ram pressure ( and related processes ) by the intracluster medium ( icm ) can remove a galaxy s gas ( gunn & gott 1972 ) .
+this process has been observed in various stages ; for example , vollmer ( 2009 ) separates virgo galaxies into pre - peak , peak , and post - peak ram pressure groups .
+the amount of time that a galaxy has been stripped can be estimated using the length of the observable tail and the velocity of the galaxy ( e.g. oosterloo & van gorkom 2005 ; sun et al .
+this calculation is uncertain due to difficulties in determining the three dimensional galaxy velocity .
+another assumption implicit in this calculation is that the observed tail provides the true length of the stripped gas .
+in fact , tails have been observed in h@xmath0 , h@xmath1 , and x - ray emission , although never all from the same tail ( e.g. oosterloo & van gorkom 2005 ; koopmann et al . 2008 ; kenney et al .
+2008 ; yoshida et al . 2002 ; yoshida et al .
+2004a , b ; sun et al . 2007 ; sun et al .
+2006 ; sun et al .
+2010 ; machacek et al .
+2006 ; sun & vikhlinin 2005 ) .
+the lengths of tails observed in different wavelengths can be quite different ; for example the h@xmath0 tail of ngc 4388 is nearly three times as long as the observed h@xmath1 tail ( oosterloo & van gorkom ; yoshida et al .
+another method used to calculate the age of a tail is to use the estimated survival time of h@xmath1 , as in gavazzi et al .
+( 2001 ) . however , it is still not clear what dictates cloud survival or even what conditions are necessary to produce the various types of emission ( h@xmath1 , x - ray , and h@xmath0 ) .
+can all three types of emission coexist ?
+what physical processes dominate the heating and mixing of stripped gas into the icm ?
+these processes include : turbulent mixing , which can generate intermediate temperature and density gas at constant pressure ; shock heating , which heats the ism ; radiative cooling , which can lead to recompression of heated gas , and heat conduction , which can evaporate small clouds .    in this work we focus on answering these questions by simulating gas stripping and comparing our simulated tail to a single observed stripped galaxy , eso 137 - 001 , which has been studied observationally in some detail .
+eso 137 - 001 is in a3627 , which is the closest massive cluster ( z=0.0163 , @xmath2 = 925 km s@xmath3 and kt = 6 kev ) , similar to coma and perseus in mass and galaxy content ( sun et al .
+2009 and references therein ) .
+eso 137 - 001 is a small ( 0.2l@xmath4 ; sun et al .
+2006 ) , blue emission - line galaxy ( woudt et al .
+2004 ) , that is @xmath5200 kpc from the center of the cluster in projection . because its radial velocity is close to the average velocity of a3627 ( woudt et al . 2004
+; woudt et al .
+2008 ) , most of its motion is likely in the plane of the sky , and therefore the stripping process is seen edge - on .
+sun et al .
+( 2006 ) found a @xmath570 kpc x - ray tail pointing away from the cluster center using _ chandra _ and xmm-_newton _ data .
+sun et al .
+( 2007 ) then discovered a 40 kpc h@xmath1 tail with over 30 emission - line regions extending through the length of the h@xmath1 tail , and concluded that the emission - line regions are giant h@xmath0 regions . in a recent follow - up paper , sun et al .
+( 2009 ) used deep _
+chandra _ data and _ gemini _ spectra to characterize the x - ray tail and h@xmath0 regions in detail .
+they found a narrower secondary x - ray tail with a similar length .
+they also confirmed that 33 emission - line regions are h@xmath0 regions , with the furthest seven regions beyond the tidally - truncated halo of 15 kpc that is calculated in sun et al .
+( 2007 ) using simulations by gnedin ( 2003 ) .
+in addition to these distinct h@xmath0 regions , they find diffuse h@xmath1 emission .
+vollmer et al .
+( 2001 ) searched for h@xmath0 in a3627 , and did not detect any h@xmath0 in or around eso 137 - 001 with a limiting column density of 2 @xmath6 10@xmath7 @xmath8 and a resolution of 15 " .
+in fact , of the @xmath580 galaxies identified by woudt et al .
+( 1998 ) in their search region , vollmer et al .
+( 2001 ) detected only 2 in h@xmath0 , finding that the h@xmath0 detection rate in a3627 is similar to that in coma .
+sivanandam et al .
+( 2009 ) observed eso 137 - 001 with irac and irs on _ spitzer_. the irs data extended to 20 kpc from the galaxy along the x - ray tail , and warm ( @xmath5160 k ) molecular hydrogen was detected throughout the length of the observed region .
+the observed region contains @xmath52.5 @xmath6 10@xmath9 m@xmath10 warm h@xmath11 gas .
+they also identify star - forming regions using 8 @xmath12 m data , which coincide with h@xmath1 emitting regions .
+there has been a substantial amount of theoretical work investigating ram pressure stripping in general ( e.g. schulz & struck 2001 ; quilis , bower & moore 2000 ; roediger & brggen 2008 , kronberger et al .
+2008 ; kapferer et al .
+2009 )  see tonnesen & bryan ( 2009 , 2010 ; hereafter tb09 and tb10 ) for a more detailed discussion .
+there have also been simulations designed to predict or interpret observational characteristics of ram pressure stripped tails and the remaining disks ( e.g. vollmer et al .
+2005 , 2006 , 2008 ) , but detailed , quantitative predictions of all three observational probes have been missing to date ( h@xmath0 , diffuse h@xmath1 , and x - ray emission ) .    in our previous work ( tb10 ) , we ran a set of high resolution simulations ( about 38 pc resolution , which is small enough to marginally resolve giant molecular clouds ) to understand how a multiphase ism could affect the survival and structure of ram pressure stripped gas .
+we focused on how density fluctuations that are observed in the multiphase ism of galaxies can affect gas tails .
+including radiative cooling allowed us to estimate the density of and emission from h@xmath0 , h@xmath1 , and x - ray gas separately .
+we found that both the morphology and velocity structure of our tails agreed with observations of long gas tails ( e.g. oosterloo & van gorkom 2005 ) .
+our simulations also resulted in observable amounts of h@xmath0 and h@xmath1 emission .
+however , the x - ray tail had a low surface brightness , which we attributed to the low pressure of the surrounding icm .
+in this paper we will use the same method as in tb10 , but have chosen icm parameters comparable to the icm around eso 137 - 001 . by focusing on the level of agreement between our simulations and the observations of eso 137 - 001 we will be able to discuss the importance of physical mechanisms such as heat conduction , as well as predict the conditions under which h@xmath0 , h@xmath1 , and x - ray emission are produced in stripped tails .
+the paper is structured as follows . after a brief introduction to our methodology
+, we provide the characteristics of our simulations and our method of producing simulated observations (  2 ) . we then (  3 ) present our results , specifically focusing on the comparison with eso 137 - 001 . in 
+4 we discuss the broader implications of our simulation , and discuss our choice of radiative cooling floor and resolution in  5.1 - 2 .
+finally , we conclude in  6 with a summary of our results and predictions for observers .
+c | c variable & value + m@xmath4 & @xmath13 m@xmath14 + a@xmath4 & 4 kpc + b@xmath4 & 0.25 kpc + m@xmath15 & @xmath16 m@xmath14 + r@xmath15 & 0.4 kpc + r@xmath17 & 23 kpc + @xmath18 & @xmath19 g @xmath20 +
+we use the adaptive mesh refinement ( amr ) code _ enzo _ ( bryan 1999 ; norman & bryan 1999 ; oshea et al . 2004 ) .
+our simulated region is 311 kpc on a side with a root grid resolution of @xmath21 cells .
+we allow an additional 6 levels of refinement , for a smallest cell size of 38 pc .
+we refine our simulation based on the local gas mass , such that a cell was flagged for refinement whenever it contained more than about @xmath22 @xmath23 .
+we found that this refined most of the galactic disk to 38 pc resolution by the time the wind hit ; dense clumps in the wake were also refined to 38 pc resolution , while more diffuse components had lower resolution .
+the simulation includes radiative cooling using the sarazin & white ( 1987 ) cooling curve extended to low temperatures as described in tasker & bryan ( 2006 ) . to mimic effects that we do not model directly
+( such as turbulence on scales below the grid scale , uv heating , magnetic field support , or cosmic rays ) , we cut off the cooling curve at a minimum temperature @xmath24 so that the cooling rate is zero below this temperature . in the simulations described here we use
+either @xmath25 k , or @xmath26 k. both allow gas to cool below the threshold for neutral hydrogen formation . in tb09 , we found that the minimum temperature affected the range of masses and sizes of clouds forming in the disk , and the distribution of clouds throughout the disk , although the range of gas densities was very similar .
+the @xmath26 k case resulted in a more fragmented disk whose small clouds took longer to strip . therefore the timescales for gas stripping differed , although the total amount of gas lost was similar . in the simulations presented in this paper , we find that the cooling floor affects the amount of fragmentation in the disks , but not the mass - distribution of gas densities
+. the larger radii of the remaining gas disks in the two @xmath26 k runs are due to the survival of dense clouds in the outer disk ( figures [ fig : xrayproj ] , [ fig : haproj ] , and [ fig : hiproj ] ) .    in tb10 , we found that the structure of the wake also depends somewhat on @xmath27 . since the publication of tb10 , we found and corrected an error in our implementation of the cooling rate that resulted in a slight shift in the peak of the cooling curve around @xmath28 k , but did not significantly affect cooling at low and high temperatures ( this affected only the @xmath26 k simulation ) .
+tests showed that this had only a small impact on the dynamics of the flow , and on the predicted h@xmath0 and x - ray measures , but did strongly affect the predicted h@xmath1 emission , which is extremely sensitive to the gas temperature around @xmath28 k. this explains the enhanced h@xmath1 emission in this paper for the @xmath26 k run as compared to tb10 .
+c | c variable & value + m@xmath29 & @xmath16 m@xmath14 + a@xmath29 & 7 kpc + b@xmath29 & 0.4 kpc +    c | c | c | c | c | c run & v@xmath30 ( km / s ) & p@xmath30 ( dyne/@xmath31 ) & t@xmath30 ( k ) & p@xmath32 ( dyne/@xmath31 ) & t@xmath33 ( myr ) + t80vh & 1900 & 4.2 @xmath6 10@xmath34 & 8.3 @xmath6 10@xmath35 & 11.6 @xmath6 10@xmath34 & 85 + t3vh & 1900 & 4.2 @xmath6 10@xmath34 & 8.3 @xmath6 10@xmath35 & 11.6 @xmath6 10@xmath34 & 75 + t3vl & 1413 & 2.66 @xmath6 10@xmath34 & 7.3 @xmath6 10@xmath35 & 5.29 @xmath6 10@xmath34 & 110 + sun et al .
+2010 & & 1.8 @xmath6 10@xmath34 & @xmath57 @xmath6 10@xmath35 & & +    our galaxy model is the same as in tb10 and tb09 , which used the spiral galaxy model described in roediger & brggen ( 2006 ) .
+we list the model parameters for our galaxy in tables  [ tbl - const4 ] and [ tbl - gconst4 ] .
+the stellar and dark matter components of the galaxy are static potentials . as in tb09 and tb10 ,
+our galaxy position and box size allows us to follow gas 200 kpc above ( in the wind , or z , direction ) the galaxy . to identify gas that has been stripped from the galaxy
+, we also follow a passive tracer which is initially set to 1.0 inside the galaxy ( defined as gas that is above the icm density ) and @xmath36 outside .
+in the following analysis , we will use a minimum tracer fraction of 0.25 to find gas stripped from the galaxy ( as in tb10 ) .
+the galaxy initially evolves in a static , high - pressure icm with @xmath37 8.7 @xmath6 10@xmath38 g @xmath20 and @xmath39 9.069 @xmath6 10@xmath40 k ( @xmath377.57 @xmath6 10@xmath38 g @xmath20 and @xmath39 1.04294 @xmath6 10@xmath9 k for the slower wind case ) , to allow cool , dense gas to form in the galaxy ( each of our three runs has about 3 @xmath6 10@xmath41 m@xmath10 of gas with densities at or above 10@xmath42 g @xmath20 when the wind hits the disk ) .
+this naturally generates a multiphase ism ( see tasker & bryan 2006 and tb09 for more discussion of the ism properties ) .
+after 155 myrs , we reset the boundary conditions to generate a constant icm inflow along the inner z - axis , which is always face - on to the galaxy . in table
+[ tbl - runs ] we show the details of each of the three runs .
+the table includes the icm parameters and the time after the wind has hit the galaxy at which the x - ray tail is 80 kpc long ( this is how we choose the outputs to compare to the observations of eso 137 - 001 ) .
+` t80 ' indicates cooling to 8,000 k and ` t3 ' indicates cooling to 300 k , while ` vh ' and ` vl ' indicate high and low velocity wind , respectively .
+see tb09 for other details regarding the general numerical setup , and tb10 for a discussion of the general impact of the cooling floor on the tail structure . in order to compare with both observations and our previous work , we use a face - on wind direction .
+_ enzo _ outputs the density and temperature of the gas in each cell .
+to transform these values into h@xmath0 column density and h@xmath1 intensity , we used cloudy , version 08.00 of the code last described by ferland et al .
+( 1998 ) . using a table of temperatures and densities
+, we calculated the hydrogen neutral fraction and h@xmath1 emissivity .
+this table is then used to calculate the observational quantities for each cell , which are then summed to generate an image .
+this is described in detail in tb10 , but briefly , we included cmb radiation , the cosmic ray background , bremsstrahlung radiation from the icm and the 2005 version of the haardt & madau ( 2001 ) @xmath43 metagalactic continuum , as implemented by cloudy .
+we chose to calculate the neutral fraction and h@xmath1 emissivity for a plane - parallel gas cloud of width 100 pc .
+we selected this width because it loosely corresponds to the cell size of most of the gas in the tails , and accounts approximately for attenuation of the ionizing background radiation .
+if we assumed the radiative thin limit ( by using a very small cloud size in cloudy ) , it would somewhat decrease the amount of h@xmath0 we predict , and increase the h@xmath1 emission for dense , low - temperature gas .
+we discuss the use of different cloud sizes in detail in tb10 , however , in the simulations in this paper we find that using a 10 pc cloud does not significantly change our h@xmath1 flux nor our h@xmath0 column densities because of the higher densities in our tail gas .
+this indicates that radiative transfer effects are not that important for this work .    to create x - ray surface brightness projections
+, we use a spectral lookup table that depends on temperature and density , assuming a constant metallicity of 0.3 solar , as computed using a raymond - smith code ( raymond & smith 1977 ) , as updated in xspec ( arnaud 1996 ) .
+the x - ray band we use is 0.5 kev to 2.0 kev , following sun et al .
+in this section , we compare our simulated stripped tail to observations of eso 137 - 001 .
+we choose an output time at which the x - ray tail length is about 80 kpc in order to match the observations of sun et al .
+( 2010 ) ; this time is shown in table [ tbl - runs ] .
+we are using this comparison with the observations of eso 137 - 001 to better understand the physics at work in producing x - ray , h@xmath1 , and h@xmath0 tails , so we have not tuned our simulation specifically to find an exact match to the galaxy and tail of eso 137 - 001 . while our icm parameters are similar to those of the icm near eso 137 - 001 , they are not the same .
+the final row in table [ tbl - runs ] displays the icm parameters from the observations of sun et al .
+we have not attempted to model the exact angle between the galaxy s disk and orbital motion ( woudt et al .
+( 2008 ) find a position angle of 125@xmath44 ) , and instead use a face - on wind , and we are using a larger galaxy ( initially our galaxy has a radius of 26 kpc , and in the comparison projections the radius is about 15 kpc , while the 2mass isophotal radius for eso 137 - 001 is 6.1 kpc ( skrutskie et al . 2006 ) ) . in the following comparisons we will take note of the differences between our simulations and the observations of sun et al .
+( 2006 ; 2007 ; 2010 ) .
+we have chosen the output time at which each simulation has an x - ray tail whose length is about 80 kpc .
+this means that the length of time that each galaxy has been stripped in the different simulations is not the same . in table
+[ tbl - tempmass ] , we list the amount of gas in the tail in three different temperature ranges .
+these masses include all of the gas above 10 kpc from the disk with tracer fractions of at least 25% , so some of the gas included is at low density , as shown in figure [ fig : rhot ] ( too low to be observable ) .
+nevertheless , it can be very loosely stated that longer stripping times may result in more mixing of hot gas into the icm , and in more dense gas being stripped and condensing into clouds in the tail .
+this can be seen by comparing t80vh or t3vl with t3vh ( of course there are also other differences in the simulations that influence the tail gas , such as cooling floor and icm pressure ) .
+however , we stress that in this paper we mainly focus on what causes a tail to be bright in x - ray and h@xmath1 emission , so focus more on icm pressure than the amount of time a galaxy has been stripped ( although we do consider this timescale in our discussion of heat conduction ) .
+c | c | c | c run & t @xmath45 10@xmath46 k & 10@xmath46 @xmath45 t @xmath45 10@xmath47 k & 7 @xmath6 10@xmath47 @xmath45 t @xmath45 4 @xmath4810@xmath9 k + & 10@xmath41 m@xmath10 & 10@xmath41 m@xmath10 & 10@xmath41 m@xmath10 + t80vh & 1.4 & 1.6 & 6.0 + t3vh & 1.1 & 1.2 & 9.1 + t3vl & 4.2 & 2.9 & 5.9
++        we first compare the x - ray characteristics of our simulations to observations .
+the x - ray surface brightness projections of our runs are shown in figure [ fig : xrayproj ] .
+as in sun et al .
+( 2006 ; 2010 ) , we measure the x - ray emission between 0.5 - 2.0 kev .
+the surface brightness profiles along the tails are in rough agreement with that of eso 137 - 001 , which is bright near the disk and has a second bright region about 40 kpc from the disk before becoming less luminous to the end of the tail .
+our model does not reproduce the exact x - ray surface brightness profiles : we do not have a model that includes both the bright emission near the disk and a surface brightness decrease across the entire tail before the second brightness peak .
+c | c | c | c | c run or & _
+l @xmath6 w _ & l@xmath49 & l@xmath50 corrected@xmath51 & t + observation & ( kpc @xmath6 kpc ) & ( 10@xmath52 erg s@xmath3 ) & ( 10@xmath52 erg s@xmath3 ) & ( 10@xmath9 k ) + t80vh & 80 @xmath6 26 & 66.3 & 4.8 & 2.5 + t3vh & 80 @xmath6 30 & 93.0 & 5.1 & 2.1 + t3vl & 80 @xmath6 30 & 41.9 & 3.6 & 1.4 + sun et al .
+2010 & 80 @xmath6 8 , 80 @xmath6 7 & ( 8.3 @xmath53 0.4 ) & ( 8.3 @xmath53 0.4 ) & 0.93 @xmath53 0.05 +    to make the x - ray projections , we adopted a minimum observable surface brightness of 7.1 @xmath6 10@xmath54 erg @xmath8 s@xmath3 , which we estimated from the total luminosity of the observed tail and brightness profiles in sun et al .
+( 2010 ) ( our cluster background is about 3.6 @xmath6 10@xmath54 erg @xmath8 s@xmath3 ) .
+this results in a luminosity difference of an order of magnitude between the lowest and highest surface brightness features in all of our simulated tails , similar to that in the observed tail of eso 137 - 001 .
+our tails are narrow and show a nearly constant width along the entire tail , in agreement with the x - ray morphology reported in sun et al .
+( 2006 ; 2010 ) .
+this is in contrast to simulations that do not include radiative cooling and produce flared tails ( e.g. roediger , brggen & hoeft 2006 ) however , it is clear that we do not have separated x - ray tails as in the observations .
+this is not surprising given the explanation of sun et al .
+( 2010 ) that the two tails likely result from the stripping of two spiral arms . as we discuss in detail in tb09 , our disks fragment but do not form spiral arms .    in table
+[ tbl - xtail ] , we list some of the characteristics of our simulated x - ray tails to compare with the observed tail . to calculate the luminosity of the tail , we find the total energy emitted and subtract the background emission from the icm
+. as the table demonstrates , the simulated tails are wider , more luminous , and have a higher average ( emission - weighted ) temperature than the ( spectroscopic ) temperature measured by sun et al .
+we now address these differences .
+the tail is most likely wider because we are modeling a large spiral galaxy , while eso 137 - 001 is thought to be a @xmath5 0.2l@xmath4 galaxy , with a smaller galactic radius ( sun et al .
+2006 and references therein ) .
+in fact , the entire volume of the tail in any of our three runs is nearly an order of magnitude larger than the tail of eso 137 - 001 ( we assume that the tails are cylindrical with the heights and diameters denoted in table [ tbl - xtail ] ) .
+the other difference is that our icm pressure is also somewhat larger than calculated in sun et al .
+( 2010 ) by either a factor of 1.47 ( t3vl ) or 2.33 ( t3vh and t80vh ) .    these differences in tail volume and icm pressure impact the observables in two ways .
+first , as we discuss in tb10 and below , the compression of stripped gas by the icm determines the temperature and density distribution of gas in the tail .
+therefore , a higher icm pressure results in higher - density hot gas ( @xmath55 k ) , which will have a higher x - ray emissivity . as we argue in the next section
+, this makes the x - ray luminosity proportional to the icm pressure .
+second , if we assume that the filling factor of x - ray emitting gas is the same in our simulations as in the tail of eso 137 - 001 , then the total luminosity is also directly proportional to the volume of the entire tail .
+the x - ray luminosity after applying these corrections is also shown in table [ tbl - xtail ] ( assuming x - ray luminosity is directly proportional to both the icm pressure and the volume of the tail ) .
+when we account for these differences , our measured luminosities are within about a factor of two of the x - ray luminosity of eso 137 - 001 .
+as shown in table  [ tbl - xtail ] , there is also a factor of two difference between the temperatures of the simulated and observed x - ray tails ; however , this is most likely due to the different ways in which this quantity is determined in simulations as compared to observations .
+we use luminosity - weighted temperatures , which tend to be higher than spectroscopic temperatures when there is a range of gas temperatures ( see mazzotta et al .
+sun et al .
+( 2010 ) discuss how the spectral fitting of the iron - l hump biases their temperatures low if there are significant emission components at _ _
+k__t = 0.4 - 2 kev , which is certainly the case in our simulation and in the tail of eso 137 - 001 ( sun et al .
+2010 ; sivanandam et al .
+therefore , the agreement is probably considerably better than indicated in table  [ tbl - xtail ] .      in this section
+, we examine what lights up an x - ray bright tail , and explain why some observed tails , like eso 137 - 001 , exhibit x - ray emission , while others do not . in figure
+[ fig : rhot ] we show the mass - weighted distribution of density and temperature of gas in the wake that originated from the galaxy from our t3vl run ( left ) and from the @xmath26 k run from tb10 using the corrected cooling curve ( right ) .
+the plots include all of the gas located between 10 kpc and 240 kpc above the disk that has at least 25% of it s mass originating in the galaxy ( as determined by the tracer fraction ) .
+we choose to highlight these two cases because the icm pressure is the only difference between the two simulations ( the thermal pressures differ by a factor of 15 ) . as discussed in more detail in tb10 , the ( @xmath56 k ) gas in the wake
+is largely in pressure equilibrium and so falls roughly along a line of constant pressure .
+the impact of the higher icm pressure can be seen as a shift to higher density and temperature in the left panel .
++    in red we also plot two contours of constant luminosity per mass ( or emissivity per density ) .
+the lower contour is at 10@xmath57 erg s@xmath3 g@xmath3 .
+if the minimum observable x - ray surface brightness is 10@xmath58 erg s@xmath3 @xmath8 , then in order for x - ray emission to reach this level , there must be a sufficient amount of gas at or above the red contour .
+more precisely , we need a column density of hot gas of 10@xmath59 @xmath8 in order to produce observable emission ( this corresponds to about 10@xmath46 m@xmath10 along a single line of sight through our 38 pc @xmath6 38 pc cells ) . in general ,
+only the colder gas ( t @xmath60 10@xmath46 k ) in the tail has these high surface densities ( 10@xmath59 @xmath8 ) , so we also plot an emissivity line which only requires a surface density of 10@xmath7 @xmath8 in order to be observable ( the upper 10@xmath3 erg s@xmath3 g@xmath3 contour ) .
+gas that is hot enough to emit x - rays ( hotter than @xmath57 @xmath6 10@xmath47 k ) has this lower surface density in the tail ( 10@xmath7 @xmath8 ) .
+this figure shows that gas at higher densities and lower temperatures than the icm ( but above @xmath5 10@xmath40 k ) will be emitting the most strongly in x - rays .
+as galactic gas is stripped it either cools into clouds ( @xmath61 k ) or is compressed to the icm pressure and begins to mix with icm gas . while the tail gas is at the high icm pressure  but before it is completely mixed with the icm  it will be x - ray bright .
+the mixing occurs along the line of constant pressure seen in figure  [ fig : rhot ] .
+the separation between cold clouds and x - ray emitting gas is seen clearly in the left panel of figure [ fig : slices ] , which shows a thin slice from a detailed section above the disk .
+the cold clouds are black in this figure , indicating no x - ray emission , while the x - ray emitting gas is not confined to regions close to the dense clouds .
+most of the x - ray bright cells in our simulation have between 70% and 90% of their gas originating from the galaxy . in the lower left panel of figure
+[ fig : slices ] we show the gas temperature , which when compared with the x - ray slice again highlights that while some mixing and radiative cooling can enhance the x - ray emission , but too much lowers the density of the hot gas to the point where the x - ray emissivity is low .
+the x - ray bright gas may have either been stripped as hot gas from the disk and slowly mixed , or stripped from the dense clouds in the tail and mixed into the icm .
+next , we turn to h@xmath1 emission , shown in figure  [ fig : haproj ] .
+the minimum observable surface brightness that we adopt for these maps is 2 @xmath6 10@xmath62 erg s@xmath3 @xmath8 arcsec@xmath57 ( see sun et al .
+( 2007 ) and references therein ) .
+as described earlier , we use cloudy to determine the h@xmath1 emissivity given a gas temperature and density .
+we find , as shown in figure [ fig : haproj ] , highly structured , long tails of h@xmath1 emission .
+note that we do not include uv radiation from star formation or agn ( except from the metagalactic background , as described in section [ sec : projection ] ) .
+figure [ fig : slices ] shows that h@xmath1 emission peaks around the edges of cold clouds , which can be seen by comparing the upper right panel of h@xmath1 emission with the lower right panel showing gas surface density .
+the @xmath63 k and @xmath26 k runs show a similar amount of h@xmath1 emission .
+this is because , while the minimum temperature affects the temperature in the central regions of the clouds , it does not strongly affect the cloud edges in the simulation , whose characteristics are more determined by the interaction between the cloud and the icm .
+we find that changing the cloud size parameter in our cloudy run has only a small effect on the total h@xmath1 flux ( less than 10% in all three runs ) .
+this is because most of our emission is produced by collisional processes rather than photoionization , and so is mostly dependent on the gas temperature , not the optical depth to ionizing photons ( recall that we do include star formation in the simulation and so do not model hii regions within the tail ) .
+c | c | c | c run or & _
+l @xmath6 w _ & f@xmath64 & f@xmath64 corrected@xmath51 + observation & ( kpc @xmath6 kpc ) & ( erg s@xmath3 @xmath8 ) & ( erg s@xmath3 @xmath8 ) + t80vh & 67 @xmath6 27 & 75.8 & 2.23 + t3vh & 65 @xmath6 29 & 75.9 & 2.00 + t3vl & 80 @xmath6 30 & 97.9 & 1.96 + sun et al .
+( 2007 ) & @xmath540 @xmath6 6 & 4.4 & 4.4 +    because we do not include star formation , we can not compare our h@xmath1 emission to the 33 h@xmath0 regions seen by sun et al .
+we do compare the total flux from our tail to the observed diffuse h@xmath1 emission in table [ tbl - hatail ] .
+again , the volume of our diffuse tail is much larger than that observed by sun et al .
+( 2007 ) , and we show the corrected h@xmath1 flux by dividing by the volume ratio in the table . the difference in tail widths is from the difference in galaxy sizes , while the length of the observed tail is the minimum length of the diffuse emission because there is a bright star in the field ( sun et al .
+2007 ) . when we take the different volumes of the tail into account ,
+our simulated h@xmath1 flux is less than that observed from the tail of eso 137 - 001 , but in all three cases , the simulated h@xmath1 flux is within a factor of 2.5 of the observed flux .
+there are a number of possible explanations for our slightly lower predicted h@xmath1 flux , including the possibility that some unresolved h@xmath0 regions are counted as diffuse flux in the observations .
+other heating sources such as thermal conduction  an effect we do not include in the simulations  could give rise to more h@xmath1 flux than we see in our simulations .
+we also find that numerical resolution plays a role in the total h@xmath1 emission , as we will discuss in section  [ sec - resolution ] .      in this section
+we consider h@xmath0 column density , comparing projections of our simulations to observations . in figure
+[ fig : hiproj ] we show the h@xmath0 column density at the best resolution of our simulation . as discussed in section [ sec : projection ] , we use cloudy to determine the neutral fraction given a temperature and density ( with the assumed metagalactic uv flux ) and then apply that value in our projection routine .    in figure [
+fig : atcav01 ] we only show a projection comparable to the observations performed by vollmer et al .
+( 2001 ) , using a resolution of 30 " and a minimum column density of 2 @xmath6 10@xmath7 @xmath8 .
+we also correct for the difference in disk sizes by dividing our column densities by a factor of 3 ( the ratio of x - ray tail diameters ) . only the tail of t3vl would have been observed by vollmer et al .
+this is because in the slower velocity case there is a smaller velocity difference between the clouds and the icm wind and the icm is slighty less dense ( 83% of the icm density in the higher velocity cases ) , which results in less cloud ablation and more high density gas ( both a slightly higher maximum density of gas and slightly more gas at any particular density above @xmath65 @xmath20 ) .
+this difference between the non - detection by vollmer et al .
+( 2001c ) and our prediction that t3vl would be detected implies that eso 137 - 001 is most likely moving more quickly through the icm than 1413 km s@xmath3 .
+the h@xmath0 column densities in t3vh and t80vh are within a factor of 3 and 1.3 respectively below the maximum column density as determined by the non - detection of vollmer et al .
+( 2001 ) .
+figure [ fig : slices ] clearly shows that bright h@xmath1 emission is produced only at the edges of dense neutral clouds .
+this spatial correspondence between neutral and h@xmath1 emitting gas agrees with the observations of sivanandam et al .
+( 2009 ) , who found molecular hydrogen in the tail to the farthest distance they could search20 kpc .
+we predict that with a deeper observation h@xmath0 will be observed to at least 40 kpc ( the length of the observed h@xmath1 tail ) , and likely even farther ( our shortest h@xmath0 tail is 65 kpc in t3vh ) , unless heat conduction is quite efficient .
+in this section , we comment on the likelihood of finding more x - ray tails . in order for a tail to have observable x - ray emission
+, it must be in a high pressure icm .
+we can estimate the pressure necessary to produce bright x - ray emission simply by shifting our mass - weighted distribution of gas until the lowest mass contour lies along the upper 10@xmath3 erg s@xmath3 g@xmath3 contour .
+we choose this contour because in every simulation we have run , projections of surface density have shown that most of the tail has a column density of at least 10@xmath7 @xmath8 .
+gas in the tail with higher surface densities tends to be in cold clouds ( t @xmath45 10@xmath46 k ) ( see tb10 ) , while x - rays are emitted by hot ( t @xmath66 10@xmath40 k ) , diffuse gas with lower column densities ( figure [ fig : rhot ] ) .
+this method results in a minimum icm pressure of 9 @xmath6 10@xmath67 erg @xmath20 .    in table
+[ tbl - clusterrad ] we show the cluster radius at which the icm pressure falls below our minimum value . in general , we calculated the cluster radius using a @xmath68-model and constant temperature from the papers cited in column 3 .
+there are three exceptions to this .
+first , the x - ray intensity contours in figure 17 of wang et al .
+( 2004 ) denote the highest density icm region ( and are not spherically symmetric ) , which is the only region of a2125 with a high enough density to produce our minimum icm pressure for x - ray bright tails .
+second , we find the radius of perseus with our minimum icm pressure directly from figure 9 in ettori et al .
+finally , we use the entropy measurements of cavagnolo et al .
+( 2009 ) to find that as close as 100 kpc from m87 the icm pressure is below 9 @xmath6 10@xmath67 erg @xmath20 . note that these are first estimates generally using spherically symmetric cluster profiles , which oversimplify the structure of the icm .
+we can now comment on whether observed x - ray tails are in high pressure icms ( defined here as at or above 9 @xmath6 10@xmath67 dyn @xmath8 ) .
+the two x - ray tails in a3627 , eso 137 - 001 and eso 137 - 002 , are both within the high pressure icm ( sun et al . 2007 ; sun et al .
+. however , sun et al . (
+2010 ) find that using their spectroscopic temperatures , the tail gas is over - pressured with respect to the icm .
+this might indicate that the spectroscopic temperature does not correctly model the tail temperature .
+we find that turbulent pressure is not strong enough to greatly increase the gas pressure in the tail ( figure [ fig : rhot ] and tb10 ) .
+c153 is near the x - ray peak of a2125 ( wang et al .
+ugc 6697 in a1367 is at least 450 kpc from the x - ray peak of the cluster , outside of our calculated high - pressure radius .
+however , it is near an infalling subcluster and in a higher - density icm than predicted using the @xmath68-model centered on the x - ray peak of a1367 .
+using the fit to the subcluster by donnelly et al .
+( 1998 ) , sun & vikhlinin ( 2005 ) calculated the surrounding pressure to be 7.9 @xmath6 10@xmath67 dyn @xmath8 , very close to our minimum pressure for observable x - ray emission .
+c | c | c cluster & outer radius ( kpc ) & reference + a3627 & 250 _ h@xmath69 _ & bohringer et al .
+( 1996 ) ; + & & sun et al .
+( 2010 ) + a2125 & 28.5 - 89 _ h@xmath70 _ & wang et al .
+( 2004 ) + a1367 & 274 _ h@xmath69 _ & mohr et al .
+( 1999 ) + cl 0024 + 0016 & 250 _ h@xmath71 _ & zhang et al .
+( 2005 ) + coma & 613 _ h@xmath69 _ & briel et al .
+( 1992 ) + perseus & 2000 _ h@xmath69 _ & ettori et al . (
+1998 ) + virgo ( m87 ) & @xmath45 100 _ h@xmath71 _ & cavagnolo et al .
+( 2009 ) +    heat conduction , which we do not include in these simulations , could be important for the survival of cool clouds in the icm and h@xmath1 emission ; however , it can be suppressed by magnetic fields ( e.g. vollmer et al .
+if it is an efficient way to transport heat from the icm to cold , stripped gas , then the survival time of h@xmath0 clouds would be less than predicted in this paper , and the length of the tails would be shorter .
+we can estimate the efficiency of heat conduction by comparing an analytic calculation of the evaporation time of the most dense clouds in our simulations to the length of time we expect clouds have survived in order to produce the observations of eso 137 - 001 .
+first , we estimate the evaporation time for a typical cloud if heat conduction is not suppressed , and we will define this calculated evaporation time as the time for cloud evaporation if heat conduction is 100% efficient .
+we follow cowie & mckee ( 1977 ) , as in vollmer et al .
+( 2001 ) . in our clouds , we find that the mean free path for ions is comparable to or greater than the temperature scale length , so we need to use the saturated heat flux equations .
+evaporation time is proportional to @xmath72 @xmath73 , where @xmath74 is the conduction efficiency relative to spitzer . solving for the evaporation time for each of our three runs , we find that using a cloud radius of 100 pc , and the maximum gas density in our tails at the time of our comparison , the evaporation times of our three runs are @xmath75 myr for t80vh , @xmath76 myr for t3vh , and @xmath77 myr for t3vl .
+we choose to use the highest density found in our tails because we want to calculate the longest plausible evaporation time in order to find the most conservative estimates for the maximum efficiency of heat conduction .
+the @xmath78 k runs have a maximum density in their tails of 2 @xmath6 10@xmath79 g @xmath20 and t80vh has a maximum density of 10@xmath79 g @xmath20 .
+we have shown that diffuse h@xmath1 emission directly traces neutral clouds ( figure [ fig : slices ] ) , which means that the dense clouds must not be entirely evaporated before they reach 40 kpc above the disk .
+we are also able to measure the velocity of gas in our tails ( see tb10 for details ) , so can estimate the time it would take for a cloud to reach 40 kpc above the disk .
+we use generous estimates of 1200 km s@xmath3 for the high velocity cases and 900 km s@xmath3 for the lower velocity run in order to calculate the shortest time it would take these clouds to reach 40 kpc above the disk ( which will maximize the value we find for the efficiency of heat conduction ) .
+therefore , the efficiency of heat conduction must be less than 24% ( t3vl and t3vh ) , or 12%(t80vh ) .    once there is a deep observation of the h@xmath0 tail
+, we will be able to compare the length of eso 137 - 001 s tail to the lengths of our simulated tails to find a _ minimum _
+efficiency of heat conduction . to do this
+we will use a similar argument to the one above ; namely , compare the amount of time a cloud takes to reach its height above the disk to the evaporation time , assuming that heat conduction is responsible for destroying the clouds .
+it is important to consider our simulations in this calculation , because they show that even without heat conduction , h@xmath0 may not extend along the entire length of the x - ray tail .
+the simulations also show the limitations of using a simple velocity and distance argument to calculate the length of time a galaxy has been stripped  using 900 km s@xmath3 and the length of the h@xmath0 tail we find that the galaxy in t3vl has been stripped for 87 myr , while the actual time after the wind has hit the galaxy is 110 myr .
+the high velocity cases have an even larger discrepancy between the actual stripping time and the time calculated using the h@xmath0 tail length .
+despite these caveats , we can make a very rough first estimate using figure [ fig : atcav01 ] ( t3vl ) and the non - detection result of vollmer et al .
+the h@xmath0 in our smoothed projection begins about 50 kpc above the disk .
+if the non - detection of vollmer et al .
+( 2001 ) means that there are no neutral clouds at this height above the disk , then we can calculate a minimum efficiency for heat conduction , which is 18.5% .
+however , as we discussed above , we expect that a deeper observation will find h@xmath0 beyond this height above the disk .
+as noted earlier , we used two different values for our radiative cooling floor ( 8000 k and 300 k ) in order to explore in a simple way the potential impact of processes which we do not include in the simulation .
+we discuss the physical motivations for the two cooling floors in tb10 .
+we find that the change in the minimum temperature makes only a relatively minor change in the morphology of the flow , and does nt significantly change the resulting length of the tail .
+this also translates into only a relatively small difference in the predicted observables , with changes of less than 30% in both x - ray and h@xmath1 luminosities .
+k run predicted lower h@xmath1 emission by more than an order of magnitude .
+this incorrect conclusion was reached because of the cooling curve error for that run discussed in section  [ sec - methodology ] . ]
+the biggest difference is in the survival of h@xmath0 clouds , with @xmath26 k predicting longer lived clouds .
+still , the impact on h@xmath0 observations is quite small . the ratios of the three observables is also quite constant , generally to within 30% , as can be see from an inspection of the right two panels of figures  [ fig : xrayproj ] , [ fig : haproj ] , and [ fig : hiproj ] , and from tables  [ tbl - xtail ] and [ tbl - hatail ] .
+resolution is most likely to affect the survival and structure of our dense clouds in the tail .
+the most direct results would be different amounts of neutral gas and h@xmath1 emission .
+a number of examinations of the survival of clouds with a variety of physics included have been performed .
+mellema et al .
+( 2002 ) and yirak et al .
+( 2009 ) include radiative cooling .
+fragile et al .
+( 2004 ) also discuss how including self - gravity increases the lifetime of clouds .
+nakamura et al . ( 2006 ) discuss the impact of using smooth cloud boundaries on the growth of instabilities .
+they ( and yirak et al .
+2009 ) find that a low density gradient results in slower growth of instabilities , which can retard cloud destruction .
+our most dense clouds have an analytically calculated destruction timescale due to turbulent viscous stripping ( using eq .
+( 22 ) in nulsen 1982 ) of more than 1 gyr , so resolution should not have a large impact over the timescales we consider in these simulations .
+we use the same cloud parameters as in the evaporation time calculation , although even with an order of magnitude lower density clouds ( @xmath5 10@xmath80 g @xmath20 ) , the destruction timescale is still about 200 myr , which is much longer than the time at which we make our projections .
+we use a relative velocity difference of 400 km s@xmath3 ( although we do not show velocity plots in this paper , see tb10 for a detailed discussion of the tail velocity )
+. however , lower density clouds in our simulated tails cool and are compressed by the icm , which may instead be destroyed by the icm wind if we had better resolution that resulted in a steeper density gradient at the cloud edge .
+although we do not perform a detailed resolution study of the runs in this paper , we do compare t3vl to a run with only 5 allowed levels of refinement , to a minimum cell size of 76 pc , a factor of two worse in resolution .
+we compare outputs with the same amount of gas stripped from the galaxy .
+the total x - ray luminosity of the lower resolution tail is @xmath590% of the luminosity of t3vl ( i.e. only a 10% change ) , while the total h@xmath1 flux is only 28% of t3vl .
+the total hi flux is also decreased by a similar amount ( to 33% of the value in t3vl ) .
+for both resolutions , there is a good correspondence between the relative hi and h@xmath1 level and morphology ; therefore , we argue that the ratio of hi to h@xmath1 is more robust than the absolute level of either .
+both the small discrepancy in the x - ray luminosity and larger discrepancy in the h@xmath1 flux can be explained by considering what gas is producing the emission .
+x - ray emission is produced by gas that is mixed with the icm and is not localized near the dense clouds in the tail , and so is not very dependent on high resolution .
+one explanation for the slightly lower x - ray luminosity is that mixing happens more quickly and the gas is heated out of the x - ray bright regime .    unlike the diffuse nature of the x - ray emitting gas
+, h@xmath1 emission occurs at the edges of clouds .
+we find that in projection the range of h@xmath1 intensities is the same as t3vl , meaning that the different resolution element size does not strongly affect the density and temperature at the edges of the dense clouds ( and therefore does not strongly affect the h@xmath1 emission ) .
+the main difference is that there are fewer dense clouds in the less - resolved wind .
+in fact , the total h@xmath0 column density in the low resolution tail is about 30% of the total h@xmath0 column density in t3vl  very similar to the h@xmath1 flux fraction . in projection , there are about half as many pixels with h@xmath0 column densities over 10@xmath81 @xmath8 .
+since we expect the total h@xmath0 column density to also depend on the number of clouds along the line of sight of the projection , we find that there should be roughly 26% as many clouds ( by simply squaring the 51% we find in the projection plane ) .
+of course , clouds are more than a single pixel , so this is a rough approximation .
+however , this indicates that the amount of h@xmath1 emission closely follows the amount of h@xmath0 column density , and likely the number of h@xmath0 clouds .
+there are fewer h@xmath0 clouds in the low resolution run because with lower resolution the maximum density is lower and therefore the clouds are destroyed and mixed more quickly into the icm .
+deep , high resolution observations in h@xmath0 will allow us to determine how many and for how long dense clouds survive , which will point to one of these mixing scenarios .
+we have run detailed galaxy simulations including radiative cooling and made comparisons to the observed tail of eso 137 - 001 to understand the physical mechanisms at work in the icm .
+we compare three cases in which we vary our cooling floor between 8,000 k or 300 k and the icm parameters as shown in table [ tbl - runs ] .
+our main conclusions are as follows :    \1 ) the x - ray luminosity of our simulated tails are an excellent match to the x - ray luminosity of the tail of eso 137 - 001 .
+this suggests that we are correctly modeling the phase distribution of gas in the tail , and that the mixing of the hotter stripped ism ( t @xmath66 10@xmath47 k ) is being accurately modeled in the simulations .
+\2 ) we find that bright x - ray emission depends upon a high surrounding icm pressure , and find a minimum necessary pressure of 9 @xmath6 10@xmath67 erg @xmath20 .
+this conclusion agrees well with the local environment in clusters where bright x - ray tails are observed .
+\4 ) we predict that deeper observations will find h@xmath0 gas to at least 40 kpc above the disk , because diffuse h@xmath1 emission directly traces neutral clouds ( and has been observed to 40 kpc above the disk ) .
+the observations of molecular hydrogen by sivanandam et al .
+( 2009 ) strengthen this prediction .
+we also conclude that the mismatch between t3vl and vollmer et al .
+( 2001 ) indicates that the higher velocity cases better match the observations .
+\5 ) using the fact that h@xmath1 traces neutral gas and calculating the evaporation times of our simulated clouds ( based on their sizes and densities ) , we calculated a maximum efficiency for heat conduction of 24% ( t3vh and t3vl ) or 12% ( t80vh ) .    by modeling a simulation using a high icm pressure ,
+we have shown that x - ray emission can coexist with h@xmath0 and h@xmath1 emission .
+we have also found that h@xmath0 and h@xmath1 emission spatially coincide because h@xmath1 is mostly produced at the edges of neutral clouds ( figure [ fig : slices ] ) , while x - ray emission is generated in hot , diffuse gas that is mixing with the icm .
+this is seen by the more even distribution in the tail ( figures [ fig : xrayproj ] and [ fig : slices ] ) , and by the fact that the x - ray tail can be longer than the h@xmath0 and h@xmath1 tails .
+our excellent agreement with x - ray observations gives us confidence that we are correctly modeling the mixing , cooling and heating rate of x - ray emitting gas .
+this in turn means that heat conduction is not acting strongly to heat the diffuse gas in the tail , and that small scale turbulence ( below our resolution scale ) is not quickly mixing stripped gas .
+both of these mechanisms would act to heat the gas in the tail out of the x - ray bright range and therefore lower the total luminosity , which would make our agreement to the observations worse .
+we can not rule out the possibility that we have less gas mass at higher emissivities than in eso 137 - 001 .
+we also find excellent agreement between our simulated h@xmath1 flux and observations of diffuse h@xmath1 emission .
+we robustly conclude that diffuse h@xmath1 emission coincides with h@xmath0 gas , and we find that h@xmath1 emission outlines h@xmath0 clouds in all of our simulations .
+the agreement between the total h@xmath1 emission in our cases with different cooling floors underscores the fact that the edges of clouds , which are interacting with the icm , emit the most strongly in h@xmath1 , not the central regions of the clouds , which are more likely to have radiatively cooled to the minimum allowed temperature .
+although our agreement with observations indicates that we may also be correctly modeling the edges of dense clouds , we can not dismiss the possibility that we are not fully resolving the cloud edges . in section [ sec - resolution ]
+we discuss how lower resolution results in fewer h@xmath0 clouds , and less h@xmath1 emission .
+therefore , we can not rule out that properties of our simulations that have not converged at our current resolution  the number of clouds , the rate of the decline of density at the edge of the cloud and the smallest scale of turbulent heating  have combined with the lack of heat conduction in our simulations to result in an accidental , and incorrect , agreement with observations .
+observations of h@xmath0 in the tail will provide an important check to these results .
+this work highlights the importance of comparing simulations to detailed , multi - wavelength observations of individual systems .
+we are able to make predictions about this particular galaxy , such as the existence of h@xmath0 gas in the tail and that its three - dimensional velocity relative to the icm is probably larger than 1413 km s@xmath3 .
+however , our simulation is not able to make any prediction about why there is a separated tail in eso 137 - 001 .
+we also do not reproduce the exact surface brightness distribution along the x - ray tail .
+as we have discussed , our goal was not to reproduce this specific tail . in order to do this , we would recommend modeling a smaller galaxy and matching the inclination angle between the galaxy and the icm wind .
+using our comparison with the observations of eso 137 - 001 , we also draw more general conclusions about the importance of turbulence and the efficiency of heat conduction in the icm .
+we conclude that the mixing rate of the hot stripped ism ( t @xmath66 10@xmath47 k ) is well - modeled in our simulations using only adiabatic compression and turbulent mixing down to the resolution of our simulations ( 38 pc ) .
+we call upon observers to test our predictions of where in clusters tails will be x - ray bright , and to use deep observations to verify the connection between h@xmath1 and h@xmath0 gas
+. observations of the h@xmath0 tail of eso 137 - 001 can be used to test mixing of cold clouds into the icm in our simulations .
+we acknowledge support from nsf grants ast-0547823 , ast-0908390 , and ast-1008134 , as well as computational resources from the national center for supercomputing applications , nsf teragrid , and columbia university s hotfoot cluster .
+we thank jacqueline van gorkom , jeffrey kenney and the referee bernd vollmer for useful discussions , as well as elizabeth tasker for invaluable help setting up the initial conditions .

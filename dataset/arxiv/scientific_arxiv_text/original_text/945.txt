@@ -1,0 +1,284 @@
+the large hadron collider ( lhc ) probes collisions of protons at very high energies , resulting in a multitude of final - state particles . with increasing energy , the probability that one hadron - hadron collision leads to more than one scattering process also increases .
+these additional scattering processes beside the primary hard scattering belong to the group of multi - parton interactions ( mpi ) .
+their estimation is important for the correct determination of background from standard model processes , for instance when the signal process consists of new physics particles .
+in particular , double parton scattering ( dps ) , where two distinct parton interactions arise from the same proton - proton collision , can become likely enough to compete with single parton scattering ( sps ) processes , see fig .
+[ fig : dpsfeyn ] .
+therefore , a thorough understanding of these additional contributions is needed for a precise theoretical description of the background at the lhc and will also help to explore the inner structure of protons and nucleons , not being accessible by perturbative calculations .
+double parton scattering has been searched for both in pre - lhc experiments like afs , ua2 , cdf , and d0 as well as by the lhcb and atlas collaborations , in 4-jet @xcite , @xmath6-jet @xcite , di-@xmath7-jets @xcite , @xmath8-jets @xcite , @xmath9 @xcite , @xmath10 @xcite , open charm @xcite , @xmath0+charm @xcite , @xmath11+charm @xcite , @xmath12 @xcite and @xmath13 @xcite final states . on the theoretical side
+the efforts have concentrated on improving the understanding of the underlying scattering mechanism as well as providing phenomenological predictions . in particular related issues such as correlations and interferences between the two hard scatterings ,
+the role of the perturbative splitting contributions ( so - called `` 2v1 '' ) and the definition of double parton scattering cross section as well as double parton distributions have been addressed , see e.g.  @xcite for a comprehensive review .
+a @xmath0 pair is a very good candidate to study double parton scattering at the lhc due to relatively high production rates and subsequent decays into muons giving a clear and easily distinguishable signal .
+results for the production of @xmath0 pairs have been published by lhcb in @xcite , by d0 in @xcite , and by cms in @xcite .
+correspondingly , since then there has been a considerable interest to improve theoretical predictions for double @xmath0 production both for the sps and dps production modes @xcite .
+the calculation of conventional single parton scattering contributions to @xmath0 pair - production is non - trivial and requires specific methods to account for the non - perturbative mechanisms involved in meson production as well as the short - distance effects .
+two widely applied approaches are the colour - singlet model ( csm ) @xcite and non - relativistic quantum chromodynamics ( nrqcd ) @xcite . in the framework of nrqcd ,
+until not long ago , only the lo predictions for hadronic production in the colour singlet production mode  @xcite , supplemented by the octet corrections  @xcite , were known .
+recently , the effects of relativistic corrections  @xcite , nlo corrections and selected nnlo qcd contributions @xcite as well as an application of the @xmath14 factorisation approach  @xcite have been investigated . additionally , the importance of including contributions from all possible @xmath15 fock state configurations relevant for prompt double @xmath0 production has been pointed out in  @xcite .
+this paper documents the predictions of sps and dps production of a pair of @xmath0 , delivered to the lhcb and atlas experiments for their ongoing studies of double parton scattering with run i data .
+the work presented here updates the study on @xmath0 pair - production reported in @xcite , which in turn was inspired by the first measurement of a double @xmath0 signal @xcite .
+furthermore , predictions for the current lhc run at a centre - of - mass energy of @xmath16  tev are provided .
+we also perform a comparison with cms data @xcite and more thoroughly with theoretical predictions for double @xmath0 production obtained by another group @xcite .
+the outline is as follows . in section  [ sec :
+theo_setup ] , the theoretical setup of @xcite used for both the sps and dps cross section calculations is reviewed , followed by a listing of monte carlo parameters for event simulation in section  [ sec : monte_sim ] .
+we present numerical results for total cross sections and kinematic distributions for a choice of experimentally accessible variables in section  [ sec : kin_dis ] . at last ,
+we conclude in section  [ sec : conclusions ] .
+in this work , the sps contributions will be considered utilising a leading - order ( lo ) colour - singlet result presented in @xcite and including radiative corrections from parton showering .
+the details of the implementation are described in section  [ sec : monte_sim ] and the sps results obtained in this way are compared to the nlo calculations of  @xcite in section  [ sec : complansberg ] .    as it was pointed out in @xcite ,
+the prompt production of @xmath0 mesons comprises feed - down from the decay of @xmath17 and @xmath18 at a non - negligible amount of roughly 85% .
+the sps calculation of @xcite is for direct production of @xmath0 pairs only , so in the following , all sps cross sections will be considered for prompt production , @xmath19 .
+the dps results implicitely include feed - down contributions due to the fit to experimental data .
+to include some higher - order effects in our sps predictions , in addition to using nlo pdfs , we enable initial - state radiation or parton showering within the ` herwig ` @xcite framework . furthermore ,
+if denoted , we also add effects of intrinsic transverse momentum of the initial - state partons using a gaussian model in ` herwig ` with a root mean square @xmath20 of 2  gev .
+we have checked that the predictions do not depend strongly on the actual numerical value , and it will be seen in the following sections that the effect of the intrinsic transverse momentum is rather mild on the distributions .
+dps production of a @xmath0-pair is described using an approximation in which the dps cross section factorises into a product of two hard - scattering cross sections describing single-@xmath0 production which are independent from each other : @xmath21 this customary approximation assumes factorization of the transverse and longitudinal components in the generalized parton distribution function .
+we refer the reader to  @xcite for a discussion of the validity of the approximation and the status of understanding factorization in dps .
+the sps cross section for single-@xmath0 production is given as @xmath22 with a sum over the initial - state flavours @xmath23 and the parton distribution functions @xmath24 and @xmath25 the partonic cross section for single @xmath0 production with the corresponding matrix elements @xmath26 and the phase space @xmath27 .
+@xmath28 denotes any additional final state which is not a @xmath0 , and therefore not of interest for @xmath0 production .
+the factor @xmath29 is assumed to only depend on the transverse structure of the proton , and should therefore be process and energy independent if the factorisation of eq .   holds .
+it is the main quantity to be extracted by a dps experiment .
+theoretical description of single quarkonium production  @xcite is challenging even within the nrqcd framework @xcite .
+given that lhcb can trigger over low @xmath30 muons it is important to describe the low @xmath30 production accurately .
+therefore in this work we choose to model the low @xmath30 region and use the same setup as in @xcite .
+it relies on the matrix element as in eq .
+given by : @xmath31^{-n } & \text{for } p_t > \langle p_t\rangle ,      \end{cases}\label{crystalball}\end{aligned}\ ] ] which describes a fit of data from the lhcb @xcite , atlas @xcite , cms @xcite , and cdf @xcite experiments to a crystal ball function . in eq .  ,
+@xmath32 , and the fit parameters are determined to be @xmath33 and @xmath34 for @xmath35 and @xmath36  gev .
+while the work of @xcite updated the fit parameters to include more recent measurements of single @xmath0 production , we have checked that the change in predictions for dps production is only moderate and well within the uncertainty on @xmath29 .
+we have also checked that for the available measurement of single @xmath0 production at 13 tev from the lhcb experiment @xcite with @xmath37 @xmath38b , the fit parameters still produce results at 13 tev consistent with the lhcb measurement , @xmath39 @xmath38b .      the public monte carlo event generator ` herwig-7.0.3 ` @xcite has been used to simulate double @xmath0 production at the lhc via sps .
+the central values for the renormalisation and factorisation scales are chosen as the transverse mass of a single @xmath0 , @xmath40 with the physical @xmath0 mass @xmath41  gev @xcite .
+one parameter appearing in the calculation of the sps cross section of @xcite is the charm quark mass which we set to @xmath42 which corresponds to the lo choice of the hadron mass in a nrqcd calculation @xcite .
+another input parameter entering the sps calculation is the non - perturbative wave function of the @xmath0 meson at the origin . in the following computations ,
+it is set to @xmath43 gev@xmath44 @xcite .
+it should be noted that a variation of this parameter can be achieved by multiplying the sps cross section by a factor of @xmath45 , where @xmath46 is the new value of the wave function .
+we use mstw2008 nlo parton distribution functions @xcite for the sps predictions including initial - state radiation and for dps .
+the parton distribution functions are accessed via the lhapdf 6 library @xcite .
+the @xmath0 mesons are assumed to decay isotropically into a pair of opposite - sign ( os ) muons with a branching ratio of @xmath47 . out of the two possible combinations of choosing os muon pairs , the one with an invariant mass closest to @xmath48
+is chosen . from these pairs ,
+properties of the @xmath0 are reconstructed . to optimise the data samples collected by the experiments for a dps analysis , a certain set of cuts on transverse momentum and ( pseudo-)rapidity of the @xmath0 as well as their decay products
+is applied .
+unless otherwise specified , we use the cdf value of @xmath49  mb @xcite .
+a more recent double-@xmath0 study by d0 reports a lower value of @xmath50  mb @xcite , but given that most of other experiments measure higher values , see e.g.  @xcite , and the difficulty of theoretical modelling of @xmath29 , we choose the cdf value . with its relatively wide
+error bars it then accounts to a large extent for the observed span in values of @xmath51 .
+we also note that this value is in accordance with the phenomenological estimates @xcite taking into account in our framework ( eq .  [ dpsfact ] ) the so - called `` 2v2 '' and `` 2v1 '' contributions , i.e.  contributions from two separate parton ladders or from one ladder and another ladder created by a perturbative splitting of a single parton , respectively .
+as found out in  @xcite , the shapes of the transverse momentum and rapidity distributions for the two types of production mechanisms remain very similar , justifying our effective approach of considering only the conventional 2v2 scattering .    in a similar manner as for the non - perturbative wave function at the origin ,
+the dps results for a different value of @xmath29 can be obtained by rescaling our dps cross section with a factor of @xmath52 .
+the dps predictions have been cross checked with two independent numerical in - house implementations .
+the lhcb experiment , being a forward spectrometer , mainly selects events in the forward - scattering region with low transverse momentum .
+the cuts are :    * @xmath53 gev , * @xmath54 ,    with @xmath55 being the transverse momentum and @xmath56 the rapidity of a single @xmath0 . any further cuts on the muons as the decay products of the di-@xmath0 are not relevant for the theoretical predictions presented in this work , as they are already taken into account in the efficiency correction of the data .
+the atlas experiment probes the @xmath0 in the central region imposing a minimum transverse momentum and a more central rapidity region .
+additionally , several cuts are also applied to the muons :    * @xmath57 gev , * @xmath58 , * @xmath59 gev , * @xmath60 , * at least 1 @xmath0 with both @xmath61 gev ,    with @xmath62 being the transverse momentum and @xmath63 the pseudorapidity of one muon .
+.total cross sections for sps and dps production of a @xmath0 pair for different centre - of - mass energies and cuts .
+ps+@xmath64(2 gev ) denotes the addition of initial - state radiation and intrinsic transverse momentum to the lo calculation in ` herwig ` .
+all numbers include the branching ratio factor of @xmath65 .
+the uncertainties on the ps+@xmath64(2 gev ) numbers correspond to a simultaneous variation of the renormalisation and factorisation scales up and down by a factor of two , while the uncertainty on the dps numbers corresponds to the uncertainty of our value of @xmath29 used , see section  [ sec : monte_sim ] . [
+cols="^,^,^",options="header " , ]     also for the atlas predictions , shown in fig .
+[ fig : atlas_plots13 ] , the dominance of the dps contributions at 13 tev leads to an easier distinction between sps and dps . despite the transverse momentum distribution of the di-@xmath0 system in fig .
+[ fig : atlas_plots13 ]  ( a ) now offering a clearer possibility to separate sps and dps contributions for low @xmath66 due to the dps contributions being larger than sps by almost a factor of 2 , we see that the increase in the centre - of - mass energy complicates the distinction of the shapes of sps and dps , and we again remark that higher - order corrections which are not included here can change the shape of the distribution significantly .
+cc   tev for the invariant mass ( a ) , the rapidity separation ( b ) , and the transverse momentum of the di-@xmath0 system ( c ) . shown
+are bins which are normalised to the corresponding total cross sections of the different sps and dps distributions and the data.,title="fig : " ] &   tev for the invariant mass ( a ) , the rapidity separation ( b ) , and the transverse momentum of the di-@xmath0 system ( c ) . shown
+are bins which are normalised to the corresponding total cross sections of the different sps and dps distributions and the data.,title="fig : " ] + ( a ) & ( b ) +   +    the cms experiment has recently measured @xmath0-pair production at @xmath1  tev @xcite .
+they applied the following cuts to their data :    * @xmath67 gev for @xmath68 , * @xmath69 gev for @xmath70 , * @xmath71 gev for @xmath72 .
+the @xmath30 cut in point 2 scales linearly from 6.5 gev to 4.5 gev with the value of @xmath73 from 1.2 to 1.43 .
+no further cuts on the muons are applied .    in fig .
+[ fig : cms_comp ] , we compare our predictions to the cms data .
+we show all bins normalised to the corresponding total cross section of a line to only compare the shape of the distributions and approximately remove the dependence on a specific pdf set .
+furthermore , for the theoretical sps and dps predictions , we only show the central values without the error bands as described in section  [ sub : lhcb_predictions ] . shown
+are the invariant mass distribution , the transverse momentum of the di-@xmath0 system , and the rapidity separation of the two @xmath0 .
+we see that our predictions catch the bulk behaviour of the cms data , in particular also when further sources of uncertainty like the exact choice of the parameters which appear in the sps and dps calculations would be taken into account . especially for the invariant mass and the rapidity separation distributions , figs .  [
+fig : cms_comp ]  ( a ) and ( b ) , we see that at the high end of the spectrum the dps contributions can not be neglected . at the same time , the existing discepancies between theory and data call for further improvements in the theoretical description of sps and dps distributions .      at last , we compare our results to the recently published ones of lansberg and shao @xcite .
+the authors present predictions for similar scenarios of @xmath0-pair production at the lhcb and atlas experiments , with the difference of using full calculations of real gluon emission at nlo@xmath74 , the asterisk denoting the lack of virtual corrections .
+this method differs from ours by also taking into account hard gluon emission , while parton showering only considers soft gluons , however to all orders in @xmath75 . in this regard ,
+it is interesting to see how the two approaches compare for the lhcb and atlas cuts . in order to minimise the sources of uncertainty , we choose parameters and pdf sets as close as possible to lansberg et al .
+these are the wave function of the @xmath0 meson at origin @xmath76 gev@xmath44 , the charm mass in the range @xmath77-@xmath78  gev , and the pdf sets cteq6l1 for lo @xcite , cteq6 m for sps ( ps+@xmath64 ) @xcite , and mstw2008 nlo for dps .
+the renormalisation and factorisation scales for sps production are set to @xmath79 , where @xmath80 .
+the error bands are obtained from a simultaneous variation of @xmath81 and @xmath82 as @xmath83;@xmath84;@xmath85 . for dps
+, we additionally use the effective dps cross section @xmath86  mb and the best fit parameters of @xcite with @xmath87 and @xmath88 . the factorisation scale in this case
+is set , as before , to the transverse mass of a single @xmath0 .
+the error bands are now obtained from the uncertainty of @xmath29 .
+[ fig : comp_lhcb_lansberg ] shows the comparison of distributions for three kinematic variables : the transverse momentum of the di-@xmath0 system @xmath66 , the rapidity separation between the two @xmath0 @xmath89 , and the invariant mass of the di-@xmath0 system @xmath90 , for the lhcb cuts at a collider energy of @xmath1  tev .
+we note that in @xcite , the sps predictions for the @xmath89 and @xmath90 distributions are only given at lo without taking into account additional gluon radiation .    in fig .
+[ fig : comp_lhcb_lansberg ]  ( a ) , it can be seen that the transverse momentum distributions of sps in our calculation and the one of @xcite agree within the error bands for intermediate values of @xmath66 , while they differ at low and high @xmath66 .
+we see at low @xmath66 the typical suppression from the all - order structure of parton showering , while the nlo@xmath74 prediction is growing towards small @xmath66 .
+we expect that the inclusion of parton showering describes the shape of the distribution at low @xmath66 better than a fixed - order calculation at nlo@xmath74 , since a major part of the contribution in this region comes from soft - collinear gluon emission , which is approximately taken into account at all orders in @xmath75 in the parton shower formalism . on the other hand ,
+the high-@xmath66 region can not be described properly by parton showering due to the lack of hard gluon emission which dominates this region .
+we remark that the good agreement for intermediate @xmath66 is also related to the @xmath53  gev cut , effectively cutting off the high-@xmath66 region where hard gluon emission becomes important .
+the dps predictions for the transverse momentum distribution agree very well between our calculation and @xcite due to the same functional form of the cross section fit of eq .  .
+cc   system ( a ) , the rapidity separation ( b ) , and the invariant mass ( c ) .
+the `` sps nlo ( lansberg et al . ) '' and `` dps ( lansberg et al . ) '' uncertainty bands are read off from the corresponding plots in @xcite .
+the cross sections here are not multiplied by the squared branching ratio @xmath65.,title="fig : " ] &   system ( a ) , the rapidity separation ( b ) , and the invariant mass ( c ) .
+the `` sps nlo ( lansberg et al . ) '' and `` dps ( lansberg et al . ) '' uncertainty bands are read off from the corresponding plots in @xcite .
+the cross sections here are not multiplied by the squared branching ratio @xmath65.,title="fig : " ] + ( a ) & ( b ) +   +    cc   for the case of the atlas@xmath74 cuts .
+these differ from the atlas cuts defined in section  [ subsec : atlascuts ] by imposing a lower @xmath55 cut of @xmath91  gev instead of @xmath57  gev .
+furthermore , the predictions are shown for @xmath92  tev instead of 8 tev.,title="fig : " ] &   for the case of the atlas@xmath74 cuts .
+these differ from the atlas cuts defined in section  [ subsec : atlascuts ] by imposing a lower @xmath55 cut of @xmath91  gev instead of @xmath57  gev .
+furthermore , the predictions are shown for @xmath92  tev instead of 8 tev.,title="fig : " ] + ( a ) & ( b ) +   +    the rapidity separation in fig .
+[ fig : comp_lhcb_lansberg ]  ( b ) shows , as expected , a very good agreement between the sps and dps predictions from us and @xcite because of the lo calculations and the same parametrisation of eq .  .
+for the invariant mass distributions of fig .
+[ fig : comp_lhcb_lansberg ]  ( c ) , our sps and dps predictions agree well with @xcite for an invariant mass up to approx .
+20 gev , while there are differences for sps in the last two bins and for dps in the last bin .
+these differences might be related to numerical precision , as the differential cross sections become very small for a high invariant mass .
+[ fig : comp_atlas_lansberg ] for the atlas@xmath74 predictions at a collider energy of @xmath1  tev shows the same set of distributions as for the lhcb predictions .
+it should be noted that the asterisk denotes a changed atlas cut with @xmath91  gev instead of @xmath57  gev .    the transverse momentum distribution of fig .
+[ fig : comp_atlas_lansberg ]  ( a ) displays a larger @xmath66 range than for the lhcb cuts , which shows that for large values of @xmath93  gev , the parton shower and nlo@xmath74 results of sps differ by a notable amount region ; instead the nrqcd framework should be used . ] while there is again an agreement for low @xmath94 - 15  gev within the error bands .
+we point out that the bulk of the cross section comes from the region for @xmath95  gev , as seen e.g.  in fig .
+[ fig : atlas_plots ]  ( b ) for a similar setup at 8  tev ( on a linear axis ) , so that the differences for @xmath93  gev between the parton shower and nlo@xmath74 results affect the description of only a small portion of events .
+interestingly , while there is a small difference for sps in the bin with small rapidity separation , fig .
+[ fig : comp_atlas_lansberg ]  ( b ) , the two predictions agree well within the errors for @xmath96 .
+the invariant mass distribution of fig .
+[ fig : comp_atlas_lansberg ]  ( c ) shows that , while there is again a difference for the smallest bin , the predictions for sps with parton shower and nlo@xmath74 corrections almost agree within the error bands ( and they in fact do for some bins ) , although it can be seen more clearly here that the lack of hard gluon emission leads to the parton shower result always being below the nlo@xmath74 result .
+the dps predictions agree very well for the transverse momentum distribution , while for the rapidity separation and the invariant mass , there are slight deviations in the high-@xmath89 and @xmath90 bins , possibly related to the difference in numerics and codes used to compute these predictions .    from these comparisons , we see that , as one would expect , the rapidity separation distribution is most stable with respect to higher - order corrections from hard gluon emission that are not included in our approach , while the transverse momentum distribution of the di-@xmath0 system is most strongly affected by them .
+we remark that here the sps and dps predictions have been computed with different input pdfs ( cteq6l1 , cteq6 m , and mstw2008 nlo , respectively ) for the purpose of comparing to @xcite , while the comparison between the magnitudes of sps and dps presented in section  [ sec : kin_dis ] avoids introducing pdf effects unrelated to the sps and dps calculations .
+precise predictions for multi - parton interations are a vital ingredient for the high - energy collisions at the lhc , in particular during the current run at a centre - of - mass energy of @xmath16  tev and future runs at higher energies , where the probability for such subleading scattering processes to happen is significantly increased . in this work
+we have documented sps and dps predictions for the production of @xmath0 pairs with the updated fiducial volume cuts for the lhcb analyses of run i data , and also for a new dps study of @xmath0-pair production at @xmath97  tev by the atlas experiment .
+the distributions show interesting indications that dps processes could contribute significantly to certain kinematic regions of the invariant mass and rapidity separation of the di-@xmath0 system , while the transverse momentum distribution is very susceptible to higher - order corrections .
+the predictions for a collider energy of @xmath16  tev show a considerable increase of the dps contributions with respect to sps .
+finally , the comparison to the results presented in @xcite indicate a good agreement for regions where it is reasonable to compare a parton shower to a nlo@xmath74 calculation , supporting the parton shower approach as a good approximation in these regions .
++ * note added : * in the final preparation stages of this report , we have become aware of a new atlas study of double @xmath0 production  @xcite . in this study ,
+our dps predictions presented in section  [ sec : kin_dis ] are compared with the data - driven estimates of dps . a good agreement between dps theory and data
+is found for all differential distributions reported in  @xcite .
+the full @xmath0 distributions measured by atlas are then compared with the sum of our dps predictions and nlo sps predictions of  @xcite with the collision energy and fiducial volume adjusted according to the experimental analysis and normalised to the fraction of dps events found using data - driven model .
+we have checked that applying the same normalisation procedure to our predictions leads to a rather good agreement with the measured @xmath0 distributions , apart from the large end of the spectra ( and the first , low end bins in some cases ) , in accordance with observations in  @xcite and section  [ sec : complansberg ] .
+it needs to be checked if supplementing the theoretical predictions with full nlo corrections can eliminate the need for introducing the normalisation procedure , as results of  @xcite would suggest .
+the authors thank c.h .
+kom for sharing his expertise during initial stages of the event simulation .
+part of this work has been performed on the high performance computing cluster palma maintained by the center for information technology ( ziv ) at wwu mnster , and on the high - performance computing resources funded by the ministry of science , research and the arts and the universities of the state of baden - wrttemberg , germany , within the framework program bwhpc .
+cb acknowledges support by the institutional strategy of the university of tbingen ( dfg , zuk 63 ) .
+ak would like to thank the theory group at cern , where part of this work was carried out , for its kind hospitality .
+m.  aaboud _ et al . _ [ atlas collaboration ] , `` _ study of hard double - parton scattering in four - jet events in @xmath102 collisions at @xmath103 tev with the atlas experiment _ , '' [ http://arxiv.org/abs/1608.01857[arxiv:1608.01857 ] ] .
+v.  m.  abazov _ et al . _
+[ d0 collaboration ] , `` _
+double parton interactions in @xmath106 + 3 jet events in @xmath107 bar collisions @xmath108 tev .
+_ , '' phys .
+d * 81 * ( 2010 ) 052012 [ http://arxiv.org/abs/0912.5104[arxiv:0912.5104 ] ] .
+v.  m.  abazov _ et al . _
+[ d0 collaboration ] , `` _
+double parton interactions in @xmath6 jet and @xmath109 jet events in @xmath110 collisions at @xmath111 tev _ , '' phys .
+d * 89 * ( 2014 ) no.7 , 072006 [ http://arxiv.org/abs/1402.1550[arxiv:1402.1550 ] ] .
+v.  m.  abazov _ et al . _
+[ d0 collaboration ] , `` _ study of double parton interactions in diphoton + dijet events in @xmath100 collisions at @xmath112 tev _ , '' phys .
+d * 93 * ( 2016 ) no.5 , 052008 [ http://arxiv.org/abs/1512.05291[arxiv:1512.05291 ] ] .
+g.  aad _ et al . _ [ atlas collaboration ] , `` _ measurement of hard double - parton interactions in @xmath113 + 2 jet events at @xmath114=7 tev with the atlas detector _ , '' new j.  phys .
+* 15 * ( 2013 ) 033038 [ http://arxiv.org/abs/1301.6872[arxiv:1301.6872 ] ] .
+s.  chatrchyan _ et al . _
+[ cms collaboration ] , `` _ study of double parton scattering using w + 2-jet events in proton - proton collisions at @xmath114 = 7 tev _ , '' jhep * 1403 * ( 2014 ) 032 [ http://arxiv.org/abs/1312.5729[arxiv:1312.5729 ] ] .
+g.  aad _ et al . _ [ atlas collaboration ] , `` _ measurement of the production cross section of prompt @xmath115 mesons in association with a @xmath116 boson in @xmath102 collisions at @xmath117 7 tev with the atlas detector _ , '' jhep * 1404 * ( 2014 ) 172 [ http://arxiv.org/abs/1401.2831[arxiv:1401.2831 ] ] .
+g.  aad _ et al . _ [ atlas collaboration ] , `` _ observation and measurements of the production of prompt and non - prompt @xmath115 mesons in association with a @xmath118 boson in @xmath102 collisions at @xmath114 = 8 tev with the atlas detector _ , '' eur .
+j.  c * 75 * ( 2015 ) no.5 , 229 [ http://arxiv.org/abs/1412.6428[arxiv:1412.6428 ] ] .
+r.  aaij _ et al . _
+[ lhcb collaboration ] , `` _ observation of double charm production involving open charm in pp collisions at @xmath114 = 7 tev _ , '' jhep * 1206 * ( 2012 ) 141 [ jhep * 1403 * ( 2014 ) 108 ] [ http://arxiv.org/abs/1205.0975[arxiv:1205.0975 ] ] .
+r.  aaij _ et al . _
+[ lhcb collaboration ] , `` _ production of associated y and open charm hadrons in pp collisions at @xmath119 and 8 tev via double parton scattering _
+* 1607 * ( 2016 ) 052 [ http://arxiv.org/abs/1510.05949[arxiv:1510.05949 ] ] .    v.  m.  abazov _ et al . _
+[ d0 collaboration ] , `` _ evidence for simultaneous production of @xmath115 and @xmath11 mesons _ , '' phys .
+lett .   *
+116 * ( 2016 ) no.8 , 082002 [ http://arxiv.org/abs/1511.02428[arxiv:1511.02428 ] ] .
+v.  m.  abazov _ et al . _
+[ d0 collaboration ] , `` _ observation and studies of double @xmath115 production at the tevatron _ , '' phys .
+d * 90 * ( 2014 ) 11 , 111101 [ http://arxiv.org/abs/1406.2380[arxiv:1406.2380 ] ] .
+h.  jung , d.  treleani , m.  strikman and n.  van buuren , `` _ proceedings , 7th international workshop on multiple partonic interactions at the lhc ( mpi@lhc 2015 ) : miramare , trieste , italy , november 23 - 27 , 2015 _ , '' desy - proc-2016 - 01 .
+r.  aaij _ et al . _
+[ lhcb collaboration ] , `` _ observation of @xmath115 pair production in @xmath102 collisions at @xmath120 _ , '' phys .
+b * 707 * ( 2013 ) 52 [ http://arxiv.org/abs/1109.0963[arxiv:1109.0963 ] ] .
+v.  khachatryan _ et al . _
+[ cms collaboration ] , `` _ measurement of prompt @xmath115 pair production in pp collisions at @xmath121 = 7 tev _
+, '' jhep * 1409 * ( 2014 ) 094 [ http://arxiv.org/abs/1406.0484[arxiv:1406.0484 ] ] .
+c.  h.  kom , a.  kulesza and w.  j.  stirling , `` _ pair production of j / psi as a probe of double parton scattering at lhcb _
+, '' phys .
+* 107 * ( 2011 ) 082002 [ http://arxiv.org/abs/1105.4186[arxiv:1105.4186 ] ] .
+s.  p.  baranov , a.  m.  snigirev and n.  p.  zotov , `` _
+double heavy meson production through double parton scattering in hadronic collisions _
+, '' phys .
+b * 705 * ( 2011 ) 116 [ http://arxiv.org/abs/1105.6276[arxiv:1105.6276 ] ] .      c.  h.  kom , a.  kulesza and w.  j.  stirling , `` _ prospects for observation of double parton scattering with four - muon final states at lhcb _ , '' eur .
+j.  c * 71 * ( 2011 ) 1802 [ http://arxiv.org/abs/1109.0309[arxiv:1109.0309 ] ] .
+a.  p.  martynenko and a.  m.  trunin , `` _ relativistic corrections to double charmonium production in high energy proton - proton interaction _
+, '' phys .
+d * 86 * ( 2012 ) 094003 [ http://arxiv.org/abs/1207.3245[arxiv:1207.3245 ] ] .
+s.  p.  baranov , a.  m.  snigirev , n.  p.  zotov , a.  szczurek and w.  schfer , `` _ interparticle correlations in the production of @xmath115 pairs in proton - proton collisions _
+, '' phys .
+d * 87 * ( 2013 ) no.3 , 034035 [ http://arxiv.org/abs/1210.1806[arxiv:1210.1806 ] ] .
+d.  denterria and a.  m.  snigirev , `` _ enhanced @xmath123-pair production from double parton scatterings in nucleus - nucleus collisions at the large hadron collider _ , '' phys .
+b * 727 * ( 2013 ) 157 [ http://arxiv.org/abs/1301.5845[arxiv:1301.5845 ] ] .
+l.  a.  harland - lang , v.  a.  khoze and m.  g.  ryskin , `` _ exclusive production of double j/@xmath0 mesons in hadronic collisions _
+, '' j.  phys .
+g * 42 * ( 2015 ) no.5 , 055001 [ http://arxiv.org/abs/1409.4785[arxiv:1409.4785 ] ] .
+lansberg and h.  s.  shao , `` _ production of @xmath124 versus @xmath125 at the lhc : importance of real @xmath126 corrections _ , '' phys .  rev
+.  lett .
+* 111 * ( 2013 ) 122001 [ http://arxiv.org/abs/1308.0474[arxiv:1308.0474 ] ] .
+lansberg and h.  s.  shao , `` _ j/@xmath0 -pair production at large momenta : indications for double parton scatterings and large @xmath127 contributions _ , '' phys .
+b * 751 * ( 2015 ) 479 [ http://arxiv.org/abs/1410.8822[arxiv:1410.8822 ] ] .      c.  brenner mariotto and v.  p.  goncalves ,
+double @xmath115 production in central diffractive processes at the lhc _
+, '' phys .
+d * 91 * ( 2015 ) no.11 , 114002 [ http://arxiv.org/abs/1502.02612[arxiv:1502.02612 ] ] .
+lansberg and h.  s.  shao , `` _ double - quarkonium production at a fixed - target experiment at the lhc ( after@lhc ) _ , '' nucl .
+b * 900 * ( 2015 ) 273 [ http://arxiv.org/abs/1504.06531[arxiv:1504.06531 ] ] .
+s.  p.  baranov and a.  h.  rezaeian , `` _ prompt double @xmath115 production in proton - proton collisions at the lhc _
+, '' phys .
+d * 93 * ( 2016 ) no.11 , 114011 [ http://arxiv.org/abs/1511.04089[arxiv:1511.04089 ] ] .
+h.  s.  shao , `` _ helac - onia 2.0 : an upgraded matrix - element and event generator for heavy quarkonium physics _ , '' comput .  phys .  commun .
+* 198 * ( 2016 ) 238 [ http://arxiv.org/abs/1507.03435[arxiv:1507.03435 ] ] .            g.  t.  bodwin , e.  braaten and g.  p.  lepage , `` _ rigorous qcd analysis of inclusive annihilation and production of heavy quarkonium _
+, '' phys .
+d * 51 * ( 1995 ) 1125 [ phys .
+d * 55 * ( 1997 ) 5853 ] [ http://arxiv.org/abs/hep-ph/9407339[hep-ph/9407339 ] ] .
+v.  d.  barger , s.  fleming and r.  j.  n.  phillips , `` _
+double gluon fragmentation to @xmath115 pairs at the tevatron _
+, '' phys .
+b * 371 * ( 1996 ) 111 [ http://arxiv.org/abs/hep-ph/9510457[hep-ph/9510457 ] ] .      c.  f.  qiao , l.  p.  sun and p.  sun , `` _ testing charmonium production mechamism via polarized j / psi pair production at the lhc _ , '' j.  phys .
+g * 37 * ( 2010 ) 075019 [ http://arxiv.org/abs/0903.0954[arxiv:0903.0954 ] ] .
+a.  v.  berezhnoy , a.  k.  likhoded , a.  v.  luchinsky and a.  a.  novoselov , `` _
+double j / psi - meson production at lhc and 4c - tetraquark state _
+, '' phys .
+d * 84 * ( 2011 ) 094023 [ http://arxiv.org/abs/1101.5881[arxiv:1101.5881 ] ] .
+m.  diehl , j.  r.  gaunt , d.  ostermeier , p.  pll and a.  schfer , `` _ cancellation of glauber gluon exchange in the double drell - yan process _ , '' jhep * 1601 * ( 2016 ) 076 [ http://arxiv.org/abs/1510.08696[arxiv:1510.08696 ] ] .
+b.  blok , y.  dokshitzer , l.  frankfurt and m.  strikman , `` _ perturbative qcd correlations in multi - parton collisions _ , '' eur .
+j.  c * 74 * ( 2014 ) 2926 [ http://arxiv.org/abs/1306.3763[arxiv:1306.3763 ] ] .
+a.  v.  manohar and w.  j.  waalewijn , `` _ a qcd analysis of double parton scattering : color correlations , interference effects and evolution _ , '' phys .
+d * 85 * ( 2012 ) 114009 [ http://arxiv.org/abs/hep-ph/1202.3794[arxiv:1202.3794 ] ] .
+j.  m.  campbell , f.  maltoni and f.  tramontano , `` _ qcd corrections to j / psi and upsilon production at hadron colliders _ , '' phys .
+* 98 * ( 2007 ) 252002 [ http://arxiv.org/abs/hep-ph/0703113[hep-ph/0703113 ] ] .
+b.  gong , x.  q.  li and j.  x.  wang , `` _ qcd corrections to j / psi production via color octet states at tevatron and lhc _
+, '' phys .
+b * 673 * ( 2009 ) 197 erratum : [ phys .
+* 693 * ( 2010 ) 612 ] [ http://arxiv.org/abs/0805.4751[arxiv:0805.4751 ] ] .
+m.  butenschoen and b.  a.  kniehl , `` _ reconciling @xmath115 production at hera , rhic , tevatron , and lhc with nrqcd factorization at next - to - leading order _ , '' phys .
+lett .   * 106 * ( 2011 ) 022003 [ http://arxiv.org/abs/1009.5662[arxiv:1009.5662 ] ] .
+y.  q.  ma , k.  wang and k.  t.  chao , `` _
+@xmath129 production at the tevatron and lhc at @xmath130 in nonrelativistic qcd _
+, '' phys .
+* 106 * ( 2011 ) 042002 [ http://arxiv.org/abs/1009.3655[arxiv:1009.3655 ] ] .
+v.  a.  khoze , a.  d.  martin , m.  g.  ryskin and w.  j.  stirling , `` _
+inelastic @xmath115 and @xmath131 hadroproduction _ , '' eur .
+j.  c * 39 * ( 2005 ) 163 [ http://arxiv.org/abs/hep-ph/0410020[hep-ph/0410020 ] ] .
+p.  artoisenet , j.  p.  lansberg and f.  maltoni , `` _ hadroproduction of @xmath115 and @xmath131 in association with a heavy - quark pair _ , '' phys .
+b * 653 * ( 2007 ) 60 [ http://arxiv.org/abs/hep-ph/0703129[hep-ph/0703129 ] ] .
+p.  artoisenet , j.  m.  campbell , j.  p.  lansberg , f.  maltoni and f.  tramontano , `` _
+@xmath11 production at fermilab tevatron and lhc energies _ , '' phys .
+* 101 * ( 2008 ) 152001 [ http://arxiv.org/abs/0806.3282[arxiv:0806.3282 ] ] .
+b.  gong , l.  p.  wan , j.  x.  wang and h.  f.  zhang , `` _ polarization for prompt j/@xmath0 and @xmath0(2s ) production at the tevatron and lhc _ , '' phys .
+* 110 * ( 2013 ) no.4 , 042002 [ http://arxiv.org/abs/1205.6682[arxiv:1205.6682 ] ] .
+k.  t.  chao , y.  q.  ma , h.  s.  shao , k.  wang and y.  j.  zhang , `` _
+@xmath115 polarization at hadron colliders in nonrelativistic qcd _
+, '' phys .
+* 108 * ( 2012 ) 242004 [ http://arxiv.org/abs/1201.2675[arxiv:1201.2675 ] ] .    for a recent review ,
+see e.g. n.  brambilla _ et al .
+_ , `` _ qcd and strongly coupled gauge theories : challenges and perspectives _ , '' eur .
+j.  c * 74 * ( 2014 ) no.10 , 2981 [ http://arxiv.org/abs/1404.3723[arxiv:1404.3723 ] ] .
+r.  aaij _ et al .
+_ [ lhcb collaboration ] , `` _ measurement of @xmath115 production in @xmath102 collisions at @xmath132 _ , '' eur .
+j.  c * 71 * ( 2011 ) 1645 [ http://arxiv.org/abs/1103.0423[arxiv:1103.0423 ] ] .
+g.  aad _ et al . _ [ atlas collaboration ] , `` _ measurement of the differential cross - sections of inclusive , prompt and non - prompt @xmath115 production in proton - proton collisions at @xmath133 tev _ , '' nucl .
+b * 850 * ( 2011 ) 387 [ http://arxiv.org/abs/1104.3038[arxiv:1104.3038 ] ] .
+v.  khachatryan _ et al . _
+[ cms collaboration ] , `` _ prompt and non - prompt @xmath115 production in @xmath102 collisions at @xmath133 tev _ , '' eur .
+j.  c * 71 * ( 2011 ) 1575 [ http://arxiv.org/abs/1011.4193[arxiv:1011.4193 ] ] .
+d.  acosta _ et al . _
+[ cdf collaboration ] , `` _ measurement of the @xmath115 meson and @xmath134hadron production cross sections in @xmath100 collisions at @xmath135 gev _ , '' phys .
+d * 71 * ( 2005 ) 032001 [ http://arxiv.org/abs/hep-ex/0412071[hep-ex/0412071 ] ] .
+r.  aaij _ et al .
+_ [ lhcb collaboration ] , `` _ measurement of forward @xmath115 production cross - sections in @xmath102 collisions at @xmath136 tev _ , '' jhep * 1510 * ( 2015 ) 172 [ http://arxiv.org/abs/1509.00771[arxiv:1509.00771 ] ] .      g.  t.  bodwin , h.  s.  chung , d.  kang , j.  lee and c.  yu , `` _ improved determination of color - singlet nonrelativistic qcd matrix elements for s - wave charmonium _
+, '' phys .
+d * 77 * ( 2008 ) 094017 [ http://arxiv.org/abs/0710.0994[arxiv:0710.0994 ] ] .
+a.  buckley , j.  ferrando , s.  lloyd , k.  nordstrm , b.  page , m.  rfenacht , m.  schnherr and g.  watt , `` _ lhapdf6 : parton density access in the lhc precision era _
+, '' eur .
+j.  c * 75 * ( 2015 ) 132 [ http://arxiv.org/abs/1412.7420[arxiv:1412.7420 ] ] .
+j.  r.  gaunt , r.  maciula and a.  szczurek , `` _ conventional versus single - ladder - splitting contributions to double parton scattering production of two quarkonia , two higgs bosons and @xmath137 _ , '' phys .  rev .
+d * 90 * ( 2014 ) 5 , 054017 [ http://arxiv.org/abs/1407.5821[arxiv:1407.5821 ] ] .
+j.  pumplin , d.  r.  stump , j.  huston , h.  l.  lai , p.  m.  nadolsky and w.  k.  tung , `` _ new generation of parton distributions with uncertainties from global qcd analysis _ , '' jhep * 0207 * ( 2002 ) 012 [ http://arxiv.org/abs/hep-ph/0201195[hep-ph/0201195 ] ] .    the atlas collaboration [ atlas collaboration ] , `` _ measurement of the prompt j/@xmath138 pair production cross - section in pp collisions at @xmath114 = 8 tev with the atlas detector _ , '' atlas - conf-2016 - 047 .

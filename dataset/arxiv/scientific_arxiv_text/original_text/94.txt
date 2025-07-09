@@ -1,0 +1,220 @@
+the mauritius radio telescope ( mrt )  @xcite is a fourier synthesis , t - shaped non - coplanar array operating at 151.5  mhz .
+the telescope was built to fill the gap in the availability of deep sky surveys at low radio frequencies in the southern hemisphere .
+the aim of the survey with mrt is to contribute to the database of southern sky sources in the declination ( @xmath3 ) range @xmath4 to @xmath5 , covering the entire right ascension ( @xmath6 ) , with a synthesised beam of @xmath7 and an expected point source sensitivity ( 1-@xmath0 ) of @xmath8  mjy  beam@xmath9 .
+the _ zenith angle _ @xmath10 is given by @xmath11 , where , @xmath12 @xmath13 is the latitude of mrt .
+mrt has been designed to be the southern - sky equivalent of the cambridge 6c survey at 151.5  mhz  @xcite .
+the next generation radio telescopes , like the low frequency array ( lofar ) and the murchison widefield array ( mwa ) , that are being built are low frequency arrays ; clearly indicating a renewed interest in metre - wavelength astronomy .
+the key astrophysical science drivers include acceleration , turbulence and propagation in the galactic interstellar medium , exploring the high redshift universe and transient phenomenon , as well as searching for the redshifted signature of neutral hydrogen from the cosmologically important epoch of reionisation ( eor ) .
+the surveys made using such arrays will provide critical information about foregrounds which will also provide a useful database for both extragalactic and galactic sources .
+mrt survey at 151.5  mhz is a step in that direction and , in addition , will provide the crucial sky model for calibration .
+imaging at mrt is presently done only on the meridian to minimise the problems of non - coplanarity . a two - dimensional ( 2-d ) image in @xmath6-@xmath14 coordinates is formed by stacking one - dimensional ( 1-d ) images on the meridian at different sidereal times .
+images of @xmath15 a steradian @xmath16 of the southern sky , with an rms noise in images of @xmath17  mjy  beam@xmath9 ( 1-@xmath0 ) , were produced by  @xcite .
+a suite of programs developed in - house was used to reduce @xmath18  hours of the survey data ( a quarter of the total @xmath19 hours observed over a span of @xmath20 years ) .
+the deconvolved images and a source catalogue of @xmath21 sources were published by  @xcite .
+systematics in positional errors were found when the positions of sources common to mrt catalogue and the molonglo reference catalogue ( mrc ) @xcite were compared .
+@xcite treated the systematics in errors in @xmath6 and @xmath14 independently . by estimating two separate 1-d least - squares fits for errors in @xmath6 and @xmath14 the systematics
+were corrected only in the source catalogue .
+however , errors remained in the images which impede usefulness of mrt images for multi - wavelength analysis of sources .
+in addition , the source of errors was not investigated . at mrt
+, the visibility data is processed through several complex stages of data reduction specific to the array , especially , arising due to its non - coplanarity  @xcite .
+it was therefore decided to correct for errors in the image domain and avoid re - processing the visibility data .
+this paper describes the application of 2-d homography , a technique ubiquitous in the computer vision and graphics community , to correct the errors in the image domain .
+homography is used to estimate a transformation matrix ( which includes rotation , translation and non - isotropic scaling ) that accounts for positional errors in the linearly gridded 2-d images . in our view , this technique will be of relevance to the new generation radio telescopes where , owing to huge data rates , only images after a certain integration would be recorded as opposed to raw visibilities  @xcite .
+this paper also describes our investigations tracing the positional errors to errors in the array geometry used for imaging .
+our hypothesis on the array geometry , its subsequent confirmation endorsed by re - estimation of the array geometry and its effect on the images are also described .
+the rest of the paper is organised as follows .
+section  [ s : poserror ] compares positions of sources common to mrt catalogue and mrc .
+the 2-d homography estimation is briefly described in section  [ s : homography ] .
+section  [ s : scheme ] presents the correction scheme and typical results .
+the re - estimation of mrt array geometry is described in section  [ s : arraygeometry ] .
+finally , we summarise and present our conclusions in section  [ s : conclusions ] .
+the positions of sources common to mrt catalogue and mrc were compared .
+we used mrc because of its overlap with mrt survey , its proximity in frequency compared to other reliable catalogues available and , comparable resolution @xmath22 .
+moreover , for sources of listed flux density  @xmath23  jy ( at 408  mhz ) the catalogue is reported to be substantially complete and , the reliability is reported to be 99.9%  @xcite . for our further discussions , errors in mrc source positions are considered random , without any systematics .
+about 400 bright sources common to the two catalogues and with flux density at 151.5  mhz greater than 5  jy ( @xmath24-@xmath0 ) were identified and their positions were compared .
+the sources were labelled as common if they lie within @xmath25 of each other .
+since mrc has a source density of @xmath26  source  deg@xmath27 , the chances of considering two unrelated sources as common are extremely low .
+a flux threshold of 15-@xmath0 ensures a source population abundant to reliably estimate homography ( explained in next section ) .
+the positional errors in @xmath6 and @xmath3 show no systematics as a function of @xmath6 ( refer _ first rows _ of fig .
+[ f : sourcecomparison]a  and  [ f : sourcecomparison]b ) . for visualisation ,
+the errors are shown in percentages of mrt beamwidths .
+the errors in @xmath6 and @xmath3 show a linear gradient as a function of @xmath14 .
+the errors in @xmath6 , plotted against @xmath14 , reach @xmath28 of the mrt beamwidth ( refer _ second row _ of fig .  [
+f : sourcecomparison]a ) . whereas , the errors in @xmath29 , plotted against @xmath14 , are significant and reach @xmath30 of mrt beamwidth .
+( refer _ second row _ of fig .
+[ f : sourcecomparison]b ) .
+histograms in fig .
+[ f : sourcecomparison]c  and  fig .
+[ f : sourcecomparison]d show the distribution of errors in @xmath6 and @xmath3 , respectively .
+the histogram of errors in @xmath3 shows a broader spread compared to errors in @xmath6 .
+re - imaging , to correct for errors in the images , would involve re - reducing the @xmath31 hours of observed data .
+owing to the complexity involved it was decided to correct for the positional errors in the images , thus avoiding re - processing .
+the 2-d homography estimation technique was employed for correcting positional errors in images and is discussed in detail in the following section .
+the 2-d planar homography is a non - singular linear relationship between points on planes .
+given two sets of @xmath32 corresponding image points in projective coordinates , @xmath33 , homography maps @xmath34 to the corresponding @xmath35 @xcite .
+where , @xmath36 .
+the homography sought here is a non - singular @xmath37 matrix @xmath38 such that : @xmath39= \left [ \begin{array}{ccc } h^{}_{11}&h^{}_{12}&h^{}_{13}\\ h^{}_{21}&h^{}_{22}&h^{}_{23}\\ h^{}_{31}&h^{}_{32}&h^{}_{33 } \end{array}\right ] \left [ \begin{array}{c } x^{}_{k}\\y^{}_{k}\\1\end{array}\right ] .
+\label{eq : inhomog}\ ] ] where , @xmath40 and @xmath41 represent @xmath42 of @xmath32 corresponding mrt and mrc sources , respectively .    in equation  [ eq : inhomog ] , @xmath43 and @xmath44
+are referred to as the _ homogeneous coordinates _ and are always represented one dimension higher than the dimension of the problem space .
+this is a commonly used representation in computer graphics .
+the simple reason is that with a @xmath45 matrix one can only _ rotate _ a set of 2-d points around the origin and _ scale _ them towards or away from the origin .
+a @xmath45 matrix is incapable of _ translating _ a set of 2-d points .
+the homogeneous coordinates allow one to express a translation as a multiplication
+. a single @xmath46 matrix , with homogeneous coordinates , can account for rotation , scaling and translation of 2-d coordinates .
+for example , from equation  [ eq : inhomog ] , @xmath47 .
+notice , @xmath48 ( representing translation in @xmath6-dimension ) is simply being added to the normal dot product @xmath49 that together represents rotation and scaling . in homogeneous coordinates ,
+the 2-d problem space is a plane hovering in the third dimension at a unit distance .
+a general homography matrix , for projective transformation , has 8 degrees - of - freedom ( dof ) . for our system ,
+both errors in @xmath6 and @xmath3 have only @xmath14-dependency .
+therefore , a less general , 2-d affine transformation is sufficient .
+a 2-d affine transformation ( two rotations , two translations and two scalings ) requires 6-dof  @xcite , therefore in @xmath38 , @xmath50 and @xmath51 are zero
+. since each 2-d point provides two independent equations , a minimum of 3 point correspondences are necessary to constrain @xmath38 in the affine space .
+a set of @xmath32 such equation pairs , contributed by @xmath32 point correspondences , form an over - determined linear system : @xmath52 @xmath53\mbox { , } \ ] ] @xmath54^{t}\mbox{and , } \ ] ] @xmath55^{t}.\ ] ] in equation  [ e : system ] , @xmath56 represents transpose of a matrix .
+this system can be solved by least squares - based estimators .    at this stage
+it is useful to consider the effect of using ( @xmath57)-coordinates to represent the brightness distribution on the celestial sphere . ideally , it is the directional cosines @xmath58 , with respect to the coordinates of the array , which represent the spherical coordinates in the sky .
+therefore , the image coordinates in which homography should in principle be estimated are @xmath59 .
+however , at mrt , for 1-d imaging on the meridian : @xmath60 therefore , @xmath14 is a natural choice for one of the coordinates and is indeed used in the present case . on the meridian ,
+the directional cosine @xmath61 is zero . for small errors , @xmath62 , in @xmath61 , i.e. close to the meridian :    @xmath63    @xmath64    [ e : sinza ]    here
+, @xmath65 is the error in @xmath6 .
+equation  [ e : sinza ] shows that an error in @xmath61 will lead to an error in @xmath6 with a @xmath66-dependence .
+the 2-d images of mrt are 1-d images on the meridian made at different sidereal times and stacked .
+therefore , positional errors both in @xmath6 and @xmath3 do not show systematics as a function of @xmath6 ( _ first rows _ of figs .
+[ f : sourcecomparison]a  and  [ f : sourcecomparison]b ) .
+we preferred @xmath42-representation because all mrt images were already generated in this coordinate system .
+this choice compelled us to seek solutions for errors in @xmath6 as a function of @xmath14 rather than @xmath66 .
+we plotted errors in @xmath6 against both @xmath66 and @xmath14 and obtained separate linear least - squares fits .
+the rms of residuals in both fits is @xmath67 of the beamwidth in @xmath6 .
+however , the rms of difference between the fitting functions @xmath66 and @xmath14 in the @xmath3 range of mrt @xmath68 is only @xmath69 of the beamwidth in @xmath6 .
+therefore , the random errors in the source positions are larger than the errors introduced by the preferred @xmath42-coordinates for @xmath34 and @xmath35 .    in @xmath34 and @xmath35 ,
+the @xmath6 ranges from 18 hours to 24 hours and the @xmath14 ranges from @xmath70 to @xmath71 ( corresponding to the declination range of @xmath72 to @xmath73 ) .
+moreover , in matrix @xmath74 ( refer equation  [ e : system ] ) there are entries of 1 s & 0 s .
+such a matrix is ill - conditioned and in the presence of noise in the source positions , the solution for an over - determined system may diverge from the correct estimate  @xcite .
+the effect of an ill - conditioned matrix is that it amplifies the divergence .
+a normalisation ( or pre - conditioning ) is therefore required .      to obtain a good estimate of the transformation matrix we adopted the normalisation scheme proposed by @xcite .
+the normalisation ensures freedom on arbitrary choices of scale and coordinate origin , leading to algebraic minimisation in a fixed canonical frame .
+the homography matrix @xmath75 is estimated from normalised coordinates by the least - squares method using singular value decomposition ( svd ) .
+the matrix is then denormalised to obtain @xmath38 .
+the scheme is briefly described below :    1 .
+* normalisation of @xmath76 : * compute a transformation matrix @xmath77 , consisting of a translation and scaling , that takes points @xmath34 to a new set of points @xmath78 such that the centroid of the points @xmath78 is the coordinate origin @xmath79 , and their average distance from the origin is @xmath80 .
+* normalisation of @xmath81 : * compute a similar transformation matrix @xmath82 , transforming points @xmath35 to @xmath83 .
+* estimate homography : * estimate the homography matrix @xmath75 from the normalised correspondences @xmath84 using the algorithm described earlier in the main section .
+* denormalisation : * the final homography matrix is given by : @xmath85
+[ f : scheme ] shows the block schematic of the correction scheme . at mrt
+, the full declination range for each sidereal hour range is divided into 4 _ zones _ ( refer _ second row _ in fig .
+[ f : sourcecomparison]a  or  [ f : sourcecomparison]b ) .
+each zone is imaged with different delay settings to keep the bandwidth decorrelation to @xmath86 . therefore ,
+the 6 sidereal hours of images under consideration , have 24 images ( @xmath87 ) .    using the population of common sources , there are four possible alternatives to correct mrt images by computing :    1 .   24 homography matrices - one for each image .
+2 .   6 matrices - one for each sidereal hour .
+3 .   4 matrices - one for each declination zone .
+4 .   a single homography matrix for the entire steradian .    in principle
+, bright sources in each image ( @xmath88 ) can be used to independently estimate a homography matrix .
+our earlier experiments to correct each image independently showed that the homography matrices were similar .
+the plots of errors in @xmath6 and @xmath3 plotted against @xmath6 and @xmath14 ( refer to fig .
+[ f : sourcecomparison]a  and  [ f : sourcecomparison]b ) indicate that the errors are independent of the four delay zones and the range of @xmath6 .
+this implies that estimating a single homography matrix for the entire source population should suffice in representing the errors .
+the homography matrix estimated using @xmath89 common sources ( described in section  [ s : poserror ] ) is : @xmath90 .
+\label{eq : matrixvalues}\ ] ] in the estimated homography matrix , @xmath91 indicates there is no correction required in @xmath6 as a function of @xmath6 .
+@xmath92 indicates mrt images should be corrected in @xmath6 with a @xmath14 dependence .
+the estimated correction is up to @xmath93 of the beam in @xmath6 , at the extreme ends of the @xmath14 range .
+similarly , @xmath94 indicates that there is no correction required in @xmath14 , as a function of @xmath6 .
+however , @xmath95 indicates that mrt images should be compressed in @xmath14 by a factor of 0.9990 ( which is @xmath1 part in 1000 ) .
+the values of @xmath48 and @xmath96 indicate that the zero cross - overs of errors in both @xmath6 and @xmath14 plotted against @xmath14 are close to the @xmath14 of the calibration source ( mrc1932 - 464 ) used for imaging .    using equation  [ eq : inhomog ] ,
+the homography matrix is used to project each pixel from the images to a new position , effectively correcting for positional errors in images .
+[ f : sourcecomparisoncorrect ] shows positional errors in @xmath3 after homography - based correction . a comparison of these plots with fig .
+[ f : sourcecomparison ] demonstrate that homography has removed the systematics and the residual errors are within 10% of the beamwidth for sources above 15-@xmath0 , as expected .
+[ f : scatterplot]a and fig .
+[ f : scatterplot]b show scatter plots of errors in @xmath3 against errors in @xmath6 before and after correction , respectively .
+for visualisation , the errors are represented in percentages of respective mrt beamwidths .
+notice , after correction ( refer fig .
+[ f : scatterplot]b ) the scatter is almost circular as opposed to elliptical before correction ( refer fig .  [
+f : scatterplot]a ) .
+the rms before correction is @xmath97 of the beamwidth . after correction ,
+the rms is reduced to @xmath98 of the beamwidth and , the systematic errors have been removed .
+[ f : contourplots]a  and  [ f : contourplots]b show mrt contours before and after correction , respectively , overlaid on sumss ( sydney university molonglo sky survey ) image @xcite , for a source around @xmath99 .
+the corrected mrt image contours in fig .
+[ f : contourplots]b overlap with the source in sumss image .
+[ f : contourplots]c  and  [ f : contourplots]d show similar comparison for a source around @xmath100 . notice fig .
+[ f : sourcecomparison]d , since the errors around @xmath100 are within 10% of the beamwidth , the contours in both figs .
+[ f : contourplots]c  and  [ f : contourplots]d show a good overlap as expected and homography has not applied perceivable correction to images at this declination .
+we have overlaid mrt contours on a number of extended sources at 843  mhz reported by @xcite .
+[ f : contourplotsextsources ] shows a typical overlay of mrt contours on sumss image of a region around the cluster abell 3667 .
+the overlay is perceivably satisfactory .
+the 2-d homography corrected the positional errors in the image domain . for imaging the remaining @xmath101 steradians of mrt survey , @xmath102 hours of data
+has to be reduced . ideally , for imaging the new regions
+, one would like to trace the source of these errors and correct them in the visibilities .
+in the following section we discuss how we traced the source of errors and corrected them in the visibility domain .
+this section describes our _ expansion - compression _
+hypothesis for the source of errors in our images .
+the subsequent corrections we estimated and applied to eliminate the errors are also described .
+for meridian transit imaging , @xmath103 . the brightness distribution in the sky as a function of @xmath14 and the complex visibilities measured for different values of the north - south ( ns ) baseline vector component @xmath104 form a fourier pair  @xcite .
+a scaling error of @xmath105 in @xmath106 will result in a scaling factor of @xmath107 in the @xmath104-component of the baseline vector . by positional error analysis
+it is clear that mrt images are stretched ( _ expanded _ ) in declination , i.e. ,    @xmath108    @xmath109    [ e : expcomp ]    note , for images the 2-d homography estimated a correction ( _ compression _ ) factor , @xmath107 , of 0.9990 .
+this cued to the hypothesis that we have compressed the north - south baseline vectors .
+equation  [ e : expcomp]b means , a baseline distance of @xmath110 m in the ns arm was wrongly measured as @xmath111 m ( 1 part in 1000 ) .
+similarly , a @xmath14-dependent correction in @xmath6 cued to possible @xmath104-component in the east - west ( ew ) baseline vectors .
+next , we describe the re - estimation of array geometry .
+we begin with a brief description of the mode of observations with mrt .
+mrt has 32 fixed antennas in the ew arm and 15 movable antenna trolleys in the ns arm . for measuring visibilities ,
+the 15 ns trolleys are configured by spreading them over 84  m with an inter - trolley spacing of 6  m ( to avoid shadowing of one trolley by another ) .
+mrt measures different fourier components of the brightness distribution of the sky in 63 different configurations ( referred to as _ allocations _ ) to sample ns baselines every 1 m .
+therefore , effectively , there are 945 antenna positions ( 63 allocations * 15 antennas / allocation ) in the ns arm and a total of 30,240 ( 945 * 32 ) visibilities are used for imaging .
+a small error in a measuring scale of relatively shorter length is likely to build up systematically while establishing the geometry of longer baselines .
+this effect would be observed in the instrumental phases estimated using different calibrators . in principle , the instrumental phases estimated using two calibrators at different declinations , for a given baseline , should be the same , allowing for temporal variations in the instrumental gains . a non - zero difference in these estimates
+may be due to positional errors of the baseline or positions of calibrators .
+as mentioned earlier , our analysis of positional error in sources and the homography matrix cued to positional errors in baselines ( or antenna positions ) . the simple principle of astrometry  @xcite
+was used to estimate errors in antenna positions and is discussed below .
+the observed visibility phase , @xmath112 , in a baseline with components @xmath113 , due to calibrator @xmath114 with direction cosines @xmath115 , is given by : @xmath116 where , @xmath117 represents true instrumental phases , @xmath118 represents ew antennas and @xmath119 represents ns antennas . for meridian transit imaging equation  [ e : obsphasebasiceqn ] becomes : @xmath120 the instrumental phases , @xmath121 , estimated using the measured geometry are given by : @xmath122 here , @xmath123 and @xmath124 are errors in the assumed baseline vectors .
+@xmath121 are phases of complex baseline gains obtained in the process of calibration .
+equation  [ eq : calphaserelation ] has three unknowns . to reduce the number of unknowns
+, one can eliminate the true instrumental phases by taking a difference @xmath125 between the instrumental phases estimated using two calibrators .
+this difference gives : @xmath126 } \nonumber \\ \lefteqn{\hspace{22 mm } + \delta w^{}_{ij } \left[\cos\left(za^{\mathcal{s}^{}_{1}}\right ) - \cos\left(za^{\mathcal{s}^{}_{2}}\right)\right ] .
+} \label{eq : diff1}\end{aligned}\ ] ] note , the @xmath127-components of the baseline vectors are short and non - cumulative measurements .
+therefore , in principle , one can consider @xmath124 as zero - mean random errors with no systematics .
+equation  [ eq : diff1 ] in that case can be written as : @xmath128 .
+\label{eq : simplediff1}\ ] ] describing the system in terms of errors in antenna positions , as opposed to errors in baseline positions , equation  [ eq : simplediff1 ] becomes : @xmath129 .
+\label{eq : diffantenna1}\ ] ] this equation is also not sufficient to solve for errors in the antenna positions as we have two unknowns and one equation .
+we set up another equation using a third calibrator source , @xmath130 , spaced away in declination from @xmath131 and @xmath132 : @xmath133 .
+\label{eq : diffantenna2}\ ] ] the equations  [ eq : diffantenna1 ]  and  [ eq : diffantenna2 ] are a linear set of equations for one baseline . for the measurements in 63 allocations , the set of equations can be formulated in a matrix form and solved by svd - based least - squares estimator : @xmath134 where , the _ measurement vector _ @xmath135 is to be determined . here , @xmath136 .
+the measurement vector gives @xmath137 and @xmath138 estimates for 32 ew and 945 ns antenna locations , respectively .
+observation vector _
+@xmath139 consists of two sub - matrices , @xmath140 and @xmath141 , formed using the left - hand - side of equations  [ eq : diffantenna1 ]  and  [ eq : diffantenna2 ] , respectively .
+here , @xmath142 , i.e. , the total number of visibilities measured for imaging .
+therefore , @xmath143 . the _ data matrix _ @xmath144 .
+each row in the data matrix has only two non - zero elements , corresponding to a baseline formed by one ew and one ns antenna , making it very sparse .
+the observation vector is constructed from the gain tables of the array obtained using calibrators mrc0407 - 658 ( @xmath145 ) , mrc0915 - 118 ( @xmath146 ) and mrc1932 - 464 ( @xmath147 ) .
+the sensitivity per baseline at mrt is @xmath148  jy for a 1  mhz bandwidth and an integration time of one second .
+it takes @xmath149 minutes of time for sources at @xmath150 to transit a 2@xmath151 primary beamwidth of elements in the east - west array .
+this leads to a sensitivity per baseline ( including the non - uniform weighting due to primary beam ) of @xmath152  jy .
+the flux density of these three calibrators as seen by mrt is @xmath153  jy ; strong to get reliable calibration .
+further , the calibrators are unresolved and isolated from confusing sources and have well known measured positions  @xcite .
+a plot of typical phase differences obtained using the pair of calibrators @xmath154 is shown in fig .  [
+f : phasediff ] . fig .
+[ f : error_estimate]a shows the estimated errors in 945 ns antenna positions .
+the errors show a gradient of 1 part in 1000 along the ns arm .
+this matches with the linear gradients in the phase differences estimated from the calibrators .
+the estimates in fig .
+[ f : error_estimate]b show alignment errors of the 32 antennas in the ew arm along the ns - direction .
+the fit shows a gradient of about 2 part in 10,000 .
+this indicates that the ew arm is mis - aligned from the true ew - direction .
+at one extreme end ( 1 km from the centre of the array ) of the ew arm the error is @xmath155  m , equivalent to an angular distance of @xmath156 from the centre of the array .
+this is the source of a small @xmath14-dependent error in @xmath6 that was observed in both positional error analysis and the homography matrix .
+further , our simulation of the synthesised beam in @xmath6 with old ew antenna positions and the corrected ew antenna positions indeed confirm this @xmath14-dependent error in @xmath6 .    using the new antenna positions we have re - imaged one hour from the steradian and
+have also imaged a completely new steradian .
+we find no systematics in positional errors thus endorsing our re - estimated array geometry .
+the homography - based correction was able to correct for systematics in positional errors in the image domain and the errors are within 10% of the beamwidth for sources above 15-@xmath0 .
+the corrected images of one steradian are available for download at _ http://www.rri.res.in / surveys / mrt_.    positional error analysis showed that uncorrected mrt images are stretched in declination by @xmath1 part in 1000 .
+this translates to a compression of the ns baseline vector , in the visibility domain .
+the analysis also showed a @xmath14-dependent error in @xmath6 .
+this cued towards possible errors in our estimation of the array geometry . by formulating a linear system , using instrumental phases estimated from three well separated calibrators whose positions
+are well known , the array geometry was re - estimated .
+the estimated error in the @xmath104-component of the ns baseline vectors is about 1  mm / m . in other words ,
+the error is about half a wavelength at 150  mhz ( 1  m ) for a 1  km baseline . the estimates also show a small ( 2 part in 10,000 ) @xmath104-component in the purely ew baseline vectors .
+this indicates that the ew arm is mis - aligned and inclined at an angle of @xmath2 , to the true ew direction .
+these estimates match with the observed stretching of mrt images shown by both the positional error analysis and the homography matrix .    using the new antenna positions we have re - imaged one hour from the steradian and
+have also imaged a completely new steradian .
+we find no systematics in positional errors .
+this endorses our re - estimated array geometry .
+re - imaging one steradian starting from visibilities would have been a very time consuming exercise .
+development of 2-d homography - based correction enabled us to correct for the positional errors in the image domain .
+in our view , this new technique will be of relevance to the new generation radio telescopes where , owing to huge data rates , only images after a certain integration would be recorded as opposed to raw visibilities .
+soobash daiboo acknowledges a phd bursary from the south african square kilometer array project . the authors would like to thank the anonymous referee for the constructive comments and suggestions

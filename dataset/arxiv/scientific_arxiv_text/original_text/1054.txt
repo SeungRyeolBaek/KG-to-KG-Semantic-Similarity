@@ -1,0 +1,109 @@
+we introduced the notion of minor - embedding in adiabatic quantum optimization in @xcite . in particular
+, we showed that the np - hard quadratic unconstrained binary optimization problem on a graph @xmath0 can be solved in an adiabatic quantum computer that implements the spin-1/2 ising hamiltonian , by reduction through minor - embedding of @xmath0 in the quantum hardware graph @xmath2 .
+we proved the correctness of the minor - embedding reduction and solved a related parameter setting problem in @xcite . in this paper
+, we discuss the intertwined adiabatic quantum architecture design problem , which is to construct a hardware graph @xmath2 that satisfies all known physical constraints and , at the same time , permits an efficient minor - embedding algorithm .
+this paper is organized as follows . in section  [ sec : aqc ] , we review adiabatic quantum computation , and describe an adiabatic quantum architecture that is implemented with superconducting devices and the imposing physical constraints . in section  [ sec : minor - embed ] , we recall the minor - embedding in aqc . in section
+[ sec : triad ] , we describe an optimal complete - graph minor hardware graph . in section  [ sec : sparse ] , we discuss the open problem for designing sparse - graph minor universal hardware graphs and the related work in literature .
+adiabatic quantum computation ( aqc ) was proposed by farhi  et  al .
+@xcite in 2000 as an alternative quantum paradigm to solve np - hard optimization problems , which are believed to be classically intractable .
+later , it was shown by aharonov  et  al .
+@xcite that aqc is not just limited to optimization problems , and is polynomially equivalent to conventional quantum computation ( quantum circuit model ) . in this paper , we will focus on _ quantum adiabatic optimization _ ,
+in which the final hamiltonian is a diagonal matrix in the computational basis . in particular , we restrict to a subclass of hamiltonians , known as _ ising hamiltonians _ : @xmath6 where @xmath7 ( @xmath8 resp . ) is the vertex set ( edge set resp . ) of @xmath0 , @xmath9 , and @xmath10 ( the pauli matrix @xmath11 is in the @xmath12th position ) , similarly for @xmath13 .    the eigenvalues and the corresponding eigenstates of @xmath14 are encoded in the following energy function : @xmath15 where @xmath16 , called a _
+spin_. in particular , the smallest eigenvalue of @xmath14 corresponding to the minimum of @xmath17 , and @xmath18 corresponds to its eigenvector ( called _ ground state _ ) of @xmath14 .
+hereafter , we refer the problem of finding the minimum energy of the ising model or equivalently the ground state of ising hamiltonian as the _ ising problem_.      an adiabatic quantum algorithm is described by a system hamiltonian @xmath19 for @xmath20 $ ] , @xmath21 , @xmath22 .
+there are three ingredients of @xmath23 : ( 1 ) initial hamiltonian : @xmath24 ; ( 2 ) final hamiltonian : @xmath25 ; and ( 3 ) evolution path : @xmath26 \longrightarrow [ 0,1]$ ] , e.g. , @xmath27 .
+@xmath23 is an adiabatic algorithm for an optimization problem if we encode the problem into the final hamiltonian @xmath28 such that the ground state of @xmath28 corresponds to the answer to the problem .
+the initial hamiltonian @xmath29 is chosen to be non - commutative with @xmath28 and its ground state must be known and experimentally constructable , e.g. , @xmath30 . here @xmath31 is the running time of the algorithm . according to the adiabatic theorem , if @xmath32 evolves `` slowly '' enough , or equivalently , if @xmath31 is large enough , which is determined by the minimum spectral gap ( the difference between the two lowest energy levels ) of the system hamiltonian , the system remains at the ground state of @xmath32 , and consequently , ground state of @xmath25 gives the solution to the problem .
+therefore , if we set @xmath28 to be @xmath14 , @xmath23 is an adiabatic algorithm for the ising problem . in physics , @xmath33 is known as the _ ising model in a transverse field_.      a scalable superconducting architecture for adiabatic quantum computation that implements the hamiltonian of ising model in a transverse field was initially proposed by kaminsky  et  al .
+d - wave systems inc .
+@xcite is building such a superconducting quantum processor .
+in particular , the quantum architecture is based on superconducting flux qubits connected via tunable coupling devices .
+see figure  [ fig : physical - qubit]@xmath34 for the schematic of physical qubit - coupler - qubit , and @xcite for its design and experimental results .
+@xmath35{physical - qubit - coupler.png } &   \includegraphics[width=0.3\textwidth , angle=90]{label - d3-k7.png}\\ ( a ) & ( b ) \end{array}\ ] ]    [ fig : d3-triad ]    topologically , an adiabatic quantum hardware architecture can be viewed as an undirected graph @xmath1 with weighted vertices and weighted edges .
+see figure  [ fig : d3-triad]@xmath36 for an example .
+let @xmath1 denote the quantum hardware graph .
+each vertex @xmath37 corresponds to a qubit , and each edge @xmath38 corresponds to a coupler between qubit @xmath12 and qubit @xmath39 . in the following
+, we will use qubit and vertex , and coupler and edge interchangeably when there is no confusion .
+there are two weights , @xmath40 ( called the qubit _ bias _ ) and @xmath41 ( called the _ tunneling amplitude _ ) , associated with each qubit @xmath12 .
+there is a weight @xmath42 ( called the coupler _ strength _ ) associated with each coupler @xmath43 . in general , these weights are functions of time , i.e. , they vary over time , e.g. , @xmath44 .
+there are some known physical constraints on the quantum hardware graph ( superconductor based design ) . in particular , there is a _ degree - constraint _ in that each qubit can have at most a constant number of couplers .
+the coupler ( or edge ) length can not be `` too long ''
+( that is , all neighbor qubits are within a bounded distance ) .
+note that the wire of a qubit can be `` stretched '' .
+the shape of each qubit does not need to be a small circle .
+in other words , an adiabatic quantum hardware graph is a bounded - degree , edge - length bounded _ geometric graph _ ( or known as _ layout _ ) .
+notice that crossing is allowed ( i.e. , it can be a non - planar graph ) .
+given an adiabatic quantum computer that implements the ising hamiltonian , one can thus solve an ising problem on a graph @xmath0 , if @xmath0 can be embedded as a subgraph of the quantum hardware graph @xmath1 . as mentioned above , there are physical constraints on the hardware graph @xmath1 .
+in particular , the _ degree - constraint _ of a qubit implies that the graphs that can be solved on a given hardware graph @xmath1 through subgraph embedding must also be degree - bounded .
+so what to do if @xmath0 is not a subgraph of the hardware graph @xmath1 ?
+kaminsky  et  al .
+@xcite observed and proposed that one can embed @xmath0 in @xmath2 through ferromagnetic coupling to solve maximum independent set ( mis ) problem ( which is a special case of the ising problem ) of planar cubic graphs ( regular graphs of degree-3 ) on an adiabatic quantum computer .
+in particular , they proposed an @xmath45 square lattice as a scalable hardware architecture on which all @xmath46-vertex planar cubic graphs are embeddable .
+the notion of embedding here follows naturally from physicists intuition that each _ logical qubit _ ( corresponding to a vertex in the input graph )
+is mapped to a subtree of _ physical qubits _ ( corresponding to vertices in the hardware graph ) that are ferromagnetically coupled such that each subtree of physical qubits acts like a single logical qubit .
+for example , in figure  [ fig : example - embedding ] , the logical qubit @xmath47 ( in orange color ) of the graph @xmath0 is mapped to a subtree of physical qubits ( labeled @xmath47 ) of the square lattice .    informally , a minor - embedding @xmath48 of a graph @xmath0 in the hardware graph @xmath1 is a subgraph of @xmath1 such that @xmath48 is an `` expansion '' of @xmath0 by replacing each vertex of @xmath0 with a ( connected ) subtree of @xmath1 , or equivalently , @xmath0 can be obtained from @xmath48 by contracting edges ( same color in figure  [ fig : example - embedding ] ) . in graph theory
+, @xmath0 is called a ( graph ) _ minor _ of @xmath1 .
+( see for example  @xcite ) .
+we now formally define minor - embedding .
+let @xmath1 be a fixed hardware graph .
+given @xmath0 , the _ minor - embedding _ of @xmath0 is defined by @xmath49 such that    * each vertex in @xmath7 is mapped to a connected subtree @xmath50 of @xmath1 ; * there exists a map @xmath51 such that for each @xmath52 , there are corresponding @xmath53 and @xmath54 with @xmath55 .    given @xmath0 ,
+if @xmath56 exists , we say that @xmath0 is _ embeddable _ in @xmath1 .
+when @xmath56 is clear from the context , we denote the minor - embedding @xmath57 of @xmath0 by @xmath48 is also referred as @xmath0-minor . ] .
+see figure  [ fig : example - embedding ] for an example .
+in particular , there are two special cases of minor - embedding :    * _ subgraph - embedding : _ each @xmath50 consists of a single vertex in @xmath1 .
+that is , @xmath0 is isomorphic to @xmath48 ( a subgraph of @xmath1 ) . * _ topological - minor - embedding : _ each @xmath50 is a chain ( or path ) of vertices in @xmath1 .
+remark : the embedding in @xcite is the _ topological - minor _ embedding .    in  @xcite , we have shown that the np - hard quadratic unconstrained binary optimization problem  @xcite ( which is equivalent to the ising problem ) on a graph @xmath0 can be solved in an adiabatic quantum computer that implements the spin-1/2 ising hamiltonian , by reduction through minor - embedding of @xmath0 in the quantum hardware graph @xmath2 . by _ reduction through minor - embedding _ ,
+we mean that one can reduce the original ising hamiltonian on the input graph @xmath0 to the embedded ising hamiltonian @xmath58 on its minor - embedding @xmath48 , i.e. , the solution to the embedded ising hamiltonian gives rise to the solution to the original ising hamiltonian .
+we proved the correctness of the minor - embedding reduction .
+there are two components to the reduction : _ embedding _ and _ parameter setting_. the embedding problem is to find a minor - embedding @xmath48 of a graph @xmath0 in @xmath1 .
+the parameter setting problem is to set the corresponding parameters , qubit bias and coupler strengths , of the embedded ising hamiltonian . in @xcite
+, we solved the parameter setting problem .
+the embedding problem , though , is dependent on the hardware graph design problem discussed in the following sections .
+in this section , we describe a @xmath59-minor hardware graph , where @xmath59 is a complete graph of @xmath60 vertices .
+a triangular layout of a @xmath59-minor graph  @xcite , called triad , is shown in figure  [ fig : triad ] .
+@xmath61{complete8.pdf } & \includegraphics[width=0.3\textwidth , angle=90]{triad - k8.pdf }    \end{array}\ ] ]      the idea behind the construction of triad is to map each vertex of @xmath59 to a chain of @xmath62 `` virtual '' vertices .
+the inductive construction is illustrated in figure  [ fig : construction ] .
+@xmath63{complete3.pdf } & \includegraphics[width=0.15\textwidth]{complete4.pdf } & \includegraphics[width=0.15\textwidth]{complete5.pdf } \\
+\includegraphics[width=0.15\textwidth , angle=90]{triad - k3.pdf } & \includegraphics[width=0.15\textwidth , angle=90]{triad - k4.pdf } & \includegraphics[width=0.15\textwidth , angle=90]{triad - k5.pdf } \end{array}\ ] ]      suppose the available degree ( the number of allowed couplers ) of a physical qubit is @xmath64 . the idea is to chop the @xmath62 virtual vertices into @xmath65 physical qubits .
+for example , suppose @xmath66 and @xmath67 , then it will require two physical qubits : we `` chop '' the chain of @xmath68 virtual vertices into two physical qubits : one consists of 3 virtual vertices and the other consists of 4 virtual vertices .
+see figure  [ fig : decomp]@xmath34 for the illustration .
+@xmath69{decomp1.pdf } & \includegraphics[width=0.45\textwidth]{figuredecompose2.pdf}\\ ( a ) & ( b ) \end{array}\ ] ]    [ fig : decomp2 ]    the result of such a chopping is a decomposition of @xmath59 .
+alternatively , we can view a complete graph @xmath59 as a combination ( disjoint union ) of two complete subgraphs of @xmath70 and a complete bipartite graph of @xmath71 .
+inductively , a complete graph @xmath59 ( assume @xmath72 ) can be represented as a partition of complete graph @xmath73 s and complete bipartite graph @xmath74 s , as illustrated in figure  [ fig : decomp2]@xmath36 .
+notice that @xmath75 is a minor of @xmath74 .
+for example , if @xmath67 , one can thus use @xmath76 as the basic unit for building triad . by construction , it is easy to see that triad is optimized for embedding a complete graph @xmath59 .
+each logical qubit ( vertex ) of @xmath59 requires at least @xmath77 physical qubits .
+that is , the hardware graph needs to have @xmath78 physical qubits .    in short , triad satisfies all known physical constraints and admits a simple and efficient embedding ( as illustrated in figure  [ fig : triad ] ) of @xmath59 , which thus allows for embedding any graph of @xmath60 vertices efficiently .
+since qubits and couplers are scarce , we are interested in designing a sparse - graph - minor hardware graph .
+first , we introduce the terminology of minor - universal graph .
+let @xmath4 consist of a set of sparse graphs ( e.g. , bounded degree graphs ) .
+it is also desirable that these sparse graphs are the underlying graphs of some classically hard instances .
+we are interested in designing a @xmath4-minor - universal graph _
+@xmath5 _ that is as small as possible ( in terms of number of qubits and number of couplers ) subject to both physical constraints and embedding constraint .
+that is , it satisfies all known physical constraints and , at the same time , a minor - embedding can be efficiently computed .
+the name `` minor - universal '' was naturally adopted from the `` universal graph '' .
+there are many studies on the construction of an universal graph ( which is a special case of a minor - universal graph ) , see @xcite and references therein .
+many of these work are based on the expanders which seem to have the desired properties  sparse and yet highly connected .
+however , to the best of our knowledge , all the current known explicitly constructable expanders are _ topological _ graphs and require long edge lengths , while what we need is a _ geometric _ expander .
+minors are well - studied in graph theory , see for example  @xcite . given a _ fixed _
+graph @xmath0 , there are algorithms that find a minor - embedding of @xmath0 in @xmath1 in polynomial time of size of @xmath1 , from the pioneering @xmath80 time algorithm by robertson and seymour  @xcite to the recent nearly linear time algorithm of b.  reed .
+however , it is worthwhile to reiterate that these algorithms are for _ fixed _
+@xmath0 , and their running times are _ exponential _ in the size of @xmath0 . here
+the minor - embedding problem is to find a minor - embedding of @xmath0 ( for any given @xmath0 ) while fixing @xmath1 . to the best of our knowledge ,
+the only known work related to our minor - embedding problem was by kleinberg and rubinfeld  @xcite , in which they showed that there is a randomized polynomial algorithm , based on a random walk , to find a minor - embedding in a given degree - bounded expander .
+however , as discussed above , the known expanders do not satisfy the physical constraints required .
+our embedding problem might appear similar to the embedding problem from parallel architecture studies .
+however , besides the different physical constraints for the design of architectures , the requirements are very different .
+in particular , in our embedding problem , we do not allow for _ load _ @xmath81 , which is the maximum number of logical qubits mapped to a single physical qubit .
+also , we require _ dilation _ , which is the maximum number of stretched edges ( through other qubits ) , to be exactly 1
+. however , all of the existing research on embedding problems for parallel processors  @xcite , at least one of the conditions is violated ( namely either load @xmath81 or dilation @xmath81 ) .
+we remark that the _ treewidth _ of @xmath5 needs to necessarily large ( @xmath82 ) for otherwise the dynamic programming over the tree - decomposition of @xmath5 would be able to solve the problem in @xmath83 time ( while polynomial in the size of the input size )  @xcite , once the embedding is given . for the quantum circuit model ,
+it was shown by markov & shi  @xcite that a quantum circuit with @xmath60 gates whose underlying graph has treewidth @xmath84 can be simulated in @xmath85 time .
+how does a minor - embedding affect the efficiency of an adiabatic algorithm ? and how do we measure the goodness of an embedding ?
+these problems in turn relate to the running time or complexity of quantum adiabatic algorithms . recall that
+according to the adiabatic theorem , the running time of an adiabatic algorithm depends on the minimum spectral gap of the system hamiltonian , which however is in general difficult to compute analytically . in order to address the time complexity of an adiabatic algorithm ,
+one will also need to specify the initial hamiltonian .
+the effect of the embedding and its consequential initial hamiltonian on the complexity of an adiabatic algorithm remains to be investigated .
+most of this work was done while the author was working at d - wave systems inc .
+i would like to thank my colleagues from whom i learn to derive this work .
+thanks also go to david kirkpatrick for the encouragement , advice and discussion , and bill kaminsky for the comments .

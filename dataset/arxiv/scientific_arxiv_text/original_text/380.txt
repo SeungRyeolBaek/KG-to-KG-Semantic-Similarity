@@ -1,0 +1,1104 @@
+* this article reviews the recently developed g - ratio imaging framework .
+* confounds in the methodology are detailed .
+* recent progress and applications are reviewed .
+the g - ratio is an explicit quantitative measure of the relative myelin thickness of a myelinated axon , given by the ratio of the inner to the outer diameter of the myelin sheath .
+both axon diameter and myelin thickness contribute to neuronal conduction velocity , and given the spatial constraints of the nervous system and cellular energetics , an optimal g - ratio of roughly 0.6 - 0.8 arises @xcite .
+spatial constraints are more stringent in the central nervous system ( cns ) , leading to higher g - ratios than in peripheral nerve @xcite .
+study of the g - ratio _ in vivo _ is interesting in the context of healthy development , aging , and disease progression and treatment . in demyelinating diseases such as multiple sclerosis ( ms ) ,
+g - ratio changes and axon loss occur , and the g - ratio changes can then partially recover during the remyelination phase @xcite .
+the possibility that the g - ratio is dependent on gender during development , driven by testosterone differences , has recently been proposed @xcite and investigated @xcite .
+possible clinical ramifications of a non - optimal g - ratio include `` disconnection '' syndromes such as schizophrenia @xcite , in which g - ratio differences have been reported @xcite .
+the g - ratio is expected to vary slightly in healthy neuronal tissue .
+the relationship between axon size and myelin sheath thickness is close to , but not exactly , linear @xcite , with the nonlinearity more pronounced for larger axon size @xcite , where the g - ratio is higher . during development ,
+axon growth outpaces myelination , resulting in a decreasing g - ratio as myelination catches up @xcite .
+there is relatively little literature on the spatial variation of the g - ratio in healthy tissue .
+values in the range 0.72 - 0.81 have been reported in the cns of small animals ( mouse , rat , guinea pig , rabbit ) @xcite .
+other primary pathology and disorders may lead to an abnormal g - ratio .
+these include leukodystropies and axonal changes , such as axonal swelling in ischemia .
+there are many outstanding questions in demyelinating disease that could be best answered by imaging the g - ratio _ in vivo_. for example , in ms , disease progression is still the topic of active research .
+most histopathological data are from patients at the latest stages of the disease .
+potential treatment includes agents for both immunosuppression and remyelination .
+however , if most demyelinated axons die quickly , and the rest remyelinate effectively on their own early in the disease , remyelination agents will be of little clinical value .
+detailed longitudinal study of the extent of remyelination can therefore aid in choosing avenues for therapy . while techniques exist for measurement of the g - ratio _ ex - vivo _ , measurement of the g - ratio _ in vivo _
+is an area of active research .    currently , there are quantitative mri markers that are sensitive to the myelin volume fraction ( mvf ) and the intra - axonal volume fraction or axon volume fraction ( avf ) . in recent
+work @xcite , it has been shown that measuring these two quantities is sufficient to compute one g - ratio for a voxel , or an _ aggregate _ g - ratio .
+the g - ratio is a function of the ratio of the mvf to the avf .
+the challenge then becomes how to estimate the mvf and the avf precisely and accurately with mri .
+the fiber density or fiber volume fraction ( fvf ) is the sum of the mvf and the avf , and the g - ratio imaging framework @xcite aims to decouple the fiber density from the g - ratio , such that a more complete picture of the microstructural detail can be achieved .
+this , coupled with other microstructural measures such as axon diameter @xcite , comprises the field of _ in vivo histology _ of white matter .
+we wish to describe microstructure in detail on a scale much finer than an imaging voxel , aggregated over the voxel .
+as previously defined , the g - ratio is the ratio of the inner to the outer diameter of the myelin sheath of a myelinated axon ( see fig . [ gcartoon ] ) .
+it has been shown in recent work @xcite that the g - ratio can be expressed as a function of the myelin volume fraction and the axon volume fraction , and hence can be estimated without explicit measurement of these diameters :    @xmath0    this formulation applies to any imaging modality ( e.g. , electron microscopy ( em ) , where the mvf and avf can be measured after segmentation of the image - see fig.[gcartoon ] ) , but it is of particular interest to be able to estimate the g - ratio _ in vivo_. mri provides us with several different contrast mechanisms for estimation of these volume fractions , and given mvf@xmath1 and avf@xmath1 , we can estimate @xmath2 .
+we will hereafter refer to this mri - based g - ratio metric as @xmath3 for simplicity , but note that it is derived from mri images with certain contrasts sensitive but not equal to the mvf and avf .
+estimation of these quantities is discussed in the next sections .
+original ( top left ) and segmented ( top right ) electron micrograph showing axons of white matter , the intra - axonal space ( blue ) , and the myelin ( red ) the myelin appears black because of osmium preparation .
+the fiber g - ratio is the ratio of the inner to the outer radius of the myelin sheath surrounding an axon .
+the aggregate g - ratio can be expressed as a function of the myelin volume fraction ( mvf ) and the axon volume fraction ( avf ) .
+the myelin macromolecules , myelin water , and intra- and extra - axonal water compartments all have distinct properties , which can be exploited to generate mri images from which the respective compartment volume fractions can be estimated.,scaledwidth=50.0% ]      diffusion mri is particularly well suited to aid in the estimation of the axon volume fraction .
+it is sensitive to the displacement distribution of water molecules moving randomly with thermal energy , and this displacement distribution is affected by the cellular structure present in the tissue . as the molecules impinge on the cellular membranes , organelles , and cytoskeleton , the displacement distribution takes on a unique shape depending on the environment .
+intra - axonal diffusion is said to be _ restricted _ , resembling free gaussian diffusion at short diffusion times , but departing markedly from gaussianity at longer times , where the displacement distribution is limited by the pore shape .
+there will be a sharp drop in the probability of displacement beyond the cell radius .
+extra - axonal diffusion is said to be _ hindered _ , resembling free gaussian diffusion , but with a smaller variance due to impingement of motion .
+many diffusion models exist for explicit estimation of the relative cellular compartment sizes .
+these include neurite orientation density and dispersion imaging ( noddi ) @xcite , the composite hindered and restricted model of diffusion ( charmed ) @xcite , diffusion basis spectrum imaging ( dbsi ) @xcite , restriction spectrum imaging ( rsi ) @xcite , white matter tract integrity ( wmti ) from diffusion kurtosis imaging ( dki ) @xcite , temporal diffusion spectroscopy @xcite , double pulsed field gradient ( dpfg ) mri @xcite , the spherical mean technique @xcite , the distribution of anisotropic microstructural environments in diffusion - compartment imaging ( diamond ) + @xcite , and many others @xcite .
+it is also possible to perform noddi with relaxed constraints ( noddida ) @xcite , and to do this calculation analytically ( lemonade ) @xcite .
+another approach , termed the apparent fiber density ( afd ) , uses high diffusion weighting to virtually eliminate the hindered diffusion signal , leaving only intra - axonal water @xcite .
+it has been used to estimate the the relative axon volume fraction of different fiber populations in a voxel .
+a modification , termed the tensor fiber density ( tfd ) , can be performed with lower diffusion weighting @xcite .
+the simplest diffusion mri models do not differentiate between the tissue compartments .
+for instance , the diffusion tensor @xcite models the entire displacement distribution as an anisotropic gaussian function . the parameters defining this function will change if the intra - axonal volume fraction changes , but to what extent is it practical to extract meaningful quantitative compartment volume fractions from the tensor ?
+recently , a framework called noddi - dti has been developed , in which the proximity of dti - based parameters to the computed noddi parameters is assessed @xcite , given certain assumptions .
+the fa and the mean diffusivity ( md ) are highly correlated in straight , parallel fiber bundles , and will change with changing avf , leading to estimates of the relative intra - axonal volume . however , this formulation is probably an oversimplification of the microstructural situation , and more detailed modeling is a better choice to ensure specificity to white matter fibers .
+the original full - brain g - ratio demonstration @xcite employed the noddi model of diffusion .
+it was chosen because of its suitability in the presence of complex subvoxel fiber geometry , including fiber divergence , which may occur to a significant scale in almost all imaging voxels @xcite , and its suitability on clinical scanners with relatively low gradient strength . having a fast implementation of the model fitting with numerical stability is important for large studies , hence
+, the convex - optimized amico implementation is beneficial @xcite .
+while diffusion mri is a modality of choice for imaging microstructure , it can only measure the displacement distribution of water molecules that are visible in a diffusion mri experiment .
+this limits us to water that is visible at an echo time ( te ) on the order of 50 - 100 ms , and therefore excludes water that is trapped between the myelin bilayers , which has a t@xmath4 on the order of 10 ms .
+hence , the estimates provided by these models are of the intra - axonal volume fraction _ of the diffusion visible volume_. myelin does not figure in the models
+. given , e.g. , the noddi model outputs , a complementary myelin imaging technique must be used to estimate the absolute axon volume fraction . the avf is given by    @xmath5    with @xmath6 and @xmath7 the isotropic and restricted volume fractions from the noddi model , and the mvf obtained from a myelin mapping technique , examples of which are discussed below .
+diffusion contrast may not be our only window onto the axon volume fraction .
+recent work has shown that it is possible to disambiguate the myelin , intra - axonal , and extra - axonal water compartments using complex gradient echo ( gre ) images @xcite .
+the myelin water is separable from the combined intra- and extra - axonal water using multicomponent t@xmath8 reconstruction , providing a myelin marker ( see below ) .
+however , incorporation of the phase of the gre images potentially allows us to separate all three compartments based on frequency shifts .
+challenges include the fact that the frequency shift is dependent on the orientation of the axon to the main magnetic field b@xmath9 .
+when the axon is oriented perpendicular to b@xmath9 , the myelin water will experience a positive frequency shift , the intra - axonal water a negative frequency shift , and the extra - axonal water will not experience a frequency shift .
+note that the avf as defined by these diffusion mri models is specific to white matter .
+while it makes sense to define an axon volume fraction in grey matter , the models in general can not distinguish between axons and dendrites .
+the noddi model s @xmath7 parameter , for example , is `` neurite density '' , i.e. , all cellular processes that can be assumed to have infinitely restricted diffusion in their transverse plane .
+hence , the g - ratio from mri data is undefined in grey matter .
+the fiber volume fraction is the sum of the avf and the mvf .
+can diffusion mri , or any other mri contrast mechanism , measure the total fiber volume fraction itself ? clearly , gre images have potential , as discussed above .
+is diffusion imaging sensitive to the fvf , as opposed to the avf ?
+while myelin water is virtually invisible in diffusion mri , diffusion mri is not insensitive to myelin .
+first , the ratio of the intra- to extra - axonal diffusion mri visible water in a voxel will change as the myelin volume fraction in that voxel changes .
+hence , for example , the noddi parameter @xmath7 changes with demyelination , even if all axons remain intact .
+second , diffusion acquisitions are heavily t@xmath4 weighted , and t@xmath4 is myelin - sensitive .
+the total diffusion weighted signal thus decreases as myelin content increases .
+however , to robustly quantify myelin volume fraction , it is necessary to add a second contrast mechanism , even if it is additional t@xmath4 weighted images , to the scanning protocol .
+this is discussed below .    despite the nomenclature ,
+as noted above , even the apparent fiber density and tensor fiber density are in fact relative axon densities .
+they would provide a relative fvf only if the g - ratio is constant . in a recent study of the g - ratio @xcite
+, the tfd was equated with the fvf , not the avf , for input to the g - ratio formula .
+the g - ratio is a function of the ratio of the mvf to the avf ( eq . [ geq ] ) , or alternately , the ratio of the mvf to the fvf :    @xmath10    this means that conclusions reached about the variation of the g - ratio found by equating the tfd with the fvf will be robust in this case .
+absolute g - ratios in this case were calibrated to have a mean of 0.7 in healthy white matter .    in early work on the fiber g - ratio , it was shown that assuming a simple white matter model of straight , parallel cylinders , the fraction anisotropy ( fa ) of the diffusion tensor is proportional to the total fiber volume fraction , with a quadratic relationship @xcite .
+the model has been shown to give reasonable values in human corpus callosum @xcite , however , it suffers from several problems .
+first , it applies only to straight , parallel fiber bundles , such as the corpus callosum and parts of the spinal tracts .
+however , the regions of the brain where this model can be expected to hold at all are very limited , as there are crossing or splaying fibers in up to 95% of diffusion mri voxels in parenchyma @xcite , and curvature is almost ubiquitous at standard imaging resolution .
+even the axons of callosal fibers are not straight and parallel , with splay up to 18@xmath11 @xcite .
+second , the model assumes a relatively uniform , if random , packing of axons on the scale of the mri voxel . due to the nonlinear nature of the fa
+, it will depend strongly on the packing geometry .
+if two voxels , one with densely packed axons and one with sparsely packed axons , are combined into one , the fa for that voxel will not be the average of the two original voxels , whereas the fiber density will be .
+third , fa is in practice acquisition and b - value dependent .
+we note that if diffusion mri were capable of estimating the absolute avf or fvf as well as the ratio of the intra - axonal to extra - fiber water , the g - ratio could immediately be estimated from these two quantities , without further myelin imaging .
+this has yet to be done robustly , and it is therefore preferable to use a more robust independent myelin marker .
+there are many different contrasts and computed parameters that are sensitive to myelin @xcite .
+the possible sources of signal from the myelin compartment are the ultra - short t@xmath4 protons in the macromolecules of the myelin sheath itself ( t@xmath12 ) and the short t@xmath4 water protons present between the phospholipid bilayers ( t@xmath13 , see fig .
+[ gcartoon ] ) .
+most mri contrast mechanisms are sensitive to myelin content , but few are specific .
+the myelin phospholipid bilayers create local larmor frequency variations for water protons in their vicinity due to diamagnetic susceptibility effects .
+this results in myelin content modulated transverse relaxation times t@xmath8 @xcite and t@xmath4 , and longitudinal relaxation time t@xmath14 . the local larmor field shift ( fl ) and the susceptibility itself ( @xmath15 ) can be computed as well @xcite .
+ultra - short te ( ute ) imaging can be used to image the protons tightly bound to macromolecules @xcite . an alternate approach to isolating the myelin compartment is magnetization transfer ( mt ) imaging , where the ultra - short t@xmath4 macromolecular proton pool size can be estimated by transfer of magnetization to the observable water pool .
+mt based parameters sensitive to macromolecular protons include the magnetization transfer ratio ( mtr ) @xcite , the mt saturation index ( mt@xmath16 ) @xcite , the macromolecular pool size ( f ) from quantitative magnetization transfer @xcite , single - point two - pool modeling @xcite , and inhomogeneous mt @xcite .
+alternately , the myelin water can be imaged with quantitative multicomponent t@xmath4 @xcite or t@xmath8 @xcite relaxation , which yields the myelin water fraction ( mwf ) surrogate for myelin density .
+variants include gradient and spin echo ( grase ) mwf imaging @xcite , linear combination myelin imaging ( e.g. , @xcite ) , t@xmath4 prepared mwf imaging @xcite , multi - component driven equilibrium single point estimation of t@xmath4 ( mcdespot ) @xcite and direct visualization of the short transverse relaxation time component via an inversion recovery preparation to reduce long t@xmath14 signal ( vista ) @xcite .
+other alternate approaches exploiting myelin - modulated relaxation times include combined contrast imaging ( t@xmath17/t@xmath18 ) @xcite or independent component analysis @xcite .
+proton density is also sensitive to macromolecular content , and the proton - density based macromolecular tissue volume ( mtv ) @xcite has been used as a quantitative myelin marker .
+while these mri measures have been shown to correlate highly with myelin content @xcite , they have not been incorporated in a specific tissue model in a manner similar to the diffusion signal , and hence some calibration is needed .
+this is still a topic of research .
+caveats of improper calibration of the mvf are discussed in section [ cal ] .    in this and the previous sections ,
+we have discussed imaging techniques for both diffusion - visible microstructure and myelin .
+any multi - modal modal imaging protocol with contrasts such as these , sensitive to the axon and myelin volume fractions , is sensitive to the g - ratio ( e.g. , @xcite ) .
+the purpose of the explicit g - ratio formulation is to create a measure that is _ specific _ to the g - ratio .
+it is interesting to ask whether we could use a technique such as deep learning to estimate the g - ratio , skipping explicit modeling completely .      in the following sections , we illustrate several important points about g - ratio imaging using experimental data acquired at our site
+the following describes the acquisition protocol .
+we acquired data from healthy volunteers and from multiple sclerosis patients .
+these data were acquired on a siemens 3 t trio mri scanner with a 32 channel head coil .
+a t@xmath17 structural mprage volume with 1 mm isotropic voxel size was acquired for all subjects . for diffusion imaging ,
+the voxel size was 2 mm isotropic . for
+most experiments , the noddi diffusion protocol consisted of 7 b=0 s / mm@xmath19 , 30 b=700 s / mm@xmath19 , and 64 b=2000 s / mm@xmath19 images , 3x slice acceleration , 2x grappa acceleration , all acquired twice with ap - pa phase encode reversal .
+for the other experiments , as detailed below when they are introduced , the slice acceleration and phase encode reversal were not employed . for a dataset optimized for diffusion tensor reconstruction ,
+a dataset with 99 diffusion encoding directions at b=1000 s / mm@xmath19 and 9 b=0 s / mm@xmath19 images was acquired .    for magnetization transfer images
+, we also used 2 mm iso - tropic voxels to match the diffusion imaging voxel size . for mtr , one 3d non - selective pd - weighted rf - spoiled gradient echo ( spgr ) scan was acquired with tr=30 ms and excitation flip angle @xmath20 , and one mt - weighted scan was acquired with the same parameters and an mt pulse with 2.2 khz frequency offset and 540@xmath11 mt pulse flip angle . for mt@xmath16 computation ,
+these same mt - on and mt - off scans were used , with one additional t@xmath14-weighted scan with tr=11 ms and excitation flip angle @xmath21 . for qmt computation ,
+10-point logarithmic sampling of the z - spectrum from 0.433 - 17.235 khz frequency offset was acquired , with two mt pulse flip angles for each point , 426@xmath11 and 142@xmath11 , and excitation flip angle @xmath22 .
+the qmt acquisition was accelerated with 2x grappa acceleration .
+additional scans for correction of the maps included b@xmath14 field mapping using the double angle technique @xcite , with 60@xmath11 and 120@xmath11 flip angles , b@xmath9 field mapping using the two - point phase difference technique , with te@xmath14/te@xmath4 = 4.0/8.48 ms , and t@xmath14 mapping using the variable flip angle technique @xcite , with flip angles 3@xmath11 and 20@xmath11 .
+additional t@xmath4-flair and pd@xmath23 images were acquired for the ms subjects to aid in lesion segmentation .
+in this section , we discuss pitfalls and outstanding issues in g - ratio imaging . experimental results are included in these sections to illustrate these problems .
+the diffusion mri post - processing techniques described in section [ avf ] give a range of outputs .
+some are physical quantities ( such as the diffusion displacement distribution ; kurtosis ) , while some are parameters of detailed biological models ( such as the intra - axonal volume fraction ) .
+models are valuable , but the user has to be aware of the assumptions made .
+the parameter space in existing models ranges from three free parameters in noddi to six @xcite , twenty three @xcite , and thirty one @xcite in other models .
+recent analysis hypothesizes that the lower number of free parameters in , e.g. , noddi and charmed , may be matched to the level of complexity possible on current clinical systems @xcite , while high gradient strength , high b - values , and more b - shells may be necessary for more complex models @xcite , and would make them more optimal .
+this is a general problem with multi - exponential models when diffusion weighting is weak @xcite . on standard mr systems , relaxing the constraints on fixed parameters
+has been shown to lead to degeneracy of solutions @xcite .
+regularization approaches such as the spherical mean technique ( smt ) @xcite can make the problem less ill - posed .
+one of the fixed parameters in the noddi model is the parallel diffusivity in the intra- and extra - axonal space , both set to the same fixed value .
+other models explicitly model these as unequal ; for instance , wmti assumes that the intra - axonal diffusivity is less than or equal to the extra - axonal diffusivity .
+the actual values are unknown , however simulations have shown that the assumption of equal parallel diffusivities leads to a 34 - 53% overestimation of the intra - axonal compartment size if the diffusivities are in fact unequal @xcite , with the intra - axonal diffusivity either greater than or less than the extra - axonal diffusivity .
+independent of whether the intra- and extra - axonal parallel diffusivities are equal , another source of this bias is the tortuosity model @xcite employed by many models , including noddi , diamond , and the smt .
+this model computes the perpendicular extra - axonal diffusivity as a function of the diffusion - visible intra - axonal volume fraction of the non - csf tissue ( v@xmath24 in the noddi model ) .
+this tortuosity estimate is bound to be inaccurate because the tortuosity is expected to vary as the absolute fiber volume fraction of the non - csf tissue ( @xmath25 ) , not the diffusion - visible fiber volume fraction .
+these two quantities are very different , as the myelin and axon volume fractions are almost equal in healthy tissue @xcite .
+the mvf could be explicitly included in the equation , and would be expected to result in a myelin volume dependent reduction in @xmath7 :    @xmath26    however , in healthy tissue , where the fvf should scale roughly as the v@xmath24 parameter , this tortuosity model does not appear to hold when applied to experimental data with independent estimates of the parallel and perpendicular extra - axonal diffusivities @xcite .
+another fixed parameter in the noddi model is the t@xmath4 relaxation time of all tissue , assumed to be the same , even in csf .
+this leads to an overestimation of v@xmath27 , which can be corrected @xcite given t@xmath4 estimates from , e.g. , a t@xmath4 mapping technique such as mcdespot @xcite .
+diffusion mri is exquisitely sensitive to fiber geometry .
+the fractional anisotropy , as mentioned above , may be more sensitive to geometry than to any microstructural feature @xcite . hence , microstructural models must be careful to take geometry ( crossing , splaying , curving , microscopic packing configuration ) into account .
+a typical diffusion imaging voxel is roughly 8 mm@xmath28 , while the axons probed by microstructural models are on the order of one micron .
+the noddi model that has been used in several g - ratio imaging studies to date assumes there is a single fiber population with potential splay or curvature , but does not explicitly model crossings .
+furthermore , the tortuosity model employed is probably not correct for varying packing density on the sub - voxel scale @xcite ; it has been shown to depend on the packing arrangement and break down for tight axon packing @xcite .
+this probably explains the discrepancy between model and experiment mentioned above , because the geometry of axonal packing can vary considerably for a given average volume fraction .
+to what extent does the fiber dispersion model of noddi handle crossing fiber bundles ?
+we have employed the diffusion mri simulator dsim @xcite to investigate this question @xcite .
+we simulated realistic axonal packing @xcite in voxels with straight , parallel fibers and with two equal size bundles of straight fibers crossing at 90@xmath11 ( see fig.[sim ] ) .
+fiber volume fractions were set equal for both configurations and were varied from 0.3 to 0.7 .
+g - ratios were varied from 0.7 to 0.9 .
+the diffusion weighted signal was generated , and the noddi model parameters computed using the noddi matlab toolbox @xcite .
+the fvf was computed from the noddi parameters using the known mvf .
+the computed fvf was @xmath29 lower in the crossing fiber case for the noddi - based fvf .
+this demonstrates that the noddi model , while not explicitly designed for crossing fibers , gives acceptable results in this case , and can be used for full - brain g - ratio estimation at standard voxel size with significant subvoxel fiber crossing , with only a small decrease in the estimated fvf due to partial volume averaging of fiber orientations .
+simulated fibers in straight , parallel configuration ( left ) vs. crossing ( right ) , with equal fiber volume fraction and similar distributions of axon diameter and position .
+the noddi model underestimates the fvf by @xmath29 in the crossing fiber case , whereas the dti model underestimates the fvf by @xmath30.,scaledwidth=50.0% ]    * _ experiments : comparison of dti and noddi for fvf estimation _ *    [ dtivsnoddi ]    noddi works optimally with diffusion mri measurements made on at least two shells in q - space , i.e. , two different nonzero b - values , although recent work has proposed solutions for single shell data , at least where certain assumptions can be made about the tissue , or where high b - values are used @xcite . in contrast , the diffusion tensor can be robustly fitted and the fiber volume fraction inferred @xcite ( see section [ fvf ] ) using a much more sparsely sampled , single shell dataset .
+many research programs have large databases of single - shell diffusion data , often with limited angular sampling of q - space as well .
+it is therefore of interest to explore to what extent such data can be used in investigation of the g - ratio .    in the simulations described above , we also computed the diffusion tensor using in - house software@xcite .
+the fvf was computed from the fa using the quadratic relationship determined from previous simulations @xcite . as expected ,
+the fa is not a predictor of fvf in the presence of crossing fibers : the computed fvf was @xmath30 lower in the crossing fiber case compared to the parallel fiber case for the dti - based fvf .
+to compare noddi and dti _ in vivo _ , diffusion and qmt data were acquired as described in section [ acq ] for one healthy volunteer , without slice acceleration or phase encode reversal .
+the qmt data were processed with in - house software and the noddi parameters as described above .
+the avf , mvf , and g - ratio were computed voxelwise from the diffusion and qmt data as described in section [ calculation ] . additionally , the diffusion tensor was calculated using the b=1000 s / mm@xmath19 diffusion shell .
+the fvf was then calculated from the fractional anisotropy of the diffusion tensor using the quadratic relationship @xcite .
+the corpus callosum was skeletonized on the fa image and a voxel - wise correlation between the fvf computed from dti and from noddi and qmt was performed for these voxels .
+the coefficient of proportionality between f and mvf was determined from previous em histological analysis @xcite .
+[ correlationscatter ] shows the fvf computed using both noddi and dti in the skeleton of the healthy human corpus callosum .
+the correlation between fvf measured using the two techniques was r=0.79 , with @xmath31 .
+this indicates a slight discrepancy between the fvf using noddi compared to dti , and a reasonably high correlation between techniques on the skeleton .
+correlation between dti- and noddi - derived fiber volume fraction on the skeleton of the corpus callosum.,scaledwidth=45.0% ]    possible explanations for the higher estimates using noddi appear in section [ params ] , although without ground truth is is difficult to say which approach is more accurate .
+additionally , because the fa does not explicitly model compartments , it is subject to partial volume effects .
+while partial volume averaging with csf will decrease the fa , the fa - based quadratic fvf model appears to break down in this case .
+this effect could possibly be reduced by applying the free water elimination technique @xcite to obtain the correct fvf for the non - csf compartment and then scaling to reflect the partial volume averaging with csf afterward . to conclude , while the fa is generally a poor indicator of fvf , it may be a reasonable surrogate in certain special cases when data are limited .
+it is interesting to consider how useful imaging a cross - section of a white matter fascicle may be , regardless of the model used . if the g - ratio can be assumed to be constant along an axon , measurement of a cross - section is useful .
+however , in many pathological situations , such as wallerian degeneration , it is of interest to study the entire length of the axon .
+most existing diffusion models assume that extra - axonal diffusion is gaussian , hindered by the structures present , but not restricted .
+however , observation of tightly packed axons in microscopy ( e.g. , fig.[gcartoon ] ) indicates that the intra- and extra - axonal spaces may not be as distinguishable as the models assume .
+it is unclear to what extent the extra - axonal diffusion is non - gaussian . if axons are packed tightly together , is extra - axonal diffusion non - gaussian ?
+it is not clear whether the water mobility through the tight passageways between fibers is distinguishable from the restricted diffusion within spaces surrounded by contiguous myelin .
+if signal from the extra - axonal space is erroneously attributed to the intra - axonal space , the model output will be incorrect .
+some models make no attempt to distinguish between intra- and extra - cellular restricted diffusion , meaning the pore size estimates may reflect a mixture of the two @xcite .
+time - dependent ( i.e. , non - gaussian ) diffusion has recently been observed in the extra - axonal space @xcite using long diffusion times .
+this may be due to axon varicosity , axonal beading , or variation in axonal packing @xcite .
+diffusion modeling is an active field , and advances in the near future will hopefully improve precision and accuracy of avf estimates using diffusion mri .
+histological validation may aid in understanding the strengths and limitations of these estimates . at present , the limitations of these models propagate to the g - ratio , as do the limitations of mvf estimates , which are discussed below .
+how do we make a quantitative estimate of the mvf from myelin sensitive mri markers ?
+linear correlations have been shown between the individual myelin sensitive metrics ( such as f @xcite , mtr @xcite , r@xmath14 @xcite , mwf @xcite , and mtv @xcite ) with the mvf from histology .
+given the linear correlations that have been established , a logical first approximation is to assume a linear relationship between the chosen myelin - sensitive metric and the mvf .
+then , using the macromolecular pool size f as an example , the relationship is    @xmath32    with @xmath33 and @xmath34 constants .
+while a non - zero value for @xmath34 has been indicated by some studies @xcite , this may be an artefact due to the inherent bias in linear regression .
+the assumption of a linear relationship hinges on the assumption that non - myelin macromolecular content scales linearly with myelin content , which can break down in disease , or even in healthy tissue .
+if the myelin and non - myelin macromolecular content do scale linearly , as is assumed here , a constant non - zero intercept is unlikely , meaning a theoretical prior that @xmath35 is reasonable .
+there is evidence that even if a simple scaling relationship exists between f and mvf , it is dependent on acquisition and post - processing details .
+for instance , a recent study calibrated f at two different sites , and found a different scaling factor for each @xcite .
+these scaling factors in turn differ from those obtained from other investigations @xcite .
+hence , careful calibration for each study must be performed .
+several studies have calibrated scaling factors based on a given expected g - ratio in healthy white matter @xcite , however , the g - ratio in healthy white matter is not precisely known .
+none of the myelin - sensitive mri markers is 100% specific to myelin , and most are sensitive to myelin in a slightly different way .
+magnetization transfer contrast is specific to macromolecules , and more specific to lipids than to proteins @xcite .
+macromolecules in the axon membrane itself , in neurofilaments within the axons , and in glial cell bodies , will contribute to the mt signal , with myelin constituting only 50% of the macromolecular content in healthy white matter @xcite .
+additionally , mt - based metrics such as the magnetization transfer ratio will have residual contrast from other mechanisms .
+we expect the mtr contrast to vary linearly with macromolecular content , but also with t@xmath14 @xcite .
+t@xmath14 has the reverse sensitivity to myelin than does the mt effect @xcite , meaning that these effects work against each other , reducing the dynamic range and power of mtr as a marker of myelin .
+furthermore , t@xmath14 is sensitive to iron and calcium content , intercompartmental exchange , and diffusion , and hence sensitive to axon size @xcite and axon count @xcite .
+this means the relationship between mtr and mvf may not be monotonic , and is certainly nonlinear .
+this nonlinearity is evident in published plots of mtr vs. f , e.g. , that shown by levesque et al .
+@xcite , and the lack of dynamic range of mtr is also evident @xcite .
+the mt@xmath16 technique aims to remove the t@xmath14 dependence in mtr .
+both mtr and mt@xmath16 depend on the offset frequency used in the acquisition .
+ihmt shows promise as a more myelin - specific mt marker due to its sensitivity to specific molecules in myelin that broaden the z - spectrum asymmetrically , although it has recently been shown that asymmetric broadening is not essential to generate a non - zero ihmt signal @xcite , and the technique suffers from low signal .
+qmt is the most comprehensive of the mt - based myelin markers , although its use is impeded by long acquisition times , and its parameters appear to be sensitive to the specific model and fitting algorithm .
+finally , mt based estimates of mylein volume will be insensitive to variation in the distance between the lipid bilayers .
+proton - density based techniques @xcite will , like mt , be sensitive to all macromolecules , with a different weighting on these macromolecules compared to the lipid- + dominated mt signal .
+relaxation - based myelin markers are also not 100% specific to myelin .
+the confounds with using t@xmath14 directly were mentioned above , and the dependence on iron and calcium concentration , intercompartmental exchange and diffusion will also affect t@xmath4 .
+t@xmath8 is also sensitive to iron concentration , as well as fiber orientation @xcite .
+isolating the short t@xmath4 or short t@xmath8 compartment enhances specificity to myelin , but mwf estimates vary nonlinearly with myelin content as the sheath thins and exchange and diffusion properties are modulated @xcite .
+variants may have biases , for example , the mc- + despot technique has been shown to overestimate the mwf @xcite .
+combining t@xmath14 and t@xmath4 in various ways @xcite may increase specificity , although they rely on myelin being the dominant source of contrast . in the ute technique , it is as yet unclear how to map the signal directly to myelin content .
+in addition to these confounds , most of these myelin markers have recently been shown to have orientation dependence .
+these include t@xmath8 , chi @xcite , mtr @xcite , and t@xmath4 of the macromolecular pool .    while these myelin imaging techniques are certainly powerful tools in the study of healthy and diseased brain , can they be used reliably in the g - ratio imaging framework ? as an illustration of the effects of miscalibration of myelin markers , consider the following scenario @xcite .
+we investigate three mt - based myelin markers : mtr , mt@xmath16 , and macromolecular pool size f. we assume a simple linear scaling between our mri marker and the mvf .
+as described in previous work @xcite , we calibrate f using the same acquisition protocol in the macaque , coupled with _
+ex - vivo _ electron microscopy of the same tissue , and then calibrate mtr and mt@xmath16 to match the mean f - based mvf in white matter .
+we then compute the g - ratio , using the noddi model of diffusion and the mvf derived from the myelin markers ( eq.s [ avffrnoddi],[geq ] ) .
+mtr , mt@xmath16 , qmt , and noddi data were acquired for one healthy volunteer and one ms patient , as described in section [ acq ] .
+for the ms patient , the mt@xmath16 images were computed from the qmt mt - off and mt - on ( mt pulse offset 2.732 khz , flip angle 142@xmath11 ) images and one additional t@xmath17 image with te=3.3 ms , tr=15 ms , and excitation flip angle @xmath36 .
+binary segmentation of white and grey matter was performed using beast @xcite , using the mprage image only .
+the macromolecular pool size f was computed using in - house software .
+the diffusion images were preprocessed using fsl @xcite , and the noddi parameters computed using the noddi matlab toolbox @xcite .
+mt@xmath16 was computed according to helms et al .
+lesion segmentation for the ms subject was performed with in - house software .
+a combined mri / histology dataset @xcite was used to scale each myelin marker ( mtr , mt@xmath16 , and f ) to give the mvf , with the assumption of a linear relationship ( eq . [ mvflin ] ) with intercept b=0 .
+correlations between the three myelin markers were computed in brain parenchyma .
+percent differences were computed between healthy white matter and healthy grey matter for each of the three myelin markers .
+the avf was computed using eq .
+[ avffrnoddi ] , and g - ratios were computed in the ms and healthy brains using eq .
+average g - ratios were computed in healthy white matter , normal appearing white matter ( nawm ) , and ms lesions .
+a theoretical computation was also performed , varying the mapping of an arbitrary myelin metric to mvf using eq .
+[ mvflin ] .
+we separately varied the slope ( c ) and the intercept ( b ) for a range of fiber volume fraction values and mapped the computed g - ratio as a function of fvf .
+when varying the slope , the intercept was fixed at the origin .
+mtr plotted versus f ( top ) and mt@xmath16 plotted versus f ( bottom ) in parenchyma .
+the mtr vs. f plot shows a marked nonlinearity ( r=0.59 ) , as is expected , while mt@xmath16 increases the linearity of the relationship ( r=0.77 ) and the dynamic range.,scaledwidth=50.0% ]    the correlation of mtr with f was r=0.59 ( p@xmath370.001 ) , and of mt@xmath16 with f was r=0.77 ( p@xmath370.001 ) .
+[ mtr_mtsat_corrwf ] shows plots of mtr versus f ( top ) and mt@xmath16 versus f ( bottom ) in parenchyma . of note , the plot of mtr versus f appears to have a nonlinear shape , similar to that seen in the literature @xcite . when t@xmath14 effects are reduced using mt@xmath16 , the linearity and dynamic range increase . in healthy brain ,
+the percent difference between white and grey matter was 15.02% for mtr , 40.08% for mt@xmath16 , and 45.86% for f. the narrower dynamic range of the mvf derived from mtr can also be seen in fig .
+[ mvfs ] , where grey matter has markedly higher values .
+if this simple scaling to obtain the mvf is used in the g - ratio formula , the g - ratio in healthy white matter is relatively constant .
+however , when lesions exist , the contrast using the different mvf markers is very different . in the ms patient ,
+the mean g - ratio in normal appearing white matter ( nawm ) was 0.76 for all three mvf markers . in ms lesions ,
+the mean g - ratio was 0.65 , 0.80 , and 0.80 , for mtr , mt@xmath16 , and f , respectively .
+[ gratios ] shows the spatial distribution of g - ratios in the ms patient for the three mvf markers .
+[ mvfsim ] shows the theoretical effect of having an improper slope ( top ) or intercept ( bottom ) in the relationship between an arbitrary myelin marker and the mvf , in the case where the ( theoretical ) relationship is in fact linear .
+the plots show that the computed g - ratio becomes fiber density dependent , in addition to being incorrect .
+the mtr is a commonly used myelin marker , however , due to t@xmath14 sensitivity , it lacks dynamic range .
+mt@xmath16 correlates more highly with f , obtained from an explicit qmt model designed to isolate the macromolecular tissue content .
+it is important to note , however , that this correlation may be driven to some extent by the different b@xmath14 sensitivities of the techniques ( see section [ preproc ] ) , and the mtr was not corrected for b@xmath14 induced variability @xcite . independently of this demonstration of the potential of mt@xmath16 for myelin mapping , researchers have found that mt@xmath16 may be more sensitive to tissue damage than mtr in multiple sclerosis , with more correlation with disability metrics @xcite .
+mt@xmath16 has recently been used by other groups in g - ratio imaging of healthy adults @xcite .
+plots of the mvf derived from ( from left to right ) mtr , mt@xmath16 , and f , in healthy brain.,scaledwidth=50.0% ]    plots of the g - ratio computed using ( from left to right ) mtr , mt@xmath16 , and f , in the ms patient .
+the arrow indicates a lesion in which the apparent g - ratio is lower than in nawm for mtr , but higher than in nawm for mt@xmath16 and f.,scaledwidth=50.0% ]    if the mvf is miscalibrated in this g - ratio imaging formulation , there will be a residual dependence on fiber volume fraction in our formulation .
+this reduces the power of the g - ratio metric , which ideally is completely decoupled from the fiber density .
+independent of specificity of the myelin marker , if the myelin calibration is inaccurate , this residual dependence on fiber volume fraction occurs .
+it is clear that the g - ratio metric we will compute is g - ratio _ weighted _ , and the better the calibration , the more weighted to the g - ratio it will be .
+until quantitative myelin mapping is _ accurate _ , the g - ratio metric will not be specific to the g - ratio .
+effect of having an improper slope ( top ) or intercept ( bottom ) in the relationship between an arbitrary myelin marker and the mvf , in the case where the ( theoretical ) relationship is in fact linear .
+the plots show that the computed g - ratio becomes fiber density dependent , in addition to incorrect .
+, title="fig:",scaledwidth=50.0% ] effect of having an improper slope ( top ) or intercept ( bottom ) in the relationship between an arbitrary myelin marker and the mvf , in the case where the ( theoretical ) relationship is in fact linear .
+the plots show that the computed g - ratio becomes fiber density dependent , in addition to incorrect .
+, title="fig:",scaledwidth=50.0% ]    one possible solution for mvf calibration is to calibrate the g - ratio to a known value in certain regions of interest @xcite , as mentioned above .
+however , care must be taken that this step is not adjusting for differences in the diffusion part of the pipeline ( e.g. , different implementations of the diffusion model @xcite ) , and therefore still leaving a fiber density dependence .
+additionally , the correct value in these regions of interest must be known .
+calibration based on expected mvf would remove this sensitivity , but is subject to error due to partial volume averaging of white matter with other tissue . if the relationship between the myelin - sensitive metric and the mvf is not a simple scaling , such calibration will fail .
+particular care needs to be taken when studying disease .
+if the assumed relationship between the myelin marker and the mvf is incorrect , the computed g - ratio will be incorrect .
+is it possible to compute a g - ratio that is correct to within a scaling factor , and not sensitive to the fiber density ?
+this would require that the avf or fvf be estimated independent of the mvf .
+simple models such as the diffusion tensor , apparent fiber density @xcite , and tensor fiber density @xcite , are indicators of fiber or axon density , but detailed modeling is most likely superior .
+consideration of contrasts other than diffusion mri , such as gradient - echo based approaches @xcite , might also help with this problem .
+the g - ratio is a function of the ratio of the mvf to the avf , and a technique that measures this ratio directly would be optimal .
+however , gre based estimates would be of the myelin and axon _ water _ fraction , and hence would still need to be calibrated for the volumetric occupancy of water in these tissues .    in summary ,
+both specificity and accuracy are important for both avf and mvf estimation .
+this may require more sophisticated models in both contexts .
+for example , we have thus far ignored cell membranes .
+the axon membrane should technically be included in the avf , and its volume is up to 4% of the avf @xcite , but it would most likely be included in the mvf using mt - based mvf estimation .      the methods described above include several pre - processing steps , including distortion and field inhomogeneity correction , that deserve further discussion .
+the mt - based contrasts are acquired with spin - warp acquisition trains , and the diffusion - based contrasts are acquired with single - shot epi . when any acquisition details are changed , the distortions in the images change , and co - registration of voxels for voxelwise quantitative computations becomes more difficult .
+the blip - up blip - down phase encode strategy ( section [ acq ] ) allows for precise correction of susceptibility - induced distortion in the diffusion images @xcite .
+lack of correction for this distortion leads to visible bands of artefactually high g - ratio near tissue - csf interfaces ( see , e.g , @xcite ) .
+this was illustrated by mohammadi et al .
+@xcite ( see fig .
+[ siawoosh_misreg ] ) .
+uncorrected diffusion mri data leads to g - ratios in the vicinity of unity at the edge of the genu of the corpus callosum , caused by voxels where the avf is artefactually high ( containing little or no csf ) , and the mvf low ( because the correctly localized voxels actually contain csf ) .
+the white matter - csf boundary is a region of obvious misregistration , but much of the frontal lobe suffers from susceptibility induced distortion , and would therefore have incorrect g - ratios .
+misregistration artefact due to susceptibility - induced distortion in diffusion weighted images .
+at left is an mt@xmath16 image with white matter outlined in red , for one slice ( a ) and a cropped region at the genu ( b ) . in the center ( c ,
+d ) is an original epi diffusion scan with no diffusion weighting and contrast inverted ( ib0 ) .
+the misregistration with the mt@xmath16-defined white matter boundary is marked .
+at right ( e , f ) is the g - ratio computed with these contrasts .
+uncorrected diffusion mri data leads to g - ratios in the vicinity of unity at the edge of the genu , caused by voxels where the avf is artefactually high ( containing little or no csf ) , and the mvf low ( because the correctly localized voxels actually contain csf ) .
+reproduced from @xcite .
+, scaledwidth=50.0% ]    multi - modal imaging protocols are a powerful tool for investigation of microstructure .
+we have thus far discussed combining multiple images with partially orthogonal contrasts in order to estimate the g - ratio .
+however , problems such as the above misregistration issue arise .
+can a single acquisition train provide multiple contrasts ?
+one such approach was described recently for simultaneous mapping of myelin content and diffusion parameters @xcite .
+it consists of an inversion - recovery preparation before a diffusion weighted sequence , allowing for fitting of a model that incorporates both t@xmath14 ( a myelin marker @xcite ) and axonal attributes .
+this approach is conceptually extensible to other myelin - sensitive preparations or modifications of a diffusion weighted sequence , such as quantitative t@xmath4 estimation @xcite .
+can the g - ratio be estimated using a single contrast mechanism ?
+this could also offer inherent co - registration , as well as possibly increase the acquisition speed .
+we have noted that if diffusion mri is used as an fvf marker , then diffusion is essentially a single - contrast g - ratio imaging technique .
+however , we reiterate that it is preferable to use a more robust myelin marker . as discussed in section [ avf ] , analysis of complex gre images may lead us to a technique for estimating the mvf and avf volume fractions from one set of images .
+our image processing pipeline for qmt analysis includes b@xmath9 and b@xmath14 correction @xcite .
+b@xmath14 correction for mtr is the subject of continuing research @xcite . as for mt@xmath16
+, the acquisition strategy leads to a relatively b@xmath14 insensitive map .
+however , a semi - empirical b@xmath14 correction is also made @xcite to correct for higher order effects . using such correction , spatial uniformity of the mt@xmath16 map
+is improved .
+correction for field inhomogeneity should be considered regardless of the myelin mapping technique employed .
+b@xmath9 correction is a particular concern in multicomponent quantitative t@xmath8 modeling @xcite .
+the g - ratio imaging paradigm extracts a single g - ratio metric per voxel . at typical imaging resolution
+possible for the constituent mr images , a voxel contains hundreds of thousands of axons .
+the g - ratio is not constant in tissue , but takes on a distribution of values ( see fig .
+[ macaque_g_dist ] , which shows the g - ratio distribution in the macaque corpus callosum , measured using electron microscopy ) .
+the range of myelination includes some unmyelinated axons within healthy white matter .
+the g - ratio distribution may broaden and become bi - modal in disease . even within a single axon with intact
+myelin , the g - ratio may vary due to organelle swelling .
+fiber bundles that cross within one voxel may have different g - ratio distributions . in development
+, some fibers within one fiber bundle will fully develop , while others will be pruned , resulting in an interim bimodal g - ratio distribution within the fascicle .
+the current mri - based g - ratio framework will not be able to distinguish these cases , as it reports only an intermediate g - ratio value .
+it is robust to crossing fibers , in that it will report the same intermediate g - ratio value whether the separate bundles cross or lie parallel to each other .
+the broad g - ratio distribution is in part a resolution problem , but the g - ratio is expected to be heterogeneous on a scale smaller than we can hope to resolve with mri .
+g - ratio distributions from electron microscopy of the cynamolgous macaque corpus callosum , samples 1 - 8 from genu to splenium . reproduced from @xcite .
+, scaledwidth=50.0% ]    the aggregate g - ratio we compute in the case of a distribution of values is not precisely fiber- or axon - area weighted , but is close to axon area weighted within a reasonable range of values @xcite .
+larger axons will have a greater weight in the aggregate g - ratio metric we measure .
+simply put , the aggregate g - ratio is the g - ratio one would measure if all axons had the same g - ratio .    in the case of an ambiguous g - ratio distribution , what techniques can we use to infer what situation is occurring ? in multiple sclerosis , for example , two possible scenarios probably occur frequently .
+one is patchy demyelination , on a scale much smaller than a voxel and smaller than the diffusion distance , and the other is more globally distributed thin myelin .
+these two scenarios could give rise to equal avf , mvf , and aggregate g - ratio measurements .
+one possible way to differentiate these cases could be to look more closely at parameters available to us from diffusion models .
+it has been shown that the extra - axonal perpendicular diffusivity is relatively unchanged by patchy demyelination in a demyelinating mouse model @xcite , because diffusing molecules encounter normal hindrance to motion on most of their trajectory , whereas the axon water fraction is sensitive to this patchy demyelination .
+hence , the discrepancy between these two measures can be taken as a measure of patchy demyelination .
+alternatively , one can scan subjects longitudinally and infer disease progression . from the ambiguous timepoint described above
+, the axons in the patches that are demyelinated may die , leaving a decreased avf and mvf , and a return to a near - healthy g - ratio . in the case of
+globally thin myelin , the remyelination may continue , leaving a near - healthy avf , mvf , and g - ratio .
+note that the g - ratio metric still does not distinguish these pathologically distinct cases .
+there are two unknowns - the fiber density and the g - ratio ( or , alternately , the mvf and the avf ) , and one must consider both to have a full picture of the tissue . looking at the time courses , one can hypothesize what the g - ratio distribution was at the first timepoint
+.    it would be technically challenging to measure the g - ratio distribution _ in vivo_. even with an estimate of a distribution of diffusion properties , and an estimate of the distribution of myelin - sensitive metric , the g - ratio distribution is ill defined .
+however , several recent acquisition strategies may help us get closer to this aim .
+one approach is to take advantage of the distinguishable diffusion signal between different fiber orientations . in the ir - prepared diffusion acquisition described above
+, the model specifies multiple fiber populations with distinct orientations , each with its own t@xmath14 value .
+this means the diffusion properties , including the restricted pool fraction ( a marker of intra - axonal signal from the charmed model ) , are paired with a corresponding t@xmath14 for each fiber orientation .
+hence , a g - ratio metric could be computed for each fiber orientation .
+this could be of benefit in , e.g. , microstructure informed white matter fiber tractography ( e.g. , @xcite ) of fiber populatons with distinct g - ratios .
+`` jumping '' from one fiber population to another is very common in tractography @xcite , and constraining tractography to pathways with consistent microstructural features could help reduce false positives in regions of closely intermingling tract systems .    it may be possible , conceptually , to estimate the g - ratio distribution via a 2d spectroscopic approach . while extremely acquisition intensive , 2d spectroscopy of t@xmath4 and
+the diffusion coefficient has been demonstrated recently @xcite .
+the acquisition involves making all diffusion measurements at different echo times .
+if a distribution of a myelin volume sensitive metric ( here , t@xmath4 ) can be estimated simultaneously with a distribution of a diffusion - based metric sensitive to the axon volume , it may be possible to infer the distribution of g - ratios .
+making a multi - modal imaging protocol short enough for the study of patient populations and use in the clinic is a considerable challenge .
+our investigation of mt@xmath16 as a replacement for qmt was done in the interest of reducing acquisition time .
+there exist other short mt - based approaches , such as single - point two - pool modeling @xcite and inhomogeneous mt @xcite .
+another approach could be to use compressed sensing @xcite for mt - based acquisitions .
+gre - based myelin water fraction approaches @xcite may also offer a faster approach for estimating the myelin water fraction , and possibly , as mentioned above , a way to eliminate the diffusion imaging part of the protocol .
+diffusion imaging has benefited from many acceleration approaches in recent years , including parallel imaging , which can also be used in the myelin mapping protocols , slice multiplexing @xcite , and hardware advances such as the connectom gradient system .
+this has been an incomplete but useful list of pitfalls .
+now , we will consider the promise of imaging the aggregate g - ratio weighted metric , despite its pitfalls .
+g - ratio imaging is being explored in many different contexts , described below .
+the promise of g - ratio imaging is its potential to provide us with valuable _ in vivo _ estimates of relative myelination . in the last few years
+, studies showing the potential of this framework have begun to emerge .
+[ healthyg ] shows an image of the g - ratio in healthy white matter using our qmt and noddi g - ratio protocol ( see section [ acq ] ) .
+the map is relatively flat , with a mean g - ratio of 0.75 .
+other groups have explored these and other mvf and avf sensitive contrasts for g - ratio mapping in healthy white matter .
+these include a study of the effects of age and gender in a population of subjects aged 20 to 76 using qmt and noddi @xcite , studies of healthy adults using mt@xmath16 and the tfd @xcite and mtv and dti @xcite , and a study of healthy subjects using the vista myelin water imaging technique and noddi @xcite .     the g - ratio in healthy while matter , imaged using qmt and noddi.,scaledwidth=35.0% ]    a variation of the g - ratio with age appears to be detectable with this methodology @xcite .
+a variation with gender has not been seen , and if it exists in adolescence @xcite , a study designed for sufficient statistical power at a precise age will be required to detect it .
+in addition to exploring the effect of age and gender , spatial variability of the g - ratio has been investigated . an elevated g - ratio at the splenium of the corpus callosum has been seen @xcite .
+the splenium has been reported to contain `` super - axons '' of relatively large diameter , and these would be expected , due to the nonlinearity of the g - ratio @xcite , to have relatively thinner myelin sheaths .
+electron microscopy in the macaque @xcite ( see fig . [ splenium ] ) confirms this ; the `` super - axons '' dominate the aggregate g - ratio measure , which was seen to be elevated in the splenium using both em measurements and mri of the same tissue @xcite .
+existence of `` super - axons '' in the splenium of the corpus callosum .
+top : drawing based on histology by aboitiz _
+( reproduced from @xcite ) , showing large diameter at the splenium .
+bottom : em of the g - ratio in the cynamolgous macaque showing large diameter axons at the splenium .
+these will dominate the aggregate g - ratio measure , which was elevated in the splenium using both em measurements and mri of the same tissue shown here @xcite .
+, scaledwidth=50.0% ]    g - ratio imaging has also been performed in the healthy human spinal cord @xcite , where there are considerable technical challenges , such as motion , susceptibility , and the need for significantly higher resolution than we have described for cerebral applications .
+et al . _ acquired g - ratio data at 0.8 mm x 0.8 mm inplane voxel size .
+this study used the charmed model of diffusion , more accessible on scanners with high gradient strength , on a connectom skyra scanner .
+it used the mtv myelin marker .
+of interest , the g - ratio was not found to vary significantly across white matter tracts in the spinal cord , while the diffusion metrics ( restricted fraction , diffusivity of the hindered compartment , and axon diameter ) and the mtv metric did vary across tracts .
+this is expected , as heterogeniety in packing and axon diameter is expected to be greater than heterogeneity of the g - ratio , and the g - ratio is also robust to partial voluming effects .
+multiple groups have studied the g - ratio _ in vivo _ in the developing brain @xcite .
+axon growth outpaces myelination during development , and therefore a decreasing g - ratio is expected as myelination reaches maturity , as was seen in these studies .      imaging
+the g - ratio _ in vivo _ in multiple sclerosis has been explored by several groups @xcite and is of interest for several reasons .
+it can possibly help assess disease evolution , and can help monitor response to treatment .
+it has the potential to aid in the development of new therapies for remyelination .
+it can also help us understand which therapies might be more fruitful avenues of research . therapy for ms includes immunotherapy and remyelination therapy , however , most of our histological knowledge of ms comes from samples from older subjects at more advanced stages of the disease .
+if remyelination happens effectively , at least for some axons , at the earlier stages of the disease , and the myelin loss measured using myelin markers is due to fiber density loss only , then immunotherapy would be a more useful therapy , at least once most surviving axons have returned to near - normal g - ratios .    despite the promise of imaging the g - ratio _ in vivo _ with ms , it is important to remember the effect of miscalibration of the myelin metric when interpreting g - ratio estimates in ms .
+there is evidence that fiber density drops precipitously in some lesions @xcite .
+we have seen ( fig .
+[ gratios ] ) that in this case , mtr for example does not drop enough , making ms lesions appear to have a lowered g - ratio instead of a higher g - ratio as expected . inspecting the bottom ( red ) curve in fig .
+[ mvfsim ] , we see that even if there is a linear relationship between the myelin marker of choice and the mvf , miscalibration leads to an apparent g - ratio metric that is elevated in regions of lower fiber density , and significantly lower in regions of healthy fiber density . this occurs when in fact all of the fibers have the same g - ratio , and could easily be interpreted as hypomyelination in an ms subject or population .
+to further complicate the situation , one must consider how the myelin sensitive metrics behave in the presence of astrocyte scarring , glial cell processes , and inflammatory cell swelling .
+the mapping of many myelin markers to mvf may change as the ratio of myelin to other visible macromolecular structures changes .
+it is also not clear how well the estimates of avf and mvf behave at very low fiber density .
+another point of concern in ms imaging is that all myelin will affect the mr signal , even if it is not part of an intact fiber .
+research indicates that there is acute demyelination followed by a period of clearance of myelin debris , followed by effective remyelination . during clearance ,
+remyelination can occur , but this myelin is of poor quality @xcite . on the scale of an mri voxel
+, there can be myelin debris , poor remyelination , and higher quality remyelination .
+the extent to which myelin debris affects the myelin volume estimates may depend on the myelin mapping technique chosen .
+further studies of ms are ongoing , including pediatric populations , optic neuritis , and studies investigating whether gado - linium enhancing lesions have a distinct g - ratio .
+g - ratio imaging has potential to aid in the understanding and treatment of multiple other diseases .
+white matter abnormalities may underlie many developmental disorders .
+these include pelizaeus merzbacher disease and sturge - weber syndrome .
+the g - ratio can change due to axonal changes that occur with intact myelin ( for example , axonal swelling due to infarction ) could result in an increased apparent g - ratio .
+g - ratio differences have been seen in schizophrenia using electron microscopy @xcite , and researchers hope to be able to study such changes _ in vivo _ in schizophrenia and other psychiatric disorders .
+another potential application of g - ratio imaging is bridging the gap between microstructure and large - scale functional measures such as conduction delays . the theoretically optimal g - ratio for signal conduction should predict conduction delays .
+the true promise of g - ratio imaging will come with validation .
+_ ex - vivo _ validation has been performed , investigating the g - ratio explicitly @xcite and the individual metrics used to compute it , both myelin and axon volume weighted @xcite or one of these two components of the g - ratio formulation @xcite .
+these studies compare _ in - vivo _ or _ ex - vivo _ mri metrics to electron microscopy , optical microscopy , myelin staining , immunohistochemistry , and coherent anti - stokes raman spectroscopy ( cars ) .
+while no microscopy technique is perfect , microscopy provides a reasonable validation for imaging techniques , taking into account the possibility for tissue shrinkage and distortion , limitations in contrast and resolution , and segmentation techniques @xcite .
+interpretation of findings of demyelinating models should take into account the particularities of the demyelinating challenge .
+et al . _ have shown that the extra - axonal diffusivity perpendicular to axons correlates with the g - ratio in a cuprizone demyelinating model in mice @xcite .
+this is probably driven by a fiber volume fraction decrease , because little axon loss would be expected in this model , meaning the g - ratio and fiber volume fraction correlate highly .
+similarly , west _ et al . _ have shown a correlation between the discrepancy between f and mwf and the g - ratio in a knockout model in mice @xcite .
+this is probably a correlation with absolute myelin thickness , via exchange effects , as opposed to the g - ratio per se .
+we have discussed the considerable promise of g - ratio imaging with mri . computing
+the g - ratio metric is a useful way to interpret myelin volume - weighted and axon / fiber volume - weighted data .
+we have furthermore discussed the pitfalls of g - ratio imaging , including mr artefacts , lack of specificity , lack of spatial resolution , and acquisition time . with the confounds described in the text in mind , such as accuracy of myelin mapping , g - ratio imaging clearly gives us an _ aggregate _
+g - ratio + _ weighted _ metric .
+this imaging framework provides information on two quantities : the fiber density and the g - ratio , and attempts to decouple these two quantities to the best of the ability of our current imaging technology .
+the promise of g - ratio imaging includes the multitude of pathological conditions in which _ in vivo _ g - ratio estimates can aid in understanding disease , developing therapies , and monitoring disease progression .
+it also includes the study of normal variability , development , aging , and functional dynamics .
+the authors would like to thank tomas paus , robert dougherty , mathieu boudreau , eva alonso - ortiz , blanche perraud , j.f .
+cabana , christine tardif , jessica dubois , ofer pasternak , atef badji , robert brown , masaaki hori , and david rudko for their insights and contributions to this work .
+this work was supported by grants from campus alberta innovates , the canadian institutes for health research ( gbp , fdn-143290 , and jca , fdn-143263 ) , the natural science and engineering research council of canada ( ns , 2016 - 06774 , and jca , 435897 - 2013 ) , the montreal heart institute foundation , the fonds de recherche du qubec - sant ( jca , 28826 ) , the quebec bioimaging network ( ns , 8436 - 0501 ) , the canada research chair in quantitative magnetic resonance imaging ( jca ) , and the fonds de recherche du qubec - nature et technologies ( jca , 2015-pr-182754 ) .
+f.  aboitiz and j.  montiel .
+one hundred million years of interhemispheric communication : the history of the corpus callosum .
+_ brazilian journal of medical and biological research _ , 360 ( 4 ) , april 2003 .
+issn 0100 - 879x .
+doi : 10.1590/s0100 - 879x2003000400002 .
+url http://dx.doi.org/10.1590/s0100-879x2003000400002 .
+francisco aboitiz , arnold  b. scheibel , robin  s. fisher , and eran zaidel .
+fiber composition of the human corpus callosum .
+_ brain research _ ,
+5980 ( 1 - 2):0 143153 , december 1992 .
+issn 00068993 .
+doi : 10.1016/0006 - 8993(92)90178-c .
+url http://dx.doi.org/10.1016/0006-8993(92)90178-c .
+monika albert , jack antel , wolfgang bruck , and christine stadelmann .
+extensive cortical remyelination in patients with chronic multiple sclerosis .
+_ brain pathol _ , 170 ( 2):0 129138 , apr 2007 .
+issn 1015 - 6305 ( print ) ; 1015 - 6305 ( linking ) .
+doi : 10.1111/j.1750 - 3639.2006.00043.x .
+eva alonso - ortiz , ives  r. levesque , raphal paquin , and g.  bruce pike .
+field inhomogeneity correction for gradient echo myelin water fraction imaging .
+_ , page n / a , july 2016 .
+doi : 10.1002/mrm.26334 .
+url http://dx.doi.org/10.1002/mrm.26334 .
+jesper  l. andersson , stefan skare , and john ashburner .
+how to correct susceptibility distortions in spin - echo echo - planar images : application to diffusion tensor imaging .
+_ neuroimage _ , 200 ( 2):0 870888 , october 2003 .
+issn 1053 - 8119 .
+doi : 10.1016/s1053 - 8119(03)00336 - 7
+. url http://dx.doi.org/10.1016/s1053-8119(03)00336-7 .
+yaniv assaf , tamar blumenfeld - katzir , yossi yovel , and peter  j. basser .
+: a method for measuring axon diameter distribution from diffusion mri . _ magnetic resonance in medicine _ , 590 ( 6):0 13471354 , june 2008 .
+issn 0740 - 3194 .
+doi : 10.1002/mrm.21577 .
+url http://dx.doi.org/10.1002/mrm.21577 .
+t.  e. behrens , h.  j. berg , s.  jbabdi , m.  f. rushworth , and m.  w. woolrich .
+probabilistic diffusion tractography with multiple fibre orientations : what can we gain ?
+_ neuroimage .
+_ , 340 ( 1):0 14455 . , 2007 .      yves benninger , holly colognato , tina thurnherr , robin j.  m. franklin , dino  p. leone , suzana atanasoski , klaus - armin nave , charles ffrench constant , ueli suter , and joo  b. relvas . signaling mediates premyelinating oligodendrocyte survival but is not required for cns myelination and remyelination . _
+journal of neuroscience _ , 260 ( 29):0 76657673 , july 2006 .
+issn 1529 - 2401 .
+doi : 10.1523/jneurosci.0444 - 06.2006 .
+url http://dx.doi.org/10.1523/jneurosci.0444-06.2006 .
+shai berman , jason  d. yeatman , and aviv mezer . in vivo measurement of g - ratio in the corpus callosum
+using the macromolecular tissue volume : evaluating changes as a function of callosal subregions , age and sex . in _
+qbin workshop : toward a super - big brain : promises and pitfalls of microstructural imaging _ , page  1 , 2016 .
+c  h berthold , i  nilsson , and m  rydmark .
+axon diameter and myelin sheath thickness in nerve fibres of the ventral spinal root of the seventh lumbar nerve of the adult and developing cat .
+_ j anat _ ,
+1360 ( pt 3):0 483508 , may 1983 .
+t.  a. bjarnason , i.  m. vavasour , c.  l. chia , and a.  l. mackay .
+characterization of the nmr behavior of white matter in bovine brain .
+_ magnetic resonance in medicine _ , 540 ( 5):0 10721081 , november 2005 .
+issn 0740 - 3194 .
+doi : 10.1002/mrm.20680 .
+url http://dx.doi.org/10.1002/mrm.20680 .
+jean - franois cabana , ye  gu , mathieu boudreau , ives  r. levesque , yaaseen atchia , john  g. sled , sridar narayanan , douglas  l. arnold , g.  bruce pike , julien cohen - adad , tanguy duval , manh - tung vuong , and nikola stikov .
+quantitative magnetization transfer imaging made easy with qmtlab : software for data simulation , analysis , and visualization .
+_ concepts magn .
+_ , 44a0 ( 5):0 263277 ,
+september 2015 .
+doi : 10.1002/cmr.a.21357 .
+url http://dx.doi.org/10.1002/cmr.a.21357 .    jennifer s.  w. campbell and g.  bruce pike .
+potential and limitations of diffusion mri tractography for the study of language . _ brain and language _ , july 2013 .
+issn 0093934x .
+doi : 10.1016/j.bandl.2013.06.007 .
+url http://dx.doi.org/10.1016/j.bandl.2013.06.007 .
+jennifer  s.w .
+campbell , nikola stikov , robert  f. dougherty , and g.  bruce pike .
+combined noddi and qmt for full - brain g - ratio mapping with complex subvoxel microstructure . in _
+ismrm 2014 _ , page 393 , 2014 .
+jennifer  s.w .
+campbell , ilana  r. leppert , mathieu boudreau , sridar narayanan , tanguy duval , julien cohen - adad , g.  bruce pike , and nikola stikov .
+caveats of miscalibration of myelin metrics for g - ratio imaging . in _
+ohbm 2016 _ , page 1804 , 2016 .
+mara cercignani , giovanni giulietti , nick dowell , barbara spano , neil harrison , and marco bozzali . a simple method to scale the macromolecular pool size ratio for computing the g - ratio in vivo . in _
+ismrm 2016 _ , page 3369 , 2016 .
+mara cercignani , giovanni giulietti , nick  g. dowell , matt gabel , rebecca broad , p.  nigel leigh , neil  a. harrison , and marco bozzali . characterizing axonal myelination within the healthy population : a tract - by - tract mapping of effects of age and gender on the fiber g - ratio .
+_ neurobiology of aging _ , october 2016 .
+issn 0197 - 4580 .
+doi : 10.1016/j.neurobiolaging.2016.09.016 .
+url http://dx.doi.org/10.1016/j.neurobiolaging.2016.09.016 .
+taylor chomiak and bin hu .
+what is the optimal value of the g - ratio for myelinated fibers in the rat cns ?
+a theoretical approach .
+_ plos one _ , 40 ( 11):0 e7754 + , november 2009 .
+doi : 10.1371/journal.pone.0007754 .
+url http://dx.doi.org/10.1371/journal.pone.0007754 .    j.  cohen - adad .
+what can we learn from t2 * maps of the cortex ?
+_ neuroimage _ , 93:0 189200 , june 2014 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2013.01.023 .
+url http://dx.doi.org/10.1016/j.neuroimage.2013.01.023 .
+alessandro daducci , erick  j. canales - rodrguez , hui zhang , tim  b. dyrby , daniel  c. alexander , and jean - philippe thiran .
+accelerated microstructure imaging via convex optimization ( amico ) from diffusion mri data .
+_ neuroimage _ , 105:0 3244 , january 2015 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2014.10.026 .
+url http://dx.doi.org/10.1016/j.neuroimage.2014.10.026 .
+silvia de  santis , daniel barazany , derek  k. jones , and yaniv assaf . resolving relaxometry and diffusion properties within the same voxel in the presence of crossing fibres by combining inversion recovery and diffusion - weighted acquisitions .
+_ , 750 ( 1):0 372380 , january 2016 .
+doi : 10.1002/mrm.25644 .
+url http://dx.doi.org/10.1002/mrm.25644 .
+silvia de  santis , derek  k. jones , and alard roebroeck . including diffusion time dependence in the extra - axonal space
+improves in vivo estimates of axonal diameter and density in human white matter .
+_ neuroimage _ , 130:0 91103 , april 2016 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2016.01.047 .
+url http://dx.doi.org/10.1016/j.neuroimage.2016.01.047 .
+douglas  c. dean , jonathan omuircheartaigh , holly dirks , brittany  g. travers , nagesh adluru , andrew  l. alexander , and sean c.  l. deoni .
+mapping an index of the myelin g - ratio in infants using magnetic resonance imaging .
+_ neuroimage _ , 132:0 225237 , may 2016 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2016.02.040 .
+url http://dx.doi.org/10.1016/j.neuroimage.2016.02.040 .
+sean c.  l. deoni , brian  k. rutt , tarunya arun , carlo pierpaoli , and derek  k. jones .
+gleaning multicomponent t1 and t2 information from steady - state imaging data .
+med . _ , 600 ( 6):0 13721387 , december 2008 .
+issn 1522 - 2594 .
+doi : 10.1002/mrm.21704 .
+url http://dx.doi.org/10.1002/mrm.21704 .
+maxime descoteaux , jasmeen sidhu , eleftherios garyfallidis , jean - christophe houde , peter neher , bram stieltjes , and klaus  h. maier - hein .
+false positive bundles in tractography . in _
+ismrm 2016 _ , page 790 , 2016 .
+m.  d. does and j.  c. gore .
+rapid acquisition transverse relaxometric imaging . _ journal of magnetic resonance _ , 1470 ( 1):0 116120 ,
+november 2000 .
+issn 1090 - 7807 .
+url http://view.ncbi.nlm.nih.gov/pubmed/11042054 .
+jiang du , guolin ma , shihong li , michael carl , nikolaus  m. szeverenyi , scott vandenberg , jody corey - bloom , and graeme  m. bydder .
+ultrashort echo time ( ute ) magnetic resonance imaging of the short t2 components in white matter of the brain using a clinical 3 t scanner .
+_ neuroimage _ , 87:0 3241 , february 2014 .
+issn 1095 - 9572 .
+doi : 10.1016/j.neuroimage.2013.10.053 .
+url http://dx.doi.org/10.1016/j.neuroimage.2013.10.053 .    yiping  p. du , renxin chu , dosik hwang , mark  s. brown , bette  k. kleinschmidt - demasters , debra singel , and jack  h. simon .
+fast multislice mapping of the myelin water fraction using multicompartment analysis of t2 * decay at 3 t : a preliminary postmortem study . _ magnetic resonance in medicine _
+, 580 ( 5):0 865870 , november 2007 .
+issn 0740 - 3194 .
+doi : 10.1002/mrm.21409 .
+url http://dx.doi.org/10.1002/mrm.21409 .
+adrienne  n dula , daniel  f gochberg , holly  l valentine , william  m valentine , and mark  d does .
+multiexponential t2 , magnetization transfer , and quantitative histology in white matter tracts of rat spinal cord .
+_ magn reson med _ , 630 ( 4):0 902909 , apr 2010 .
+issn 1522 - 2594 ( electronic ) ; 0740 - 3194 ( linking ) .
+doi : 10.1002/mrm.22267 .
+t.  duval , s.  lvy , n.  stikov , j.  campbell , a.  mezer , t.  witzel , b.  keil , v.  smith , l.  l. wald , e.  klawiter , and j.  cohen - adad . weighted imaging of the human spinal cord in vivo .
+_ neuroimage _ , september 2016 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2016.09.018 .
+url http://dx.doi.org/10.1016/j.neuroimage.2016.09.018 .
+tanguy duval , simon levy , nikola stikov , a.  mezer , thomas witzel , boris keil , v.  smith , lawrence  l. wald , eric  c. klawiter , and j.  cohen - adad . in vivo mapping of myelin g - ratio in the human spinal cord . in _
+ismrm 2015 _ , page  5 , 2015 .
+tanguy duval , blanche perraud , manh - tung vuong , nibardo  lopez rios , nikola stikov , and julien cohen - adad .
+validation of quantitative mri metrics using full slice histology with automatic axon segmentation . in _
+ismrm 2016 _ , page 396 , 2016 .
+simon  f. eskildsen , pierrick coup , vladimir fonov , jos  v. manjn , kelvin  k. leung , nicolas guizard , shafik  n. wassef , lasse  r. stergaard , and d.  louis collins . : brain extraction based on nonlocal segmentation technique .
+_ neuroimage _ , 590 ( 3):0 23622373 , february 2012 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2011.09.012 .
+url http://dx.doi.org/10.1016/j.neuroimage.2011.09.012 .
+uran ferizi , torben schneider , thomas witzel , lawrence  l. wald , hui zhang , claudia a.  m. wheeler - kingshott , and daniel  c. alexander .
+white matter compartment models for in vivo diffusion mri at 300mt / m .
+_ neuroimage _ , 118:0 468483 , september 2015 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2015.06.027 .
+url http://dx.doi.org/10.1016/j.neuroimage.2015.06.027 .
+els fieremans , yves de  deene , steven delputte , mahir  s. zdemir , yves dasseler , jelle vlassenbroeck , karel deblaere , eric achten , and ignace lemahieu .
+simulation and experimental verification of the diffusion in an anisotropic fiber phantom . _
+journal of magnetic resonance _ , 1900 ( 2):0 189199 , february 2008 .
+issn 10907807 .
+doi : 10.1016/j.jmr.2007.10.014 .
+url http://dx.doi.org/10.1016/j.jmr.2007.10.014 .
+els fieremans , jens  h. jensen , and joseph  a. helpern .
+white matter characterization with diffusional kurtosis imaging .
+_ neuroimage _ , 580 ( 1):0 177188 , september 2011 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2011.06.006 .
+url http://dx.doi.org/10.1016/j.neuroimage.2011.06.006 .
+els fieremans , lauren  m. burcaw , hong - hsi lee , gregory lemberskiy , jelle veraart , and dmitry  s. novikov . in vivo observation and biophysical interpretation of time - dependent diffusion in human white matter .
+_ neuroimage _ , 129:0 414427 , april 2016 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2016.01.018 .
+url http://dx.doi.org/10.1016/j.neuroimage.2016.01.018 .
+e.  k. fram , r.  j. herfkens , g.  a. johnson , g.  h. glover , j.  p. karis , a.  shimakawa , t.  g. perkins , and n.  j. pelc . rapid calculation of t1 using variable flip angle gradient refocused imaging .
+_ magnetic resonance imaging _ , 50 ( 3):0 201208 , 1987 .
+issn 0730 - 725x .
+url http://view.ncbi.nlm.nih.gov/pubmed/3626789 .
+m.  garcia , m.  gloor , e - w  w. radue , ch
+h. stippich , s.  g. wetzel , k.  scheffler , and o.  bieri .
+fast high - resolution brain imaging with balanced ssfp : interpretation of quantitative magnetization transfer towards simple mtr .
+_ neuroimage _ , 590 ( 1):0 202211 , january 2012 .
+issn 1095 - 9572 .
+url http://view.ncbi.nlm.nih.gov/pubmed/21820061 .
+paula  j. gareau , brian  k. rutt , stephen  j. karlik , and j.  ross mitchell .
+magnetization transfer and multicomponent t2 relaxation measurements with histopathologic correlation in an experimental model of ms .
+_ j. magn .
+reson . imaging _ , 110 ( 6):0 586595 , june 2000 .
+doi : 10.1002/1522 - 2586(200006)11:6%3c586::aid - jmri3%3e3.0.co;2-v .
+url http://dx.doi.org/10.1002/1522 - 2586(200006)11:6%3c586::aid - jmri3%3e3.% 0.co;2-v[http://dx.doi.org/10.1002/1522 - 2586(200006)11:6%3c586::aid
+- jmri3%3e3.% 0.co;2-v ] .
+gabriel girard , rutger fick , maxime descoteaux , rachid deriche , and demian wassermann .
+: microstructure - driven tractography based on the ensemble average propagator .
+_ ipmi 2015 _ , 24:0 675686 , 2015 .
+issn 1011 - 2499 .
+url http://view.ncbi.nlm.nih.gov/pubmed/26221712 .    matthew  f. glasser and david  c. van  essen .
+mapping human cortical areas in vivo based on myelin content as revealed by t1- and t2-weighted mri .
+_ j. neurosci .
+_ , 310 ( 32):0 1159711616 , august 2011 .
+issn 1529 - 2401 .
+doi : 10.1523/jneurosci.2180 - 11.2011 .
+url http://dx.doi.org/10.1523/jneurosci.2180-11.2011 .
+francesco grussu , torben schneider , hui zhang , daniel  c. alexander , and claudia a.  m. wheeler - kingshott .
+single shell diffusion mri noddi with in vivo cervical cord data . in _
+ismrm 2014 _ , page 1716 , 2014 .
+kevin  d. harkins , adrienne  n. dula , and mark  d. does .
+effect of intercompartmental water exchange on the apparent myelin water fraction in multiexponential t2 measurements of rat spinal cord .
+_ magnetic resonance in medicine _ , 670 ( 3):0 793800 , march 2012 .
+issn 1522 - 2594 .
+doi : 10.1002/mrm.23053 .
+url http://dx.doi.org/10.1002/mrm.23053 .
+kevin  d. harkins , junzhong xu , adrienne  n. dula , ke  li , william  m. valentine , daniel  f. gochberg , john  c. gore , and mark  d. does .
+the microstructural correlates of t1 in white matter . _ magn . reson .
+_ , 750 ( 3):0 13411345 , march 2016 .
+doi : 10.1002/mrm.25709 .
+url http://dx.doi.org/10.1002/mrm.25709 .
+helms , dathe , kallenberg , and dechent .
+erratum to : helms , dathe , kallenberg and dechent , high - resolution maps of magnetization transfer with inherent correction for rf inhomogeneity and t1 relaxation obtained from 3d flash mri .
+magn reson med 2008 dec;60(6):1396 - 1407 .
+_ , 640 ( 6):0 1856 , december 2010 .
+doi : 10.1002/mrm.22607 .
+url http://dx.doi.org/10.1002/mrm.22607 .
+gunther helms , henning dathe , kai kallenberg , and peter dechent .
+high - resolution maps of magnetization transfer with inherent correction for rf inhomogeneity and t1 relaxation obtained from 3d flash mri .
+_ , 600 ( 6):0 13961407 , december 2008 .
+doi : 10.1002/mrm.21732 .
+url http://dx.doi.org/10.1002/mrm.21732 .    c  hildebrand and r  hahn .
+relation between myelin sheath thickness and axon size in spinal cord white matter of some vertebrate species .
+_ j neurol sci _ , 380 ( 3):0 421434 , oct 1978 .
+issn 0022 - 510x ( print ) ; 0022 - 510x ( linking ) .
+masaaki hori , nikola stikov , yasuaki nojiri , ryuji ad  tsurushima , katsutoshi murata , keiichi ishigame , kouhei kamiya , yuichi suzuki , koji kamagata , and shigeki aoki .
+magnetic resonance myelin g - ratio mapping for the brain and cervical spinal cord : 10 minutes protocol for clinical application . in _
+ismrm 2016 _ , page 3377 , 2016 .
+elizabeth  b hutchinson , alexandru avram , michal komlosh , m  okan irfanoglu , alan barnett , evren ozarslan , susan schwerin , kryslaine radomski , sharon juliano , and carlo pierpaoli . a systematic comparative study of dti and higher order diffusion models in brain fixed tissue . in _
+ismrm 2016 _ , page 1048 , 2016 .
+dosik hwang , dong - hyun kim , and yiping  p. du . .
+_ neuroimage _ , 520 ( 1):0 198204 , august 2010 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2010.04.023 .
+url http://dx.doi.org/10.1016/j.neuroimage.2010.04.023 .
+ileana  o. jelescu , jelle veraart , vitria adisetiyo , sarah  s. milla , dmitry  s. novikov , and els fieremans .
+one diffusion acquisition and different white matter models : how does microstructure change in human early development based on wmti and noddi ? _ neuroimage _ , 107:0 242256 , february 2015 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2014.12.009 .
+url http://dx.doi.org/10.1016/j.neuroimage.2014.12.009 .
+ileana  o. jelescu , jelle veraart , els fieremans , and dmitry  s. novikov .
+degeneracy in model parameter estimation for multi - compartmental diffusion in neuronal tissue .
+_ nmr biomed .
+_ , 290 ( 1):0 3347 , january 2016 .
+doi : 10.1002/nbm.3450 .
+url http://dx.doi.org/10.1002/nbm.3450 .
+ileana  o. jelescu , magdalena zurek , kerryanne  v. winters , jelle veraart , anjali rajaratnam , nathanael  s. kim , james  s. babb , timothy  m. shepherd , dmitry  s. novikov , sungheon  g. kim , and els fieremans . in vivo quantification of demyelination and recovery using compartment - specific diffusion mri metrics validated by electron microscopy .
+_ neuroimage _ , 132:0 104114 , may 2016 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2016.02.004 .
+url http://dx.doi.org/10.1016/j.neuroimage.2016.02.004 .
+sune  n. jespersen , carsten  r. bjarkam , jens  r. nyengaard , mallar  m. chakravarty , brian hansen , thomas vosegaard , leif stergaard , dmitriy yablonskiy , niels chr  c. nielsen , and peter vestergaard - poulsen .
+neurite density from magnetic resonance diffusion measurements at ultrahigh field : comparison with light microscopy and electron microscopy .
+_ neuroimage _ , 490 ( 1):0 205216 , january 2010 .
+issn 1095 - 9572 .
+doi : 10.1016/j.neuroimage.2009.08.053 .
+url http://dx.doi.org/10.1016/j.neuroimage.2009.08.053 .
+b.  jeurissen , a.  leemans , j - d .
+tournier , d.  k. jones , and j.  sijbers .
+estimating the number of fiber orientations in diffusion mri voxels : a constrained spherical deconvolution study . in _
+ismrm 2010 _ , page 573 , 2010 .
+enrico kaden , nathaniel  d. kelm , robert  p. carson , mark  d. does , and daniel  c. alexander .
+multi - compartment microscopic diffusion imaging .
+_ neuroimage _ , 139:0 346359 , june 2016 .
+issn 1095 - 9572 .
+url http://view.ncbi.nlm.nih.gov/pubmed/27282476 .
+valerij  g. kiselev and kamil  a. ilyasov . is the 
+biexponential diffusion  biexponential ?
+_ , 570 ( 3):0 464469 , march 2007 .
+doi : 10.1002/mrm.21164 .
+url http://dx.doi.org/10.1002/mrm.21164 .
+w.  kucharczyk , p.  m. macdonald , g.  j. stanisz , and r.  m. henkelman .
+relaxivity and magnetization transfer of white matter lipids at mr imaging : importance of cerebrosides and ph .
+_ radiology _ , 1920 ( 2):0 521529 , august 1994 .
+issn 0033 - 8419 .
+url http://view.ncbi.nlm.nih.gov/pubmed/8029426 .
+antoine lampron , antoine larochelle , nathalie laflamme , paul prfontaine , marie - michle plante , maria  g. snchez , v.  wee yong , peter  k. stys , marie - ve tremblay , and serge rivest .
+inefficient clearance of myelin debris by microglia impairs remyelinating processes .
+_ journal of experimental medicine _ , 2120 ( 4):0 481495 , april 2015 .
+issn 1540 - 9538 .
+doi : 10.1084/jem.20141656 .
+url http://dx.doi.org/10.1084/jem.20141656 .    c.  laule , e.  leung , d.  k. lis , a.  l. traboulsee , d.  w. paty , a.  l. mackay , and g.  r. moore .
+myelin water imaging in multiple sclerosis : quantitative correlations with histopathology .
+_ multiple sclerosis _ , 120
+( 6):0 747753 , december 2006 .
+issn 1352 - 4585 .
+url http://view.ncbi.nlm.nih.gov/pubmed/17263002 .
+cornelia laule , irene  m. vavasour , shannon  h. kolind , david  k. li , tony  l. traboulsee , g.r .
+wayne moore , and alex  l. mackay .
+magnetic resonance imaging of myelin .
+_ neurotherapeutics : the journal of the american society for experimental neurotherapeutics _ , 40 ( 3):0 460484 , july 2007 .
+issn 1933 - 7213 .
+doi : 10.1016/j.nurt.2007.05.004 .
+url http://dx.doi.org/10.1016/j.nurt.2007.05.004 .
+alfonso lema , courtney bishop , omar malik , miriam mattoscio , rehiana ali , richard nicholas , paolo  a. muraro , paul  m. matthews , adam  d. waldman , and rexford  d. newbould .
+a compararison of magnetization transfer methods to assess brain and cervical cord microstructure in multiple sclerosis .
+_ journal of neuroimaging _ ,
+page n / a , august 2016 .
+doi : 10.1111/jon.12377 .
+url http://dx.doi.org/10.1111/jon.12377 .
+ives levesque , john  g. sled , sridar narayanan , a.  carlos santos , steven  d. brass , simon  j. francis , douglas  l. arnold , and g.  bruce pike .
+the role of edema and demyelination in chronic t1 black holes : a quantitative magnetization transfer study . _ j. magn .
+reson . imaging _ , 210 ( 2):0 103110 , february 2005 .
+doi : 10.1002/jmri.20231 .
+url http://dx.doi.org/10.1002/jmri.20231 .
+ives  r. levesque and g.  bruce pike . characterizing healthy and diseased white matter using quantitative magnetization transfer and multicomponent t2 relaxometry : a unified view via a four - pool model .
+_ , 620 ( 6):0 14871496 , december 2009 .
+issn 1522 - 2594 .
+doi : 10.1002/mrm.22131 .
+url http://dx.doi.org/10.1002/mrm.22131 .
+chunlei liu , wei li , karen  a. tong , kristen  w. yeom , and samuel kuzminski .
+susceptibility - weighted imaging and quantitative susceptibility mapping in the brain .
+_ journal of magnetic resonance imaging _ , 420 ( 1):0 2341 , july 2015 .
+issn 1522 - 2586 .
+url http://view.ncbi.nlm.nih.gov/pubmed/25270052 .
+michael lustig , david donoho , and john  m. pauly .
+sparse mri : the application of compressed sensing for rapid mr imaging . _ magnetic resonance in medicine _
+, 580 ( 6):0 11821195 , december 2007 .
+issn 0740 - 3194 .
+doi : 10.1002/mrm.21391 .
+url http://dx.doi.org/10.1002/mrm.21391 .
+a.  mackay , k.  whittall , j.  adler , d.  li , d.  paty , and d.  graeb .
+in vivo visualization of myelin water in brain by magnetic resonance . _
+magn reson med _ , 310 ( 6):0 673677 , june 1994 .
+issn 0740 - 3194 .
+url http://view.ncbi.nlm.nih.gov/pubmed/8057820 .
+l.  magnollay , f.  grussu , c.  wheeler - kingshott , v.  sethi , h.  zhang , d.  chard , d.  miller , and o.  ciccarelli .
+an investigation of brain neurite density and dispersion in multiple sclerosis using single shell diffusion imaging . in _ ismrm 2014 _ , page 2048 , 2014 .
+klaus maier - hein , peter neher , and et  al .
+tractography - based connectomes are dominated by false - positive connections .
+_ biorxiv _ , pages 084137 + , november 2016 .
+doi : 10.1101/084137 .
+url http://dx.doi.org/10.1101/084137 .
+g.  mangeat , s.  t. govindarajan , c.  mainero , and j.  cohen - adad . .
+_ neuroimage _ , 119:0 89102 , october 2015 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2015.06.033 .
+url http://dx.doi.org/10.1016/j.neuroimage.2015.06.033 .
+alan  p. manning , kimberley  l. chang , alex  l. mackay , and carl  a. michal .
+the physical mechanism of  inhomogeneous  magnetization transfer mri .
+_ journal of magnetic resonance _ ,
+november 2016 .
+issn 10907807 .
+doi : 10.1016/j.jmr.2016.11.013 .
+url http://dx.doi.org/10.1016/j.jmr.2016.11.013 .
+andrew melbourne , zach eaton - rosen , eliza orasanu , david price , alan bainbridge , m.  jorge cardoso , giles  s. kendall , nicola  j. robertson , neil marlow , and sebastien ourselin .
+longitudinal development in the preterm thalamus and posterior white matter : mri correlations between diffusion weighted imaging and t2 relaxometry .
+brain mapp .
+_ , page n / a , march 2016 .
+doi : 10.1002/hbm.23188 .
+url http://dx.doi.org/10.1002/hbm.23188 .
+aviv mezer , jason  d. yeatman , nikola stikov , kendrick  n. kay , nam - joon cho , robert  f. dougherty , michael  l. perry , josef parvizi , le  h. hua , kim butts - pauly , and brian  a. wandell . quantifying the local tissue volume and composition in individual brains with magnetic resonance imaging .
+_ nat med _ , 190 ( 12):0 16671672 , december 2013 .
+issn 1078 - 8956 .
+doi : 10.1038/nm.3390 .
+url http://dx.doi.org/10.1038/nm.3390 .
+siawoosh mohammadi , daniel carey , fred dick , joern diedrichsen , martin  i. sereno , marco reisert , martina  f. callaghan , and nikolaus weiskopf .
+whole - brain in - vivo measurements of the axonal g - ratio in a group of 37 healthy volunteers .
+_ frontiers in neuroscience _ , 9 , 2015 .
+issn 1662 - 4548 .
+doi : 10.3389/fnins.2015.00441 .
+url http://dx.doi.org/10.3389/fnins.2015.00441 .
+jeroen mollink , michiel kleinnijenhuis , stamatios  n sotiropoulos , michiel cottaar , anne - marie van cappellen  van walsum , menuka  pallebage gamarallage , olaf ansorge , saad jbabdi , and karla  l miller .
+exploring fibre orientation dispersion in the corpus callosum : comparison of diffusion mri , polarized light imaging and histology . in _
+ismrm 2016 _ , page 795 , 2016 .
+j.  p. mottershead , k.  schmierer , m.  clemence , j.  s. thornton , f.  scaravilli , g.  j. barker , p.  s. tofts , j.  newcombe , m.  l. cuzner , r.  j. ordidge , w.  i. mcdonald , and d.  h. miller .
+high field mri correlates of myelin content and axonal density in multiple sclerosis  a post - mortem study of the spinal cord . _
+journal of neurology _
+, 2500 ( 11):0 12931301 , november 2003 .
+issn 0340 - 5354 .
+url http://view.ncbi.nlm.nih.gov/pubmed/14648144 .
+lipeng ning , carl - fredrik westin , and yogesh rathi .
+estimation of bounded and unbounded trajectories in diffusion mri .
+_ frontiers in neuroscience _ , 10 , march 2016 .
+issn 1662 - 453x .
+doi : 10.3389/fnins.2016.00129 .
+url http://dx.doi.org/10.3389/fnins.2016.00129 .
+revital nossin - manor , dallas card , charles raybaud , margot  j. taylor , and john  g. sled .
+cerebral maturation in the early preterm period - a magnetization transfer and diffusion tensor imaging study using voxel - based analysis .
+_ neuroimage _ , 112:0 3042 , may 2015 .
+issn 1095 - 9572 .
+url http://view.ncbi.nlm.nih.gov/pubmed/25731990 .
+dmitry  s. novikov , els fieremans , jens  h. jensen , and joseph  a. helpern .
+random walks with barriers .
+_ nature physics _
+, 70 ( 6):0 508514 , march 2011 .
+issn 1745 - 2473 .
+doi : 10.1038/nphys1936 .
+url http://dx.doi.org/10.1038/nphys1936 .
+dmitry  s. novikov , ileana  o. jelescu , and els fieremans . from diffusion signal moments to neurite diffusivities , volume fraction and orientation distribution : an exact solution . in _
+ismrm 2015 _ , page 469 , 2015 .
+joonmi oh , eric  t. han , daniel pelletier , and sarah  j. nelson . _ magnetic resonance imaging _ , 240 ( 1):0 3343 , january 2006 .
+issn 0730 - 725x .
+doi : 10.1016/j.mri.2005.10.016 .
+url http://dx.doi.org/10.1016/j.mri.2005.10.016 .
+se - hong oh , michel bilello , matthew schindler , clyde  e. markowitz , john  a. detre , and jongho lee .
+direct visualization of short transverse relaxation time component ( vista ) .
+_ neuroimage _ , 83:0 485492 , december 2013 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2013.06.047 .
+url http://dx.doi.org/10.1016/j.neuroimage.2013.06.047 .
+andr pampel , dirk  k. mller , alfred anwander , henrik marschner , and harald  e. mller .
+orientation dependence of magnetization transfer parameters in human white matter .
+_ neuroimage _ , 114:0 136146 , july 2015 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2015.03.068 .
+url http://dx.doi.org/10.1016/j.neuroimage.2015.03.068 .
+ofer pasternak , nir sochen , yaniv gur , nathan intrator , and yaniv assaf .
+free water elimination and mapping from diffusion mri .
+_ magnetic resonance in medicine _ , 620 ( 3):0 717730 , september 2009 .
+issn 1522 - 2594 .
+doi : 10.1002/mrm.22055 .
+url http://dx.doi.org/10.1002/mrm.22055 .
+toms paus and roberto toro .
+could sex differences in white matter be explained by g ratio ? _ frontiers in neuroanatomy _ , 3 , 2009 .
+issn 1662 - 5129 .
+doi : 10.3389/neuro.05.014.2009 .
+url http://dx.doi.org/10.3389/neuro.05.014.2009 .
+j  s perrin , g  leonard , m  perron , g  b pike , a  pitiot , l  richer , s  veillette , z  pausova , and t  paus .
+sex differences in the growth of white matter during adolescence .
+_ neuroimage _ , 450 ( 4):0 10551066 , may 2009 .
+issn 1095 - 9572 ( electronic ) ; 1053 - 8119 ( linking ) .
+doi : 10.1016/j.neuroimage.2009.01.023 .
+m.  pesaresi , r.  soon - shiong , l.  french , d.  r. kaplan , f.  d. miller , and t.  paus .
+axon diameter and axonal transport : in vivo and in vitro effects of androgens .
+_ neuroimage _ , 115:0 191201 , july 2015 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2015.04.048 .
+url http://dx.doi.org/10.1016/j.neuroimage.2015.04.048 .
+thomas prasloski , alexander rauscher , alex  l. mackay , madeleine hodgson , irene  m. vavasour , corree laule , and burkhard mdler .
+rapid whole cerebrum myelin water imaging using a 3d grase sequence .
+_ neuroimage _ , 630 ( 1):0 533539 , october 2012 .
+issn 1095 - 9572 .
+doi : 10.1016/j.neuroimage.2012.06.064 .
+url http://dx.doi.org/10.1016/j.neuroimage.2012.06.064 .
+david raffelt , tournier , stephen rose , gerard  r. ridgway , robert henderson , stuart crozier , olivier salvado , and alan connelly .
+apparent fibre density : a novel measure for the analysis of diffusion - weighted magnetic resonance images .
+_ neuroimage _ , 590 ( 4):0 39763994 , february 2012 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2011.10.045 .
+url http://dx.doi.org/10.1016/j.neuroimage.2011.10.045 .
+a.  ramani , c.  dalton , d.  h. miller , p.  s. tofts , and g.  j. barker . precise estimate of fundamental in - vivo mt parameters in human brain in clinically feasible times .
+_ magnetic resonance imaging _ , 200 ( 10):0 721731 , december 2002 .
+issn 0730 - 725x .
+url http://view.ncbi.nlm.nih.gov/pubmed/12591568 .
+marco reisert , irina mader , roza umarova , simon maier , ludger tebartz  van elst , and valerij  g. kiselev .
+fiber density estimation from single q - shell diffusion imaging by tensor divergence
+. _ neuroimage _ , 77:0 166176 , august 2013 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2013.03.032 .
+url http://dx.doi.org/10.1016/j.neuroimage.2013.03.032 .
+ariel rokem , jason  d. yeatman , franco pestilli , kendrick  n. kay , aviv mezer , stefan van  der walt , and brian  a. wandell . evaluating the accuracy of diffusion mri models in white matter .
+_ plos one _ , 100 ( 4):0 e0123272 + , april 2015 .
+doi : 10.1371/journal.pone.0123272 .
+url http://dx.doi.org/10.1371/journal.pone.0123272 .
+itamar ronen , matthew budde , ece ercan , jacopo annese , aranee techawiboonwong , and andrew webb .
+microstructural organization of axons in the human corpus callosum quantified by diffusion - weighted magnetic resonance spectroscopy of n - acetylaspartate and post - mortem histology .
+_ brain structure & function _ , 2190 ( 5):0 17731785 ,
+september 2014 .
+issn 1863 - 2661 .
+url http://view.ncbi.nlm.nih.gov/pubmed/23794120 .
+david  a. rudko , l.  martyn klassen , sonali  n. de  chickera , joseph  s. gati , gregory  a. dekaban , and ravi  s. menon .
+origins of r2 orientation dependence in gray and white matter .
+_ pnas _ , 1110 ( 1):0 e159e167 , january 2014 .
+issn 1091 - 6490 .
+doi : 10.1073/pnas.1306516111 .
+url http://dx.doi.org/10.1073/pnas.1306516111 .
+pascal sati , peter van gelderen , afonso  c. silva , daniel  s. reich , hellmut merkle , jacco  a. de  zwart , and jeff  h. duyn .
+micro - compartment specific t2 * relaxation in the brain .
+_ neuroimage _ , 77:0 268278 , august 2013 .
+issn 1095 - 9572 .
+doi : 10.1016/j.neuroimage.2013.03.005 .
+url http://dx.doi.org/10.1016/j.neuroimage.2013.03.005 .
+benoit scherrer , damien jacobs , maxime taquet , anne des rieux , benoit macq , sanjay  p. prabhu , and simon  k. warfield .
+measurement of restricted and hindered anisotropic diffusion tissue compartments in a rat model of wallerian degeneration . in _
+ismrm 2016 _ , page 1087 , 2016 .
+klaus schmierer , daniel  j. tozer , francesco scaravilli , daniel  r. altmann , gareth  j. barker , paul  s. tofts , and david  h. miller .
+quantitative magnetization transfer imaging in postmortem multiple sclerosis brain .
+_ journal of magnetic resonance imaging : jmri _ , 260 ( 1):0 4151 , july 2007 .
+issn 1053 - 1807 .
+doi : 10.1002/jmri.20984 .
+url http://dx.doi.org/10.1002/jmri.20984 .
+klaus schmierer , claudia  a. wheeler - kingshott , daniel  j. tozer , phil  a. boulby , harold  g. parkes , tarek  a. yousry , francesco scaravilli , gareth  j. barker , paul  s. tofts , and david  h. miller .
+quantitative magnetic resonance of postmortem multiple sclerosis brain before and after fixation .
+_ magn reson med _ , 590 ( 2):0 268277 , february 2008 .
+issn 0740 - 3194 .
+doi : 10.1002/mrm.21487 .
+url http://dx.doi.org/10.1002/mrm.21487 .
+j  m schrder , j  bohl , and u  von bardeleben . changes of the ratio between myelin thickness and axon diameter in human developing sural , femoral , ulnar , facial , and trochlear nerves . _ acta neuropathol _ , 760 ( 5):0 47183 , 1988 .
+farshid sepehrband , kristi  a. clark , jeremy f.  p. ullmann , nyoman  d. kurniawan , gayeshika leanage , david  c. reutens , and zhengyi yang .
+brain tissue compartment density estimated using diffusion - weighted mri yields tissue parameters consistent with histology . _
+brain mapp .
+_ , 360 ( 9):0 36873702 , september 2015 .
+doi : 10.1002/hbm.22872 .
+url http://dx.doi.org/10.1002/hbm.22872 .
+kawin setsompop , borjan  a. gagoski , jonathan  r. polimeni , thomas witzel , van  j. wedeen , and lawrence  l. wald .
+blipped - controlled aliasing in parallel imaging for simultaneous multislice echo planar imaging with reduced g - factor penalty .
+_ , 670 ( 5):0 12101224 , may 2012 .
+doi : 10.1002/mrm.23097 .
+url http://dx.doi.org/10.1002/mrm.23097 .
+noam shemesh , daniel barazany , ofer sadan , leah bar , yuval zur , yael barhum , nir sochen , daniel offen , yaniv assaf , and yoram cohen .
+mapping apparent eccentricity and residual ensemble anisotropy in the gray matter using angular double - pulsed - field - gradient mri .
+_ magn reson med _ , 680 ( 3):0 794806 , september 2012 .
+doi : 10.1002/mrm.23300 .
+url http://dx.doi.org/10.1002/mrm.23300 .
+john  g. sled and g.  bruce pike .
+quantitative imaging of magnetization transfer exchange and relaxation properties in vivo using mri .
+_ , 460 ( 5):0 923931 , november 2001 .
+doi : 10.1002/mrm.1278 .
+url http://dx.doi.org/10.1002/mrm.1278 .
+stephen  m. smith , mark jenkinson , mark  w. woolrich , christian  f. beckmann , timothy  e. behrens , heidi johansen - berg , peter  r. bannister , marilena de  luca , ivana drobnjak , david  e. flitney , rami  k. niazy , james saunders , john vickers , yongyue zhang , nicola de  stefano , j.  michael brady , and paul  m. matthews .
+advances in functional and structural mr image analysis and implementation as fsl .
+_ neuroimage _ , 23 suppl 1:0 s208s219 , 2004 .
+issn 1053 - 8119 .
+doi : 10.1016/j.neuroimage.2004.07.051 .
+url http://dx.doi.org/10.1016/j.neuroimage.2004.07.051 .
+g.  j. stanisz , a.  szafer , g.  a. wright , and r.  m. henkelman . an analytical model of restricted diffusion in bovine optic nerve .
+_ magnetic resonance in medicine _ , 370 ( 1):0 103111 , january 1997 .
+issn 0740 - 3194 .
+url http://view.ncbi.nlm.nih.gov/pubmed/8978638 .
+nikola stikov , lee  m. perry , aviv mezer , elena rykhlevskaia , brian  a. wandell , john  m. pauly , and robert  f. dougherty .
+bound pool fractions complement diffusion measures to describe white matter micro and macrostructure .
+_ neuroimage _ , 540 ( 2):0 11121121 , january 2011 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2010.08.068 .
+url http://dx.doi.org/10.1016/j.neuroimage.2010.08.068 .
+nikola stikov , jennifer  s. campbell , thomas stroh , mariette lavele , stephen frey , jennifer novek , stephen nuara , ming - kai  k. ho , barry  j. bedell , robert  f. dougherty , ilana  r. leppert , mathieu boudreau , sridar narayanan , tanguy duval , julien cohen - adad , paul - alexandre  a. picard , alicja gasecka , daniel ct , and g.  bruce pike . quantitative analysis of the myelin g - ratio from electron microscopy images of the macaque corpus callosum .
+_ data in brief _ , 4:0 368373 , september 2015 .
+issn 2352 - 3409 .
+doi : 10.1016/j.dib.2015.05.019 .
+url http://dx.doi.org/10.1016/j.dib.2015.05.019 .
+nikola stikov , jennifer s.  w. campbell , thomas stroh , mariette lavele , stephen frey , jennifer novek , stephen nuara , ming - kai ho , barry  j. bedell , robert  f. dougherty , ilana  r. leppert , mathieu boudreau , sridar narayanan , tanguy duval , julien cohen - adad , paul picard , alicja gasecka , daniel ct , and g.  bruce  pike . in vivo
+histology of the myelin g - ratio with magnetic resonance imaging .
+_ neuroimage _ , may 2015 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2015.05.023 .
+url http://dx.doi.org/10.1016/j.neuroimage.2015.05.023 .
+rudolf stollberger and paul wach .
+imaging of the active b1 field in vivo .
+_ , 350 ( 2):0 246251 , february 1996 .
+doi : 10.1002/mrm.1910350217 .
+url http://dx.doi.org/10.1002/mrm.1910350217 .
+carsten stber , markus morawski , andreas schfer , christian labadie , miriam whnert , christoph leuze , markus streicher , nirav barapatre , katja reimann , stefan geyer , daniel spemann , and robert turner .
+myelin and iron concentration in the human brain : a quantitative study of mri contrast .
+_ neuroimage _ , 93 pt 1:0 95106 , june 2014 .
+issn 1095 - 9572 .
+url http://view.ncbi.nlm.nih.gov/pubmed/24607447 .
+aaron szafer , jianhui zhong , and john  c. gore . theoretical model for water diffusion in tissues .
+_ , 330 ( 5):0 697712 , may 1995 .
+doi : 10.1002/mrm.1910330516 .
+url http://dx.doi.org/10.1002/mrm.1910330516 .
+jonathan  d. thiessen , yanbo zhang , handi zhang , lingyan wang , richard buist , marc  r. del  bigio , jiming kong , xin - min li , and melanie martin . quantitative mri and ultrastructural examination of the cuprizone mouse model of demyelination . _
+nmr biomed .
+_ , 260 ( 11):0 15621581 , november 2013 .
+issn 1099 - 1492 .
+doi : 10.1002/nbm.2992 .
+url http://dx.doi.org/10.1002/nbm.2992 .
+n.  uranova , d.  orlovskaya , o.  vikhreva , i.  zimina , n.  kolomeets , v.  vostrikov , and v.  rachmanova .
+electron microscopy of oligodendroglia in severe mental illness .
+_ brain research bulletin _ , 550 ( 5):0 597610 , july 2001 .
+issn 0361 - 9230 .
+url http://view.ncbi.nlm.nih.gov/pubmed/11576756 .
+gopal varma , guillaume duhamel , cedric de  bazelaire , and david  c. alsop .
+magnetization transfer from inhomogeneously broadened lines : a potential marker for myelin .
+_ magn reson med _ , 730 ( 2):0 614622 , february 2015 .
+issn 1522 - 2594 .
+url http://view.ncbi.nlm.nih.gov/pubmed/24604578 .
+irene  m. vavasour , cornelia laule , david k.  b. li , anthony  l. traboulsee , and alex  l. mackay . is the magnetization transfer ratio a marker for myelin in multiple sclerosis ?
+_ j. magn .
+reson . imaging _
+, 330 ( 3):0 710718 , march 2011 .
+doi : 10.1002/jmri.22441 .
+url http://dx.doi.org/10.1002/jmri.22441 .
+logi vidarsson , steven  m. conolly , kelvin  o. lim , garry  e. gold , and john  m. pauly .
+echo time optimization for linear combination myelin imaging .
+_ magnetic resonance in medicine _ , 530 ( 2):0 398407 , february 2005 .
+issn 0740 - 3194 .
+doi : 10.1002/mrm.20360 .
+url http://dx.doi.org/10.1002/mrm.20360 .
+yong wang , qing wang , justin  p. haldar , fang - cheng yeh , mingqiang xie , peng sun , tsang - wei tu , kathryn trinkaus , robyn  s. klein , anne  h. cross , and sheng - kwei song . .
+_ brain _ , 1340 ( 12):0 35903601 , december 2011 .
+issn 1460 - 2156 .
+doi : 10.1093/brain / awr307 .
+url http://dx.doi.org/10.1093/brain/awr307 .
+nikolaus weiskopf , john suckling , guy williams , marta  m. correia , becky inkster , roger tait , cinly ooi , edward  t. bullmore , and antoine lutti . _ frontiers in neuroscience _ , 7 , 2013 .
+issn 1662 - 4548 .
+url http://view.ncbi.nlm.nih.gov/pubmed/23772204 .
+kathryn west , nathaniel kelm , daniel gochberg , robert carson , kevin ess , and mark does .
+quantitative estimates of myelin volume fraction from t2 and magnetization transfer . in _
+ismrm 2016 _ , page 1277 , 2016 .
+kathryn  l west , nathaniel  d kelm , daniel  f gochberg , robert  p carson , kevin  c ess , and mark  d does .
+multiexponential t2 and quantitative magnetization transfer in rodent brain models of hypomyelination . in _
+ismrm 2014 _ , page 2088 , 2014 .
+kathryn  l. west , nathaniel  d. kelm , robert  p. carson , and mark  d. does . a revised model for estimating g - ratio from mri .
+_ neuroimage _ , august 2015 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2015.08.017 .
+url http://dx.doi.org/10.1016/j.neuroimage.2015.08.017 .    kathryn  l. west , nathanial  d. kelm , robert  p. carson , and mark  d. does . quantitative assessment of g - ratio from mri . in _
+qbin workshop : toward a super - big brain : promises and pitfalls of microstructural imaging _
+, page  28 , 2016 .
+kathryn  l. west , nathaniel  d. kelm , robert  p. carson , daniel  f. gochberg , kevin  c. ess , and mark  d. does .
+myelin volume fraction imaging with mri .
+_ neuroimage _ , december 2016 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2016.12.067 .
+url http://dx.doi.org/10.1016/j.neuroimage.2016.12.067 .
+nathan  s. white , trygve  b. leergaard , helen darceuil , jan  g. bjaalie , and anders  m. dale . .
+brain mapp .
+_ , 340 ( 2):0 327346 , february 2013 .
+doi : 10.1002/hbm.21454 .
+url http://dx.doi.org/10.1002/hbm.21454 .
+tobias  c. wood , camilla simmons , samuel  a. hurley , anthony  c. vernon , joel torres , flavio dellacqua , steve c.  r. williams , and diana cash
+. whole - brain ex - vivo quantitative mri of the cuprizone mouse model .
+_ peerj _ , 4:0 e2632 + , november 2016 .
+issn 2167 - 8359 .
+doi : 10.7717/peerj.2632 .
+url http://dx.doi.org/10.7717/peerj.2632 .
+zhe wu , hongjian he , ying chen , song chen , hui liu , yiping  p. du , and jianhui zhong .
+feasibility study of high resolution mapping for myelin water fraction and frequency shift using tissue susceptibility . in _
+ismrm 2016 _ , page  31 , 2016 .
+junzhong xu , hua li , kevin  d. harkins , xiaoyu jiang , jingping xie , hakmook kang , mark  d. does , and john  c. gore . mapping mean axon diameter and axonal volume fraction by mri using temporal diffusion spectroscopy .
+_ neuroimage _ , 103:0 1019 , december 2014 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2014.09.006 .
+url http://dx.doi.org/10.1016/j.neuroimage.2014.09.006 .
+v.  l. yarnykh and khodanovich . analytical method of correction of b1 errors in mapping of magnetization transfer ratio in highfield magnetic resonance tomography .
+_ russian physics journal _ , 570 ( 12):0 17841788 , 2015 .
+doi : 10.1007/s11182 - 015 - 0451 - 7
+. url http://dx.doi.org/10.1007/s11182-015-0451-7 .
+vasily  l. yarnykh .
+pulsed z - spectroscopic imaging of cross - relaxation parameters in tissues for human mri : theory and clinical applications .
+_ , 470 ( 5):0 929939 , may 2002 .
+doi : 10.1002/mrm.10120 .
+url http://dx.doi.org/10.1002/mrm.10120 .
+vasily  l. yarnykh .
+fast macromolecular proton fraction mapping from a single off - resonance magnetization transfer measurement .
+_ magn reson med _ , 680 ( 1):0 166178 , july 2012 .
+issn 1522 - 2594 .
+url http://view.ncbi.nlm.nih.gov/pubmed/22190042 .
+aldo zaimi , tanguy duval , alicja gasecka , daniel ct , nikola stikov , and julien cohen - adad . : open source software for axon and myelin segmentation and morphometric analysis . _
+frontiers in neuroinformatics _ , 10 , august 2016 .
+issn 1662 - 5196 .
+doi : 10.3389/fninf.2016.00037 .
+url http://dx.doi.org/10.3389/fninf.2016.00037 .
+hui zhang , penny  l. hubbard , geoff j.  m. parker , and daniel  c. alexander .
+axon diameter mapping in the presence of orientation dispersion with diffusion mri .
+_ neuroimage _ , 560 ( 3):0 13011315 , june 2011 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2011.01.084 .
+url http://dx.doi.org/10.1016/j.neuroimage.2011.01.084 .
+hui zhang , torben schneider , claudia  a. wheeler - kingshott , and daniel  c. alexander . :
+practical in vivo neurite orientation dispersion and density imaging of the human brain .
+_ neuroimage _ , 610 ( 4):0 10001016 , july 2012 .
+issn 10538119 .
+doi : 10.1016/j.neuroimage.2012.03.072 .
+url http://dx.doi.org/10.1016/j.neuroimage.2012.03.072 .

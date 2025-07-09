@@ -1,0 +1,111 @@
+a _ partition _ of a number @xmath4 is a sequence @xmath5 such that @xmath6 and @xmath7 . to indicate that @xmath8 is a partition of @xmath2 we write @xmath9 .
+let @xmath1 be the number of partitions of  @xmath2 . by our definition
+, @xmath10 is the unique partition of @xmath11 .
+the problem of finding asymptotic estimates for @xmath1 was introduced , and one might reasonably say , solved , by the famous paper of hardy 
+ramanujan  @xcite . as well as
+their exact formula for  @xmath1 , proved as the original application of the circle - method , their paper also contains several weaker results proved using less sophisticated analytic methods ; for example , that @xmath12 where @xmath13 .
+the only time they refer to using combinatorial arguments to obtain lower and upper bounds for  @xmath1 is in a footnote in   2.1 , which suggests the strongest such bounds they could prove were of the form @xmath14    our first aim is this paper is to improve on this . in  2 we introduce g.  d.  james abacus notation for partitions and use it to establish an important bijection on partitions ( see  2.2 ) . in 
+3 we use this bijection to show that for every @xmath15 there exists a constant @xmath16 such that @xmath17    despite the appearance of an ` @xmath18 ' in this inequality , the proof of is almost entirely combinatorial .
+the closest competing result in the literature is due to erds , who gives at the start of @xcite a short elementary proof that @xmath19 where , as before , @xmath13 .
+erds result is of course significantly sharper than  , but this improvement comes at the cost of a greater contribution from analysis . for instance , the reader may already have correctly guessed that the identity @xmath20 is needed .    in this context
+, we mention that peter neumann ( oxford algebra kinderseminar , january 2003 ) has asked whether there is a combinatorial proof that there exists a constant @xmath21 such that @xmath22 for all @xmath23 . while comes tantalisingly close , the ideas behind it do not appear quite powerful enough to solve his problem .
+our second aim is to show that the partition bijection given in  2.2 may be used to solve several other problems in the enumeration of partitions . in our first application
+we give a very short proof of an identity originally due to gauss ( see  ( * ? ? ?
+* end of  3 ) ) : @xmath24    our main application concerns a result of erds . in the main part of  @xcite , erds uses the same underlying idea as he used to prove , and some more lengthy ( but still elementary ) analysis , to prove that there exists a constant  @xmath25 such that @xmath26 it was already known from the work of hardy and ramanujan @xcite that , but erds methods were not sufficiently powerful to prove this .
+later however , newman @xcite gave an elementary proof that if holds for _ some _ constant @xmath27 , then necessarily @xmath28 . in 
+4 we use our bijection to give an alternative proof of this result . in length it is comparable with newman s , but it requires considerably less knowledge of analysis , and the motivation is perhaps more apparent .    in  5
+we conclude by showing how the abacus may be applied to give exact asymptotic estimates for two other classes of partitions , namely self - conjugate partitions , and partitions with distinct parts .
+let @xmath8 be a partition of @xmath2 . a @xmath29-_hook _ in @xmath8 consists of two adjacent nodes in the young diagram of @xmath8 whose removal leaves the diagram of a partition of @xmath30 .
+by repeatedly removing @xmath29-hooks from @xmath8 one obtains the _ @xmath29-core _ of  @xmath8 . for example , the @xmath29-core of @xmath31 is @xmath32 , obtained after removing the five  @xmath29-hooks indicated in the diagram below .
+[ 0.5]-core of @xmath31.,title="fig : " ]    in this diagram , two of the three @xmath29-hooks of the original partition are shown by bold lines .
+the remaining lines are @xmath29-hooks of partitions obtained _ en route _ to the @xmath29-core .
+it is not obvious that the @xmath29-core of a partition is independent of the manner in which one removes its @xmath29-hooks .
+this , and much else besides , can be seen very clearly if we represent partitions using g.  d.  james abacus ( see ( * ? ? ? * ch .  2 , 2627 ) ) . to make this
+article self - contained we briefly recall how to operate this piece of apparatus .
+( we describe only the ` binary ' @xmath29-runner abacus . )
+[ [ section ] ]    let @xmath8 be a partition of @xmath2 . starting in the southwest corner of the young diagram of @xmath8 walk along its rim , heading towards the northeast corner . for each step
+right , put a space , indicated  @xmath33 , and for each step up , put a bead , indicated  @xmath34 .
+for example , the partition @xmath31 shown above has the sequence @xmath33@xmath34@xmath33@xmath33@xmath34@xmath34@xmath33@xmath33@xmath33@xmath34 .
+it will be seen shortly that it is useful to allow such a sequence to begin with any number of beads , and to finish with any number of spaces  these must be stripped off before the partition is recovered .
+one then arranges the sequence in two columns , known as the _ runners _ of the abacus . for instance @xmath31
+is represented by @xmath35    we call this an _ abacus _ display for the partition @xmath8 .
+one sees that @xmath29-hooks in  @xmath8 correspond to beads with a space above them , and that an abacus display for the partition obtained by removing a given @xmath29-hook is obtained by sliding the corresponding bead one space up its runner .
+( it is at this point that our convention about initial beads and final spaces is needed . )
+the @xmath29-core of @xmath8 is obtained by pushing all the beads up as far as they will go .    to reconstruct the partition @xmath8 from an abacus display for its @xmath29-core we need to know the number of positions down each bead
+must be moved .
+for example , given the abacus display @xmath36 for the @xmath29-core of @xmath31 , we recover the original partition by moving the bead on the first runner down by  @xmath29 positions , and on the second runner moving the lowest bead down by  @xmath29 positions and the next lowest down by  @xmath37 position .
+we record this information in a pair of partitions , @xmath38 , known as the @xmath29-_quotient _ of @xmath8 ; here @xmath39 has @xmath29-quotient @xmath40 .
+note that the total number of nodes in @xmath41 and @xmath42 is equal to the total number of @xmath29-hooks removed , so @xmath43 where @xmath44 is the @xmath29-core of @xmath8 .
+[ [ section-1 ] ]    given a partition @xmath8 we may , by adding a bead at the start if necessary , choose an abacus display for @xmath8 so that the @xmath29-core of @xmath8 has at least as many beads on the second runner as the first . with this convention to fix the order of the partitions in the @xmath29-quotient of @xmath8
+, the correspondence just described between partitions and pairs @xmath45 of @xmath29-cores and @xmath29-quotients is bijective .
+moreover , it is easy to see that any @xmath29-core is of the form @xmath46 for some @xmath47 .
+therefore we have shown that , if @xmath48 is the number of pairs @xmath38 where @xmath41 and @xmath42 are partitions with @xmath49 , then @xmath50 where the sum is over all the non - negative integers @xmath51 such that @xmath52 is a non - negative even integer .
+for example , @xmath53 as it is easy to calculate @xmath48 given @xmath54 for @xmath55 using the formula @xmath56 , gives us a recurrence relation for the values of the partition function .
+we exploit this recurrence in  3 and  4 below .
+[ [ section-2 ] ]    we now prove gauss identity .
+let @xmath57 be the ordinary generating function for @xmath58 , @xmath59 since each node in the @xmath29-quotient of a partition contributes two nodes to the original partition , our bijection shows that @xmath60 by , this is equivalent to gauss identity .
+it should be said that this is not the first combinatorial proof of gauss identity . in @xcite
+, andrews gives a bijective proof ( in the style of franklin s proof of euler s pentagonal number theorem ) that : @xmath61 replacing @xmath62 with @xmath63 gives .
+another strategy is to first give a combinatorial proof of jacobi s triple product identity , as done for example in ; from jacobi s identity , it only takes a simple specialisation to get  .
+[ [ section-3 ] ]    we conclude this section by remarking that the bijection we have described may be thought as being between the set of all partitions , and the set of all oriented binary trees with vertices labelled by members of @xmath64 , with the property that if two leaves are connected to the same node , they are not both labelled by 0 . for example , the @xmath29-core and @xmath29-quotient of @xmath31 may be represented by the diagram below .    here
+the upper ` @xmath29 ' records the number of rows ( or columns ) in the @xmath29-core of @xmath31 . iterating the process , we find that @xmath31 is represented by the oriented binary tree shown below .
+the corresponding formulation of gauss identity is the attractive @xmath65
+by counting only partitions of @xmath66 with @xmath29-core @xmath10 and @xmath29-quotient @xmath67 where both @xmath41 and @xmath42 are partitions of @xmath68 , we obtain the inequality @xmath69 .
+an immediate consequence is that @xmath70 given @xmath71 , we may choose a power of @xmath72 , say @xmath73 , such that @xmath74 . since @xmath58 is an increasing function , @xmath75 , and
+so @xmath76 it seems striking that such a simple argument gives a lower bound which , while far from optimal , is still of the right asymptotic form .
+marti ( see ( * ? ? ?
+* corollary 3.1 ) ) has shown that , with a little more analysis , and the use of a computer to check small cases , one can obtain the significantly stronger lower bound @xmath77    the next lemma shows how our bijection may be applied to give an upper bound .
+[ lemma : fbound ] suppose that @xmath78 is an increasing function such that @xmath79 and @xmath80 then @xmath81 for all @xmath82 .
+we work by induction on @xmath2 .
+using we have @xmath83 where we adopt the convention that @xmath84 , and similarly for @xmath85 .
+hence @xmath86 which completes the inductive step .
+the reader will see that we have been very crude in taking @xmath2 as an upper bound for the number of summands in  there appears to be no advantage in being any more precise at this point
+.    given any @xmath15 there is a constant @xmath16 depending only on  @xmath18 such that @xmath87    without loss of generality , assume that @xmath88 .
+let @xmath89 .
+we shall prove that when @xmath90 is large enough , @xmath91 satisfies the conditions of lemma  [ lemma : fbound ] .
+setting @xmath92 , we have @xmath93 where we used the inequality @xmath94 which is valid for @xmath95 and @xmath96 .
+therefore the only condition we must satisfy is that @xmath97 or , equivalently , that @xmath98 clearly this will hold provided @xmath90 is sufficient large .
+in this section we assume erds result that @xmath99 for some constant @xmath25 , and prove that @xmath100 . we shall also need erds upper bound   that @xmath101 for all @xmath82 .
+( here , as always , @xmath102 . )
+recall that @xmath48 denotes the number of pairs @xmath38 of partitions such that @xmath103 .
+we first show that it follows from erds result that @xmath104 we then use the bijection described in  2.2 to deduce that @xmath105 comparing this with @xmath106 shows that @xmath100 .
+( the only reason for taking  @xmath107 rather than a general  @xmath2 in is that this choice lead to some simplifications in the expressions we encounter ; there is of course no need to prove anything stronger . )
+[ [ section-4 ] ]    all the results in this section and  5 are proved using the following simple lemma , whose proof requires only the basic integral @xmath108    [ lemma : gen ] if @xmath109 then @xmath110    let @xmath111 stand for the sum on the left - hand - side . since @xmath112 it is sufficient to prove that @xmath113 this is not hard . on the one hand , @xmath114 and on the other ,
+@xmath115 which tends to @xmath11 as @xmath116 .
+hence @xmath117 has the claimed limit .
+[ [ section-5 ] ]    we start by proving . if holds when @xmath2 is even then , by a simple sandwiching argument , it must hold for all @xmath2 .
+we may therefore assume that @xmath118 , in which case becomes @xmath119 let @xmath15 be given .
+choose @xmath120 so that @xmath121    we first obtain an upper estimate for @xmath122
+. for @xmath123 set @xmath124 so we have @xmath125 .
+we shall see that as @xmath68 tends to infinity , the contribution of @xmath126 to  @xmath122 dominates , no matter what the choice of  @xmath127 .
+in fact , it follows from erds bound   and the inequality @xmath128 that @xmath129 and so @xmath130 we now look at the main contribution .
+provided @xmath131 and @xmath132 , the smallest @xmath2 for which @xmath1 appears in @xmath126 is at least @xmath120 . hence if these conditions hold , @xmath133 it now follows from lemma [ lemma : gen ] , applied with @xmath134 , @xmath135 , that @xmath136 finally , let @xmath137 to get @xmath138    we now obtain a lower estimate for @xmath122 . by taking @xmath127 sufficiently small
+we may ensure that @xmath139 for this choice of @xmath127 we have , by the same manipulations as before , @xmath140 the second term on the left - hand - side compensates for the double counting of the contribution of @xmath141 to @xmath122 ; as @xmath142 for @xmath143 , this term vanishes in the limit .
+as before , it follows from lemma  [ lemma : gen ] that @xmath144 now let @xmath145 .
+this completes the proof of  .
+[ [ section-6 ] ]    it follows from that @xmath146 where the sum is over all non - negative integers @xmath51 such that @xmath147 is a non - negative even number .
+we may estimate this sum using the same ideas as  4.2 .
+we start with a lower estimate .
+the contribution from those @xmath148 mod  @xmath72 is at least the contribution from those @xmath149 mod  @xmath72 , so we have @xmath150 for any @xmath127 such that @xmath123 .
+let @xmath15 be given .
+by we may choose @xmath120 so that @xmath151 take @xmath143 .
+choose @xmath127 sufficiently small that @xmath152 for this choice of @xmath127 we have @xmath153 it now follows from lemma [ lemma : gen ] , applied with @xmath154 , @xmath135 , that @xmath155 now let @xmath145 .    to complete the proof of we must also show that @xmath156 in order to apply the method used in  4.2 we need a uniform upper bound for @xmath48 ; the relatively crude estimate @xmath157 given by is sufficient for this purpose .
+as no other new ideas are needed we shall omit the remaining details of the proof .
+in this final section we give asymptotic formulae for the number of self - conjugate partitions , and for the number of partitions with distinct parts . as corollaries ,
+we get precise estimates for the proportions of such partitions .
+we omit the details of the analytic arguments required , as they are of the same nature as those already seen in  4 .      recall
+that if @xmath158 is a partition of @xmath2 then the conjugate partition @xmath159 is defined by @xmath160 ; the diagram of @xmath159 is obtained from that of @xmath8 by reflecting it in its leading diagonal .
+let @xmath161 be the number of self - conjugate partitions of @xmath2 .
+given an abacus display for a partition @xmath8 , one obtains a display for the conjugate partition @xmath159 by reading the sequence of beads and spaces from right to left , and then replacing @xmath34  with  @xmath33  and _ vice versa_. for example , @xmath31 and @xmath162 have the abacus displays : @xmath163 respectively .
+if @xmath8 is self - conjugate then the sequence of spaces and beads corresponding to @xmath8 has an even number of entries .
+it follows that if @xmath8 has @xmath29-quotient @xmath38 then @xmath164 .
+this gives us a bijection between self - conjugate partitions of  @xmath2 and pairs @xmath165 where @xmath44 is a @xmath29-core ( and so of a known shape ) and @xmath41 is a partition of @xmath166 .
+( this bijection is well known , see for instance ( * ? ? ?
+* theorem 6.2.2 ) . we leave it to the reader to work out the connection with the labelled binary trees of  2.4 . )
+the corresponding numerical result is @xmath167 where the sum is over all the non - negative integers @xmath51 such that @xmath52 is a non - negative integer divisible by @xmath72 . by the same techniques used in  4.3
+, one finds that @xmath168 it follows that the proportion of self - conjugate partitions satisfies @xmath169 thus of the @xmath1 partitions of @xmath2 , approximately @xmath170 are self - conjugate .
+let @xmath171 be the number of partitions of @xmath2 with distinct parts . here
+the numerical result we require is @xmath172 where the sum is over all the non - negative integers @xmath51 such that @xmath52 is a non - negative even integer . for a combinatorial proof of this result ,
+see proposition  5.2 in  @xcite . as an alternative ,
+note that the generating function for @xmath171 is @xmath173 hence by , @xmath174 comparing coefficients of @xmath175 gives the required result .    by the same techniques used in  4.3
+, one finds that @xmath176 it follows that the proportion of partitions with distinct parts satisfies @xmath177

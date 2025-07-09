@@ -1,0 +1,1151 @@
+let us begin with the following facts :    1 .   for any differential
+graded algebra @xmath1 , the hochschild cohomology @xmath2 has a gerstenhaber algebra structure .
+2 .   let @xmath3 be a closed , oriented @xmath4-dimensional @xmath0-manifold , @xmath5 be the free loop space .
+then , @xmath6 has a batalin - vilkovisky ( in particular , gerstenhaber ) algebra structure .
+3 .   let @xmath7 denote the differential graded algebra of differential forms on @xmath3 .
+there exists a linear map @xmath8 defined by iterated integrals of differential forms , which preserves the gerstenhaber structures .
+\(a ) is originally due to gerstenhaber @xcite .
+( b ) is due to chas - sullivan @xcite , which is the very first paper on string topology .
+( c ) relates the geometric construction ( b ) to the algebraic construction ( a ) .
+it seems that ( c ) is also well - known to specialists ( see remark [ 150205_2 ] ) .
+( a)(c ) concern algebraic structures on homology level , and it is an important and interesting problem to define chain level refinements of these structures . for ( a )
+, so called deligne s conjecture claims that a certain chain model of the little disks operad acts on the hochschild cochain complex .
+various affirmative solutions to this conjecture and its variations are known ; see @xcite part i section 1.19 , @xcite section 13.3.15 , and the references therein .
+the aim of this paper is to propose a chain level algebraic structure which lifts ( b ) ( the batalin - vilkovisky ( bv ) algebra structure in string topology ) , and compare it with a solution to deligne s conjecture via a chain map which is a chain level lift of ( c ) .
+let us briefly describe our main result ( see theorem [ 150628_1 ] for the rigorous statement ) .
+first of all , for any closed , oriented @xmath0-manifold @xmath3 , we define a chain complex @xmath9 over @xmath10 , which is a chain model of @xmath11 .
+we also define a differential graded operad @xmath12 and its suboperad @xmath13 .
+these operads are chain models of the framed little disks operad and the little disks operad , and defined independently from @xmath3 .
+we establish the following statements :    1 .   for any differential
+graded algebra @xmath1 , the hochschild complex @xmath14 admits an action of @xmath13 , which lifts the gerstenhaber structure on @xmath15 in ( a ) .
+2 .   for any closed , oriented @xmath0-manifold @xmath3 ,
+the chain complex @xmath9 admits an action of @xmath12 , thus @xmath16 has the bv algebra structure .
+there exists an isomorphism @xmath17 preserving the bv structures .
+3 .   there exists a @xmath18-equivariant chain map @xmath19 , such that @xmath20 coincides the map in ( c )
+.    there may be several different ways to work out chain level structures in string topology , based on choices of chain models of the free loop space .
+the singular chain complex has the transversality trouble , namely string topology operations are defined only for chains transversal to each other .
+the hochschild complex of differential forms ( used e.g. in @xcite ) avoids this trouble , however it is not always a correct chain model of the free loop space ( see remark [ 150811_1 ] ) , and loses some geometric informations ( e.g. lengths of loops , see section 1.5.3 ) .
+our chain model @xmath9 is an intermediate one of these two .
+this section is organized as follows . in sections 1.11.4 ,
+we recall several basic definitions and facts , fixing various notations an signs . in section 1.5 , we state theorem [ 150628_1 ] , which is our main result , and a few supplementary results .
+section 1.6 discusses previous works and 1.7 discusses potential applications to symplectic topology .
+section 1.8 explains the plan of the rest of this paper .
+first we briefly recall the notion of ( nonsymmetric ) operads .
+the main aim is to fix conventions , and we refer @xcite part ii section 1.2 for details .
+let @xmath21 be any symmetric monoidal category with a multiplication @xmath22 and a unit @xmath23 .
+a _ nonsymmetric operad _
+@xmath24 in @xmath21 consists of the following data :    * an object @xmath25 for every integer @xmath26 . * a morphism @xmath27 for every @xmath28 and @xmath29 .
+these morphisms are called _
+( partial ) compositions_. * a morphism @xmath30 called a _ unit _ of @xmath24 .
+we require that compositions satisfy associativity , and @xmath31 is a two - sided unit for compositions .
+when @xmath25 admits a right action of the symmetric group @xmath32 ( @xmath33 is the trivial group ) for each @xmath26 , such that these actions are compatible with compositions , @xmath24 is called an _ operad _ in @xmath21 .    for any ( nonsymmetric ) operads @xmath24 and @xmath34 , a morphism of ( nonsymmetric ) operads @xmath35 is a sequence of morphisms @xmath36 which preserves the above structures .
+when @xmath37 are monics for all @xmath26 , we say that @xmath24 is a suboperad of @xmath34 .      throughout this paper ,
+all vector spaces are defined over @xmath10 .
+a graded vector space @xmath38 is a sequence @xmath39 of vector spaces .
+a differential graded ( or dg ) vector space ( or chain complex ) is a pair @xmath40 of a graded vector space @xmath38 and @xmath41 satisfying @xmath42 .
+we may consider any graded vector space as a dg vector space with @xmath43 .
+one can define the symmetric monoidal structure on the category of dg vector spaces as follows : @xmath44 the unit @xmath45 is defined as @xmath46 and @xmath43 . in this paper , we mainly work on the category of graded and dg vector spaces .
+operads in these categories are called _ graded operads _ and _ dg operads _ , respectively .    for any dg vector spaces @xmath38 and @xmath47 , @xmath48 has the structure of a dg vector space : @xmath49 for any dg vector space @xmath38 , @xmath50 has the structure of a dg operad defined as follows ( @xmath51 , @xmath52 , and @xmath53 ) : @xmath54 this dg operad is called the _ endomorphism operad _ of @xmath38 .    for any dg operad @xmath24 ,
+a dg @xmath24-algebra is a chain complex @xmath38 with a morphism @xmath55 of dg operads . for each @xmath26
+we have a chain map @xmath56 for any dg @xmath24-algebras @xmath38 and @xmath47 , a chain map @xmath57 is called a morphism of dg @xmath24-algebras if @xmath58 for any @xmath59 and @xmath60 . for any graded operad @xmath24 , the notions of graded @xmath24-algebras and their morphisms are defined in a similar way .    for any dg operad @xmath61 , a _
+dg ideal _ of @xmath24 is a sequence @xmath62 such that the following conditions hold :    * for every @xmath26 , @xmath63 is a chain subcomplex of @xmath25 , which is preserved by the @xmath32-action on @xmath25 . * for any @xmath59 , @xmath64 and @xmath28 , @xmath65    for any dg ideal @xmath66 , the quotient @xmath67 has a natural structure of a dg operad , and there exists a natural morphism of dg operads @xmath68 . for any graded operad @xmath24 ,
+the notions of its graded ideals and associated quotient graded operads are defined in the obvious way ( see @xcite section 5.2.14 ) .      gerstenhaber and bv operads
+are graded operads , which play central roles in this paper .
+we recall definitions of these operads using generators and relations , partially following @xcite sections 13.3.12 and 13.7.4 .
+the _ gerstenhaber operad _
+@xmath69 is generated by @xmath70 , @xmath71 , @xmath72 with the following relations :    1 .   @xmath73 .
+2 .   @xmath74 .
+3 .   @xmath75 .
+4 .   @xmath76 , @xmath77 .
+more precisely , we consider the free operad @xmath78 ( see @xcite section 5.5 ) generated by @xmath79 , @xmath80 , @xmath81 , and a graded ideal @xmath82 generated by relations ( a ) , ( b ) , ( ab ) , ( u ) .
+then , we define @xmath83 .    for any graded @xmath69-algebra @xmath38 , we define operations @xmath84 and @xmath85 on @xmath38 as @xmath86 then , @xmath87 is a graded commutative , associative algebra , and @xmath88 is a graded lie algebra ( with grading shifted by @xmath89 ) .
+the triple @xmath90 is called a _
+gerstenhaber algebra_.    in the above definition , any gerstenhaber algebra @xmath38 has a unit @xmath91 of the multiplication @xmath84 .
+it seems that the existence of a unit is usually not assumed .
+the _ bv operad _
+@xmath92 is generated by @xmath93 , @xmath94 , @xmath95 , @xmath96 with the relations ( a ) , ( b ) , ( ab ) , ( u ) and @xmath97 obviously , there exists a natural morphism of graded operads @xmath98 .    for any graded @xmath92-algebra @xmath38
+, we define an operation @xmath99 on @xmath38 by @xmath100 .
+the triple @xmath101 is called a _
+bv algebra_. the bracket @xmath85 is recovered by the formula @xmath102 .    for any integer @xmath103 ,
+let @xmath104 be the set of tuples @xmath105 such that    * for each @xmath106 , @xmath107 is a closed disk of positive radius contained in @xmath108 .
+we denote its center by @xmath109 .
+@xmath110 is a point on @xmath111 .
+* @xmath112 are disjoint .
+the set @xmath104 has a natural topology .
+let @xmath113 denote the subspace of @xmath104 , which consists of @xmath105 such that @xmath114 for every @xmath106 .
+we define @xmath115 to be the space consists of a point .
+then , @xmath116 has a natural structure of a topological operad , and @xmath117 is its suboperad .
+@xmath118 ( resp .
+@xmath119 ) is called the _ little disks _ ( resp .
+_ framed little disks _ ) operad .
+there are isomorphisms of graded operads @xmath120
+( @xcite ) and @xmath121 ( @xcite ) , which are compatible with the inclusion maps .
+a _ differential graded associative algebra _ is a dg vector space @xmath1 with a degree @xmath122 product @xmath123 , which is associative , and satisfies the leibniz rule .
+we also assume that it has a unit @xmath124 .
+we abbreviate the term `` differential graded associative algebra '' as `` dga algebra '' . here
+the letter `` a '' stands for `` associative '' , not for algebra ( see @xcite pp .
+let @xmath1 be any dga algebra .
+a dg @xmath125-bimodule is a dg vector space @xmath3 with degree @xmath122 left and right @xmath125-actions @xmath126 and @xmath127 , which satisfy the leibniz rule and associativity .    for every @xmath128 and @xmath129
+, we define a chain map @xmath130 by @xmath131 we set @xmath132 by @xmath133 , and define the hochschild cochain complex @xmath134 by @xmath135 . notice that @xmath136 _ decreases _ the degree by @xmath89 .
+the cohomology of this complex is denoted by @xmath137 , and called the _
+hochschild cohomology_.    notice that @xmath1 itself has a natural structure of a dg @xmath125-bimodule .
+@xmath138 has natural dga and dg lie algebra structures , with operations @xmath139 and @xmath85 defined below .
+the product @xmath139 is defined as @xmath140 the bracket @xmath141 is defined as @xmath142 where @xmath143 is defined as @xmath144 the operations @xmath139 and @xmath141 induce the gerstenhaber structure on @xmath2 .
+this result is originally due to gerstenhaber @xcite .      throughout this paper
+, we set @xmath145 .
+let @xmath3 be a closed , oriented @xmath0-manifold of dimension @xmath4 .
+@xmath5 is equipped with the @xmath0-topology .
+we often abbreviate @xmath146 as @xmath147 .
+also , we often use the notation @xmath148 . in @xcite ,
+chas - sullivan introduced the _ loop product _ on @xmath149 .
+let us briefly recall its definition .
+let us consider the evalutation map @xmath150 , and the fiber product @xmath151 let @xmath152 be a tubular neighborhood of @xmath153 , and @xmath154 be the thom isomorphism .
+the gysin map @xmath155 is defined as the composition of the following maps : @xmath156    let @xmath157 denote the concatenation map . precisely , it is defined as follows ( see the remark on pp .
+780 @xcite ) .
+let us take an increasing @xmath158-function @xmath159 \to [ 0,1]$ ] such that @xmath160 and @xmath161 ( @xmath162 denotes the @xmath163-th derivative ) for any @xmath164 .
+then , @xmath157 is defined by @xmath165 it is easy to see that @xmath166 does not depend on choices of @xmath167 .
+the loop product @xmath168 is defined as the composition of the following three maps .
+the first map is the cross product and the second map is the gysin map . @xmath169
+^ -{\times } & h_{*+2d}(\l^{\times 2 } )   \ar[r ] & \h_*(\l { \,_{e}\!\!\times_{e } } \l ) \ar[r]^-{\h_*(c ) }   & \h_*(\l ) .
+} \ ] ] let us consider the map @xmath170 .
+let @xmath171 denote the intersection product .
+then , @xmath172    on the other hand , @xmath147 admits a natural @xmath173-action @xmath174 , which is defined by @xmath175 .
+we define @xmath176 by @xmath177 \times x)$ ] , where @xmath178   \in h_1(s^1)$ ] is represented by the singular chain @xmath179 $ ] ( see the next subsection for the definition of @xmath180 ) .
+[ thm : ch - su ] for any closed , oriented @xmath4-dimensional @xmath158-manifold @xmath3 , @xmath181 is a bv algebra .
+this result is the starting point of string topology .
+the bracket @xmath85 of this bv structure is called the _ loop bracket_.
+there is a relation between gerstenhaber structures on loop space homology ( theorem [ thm : ch - su ] ) and hochschild cohomology ( section 1.2 ) .
+we explain this relation via iterated integrals of differential forms , which originates in @xcite .    to discuss iterated integrals of differential forms , it is convenient to work with @xmath0-singular chains on @xmath146
+. let us define the @xmath182-dimensional simplex @xmath183 by @xmath184    a map @xmath185 is said to be of class @xmath0 , if there exists an open neighborhood @xmath152 of @xmath186 and a map @xmath187 , such that @xmath188 , and @xmath189 is of class @xmath0 .
+let @xmath190 denote the @xmath10-vector space generated by all @xmath0-maps @xmath191 .
+it is easy to see that , any @xmath0-map @xmath192 is continuous with respect to the @xmath0-topology on @xmath146 . therefore , @xmath193 is a subcomplex of the singular chain complex of @xmath146 . in section 4 , we show that this inclusion map is a quasi - isomorphism ( theorem [ 150219_1 ] ) .
+therefore , @xmath194 .    for any @xmath195 ,
+let us define @xmath196 then , @xmath197 is a dga algebra , where @xmath4 denotes the exterior derivative , and @xmath198 denotes the exterior product .
+we denote it by @xmath7 .
+we define a dg @xmath199-bimodule structure on @xmath200_*:=\hom({{\mathcal{a}}}^{*+d}(m ) , \r)$ ] as follows : @xmath201 a morphism of @xmath7-bimodules @xmath202 ; \ , \alpha \mapsto ( \beta \mapsto \int_m \alpha \wedge \beta)$ ] is a quasi - isomorphism ( this is an obvious consequence of the poincar duality ) .    for any @xmath0-map @xmath203 and @xmath129
+, we define @xmath204 by @xmath205 and define @xmath206)$ ] by @xmath207 it is easy to see that @xmath208 ) ; \quad \sigma \mapsto ( i_k(\sigma))_k\ ] ] is a chain map ( signs are checked in section 6.3 ) . taking homology
+, we obtain a map @xmath209 ) \cong h^*({{\mathcal{a}}}_m , { { \mathcal{a}}}_m).\ ] ] this map preserves the gerstenhaber structures on @xmath210 and @xmath211 .
+[ 150205_2 ] the fact that ( [ 141218_01 ] ) preserves the gerstenhaber structures seems to be known ; see @xcite for the product , and @xcite section 7 for the bracket .
+we can recover this fact as a consequence of theorem [ 150628_1 ] , see remark [ 150703_1 ] .
+we state our main result theorem [ 150628_1 ] and some supplementary results .
+let us recall some notations : @xmath69 and @xmath92 denote the gerstenhaber and bv operads . for any @xmath0-manifold @xmath3 of dimension @xmath4 , @xmath5 , and @xmath212 .
+@xmath7 denotes the dga algebra of differential forms on @xmath3 .
+[ 150628_1 ] there exists a dg operad @xmath12 and its suboperad @xmath13 , satisfying the following properties .    1 .
+there exist isomorphisms of graded operads @xmath213 and @xmath214 , such that the following diagram commutes : @xmath215 \ar[d]_-{\cong }   & h_*(f\tilde{\lambda } ) \ar[d]^-{\cong }
+\\ \ger \ar[r ] & \batvil .   } \ ] ] 2 .   for any dga algebra @xmath1
+, the hochschild complex @xmath138 has a dg @xmath13-algebra structure , which lifts the gerstenhaber structure on @xmath2 .
+3 .   for any closed
+, oriented @xmath0-manifold @xmath3 , there exist : * a dg @xmath12-algebra @xmath9 . *
+an isomorphism @xmath216 of bv algebras . * a morphism of dg @xmath13-algebras @xmath19 such that @xmath20 is equal to the map ( [ 141218_01 ] ) .    [ 150212_1 ]
+it seems that ( although there are some technical issues the author has not confirmed ) the following stronger version of ( i ) is also true : there exists a zig - zag of quiasi - isomorphisms ( of dg operads ) connecting @xmath13 ( resp .
+@xmath12 ) and @xmath217 ( resp .
+@xmath218 ) , which is the singular chain operad of @xmath118 ( resp .
+@xmath119 ) .    [ 150703_1 ]
+since @xmath219 is a map of dg @xmath13-algebras , and @xmath214 , ( iii)-(c ) shows that the map ( [ 141218_01 ] ) preserves the gerstenhaber structures .
+[ 150811_1 ] as ( iii)-(c ) suggests , the chain complex @xmath9 is a `` geometric analogue '' of the hochschild complex @xmath220 .
+an important difference is that the isomorphism @xmath221 holds for any closed oriented @xmath3 , while we need some assumptions ( e.g. @xmath222 ) to show that the map ( [ 141218_01 ] ) is an isomorphism .
+as the next proposition shows , one can define chain level loop product and bracket on @xmath9 .
+[ 150801_1 ] the loop product @xmath84 and the loop bracket @xmath85 on @xmath223 lift to operators on @xmath9 , denoted by the same symbols .
+@xmath84 defines a dga algebra structure , @xmath85 defines a dg lie algebra structure on @xmath9 , and the chain map @xmath224 preserves these structures .
+moreover , there exists an injective chain map @xmath225 such that @xmath226 and the following diagram commutes : @xmath227 ^ -{\h_*(i_m)}\ar[d]_{\cong } &   \h_*({{\mathcal{l}}}m ) \ar[d]^{\cong } \\
+h^{-*}_\dr(m ) \ar[r]_{h_*(\iota_m ) } & h_*(c^{{{\mathcal{l}}}m } ) .   } \ ] ]    as a consequence , one can define @xmath228-refinements of the loop product .
+namely , by the homotopy transfer theorem ( see section 10.3 @xcite ) , one can define an @xmath228-structure @xmath229 on @xmath223 , such that @xmath230 , @xmath231 and @xmath232 is homotopy equivalent to the dga algebra @xmath233 .
+moreover , we may take @xmath229 so that @xmath234 for every @xmath128 , and @xmath235 is homotopy equivalent to the dga algebra @xmath236 .
+in particular , @xmath229 recovers the classical massey product on @xmath237 .    by same arguments
+, one can define an @xmath238-structure @xmath239 on @xmath223 , such that @xmath240 , @xmath241 , and @xmath242 is homotopy equivalent to the dg lie algebra @xmath243 .
+moreover , we may take @xmath239 so that @xmath244 for any @xmath128 .
+when @xmath3 has a riemannian metric , @xmath223 is equipped with the length filtration , and it is shown in @xcite that the loop product preserves this filtration .
+one of features of our chain model @xmath9 is that , one can define the length filtration on this chain model so that the filtration is preserved by string topology operations .    for any @xmath245 ,
+let us denote @xmath246 .
+for any @xmath247 $ ] , we define @xmath248 . in general , a filtration ( indexed by @xmath249 $ ] ) on a chain complex @xmath250 is a family @xmath251}$ ] of subcomplexes of @xmath250 , such that @xmath252 . for any @xmath253 , we set @xmath254 .
+[ 141005_2 ] let @xmath3 be a closed , oriented riemannian manifold .
+then , the chain complex @xmath9 has a filtration @xmath255}$ ] such that the following conditions hold :    1 .
+there exists an isomorphism @xmath256 for every @xmath247 $ ] , such that the following diagram is commutative for any @xmath257 , where vertical maps are induced by inclusions : @xmath258
+^ -{\cong } \ar[d ] & h_*(f^a c^{{{\mathcal{l}}}m } )   \ar[d ]   \\ \h_*(\l^b m )   \ar[r]^-{\cong } & h_*(f^b c^{{{\mathcal{l}}}m } ) . } \ ] ] 2 .
+the @xmath259-algebra structure on @xmath9 preserves the filtration .
+namely , @xmath260      rich algebraic structures in chain level string topology were outlined in @xcite by d. sullivan , and there have been several papers working out details .
+x. chen @xcite introduced a chain model of the free loop space using whitney differential forms , and defined several string topology operations ( the loop product , loop bracket and rotation ) on that chain model , recovering the bv - algebra structure on homology level ( @xcite also studies the @xmath173-equivariant case ) .
+it is not clear whether these operations extend to actions of a dg operad on this chain model .
+on the other hand , a recent paper @xcite by g. drummond - cole , k. poirier and n. rounds proposed a more geometric approach using short geodesic segments and diffuse intersection classes .
+@xcite defines operations on the singular chain complex of the free loop space , recovering the homology level structure defined by cohen - godin @xcite .
+in particular , @xcite covers operations with multiple outputs and those corresponding to surfaces of higher genus .
+however , the operations in @xcite are associative only up to homotopy , and it seems that the resulting algebraic structure is yet to be fully worked out .
+let us discuss some potential applications of results in this paper to symplectic topology .
+for any @xmath0-manifold @xmath3 , the cotangent bundle @xmath261 has the natural sympelctic structure .
+when @xmath3 is closed , oriented and spin , the floer homology @xmath262 has a bv algebra structure , and there exists an isomorphism of bv algebras @xmath263 ( see @xcite and the references therein ) .
+there should be chain level refinements of this correspondence , and we expect that our chain level structures in string topology fit into this picture .
+more specifically , we expect that one can define an @xmath228 ( resp .
+@xmath238 ) structure on @xmath262 via counting solutions of appropriate floer equations , which is homotopy equivalent to the @xmath228 ( resp .
+@xmath238 ) refinement of the loop product ( resp .
+bracket ) on @xmath223 defined in section 1.5.2 .
+on the other hand , fukaya @xcite used chain level loop bracket for compactifications of the moduli space of pseudo - holomorphic disks with lagrangian boundary conditions , and obtained restrictions on topological types of lagrangian submanifolds .
+we expect that our definition of chain level loop bracket could be used to work out details of this approach .
+finally , there is a very interesting program by cieliebak - latschev @xcite , which compares symplectic field theory of sphere cotangent bundles and string topology of @xmath173-equivariant chains on free loops modulo constant loops .
+we hope that the construction in this paper will be a first step towards working out details of the string topology side of this program .
+the rest of this paper is split into two parts .
+the goal of the first part ( sections 26 ) is to define the chain complex @xmath9 .
+this is a chain model of the free loop space @xmath11 , carefully designed to define string topology operations on it .
+our construction of the chain complex @xmath9 is based on two ideas .
+the first idea is to introduce a notion of _ de rham chains _ , which is a certain hybrid of singular chains and differential forms .
+we also need a notion of _ differentiable spaces _ , on which de rham chains are defined .
+these notions are introduced in section 2 .
+we also define de rham chain complex ( the chain complex which consists of de rham chains ) for any differentiable space . an important step in our argument is to show that homology of the de rham chain complex is naturally isomorphic to the usual singular homology .
+we prove it for finite - dimensional manifolds in section 3 , and for the free loop space in section 4 .
+the second idea is to use ( moore ) loops with marked points , which is inspired by the theory of iterated integrals . in section 5 ,
+we introduce a space of moore loops with marked points , and show that the collection of de rham chain complexes of these spaces has a natural structure of a dg operad .
+moreover , this dg operad is cyclic and has a multiplication and a unit .
+based on results in section 5 , we define the chain complex @xmath9 in section 6 .
+we also prove results presented in section 1.5 assuming theorem [ 150624_8 ] , which is a purely algebraic result on operads .    the second part ( sections 711 ) is devoted to the proof of theorem [ 150624_8 ] .
+* acknowledgements . *
+the author appreciates professors k. fukaya and k. ono for their encouragements and comments on this project .
+he also appreciates b. ward for useful communications , and an anonymous referee for many suggestions on the preliminary version of this paper .
+this research is supported by jsps kakenhi grant number 25800041 .
+in this section , we introduce notions of _ differentiable spaces _ and _ de rham chain complexes _ , which are basic for the arguments in this paper . the notion of differentiable spaces
+is introduced in section 2.2 . , and
+de rham chain complexes for these spaces are defined in section 2.3 .
+the rest of this section ( 2.42.8 ) is devoted to establishing several basic results about de rham chain complexes of differentiable spaces .
+let @xmath264 be a @xmath4-dimensional @xmath0-manifold . throughout this paper ,
+all manifolds are without boundary , unless otherwise specified .
+let @xmath265 be an integer , and @xmath266 be an @xmath267-bundle .
+we define @xmath268 . when @xmath269 , we define @xmath270 to be the trivial @xmath10-bundle on @xmath264 .
+any exact sequence @xmath271 of real vector bundles induces an isomorphism @xmath272 .
+an orientation of @xmath78 is a section of the double cover @xmath273 .
+an orientation of @xmath274 is called an orientation of @xmath264 .
+recall that we denote @xmath275 when @xmath276 .
+let @xmath277 denote its subspace which consists of compactly supported @xmath278-forms . when @xmath279 , we set @xmath280 . when @xmath264 is oriented , we define @xmath281    let @xmath282 , @xmath283 be oriented @xmath0-manifolds , and @xmath284 be a submersion ( i.e. @xmath285 is of class @xmath0 and @xmath286 is surjective for any @xmath287 ) .
+let @xmath288 .
+the _ integration along fibers _ is a chain map @xmath289 , which is defined in the following way .
+first we consider the case @xmath290 , @xmath291 and @xmath292 .
+we assume that @xmath293 and @xmath294 are positive with respect to orientations on @xmath295 and @xmath296 .    for @xmath297
+where @xmath298 and @xmath299 , we define @xmath300 by @xmath301 in the general case , @xmath302 is defned by taking local charts and partitions of unity on @xmath282 .
+below is a list of some basic properties of the integration along fibers .    * if @xmath283 is a positively oriented point , then @xmath303 .
+* @xmath302 is a chain map , i.e. there holds @xmath304 . * for any @xmath305 , @xmath306 .
+* for any submersion @xmath307 and @xmath308 , there holds @xmath309 .      for any integers @xmath310 , let @xmath311 denote the set of oriented @xmath163-dimensional submanifolds in @xmath296 .
+we set @xmath312 .
+let @xmath313 be a set .
+differentiable structure _ on @xmath313 is a family of maps called _ plots _ , which satisfies the following conditions :    * every plot is a map from @xmath314 to @xmath313 . *
+if @xmath315 is a plot , @xmath316 and @xmath317 is a submersion , then @xmath318 is a plot .
+a _ differentiable space _ is a pair of a set and a differentiable structure on it . for any differentiable space @xmath313 ,
+let @xmath319 .
+a map @xmath320 between differentiable spaces @xmath313 and @xmath321 is called _ smooth _ ,
+if there holds @xmath322    the term `` plot '' is originally used in the theory of chen s differentiable spaces ( @xcite ) and the theory of diffeological spaces ( @xcite , @xcite ) .
+our notion of differentiable spaces is weaker than these notions . in particular , in axioms of both of these spaces
+, it is required that all constant maps are plots , while we do not require this condition ( see example [ 150623_1 ] ( i)-(b ) below ) .
+[ 150623_1 ] let us explain some examples of differentiable structures .    1 .
+let @xmath3 be a @xmath0-manifold .
+one can consider the following differentiable structures on @xmath3 : * @xmath323 is a plot if @xmath324 is of class @xmath0 .
+we denote the resulting differentiable space as @xmath3 .
+* @xmath323 is a plot if @xmath324 is a submersion ( we always assume that any submersion is of class @xmath0 ) .
+we denote the resulting differentiable space as @xmath325 . + the identity map @xmath326 is smooth , but @xmath327 is not .
+2 .   @xmath328 has the following differentiable structure : a map @xmath329 is a plot if @xmath330 is of class @xmath0 .
+3 .   let @xmath313 be a differentiable space , @xmath321 a subset of @xmath313 , and @xmath331 be the inclusion map .
+one can define the following differentiable structure on @xmath321 : a map @xmath332 is a plot if @xmath333 is a plot of @xmath313 .
+4 .   let @xmath334 be a family of differentiable spaces parametrized by the nonempty set @xmath335 .
+the product @xmath336 has the following differentiable structure : @xmath337 is a plot if @xmath338 is a plot of @xmath339 for any @xmath340 ( @xmath341 denotes the projection to @xmath339 ) .
+two smooth maps @xmath342 are called _ smoothly homotopic _ , if there exists a smooth map @xmath343 such that @xmath344 @xmath345 is called a _ smooth homotopy _ between @xmath346 and @xmath347 .
+the differentiable structure on @xmath10 is defined as in example [ 150623_1 ] ( i)-(a ) , i.e. @xmath348 . the differentiable structure on @xmath349 is defined as in example [ 150623_1 ] ( iv ) .
+it seems that transitivity of @xmath350 does not hold in general .
+unless otherwise specified , any @xmath0-manifold @xmath3 will be equipped with the differentiable structure in example [ 150623_1 ] ( i)-(a ) . when @xmath0-manifolds @xmath3 , @xmath351 are equipped with these differentiable structures , a map @xmath352 is smooth if and only if @xmath346 is of class @xmath0 .
+let @xmath313 be a differentiable space .
+for any @xmath353 , we set @xmath354 notice that @xmath355 for any @xmath356 .
+for any @xmath357 and @xmath358 , let @xmath359 denote the image of @xmath360 by the natural injection @xmath361 .
+let @xmath362 denote the subspace of @xmath363 , which is generated by @xmath364 we define @xmath365 .
+for every @xmath353 , @xmath366 \mapsto [ ( u , \ph , d\omega)]\ ] ] is well - defined , since @xmath304 .
+moreover , @xmath42 since @xmath367 .
+we call @xmath368 the _ de rham chain complex _ of @xmath313 , and denote its homology as @xmath369 .
+elements of @xmath370 are called _ de rham chains _ of @xmath313 .
+our notion of de rham chains is inspired by the notion of _ approximate de rham chains _ by k. fukaya ( @xcite definition 6.4 ) .
+however , an explicit definition of a chain complex is not given in @xcite .    the _ augmentation map _
+@xmath371 is defined as @xmath372):= \int_u   \omega.\ ] ] @xmath373 vanishes on @xmath374 by stokes theorem .
+next we define the _ fiber product _ on de rham chain complexes .
+let @xmath3 be an oriented @xmath0-manifold of dimension @xmath4 .
+let us consider the differentiable space @xmath325 in example [ 150623_1 ] ( i)-(b ) .
+let @xmath313 , @xmath321 be differentiable spaces , and @xmath375 , @xmath376 be smooth maps .
+we define a differentiable structure on @xmath377 as a subset of @xmath378 ( see example [ 150623_1 ] ( iii ) and ( iv ) ) .
+we are going to define a chain map @xmath379 which we call the fiber product on de rham chain complexes .
+let @xmath357 , @xmath380 .
+then , @xmath381 and @xmath382 are submersions .
+thus , @xmath383 is a @xmath0-manifold , moreover it is a submanifold of the euclidean space ( since @xmath384 ) .
+the map @xmath385 is also a submersion .
+let us define an orientation on @xmath386 .
+let @xmath387 , @xmath388 .
+there exist exact sequences @xmath389 then we obtain isomorphisms @xmath390 since @xmath3 , @xmath152 , @xmath38 are oriented , one can define an orientation on @xmath391 ( resp .
+@xmath392 ) so that the first ( resp .
+second ) isomorphism is orientation preserving .
+then , one can define an orientation of @xmath386 so that the third isomorphism is orientation preserving .
+now , @xmath386 is an oriented submanifold of the euclidean space .
+therefore , @xmath386 is an element of @xmath393 .
+let @xmath394 , @xmath395 , @xmath396 , @xmath397 be projection maps . then    * since @xmath398 is a submersion , @xmath399 .
+* since @xmath400 is a submersion , @xmath401 .
+therefore @xmath402 .
+now , let us define ( [ 150127_1 ] ) by @xmath403 \times_m [ ( v , \psi , \eta)]:= ( -1)^{l(\dim u - d ) } [ ( u \times_m v , \ph \times \psi , \omega \times \eta)].\ ] ] by direct computations , one can check that this is a well - defined chain map .
+the product is associative , and a smooth map @xmath404 satisfies @xmath405 .
+when @xmath3 is a positively oriented point ( thus @xmath406 ) , the chain map ( [ 150127_1 ] ) is @xmath407 which we call the _ cross product _ on de rham chain complexes .
+let @xmath408 be a set which has a unique element .
+for any @xmath314 , there exists a unique map @xmath409 .
+we define a differentiable structure on @xmath408 by @xmath410 .
+let us consider @xmath411 with the positive orientation .
+for any @xmath314 , let us denote the unique map @xmath412 by @xmath398 .
+for any @xmath413 , we obtain @xmath414 = [ ( \{0\ } , \ph_{\{0\ } } , ( \pi_u ) _ !
+\omega ) ] = [ ( \{0\ } , \ph_{\{0\ } } , \int_u \omega)].\ ] ] therefore , @xmath415 if @xmath416 , and the augmentation map @xmath417 is an isomorphism .
+in particular , @xmath418      for any differentiable spaces @xmath313 , @xmath321 and a smooth map @xmath419 , @xmath420 \mapsto [ ( u , f \circ \ph , \omega)]\ ] ] is a well - defined chain map .
+[ prop : homotopy ] let @xmath313 , @xmath321 be differentiable spaces , and @xmath342 be smooth maps . if @xmath346 , @xmath347 are smoothly homotopic , then @xmath421 are chain homotopic .
+let @xmath422 be a smooth homotopy between @xmath346 and @xmath347 , i.e. , @xmath345 is a smooth map such that @xmath423 if @xmath424 and @xmath425 if @xmath426 .    take @xmath427 so that @xmath428 on @xmath429 $ ] for some @xmath430 .
+let @xmath431 \in c^\dr_1(\r)$ ] , and define a linear map @xmath432 by @xmath433 .
+since @xmath434 and the cross product are chain maps , for any @xmath435 , we have @xmath436 thus , it is enough to show that @xmath437 .
+since both sides are linear on @xmath438 , we may assume that @xmath439 $ ] for some @xmath357 and @xmath413 .
+let @xmath440 , @xmath441 be the inclusion maps , and @xmath442 , @xmath443 .
+define @xmath444 by @xmath445 $ ] , @xmath446 $ ] .
+then , since @xmath447 is supported on @xmath448 , we have @xmath449 .    let @xmath450 \in c^\dr_*(x)$ ] .
+then , @xmath451.\ ] ] there holds @xmath452 , where @xmath453 is the projection map .
+moreover , @xmath454 , since @xmath455 .
+thus , @xmath456 .
+a similar argument shows @xmath457 .
+hence , we get @xmath458      let @xmath313 be a differentiable space . for any function @xmath459 and @xmath460 , let us define @xmath461 this is a subspace of @xmath313 truncated by the inequality @xmath462 .
+we prove some technical results about de rham chain complexes of these truncated spaces .
+a function @xmath463 is called smooth , if @xmath464 for any @xmath357 .
+@xmath346 is called _ approximately smooth _ , if there exists a decreasing sequence @xmath465 of smooth functions on @xmath313 such that @xmath466 for any @xmath467 .
+if @xmath463 is approximately smooth , @xmath468 is upper semi - continuous for any @xmath357 .
+this is because @xmath469 for any @xmath460 .
+an important example of an approximately smooth ( but not smooth ) function is the length functional ( see section 1.5.3 ) on the free loop space .
+let @xmath3 be a riemannian manifold , and consider the differentiable structure on @xmath11 as in example [ 150623_1 ] ( ii ) .
+then , @xmath470 is approximately smooth .
+it is easy to check that , for any @xmath471 , a functional @xmath472 is smooth .
+let us take a decreasing sequence @xmath473 on @xmath474 , such that @xmath475 for any @xmath476 .
+then , @xmath477 is a decreasing sequence of smooth functions on @xmath146 , such that @xmath478 .
+[ 150210_1 ] let @xmath465 be a decreasing sequence of approximately smooth functions on @xmath313 , such that @xmath479 for any @xmath467 .
+then , the chain map @xmath480 , which is induced by the inclusion maps , is surjective .
+let @xmath357 and @xmath413 .
+setting @xmath481 for each @xmath482 , @xmath483 is a decreasing sequence of upper semi - continuous functions on @xmath152 .
+since @xmath484 is compact , there exists @xmath278 such that @xmath485 for any @xmath486 . setting @xmath487 , the chain map @xmath488 maps @xmath489 $ ] to @xmath490 $ ] .
+[ 150210_2 ] let @xmath463 be an approximately smooth function .
+then , the chain map @xmath491 , which is induced by the inclusion map , is injective .
+first let us consider the case when @xmath346 is a smooth function on @xmath313 .
+for any @xmath492 , @xmath493 denote the chain maps induced by the inclusion maps .
+suppose that @xmath494 satisfies @xmath495 . by the previous lemma
+, there exists @xmath496 such that @xmath497 .
+take @xmath498 so that @xmath499 .
+if there exists a linear map @xmath500 such that @xmath501 , we can prove @xmath502 by @xmath503 to define such @xmath219 , we fix @xmath504)$ ] so that @xmath505 on @xmath506 and @xmath507 . for any @xmath357 , we set @xmath508 .
+then , a linear map @xmath509 \mapsto [ ( u_{f,0 } , \ph|_{u_{f,0 } } ,   ( ( \kappa \circ f \circ \ph ) \cdot \omega)|_{u_{f,0}})]\ ] ] is well - defined ( it is _ not _ a chain map ) . @xmath501 is obvious since @xmath505 on @xmath506 .
+this completes the proof when @xmath346 is a smooth function on @xmath313 .
+finally , we consider the case when @xmath346 is any approximately smooth function on @xmath313 . by definition
+, there exists a decreasing sequence of smooth functions @xmath465 such that @xmath510 .
+the previous lemma shows that the chain map @xmath511 is surjective . on the other hand , since each @xmath512 is smooth , @xmath488 is injective
+. thus @xmath513 is injective .
+[ 150213_1 ] let @xmath465 be any decreasing sequence of approximately smooth functions on @xmath313 , such that @xmath514 for any @xmath467 .
+then , the chain map @xmath480 , which is induced by the inclusion maps , is an isomorphism .
+we already prove the surjectivity in lemma [ 150210_1 ] . by lemma [ 150210_2 ]
+, @xmath488 is injective for every @xmath278 , thus @xmath480 is also injective .
+we define _ smooth singular chains _ on differentiable spaces , and compare them with de rham chains .
+let @xmath313 be a differentiable space , and @xmath265 be an integer .
+a map @xmath515 is called _ strongly smooth _ , if there exists an open neighborhood @xmath152 of @xmath186 , and a smooth map @xmath516 such that @xmath517 . @xmath183 and
+@xmath152 are equipped with the differentiable structures as subsets of @xmath267 .
+for any @xmath265 , let @xmath518 denote the @xmath10-vector space generated by all strongly smooth maps @xmath519 .
+for any @xmath356 , we set @xmath520 . a differential on @xmath521 is defined in the same way as in the singular chain complex . to fix notations ,
+let us spell out details .
+for any @xmath128 and @xmath522 , we define a map @xmath523 by @xmath524 in particular , @xmath525 is defined as @xmath526 for @xmath527 . for any @xmath128
+, a differential @xmath528 is defined as @xmath529 we call the chain complex @xmath530 _ smooth singular chain complex _ , and its homology @xmath531 _ smooth singular homology_. for any smooth map @xmath320 between differentiable spaces , one can define the chain map @xmath532 in the obvious way .
+if smooth maps @xmath342 are smoothly homotopic , @xmath533 are chain homotopic .    for any @xmath128 , we define @xmath534 by @xmath535 .
+then , @xmath536 for any @xmath128 .
+[ 150624_10 ]    1 .
+there exists a sequence @xmath537 such that @xmath538 for any @xmath265 , @xmath539 is characterized by @xmath540 , and @xmath541 2 .
+suppose that @xmath537 and @xmath542 satisfy the conditions in ( i ) .
+then there exists a sequence @xmath543 such that @xmath544 for any @xmath128 , @xmath545 , and @xmath546    for any @xmath265 , @xmath183 is smoothly homotopic to @xmath408 , thus @xmath547 . using this fact
+, the assertions are easy to prove by induction on @xmath182 .    for any @xmath548 which satisfies lemma [ 150624_10 ] ( i ) ,
+one can define a natural transformation @xmath549 as follows ( we set @xmath550 when @xmath356 ) : @xmath551 the equation @xmath552 shows that @xmath553 is a chain map .
+lemma [ 150624_10 ] ( ii ) shows that the homotopy equivalence class of @xmath553 does not depend on choices of @xmath81 .
+in particular , the linear map @xmath554 does not depend on @xmath81 .
+finally , we define the cross product on @xmath555 .
+let us take @xmath556 for all @xmath557 , such that @xmath558 is characterized by @xmath559 , and the following equation holds for any @xmath557 : @xmath560 we define the cross product @xmath561 by @xmath562 the homotopy equivalence class of this map does not depend on choices of @xmath563 .    on the other hand , we defined the cross product for de rham chains ( see section 2.3 ) .
+the next lemma is proved by the standard method of acyclic models .
+[ 150627_1 ] for any differentiable spaces @xmath313 , @xmath321 and @xmath548 satisfying lemma [ 150624_10 ] ( i ) , the following diagram commutes up to homotopy , where horizontal maps are cross products : @xmath564 \ar[d]_{\iota^u(x )   \otimes \iota^u(y ) } & c^\sm_*(x \times y ) \ar[d]^{\iota^u(x \times y ) } \\
+c^\dr_*(x ) \otimes c^\dr_*(y ) \ar[r ] & c^\dr_*(x \times y ) . }
+\ ] ]      let @xmath3 be a @xmath0-manifold , and @xmath26 .
+we define @xmath565 by @xmath566 \rangle : = \int_u \ph^ * \alpha \wedge \omega.\ ] ] it induces a linear map @xmath567 , which we also denote by @xmath568 .    for any subset @xmath569 ,
+let @xmath570 where @xmath152 runs over all open neighborhoods of @xmath335 , and let @xmath571 .
+then , one can define @xmath572 . in the next lemma
+, we consider the case @xmath573 .
+[ 150629_2 ] suppose that @xmath537 satisfies lemma [ 150624_10 ] ( i ) .
+for any nonnegative integers @xmath574 and @xmath575 , @xmath576    we fix @xmath163 and prove the lemma by induction on @xmath182 .
+when @xmath269 , i.e. @xmath577 , the lemma can be directly checked . if the lemma is established for @xmath578 , the case @xmath579 is proved as follows .
+let us take @xmath580 such that @xmath581 ( this is always possible since @xmath582 ) .
+then , @xmath583 the second equality follows from the induction hypothesis , and the last equality follows from stokes theorem .
+let @xmath3 be an oriented @xmath0-manifold , and consider the differentiable structure as in example [ 150623_1 ] ( i)-(a ) , i.e. @xmath584 . with this differentiable structure ,
+a map @xmath585 is strongly smooth if it extends to a @xmath0-map @xmath586 for some open neighborhood @xmath152 of @xmath186 . in particular
+, @xmath587 is a subcomplex of @xmath588 ( the usual singular chain complex of @xmath3 ) .
+it is known that @xmath589 is a quasi - isomorphism ( see @xcite theorem 18.7 ) .
+therefore , we obtain the natural isomorphism @xmath590 .    in section 2.7 , we defined the map @xmath591 for any differentiable space @xmath313 .
+the goal of this section is to prove the following theorem [ 150623_2 ] . as an immediate consequence ,
+we obtain the natural isomorphism @xmath592 .
+[ 150623_2 ] for any oriented @xmath0-manifold @xmath3 , the map @xmath593 is an isomorphism .
+let us denote the map @xmath593 by @xmath594 .
+the proof of theorem [ 150623_2 ] is separated into two steps .
+let @xmath595 .
+* in section 3.1 , we define an isomorphism @xmath596 . * in section 3.2
+, we define an isomorphism @xmath597 via the poincar duality , and show that @xmath598 .
+let us consider the differentiable space @xmath325 ( see example [ 150623_1 ] ( i)-(b ) ) .
+it is easy to check that @xmath599 \mapsto \ph_!\omega\ ] ] is a well - defined chain map .    on the other hand , for any @xmath600 ,
+let us take @xmath314 and an orientation - preserving open embedding @xmath601 such that @xmath602 .
+then , @xmath603 \in c^\dr_*(m_\reg)$ ] does not depend on choices of @xmath152 and @xmath324 .
+thus , one can define a chain map @xmath604,\ ] ] and this is the inverse of ( [ 150210_3 ] ) .
+therefore , ( [ 150210_3 ] ) is an isomorphism of chain complexes .
+in particular , @xmath605 .
+@xmath326 is a map of differentiable spaces , as noted in example [ 150623_1 ] ( i ) .
+the goal of this subsection is to prove the next proposition .
+[ 150210_4 ] @xmath326 induces an isomorphism @xmath606 .    as an immediate consequence
+, we obtain an isomorphism @xmath596 .    to prove proposition [ 150210_4 ] , let us take a proper @xmath0-function @xmath607 , and set @xmath608 for any integer @xmath128 .
+since @xmath346 is a smooth function on @xmath3 and @xmath325 , corollary [ 150213_1 ] implies isomorphisms @xmath609 here we need the following lemma .
+[ 150210_5 ] let @xmath351 be an oriented @xmath0-manifold , and let @xmath47 be an open set in @xmath351 with a compact closure .
+then , there exists a chain map @xmath610 such that the following diagram of chain maps commutes up to homotopy .
+@xmath611^{i_\reg } \ar[d]_-{(\id_w ) _ * } & c^\dr_*(n_\reg)\ar[d]^-{(\id_n ) _ * } \\
+c^\dr_*(w ) \ar[r]_{i } \ar[ru]_{j } & c^\dr_*(n)}\ ] ] @xmath612 and @xmath613 are induced by the inclusion map @xmath614 .
+let us apply lemma [ 150210_5 ] for @xmath615 , @xmath616 , and take a chain map @xmath617 as in lemma [ 150210_5 ] .
+then , @xmath618 is the inverse of @xmath619 , thus proposition [ 150210_4 ] is proved .    to prove lemma [ 150210_5 ]
+, we need the following lemma .
+[ 150210_6 ] let @xmath351 be a @xmath0-manifold , and @xmath620 be a compact set in @xmath351 .
+there exists an integer @xmath621 and a @xmath0-map @xmath622 such that the following conditions hold .
+* for any @xmath623 , @xmath624 is a diffeomorphism . *
+@xmath625 . * for any @xmath626 , @xmath627 is a submersion .
+let @xmath628 denote the space of compactly supported @xmath158-vector fields on @xmath351 .
+for any @xmath629 , let @xmath630 denote the flow generated by @xmath631 .
+let us take a sequence @xmath632 on @xmath628 , such that @xmath633 spans @xmath634 for any @xmath626 . for @xmath635 , we set @xmath636 .
+let us define a @xmath0-map @xmath637 by @xmath638 .
+then , @xmath639 is onto for any @xmath626 and @xmath640 for some @xmath430 .
+finally , take any diffeomorphism @xmath641 preserving the origin .
+then , @xmath642 satisfies the requirements of the lemma .
+[ 150626_4 ] when @xmath351 is a riemannian manifold , for any @xmath643 we may further require the following condition : for any @xmath644 and @xmath623 , @xmath645 .
+let us apply lemma [ 150210_6 ] for @xmath646 , and take an integer @xmath621 and @xmath622 .
+for any @xmath647 , @xmath648 is a submersion .
+we take @xmath649 so that @xmath650 , and define @xmath651 \mapsto [ ( u \times \r^d , f \circ ( \ph \times \id_{\r^d } ) , \omega \times \nu_d)].\ ] ] it is easy to see that @xmath219 is a well - defined chain map .    to show that @xmath652 and @xmath612 are chain homotopic ,
+let us take @xmath653)$ ] so that    * @xmath654 for any @xmath655 , and @xmath656 for any @xmath657 . * @xmath658 is compact , and there exists @xmath430 such that @xmath659 for any @xmath660 $ ] .    for any @xmath661
+, we define @xmath662 by @xmath663 since @xmath664 is a submersion , and @xmath665 is a diffeomorphism on @xmath351 for any @xmath666 , @xmath667 is also a submersion
+. therefore , @xmath668 .
+now , it is easy to see that @xmath669 \mapsto ( -1)^{|\omega|+d }   [ ( u \times \r^d \times \r , \phi , \omega \times \nu_d \times b(s))]\ ] ] is a well - defined linear map , and @xmath670 .
+similar arguments show that @xmath671 and @xmath613 are chain homotopic .
+the homotopy operator is given by exactly the same formula as @xmath620 .
+this case is easier , since we do not have to care about the submersion condition .
+let us define an isomorphism @xmath597 .
+when @xmath672 is finite - dimensional , it is defined as @xmath673 the first isomorphism is defined by integrations of differential forms on smooth chains , and the second one follows from the poincar duality . to define @xmath674 in the general case ,
+let us define a set @xmath675 by @xmath676 then , we define @xmath674 by @xmath677    to prove that @xmath594 is an isomorphism , it is enough to check that @xmath598 .
+we may assume that @xmath672 is finite - dimensional , since the general case follows from this case by taking limits .
+let us consider the following diagram : @xmath678 ^ -{\cong}\ar[rd]_{i_0 } & ( h^*_\dr(m))^ *   & \ar[l]_-{\cong}\ar[ld]^{i_1 } h^{d-*}_{c,\dr}(m ) \\ & h^\dr_*(m ) .
+\ar[u ] & } \ ] ] the vertical map @xmath679 is defined by the pairing @xmath680 ( see section 2.8 ) .    to show that @xmath681 , it is enough to check that the above diagram commutes up to sign .
+the commutativity of the right triangle is easy to check from the definitions .
+the commutativity of the left triangle follows from lemma [ 150629_2 ] ( the case @xmath682 ) .
+let @xmath3 be a closed , oriented riemannian manifold .
+we abbreviate @xmath683 as @xmath684 .
+we consider the differentiable structure on @xmath684 as in example [ 150623_1 ] ( ii ) .
+for any @xmath247 $ ] , we set @xmath685 , and consider the differentiable structure as a subset of @xmath684 ( see example [ 150623_1 ] ( iii ) ) .
+any strongly smooth map @xmath686 is continuous with respect to the @xmath158-topology on @xmath687 .
+therefore , we obtain a map @xmath688 , where the rhs denotes the singular homology . on the other hand , for any differentiable space @xmath313 , we defined the map @xmath591 .
+the aim of this section is to prove the following result .
+[ 150219_1 ] for any closed , oriented riemannian manifold @xmath3 and @xmath689 $ ] , the maps @xmath690 and @xmath688 are isomorphisms .    as an immediate consequence ,
+we obtain an isomorphism @xmath691 .
+the proof of theorem [ 150219_1 ] uses finite - dimensional approximations of the free loop space @xmath692 , which we explain in section 4.1 .
+recall that the rotation operator @xmath693 is defined as @xmath694 \times x)$ ] , where @xmath695 denotes the rotation . via isomorphisms
+@xmath696 , one can define the rotation operators on @xmath697 and @xmath698 in the same way .
+it is easy to see that the isomorphism @xmath699 preserves the rotation operators , since @xmath521 is a subcomplex of @xmath700 for @xmath701 .
+the isomorphism @xmath702 also preserves the rotation operators , since @xmath703 is functorial and commutes with the cross product ( lemma [ 150627_1 ] ) .
+thus we have proved the following corollary .
+[ 150627_2 ] the isomorphism @xmath704 preserves the rotation operators .
+let us define @xmath705 by @xmath706 .
+@xmath707 is smooth as a function on the differentiable space @xmath147 . for any @xmath708
+$ ] , we define @xmath709 by @xmath710 .    for any positive integer @xmath351 ,
+let us define @xmath711 @xmath712 is smooth as a map between differentiable spaces .    for any @xmath713 ,
+let us define ( @xmath4 denotes the distance on @xmath3 ) : @xmath714 for any @xmath715 $ ] , we define @xmath716 it is easy to see that @xmath717 for any @xmath718 $ ] .
+let @xmath719 be the injectivity radius of @xmath3 ( since @xmath3 is closed , @xmath720 ) .
+for any @xmath721 such that @xmath722 , there exists a unique shortest geodesic @xmath723 \to m$ ] such that @xmath724 , @xmath725 .
+we denote it by @xmath726 .
+suppose that @xmath351 is sufficiently large , such that @xmath727 .
+for any @xmath728 and @xmath729 , there holds @xmath730 . for any integer @xmath731
+, we define @xmath732 by @xmath733 for any @xmath734 and @xmath735 , we define @xmath736 by @xmath737 .
+this is a @xmath0-map between @xmath0-manifolds .
+[ 150625_1 ] for any positive real numbers @xmath738 and @xmath739 , there exists @xmath740 such that the following holds : for any integer @xmath741 and any integer @xmath731 , there exists a map @xmath742 such that the following diagram commutes up to homotopy ( @xmath743 denotes the inclusion map ) : @xmath744 ^ -{i}\ar[d]_-{f_n } & \l^{a',e ' } \ar[d]^-{f_{mn } } \\ { { \mathcal{f}}}^{a , e}_n \ar[r]_-{i_m}\ar[ru]^-{g}&{{\mathcal{f}}}^{a',e'}_{mn}. } \ ] ] @xmath347 and the homotopies are both continuous ( @xmath745 , @xmath746 are equipped with the @xmath0-topology ) and smooth ( as maps between differentiable spaces ) .    to prove lemma [ 150625_1 ] , we need the following preliminary lemma [ 150625_2 ] .
+we define @xmath747 \times \{(p , q ) \in m^{\times 2 } \mid d(p , q)<r_m \ } \to m$ ] by @xmath748 .
+for any @xmath749 $ ] , we define a map @xmath750 by @xmath751 . for any @xmath752 such that @xmath753 , we define @xmath754 by @xmath755 .
+[ 150625_2 ] for any @xmath643 , there exists @xmath756 such that the following holds : if @xmath757 satisfy @xmath758 , for any @xmath759 there holds @xmath760    the following assertion is easy to prove by contradiction : there exists @xmath756 such that , if @xmath721 satisfy @xmath761 , then @xmath762).\ ] ]    take @xmath763 as above . then , if @xmath752 satisfy @xmath764 , there holds @xmath765 for any @xmath749 $ ] and @xmath766 .
+the lemma follows from this estimate .
+let us take @xmath643 so that @xmath767 and @xmath768 .
+let us also take a @xmath0-function @xmath769 \to [ 0,1]$ ] with the following properties :    * @xmath770 for any @xmath771 $ ] .
+* @xmath772 for any integer @xmath773 .
+* @xmath774 is constant on some neighborhoods of @xmath122 and @xmath89 .
+let us take an integer @xmath351 so that @xmath775 .
+for any @xmath728 , we define @xmath776 by @xmath777 then @xmath778 satisfies @xmath779 and @xmath780 , thus one can define @xmath781 by @xmath782 .
+it is clear that @xmath783 .
+@xmath347 is both smooth ( as a map between differentiable spaces ) and continuous ( @xmath784 is equipped with the @xmath0-topology ) .
+let us define a homotopy between @xmath743 and @xmath785 .
+for any @xmath786 , we set @xmath787 , and @xmath788
+. then @xmath789 satisfies @xmath790 and @xmath791 .    when @xmath351 is sufficiently large , @xmath792
+thus , for any @xmath759 , @xmath793 satisfies @xmath794 and @xmath795 .    finally , take @xmath796)$ ] so that @xmath797 for any @xmath655 , and @xmath798 for any @xmath657
+. then , @xmath799 is a homotopy between @xmath743 and @xmath785 .
+@xmath345 is both smooth and continuous .
+[ rem : a = infty ] as is clear from the above proof , lemma [ 150625_1 ] holds even when @xmath800 . in this case
+, we denote @xmath801 by @xmath802 .
+let us take strictly increasing sequences of positive real numbers @xmath803 and @xmath804 , such that @xmath805 , @xmath806 .
+then , @xmath807 is an increasing sequence of open sets ( with respect to the @xmath0-topology ) of @xmath687 , and @xmath808 .
+thus , we have isomorphisms @xmath809    since the length functional on @xmath147 is approximately smooth , corollary [ 150213_1 ] implies @xmath810 .
+thus , it is enough to show that the following maps are isomorphisms : @xmath811    now we apply lemma [ 150625_1 ] for each @xmath278 .
+let us take a sequence @xmath812 of positive integers so that @xmath813 and @xmath814 for every @xmath278
+. then , there exists a map @xmath815 such that the following diagram commutes up to homotopy : @xmath816\ar[d]_-{f_{n_j } } & \l^{a_{j+1 } , e_{j+1 } } \ar[d]^-{f_{n_{j+1}}}\\ { { \mathcal{f}}}^{a_j , e_j}_{n_j } \ar[r ] \ar[ru]^-{g_j}&{{\mathcal{f}}}^{a_{j+1 } , e_{j+1}}_{n_{j+1}}.   } \ ] ] then @xmath817 is an isomorphism , since @xmath818 is its inverse .
+the same argument also works for @xmath819 and @xmath820 , and we obtain isomorphisms @xmath821 these isomorphisms fit into the following commutative diagram : @xmath822 ^ -{\cong } & \vlim_j h^\sm_*(\l^{a_j , e_j } ) \ar[d]^-{\cong } \ar[r ] \ar[l ] & \vlim_j h^\dr_*(\l^{a_j , e_j } ) \ar[d]^-{\cong } \\
+\vlim_j h_*({{\mathcal{f}}}^{a_j , e_j}_{n_j } ) & \vlim_j h^\sm_*({{\mathcal{f}}}^{a_j , e_j}_{n_j } ) \ar[r ] \ar[l ] & \vlim_j h^\dr_*({{\mathcal{f}}}^{a_j , e_j}_{n_j } ) . }
+\ ] ] since @xmath823 is an oriented _ finite - dimensional _
+manifold for every @xmath278 , @xmath824 and @xmath825 are isomorphisms .
+thus , the horizontal maps on the second row are isomorphisms . therefore , the horizontal maps on the first row are also isomorphisms .
+this completes the proof of theorem [ 150219_1 ] .
+constructions of string topology operations ( e.g. the loop product ) require ( at least ) two steps :    * fiber products of ( de rham ) chains of the loop space with respect to evaluation maps .
+* concatenations of loops .
+the differentiable space @xmath826 , which we studied in the previous section , is not adequate for both steps . to avoid this trouble , in this section
+we introduce _ moore loops with marked points_.    we explain the plan of this section .
+let @xmath3 denote a closed , oriented riemannian manifold of dimension @xmath4 . in section 5.1 ,
+we introduce the space @xmath827 , which consists of moore paths on @xmath3 . in section 5.2 ,
+we introduce the space @xmath828 , which consists of moore loops with @xmath829 marked points .
+we define two differentiable structures on @xmath828 , and denote the resulting differentiable spaces by @xmath828 and @xmath830 .
+the latter is adequate to define fiber products on de rham chain complexes , and we show that a sequence of de rham chain complexes @xmath831 has a natural structure of a cyclic dg operad with a multiplication and a unit ( see definitions [ 150723_1 ] , [ 150624_4 ] ) .
+this is a key geometric input in the definition of the chain complex @xmath9 , which we explain in section 6 .
+sections 5.35.5 are devoted to proofs of technical lemmas [ 150624_2 ] , [ 150624_3 ] , [ 150626_5 ] , which we state in the end of section 5.2 .
+let @xmath3 be a closed , oriented @xmath0-manifold .
+we define the set of moore paths on @xmath3 as follows : @xmath832 , m ) , \ , \gamma^{(m)}(0)=\gamma^{(m)}(t)=0 \,(\forall m \ge 1 ) \}.\ ] ] @xmath833 denotes the @xmath163-th derivative of @xmath778 .
+the last condition is required to take concatenations of @xmath0-paths .
+we define @xmath834 by @xmath835 , @xmath836 . for any @xmath837 ,
+let us define a map @xmath838 and @xmath839 by @xmath840 the concatenation map @xmath841 is defined by @xmath842 functionals @xmath843 and @xmath844 on @xmath827 are defined by @xmath845 to define a differentiable structure on @xmath827 , we need the following definition .    [ 150625_3 ] let @xmath313 and @xmath321 be @xmath0-manifolds , and @xmath335 be any subset of @xmath313 .
+then , a map @xmath846 is of class @xmath0 , if there exists an open neighborhood @xmath152 of @xmath847 and a @xmath0-map @xmath848 such that @xmath849 .
+we define two differentiable structures on @xmath827 , and denote the resulting differentiable spaces as @xmath827 and @xmath850 .
+the set of plots @xmath851 and @xmath852 are defined as follows :    * let @xmath314 and @xmath853 .
+denote @xmath854 for any @xmath855 .
+then , @xmath856 if @xmath857 and @xmath858 is of class @xmath0 in the sense of definition [ 150625_3 ] ( @xmath859 , @xmath860 ) . *
+@xmath852 consists of @xmath856 such that @xmath861 is a submersion for @xmath527 .
+the identity map @xmath862 is smooth as a map of differentiable spaces .
+the functional @xmath844 is smooth , and @xmath843 is approximately smooth with both differentiable structures ( @xmath827 and @xmath850 ) .
+the goal of this subsection is to prove the next lemma .
+[ 150626_1 ] the concatenation maps @xmath863 are smooth as maps of differentiable spaces .
+set theoretically , the two maps in lemma [ 150626_1 ] are same .
+however , differentiable structures on the domain and the target of the map are different .
+first we prove the following lemma , which is a subtle point of the proof .
+[ 150626_2 ] let @xmath152 be a @xmath0-manifold , and @xmath864 .
+let @xmath865 , and suppose that @xmath866 satisfies the following conditions :    * @xmath346 is of class @xmath0 in the sense of definition [ 150625_3 ] .
+* for any @xmath855 and an integer @xmath29 , @xmath867
+.    then , @xmath868 defined by @xmath869 is of class @xmath0 .
+let @xmath870 . a nontrivial part of the lemma is to check differentiability of @xmath871 at @xmath872 such that @xmath873 and @xmath874 .
+since @xmath346 is of class @xmath0 , there exists a @xmath0-function @xmath875 , which is defined on an open neighborhood of @xmath876 and @xmath877 .
+let us prove @xmath878 for any @xmath879 and @xmath874 .
+it is obvious when @xmath880 , since @xmath881 for any @xmath29 and @xmath882 which is near @xmath81 .
+even when @xmath873 , there exists a sequence @xmath883 such that @xmath884 and @xmath885 , since @xmath874 .
+thus , @xmath886 .    to prove the lemma , it is enough to prove the claim @xmath887 for every integer @xmath29 :    _ _ _ _ _ _ _ _ _ _ _ _ _
+_ _ _ _ _ _
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ @xmath887 : for any @xmath879 such that @xmath888 , @xmath889 is totally differentiable , and @xmath890 unless @xmath891 . _
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _    let us prove @xmath892 .
+it is enough to check @xmath893 for any @xmath81 such that @xmath873 and @xmath874 .
+if this does not hold , there exists a sequence @xmath894 such that @xmath895 and @xmath896 . since @xmath897
+, we may assume @xmath898 .
+then , @xmath899 , and thus , @xmath900 . on the other hand @xmath901 , and thus , @xmath902 .
+this contradicts @xmath903 , and @xmath892 is proved .
+let us prove @xmath904 .
+it is enough to check @xmath905 for any @xmath81 such that @xmath873 and @xmath874 .
+if this does not hold , there exists a sequence @xmath894 such that @xmath895 and @xmath906 .
+by @xmath907 , @xmath908 .
+thus , we may assume that @xmath909 .
+by @xmath907 , this implies @xmath899 , and thus , @xmath910 . on the other hand @xmath878 , and
+thus , @xmath911 .
+this contradicts @xmath912 , and @xmath887 is proved .
+we first prove that @xmath913 is smooth .
+let @xmath914 , and denote @xmath915 .
+we need to show that @xmath916 is a plot on @xmath827 .
+it is enough to show that @xmath917 is of class @xmath0 in the sense of definition [ 150625_3 ] .
+we may assume that @xmath3 is embedded in @xmath918 for some integer @xmath351 .
+for @xmath919 , we define @xmath920 by @xmath921 since @xmath922 for any @xmath855 and @xmath731 , lemma [ 150626_2 ] shows that @xmath923 .
+let us define @xmath924 by @xmath925 then , it is easy to see that @xmath926 for any @xmath855 and @xmath927 .
+this shows that @xmath928 is of class @xmath0 , hence @xmath913 is smooth .
+now , it is easy to see that @xmath929 is smooth , since any @xmath930 satisfies @xmath931 and @xmath932 .      for any integer @xmath265 , we define @xmath933 in particular , @xmath934 . for any @xmath935
+, we define @xmath936 we also define @xmath937 by @xmath938 .
+[ 150701_1 ] we can identify @xmath828 with @xmath939 , m ) , \ , 0 \le t_1 \le \cdots \le
+t_k \le t , \\   & \qquad \gamma(0)=\gamma(t ) , \quad \gamma^{(m)}(0)=\gamma^{(m)}(t)= \gamma^{(m)}(t_j)=0 \ , ( \forall m \ge 1 , \ , 1 \le \forall j \le k ) \}. \end{aligned}\ ] ] indeed , for any @xmath940 , one can assign @xmath941 .
+recall that we defined two differentiable structures on @xmath827 , and denote the resulting differentiable spaces @xmath827 and @xmath850 .
+since @xmath828 is a subset of @xmath942 , we can define two differentiable structures on @xmath828 ( see example [ 150623_1 ] ( iii ) and ( iv ) ) .
+we denote the resulting differentiable spaces by @xmath828 and @xmath830 .
+let us define @xmath943 by @xmath944 .
+the function @xmath843 is approximately smooth with both differentiable structures ( @xmath828 and @xmath830 ) .    for any @xmath689 $ ] , we define @xmath945 .
+we define differentiable structures on @xmath946 as a subspace of @xmath828 and @xmath830 , and denote the resulting differentiable spaces as @xmath946 and @xmath947 . the chain maps @xmath948 and @xmath949
+are injective .    for any @xmath950 and @xmath951
+, we define a map @xmath952 by @xmath953 then , @xmath954 is a smooth map by lemma [ 150626_1 ] . also , @xmath955 is a smooth map .
+now we need some definitions on algebraic operads .
+our notion of a multiplication of an operad ( definition [ 150624_4 ] ) is similar to the one in @xcite .
+[ 150723_1 ] let @xmath956 be a nonsymmetric dg operad .
+a _ cyclic structure _ on @xmath957 is a sequence @xmath958 with the following properties .    * for any @xmath265 , @xmath959 is a chain map on @xmath960 of degree @xmath122 , satisfying @xmath961 . *
+@xmath962 is cyclically invariant , i.e. @xmath963 .
+* for any @xmath950 , @xmath951 , @xmath964 and @xmath965 , there holds @xmath966 a pair @xmath967 is called a _
+nonsymmetric cyclic dg operad_.    [ 150624_4 ] let @xmath968 be a nonsymmetric dg operad .
+@xmath969 is called a _ multiplication _ of @xmath957 , if @xmath970 and @xmath971 .
+@xmath972 is called a _ unit _ of @xmath774 , if @xmath973 and @xmath974 .
+let @xmath975 be a nonsymmetric dg operad with a multiplication and a unit .
+then , @xmath976 has the structure of a cosimplicial chain complex with chain maps @xmath977 defined as @xmath978 also , suppose that @xmath957 has a cyclic structure @xmath958 , and @xmath969 is cyclically invariant , i.e. @xmath979 . then , @xmath957 is a cocyclic chain complex .
+now let us return to the moore loop spaces .
+for any @xmath265 , let @xmath980 . then
+, @xmath981 has the structure of a nonsymmetric cyclic dg operad with a multiplication and a unit , defined as follows .    * for any @xmath950 and @xmath951 , we define @xmath982 by @xmath983 . * for any @xmath265 , we define @xmath984 by @xmath985 .
+we define @xmath986 to be the identity map on @xmath987 .
+* let us take @xmath988 and an orientation - preserving diffemorphism @xmath989 .
+then , we define @xmath990 \in   { { \mathcal{cl}}}(0)_0 ,   \quad   1_{{{\mathcal{cl}}}}:= [ ( m ' , i_1 \circ \ph , 1 ) ] \in { { \mathcal{cl}}}(1)_0 , \\   \mu&:= [ ( m ' , i_2 \circ \ph , 1 ) ] \in { { \mathcal{cl}}}(2)_0
+. \end{aligned}\ ] ] it is easy to check that the elements @xmath373 , @xmath991 and @xmath774 are well - defined , i.e. not depend on choices of @xmath992 and @xmath324 . also , @xmath991 and @xmath774 are cyclically invariant .
+in particular , @xmath993 has the structure of a cocyclic chain complex .
+notice that this structure preserves the length filtration .
+namely , for any @xmath689 $ ] , @xmath994 has the structure of a cocyclic chain complex .
+the rest of this section is devoted to proofs of the following lemmas .
+[ 150624_2 ] for any @xmath265 , the identity map @xmath995 induces an isomorphism @xmath996 .
+let us recall notations @xmath997 and @xmath998 .
+[ 150624_3 ] for any @xmath265 , let us define @xmath999 and consider the differentiable structure on @xmath1000 as a subset of @xmath1001 .
+then , the inclusion map @xmath1002 induces an isomorphism @xmath1003 .
+[ 150626_5 ] for any @xmath265 , let us define the map @xmath1004 by @xmath1005 , @xmath1006 ( we set @xmath1007 , @xmath1008 ) .
+then , the map @xmath1009 is smooth , and induces an isomorphism @xmath1010 .    summarizing these lemmas
+, we have the following zig - zag of the quasi - isomorphisms : @xmath1011 & c^\dr_*(\bl^a_k ) & c^\dr_*({{\mathcal{l}}}^a_k ) \ar[r]\ar[l ] & c^\dr_*({{\mathcal{l}}}^a \times \delta^k ) . \\   } \ ] ] the sequences @xmath1012 , @xmath1013 , @xmath1014 have natural structures of cocyclic chain complexes , and ( [ 150628_2 ] ) induces quasi - isomorphisms of these cocyclic chain complexes .
+let us take an increasing sequence of positive real numbers @xmath803 , such that @xmath1015 .
+since the length functional is approximately smooth on @xmath828 and @xmath830 , corollary [ 150213_1 ] implies @xmath1016 now , the key technical step is the next lemma .
+[ 150626_3 ] for any integer @xmath482 , there exists a chain map @xmath1017 such that the following diagram commutes up to chain homotopy : @xmath1018 ^ -{(\id_j ) _ * } \ar[d]_-{(i_\reg)_*}&c^\dr_*(\bl^{a_j}_k ) \ar[d]^-{i_*}\ar[ld]^-{j } \\
+c^\dr_*(\bl^{a_{j+1}}_{k,\reg } ) \ar[r]_-{(\id_{j+1 } ) _ * } & c^\dr_*(\bl^{a_{j+1}}_k ) . }
+\ ] ] in the above diagram , @xmath1019 , @xmath1020 are identity maps , and @xmath613 , @xmath612 are inclusion maps .
+lemma [ 150626_3 ] implies @xmath1021 , then we obtain @xmath996 , that is lemma [ 150624_2 ] .
+let @xmath1022 . by lemma [ 150210_6 ] and remark [ 150626_4 ] , there exists an integer @xmath1023 and a @xmath0-map @xmath1024 such that    * for any @xmath623
+, @xmath1025 is a diffeomorphism .
+moreover , there holds @xmath1026 for any @xmath1027 .
+* @xmath1028 . * for any @xmath1029 , @xmath1030 is a submersion .
+let us define @xmath1031 by @xmath1032 then , @xmath1033 for any @xmath1034 .
+let us take @xmath1035 such that @xmath1036 .
+it is easy to see that @xmath1037 \mapsto [ ( u \times \r^d , { { \mathcal{f } } } \circ(\ph \times \id_{\r^d } ) , \omega \times \nu)]\ ] ] is a well - defined chain map .
+we show that @xmath219 satisfies the requirement in lemma [ 150626_3 ] .    to show that @xmath1038 and @xmath1039 are homotopic
+, we take @xmath653)$ ] so that    * @xmath1040 for any @xmath655 , and @xmath1041 for any @xmath657 .
+* @xmath1042 is compact , and there exists @xmath430 such that @xmath659 for any @xmath660 $ ] .
+for any @xmath1043 , we define @xmath1044 by @xmath1045 let us show that it is a plot of @xmath830 , namely @xmath1046 is a submersion for every @xmath935 .
+it is easy to check that @xmath1047 . since @xmath1048
+, @xmath1049 is a submersion . on the other hand
+, @xmath665 is a diffeomorphism on @xmath3 .
+thus , @xmath1050 is a submersion .
+hence @xmath1051 .
+it is easy to see that the linear map @xmath1052 \mapsto ( -1)^{|\omega|+d } [ ( u \times \r^d   \times \r , \phi , \omega \times \nu \times b(s))]\ ] ] is well - defined , and satisfies @xmath1053 .
+similar arguments show that @xmath1054 is homotopic to @xmath1055 .
+the homotopy operator is given by exactly the same formula as @xmath620 .
+this case is easier , since we do not have to care about the submersion condition .
+let us take strictly increasing sequences @xmath803 , @xmath804 of positive real numbers , such that @xmath1056 , @xmath1057 .
+we set @xmath1058    [ 150630_1 ] for every @xmath482 , there exists a smooth map @xmath1059 such that the following diagram commutes up to smooth homotopy : @xmath1060 \ar[d ] & \l^{a_j , e_j } \times \delta^k \ar[ld]^-j \ar[d ] \\
+\l^{a_{j+1 } , e_{j+1}}_k \ar[r ] & \l^{a_{j+1 } , e_{j+1 } } \times \delta^k .   } \ ] ] all maps other than @xmath219 are inclusion maps .    assuming lemma [ 150630_1 ]
+, we can prove lemma [ 150624_3 ] as @xmath1061 to prove lemma [ 150630_1 ] , we need the following sublemma .
+[ 150630_2 ] for any @xmath643 , there exists a @xmath0-map @xmath1062 \to [ 0,1]$ ] such that the following properties hold for any @xmath1063 .
+* @xmath1064 , @xmath1065 . *
+@xmath1066 $ ] for any @xmath1067 $ ] . *
+@xmath1068 for any @xmath1067 $ ] .
+* @xmath1069 for any integer @xmath731 and @xmath1070 .
+we may assume @xmath1071 .
+let us take @xmath1072 .
+we also take @xmath504)$ ] such that @xmath1073 for any integer @xmath29 , and @xmath1074 if @xmath1075 . for any @xmath771 $ ] , we set @xmath1076 , and we define @xmath1077)$ ] by @xmath1078 it is clear that @xmath774 satisfies ( i ) and ( iv ) .
+it is also easy to check @xmath1079 , then ( ii ) and ( iii ) are verified as @xmath1080    let us fix @xmath1081 , and take @xmath643 so that @xmath1082 for the definition of @xmath1083 in the second inequality , see lemma [ 150625_2 ] .
+we take @xmath1062 \to [ 0,1]$ ] as in lemma [ 150630_2 ] . for any @xmath1084 and @xmath1085
+, we define @xmath1086 by @xmath1087 ( this is well - defined by ( i ) ) .
+then @xmath1088 , and @xmath1089 by ( ii ) . by ( iv ) , for any @xmath731 and @xmath1090 , there holds @xmath1091 .
+therefore , @xmath1092 .    since @xmath1093
+, one can define @xmath219 by @xmath1094 by lemma [ 150630_2 ] ( iii ) and @xmath1095 , there holds @xmath1096 for any @xmath749 $ ] , let @xmath1097 .
+the map @xmath750 is defined right before lemma [ 150625_2 ] . applying lemma [ 150625_2 ] for @xmath1098
+, we obtain @xmath1099 for any @xmath749 $ ] . if @xmath1100 , there holds @xmath1101 for any @xmath731 , @xmath759 , and @xmath1102 .
+thus , @xmath1103 for any @xmath759 .
+let us take @xmath1104)$ ] so that @xmath1105 for @xmath655 and @xmath1106 for @xmath657 .
+we define @xmath1107 by @xmath1108 obviously , this is a smooth homotopy between @xmath219 and the inclusion map @xmath1109 . finally , the restriction of @xmath1110 to @xmath1111 is a smooth homotopy between @xmath1112 and the inclusion map @xmath1113 .
+it is easy to see that the map @xmath1009 is smooth , thus it is enough to show that the map induces an isomorphism on @xmath820 .
+the proof consists of three steps .
+* step 1 . *
+we identify @xmath828 with the set consists of tuples @xmath1114 ( see remark [ 150701_1 ] ) . setting @xmath1115 \to \r/\z$ ] by @xmath1116
+$ ] , the map @xmath1009 is given by @xmath1117 . the image of this map is contained in @xmath1118 now , @xmath1119 induces an isomorphism on @xmath820 , since @xmath1120 is its smooth homotopy inverse , where @xmath1121 .
+therefore , it is enough to show that the inclusion map @xmath1122 gives an isomorphism on @xmath820 .
+* step 2 . *
+let @xmath1123 .
+for any @xmath1124 , let us set @xmath1125 since @xmath707 is smooth as a function on @xmath946 , we obtain isomorphisms @xmath1126 , @xmath1127 .
+thus , it is enough to show that the inclusion map @xmath1128 induces an isomorphism on @xmath820 for every @xmath1124 .    * step 3 .
+* for any @xmath1129 , let us set @xmath1130 consider the following commutative diagram , where all maps are inclusion maps : @xmath1131^{j_3 } \ar[d]_{j_1 } & \bl^{a , e}_{k , \delta } \ar[d]^{j_2 } \\ \bl^{a , e}_{k , t>0 } \ar[r]_{j_4 } & \bl^{a , e}_k .   } \ ] ] then , it is easy to check the following claims :    * there exists @xmath1132 , depending only on @xmath78 , such that if @xmath1133 then @xmath1134 , @xmath1135 induce isomorphisms on @xmath820 .
+this is because one can define homotopy inverses of @xmath1134 and @xmath1135 by contracting a loop @xmath1136 to the constant loop at @xmath1137 whenever @xmath1138 ( notice that @xmath1139 ) . * for any @xmath643 , @xmath1140 induces an isomorphism on @xmath820 , since its homotopy inverse is given by @xmath1141 , such that * * @xmath1142 for any @xmath1143 , @xmath1144 for any @xmath1145 , and @xmath1146 . * * @xmath1147 is defined as @xmath1148    therefore , we can conclude that @xmath1149 induces an isomorphism on @xmath820 .
+this completes the proof of lemma [ 150626_5 ] .
+the first goal of this section is to define the chain complex @xmath9 , which is our chain model of the free loop space @xmath11 .
+the second goal is to prove the results presented in section 1.5 assuming theorem [ 150624_8 ] , which is a purely algebraic result on dg operads .
+the proof of theorem [ 150624_8 ] occupies the rest of this paper ( sections 711 ) .
+after some algebraic preliminaries in section 6.1 , we define the chain complex @xmath9 in section 6.2 . in section 6.3 ,
+we establish the relation between @xmath9 and the hochschild complex of @xmath7 . in section 6.4 ,
+we state theorem [ 150624_8 ] , and prove most results presented in section 1.5 , except that the isomorphism @xmath221 preserves the bv structures .
+we prove this result in sections 6.56.8 .
+a double complex @xmath1150 consists of a sequence @xmath1151 of chain complexes and anti - chain maps @xmath1152 for each @xmath128 , such that @xmath536 for any @xmath128 .
+we denote @xmath1153 as @xmath1154 if necessary . for any double complexes @xmath1150 and @xmath1023 , a morphism @xmath1155 is a sequence @xmath1156 such that
+, @xmath1157 is a chain map and @xmath1158 for every @xmath128 .    for any double complex @xmath1150
+, we define a chain complex @xmath1159 by @xmath1160 which we call the _ total complex _ of @xmath1150 .
+a morphism @xmath1155 of double complexes induces a chain map @xmath1161 .
+[ 150629_1 ] let @xmath1162 be a double complex .
+if the sequence @xmath1163 & h_q(c(0 ) ) \ar[r]_-{h_q(\delta_1 ) } & h_q(c(1 ) ) \ar[r]_-{h_q(\delta_2 ) } & h_q(c(2 ) ) \ar[r]_-{h_q(\delta_3 ) } & \cdots } \ ] ] is exact for every @xmath1164 , then the total complex @xmath1165 is acyclic .    for any @xmath951 ,
+let @xmath1166 . then , @xmath1167 is a decreasing filtration on @xmath1165 which is complete , i.e. @xmath1168 .
+let us consider the spectral sequence of this filtered complex .
+then , the assumption implies that all @xmath1169-terms vanish .
+now , the convergence theorem 5.5.10 ( 2 ) in @xcite pp.139 shows @xmath1170 .
+[ 150627_5 ] let @xmath1155 be a morphism of double complexes .
+suppose that @xmath1157 is a quasi - isomorphism for every @xmath265 .
+then , the chain map @xmath1171 is a quasi - isomorphism .
+let us consider the filtrations @xmath1167 and @xmath1172 as in the proof of the previous lemma .
+then , @xmath1171 induces a morphism of the spectral sequences , and the assumption implies that it induces isomorphisms on @xmath1173-terms .
+then , the comparison theorem 5.5.11 in @xcite pp .
+141 shows that @xmath1174 is an isomorphism .
+let @xmath1175 be any cosimplcial chain complex .
+for any @xmath128 , let us define @xmath1152 by @xmath1176 .
+then , @xmath1150 is a double complex .    for any dga algebra @xmath1 ,
+the endomorphism operad @xmath1177 has a multiplication @xmath1178 and a unit @xmath1179 , defined by @xmath1180 and @xmath1181 .
+in particular , @xmath1182 has the structure of a cosimplicial chain complex .
+the total complex @xmath1183 is isomorphic to the hochschild cochain complex @xmath14 .    as a consequence of lemma [ 150629_1 ]
+, we obtain the next lemma .
+[ 150627_4 ] let @xmath1175 be a cosimplicial chain complex , and suppose that the chain map @xmath1184 , which is induced by the cosimplicial structure , is a quasi - isomorphism for any @xmath265 .
+then , the projection map @xmath1185 is a quasi - isomorphism .
+since @xmath1186 is surjective , it is enough to show that @xmath1187 is acyclic .
+the assumption shows that , for any @xmath1164 the sequence @xmath1163 & h_q(c(1 ) ) \ar[r]_-{h_q(\delta_2 ) } & h_q(c(2 ) ) \ar[r]_-{h_q(\delta_3 ) } & h_q(c(3 ) ) \ar[r]_-{h_q(\delta_4 ) } & \cdots } \ ] ] is exact , thus lemma [ 150629_1 ] shows that @xmath1188 is acyclic .
+let @xmath3 be a closed , oriented riemannian manifold of dimension @xmath4 .
+we define the chain complex @xmath9 to be the total complex of the cosimplicial chain complex @xmath993 .
+explicitly , @xmath1189 for any @xmath247 $ ] , we define a subcomplex @xmath1190 by @xmath1191 .
+then , @xmath1192}$ ] is the length filtration on @xmath9 .
+we are going to show that , there exists an isomorphism @xmath1193 for each @xmath689 $ ] , such that proposition [ 141005_2 ] ( i ) holds . in particular ,
+when @xmath1194 we obtain an isomorphism @xmath221 .
+let us abbreviate @xmath1195 by @xmath692 , as usual .
+let us recall the zig - zag ( [ 150628_2 ] ) of quasi - isomorphisms from section 5.2 : @xmath1196 & c^\dr_{*+d}(\bl^a_k )   & \ar[l ] c^\dr_{*+d}({{\mathcal{l}}}^a_k )   \ar[r ] & c^\dr_{*+d}({{\mathcal{l}}}^a \times \delta^k ) .   } \ ] ] it extends to a zig - zag of quasi - isomorphisms of cocylic chain complexes .
+let @xmath1197 denote the total complex of the cosimplicial chain complex @xmath1198 .
+then , lemma [ 150627_5 ] implies the isomorphism @xmath1199 .    for every @xmath265 the projection @xmath1200 induces a quasi - isomorphism on @xmath1201 .
+then , lemma [ 150627_4 ] shows that @xmath1202 is a quasi - isomorphism , thus @xmath1203 .
+the next lemma is confirmed by short computations .
+[ 150629_3 ] let @xmath548 be as in lemma [ 150624_10 ] ( i ) .
+then , @xmath1204 is a chain map such that @xmath1205 .    on the other hand
+, we have the isomorphism @xmath1206 by theorem [ 150219_1 ] . in conclusion , for every @xmath247 $ ] , we obtain a sequence of isomorphisms @xmath1207 in particular , we obtain @xmath1208 .
+to define a chain map @xmath225 , we take @xmath988 and an orientation - preserving diffeomorphism @xmath989 .
+let us recall the map @xmath1209 , and define @xmath1210 by @xmath1211 & ( k=0 ) , \\   0 & ( k \ge 1 ) .
+\end{cases}\ ] ] it is easy to check that this is well - defined ( i.e. not depend on @xmath992 and @xmath324 ) , and the diagram ( [ 150801_3 ] ) commutes .      for
+any @xmath265 , @xmath1212 and @xmath1213 , let @xmath1214 . by definition ,
+@xmath1215 are submersions for all @xmath278 .
+we define a chain map @xmath1216 by @xmath1217)(\eta_1 \otimes \cdots \otimes \eta_k):= ( -1)^{(\dim u - d)(|\eta_1| + \cdots + |\eta_k| ) } ( \ph_0)_!(\omega \wedge
+\ph_1^*\eta_1 \wedge \cdots \wedge \ph_k^*\eta_k).\ ] ] recall that we defined nonsymmetric dg operads with multiplications and units @xmath1218 @xmath1219 is a morphism of nonsymmetric dg operads preserving multiplications and units .    in general , if @xmath1220 is a morphism of nonsymmetric dg operads preserving multiplications and units , then @xmath324 is a morphism of cosimplicial chain complexes , thus induces a chain map @xmath1221 . in particular
+, we obtain a chain map @xmath19 .
+we are going to show the following lemma ( see theorem [ 150628_1 ] ( iii)-(c ) ) .
+[ 150725_1 ] @xmath20 is equal to the map ( [ 141218_01 ] ) .    for any @xmath1213 , we define @xmath1222 by @xmath1223 for any @xmath1224 , we set @xmath1214 .
+let us define a chain map @xmath1225)$ ] by @xmath1226(\eta_1 \otimes \cdots \otimes \eta_k)(\eta_0 ) : =   ( -1)^{(\dim u - d)(|\eta_0|+|\eta_1| + \cdots + |\eta_k| ) } \int_u \omega \wedge
+\ph_1^*\eta_1 \wedge \cdots \wedge \ph_k^ * \eta_k \wedge \ph_0^*\eta_0.\ ] ] then , one can define a chain map @xmath1227)$ ] . as is obvious from the construction , the following diagram commutes : @xmath1228 ^ -{h_*(j ) } \ar[d]_-{\cong } & h^*({{\mathcal{a}}}_m , { { \mathcal{a}}}_m ) \ar[d]^-{\cong } \\
+h_*(c^{{{\mathcal{l}}}\delta } ) \ar[r]_-{h_*(j ' ) } & h^*({{\mathcal{a}}}_m , { { \mathcal{a}}}^\vee_m[d ] ) .   }
+let us consider the chain map @xmath1229)$ ] in ( [ 141222_4 ] ) .
+we need to show that @xmath1230 corresponds to @xmath1231 via the isomorphism @xmath1232 .
+let us take @xmath548 as in lemma [ 150624_10 ] ( i ) , and consider chain maps @xmath1233 the first map is defined right after lemma [ 150624_10 ] , and the second map is defined in lemma [ 150629_3 ] .
+then , it is enough to show that the following diagram commutes : @xmath1234
+^ -{h_*(i_u)}_-{\cong } \ar[rd]_-{h_*(i ) } & h^\dr_{*+d}({{\mathcal{l } } } ) \ar[r]^-{h_*(e_u)}_-{\cong } & h_*(c^{{{\mathcal{l}}}\delta } ) \ar[ld]^-{h_*(j ' ) } \\     & h^*({{\mathcal{a}}}_m , { { \mathcal{a}}}_m^\vee[d ] ) . & } \ ] ] the commutativity of this diagram follows from lemma [ 150629_2 ] and short computations .
+first we state the following result , which we prove in sections 711 .
+[ 150624_8 ] there exists a dg operad @xmath12 and its suboperad @xmath13 with the following conditions .    1 .
+there exist isomorphisms of graded operads @xmath1235 and @xmath214 , such that the following diagram commutes : @xmath215 \ar[d]_-{\cong }   & h_*(f\tilde{\lambda } ) \ar[d]^-{\cong }   \\ \ger \ar[r ] & \batvil .   } \ ] ] 2 .
+let @xmath957 be any nonsymmetric dg operad , with a multiplication @xmath969 and a unit @xmath972 .
+then , @xmath1236 has a dg @xmath18-algebra structure , in particular @xmath1237 has the gerstenhaber algebra structure . the operators @xmath84 and @xmath85 are defined in chain level by the following formulas , where @xmath1238 : @xmath1239 these operators induce dga and dg lie algebra structures on @xmath1236 .
+finally , for any morphism @xmath1240 of nonsymmetric dg operads which preserves multiplications and units , the chain map @xmath1241 is a morphism of dg @xmath18-algebras .
+3 .   let @xmath957 be as ( ii ) , and assume that @xmath957 has a cyclic structure @xmath958 such that @xmath979 .
+then , @xmath1236 has a dg @xmath1242-algebra structure , which extends the dg @xmath18-algebra structure in ( ii ) .
+in particular , @xmath1237 has the bv algebra structure .
+the operator @xmath99 is defined at chain level by the following formula : @xmath1243 @xmath99 is an anti - chain map on @xmath1236 .
+[ 150811_2 ] there are several results similar to theorem [ 150624_8 ] in the literature , e.g. @xcite theorem 5.17 , @xcite theorems a and b. actually , @xcite considers operads with maurer - cartan elements , which are generalizations of operads with multiplications .
+however , for the following reasons we can not directly apply results in @xcite in our argument :    * @xcite assumes @xmath1244 , which we can not assume in our argument . * in theorem b in @xcite , actions of operads are defined only for _ normalized _ chains ( see section 3.1 @xcite ) , while we would like to consider arbitrary chains .
+therefore , we give a self - contained proof of theorem [ 150624_8 ] in sections 711 .    as a consequence of theorem [ 150624_8 ] , we obtain the following :    * for any dga algebra @xmath1 , the hochschild complex @xmath138 has a dg @xmath18-algebra structure ; apply theorem [ 150624_8 ] ( ii ) for @xmath1245 . * for any closed , oriented @xmath0-manifold @xmath3 , the chain complex @xmath9 has a dg @xmath1242-algebra structure ; apply theorem [ 150624_8 ] ( iii ) for @xmath1246 .
+also , this @xmath1242-algebra structure on @xmath9 preserves the length filtration ; see remark [ 150801_4 ] . *
+the chain map @xmath19 ( see the previous subsectoin ) is a map of dg @xmath18-algebras ; since @xmath1219 is a morphism of nonsymmetric dg operads preserving multiplications and units , we can apply theorem [ 150624_8 ] ( ii ) . *
+the chain map @xmath225 satisfies ( [ 150801_2 ] ) ; this follows form explicit formulas of @xmath84 and @xmath1247 in theorem [ 150624_8 ] ( ii ) .
+now , we have verified most results presented in section 1.5 .
+the only statement we have not verified is that the isomorphism @xmath17 preserves the bv structures , i.e. the operators @xmath84 and @xmath99 are preserved by this isomorphism . in the rest of this section
+, we prove that @xmath667 preserves the operator @xmath99 ( section 6.5 ) and @xmath84 ( sections 6.66.8 ) .
+the arguments in sections 6.6 - 6.8 are less detailed than the other parts of this paper .
+the aim of this subsection is to show that the isomorphism @xmath17 preserves the rotation operator @xmath99 .    for
+any cocyclic chain complex @xmath1175 and its total complex @xmath1165 , let us define an anti - chain map @xmath1248 by @xmath1249 this is a generalization of the definition of @xmath99 in theorem [ 150624_8 ] ( iii ) .
+in particular , we can define @xmath99 on @xmath1250 so that the isomorphism @xmath1251 preserves @xmath99 . since we already proved that the isomorphism @xmath1252 preserves @xmath99 ( corollary [ 150627_2 ] ) , it is enough to show that the isomorphism @xmath1253 preserves @xmath99 .
+the isomorphism @xmath1253 is induced by @xmath1254 , and its inverse is induced by @xmath1255 ( lemma [ 150629_3 ] ) , where @xmath548 is as in lemma [ 150624_10 ] ( i ) .
+therefore , it is enough to prove @xmath1256 on @xmath1257 .
+it is easy to check that @xmath1258 for any @xmath1259 .
+the chain map @xmath1260 is induced by @xmath1261 ^ -{\id_{{{\mathcal{l } } } } \times p } & { { \mathcal{l } } } \times s^1 \ar[r ] & s^1 \times { { \mathcal{l } } } \ar[r]^-{r } & { { \mathcal{l } } } ,   } \ ] ] where @xmath1262 is defined by @xmath1116 $ ] , the second map is the inversion , and the last map @xmath1263 is the rotation .
+therefore @xmath1264 for any @xmath1259 .
+since @xmath1265 is a cycle which represents @xmath178 $ ] , for any cycle @xmath438 we obtain @xmath1266 ) = - h_*(r)([s^1 ] \times [ x])$ ] .
+this completes the proof .
+we are going to show that the isomorphism @xmath17 preserves the operator @xmath84 . in this subsection
+, we reduce the proof to lemma [ 150629_4 ] , which is proved in the next two subsections .
+let us consider the concatenation map @xmath1267 and define a chain map @xmath1268 by @xmath1269 . then , @xmath1270 intertwines the operators @xmath84 and
+@xmath1271 : @xmath1272 therefore , it is enough to prove the next proposition .
+[ 150627_3 ] the isomorphism @xmath1273 intertwines the operator @xmath1271 on @xmath1274 and the loop product @xmath84 on @xmath1275 .
+let us define @xmath1276 by @xmath1277 .
+a key step in the definition of the loop product on @xmath1275 is to define the fiber product @xmath1278 via thom isomorphism ( see section 1.3 ) . on the other hand , let us consider the following differentiable structure on @xmath684 , and denote the resulting differentiable space by @xmath1279 : @xmath1280 then , as in section 2.3 , one can define the fiber product @xmath1281    we have isomorphisms @xmath1282 ; the first isomorphism is by theorem [ 150219_1 ] , and the second isomorphism is obtained by similar arguments as the proof of lemma [ 150624_2 ] .
+we also have isomorphisms @xmath1283 by similar arguments .
+let us state the key technical result :    [ 150629_4 ] the following diagram commutes : @xmath1284 \ar[d]_{\cong } & h^\dr_{*-d}(\l_\reg { \,_{e}\!\!\times_{e } } \l_\reg ) \ar[d]^{\cong } \\
+h_*(\l)^{\otimes 2 } \ar[r ] & h_{*-d}(\l { \,_{e}\!\!\times_{e } } \l ) ,   } \ ] ] where horizontal maps are fiber products .
+it is easy to deduce proposition [ 150627_3 ] from lemma [ 150629_4 ] , and details are left to the reader .
+the rest of this section is devoted to the proof of lemma [ 150629_4 ] . in the next subsection , we prove lemma [ 150726_1 ] , which is a preliminary result in the finite - dimensional setting .
+let @xmath313 be a @xmath0-manifold , and @xmath1285 be a submersion .
+then , one can define the fiber product @xmath1286 via the thom isomorphism for the tubular neighborhood of @xmath1287 .
+on the other hand , let us consider the following differentiable structure on @xmath313 , and denote the resulting differentiable space by @xmath1288 : @xmath1289 then , one can define the fiber product @xmath1290 .
+it is obvious that the identity maps on @xmath313 and @xmath1291 induces smooth maps @xmath1292 and @xmath1293 .
+these maps induce isomorphisms @xmath1294 and @xmath1295 .
+this fact is proved by similar arguments as proposition [ 150210_4 ] , and details are omitted .
+then , we obtain isomorphisms @xmath1296    [ 150726_1 ] the following diagram commutes : @xmath1297 \ar[d]^{\cong } & h^\dr_{*-d}(x_{\reg / m } { \,_{e}\!\!\times_{e } } x_{\reg / m } ) \ar[d]^{\cong } \\ h_*(x)^{\otimes 2 } \ar[r ] & h_{*-d}(x { \,_{e}\!\!\times_{e } } x ) .   } \ ] ]    via isomorphisms @xmath1298 and @xmath1299 both horizontal maps in ( [ eq : fbp_finite ] ) are identified with the map @xmath1300 \otimes [ \eta ] \mapsto [ \omega \times \eta|_{x { \,_{e}\!\!\times_{e } } x}],\ ] ] hence ( [ eq : fbp_finite ] ) is commutative .
+we use notations in section 4.1 .
+we abbreviate @xmath1301 by @xmath1302 , and @xmath1303 by @xmath1304 .
+let @xmath804 be a strictly increasing sequence of positive real numbers , such that @xmath1305 .
+let us take a sequence @xmath812 of positive integers , so that @xmath814 and @xmath1306 for every @xmath482 ( see remark [ rem : a = infty ] ) . by lemma [ 150625_1 ] , there exists a continuous map @xmath1307 such that @xmath1308\ar[d]_-{f_{n_j}}&\l^{e_{j+1 } } \ar[d]^-{f_{n_{j+1}}}\\ { { \mathcal{f}}}^{e_j}_{n_j } \ar[r ] \ar[ru]_-{g_j}&{{\mathcal{f}}}^{e_{j+1}}_{n_{j+1 } } } \ ] ] commutes up to homotopy .
+then , @xmath1309 . in the following arguments , we abbreviate @xmath1310 by @xmath1311 , and @xmath1312 by @xmath512 .
+let @xmath1313 .
+as is clear from the proof of lemma [ 150625_1 ] , one may take @xmath1314 so that @xmath1315 ( thus @xmath1316 is well - defined ) , and the following diagram commutes up to homotopy : @xmath1317\ar[d]_-{f_j \times f_j}&\l^{e_{j+1 } } { \,_{e}\!\!\times_{e } }   \l^{e_{j+1 } } \ar[d]^-{f_{j+1 } \times f_{j+1 } } \\ { { \mathcal{f}}}^j { \,_{e_j}\!\!\times_{e_j } }   { { \mathcal{f}}}^j   \ar[r ] \ar[ru]_-{g_j \times g_j } &   { { \mathcal{f}}}^{j+1 } { \,_{e_{j+1}}\!\!\times_{e_{j+1 } } }   { { \mathcal{f}}}^{j+1}.   } \ ] ] then , @xmath1318 .    since @xmath1319 is a submersion , one can define the differentiable space @xmath1320 as in the previous subsection .
+then , @xmath512 maps plots of @xmath1321 to plots of @xmath1320 .
+also , one may take @xmath1314 so that it maps plots of @xmath1320 to plots of @xmath1322 , and the diagrams ( [ eq : ejgj ] ) and ( [ eq : ejgj_2 ] ) commute up to smooth homotopy with these differentiable structures .
+hence we obtain @xmath1323    for every @xmath482 , let us consider the following diagram : @xmath1324\ar[ddd]\ar[rd]^{\star } & & & h^\dr_{*-d } ( \l^{e_j}_\reg { \,_{e}\!\!\times_{e } } \l^{e_j}_\reg)\ar[ld]_{\star}\ar[ddd ] \\ & h^\dr_*\big({{\mathcal{f}}}^j_{\reg / m }   \big)^{\otimes 2}\ar[r]\ar[d]&h^\dr_{*-d } \big ( { { \mathcal{f}}}^j_{\reg / m }   { \,_{e_j}\!\!\times_{e_j } }   { { \mathcal{f}}}^j_{\reg / m } \big)\ar[d ] & \\ & h_*\big({{\mathcal{f}}}^j   \big)^{\otimes 2}\ar[r]&h_{*-d } \big({{\mathcal{f}}}^j { \,_{e_j}\!\!\times_{e_j } } { { \mathcal{f}}}^j \big ) & \\ h_*(\l^{e_j})^{\otimes 2}\ar[ru]^{\star}\ar[rrr]&&&h_{*-d } ( \l^{e_j } { \,_{e}\!\!\times_{e } }   \l^{e_j}).\ar[lu]_{\star } } \ ] ] the center square in ( [ eq : bigsquare ] ) is commutative by lemma [ 150726_1 ] .
+the commutativity of the other four squares in ( [ eq : bigsquare ] ) is easy to check from definitions .    taking direct limits as @xmath1325 , all maps in ( [ eq : bigsquare ] )
+pass to the limit .
+moreover , the limits of the maps with @xmath1326 are isomorphisms .
+therefore , the limit of the big square in ( [ eq : bigsquare ] ) is commutative , and this completes the proof of lemma [ 150629_4 ] .
+the rest of this paper is devoted to the proof of theorem [ 150624_8 ] . in this section ,
+we fix definitions and terminologies about ( ribbon ) graphs , partially following @xcite and @xcite .      as a definition of a graph
+, we adopt the one in @xcite .
+a _ graph _ is a quadruple @xmath1327 where @xmath1328 and @xmath1329 are finite sets , @xmath1330 is a map @xmath1331 , @xmath1332 is a map @xmath1333 such that @xmath1334 . when there is no risk of confusion , the subscript @xmath1335 will be dropped .    * the elements of @xmath38
+are called the _ vertices _ of @xmath1335 . * the elements of @xmath875
+are called the _ flags _ of @xmath1335 . * for any @xmath1336 , the elements of @xmath1337 are called the flags at @xmath882 .
+@xmath1338 is called the _ valence _ of @xmath882 , and denoted by @xmath1339 . * an _ edge _ of @xmath1335 is a set @xmath1340 such that @xmath1341 and @xmath1342 .
+the set of all edges of @xmath1335 is denoted by @xmath1343 .
+we say that the edge @xmath1340 connects vertices @xmath1344 and @xmath1345 .
+* a _ tail _ of @xmath1335 is @xmath1341 such that @xmath1346 .
+the set of all tails of @xmath1335 is denoted by @xmath1347 .
+an isomorphism of graphs consists of bijections between the sets of vertices and flags , compatible with maps @xmath1348 and @xmath1349 .    to any graph @xmath1335
+, one can associate a @xmath89-dimensional cw complex @xmath1350 in the obvious way ( see @xcite , pp.1502 ) .
+@xmath1335 is called _ connected _ if @xmath1350 is connected as a topological space .    for any @xmath1351 ,
+let @xmath1352 .
+let us denote a graph @xmath1353 by @xmath1354 .
+@xmath78 is called _ acyclic _ if @xmath1355 .    in this paper ,
+a _ tree _ is a connected graph @xmath1335 which has no tails , and @xmath1356 .
+it is easy to see that @xmath1350 is contractible . in particular , for any vertices @xmath1357 , there exists at most one edge which connects @xmath882 and @xmath1358 . when @xmath1359 , there is no such edge .      a _ ribbon graph _ is a graph with a cyclic order on the set of flags at @xmath882 for each vertex @xmath882 .
+formally , a ribbon graph is a quintuple @xmath1360 , where @xmath1361 is a graph and @xmath1362 is a bijection , such that @xmath1363 , and @xmath1364 acts transitively on @xmath1365 for every @xmath1366 .
+an isomorphism of ribbon graphs consists of bijections between the sets of vertices and flags , compatible with maps @xmath1348 , @xmath1349 and @xmath351 . in all figures in this paper ,
+the map @xmath1364 is a _ clockwise _ rotation of flags .
+orbits of the bijection @xmath1367 are called _ cycles _ of @xmath1335 . for any cycle @xmath1368
+, we define a cyclic order on @xmath1368 by @xmath1369 .
+the set of all cycles of @xmath1335 is denoted by @xmath1370 . when @xmath1335 is connected , the _ genus _ of @xmath1335 , denoted by @xmath1371 , is defined by the formula @xmath1372 .
+let @xmath1335 be a ribbon graph .
+for any @xmath1373 , we define a ribbon graph @xmath1374 by removing elements of @xmath875 . here
+we present a formal definition .
+first , we set @xmath1375 .
+next , we consider the case that @xmath875 consists of a single flag @xmath346 .
+we define a ribbon graph @xmath1376 by @xmath1377 , @xmath1378 , @xmath1379 , and @xmath1380 finally , in the general case , we define so that there holds @xmath1381 for any @xmath1373 and @xmath1382 .
+let @xmath1335 be a ribbon graph .
+for any @xmath1351 which is acyclic , we define a ribbon graph @xmath1383 by contracting elements of @xmath78 . here
+we present a formal definition .
+first , we set @xmath1384 .
+next , we consider the case that @xmath78 consists of a single edge @xmath1385 .
+since @xmath78 is acyclic , @xmath1385 connects different vertices .
+namely , let @xmath1386 , @xmath1387 , @xmath1388 , then @xmath1389 .
+we consider a new vertex @xmath1390 , and define @xmath1391 .
+we define @xmath1392 , @xmath1393 , and @xmath1394    contracting an edge @xmath1385 .
+finally , in the general case we define so that there holds @xmath1395 for any @xmath1351 and @xmath1396 such that @xmath1397 is acyclic .
+the next lemma is easy to check and its proof is omitted .
+[ lem : removing_contracting ] let @xmath1335 be a ribbon graph , @xmath1351 , @xmath1373 .
+suppose that @xmath78 is acyclic and @xmath1398 .
+then , @xmath1399 .
+in this section we introduce a notion of a _ decorated cactus _ , which is a ribbon graph with additional data .
+we also define the framed version ( _ framed decorated cactus _ ) , and define compositions of framed decorated cacti . in the next section , we show that the collection of framed decorated cacti has a natural structure of a @xmath1400-colored operad .
+[ 141121_1 ] let @xmath1335 be a ribbon graph , @xmath1401 be cycles of @xmath1335 , and @xmath1402 .
+a tuple @xmath1403 is called a _ decorated cactus _ ,
+if the following conditions hold :    1 .
+@xmath1335 is connected , and @xmath1404 .
+2 .   @xmath1328 is a disjoint union of @xmath1405 .
+3 .   for any @xmath1406
+, there holds @xmath1407 .
+in particular , @xmath1408 .
+an isomorphism of decorated cacti @xmath1409 is an isomorphism @xmath1410 of ribbon graphs , which maps @xmath1411 to @xmath1412 , and @xmath1413 to @xmath1414 for every @xmath1415 .    for any @xmath1416
+, @xmath1417 denotes the set of isomorphism classes of decorated cacti @xmath1403 such that @xmath1418 , @xmath1419 .
+given a decorated cactus @xmath1420 , we define a graph @xmath1421 by @xmath1422 , @xmath1423 , and each @xmath1424 connects @xmath1425 and @xmath1426 .
+( here @xmath1425 and @xmath1426 are considered as vertices of @xmath1421 . )
+[ lem : dual_bw_tree ] @xmath1421 is a tree .
+it is easy to see that @xmath1421 is connected .
+therefore , it is enough to show that @xmath1427 .
+it is obvious that @xmath1428 . on the other hand , definition [ 141121_1 ] ( ii ) , ( iii )
+imply @xmath1429 .
+therefore , we obtain @xmath1430 .
+we call @xmath1421 the _ dual tree _ of the decorated cactus @xmath1420 .
+[ cor : ci_is_cycle ] for any @xmath1431 and @xmath1432 , if @xmath1433 , then @xmath1434 .
+let @xmath1435 .
+then , both @xmath346 and @xmath1436 connect @xmath882 and @xmath1413 in @xmath1421 .
+( here @xmath882 and @xmath1413 are considered as vertices of @xmath1421 . )
+since @xmath1421 is a tree , we obtain @xmath1434 .
+the figure below shows an example of a decorated cactus .
+this is an element in @xmath1437 , and let us denote it by @xmath1438 . for each @xmath1439
+, @xmath1413 is a boundary of the region @xmath743 .
+notice that there are @xmath1440 vertices on @xmath1413 for each @xmath1439 .
+the elements of @xmath1347 are depicted as the eight segments . in particular , @xmath1402 is depicted as the arrow .
+the configuration of cycles @xmath1441 is tree - like ( this holds in general by lemma [ lem : dual_bw_tree ] ) , which is often called a `` cactus '' ( see @xcite , @xcite ) .
+additionally , there are @xmath1440 vertices on each cycle @xmath1413 , and @xmath829 tails ( hence the name `` decorated '' cactus ) .
+the tail @xmath1411 corresponds to the `` global zero '' of a cactus ( see @xcite section 2.2.6 ) .    in most papers ,
+a cactus is a tree - like configuration of _ parametrized _ circles . on the other hand ,
+cycles @xmath1442 of our decorated cactus are _ not _ parametrized . in the next subsection , we introduce a notion of a _ framing _ on a decorated cactus , which corresponds to a parametrization of a circle .
+the next lemma would be clear from geometric intuitions , however we give a detailed proof .
+[ lem:140916_1 ] let @xmath1431 and @xmath1443 . for each @xmath1444
+, let @xmath1445
+. then , @xmath1446 with respect to the cyclic order on @xmath1447 .
+it is enough to prove the following claim :    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ suppose that @xmath1448 and @xmath128 satisfy @xmath1449 and @xmath1450 for any @xmath1451
+. then , @xmath1452 .
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _    let @xmath1453 . since @xmath1432 , by corollary [ cor : ci_is_cycle ] , it is enough to show that @xmath1454 .
+for any @xmath1455 , let @xmath1456 .
+then , @xmath1457 , and @xmath1458 therefore , we have to show @xmath1459 .
+since this is obvious for @xmath1460 , we may assume that @xmath1461 .
+let @xmath1421 be the dual tree of @xmath1335 . for each @xmath1451
+, let us take @xmath278 so that @xmath1462
+. then , @xmath1463 , and @xmath1464 .
+therefore , if @xmath1465 , then @xmath1466 is a path on @xmath1421 .
+if @xmath1467 , then @xmath1468 is a tail , since @xmath1469 .
+therefore , @xmath1470 . in conclusion , there exists a path from @xmath1471 to @xmath1472 on @xmath1421 , which is disjoint from @xmath1413 .    on the other hand , since @xmath1473 and @xmath1474 , @xmath1475 is a path on @xmath1421 . since @xmath1421 is a tree ,
+we conclude that @xmath1459 .
+a _ framing _ on a decorated cactus @xmath1420 is a map @xmath1476 , such that @xmath1477 for every @xmath1431 .
+a tuple @xmath1478 is called a _ framed decorated cactus_. an isomorphism of framed decorated cacti is an isomorphism of decorated cacti which preserves framing . for any @xmath1416 , @xmath1479 denotes the set of isomorphism classes of framed decorated cacti @xmath1480 such that @xmath1481 \in \lambda(k : l_1 , \ldots , l_r)$ ] .
+let @xmath1420 be a decorated cactus , and @xmath1421 be its dual tree .
+there exists a unique framing @xmath1476 such that , for every @xmath1431 , @xmath1482 is on the shortest path of @xmath1421 connecting @xmath1413 and @xmath1483 ( here @xmath1482 is considered as an edge of @xmath1421 , and @xmath1413 , @xmath1483 are considered as vertices of @xmath1421 ) .
+we call it the _ canonical framing_. by considering canonical framings , we define an injective map @xmath1484 . in the rest of this paper
+, we consider @xmath1417 as a subset of @xmath1479 .
+when we draw a figure of a framed decorated cactus @xmath1478 , we draw an arrow pointing at a vertex @xmath1485 for each @xmath1431 .      for any @xmath1486 and @xmath1487 , we set @xmath1488 , where @xmath1489 for every @xmath1431 .
+then , a map @xmath1490 is a bijection , and there holds @xmath1491 for any @xmath1492 . as a restriction of this map , we obtain a bijection @xmath1493 .      here
+we present examples of framed decorated cacti . for any decorated cactus @xmath1494 , we denote @xmath1329 , @xmath1328 etc . as @xmath1495 , @xmath1496 etc .
+moreover , @xmath1497 are denoted as @xmath1498 , and @xmath1411 is denoted as @xmath1499 .    for any @xmath265 , @xmath1500 consists of a unique element , which we denote by @xmath1501 .
+more explicitly , @xmath1501 is defined as follows :    * @xmath1502 , @xmath1503 . * for any @xmath129 , @xmath1504 * @xmath1505 , @xmath1506 .
+@xmath1507 ( left ) and @xmath1508 ( right )    for any @xmath265 , there exists a unique element @xmath1509 , such that @xmath1510 is a bijection .
+more explicitly , @xmath1511 is defined as follows :    * @xmath1512 , @xmath1513 . * for any @xmath1514 , we define @xmath1515 * @xmath1516 , @xmath1517 .
+* @xmath1518 .
+@xmath1519 ( left ) and @xmath1520 ( right )    for any @xmath128 , let us consider a noncanonical framing @xmath1521 on @xmath1511 so that @xmath1522 .
+we obtain an element in @xmath1523 , which we denote by @xmath959 .
+@xmath1524 ( left ) and @xmath1525 ( right )    finally , for any @xmath1526 and @xmath951 , we define @xmath1527 . in general , for any @xmath1528 where @xmath1529 , @xmath1530 consists of a unique vertex ( consider its dual tree ) , which we denote by @xmath1531 .
+let us consider the following condition :    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ( @xmath143 ) : @xmath1532 , and @xmath1533 is a bijection .
+_ _ _ _ _ _ _ _ _
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _    for any @xmath557 , @xmath1534 has exactly @xmath1535 elements which satisfy ( @xmath143 ) , depending on choices of @xmath1536 . in particular , for every @xmath1537 , there exists a unique element @xmath1538 which satisfies ( @xmath143 ) , @xmath1539 and @xmath1540 .
+we denote this element as @xmath1541 .
+@xmath1542 ( left ) and @xmath1543 ( right )      for any @xmath1544 and @xmath1431 , we define a composition map @xmath1545 namely , given @xmath1546 we define @xmath1547 .
+we first define a ribbon graph @xmath1548 as follows :    * @xmath1549 .
+* for every @xmath1550 , let @xmath1551 , and insert a new flag @xmath1314 at @xmath1552 as in the figure below .
++ precisely , we define @xmath1553 * for every @xmath1550 , we define @xmath1554 ( the set of tails of @xmath1555 ) so that @xmath1556 and @xmath1557 with respect to the cyclic order on @xmath1558 .
+we `` glue '' @xmath1559 and @xmath1314 for every @xmath1550 .
+precisely , we define @xmath1560 this completes the definition of @xmath1548 .    for every @xmath1550 , we define @xmath1561 by @xmath1562 .
+we define a new ribbon graph @xmath1563 by removing flags in @xmath1564 , and contracting edges @xmath1565 : @xmath1566 there is a natural bijection @xmath1567 .
+let us identify the lhs and the rhs via this bijection .
+[ lem:150119_1 ]    1 .   for any @xmath1568 , @xmath1425 is a cycle of @xmath1563 .
+2 .   for any @xmath1569
+, @xmath1570 is a cycle of @xmath1563 .
+@xmath1571 is a cycle of @xmath1563 .
+\(i ) holds since @xmath1572 for any @xmath1573 .
+( ii ) holds since @xmath1574 for any @xmath1575 .
+( iii ) is a consequence of lemma [ lem:140916_1 ] .    by lemma [ lem:150119_1 ]
+, we obtain @xmath1576 .
+in particular , @xmath1577 . on the other hand , there holds @xmath1578 then , we obtain @xmath1579 .
+moreover , @xmath1580 for any @xmath1581 . also , @xmath1582 . in conclusion
+, @xmath1583 is a decorated cactus .
+finally , we define a framing @xmath1584 by @xmath1585 now we define @xmath1586 to be the resulting framed decorated cactus .
+this completes the definition of compositions of framed decorated cacti .
+[ lem:150119_2 ]    1 .   for any @xmath1587
+, there holds @xmath1588 .
+2 .   for any @xmath1589 and @xmath1587 , @xmath1590 , @xmath1591 , there holds @xmath1592 .
+3 .   for any @xmath1593 , @xmath1594 and @xmath1587 , @xmath1590 , @xmath1595 , there holds @xmath1596 .
+if @xmath1597 and @xmath1598 , then @xmath1599    ( ii ) , ( iii ) are consequences of lemma [ lem : removing_contracting ] .
+( i ) , ( iv ) are easy to verify , and proofs are omitted .
+we end this section with a few more examples of decorated cacti .    for any @xmath128 and @xmath129
+, we define @xmath1600 by @xmath1601    @xmath1602 ( left ) , @xmath1603 ( middle ) and @xmath1604 ( right )    for any @xmath265 and @xmath129 , we define @xmath1605 by @xmath1606    @xmath1607 ( left ) and @xmath1608 ( right )    for any @xmath557 , we define @xmath1609 by @xmath1610    @xmath1611 ( left ) and @xmath1612 ( right )
+section 9.1 is devoted to some preliminaries on colored operads . in section 9.2
+, we show that the collection of framed decorated cacti has a natural structure of a @xmath1400-colored operad , and we give a presentation of this colored operad by generators and relations ( lemma [ 20141204_5 ] ) .
+let @xmath620 be any set , and @xmath21 be any symmmetric monoidal category .
+a @xmath620-colored operad in @xmath21 , which we denote by @xmath24 , consists of the following data :    * @xmath1613 for any @xmath1614 and @xmath1615 . * a morphism @xmath1616 for any @xmath1617 , which we call a unit . * for any @xmath106 , @xmath1618 and @xmath1619 , a composition morphism @xmath1620 * for any @xmath1614 , @xmath1615 and @xmath1486 , a morphism @xmath1621 we require that @xmath1622 , and @xmath1623 .
+we require that each @xmath1624 is a two - sided unit for composition morphisms , and there holds the associativity and equivariance properties , which are defined in the obvious ways .
+notions of morphisms and suboperads for @xmath620-colored operads are also defined in the obvious ways .
+colored operads in the category of dg ( resp . graded )
+vector spaces are called dg ( resp .
+graded ) @xmath620-colored operads .
+let @xmath1625 be a family of dg vector spaces .
+setting @xmath1626 @xmath1627 has the natural structure of a dg @xmath620-colored operad . for any dg @xmath620-colored operad @xmath24 ,
+a dg @xmath24-algebra consists of @xmath1625 and a morphism @xmath55 of dg @xmath620-colored operads .
+we obtain the following chain map for any @xmath1615 : @xmath1628    for any dg @xmath24-algebras @xmath38 and @xmath47 , a morphism @xmath1629 of dg @xmath24-algebras is a family of chain maps @xmath1630 such that @xmath1631 for any @xmath1632 and @xmath1633 .
+[ 20141219_3 ] let @xmath1634 be a family of sets .
+there exists a unique ( up to isomorphism ) @xmath620-colored operad @xmath1635 of sets , which satisfies the following conditions :    * for any @xmath1615 , there exists a map @xmath1636 * let @xmath24 be any @xmath620-colored operad of sets , such that for any @xmath1615 , a map @xmath1637 is given
+. then , there exists a unique morphism of @xmath620-colored operads @xmath1638 , such that @xmath1639 .
+we call @xmath1635 the free @xmath620-colored operad generated by @xmath335 .
+uniqueness is obvious .
+existence is proved by an explicit construction using planar trees with all edges colored by @xmath620 .
+the construction is standard ( see e.g. @xcite ) and omitted .
+let @xmath24 be a @xmath620-colored operad of sets .
+a binary relation on @xmath24 is a family @xmath1640 , where each @xmath1641 is a binary relation on @xmath1642 .
+if @xmath1641 is an equivalence relation for any @xmath1643 , and there holds @xmath1644 for any @xmath1645 , @xmath1646 , @xmath1647 and @xmath1648 , @xmath1649 is called an equivalence relation on @xmath24 . for any equivalence relation @xmath1649 on @xmath24 , @xmath1650 has a natural @xmath620-colored operad structure .
+let @xmath1634 be a family of sets , and @xmath1651 be a binary relation on the free @xmath1652-colored operad @xmath1635 .
+let @xmath1653 denote the equivalence relation on @xmath1635 generated by @xmath1649 ( i.e. the minimal equivalence relation which contains @xmath1649 ) .
+then , we define @xmath1654 .
+let us denote @xmath1655 we can rephrase lemma [ lem:150119_2 ] as follows .
+( compatibility between symmetric group actions and composition maps is not verified there , however this is obvious . )
+[ 140917_2 ] @xmath1656 is a @xmath1400-colored operad with the composition maps and symmetric group actions defined in section 8 , and unit elements are @xmath1657 .
+@xmath1658 is its suboperad .
+the aim of this subsection is to give explicit presentations of @xmath1658 and @xmath1656 by generators and relations . for any @xmath1416 ,
+let us define @xmath1659    it is easy to check the following relations :    @xmath1660    @xmath1661    @xmath1662    @xmath1663    @xmath1664    @xmath1665    @xmath1666    let us define @xmath1400-colored operads @xmath1667 , @xmath1668 , @xmath1669 by generators and relations : @xmath1670 there exist natural morphisms of @xmath1400-colored operads @xmath1671 and @xmath1672    [ 20141204_5 ] @xmath1673 , @xmath1674 are isomorphisms of @xmath1400-colored operads .
+the proof consists of six steps .
+* step 1 . * for any decorated cactus @xmath1675 , let @xmath1676 denote the number of @xmath1366 which satisfies neither of the following conditions :    * @xmath1677 and @xmath1678 .
+* @xmath1679 and @xmath1680 .    by induction on @xmath1263
+, we can show that @xmath1681 if and only if @xmath438 is in the image of @xmath1682 .
+* step 2*. for any @xmath1683 , there exist integers @xmath1684 and @xmath1685 , such that @xmath1686 and @xmath1687 since @xmath1688 is in the image of @xmath1689 , @xmath438 is in the image of @xmath1673 .
+therefore , @xmath1673 is surjective .
+the above presentation of @xmath438 is unique in the following sense : for any integers @xmath1690 and @xmath1691 such that @xmath1692 and @xmath1693 there exists @xmath1694 such that @xmath1695 is the identity , @xmath1696 , and @xmath1697 for every @xmath1698 .
+* step 3*. for any @xmath1699 , using relations ( [ eq:20141204_1 ] ) and ( [ eq:20141204_2 ] ) , it is possible to obtain a presentation @xmath1700 where @xmath1701 , and @xmath1486 .
+this presentation is uniquely determined by @xmath1702 .
+therefore , @xmath1682 is injective . since @xmath1689 factors through @xmath1703 ,
+this map is also injective .
+thus , we can consider @xmath1667 as a suboperad of @xmath1668 .    * step 4*. for any @xmath1704 , there exist integers @xmath1705 and @xmath1706 such that @xmath1707 let @xmath1708 denote the minimal possible value of @xmath4 .
+it is easy to see that @xmath1709 .
+we show that in fact @xmath1710 .
+suppose that @xmath1711 .
+then , either ( a ) or ( b ) holds :    1 .
+there exists @xmath1712 such that @xmath1713 .
+2 .   there exist @xmath1714 such that @xmath1715 , where @xmath1716 , @xmath1717 are cycles on @xmath1718 .    in case ( a ) , one can use ( [ eq:20141204_3 ] ) to decrease @xmath4 by @xmath89 . in case ( b ) , by replacing @xmath1719 with @xmath1720 for some @xmath1721 if necessary , we may assume that @xmath1722 , @xmath1723 and @xmath1724 , where @xmath1725 and @xmath1726 . since @xmath1727 and @xmath1689 is injective ( step 3 ) , we get @xmath1728
+. then , @xmath1729 where the second equality follows from ( [ eq:20141204_4 ] ) .
+hence we can decrease @xmath4 by @xmath89 .
+therefore , we have shown that @xmath1730 .
+* step 5*. suppose @xmath1731 satisfy @xmath1732 .
+let us set @xmath1733 . by step 4 , there exist integers @xmath1734 , @xmath1735 and @xmath1736 , such that @xmath1737 by step 2 , there exists @xmath1721 , such that @xmath1695 is the identity , @xmath1738 , and @xmath1739 for every @xmath1740 . since @xmath1689 is injective ( step 3 ) , @xmath1741 .
+hence @xmath1742 , thus @xmath1673 is injective .
+since we already proved that @xmath1673 is surjective ( step 2 ) , we have proved that @xmath1673 is an isomorphism .
+* step 6*. finally , we show that @xmath1743 is an isomorphism . for any @xmath1744 , there exist @xmath1745 and integers @xmath1746 , such that @xmath1747 and @xmath1748 .
+moreover , @xmath1749 , @xmath1746 are uniquely determined by @xmath438 .    then , surjectivity of @xmath1674 immediately follows from surjectivity of @xmath1673 . on the other hand , using relations ( [ eq:20141206_1 ] ) , ( [ eq:20141206_2 ] ) , ( [ eq:20141206_3 ] ) , we can show the following : for any @xmath1750 , there exist @xmath1751 and integers @xmath1746 , such that @xmath1752 , and @xmath1753 .
+since @xmath1754 and @xmath1746 are uniquely determined by @xmath1755 , injectivity of @xmath1674 follows from injectivity of @xmath1673 .    for any set @xmath335 , let @xmath1756
+$ ] denote the @xmath10-vector space freely generated by @xmath335 , i.e. @xmath1756:= \bigoplus_{s \in s } \r s$ ] .
+for any @xmath620-colored operad of sets @xmath1757 , we define a @xmath620-colored graded operad @xmath1756 $ ] by @xmath1758(k : l_1 , \ldots , l_r)_*:= \begin{cases } \r[s(k : l_1,\ldots , l_r ) ] & ( * = 0 ) \\   0 & ( * \ne 0 ) \end{cases}\ ] ] with the natural composition maps and symmetric group actions .
+we call dg @xmath1756$]-algebras simply as dg @xmath335-algebras .
+the next corollary is an immediate consequence of lemma [ 20141204_5 ] .
+[ 150702_1 ] let @xmath1759 be a sequence of dg vector spaces .
+* the following structures on @xmath957 are equivalent : * * a structure of a nonsymmetric dg operad with a multiplication @xmath969 and a unit @xmath972 . * * a structure of a dg @xmath1658-algebra .
++ the correspondence is given by the following formulas : @xmath1760 * the following structures on @xmath957 are equivalent : * * a structure of a cyclic nonsymmetric dg operad with a multiplication @xmath969 and a unit @xmath972 , such that @xmath774 is cyclically invariant .
+* * a structure of a dg @xmath1656-algebra .
++ the correspondence is given by the formulas in ( i ) and @xmath1761 .
+[ 150801_4 ] by corollary [ 150702_1 ] ( ii ) , @xmath1762 has a dg @xmath1656-algebra structure . for any @xmath1763 ,
+let @xmath1764 .
+then , it is easy to see that @xmath1765 using this fact and the definition of the dg @xmath1242-algebra structure on @xmath1236 ( see the next section ) , we conclude that the dg @xmath1242-algebra structure on @xmath9 preserves the length filtration , as we claimed in proposition [ 141005_2 ] ( ii ) .
+in this section , we define dg operads @xmath12 and @xmath13 , and reduce theorem [ 150624_8 ] to theorem [ 150702_2 ] and lemma [ 150703_2 ] , which we prove in the next section .    for any integer @xmath1614 , we define graded vector spaces @xmath1766 and @xmath1767 by @xmath1768 , \quad   \tilde{\lambda}(r)_*:= \prod_{\substack { k , l_1 , \ldots , l_r
+\in \z_{\ge 0 } \\ l_1 + \cdots + l_r -k = * } }   \r[\lambda(k : l_1 , \ldots , l_r)].\ ] ] obviously , @xmath1769 . for any @xmath1770 , we denote its @xmath1771-component by @xmath1772 .    as is clear from the definition , the graded vector space @xmath1773 is unbounded .
+in fact , @xmath1774 for every @xmath1775 . when @xmath103 , @xmath1776 for every @xmath1777 .    we show that @xmath1778 has a natural dg operad structure , and @xmath1779 is its suboperad .
+* composition map : * for any @xmath106 and @xmath1618 , we define a degree @xmath122 linear map @xmath1780 by @xmath1781 where @xmath1782 .
+* associativity : * for any @xmath1770 , @xmath1783 and @xmath1784 , there holds @xmath1785 this follows from associativity of composition maps on @xmath1656 and sign computations .    *
+unit : * we define @xmath1786 $ ] by @xmath1787 .
+then , for any @xmath1770 , there holds @xmath1788 and @xmath1789 for any @xmath1431 .    *
+differential : * for any integer @xmath128 , let us define @xmath1790 $ ] by @xmath1791 .
+then , @xmath1792 for any @xmath128 .
+we define @xmath1793 $ ] by @xmath1794 .
+then , @xmath1795 . we define a differential @xmath1796 by @xmath1797 by associativity of composition maps , it is easy to check @xmath1798 and the leibniz rule @xmath1799    * symmetric group actions : * for any @xmath1614 , we define a linear map @xmath1800 \to f\tilde{\lambda}(r ) _ * ; \ , x \otimes \sigma \mapsto x^\sigma$ ] by @xmath1801 by direct computations on signs , we can check that this is a chain map , and compatible with composition maps .
+* suboperad @xmath13 : * since @xmath1658 is a suboperad of @xmath1656 , it follows that @xmath13 is a suboperad of @xmath12 .
+we show that for any dg @xmath1658 ( resp .
+@xmath1656 ) algebra @xmath957 , the total complex @xmath1236 has the dg @xmath13 ( resp .
+@xmath12 ) algebra structure .
+[ 20141221_1 ]    1 .
+let @xmath1802 be a dg @xmath1658 ( resp .
+@xmath1656 ) algebra .
+then , @xmath1803 has the natural dg @xmath13 ( resp .
+@xmath12 ) algebra structure .
+2 .   let @xmath1804 be a morphism of dg @xmath1658 ( resp .
+@xmath1656 ) algebras .
+then , @xmath1805 is a morphism of dg @xmath13 ( resp .
+@xmath12)-algebras .
+let @xmath1806 be a dg @xmath1807-algebra .
+then , for any @xmath1808 , we have a chain map @xmath1809(k : l_1 , \ldots , l_r ) \otimes { { \mathcal{o}}}(l_1 ) \otimes \cdots \otimes { { \mathcal{o}}}(l_r ) \to { { \mathcal{o}}}(k ) ;   x \otimes y_1 \otimes \cdots \otimes y_r \mapsto x \cdot ( y_1 \otimes \cdots \otimes y_r).\ ] ] for every @xmath1614 , we define @xmath1810 by @xmath1811 notice that the rhs of the first formula is a finite sum .
+direct computations show that this is a dg @xmath18-algebra structure on @xmath1236 .
+thus we have verified lemma [ 20141221_1 ] ( i ) for @xmath1658 .
+( ii ) is straightforward from the construction .
+the case for @xmath1656 is completely parallel , and omitted .
+let us define @xmath1812 , @xmath1813 , @xmath1814 by the following formulas : @xmath1815 let us define operators @xmath84 , @xmath1247 and @xmath99 on @xmath1236 by @xmath1816    now , theorem [ 150624_8 ] follows from the next two results , which are proved in the next section .
+[ 150703_2 ]    1 .
+@xmath879 satisfies @xmath1817 and @xmath1818 .
+in particular , @xmath84 defines a dga algebra structure on @xmath1236 .
+@xmath1819 satisfies @xmath1820 and @xmath1821 , @xmath1822 . in particular , @xmath141 defines a dg lie algebra structure on @xmath1236 .
+@xmath1823 satisfies @xmath1824 . in particular
+, @xmath99 is an anti - chain map on @xmath1236 .
+[ 150702_2 ] there exist isomorphisms @xmath214 and @xmath213 , compatible with the inclusion maps .
+moreover , @xmath1825 \in h_0(\tilde{\lambda}(2))$ ] , @xmath1826 \in h_1(\tilde{\lambda}(2))$ ] , @xmath1827 \in h_1(f\tilde{\lambda}(1))$ ] correspond to @xmath70 , @xmath71 , @xmath95 via these isomorphisms .
+the goal of this section is to prove theorem [ 150702_2 ] .
+in the course of the proof , we also verify lemma [ 150703_2 ] ( see remark [ 150703_3 ] ) . here
+we explain an outline of our proof assuming lemmas [ lem : q ] , [ 141022_1 ] , [ 141103_1 ] . for any @xmath1614 and @xmath265 , we define @xmath1828.\ ] ] obviously @xmath1829 , and @xmath1830 is a subcomplex of @xmath1766 for any @xmath265 .
+we denote the quotient @xmath1831 by @xmath1832 .
+@xmath1833 and @xmath1834 are defined in the same way .
+let us consider quotient maps @xmath1835 our first step is to prove the following lemma in section 11.1 .
+[ 141022_1 ] @xmath1840 has a dg operad structure , such that @xmath1841 is its suboperad .
+there exists a morphism of dg operads @xmath1842 , such that @xmath1843 and @xmath1844 .
+in particular , @xmath264 and @xmath1845 are quasi - isomorphisms of dg operads .
+since @xmath1837 is surjective , it is enough to show that @xmath1850 is acyclic . for each integer @xmath265
+, we denote the differential on @xmath1834 by @xmath1851 . in other words ,
+let us define an anti - chain map @xmath1853 by @xmath1854 .
+then , the chain complex @xmath1855 is identified with @xmath1856 , where the differential is @xmath1857 .
+now , let us assume the following lemma .
+* @xmath1859 is a chain ( resp .
+anti - chain ) map , if @xmath182 is even ( resp .
+* for every @xmath182 , @xmath1859 induces an isomorphism on homology . * for every @xmath182 , there holds @xmath1860 , where @xmath1861 .    by lemma [ lem : jk ] , the sequence @xmath1163 & h_*(\tilde{\lambda}_1(r ) )
+\ar[r]_-{h_*(d_1 ) } & h_{*-1}(\tilde{\lambda}_2(r ) ) \ar[r]_-{h_*(d_2)}&h_{*-2}(\tilde{\lambda}_3(r ) ) \ar[r]_-{h_*(d_3 ) }   & \cdots } \ ] ] is exact .
+hence , lemma [ 150629_1 ] shows that @xmath1862 is acyclic .
+therefore , it is enough to prove lemma [ lem : jk ] .
+the proof consists of four steps .
+we define @xmath1858 by @xmath1869 .
+( briefly speaking , @xmath1859 removes all tails other than @xmath1411 . )
+then , there holds @xmath1870 hence , @xmath1859 is a chain ( resp
+. anti - chain ) map if @xmath182 is even ( resp .
+odd ) . on the other hand , since @xmath1871 , there holds @xmath1860 .
+* step 2 . * to show that @xmath1859 induces an isomorphism on homology , we define a filtration on the chain complex @xmath1872 . for any @xmath1873
+, we define positive integers @xmath1874 so that @xmath1875 . for every @xmath1876 , we define @xmath1877.\end{aligned}\ ] ] @xmath1878 is a subcomplex of @xmath1834 for every @xmath29 , and we obtain a filtration @xmath1879 . since @xmath1880 is a bijection , @xmath1881 is an isomorphism .
+therefore , to show that @xmath1859 is a quasi - isomorphism , it is enough to show that @xmath1882 is acyclic for every @xmath1883 .
+* step 4 . *
+we define a degree @xmath89 linear map @xmath620 on @xmath1889 .
+let @xmath1890 . then @xmath1891 for @xmath1892 , and @xmath1893 .
+let @xmath1894 .
+then , @xmath1895 since @xmath1896 .
+let us take @xmath1897 so that @xmath1898 , and define @xmath1899 as follows : @xmath1900                    * let us define an order on @xmath1922 by @xmath1924 , and denote the corresponding order on @xmath78 as @xmath1921 .
+* let us define an order on @xmath1925 by * * when @xmath1448 , @xmath1926 and @xmath1927 , then @xmath1928 .
+* * on each @xmath1413 , @xmath1929 .
++ let us denote the corresponding order on @xmath78 as @xmath1920 .
+* @xmath264 is a chain map .
+namely , for any @xmath1937 , there holds @xmath1938 * for any @xmath1939 , @xmath106 and @xmath1940 , there holds @xmath1941 . * for any @xmath1939 and @xmath1486 , there holds @xmath1942 .    for
+any @xmath106 and @xmath1618 , let us define a composition map on @xmath1840 by @xmath1943 by the above assertions , @xmath1840 is a dg operad with these composition maps ( unit is @xmath1519 ) , and @xmath1944 is a morphism of dg operads . as is obvious from definitions , @xmath1945 is the identity on @xmath1840 , and @xmath1843 .
+this completes the proof of lemma [ 141022_1 ] .
+let @xmath1946 .
+@xmath1366 is called a _ free vertex _ , if @xmath1947 , and @xmath1948 for any @xmath1431 .
+we call @xmath438 _ degenerate _ , if there exists a free vertex in @xmath1329
+. let @xmath1949 denote the set of degenerate elements in @xmath1950 .
+we also set ( @xmath1951 stands for nondegenerate ) : @xmath1952 since @xmath1953 is nondegenerate , there holds @xmath1954    for every @xmath1614 , let us define @xmath1955 , \qquad   \tilde{\lambda}^\deg_0(r)_*:= \prod_{l_1 + \cdots + l_r= * } \r[\lambda^\deg(0 : l_1 , \ldots , l_r)].\ ] ] notice that @xmath1956 .
+it is easy to see that , @xmath1957 and @xmath1958 are dg ideals of @xmath1840 and @xmath1841 , respectively .    for any @xmath103 and @xmath1959 , let @xmath1960 denote the framed decorated cactus obtained by removing all free vertices of @xmath438
+let @xmath1961 denote the number of edges of @xmath1962 .
+it is easy to see that @xmath1963 for any @xmath1959 , and @xmath1964 for any @xmath1965 .
+the lemma is obvious for @xmath1909 , thus we may assume @xmath103 .
+we prove the lemma only for @xmath1967 , since the proof for @xmath1966 is similar . for @xmath1968 ,
+let @xmath1969 be the subspace of @xmath1967 , which is generated by @xmath1970 such that @xmath1971 .
+it is easy to see that this is a subcomplex of @xmath1967 , and we obtain @xmath1972 to prove that @xmath1967 is acyclic , it is sufficient to show that @xmath1973 is acyclic for every @xmath1968 .    for any @xmath1974 such that @xmath1975 , let @xmath1976 denote the subcomplex of @xmath1973 , which is generated by @xmath1977 .
+it is easy to see that @xmath1976 is acyclic for every @xmath1978 .
+therefore , @xmath1979 is also acyclic .    since @xmath1980 and @xmath1981 are dg ideals of @xmath1840 and @xmath1841 , the quotients @xmath1982 and @xmath1983 are dg operads . as graded vector spaces , @xmath1984 , \qquad   \tilde{\lambda}^\nondeg_0(r)_*= \prod_{l_1 + \cdots + l_r= * } \r[\lambda^\nondeg(0 : l_1 , \ldots , l_r)].\ ] ] by lemma [ 141103_3 ] , the morphisms of dg operads @xmath1985 and @xmath1986 are quasi - isomorphisms .
+on the other hand , one can define morphisms of graded operads @xmath1987 and @xmath1988 by @xmath1989 , \quad a \mapsto [ \alpha_{0,0 } ] , \quad b \mapsto -[\beta_{1,1,0 } + \beta_{1,1,0}^{(12 ) } ] , \quad   \delta \mapsto [ \sigma_{0,0 } \circ_1 \tau_1].\ ] ] the relevant relations are checked by direct computations .
+now , lemma [ 141103_1 ] is reduced to the following lemma .
+it seems that the dg operad @xmath1992 ( resp .
+@xmath1993 ) is isomorphic ( up to sign ) to the dg operad @xmath1994 ( resp .
+@xmath1995 ) , which is introduced in @xcite ( resp .
+these dg operads are defined by cw - decompositions of the cacti and spineless cacti operads . in papers
+@xcite , @xcite , @xcite , it is proved that these operads are chain models for the ( framed ) little disks operad , therefore their homology are isomorphic to the gerstenhaber and bv operads .
+lemma [ 141103_2 ] may follow from these results , however we give a direct proof in the next subsection .
+in this subsection , we abbreviate @xmath1996 and @xmath1997 by @xmath1998 and @xmath1999 for simplicity . for every integer @xmath103 , we define a chain complex @xmath2000 by @xmath2001 and differential is zero .
+we define a chain map @xmath2002 by @xmath2003 where @xmath2004 is defined as @xmath2005          it is easy to see that @xmath2016 for every @xmath29 .
+thus , @xmath2006 induces a map on quotients @xmath2017 to show that @xmath2006 is a quasi - isomorphism , it is enough to show that ( [ 150120_1 ] ) is a quasi - isomorphism for every @xmath29 .
+@xmath2018 is generated by @xmath2019 .
+on the other hand , @xmath2020 , where @xmath1976 is generated by @xmath2021 .
+( [ 150120_1 ] ) maps @xmath2022 \otimes \gamma^r_*$ ] to @xmath1976 , and it is easy to see that this is a quasi - isomorphism for every @xmath1978
+. therefore , ( [ 150120_1 ] ) is a quasi - isomorphism .    by induction on @xmath1263
+, we show that @xmath2023 is an isomorphism .
+this is directly checked for @xmath2024 .
+suppose that @xmath2025 is an isomorphism for some @xmath103 .
+by lemma [ 141225_1 ] , @xmath2026 is surjective , and @xmath2027 . on the other hand , @xmath2028 for any @xmath657 ( see @xcite and @xcite )
+. therefore @xmath2029 .
+thus , @xmath2026 is an isomorphism .
+this completes the proof that @xmath1990 is an isomorphism .
+finally , we show that @xmath1991 is an isomorphism . for every @xmath103
+, @xmath2030 is an isomorphism , since a map between topological spaces @xmath2031 is a homotopy equivalence . on the other hand , the next lemma holds .      for any @xmath2033 ,
+let @xmath1901 denote the decorated cactus obtained by forgetting the framing of @xmath438 .
+for every integer @xmath29 , let @xmath2034 denote the subspace of @xmath1999 , which is generated by @xmath2035 .
+this is a subcomplex of @xmath1999 .
+we set @xmath2036 .
+we need to show that @xmath2040 is an isomorphism .
+this is directly checked for @xmath2024 .
+since @xmath2041 is an isomorphism , the isomorphism ( [ 141226_1 ] ) and lemma [ 141226_2 ] imply that @xmath2042 is an isomorphism for every @xmath103 .          c. berger , i. moerdijk , _ resolution of coloured operads and rectification of homotopy algebras _ , categories in algebra , geometry and mathematical physics , 3158 , contemp .
+, 431 , amer .
+soc . , providence , ri , 2007 .
+k. cieliebak , j. latschev , _ the role of string topology in symplectic field theory _ , new perspectives and challenges in symplectic field theory , 113146 , crm proc .
+lecture notes , 49 , amer .
+soc . , providence , ri , 2009 .
+r. l. cohen , v. godin , _ a polarized view of string topology _ , topology , geometry and quantum field theory , 127154 , london math .
+lecture note ser .
+308 , cambridge univ .
+press , cambridge , 2004 .
+k. fukaya , _ application of floer homology of lagrangian submanifolds to symplectic topology _ ,
+morse theoretic methods in nonlinear analysis and in symplectic topology , 231276 , nato sci . ser .
+, 217 , springer , dordrecht , 2006 .

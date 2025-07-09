@@ -1,0 +1,172 @@
+magnetic fields contribute to the dynamical behavior of ionized astrophysical fluids such as those in the upper solar and stellar atmospheres , the interstellar medium and star - forming regions .
+their influence is carried out by hydromagnetic waves which efficiently propagate perturbations , ensure a turbulent pressure or may even cause the development of instabilities ( @xcite ) .
+however , kulsrud & pearce ( @xcite ) showed that in the magnetized and weakly ionized interstellar medium hydromagnetic waves are heavily damped in a frequency range ( and thus scale ) associated with ambipolar diffusion . at low frequency the neutrals
+are well coupled to the ions ( which are tied to the magnetic field lines ) and hydromagnetic waves propagate at the alfvn speed defined by the total inertia ( given by ions+neutrals ) . at high frequency neutrals and ions
+are totally decoupled , and alfvn waves involve only the ions , which define a larger alfvn velocity . in the intermediate range ( the ` ambipolar
+range ' , between the ion - neutral and neutral - ion collision frequencies @xmath0 and @xmath1 ) the neutrals are imperfectly coupled to the ions ; this results in a drag which strongly damps the waves .
+the non - linear evolution of this process can cause an _
+ambipolar filamentation _ of the magnetic field when a magnetized and weakly ionized plasma is stirred by hydromagnetic turbulence in the ambipolar range ( @xcite ) .
+if such a plasma presents small variations in the ionization fraction ( @xmath2 ) , the turbulent velocity of the neutrals is higher in the most ionized regions , since they are better coupled to the ions .
+this gives rise to a force ( given by the average of the @xmath3 term ) driving the neutrals out of the most ionized regions . by reaction
+the ions and the magnetic flux are compressed in these regions , so that the initial ionization inhomogeneities are strongly amplified . as a consequence a concentration of the flux tubes
+is expected to occur , producing a filamentary structure , so that turbulent energy would be converted into magnetic energy associated with the concentration of the magnetic field .
+( 1995 ) provided only order of magnitude estimates of the expected amplification of the ionization fraction . in this work we present a fully consistent 2-d non - linear numerical simulation of the mechanism in order to test its efficiency .
+the non - linear analysis is a fundamental tool to study the physics in certain astrophysical environments , such as molecular clouds , where the observed amplitudes of the turbulent velocities are comparable with the mean field velocities .
+the ambipolar filamentation mechanism might help to explain some well known problems arising in magnetized , partially ionized astrophysical plasmas .
+one of them is related with the observations of turbulence in molecular clouds .
+observations show a filamentary structure , and strong supersonic motions resulting in turbulent and magnetic energies in approximate equipartition , i.e. , much larger than the thermal energy ( @xcite ) .
+the ambipolar filamentation mechanism would concentrate the magnetic field in intense flux ropes surrounded by essentially neutral clouds .
+another possible application relates to the fibrilled structure observed in the magnetic field emerging from the solar photosphere , organized in very narrow flux tubes .
+the ambipolar filamentation mechanism might provide an explanation for the spicules emerging from the photosphere : let us consider magnetic field lines raising from the photosphere .
+then an alfvn wave of a given frequency , produced in the photosphere and initially below the local ambipolar frequency range , will propagate upward along the field lines and reach at high altitudes a plasma of much lower density , i.e. , lower collision frequencies .
+it will thus be damped by ambipolar effects and can expel the neutrals from the most ionized flux tubes , concentrating the magnetic flux in narrow tubes where strong vertical motions can be expected .
+this would occur together with the mechanism discussed by de pontieu & haerendel ( @xcite ) .
+these prospects will be discussed in more detail in the last section of this work .
+we have carried out numerical simulations in which a weakly ionized and magnetized gas inside a cartesian box is submitted to a high amplitude oscillation emitted from one of its sides .
+the perturbation propagates inside the box as an alfvn wave with a frequency chosen to be in the ambipolar range , so that it will be strongly damped . in section 2
+we describe the dynamical equations that govern the evolution of a two fluid gas , together with the numerical code and the boundary conditions used to solve them .
+we also discuss the numerical constraints present in our simulations .
+the results from the numerical experiments are presented in section 3 and discussed in the context of the problems cited above in section 4 .
+the magnetohydrodynamics ( mhd ) equations describing a two fluid ( ions and neutrals ) system are ( @xcite ) :    @xmath4    @xmath5    @xmath6    @xmath7    @xmath8    for simplicity we assume an isothermal equation of state :    @xmath9    @xmath10    ( 8,10.5 )    where @xmath11 , @xmath12 and @xmath13 are , respectively , the density , velocity and partial pressure of the ions ( with subscript i ) and neutrals ( with subscript n ) , @xmath14 is the gravity , @xmath15 is a constant such that @xmath16 and @xmath17 are the ion - neutral and neutral - ion collision frequencies , and @xmath18 is the sound velocity ( assumed the same for ions and neutrals ) .
+we assume that ionization and recombination occur on a longer time scale than the one we consider .
+this should of course be checked for applications to specific astrophysical situations .
+we have also checked that in these conditions the characteristics of the problems in which we are interested , namely the high electron densities in the case of solar spicules and the large spatial dimensions of molecular clouds , allow us to use these simplified two fluid mhd equations instead of the full set of the three fluids ( electrons , ions and neutrals ) equations which describe the dynamics of a weakly ionized gas .    in order to allow for the long time scales considered ( hundreds of alfvn times ) , associated with numerical constraints giving a short time step , we simplify the problem by making it two - dimensional : all quantities are @xmath19-invariant , and only the perturbed current has a component along @xmath19
+. therefore all quantities depend only on @xmath20 ( the vertical direction ) and @xmath21 ( the horizontal one ) on a cartesian grid . in this geometry
+the distinction between shear - alfvn and magnetosonic waves disappears , but waves propagating along @xmath20 retain the properties of the usual alfvn waves , that is , they twist the field lines and to lowest order they are not compressional .
+the numerical code used in our simulations is based on the same general methods as the zeus-2d code ( @xcite ) .
+it solves the mhd equations on a staggered mesh using the method of finite differences with a time explicit , operator split scheme .
+densities and pressures are zone centered quantities while the velocity components are centered at their corresponding zone faces . as in zeus-2d the solution procedure is arranged in two main steps , first taking into account the source terms in the right - hand side of the equations , and then solving for the advection terms in the left - hand side .
+the main difference with zeus-2d is the treatment of the gravitational and magnetic terms .
+an initial state of hydrostatic equilibrium is assumed , by fixing the vertical density and pressure profiles , from which we derive a value for the gravity ; this results in an ad - hoc gravity profile leaving us some freedom to optimize the density profiles , limiting the numerical difficulties associated with the emission of the wave ( see below ) .
+the 2-d geometry allows us to describe the magnetic field in eqs .
+( [ eq3 ] ) and ( [ eq5 ] ) , in terms of the flux function @xmath22 as follows :    @xmath23    so that the induction equation , eq .
+( [ eq5 ] ) becomes : @xmath24    the momentum and induction equations are thus first solved without the advection terms , using time explicit operator split schemes .
+the moc - ct algorithms included in zeus-2d ( @xcite ) are not used to evolve the magnetic terms , since they are not required by this simple problem .
+tests were carried out to verify the correct propagation of the waves .
+the second step in the numerical code , still following zeus-2d , solves finite difference versions of the integral equations coming from the advection terms in eqs .
+( [ eq1 ] ) , ( [ eq2 ] ) , ( [ eq3 ] ) and ( [ eq4 ] ) :    @xmath25    @xmath26    @xmath27    @xmath28    which allows us to obtain a conservative scheme by computing the fluxes of the advected quantity ( @xmath29 , @xmath30 , @xmath31 , @xmath32 respectively in the equations above ) at every interface on the grid and using the same flux to update adjacent zones . to solve the problem of calculating values of the advected quantities on the grid interfaces maintaining numerical stability ( @xcite ) , we used the second order van leer interpolation method ( @xcite ) .
+this method is fast and accurate enough for the requirements of our simulations . as in zeus-2d the two - dimensional advection problem
+is simplified by using directional splitting ( @xcite ) , that means using two one - dimensional advection steps to construct the full solution .
+the boundary conditions used to solve the mhd equations are determined by the physics of the phenomenon we are studying .
+we use periodic boundary conditions in @xmath21 ( note that with the definition of @xmath22 in equation ( [ eqpsi ] ) , the periodicity of @xmath22 ensures conservation of the total vertical magnetic flux through the simulation zone ) . at @xmath33
+we launch an alfvn wave by giving the whole fluid ( neutrals , ions and magnetic field lines ) a motion in @xmath21 which , in this first numerical test of the mechanism , will be limited to a single periodic oscillation : @xmath34 this will thus propagate upward as an alfvn wave . at the opposite boundary ( @xmath35 )
+we impose reflective boundary conditions ; they have no real effect since the total length in @xmath20 is chosen such that the waves are heavily damped before they reach that point . at the moment , in order to isolate the effect we want to study , we impose that there is no flux of matter from @xmath33 . in this manner
+we ensure that the variations in the ion or neutral densities do not result from inflow of matter at the lower boundary .
+on the other hand this results in severe constraints on the code because the wave pressure pushes matter upward , resulting in very low densities at the first grid point .
+this turns out to be the most stringent limit on the parameters we can use ( _ e.g. _ the perturbed velocity @xmath36 ) .    the simulations have other numerical constraints . to ensure that our calculations are fully consistent the dimensions of our spatial grid must be large enough to allow the ion - neutral interaction , that is , larger than the ion - neutral ( neutral - ion ) mean free path , @xmath37 , where @xmath38 is the collision frequency .
+for the characteristic values used in the simulations the grid is more than 10 times the maximum mean free path for the neutrals , which is enough for the necessary ion - neutral interaction .
+( 8,7 )    we also wish to launch the wave in a manner such that it is damped not right in its emission zone ( near @xmath33 , where we create it ) but away from it , so that we can clearly identify the processes obtained .
+we do this by imposing a strong vertical density gradient .
+thus the density at @xmath33 can be taken such that the wave initially propagates well ( @xmath39 ) , but later reaches an altitude where @xmath40 so that it is strongly damped and ambipolar processes can act . at higher altitude
+we maintain a small but constant density .
+finally , in order to initiate the filamentation process we need a transverse density profile : the neutral density is initially independent of @xmath21 , but the ion density has a horizontal profile , so that the ionization fraction is higher along the central field line ( @xmath41 ) .
+the magnetic field is chosen to ensure mhd equilibrium in the horizontal direction , that is : @xmath42 thus we expect that ions in the central flux tube will be compressed , and the neutrals expelled , by the ambipolar filamentation process .    on the other hand , in order to save computation time we must take the largest time step that guarantees the numerical stability for the set of difference equations .
+our time explicit code has to satisfy a courant - friedrichs - lewy ( cfl ) stability condition ,    @xmath43    derived applying a von neumann stability analysis ( @xcite ) .
+physically , this condition sets the higher limit of the distance that information can travel in one time step ( waves or fluid motion ) to be the minimum size of the discrete elements or zones in the spatial grid . for multidimensional systems ,
+a suitable time step limit is the smallest of all one dimensional cfl conditions in each coordinate direction ( @xcite ) .
+this gives strong constraints since ( a ) we need to consider the highest alfvn velocity , obtained where the density is lowest ( b ) the cfl condition involves waves with the shortest wavelengths , _
+i.e. _ high frequencies . at high frequency ,
+as explained in the introduction , the relevant alfvn velocity involves only the ion density .
+therefore compared with the alfven velocity at @xmath33 the one used for the cfl criterion is higher by the density ratio @xmath44 along the vertical density profile , and by the inverse of the ionization ratio @xmath45 .
+these two quantities are large and force us to use very short time steps , typically less than @xmath46 of the alfvn time through a grid cell at @xmath33 .
+let us now consider the time scales associated with the mechanism of ambipolar filamentation .
+three time - scales appear .
+the first one is the period of the wave .
+the second one involves the response of the fluid to the wave pressure ; in the basic mechanism of ambipolar filamentation , the neutrals feel a turbulent pressure : @xmath47 ( where the angular brackets mean a time average ) , which has a gradient along @xmath21 associated with the gradient of @xmath48 ; they respond by a pressure perturbation to re - establish equilibrium .
+this is established after a time @xmath49 , where @xmath50 is the scale of the horizontal ionization inhomogeneity .
+( 8,9 )    however , at this stage the situation keeps evolving since the new neutral and ions density profiles are more peaked , resulting in a further peaking of @xmath51 .
+thus , on a much longer time scale , the ionization contrast will keep growing ( @xcite ) ; in our simulations we find that typically @xmath52 alfvn times are needed to reach an equilibrium .
+such long time scales mean that any small numerical resistivity will result in a diffusion of the magnetic flux , so that the filamentation of the magnetic field associated with that of the ions can not be observed .
+the simulations were carried out using the numerical model described in the previous section .
+they follow the evolution of a 2-d ( @xmath21-horizontal and @xmath20-vertical directions ) , two fluid system ( ions and neutrals ) with low ionization fraction .
+the gas is initially threaded by a vertical constant magnetic field and perturbed by horizontal waves excited at the footpoints of the magnetic field lines ( @xmath33 ) . since no approximations were made except the invariance in @xmath19 , the following parameters have to be imposed on each simulation : @xmath53 , the initial magnetic field , @xmath54 , the sound velocity , @xmath15 , the ion - neutral collisional coefficient , @xmath36 and @xmath55 , the amplitude and frequency of the wave and the profiles of @xmath29 and @xmath30 in the @xmath21 and @xmath20 directions .    in order to clarify the results presented in all figures
+, we must briefly explain the scaling and units used by our numerical code .
+we have normalized the parameters to the characteristic scales of the problem we are solving .
+therefore we have taken as units the initial alfvn velocity at @xmath33 , @xmath56 , and the alfvn time @xmath57 , defined as the time that takes such an alfvn wave in crossing one wavelength @xmath58 .    in the simulation presented in figs . 1 - 6 we used a 61@xmath59200 numerical grid .
+it is longer in the vertical direction in order to allow the complete damping of the wave .
+as it was established in the previous section , we assume initial equilibrium in a fluid vertically stratified and supported by gravity , with ions and neutrals densities decreasing sharply ( by a factor @xmath60 10 ) with @xmath20 ( shown in fig .
+initially the neutral density is independent of @xmath21 , but the ion density shows a small enhancement in the @xmath21 direction , along which lie the perturbed velocities associated with the wave . the magnetic field
+is adjusted so as to ensure mhd equilibrium in the @xmath21 direction , given by ( [ peq ] ) .
+the resulting initial ionization fraction @xmath61 is constant over @xmath20 but shows a maximum at @xmath41 , as shown in fig .
+2 ( left ) .    ( 8,5.6 )    a high amplitude alfvn wave is launched from @xmath33 , by making the whole fluid ( neutrals , ions and magnetic field lines ) oscillate in @xmath21 at a single frequency @xmath55 ; this perturbation propagates upwards as an alfvn wave .
+its frequency is chosen so that the wave propagates without damping at the lower part of the simulation grid ( @xmath62 ) , but is strongly damped at intermediate altitudes , where @xmath48 ( and thus @xmath1 ) was taken to decrease sharply .
+therefore the filamentation will occur only at the intermediate altitude where the wave is damped ( @xcite ) but still retains a strong perturbed velocity . in the simulation presented in figs .
+2 - 4 and 6 , the perturbed velocity of the wave at @xmath33 is of the order of the sound velocity ( @xmath63 ) , which is taken to be a half of the alfvn velocity .
+( 8,5.6 )    fig .
+2 ( right ) shows the spatial profile of the ionization fraction at the end of the calculation .
+the initial contrast in the horizontal direction has grown and shrunk at a certain height . at higher altitude small traces of the wave still appear , together with a reversed profile along @xmath21 .
+an explanation to this behavior will be given later in this section .
+in the vertical profile of the ionization fraction ( fig .
+3b ) we note that the strong peak in fig .
+2 ( right ) is located at @xmath64 , actually where the wave begins to be damped ( see fig .
+4 ) but still keeps enough amplitude to make the neutral expulsion mechanism effective .
+therefore we find a strong amplification ( by a factor @xmath65 ) of the contrast in @xmath66 , at the altitude where the wave is damped ( fig . 3a ) . at the same altitude
+the ion density contrast along @xmath21 , @xmath67 , grows and the more ionized region shrinks ( fig .
+3c ) , as expected .
+moreover the ion density decreases on the sides of the peak , suggesting ion motion towards the most ionized regions . in fig .
+5 we can clearly quantify the final increase in ion density .
+we also see in the simulation how the neutrals are expelled from the most ionized regions ( fig .
+3e ) , generating in the density profile a central minimum of the same order as the increase achieved by the ions . in all horizontal profiles of fig .
+3 , the enhanced minimum / maximum are not centered at @xmath41 because of the lateral motion due to the wave . on fig .
+4 we compare the ion and neutral velocity .
+a phase lag ( corresponding to the damping of the wave by ion / neutral friction ) appears around @xmath68 .
+there is an additional effect acting to expel the neutrals from the most ionized regions .
+since along those field lines the wave is less damped , its perturbed velocity at a given height is larger .
+however this contributes with a @xmath3 term on the ions as well as on the neutrals , so that it should not contribute to the growth of the ionization contrast .    besides the strong peak in the spatial distribution of the ionization fraction
+, there is another feature which is a direct output of the enhancement of the ion density in the central magnetic field lines .
+the condensation of the ions must be accompanied by a compression of the magnetic field lines at the same point .
+then magnetic tension causes the compression of the field lines upwards . but as noted before , numerical resistivity has allowed the field to diffuse almost totally . a small residual intensification at the central field lines is left but it is invisible at low altitudes , where the wave dominates the field dynamics .
+however , at the highest grid zones , where the wave is almost completely damped , the increase in @xmath69 can be barely detected .
+that residual enhancement in @xmath69 causes the rise of the magnetic pressure , which results in an expulsion of ions from the central field lines at high altitudes .
+this causes a reversed ion density profile , as observed in fig .
+2 .    in our simulations
+the filamentation process seems only limited by two facts .
+firstly , @xmath48 can reach zero ( so that the code crashes ) at large @xmath21 . in this case
+the process is so efficient that all the ions at large @xmath21 are evacuated towards the most ionized regions , at the altitude where the filamentation occurs .
+@xmath48 can reach zero in the lowest grid zones because the matter is pushed upwards by the wave pressure .
+both processes impose severe restrictions to the model parameters , in particular to the highest value of @xmath36 we can use .
+the second limitation could be easily overcome by changing the boundary conditions to the more realistic case of allowing flux of matter at @xmath33 .
+however , as discussed above , we prefer not to do it in these first simulations since it would make it difficult to distinguish the enhancements of ion density due to the filamentation process from the ones due to this vertical flow .
+this will be necessary , on the other hand , in future realistic simulations of spicules .
+6 shows the evolution of the maximum value of the ionization fraction for several initial wave amplitudes . for the lowest values of the perturbed velocity a state of equilibrium
+is achieved early in the calculation . however , for the highest velocities the filamentation is more efficient and causes the simulation to crash . in the simulation shown in fig .
+3 ( @xmath70 ) , this is due to the complete depletion of ions at the first grid zones , although very small values of @xmath48 are also achieved at high @xmath21 , at the altitude where z is maximum .
+in fact the curves corresponding to the highest velocities show an oscillating behavior over @xmath71 , which can be a consequence of the extremely low values of the ion density in those regions .
+6 shows that the process acts faster for higher velocities .
+the asymptotic value of @xmath72 varies quadratically with @xmath73 , as expected from the theory ( @xcite ) .
+however we find that this value ( and accordingly the horizontal pressure gradients obtained for @xmath29 and @xmath30 ) depends on the initial profiles , _
+i.e. _ , more peaked initial profiles result in more peaked final ones .
+theory would lead us to expect that the final equilibrium , balancing the ponderomotive force of the wave with the pressure gradient of the neutrals , should be independent of the initial state .
+we believe that this may be due to the vertical transport of ions and neutrals from the lower and higher regions of the simulation grid . in these regions
+the filamentation process does not act , so that they retain a memory of the initial conditions and can feed the region of wave absorption with additional ions and neutrals .
+however we have been unable to prove it with the present limitations , due to the boundary condition at @xmath33 .
+we thus defer the treatment of this question to future work where the detailed physics will be considered in more realistic conditions .
+the aim of the simplified 2-d simulations presented in this paper was to provide a first numerical test of the ambipolar filamentation mechanism .
+we have tried to limit the physics involved to the minimal ingredients needed , in order to clearly separate the expected physical effect ( the filamentation ) from other sources of variation of ion and/or neutral density . in particular
+we have limited ourselves to the excitation of a monochromatic wave and forbidden any inflow of matter from the lowest grid boundary , although this turned out to cause the most severe numerical limitation , by creating a vanishing ion density on the first grid points .
+we have found that the mechanism is strong and efficient , even with these constraints and simplifying assumptions . in the most efficient of the simulations ,
+the perturbed velocity was close to the sound velocity , taken to be a half the alfvn velocity ( so the conditions are similar to that of the interstellar medium ) .
+however such velocities are still lower than the observed supersonic motions which would make the mechanism even more efficient , since we have found that its efficiency goes with the square of the perturbed ion velocities .
+we have obtained similar results in cases closer to the conditions of the solar spicules , where the sound velocity is a lower fraction of the alfvn velocity than in the results presented here ( @xmath74 ) .
+future work will go in two directions : we will excite a more complete spectrum of waves from the lowest boundary .
+this should cause the filamentation to be less localized , since waves of different frequencies will be damped ( and cause filamentation ) at different heights
+.    a more important evolution will be to relax the condition of no vertical flow from @xmath33 .
+this will make the simulation more efficient since we found that this boundary condition , chosen to clarify the physics , caused the most severe numerical limitation .
+it will also allow us to make more realistic simulations of solar spicules .
+in that case , we expect our mechanism to act together with the vertical flow of matter discussed in haerendel ( @xcite ) , tagger _
+et al _ ( 1995 ) and de pontieu & haerendel ( @xcite ) .
+upward traveling alfvn waves generated in the photosphere are expected to cause both ambipolar filamentation of the field lines and vertical acceleration of the gas , so that a boundary condition allowing matter to flow vertically from @xmath33 is necessary .
+first tests actually show an intense growth of the ionization fraction in the most ionized flux tubes .
+we also expect that , with these boundary conditions , we will be able to use higher perturbed velocities making the mechanism much more efficient .
+the effects of a more realistic equation of state and , of course , the inclusion of ionization and recombination , are also obvious extensions to this work .
+this should make us able to address more realistically the role of our mechanism in the filamentary structure of the interstellar medium and the star formation process .
+models of star formation ( since the early work of @xcite ) invoke molecular clouds supported essentially by turbulent magnetic pressure and an ambipolar flow of the neutrals toward dense cores ( @xcite ; @xcite ; @xcite ; @xcite ; and references therein ) . in the molecular clouds conditions , where the turbulence is supersonic
+, we expect our mechanism to result in an additional pressure from the most ionized to the less ionized regions that efficiently separates the ions from the neutrals , favoring the gravitational collapse of the latter .
+the turbulent magnetic fields can be generated as a consequence of the jeans - parker instability during the molecular cloud formation process , or ( as suggested by recent models ) by the outflow lobes associated with young stellar objects ; in the former case , large scale waves could feed the turbulent cascade in the cloud ( @xcite ) . in the latter case , the outflows act as the sources of turbulence and the energy released heats the cloud by the ambipolar drift ( @xcite ) . in those contexts
+, there would be localized sources for the turbulence , that would propagate in a stratified medium , so that the physics studied here could be readily applied .
+on the other hand for a detailed study of the turbulent cascade and its effects on the interstellar medium , a pseudo - spectral technique would be better adapted to allow a random , non - localized excitation of the waves .
+the relevance of the role of the ambipolar filamentation in those conditions will be the object of future studies .
+the authors wish to thank f. masset and a. hetem , who have been involved in the early stages of the numerical developments used in this work , and n. hulamo for the constructive discussions .
+mf has been supported by a predoctoral research fellowship of the ministerio de educacin y cultura ( mec ) and by a c.i.e.s .
+( centre international des etudiants et stagiaires ) grant .
+this work has been partially supported by the mec through the projects pb93 - 491 and pb97 - 269 .

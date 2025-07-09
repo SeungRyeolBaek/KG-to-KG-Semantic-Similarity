@@ -1,0 +1,241 @@
+monte carlo methods @xcite appeared about sixty years ago with the need to evaluate numerical values for various complex problems .
+these methods evolved and were applied early to quantum problems , thus putting within reach exact numerical solutions to non - trivial quantum problems @xcite .
+many improvements of these methods followed , avoiding critical slowing down near phase transitions and allowing to work directly in the continuous imaginary time limit @xcite . in recent years ,
+interest in methods that work in the canonical ensemble with global updates yet allow access to green functions has intensified @xcite .
+however , a method that works well for a given hamiltonian often needs major modifications for another .
+for example , the addition of a 4-site ring exchange term in the bosonic hubbard model required special developments for a treatment by the stochastic series expansion algorithm @xcite , as well as by the wordline algorithm @xcite .
+this can result in long delays .
+it is , therefore , advantageous to have at one s disposal an algorithm that can be applied to a very wide class of hamiltonians without requiring any changes . in a recent publication @xcite ,
+the stochastic green function ( sgf ) algorithm was presented , which meets this goal .
+the algorithm can be applied to any lattice hamiltonian of the form @xmath3 where @xmath1 is diagonal in the chosen occupation number basis and @xmath2 has only positive matrix elements .
+this includes all kinds of systems that can be treated by other methods presented in ref.@xcite , for instance bose - hubbard models with or without a trap , bose - fermi mixtures in one dimension , heisenberg models ... in particular hamiltonians for which the non - diagonal part @xmath2 is non - trivial ( the eigen - basis is unknown ) are easily treated , such as the bose - hubbard model with ring exchange @xcite , or multi - species hamiltonians in which a given species can be turned into another one ( see eq.([twospecies ] ) and fig .
+[ density ] and [ momentum ] for a concrete example ) .
+systems for which it is not possible to find a basis in which @xmath1 is diagonal and @xmath2 has only positive matrix elements are said to have a `` sign problem '' , which usually arises with fermionic and frustrated systems . as other qmc methods , the sgf algorithm does not solve this problem .    the algorithm allows to measure several quantities of interest , such as the energy , the local density , local compressibility , density - density correlation functions ... in particular the winding is sampled and gives access to the superfluid density .
+equal - time n - body green functions are probably the most interesting quantities that can be measured by the algorithm , by giving access to momentum distribution functions which allow direct comparisons with experiments .
+all details on measurements are given in ref.@xcite .
+in addition the algorithm has the property of being easy to code , due in part to a simple update scheme in which all moves are accepted with a probability of 1 . despite of such generality and simplicity ,
+the algorithm might suffer from a reduced efficiency , compared to other algorithms in situations where they can be applied .
+the purpose of this paper is to present a `` directed '' update scheme that ( i ) keeps the simplicity and generality of the original sgf algorithm , and ( ii ) enhances its efficiency by improving the sampling over the imaginary time axis .
+while the sgf algorithm is not intended to compete with the speed of other algorithms , the improvment resulting from the directed update scheme is remarkable ( see section v ) .
+but what makes the strength of the sgf method is that it allows to simulate hamiltonians that can not be treated by other methods or that would require special developments ( see eq.([twospecies ] ) for a concrete example ) .
+the paper is organized as follows : we introduce in section ii the notations and definitions used in ref.@xcite . in section iii , we propose a simplification of the update scheme used in the original sgf algorithm , and determine how to satisfy detailed balance .
+a generalization of the simplified update scheme is presented in section iv , which constitutes the directed updated scheme .
+finally section v shows how to determine the introduced optimization parameters , and presents some tests of the algorithm and a comparison with the original version .
+in this section , we recall the expression of the `` green operator '' introduced in the sgf algorithm , and the extended partition function which is considered . although not required for understanding this paper , we refer the reader to ref.@xcite for full details on the algorithm . as many qmc algorithms ,
+the sgf algorithm samples the partition function @xmath4 the algorithm has the property of working in the canonical ensemble . in order to define the green operator ,
+we first define the `` normalized '' creation and annihilation operators , @xmath5 where @xmath6 and @xmath7 are the usual creation and annihilation operators of bosons , and @xmath8 is the number operator . from ( [ normalizedoperators ] )
+one can show the following relations for any state @xmath9 in the occupation number representation , @xmath10 with the particular case @xmath11 .
+appart from this exception , the operators @xmath12 and @xmath13 change a state @xmath9 by respectively creating and annihilating one particle , but they do not change the norm of the state .    using the notation @xmath14 to denote two subsets of site indices @xmath15 and @xmath16 with the constraint that all indices in subset @xmath17 are different from the indices in subset @xmath18 ( but several indices in one subset may be equal ) , we define the green operator @xmath19 by @xmath20 where @xmath21 is a matrix that depends on the application of the algorithm @xcite . in order to sample the partition function ( [ partitionfunction ] ) , an extended partition function @xmath22 is considered by breaking up the propagator @xmath23 , and introducing the green operator between the broken parts , @xmath24 defining the time dependant operators @xmath25 and @xmath26
+, @xmath27 and working in the occupation number basis in which @xmath1 is diagonal , the extended partition function takes the form @xmath28 where the sum @xmath29 implicitly runs over complete sets of states @xmath30 . we will systematically use the labels @xmath31 and @xmath32 to denote the states appearing on the left and the right of the green operator , and use the notation @xmath33 to denote the diagonal energy @xmath34 .
+we will also denote by @xmath35 and @xmath36 the time indices of the @xmath2 operators appearing on the left and the right of @xmath19 .    as a result ,
+the extended partition function is a sum over all possible configurations , each being determined by a set of time indices @xmath37 and a set of states @xmath38 , @xmath39 , @xmath40,@xmath41 , @xmath42 .
+the algorithm consists in updating those configurations by making use of the green operator . assuming that the green operator is acting at time @xmath43
+, it can `` create '' a @xmath2 operator ( that is to say a @xmath2 operator can be inserted in the operator string ) at the same time , thus introducing a new intermediate state , then it can be shifted to a different time . while shifting , any @xmath2 operator encountered by the green operator is `` destroyed '' ( that is to say removed from the operator string ) . assuming a left ( or right ) move , creating an operator will update the state @xmath44 ( or @xmath41 ) ,
+while destroying will update the state @xmath41 ( or @xmath44 ) .
+when a diagonal configuration of the green operator occurs , @xmath45 , such a configuration associated to the extended partition function ( [ extendedpartitionfunction ] ) is also a configuration associated to the partition function ( [ partitionfunction ] ) .
+measurements can be done when this occurs ( see ref.@xcite for details on measurements ) .
+next section presents a simple update scheme that meets the requirements of ergodicity and detailed balance .
+before introducing the directed update , we start by simplifying the update scheme used in the original sgf algorithm
+.      we will assume in the following that a left move of the green operator is chosen .
+in the original version , the green operator @xmath26 can choose to create or not on its right a @xmath2 operator at time @xmath43 .
+then a time shift @xmath46 to the left is chosen for the green operator with an exponential distribution in the range @xmath47 .
+if an operator is encountered while shifting the green operator , then the operator is destroyed and the move stops there . as a result , four possible situations can occur during one move :    1 .   no creation , shift , no destruction .
+2 .   creation , shift , no destruction .
+3 .   no creation , shift , destruction .
+4 .   creation , shift , destruction .
+it appears that the first possibility `` no creation , no destruction '' is actually useless , since no change is performed in the operator string . the idea is to get rid of this possibility by forcing the green operator to destroy an operator if no creation is chosen
+a further simplification can be done by noticing that the last possibility `` creation , destruction '' is not necessary for the ergodicity of the algorithm , and can be avoided by restricting the range of the time shift after having created an operator .
+therefore we replace the original update scheme by the following : we assume that the green operator is acting at time @xmath43 and that the operator on its left is acting at time @xmath35 . the green operator @xmath26 chooses to create or not an operator on its right at time @xmath43 .
+if creation is chosen , then a time shift @xmath46 of the green operator is chosen to the left in the range @xmath48 , with the probability distribution defined below .
+if no creation is chosen , then the green operator is directly shifted to the operator on its left at time @xmath35 , and the operator is destroyed . as a result
+only two possibilities have to be considered :    1 .
+creation , shift .
+2 .   shift , destruction .
+figure [ simplfiedupdatescheme ] shows the associated organigram .
+section iii.b explains how detailed balance can be satisfied with this simplified update scheme .          when updating the configurations according to the chosen update scheme , we need to generate different transitions from initial to final states with probabilities that satisfy detailed balance . in this section
+we propose a choice for these probabilities , and determine the corresponding acceptance factors .
+we denote the probability of the initial ( final ) configuration by @xmath49 ( @xmath50 ) .
+we denote by @xmath51 the probability of the transition from configuration @xmath17 to configuration @xmath52 , and by @xmath53 the probability of the reverse transition .
+finally we denote by @xmath54 the acceptance rate of the transition from @xmath17 to @xmath52 , and by @xmath55 the acceptance rate of the reverse transition .
+the detailed balance can be written as @xmath56 we will make use of the metropolis solution @xcite , @xmath57 with @xmath58 we will use primed ( non - primed ) labels for states and time indices to denote final ( initial ) configurations .
+we consider here the case where a left move is chosen , an operator is created on the right of the green operator at time @xmath43 , and a new state is chosen .
+then a time shift to the left is chosen for the green operator in the range @xmath59 .
+it is important to note that @xmath60 and @xmath61 correspond to the time indices of the operators appearing on the left and the right of the green operator after the new operator has been inserted , that is to say at the moment where the time shift needs to be performed .
+thus we have @xmath62 and @xmath63 .
+the probability of the initial configuration is the boltzmann weight appearing in the extended partition function ( [ extendedpartitionfunction ] ) : @xmath64 the probability of the final configuration takes the form : @xmath65 it is important here to realize that the green operator only inserted on its right the operator @xmath66 , before being shifted from @xmath61 to @xmath67 .
+therefore we have the equalities @xmath68 , @xmath69 , @xmath70 , and @xmath71 .
+the probability @xmath51 of the transition from the initial configuration to the final configuration is the probability @xmath72 of a left move , times the probability @xmath73 of a creation , times the probability @xmath74 to choose the new state @xmath75 , times the probability @xmath76 to shift the green operator by @xmath77 , knowing that the states on the left and the right of the green operator at the moment of the shift are @xmath78 and @xmath79 : @xmath80 the probability of the reverse transition is simply the probability @xmath81 of a right move , times the probability of no creation , @xmath82 : @xmath83\ ] ] from the original version of the sgf algorithm , we know that choosing the time shift with an exponential distribution is a good choice , because it cancels the exponentials appearing in the probabilities of the initial ( [ initial ] ) and final ( [ final ] ) configurations , avoiding exponentially small acceptance factors .
+however a different normalization must be used here , since the time shift is chosen in the range @xmath84 instead of @xmath47 .
+the suitable solution is : @xmath85 it is straightforward to check that the above probability is correctly normalized and well - defined for any real value of @xmath86 , the particular case @xmath87 reducing to the uniform distribution @xmath88 ( note that @xmath89 is always a positive number ) . for the probability @xmath74 to choose the new state @xmath75 ,
+the convenient solution is the same as in the original version : @xmath90 putting everything together , the acceptance factor ( [ metropolis2 ] ) becomes @xmath91\big[1-e^{-(\tau_l^\prime-\tau_r^\prime)(v_r^\prime - v_l^\prime)}\big]}{v_r^\prime - v_l^\prime},\end{aligned}\ ] ] where we have used the notation @xmath92 to emphasize that this acceptance factor corresponds to a creation .
+it is also important for the remaining of this paper to note that @xmath92 is written as a quantity that depends on the initial configuration , times a quantity that depends on the final configuration .
+we consider here the case where a left move is chosen , and the operator on the left of the green operator is destroyed .
+this move corresponds to the inverse of the above `` creation , shift '' move .
+thus , the corresponding acceptance factor @xmath93 is obtained by inverting the acceptance factor @xmath92 , exchanging the initial time @xmath43 and final time @xmath67 , and switching the direction .
+however @xmath94 represents an absolute time shift , so @xmath35 and @xmath36 do not have to be exchanged .
+we get @xmath95\big[1-e^{-(\tau_l-\tau_r)(v_l - v_r)}\big ] } \\                             & \times & \frac{\big\langle\psi_l^\prime\big|\hat\mathcal g\big|\psi_r^\prime\big\rangle p(\rightarrow^\prime)p_\rightarrow^\dagger(\tau^\prime)}{\big\langle\psi_l^\prime\big|\hat\mathcal t\hat\mathcal g\big|\psi_r^\prime\big\rangle},\end{aligned}\ ] ] which is written as a quantity that depends on the initial configuration , times a quantity that depends on the final configuration .
+we will use here the short notation @xmath96 , @xmath97 , and @xmath98 to denote respectively the quantities @xmath99 , @xmath100 , and @xmath101 . as in ref .
+@xcite , we have some freedom for the choice of the probabilities of choosing a left or right move , @xmath72 and @xmath102 , and the probabilities of creation @xmath73 and @xmath103 .
+a suitable choice for those probabilities can be done in order to accept all moves , resulting in an appreciable simplification of the algorithm . for this purpose ,
+we impose the acceptance factor @xmath92 ( or @xmath104 ) to be equal to the acceptance factor @xmath93 ( or @xmath105 ) .
+this allows to determine the probabilities @xmath73 and @xmath103 , @xmath106 and the acceptance factors @xmath107 and @xmath108 take the form @xmath109 with @xmath110 finally we can impose the acceptance factors @xmath111 and @xmath112 to be equal .
+this implies @xmath113 defining @xmath114 , we are left with a single acceptance factor , @xmath115 which is independent of the chosen direction , and independent of the nature of the move ( creation or destruction ) .
+thus all moves can be accepted by making use of a proper reweighting , as explained in ref .
+the appendix shows how to generate random numbers with the appropriate exponential distribution ( [ exponentialdistribution ] ) .      although the above simplified update scheme works , it turns out to have a poor efficiency .
+this is because of a lack of `` directionality '' : the green operator has , in average , a probability of @xmath116 to choose a left move or a right move .
+therefore the green operator propagates along the operator string like a `` drunk man '' , with a diffusion - like law .
+the basic creation and destruction processes correspond to the steps of the random walk .
+this suggests that the efficiency of the update scheme can be improved if one can force the green operator to move in the same direction for several iterations .
+next section presents a modified version of the simplified update scheme , which allows to control the mean length of the steps of the random walk , that is to say the mean number of creations and destructions in a given direction .
+the proposed directed update scheme can be considered analogous to the `` directed loop update '' used in the stochastic series expansion algorithm @xcite , which prevents a worm from going backwards .
+however the connection should not be pushed too far .
+indeed the picture of a worm whose head is evolving both in space and imaginary time accross vertices is obvious in a loop algorithm . in such algorithm ,
+a creation ( or an annihilation ) operator which is represented by the head of a worm is propagated both in space and imaginary time , while an annihilation ( or a creation ) operator represented by the tail of the worm remains at rest .
+the loop ends when the head of the worm bites the tail .
+such a worm picture is not obvious in the sgf algorithm : instead of single creation or annihilation operators , it is the full green operator over the whole space that is propagated only in imaginary time .
+this creates open worldlines , thus introducing discontinuities .
+these discontinuities increase or decrease while propagating in imaginary time .
+all open ends of the worldlines are localized at the same imaginary time index .
+therefore it is actually not possible to draw step by step a worm whose head is evolving in space and imaginary time until it bites its tail .
+we present in this section a directed update scheme which is obtained by modifying slightly the simplified update scheme , thus keeping the simplicity and generality of the algorithm .      assuming that a left move is chosen
+, the green operator chooses between starting the move by a creation or a destruction . after having created ( or destroyed ) an operator , the green operator can choose to keep moving in the same direction and destroy ( or create ) with a probability @xmath117 ( or @xmath118 ) , or to stop .
+if it keeps moving , then a destruction ( or creation ) occurs , and the green operator can choose to keep moving and create ( or destroy ) with a probability @xmath118 ( or @xmath117 ) ... and so on , until it decides to stop . if the last action of the move is a creation , then a time shift is chosen .
+the organigram is represented in figure [ directedupdatescheme ] .          in order to satisfy detailed balance , in addition to the acceptance factors @xmath92 and @xmath93 , we need to determine new acceptance factors of the form @xmath119 and @xmath120 .
+we first determine the new expressions of @xmath92 and @xmath93 resulting from the directed update scheme . for @xmath92 ,
+the previous probability @xmath51 has to be multiplied by the probability to stop the move after having created , @xmath121 .
+the previous probability @xmath53 has to be multiplied by the probability to stop the move after having destroyed , @xmath122 .
+we get for @xmath92 and @xmath93 the new expressions : @xmath123}{\big\langle\psi_l\big|\hat\mathcal g\big|\psi_r\big\rangle p(\leftarrow)p_\leftarrow^\dagger(\tau ) } \\                             & \times & \frac{p(\rightarrow^\prime)\big[1-p_\rightarrow^\dagger(\tau^\prime)\big]\big[1-e^{-(\tau_l^\prime-\tau_r^\prime)(v_r^\prime - v_l^\prime)}\big]}{\big[1-p_\leftarrow^{kd}(\tau^\prime)\big]\big(v_r^\prime - v_l^\prime\big ) } \\
+\nonumber q_\leftarrow^d & = &       \frac{\big[1-p_\rightarrow^{kd}(\tau)\big]\big(v_l - v_r\big)}{p(\leftarrow)\big[1-p_\leftarrow^\dagger(\tau)\big]\big[1-e^{-(\tau_l-\tau_r)(v_l - v_r)}\big ] } \\                             & \times & \frac{\big\langle\psi_l^\prime\big|\hat\mathcal g\big|\psi_r^\prime\big\rangle p(\rightarrow^\prime)p_\rightarrow^\dagger(\tau^\prime)}{\big\langle\psi_l^\prime\big|\hat\mathcal t\hat\mathcal g\big|\psi_r^\prime\big\rangle\big[1-p_\leftarrow^{kc}(\tau^\prime)\big]},\end{aligned}\ ] ]      we consider here the case where a left move is chosen , an operator is created on the right of the green operator , and a new state is chosen .
+then the operator on the left of the green operator is destroyed . using the superscripts @xmath124 to denote intermediate configurations between initial and final configurations ,
+the sequence is the following    1 .
+@xmath125 2 .
+@xmath126 3 .
+@xmath127 ,    where we have @xmath128 , @xmath129 , @xmath130 , and @xmath131 .
+the probability of the transition from the initial configuration to the final configuration is the probability @xmath72 to choose a left move , times the probability @xmath73 to create an operator at time @xmath43 , times the probability @xmath132 to choose the new state @xmath133 , times the probability @xmath134 to keep moving and destroy , times the probability @xmath135 to stop the move after having destroyed : @xmath136\ ] ] the probability of the reverse move is exactly symmetric : @xmath137\ ] ] it is important to notice that , when in the intermediate configuration @xmath7 , the time @xmath138 of the operator to the left of the green operator is equal to @xmath35 , and the time @xmath139 of the operator to the right of the green operator is equal to @xmath43 .
+thus the acceptance factor takes the form @xmath140}{\big\langle\psi_l\big|\hat\mathcal g\big|\psi_r\big\rangle p(\leftarrow)p_\leftarrow^\dagger(\tau ) } \\
+\nonumber                    & \times & \frac{e^{-\big(\tau_l^a-\tau_r^a\big)v_r^a}p_\rightarrow^{kd}(a)}{e^{-\big(\tau_l^a-\tau_r^a\big)v_l^a}p_\leftarrow^{kd}(a ) } \\                                & \times & \frac{\big\langle\psi_l^\prime\big|\hat\mathcal g\big|\psi_r^\prime\big\rangle p(\rightarrow^\prime)p_\rightarrow^\dagger(\tau^\prime)}{\big\langle\psi_l^\prime\big|\hat\mathcal t\hat\mathcal g\big|\psi_r^\prime\big\rangle\big[1-p_\leftarrow^{kc}(\tau^\prime)\big]},\end{aligned}\ ] ] and is written as a quantity that depends on the initial configuration , times a quantity that depends on the intermediate configuration @xmath7 , times a quantity that depends on the final configuration .
+it is useful for the remaining of the paper to define the intermediate acceptance factor , @xmath141      we consider here the case where a left move is chosen , the operator on the left of the green operator is destroyed , then an operator is created on its right , and a new state is chosen . finally a time shift is chosen .
+the sequence of configurations is the following    1 .
+@xmath125 2 .
+@xmath142 3 .
+@xmath127 ,    where we have @xmath143 , and @xmath144 .
+the probability of the transition from the initial configuration to the final configuration is the probability @xmath72 to choose a left move , times the probability @xmath145 of no creation , times the probability @xmath146 to keep moving and create , times the probability @xmath74 to choose the new state @xmath75 , times the probability @xmath121 to stop the move after having destroyed , times the probability @xmath76 to shift the green operator by @xmath77 : @xmath147p_\leftarrow^{kc}(a)p_\leftarrow(\psi_r^\prime ) \\                        & \times & \big[1-p_\leftarrow^{kd}(\tau^\prime)\big]p_\leftarrow^{l^\prime r^\prime}(\tau^\prime-\tau_r^\prime)\end{aligned}\ ] ]
+the probability of the reverse move is exactly symmetric : @xmath148p_\rightarrow^{kc}(a)p_\rightarrow(\psi_l ) \\                        & \times & \big[1-p_\rightarrow^{kd}(\tau)\big]p_\rightarrow^{lr}(\tau_l-\tau)\end{aligned}\ ] ] the acceptance factor takes the form @xmath149\big(v_l - v_r\big)}{p(\leftarrow)\big[1-p_\leftarrow^\dagger(\tau)\big]\big[1-e^{-(\tau_l-\tau_r)(v_l - v_r)}\big ] } \\
+\nonumber                    & \times & \frac{\big\langle\psi_l^a\big|\hat\mathcal g\hat\mathcal t\big|\psi_r^a\big\rangle
+p_\rightarrow^{kc}(a)}{\big\langle\psi_l^a\big|\hat\mathcal t\hat\mathcal g\big|\psi_r^a\big\rangle p_\leftarrow^{kc}(a ) } \\                                & \times & \frac{p(\rightarrow^\prime)\big[1-p_\rightarrow^\dagger(\tau^\prime)\big]\big[1-e^{-(\tau_l^\prime-\tau_r^\prime)(v_r^\prime - v_l^\prime)}\big]}{\big[1-p_\leftarrow^{kd}(\tau^\prime)\big]\big(v_r^\prime - v_l^\prime\big)},\end{aligned}\ ] ] and is written as a quantity that depends on the initial configuration , times a quantity that depends on the intermediate configuration @xmath7 , times a quantity that depends on the final configuration .
+it is useful for the remaining of the paper to define the intermediate acceptance factor , @xmath150      we consider here the case where a left move is chosen , an operator is created on the right of the green operator , then the operator on its left is destroyed , then a second operator is created on its right .
+finally , a time shift of the green operator is performed .
+the sequence of configurations is the following    1 .
+@xmath125 2 .
+@xmath126 3 .
+@xmath151 4 .
+@xmath152 ,    considering the intermediate configurations @xmath7 and @xmath153 between the intial and final configurations , it is easy to show that the corresponding acceptance factor can be written @xmath154      we consider here the case where a left move is chosen , the operator on the left of the green operator is destroyed , then an operator is created on its right . finally a second operator on the left of green operator is destroyed .
+the sequence of configurations is the following    1 .
+@xmath155 2 .
+@xmath156 3 .
+@xmath157 4 .
+@xmath127 ,    considering the intermediate configurations @xmath7 and @xmath153 between the intial and final configurations , it is easy to show that the corresponding acceptance factor can be written @xmath158      it is straighforward to show that the acceptance factors of the form @xmath159 , @xmath160 , @xmath161 ( or @xmath162 , @xmath163 , @xmath164 ) can be expressed as products of the acceptance factor @xmath92 ( or @xmath93 ) and the intermediate factors @xmath165 and @xmath166 .    in the same manner , the acceptance factors of the form @xmath167 , @xmath168 , @xmath169 ( or @xmath170 , @xmath171 , @xmath172 ) can be expressed as products of the acceptance factor @xmath173 ( or @xmath174 ) and the intermediate factors @xmath165 and @xmath166 .      here
+again it is possible to take advantage of the freedom that we have for the choice of the probabilities @xmath72 , @xmath175 , @xmath118 , and @xmath117 ( or @xmath102 , @xmath176 , @xmath177 , and @xmath178 ) .
+a proper choice of these probabilities can be done in order to allow us to accept all moves , simplicity and generality being the leitmotiv of the sgf algorithm .    for this purpose
+, we impose to all acceptance factors corresponding to left ( or right ) moves to be equal .
+this requires the intermediate acceptance factors @xmath165 and @xmath166 ( or @xmath179 and @xmath180 ) to be equal to 1 .
+this is realized if @xmath181 where @xmath182 and @xmath183 are optimization parameters belonging to @xmath184 . by tuning these parameters , the mean length of the steps of the green operator
+can be controlled .
+note that we have explicitly excluded @xmath185 from the allowed values for these optimization parameters .
+this is necessary for the green operator to have a chance to end in a diagonal configuration , @xmath45 .
+indeed , the choice @xmath186 would systematically lead to values of @xmath185 for the probabilities @xmath187 and @xmath188 for diagonal configurations .
+therefore the green operator would never stop in a diagonal configution , and no measurement could be done .
+it is important here to note that the quantities @xmath96 , @xmath97 , and @xmath98 are evaluated between the states on the left and the right of the green operator that are present at the moment where those quantities are needed , as well as for the times indices @xmath189 and @xmath190 and the potentials @xmath191 and @xmath192 .
+all acceptance factors corresponding to a given direction of propagation become equal if we choose for the creation probabilities : @xmath193(v_l - v_r)}{\big[1-p_\rightarrow^{kc}\big]\big[1-e^{-(\tau_l-\tau_r)(v_l - v_r)}\big ] } } \\    & & p_\rightarrow^\dagger(\tau)=\frac{\big\langle\hat\mathcal t\hat\mathcal g\big\rangle}{\big\langle\hat\mathcal t\hat\mathcal g\big\rangle+\big\langle\hat\mathcal g\big\rangle\frac{\big[1-p_\leftarrow^{kd}\big](v_r - v_l)}{\big[1-p_\leftarrow^{kc}\big]\big[1-e^{-(\tau_l-\tau_r)(v_r - v_l)}\big]}},\end{aligned}\ ] ] finally , all acceptances factors become independant of the direction of propagation if we choose @xmath194 and @xmath195 with @xmath196\frac{\big\langle\hat\mathcal g\hat\mathcal t\big\rangle}{\big\langle\hat\mathcal g\big\rangle}+\frac{\big[1-p_\rightarrow^{kd}\big](v_l - v_r)}{\big[1-e^{-(\tau_l-\tau_r)(v_l - v_r)}\big ] } \\    r_\rightarrow(\tau)=\big[1-p_\leftarrow^{kc}\big]\frac{\big\langle\hat\mathcal t\hat\mathcal g\big\rangle}{\big\langle\hat\mathcal g\big\rangle}+\frac{\big[1-p_\leftarrow^{kd}\big](v_r - v_l)}{\big[1-e^{-(\tau_l-\tau_r)(v_r - v_l)}\big]}.\end{aligned}\ ] ] as a result all moves can be accepted again , ensuring the maximum of simplicity of the algorithm .
+we still have some freedom for the choice of the optimization parameters @xmath182 and @xmath183 .
+this is discussed in next section .
+from the central limit theorem , we know that the errorbar associated to any measured quantity must decrease as the square root of the number of measurements , or equivalently , the square root of the time of the simulation
+. therefore it makes sense to define the efficiency @xmath197 of a qmc algorithm by @xmath198 where @xmath199 represents the set of all optimization parameters of the algorithm , @xmath200 is the measured quantity of interest , @xmath201 is the time of the simulation , and @xmath202 is the errorbar associated to the measured quantity @xmath200 .
+this definition ensures that @xmath197 is independent of the time of the simulation . as a result ,
+the larger @xmath197 the more efficient the algorithm .    in the present case
+we have @xmath203 , while @xmath204 for the original sgf algorithm .
+it is useful here to realize that , by symmetry , the mean values of @xmath118 and @xmath177 ( and @xmath117 and @xmath178 ) must be equal .
+therefore we define @xmath205 and @xmath206 .
+it seems reasonable to impose a condition of uniform sampling , @xmath207 .
+this condition can be satisfied by adjusting dynamically the values of @xmath182 and @xmath183 during the thermalization process . for this purpose
+we introduce a new optimization parameter @xmath208 and apply the following algorithm from time to time while thermalizing ( we start with @xmath209 ) : @xmath210 thus we are left with the optimization parameter @xmath211 . in order to determine the optimal value ,
+we have considered 2 different hamiltonians @xmath212 and @xmath213 , and evaluated the efficiency of the algorithm while scanning @xmath211 .
+the first hamiltonian we have considered describes free hardcore bosons and is exactly solvable , @xmath214 where the sum runs over pairs of first neighboring sites and @xmath215 is the hopping parameter .
+the second hamiltonian is highly non - trivial and describes a mixture of atoms and diatomic molecules , with a special term allowing conversions between the two species @xcite , @xmath216 where @xmath217 and @xmath218 ( @xmath219 and @xmath220 ) are the creation and annihilation operators of atoms ( molecules ) , @xmath221 , @xmath222 , @xmath223 , @xmath224 , and @xmath225 are respectively the hopping parameter of atoms , the hopping parameter of molecules , the atomic onsite interaction parameter , the molecular onsite interaction parameter , and the inter - species interaction parameter .
+the conversion term is tunable via the parameter @xmath226 and does not conserve the number @xmath227 of atoms or the number @xmath228 of molecules
+. however the total number of particles @xmath229 is conserved and is the canonical constraint .
+the parameter @xmath230 allows to control the ratio between the number of atoms and molecules .
+the application of the sgf algorithm to the hamiltonian ( [ twospecies ] ) is described in details in ref.@xcite .
+the changes coming with the directed update scheme are completely independent of the chosen hamiltonian .
+the following table shows the mean number of creations and destructions in one step , @xmath231 , and the relative efficiency @xmath232 of the algorithm applied to @xmath212 at half filling , for which we have measured the energy @xmath233 , the superfluid density @xmath234 , and the number of particles in the zero momentum state @xmath235 :    .
+relative efficiency of the algorithm applied to @xmath212 at half filling for the energy , the superfluid density , and the number of particles in the zero momentum state . [ cols="^,^,^,^,^",options="header " , ]     while the best value of @xmath211 depends on the hamiltonian which is considered and the measured quantity , it appears that a good compromise is to choose @xmath211 between @xmath236 and @xmath237 .
+the improvment of the efficiency is remarkable . in the following ,
+we illustrate the applicability of the algorithm to problems with non - uniform potentials , by adding a parabolic trap to the hamiltonian ( [ twospecies ] ) : @xmath238 the parameters @xmath239 and @xmath240 allow to control the curvature of the trap associated to atoms and molecules , respectively , and @xmath31 is the number of lattice sites .
+the inclusion of this term in the algorithm is trivial since only the values of the diagonal energies @xmath241 and @xmath242 are changed .
+figures ( [ density ] ) and ( [ momentum ] ) show the density profiles and momentum distribution functions obtained for a system with @xmath243 lattice sites initially loaded with @xmath244 atoms and no molecules , and the parameters @xmath245 , @xmath246 , @xmath247 , @xmath248 , @xmath249 , @xmath250 , @xmath251 , @xmath252 , @xmath253 , and @xmath254 .
+the presented results have been obtained by performing @xmath255 updates for thermalization , and @xmath256 updates with measurements ( an update is to be understood as the occurence of a diagonal configuration ) .
+the time of the simulation is about 8 hours on a cheap 32 bits laptop with 1ghz processor , with an implementation of the algorithm involving dynamical structures with pointers ( see ref.@xcite ) .    ) to the hamiltonian ( [ twospecies ] ) .
+the errorbars are smaller than the symbol sizes , and are the biggest in the neighborhood of site indices 23 and 47 where they equal the size of the symbols . , scaledwidth=45.0% ]    ) to the hamiltonian ( [ twospecies ] ) .
+the errorbars are smaller than the symbol sizes , and are the biggest for @xmath257 where they equal the size of the symbols .
+, scaledwidth=45.0% ]
+we have presented a directed update scheme for the sgf algorithm , which has the properties of keeping the simplicity and generality of the original algorithm , and improves significantly its efficiency .
+i would like to express special thanks to peter denteneer for useful suggestions .
+this work is part of the research program of the `` stichting voor fundamenteel onderzoek der materie ( fom ) , '' which is financially supported by the `` nederlandse organisatie voor wetenschappelijk onderzoek ( nwo ) . ''
+we describe here how to generate numbers with the appropriate exponential distribution ( [ exponentialdistribution ] ) . assuming that we have at our disposal a uniform random number generator that generates a random variable @xmath258 with the distribution @xmath259 for @xmath260
+, we would like to find a function @xmath52 such that the random variable @xmath261 is generated with the distribution @xmath262 where @xmath46 and @xmath263 are the parameters of the exponential distribution .
+because of the relation @xmath261 , the probability to find @xmath264 in the range @xmath265 must be equal to the probability to find @xmath258 in the range @xmath266 .
+this implies the condition @xmath267 with @xmath268 .
+thus we have @xmath269 taking the anti - derivative with respect to @xmath270 on both sides of the equation , we get @xmath271 where @xmath272 is a constant . this constant and the correct sign are determined by imposing the conditions @xmath273 and @xmath274 . as a result , if @xmath270 is a realization of @xmath258 , then a realization of @xmath264 is given by @xmath275.\ ] ]    10 nicholas metropolis and s. ulam , journal of the american statistical association , number 247 , volume 44 ( 1949 ) .
+handscomb , proc .
+58 , 594 ( 1962 ) .
+kalos , phys .
+128 , 1791 ( 1962 ) .
+r. blankenbecler , d.j .
+scalapino and r.l .
+sugar , phys .
+d 24 , 2278 ( 1981 ) . g.g .
+batrouni and r.t .
+scalettar , phys .
+b * 46 * , 9051 ( 1992 ) . w. von der linden , phys . rep .
+220 , 53 ( 1992 ) .
+evertz , g. lana and m. marcu , phys .
+70 , 875 - 879 ( 1993 ) .
+ceperley , rev .
+67 , 279 ( 1995 ) .
+beard and u .- j .
+wiese , phys .
+77 5130 ( 1996 ) .
+`` quantum monte carlo methods in physics and chemistry '' , ed . m.p . nightingale and c.j .
+umrigar , nato science series c 525 , kluwer academic publishers , dordrecht , ( 1999 ) .
+sandvik , j. phys .
+a * 25 * , 3667 ( 1992 ) ; phys . rev .
+b * 59 * , 14157 ( 1999 ) . n.v .
+prokofev , b.v .
+svistunov , and i.s .
+tupitsyn , jetp lett . * 87 * , 310 ( 1998 ) .
+m. rigol , a. muramatsu , g.g .
+batrouni , and r.t .
+scalettar , phys .
+lett . * 91 * , 130403 ( 2003 ) .
+k. van houcke , s.m.a .
+rombouts , and l. pollet , phys .
+e * 73*,056703 ( 2006 ) .
+rousseau , phys .
+e * 77 * , 056705 ( 2008 ) .
+sandvik , s. daul , r.r.p .
+singh , and d.j .
+lett . * 89 * , 247201 ( 2002 ) .
+rousseau , r.t .
+scalettar , and g.g .
+batrouni , phys .
+b * 72 * , 054524 ( 2005 ) .
+n. metropolis , a.w .
+rosenbluth , m.n .
+metropolis , a.h .
+teller , and e. teller , j. chem . phys .
+* 21 * , 1087 ( 1953 ) .
+olav f. syljuasen , anders w. sandvik , phys .
+e * 66 * , 046701 ( 2002 ) .
+rousseau and p.j.h .
+denteneer , phys .
+a * 77 * , 013609 ( 2008 ) .

@@ -1,0 +1,154 @@
+coined quantum walks ( qws ) on graphs were firstly defined in ref .
+@xcite and have been extensively analyzed in the literature  @xcite .
+many experimental proposals for the qws were given previously  @xcite , with some actual experimental implementations performed in refs .
+the key feature of the coined qw model is to use an internal state that determines possible directions that the particle can take under the action of the shift operator ( actual displacement through the graph ) .
+another important feature is the alternated action of two unitary operators , namely , the coin and shift operators .
+although all discrete - time qw models have the `` alternation between unitaries '' feature , the coin is not always necessary because the evolution operator can be defined in terms of the graph vertices only , without using an internal space as , for instance , in szegedy s model  @xcite or in the ones described in refs .
+@xcite .
+more recently , the staggered quantum walk ( sqw ) model was defined in refs .
+@xcite , where a recipe to generate unitary and hermitian local operators based on the graph structure was given .
+the evolution operator in the sqw model is a product of local operators .
+moves the particle to the neighborhood of @xmath0 , but not further away . ]
+the sqw model contains a subset of the coined qw class of models  @xcite , as shown in ref .
+@xcite , and the entire szegedy model  @xcite class .
+although covering a more general class of quantum walks , there is a restriction on the local evolution operations in the sqw demanding hermiticity besides unitarity .
+this severely compromises the possibilities for actual implementations of sqws on physical systems because the unitary evolution operators , given in terms of time - independent hamiltonians having the form @xmath1 , are non - hermitian in general . to have a model , that besides being powerful as the sqw , to be also fitted for practical physical implementations , it would be necessary to relax on the hermiticity requirement for the local unitary operators .    in this work
+, we propose an extension of the sqw model employing non - hermitian local operators .
+the concatenated evolution operator has the form @xmath2 where @xmath3 and @xmath4 are unitary and hermitian , @xmath5 and @xmath6 are general angles representing specific systems energies and time intervals ( divided by the planck constant @xmath7 ) .
+the standard sqw model is recovered when @xmath8 and @xmath9 . with this modification , sqw with hamiltonians
+encompasses the standard sqw model and includes new coined models . besides , with the new model
+, it is easier to devise new experimental proposals such as the one described in ref .
+@xcite .
+[ sqwwh_graph1 ] depicts the relation among the discrete - time qw models .
+szegedy s model is included in the standard sqw model class , which itself is a subclass of the sqw model with hamiltonians .
+flip - flop coined qws that are in szegedy s model are also in the sqw model .
+flip - flop coined qws using hadamard @xmath10 and grover @xmath11 coins , as represented in fig .
+[ sqwwh_graph1 ] , are examples .
+there are coined qws , which are in the sqw model with hamiltonians general class , but not in the standard sqw model , as for example , the one - dimensional qws with coin @xmath12 , where @xmath13 is the pauli matrix @xmath14 , with angle @xmath15 not a multiple of @xmath16 .
+those do not encompass all the possible coined qw models , as there are flip - flop coined qws , which although being built with non - hermitian unitary evolution , can not be put in the sqw model with hamiltonians .
+for instance , when the fourier coin @xmath17 is employed , where @xmath18 and @xmath19 , being @xmath20 the hilbert space dimension .
+the structure of this paper is as follows . in sec .
+[ sec2 ] , we describe how to obtain the evolution operator of the sqw with hamiltonians on a generic simple undirected graph . in sec .
+[ sec3 ] , we calculate the wave function using the fourier analysis for the one - dimensional lattice and the standard deviation of the probability distribution . in sec .
+[ sec4 ] , we characterize which coined qws are included in the class of sqws with hamiltonians . finally , in sec .
+[ sec5 ] we draw our conclusions .
+let @xmath21 be a simple undirected graph with vertex set @xmath22 and edge set @xmath23 .
+a tessellation of @xmath24 is a partition of @xmath22 so that each element of the partition is a clique .
+a clique is a subgraph of @xmath24 that is complete .
+an element of the partition is called a polygon .
+the tessellation covers all vertices but not necessarily all edges .
+let @xmath25 be the hilbert space spanned by the computational basis @xmath26 , that is , each vertex @xmath0 is associated with a vector @xmath27 of the canonical basis .
+each polygon spans a subspace of the @xmath25 , whose basis comprises the vectors of the computational basis associated with the vertices in the polygon .
+let @xmath28 be the number of polygons and let @xmath29 be a polygon for some @xmath30 .
+a unit vector _ induces _
+polygon @xmath29 if the following two conditions are fulfilled : first , the vertices of @xmath29 is a clique in @xmath24 .
+second , the vector has the form @xmath31 so that @xmath32 for @xmath33 and @xmath34 otherwise .
+the simplest choice is the uniform superposition given by @xmath35 for @xmath33 .
+there is a recipe to build a unitary and hermitian operator associated with the tessellation , when we use the following structure : @xmath36 @xmath3 is unitary because the polygons are non - overlapping , that is , @xmath37 for @xmath38 .
+@xmath3 is hermitian because it is a sum of hermitian operators .
+then , @xmath39 .
+an operator of this kind is called an _
+orthogonal reflection _ of graph @xmath24 .
+each @xmath29 induces a polygon and we say that @xmath3 induces the tessellation .
+the idea of the staggered model is to define a second operator that must be independent of @xmath3 .
+define a second tessellation by making another partition of @xmath24 with polygons @xmath40 for @xmath41 , where @xmath42 is the number of polygons .
+for each polygon @xmath40 , define unit vectors @xmath43 so that @xmath44 for @xmath45 and @xmath46 otherwise .
+the simplest choice is the uniform superposition given by @xmath47 for @xmath45 .
+likewise , define @xmath48 @xmath4 is an orthogonal reflection .    to obtain the evolution operator we demand that the union of tessellations @xmath49 and @xmath50 should cover the edges of @xmath24 , where tessellation @xmath49 is the union of polygons @xmath29 for @xmath51 and tessellation @xmath50 is the union of polygons @xmath40 for @xmath41 .
+this demand is necessary because edges that do not belong to the tessellation union can be removed from the graph without changing the dynamics .
+the standard sqw dynamics is given by the evolution operator @xmath52 where the unitary and hermitian operators @xmath3 and @xmath4 are constructed as described in eqs .
+( [ h_0 ] )  and  ( [ h_1 ] ) .
+however , such graph - based construction of the operators does not correspond , in general , to the evolution of the real physical systems which are unitary but non - hermitian instead .
+actually , the unitary and non - hermitian operators do not have a nice representation as in eqs .
+( [ h_0 ] )  and  ( [ h_1 ] ) . in the following ,
+we introduce and analyze a method for constructing `` physical evolutions '' using the graph - based unitary and hermitian operators .
+we define the staggered qw model with hamiltonians by the evolution operator @xmath53 where @xmath5 and @xmath6 are angles .
+@xmath54 can be written as @xmath55 the standard sqw model is obtained when @xmath56 and @xmath57 .    the staggered qw model with hamiltonians
+is characterized by two tessellations and the angles @xmath5 and @xmath6 .
+the evolution operator is the product of two _ local _ unitary operators .
+local in the sense discussed before , that is , if a particle is on vertex @xmath0 , it will move to the neighborhood of @xmath0 only .
+some graphs are not 2-tessellable as discussed in ref .  @xcite . in this case
+, we have to use more than two tessellations until covering all edges and eq .
+( [ u ] ) must be extended accordingly .
+one of the simplest example of a sqw model with hamiltonians is the one - dimensional lattice ( or chain ) as in fig .
+[ 1dlattice ] .
+if we wish to use the minimum number of tessellations that cover all vertices and edges , the only choice are the two tesselations represented in the figure and correspond to two alternate interactions between first neighbors .
+therefore the evolution operator in the one - dimensional case with @xmath58 is given by @xmath59 where @xmath60 and @xmath61 for the sake of simplicity , we choose @xmath49 and @xmath50 to be independent from @xmath62 .
+@xmath54 is defined on hilbert space @xmath25 , whose computational basis is @xmath63 .    while the diagonal forms of the hamiltonians  ( [ h0 ] ) and  ( [ h1 ] ) with @xmath64-eigenvectors  ( [ eq : genual_0 ] ) and  ( [ eq : genual_1 ] ) , respectively , are more appropriate to the qw related computations
+, one can not immediately see the connections to interactions energies that they usually represent . for actual implementations , it is more convenient to write down it in terms of bosonic operators as @xmath65 in that form the first term represents the occupations of each site and the second one represents hopping hamiltonians .
+note that since the qw models considered here are single particles quantum walks , the corresponding picture in terms of hamiltonians ( [ h00 ] ) and ( [ h11 ] ) implementation is to consider a single excitation in the encoding physical system .
+the joint hamiltonian @xmath66 describes a large number of physical systems , from cold atoms trapped in optical lattices  @xcite to a linear array of electromechanical resonators  @xcite .
+however the alternated action of the two local unitary operators in  ( [ unit ] ) requires that the hamiltonians @xmath3 and @xmath4 be applied independently .
+this requires a more involved process of alternating interactions in the system , which demands an external control particular to each physical system .
+a proposal on how to implement it in a one dimensional array of coupled superconducting transmission line resonators is discussed elsewhere  @xcite .    to start our analysis , in fig .
+[ fig : sqwwh_graph2 ] we show the probability distribution for the 1d sqw with hamiltonians ( [ h0 ] ) and ( [ h1 ] ) after 60 steps with parameters @xmath67 , @xmath68 , and @xmath69 .
+the initial condition assumed was @xmath70 .
+a quantum walk with those parameters was analyzed by ref .
+note the typical profile , which is similar to the coined qw , but certainly not to the continuous - time qw  @xcite .
+, @xmath68 , @xmath69 , and initial condition @xmath70 . ]
+in order to find the spectral decomposition of the evolution operator , we perform a basis change that takes advantage of the system symmetries .
+let us define the fourier basis by the vectors @xmath71 where @xmath72 $ ] .
+for a fixed @xmath73 , those vectors define a plane that is invariant under the action of the evolution operator , which is confirmed by the following results : @xmath74 where @xmath75 the analysis of the dynamics can be reduced to a two - dimensional subspace of @xmath25 by defining a reduced evolution operator @xmath76.\ ] ] @xmath77 is unitary since @xmath78 a vector in this subspace is mapped to hilbert space @xmath25 after multiplying its first entry by @xmath79 and its second entry by @xmath80 .
+the eigenvalues of @xmath77 ( the same of @xmath54 ) are @xmath81 , where @xmath82 note that @xmath83 in ( [ eq : a ] ) depends on @xmath73 , as well as others parameters .
+the non - trivial eigenvectors of @xmath77 are @xmath84 where @xmath85 the eigenvectors of the evolution operator @xmath54 associated with eigenvalues @xmath81 are @xmath86 and we can write @xmath87    , @xmath68 , @xmath69 , and initial condition @xmath88 . ]
+if we take @xmath89 as the initial condition , the quantum walk state at time @xmath90 is given by @xmath91 where @xmath92 and @xmath93 the probability distribution is obtained after calculating @xmath94 and @xmath95 .
+the probability distribution would not be symmetric in this case ( localized initial condition ) , as can be seen in fig .
+[ fig : sqwwh_graph2a ] . those results
+extend the corresponding ones obtained in ref .
+@xcite .
+the results of ref .
+@xcite can be extended in order to include parameter @xmath15 of the sqw with hamiltonians .
+the asymptotic expression for the odd moments with initial condition @xmath89 is @xmath96^{2n}dk+o(t^{2n-2}),\ ] ] and for the even moments is @xmath97 the square of the standard deviation is @xmath98 for @xmath99 and @xmath69 , it simplifies asymptotically to @xmath100     as function of @xmath15 and @xmath49 .
+the value of @xmath101 at the center of the plot is zero . ]
+[ fig : sqwwh_graph5 ] shows the plot of @xmath101 as function of @xmath15 and @xmath49 .
+the maximum value of @xmath101 is @xmath102 , which is achieved for the points on a circle with center at @xmath103 and radius @xmath104 , for instance , @xmath105 when @xmath106 and @xmath68 . when @xmath68 and @xmath69 , @xmath3 is the direct sum of pauli @xmath13 matrices
+@xmath107   , \ ] ] likewise @xmath4 , with a diagonal shift of one entry .
+any flip - flop coined qw on a graph @xmath21 with a coin operator of the form @xmath108 , where @xmath3 is an orthogonal reflection of @xmath24 , is equivalent to a sqw with hamiltonians on a larger graph @xmath109 .
+the procedure to obtain @xmath109 is described in ref .
+we briefly review it in the next paragraph .     and a degree-3 vertex @xmath110 .
+edge @xmath111 has label @xmath112 .
+the other edges have labels @xmath113 to @xmath114 . ]
+, one has to replace a degree-@xmath115 vertex by a @xmath115-clique .
+the vertex labels of the enlarged graph have the form `` @xmath116 '' , where @xmath0 is the label of the vertex in the original graph and @xmath117 is the edge incident on @xmath0 . ]    let @xmath118 be the vertex labels and let @xmath119 be the edge labels of graph @xmath24 .
+the action of the flip - flop shift operator on vectors of the computational basis associated with @xmath24 is @xmath120 where @xmath0 and @xmath110 are adjacent and @xmath112 is the label of the edge @xmath111 as shown in fig .
+[ fig : sqwwh_graph6a ] . @xmath121 as @xmath122 for all edges @xmath111 .
+the @xmath64-eigenvectors are @xmath123 and there is a @xmath64-eigenvector for each edge @xmath111 .
+we are assuming that @xmath124 .
+then @xmath125 @xmath126 induces the red polygons of fig .
+[ fig : sqwwh_graph6b ] . after replacing each degree-@xmath115 vertex of @xmath24 by a @xmath115-clique
+, we obtain graph @xmath127 of fig .
+[ fig : sqwwh_graph6b ] on which the equivalent sqw is defined .
+the degree-5 vertex is converted into a 5-clique and the degree-3 vertex is converted into a 3-clique .
+the vertex labels of @xmath127 have the form `` @xmath116 '' , where @xmath0 is the label of the vertex in the original graph and @xmath117 is the edge incident on @xmath0 . with this notation , it is straightforward to check that the unitary and hermitian operator that induces the red tessellation is @xmath126 given by eq .
+( [ s ] ) , when we use vectors in uniform superposition .
+now , we can cast the evolution operator in the form demanded by the staggered model with hamiltonians . since @xmath128
+, the shift operator can be put in the form e@xmath129 with @xmath130 and @xmath131 modulo a global phase .
+if the coin is @xmath108 and @xmath3 is an orthogonal reflection then any flip - flop coined qw on @xmath24 is equivalent to a sqw on @xmath127 with evolution operator @xmath132 operator @xmath3 induces the blue tessellation depicted in fig .  [ fig : sqwwh_graph6b ] .
+it is known that grover s algorithm  @xcite can be described as a coined qw on the complete graph using a flip - flop shift operator and the grover coin  @xcite .
+therefore , grover s algorithm can also be reproduced by the sqw model  @xcite .
+extensions of grover s algorithm analyzed by long  _ et al . _
+@xcite and hyer  @xcite use operator @xmath133 where @xmath134 is the unit uniform superposition of the computational basis and @xmath135 is an angle , in place of the usual grover operator @xmath136 .
+this kind of extension can be reproduced by sqw model with hamiltonians because @xmath108 when @xmath3 is given by eq .
+( [ h_0 ] ) can be written as @xmath137 modulo a global phase .
+we can choose values for @xmath5 and @xmath28 that reproduce eq .
+( [ new_form ] ) .
+we have introduced an extension of the standard staggered qw model by using orthogonal reflections as hamiltonians .
+orthogonal reflections are local unitary operators in the sense that they respect the connections represented by the edges of a graph . besides , orthogonal reflections are hermitian by definition .
+this means that if @xmath3 is an orthogonal reflection of a graph @xmath24 , then @xmath1 is a local unitary operator associated with @xmath24 . in order to define a nontrivial evolution operator ,
+we need to employ a second orthogonal reflection @xmath4 of @xmath24 .
+the generic form of the evolution operator of the sqw with hamiltonians for 2-tessellable graphs is @xmath138 , where @xmath5 and @xmath6 are angles .
+this form is fitted for physical implementations in many physical systems , such as , cold atoms trapped in optical lattices  @xcite and arrays of electromechanical resonators  @xcite .
+we have obtained the wave function of sqws with hamiltonians on the line and analyzed the standard deviation of the probability distribution . for a localized initial condition at the origin ,
+the maximum spread of the probability distribution for an evolution operator of the form @xmath139 is obtained when @xmath106 .
+we have also characterized the class of coined qws that are included in the sqw model with hamiltonians and we have described how to convert those coined qws on a graph @xmath24 into their equivalent formulation in terms of sqws on an extended graph obtained from @xmath24 by replacing degree-@xmath115 vertices into @xmath115-cliques .    as a last remark , we call attention that recently it was shown numerically that searching one marked vertex using the original sqw on the two - dimensional square lattice has no speedup compared to classical search using random walks  @xcite . on the other hand ,
+the sqw with hamiltonians with @xmath67 is able to find the marked vertex after @xmath140 steps at least as fast as the equivalent algorithm using coined quantum walks  @xcite .
+rp acknowledges financial support from faperj ( grant n.  e-26/102.350/2013 ) and cnpq ( grants n.  303406/2015 - 1 , 474143/2013 - 9 ) and also acknowledges useful discussions with pascal philipp and stefan boettcher .
+jkm acknowledges financial support from cnpq grant pdj 165941/2014 - 6 .
+mco acknowledges support by fapesp through the research center in optics and photonics ( cepof ) and by cnpq .
+dorit aharonov , andris ambainis , julia kempe , and umesh vazirani .
+quantum walks on graphs . in _ proceedings of the thirty - third annual acm symposium on theory of computing _ , stoc 01 , pages 5059 , new york , ny , usa , 2001 .
+acm .
+j.  lozada - vera , a.  carrillo , o.  p. de
+s  neto , j.  khatibi moqadam , m.  d. lahaye , and m.  c. de  oliveira .
+quantum simulation of the anderson hamiltonian with an array of coupled nanoresonators : delocalization and thermalization effects .
+, 3(9):116 , 2016 .

@@ -1,0 +1,115 @@
+{
+  "nodes": [
+    {
+      "id": "People",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Men",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Women",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Pairs",
+      "type": "Group",
+      "properties": {}
+    },
+    {
+      "id": "Group",
+      "type": "Group",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "People",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Men",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "MET",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "People",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Women",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "MET",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Men",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Pairs",
+        "type": "Group",
+        "properties": {}
+      },
+      "type": "BELONGS_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Women",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Pairs",
+        "type": "Group",
+        "properties": {}
+      },
+      "type": "BELONGS_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Pairs",
+        "type": "Group",
+        "properties": {}
+      },
+      "target": {
+        "id": "Group",
+        "type": "Group",
+        "properties": {}
+      },
+      "type": "TALKED_FOR_8_MINUTES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Group",
+        "type": "Group",
+        "properties": {}
+      },
+      "target": {
+        "id": "Group",
+        "type": "Group",
+        "properties": {}
+      },
+      "type": "MINGLE",
+      "properties": {}
+    }
+  ]
+}

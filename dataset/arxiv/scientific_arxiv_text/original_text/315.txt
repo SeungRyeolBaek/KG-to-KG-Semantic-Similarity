@@ -1,0 +1,715 @@
+if a black hole is a thing , does it have a boundary ?
+if so , where is it ?
+for stationary black holes the event horizon seems to be the obvious answer @xcite , but for evolving black holes the situation is less clear .
+obviously , all black holes must be formed ( a dynamical process ) and then undergo accretion and other evolutionary processes .
+furthermore , as a matter of principle isolated black holes always evolve through hawking radiation , and it has been argued that  strictly speaking  the event horizon may not even exist , due to quantum gravity effects close to the singularity @xcite . in any case it has been argued that the event horizon is ` unreasonably global ' @xcite .
+thus there are exact solutions  such as the imploding vaidya spacetime @xcite  where an observer can cross the event horizon even though her entire causal past is a piece of flat minkowski space @xcite . in numerical relativity
+this problem is posed sharply because one wants to identify the boundary of a black hole in an initial data set , not by inspection of the full solution .
+it is then natural to turn to closed trapped surfaces , the hallmark of gravitational collapse @xcite .
+efficient algorithms to identify the region where they occur within a given initial data set do exist @xcite .
+the boundary of such a spatial region is called the apparent horizon @xcite , and it is in itself a marginally outer trapped surface @xcite .
+it ` evolves ' to form hypersurfaces foliated by such surfaces @xcite , which we refer to as apparent 3-horizons .
+in general hypersurfaces foliated by marginally trapped surfaces are called marginally trapped tubes @xcite .
+there are still problems , because the location of the horizons obtained in this way depends strongly on an arbitrary slicing into space and time . in general
+there will be many marginally trapped tubes in a given black hole spacetime , and they weave through each other in a complicated way @xcite .
+another possibility is to locate the boundary of the region through which closed trapped surfaces pass , or the boundary of the region through which outer trapped surfaces pass . for
+closed trapped surfaces both null expansions are negative , while for outer trapped surfaces no condition is imposed on the inner expansion .
+it is important to make this distinction , because the two regions do not coincide in general .
+it was conjectured by eardley @xcite that the region defined by outer trapping coincides with the event horizon .
+ben - dov @xcite proved this for the vaidya spacetime , but he also proved that the region containing trapped surfaces with both expansions negative lies strictly inside it .
+nevertheless it can still happen that an observer can cross a closed trapped surface even though her entire causal past is a piece of flat minkowski spacetime , as we showed in an earlier paper @xcite .
+this proves that closed trapped surfaces have highly non - local properties too , they are _ clairvoyant _ : they are  aware " of things that happen elsewhere , very far away with no causal connection .
+we focus on trapped surfaces with both expansions negative , partly because marginally trapped surfaces form marginally trapped tubes  such as future outer trapping horizons @xcite and dynamical horizons @xcite  having particularly interesting properties with regard to energy fluxes and the like , and partly simply for definiteness .
+we concentrate on spherically symmetric imploding spacetimes .
+we originally thought that this restriction would enable us to fully characterise the boundary @xmath1 of the trapped region  the region through which closed trapped surfaces pass  but in fact we did not succeed in this .
+still we are able to give what we think is a quite coherent picture of the trapped regions that occur in spherically symmetric spacetimes , and in particular we identify a past barrier for the location of closed trapped surfaces , and of marginally trapped tubes .
+this boundary turns out to have some quite non - local properties , and may penetrate flat regions of the spacetime .
+we will further prove that in spherically symmetric spacetimes the boundary @xmath1 can never in itself contain any marginally trapped surfaces , so that it can not be a marginally trapped tube .
+once we have learnt that the boundary @xmath1 of the trapped region suffers from non - local properties which are related to those of the event horizon , and that it is not a marginally trapped tube , we put forward a novel idea that may allow us to determine a preferred marginally trapped tube .
+we define the core @xmath2 of the trapped region as the region which is indispensable to maintain closed trapped surfaces .
+this core turns out to be generically smaller than the trapped region , and its boundary may thus be used as a definition of the black hole .
+we will actually identify a particular core in spherically symmetric spacetimes , and we will prove that its boundary is the unique spherically symmetric marginally trapped tube .
+it remains as an interesting question to know if this is the unique marginally trapped tube which is the boundary of a core .    in outline ,
+our paper is organised as follows : section [ sec : preli ] contains reminders about trapped surfaces , the fauna of different cases that can occur , and how they can be characterised in a way convenient for our purposes by the mean curvature vector .
+section [ sec : tandb ] defines the trapped region and its boundary @xmath1 , and gives their basic properties . throughout the paper we provide proofs of all statements that we make .
+section [ sec : fun ] gives some basic results on which we build the rest of the paper .
+the arguments are purely geometrical and based on the interplay between ( causal ) vector fields and surfaces with special properties of their mean curvature vectors .
+many of these results are already known @xcite but we do offer some sharpenings , such as theorem [ th : no - min ] and corollary [ cor : noposk ] .
+section [ sec : rw ] is an interlude dealing with robertson - walker spacetimes . in this case
+the general results of section 4 are sufficient to pin down the boundary @xmath1 exactly . section [ sec : general ] introduces spherically symmetric spacetimes and their unique spherically symmetric apparent 3-horizon . in section [ sec : notah ] we discuss perturbations of the resulting round marginally trapped tubes .
+we use the stability operator that describes how the outer expansion varies when a marginally outer trapped surface is deformed @xcite , and give a proof that one can always find trapped surfaces that extend to both sides of the spherically symmetric apparent 3-horizon .
+we also show that the region of the perturbed trapped sphere that is inside the apparent 3-horizon can be made arbitrarily small .
+section [ sec : imploding ] discusses imploding and asymptotically flat spherically symmetric spacetimes in general . in section [ sec : kodama ] we identify and discuss a past barrier through which future trapped surfaces can not pass .
+it is based on the presence of the hypersurface forming kodama vector field @xcite , and our restriction is a definite improvement on previous results @xcite .
+we also prove that any trapped surface must lie at least partly inside the spherically symmetric apparent 3-horizon . in section
+[ sec : converse ] we discuss the precise location and the properties of the boundary @xmath1 in a generic spherically symmetric and imploding spacetime .
+we demonstrate that the boundary @xmath1 of the trapped region can not be a marginally trapped tube .
+section [ sec : new ] raises a new issue : given that trapped surfaces must be confined at least partly within the spherically symmetric apparent horizon , what is the minimal region that must be removed from spacetime in order for it to have no closed trapped surfaces at all ?
+we call this the core of the trapped region .
+we show that the spherically symmetric apparent 3-horizon is the boundary of one such core .
+finally , the important example provided by the vaidya spacetime is treated in an appendix .
+trapped surfaces are the basic objects to be studied in this paper .
+thus , we start by providing their definition and their types , and by fixing our notation .
+standard references are @xcite .
+let @xmath3 be a 4-dimensional causally orientable spacetime with metric @xmath4 of signature @xmath5 .
+let @xmath6 denote a connected 2-dimensional surface with local intrinsic coordinates @xmath7 ( @xmath8 ) imbedded in @xmath9 by the @xmath10 parametric equations @xmath11 where @xmath12 are local coordinates for @xmath9 .
+the tangent vectors @xmath13 of @xmath6 are locally given by _
+a e^_a . _ s ._s so that the first fundamental form of @xmath6 in @xmath9 is @xmath14 which collects the scalar products @xmath15 . from now on
+, we shall assume that @xmath16 is positive definite so that @xmath6 is a _
+spacelike _ surface .
+then , the two linearly independent normal one - forms @xmath17 to @xmath6 can be chosen to be null and future directed everywhere on @xmath6 , so they satisfy @xmath18 where the last equality incorporates a condition of normalization .
+obviously , there still remains the freedom @xmath19 where @xmath20 is a positive function defined only on @xmath6 .
+the standard splitting into tangential and normal directions to @xmath6 leads to a formula relating the covariant derivatives on @xmath3 and on @xmath21 @xcite : @xmath22 where @xmath23 are the coefficients of the levi - civita connection @xmath24 of @xmath25 ( i.e. @xmath26 ) , and @xmath27 is the shape tensor ( also called second fundamental form vector , and extrinsic curvature vector ) of @xmath6 in @xmath3 . note that @xmath28 is symmetric , and orthogonal to @xmath6 , from where we deduce @xmath29 here , @xmath30 are two symmetric covariant tensor fields defined on @xmath6 and called the two null ( future ) second fundamental forms of @xmath6 in @xmath3 .
+they are explicitly defined by @xmath31 the shape tensor gives the difference between the projection to @xmath6 of the covariant derivative and the intrinsic derivative on @xmath6 by means of the fundamental relation e^_ae^_b_v_|_s=_a _
+k^_ab [ nablas2 ] where , for all @xmath32 we denote by @xmath33 its projection to @xmath6 .
+the mean curvature vector of @xmath6 in @xmath3 @xcite is the trace of the shape tensor @xmath34 where @xmath35 is the contravariant metric on @xmath6 : @xmath36 .
+observe that @xmath37 is orthogonal to @xmath6 and that @xmath38 where @xmath39 are the traces of the null second fundamental forms , usually called the ( future ) null expansions .
+clearly , @xmath37 is invariant under transformations ( [ free ] ) .
+the class of _ weakly future - trapped _
+( f - trapped from now on ) surfaces are characterized by having @xmath37 pointing to the future everywhere on @xmath6 , and similarly for weakly past trapped .
+there are three important subcases that deserve their own name : ( i )
+the traditional f - trapped surfaces have @xmath40 timelike everywhere on @xmath6 ; ( ii ) marginally f - trapped surfaces have @xmath41 null everywhere on @xmath6 ; and ( iii ) minimal surfaces have @xmath42 on @xmath6 .
+these conditions can be equivalently expressed in terms of the signs of the expansions as follows :    [ cols="^,^,^,<",options="header " , ]     this is to be compared with @xcite , as sometimes different names are given to the same objects , and vice versa . in particular , weakly f - trapped surfaces were called nearly f - trapped in @xcite . here we will follow the previous nomenclature which pretends to respect standard names as much as possible
+. see @xcite for further details . in the case
+that @xmath37 is proportional to one of the null normals but realizing both causal orientations the surface is said to be null dual , or marginally @xmath43-trapped , where the @xmath44 refers to the direction with vanishing expansion as the definition is equivalent to having either @xmath45 or @xmath46 vanishing . in the literature
+they are usually referred as mots (  marginally outer trapped surfaces " ) , by declaring the direction with vanishing expansion to be  outer " .    for completeness and future reference
+, we also mention that a surface is called _ untrapped _ if the mean curvature vector is spacelike everywhere , or equivalently , if both expansions have opposite signs .
+in this paper , we will be concerned with the following sets in @xmath3 , see also @xcite .
+the future - trapped region @xmath0 is defined as the set of points @xmath47 such that @xmath48 lies on a closed future - trapped surface .
+since the characterization of f - trapped surfaces is the negativity of both null expansions @xmath49 as defined in ( [ tr ] ) , the following general property follows easily .
+[ pr : topen ] the future - trapped region @xmath0 is an open set .    take any @xmath50 and let @xmath51 be a closed f - trapped surface .
+we can perturb any such @xmath6 along an arbitrary direction @xmath52 defined on @xmath6 , by moving any point @xmath53 along @xmath52 a distance @xmath54 .
+the deformed surface @xmath55 has future null expansions @xmath56 , where @xmath49 are the null expansions on @xmath6 and the variations @xmath57 are given by precise formulas involving @xmath52 , the future null normals to @xmath6 and the geometric properties of @xmath6 , see e.g. @xcite .
+as @xmath58 and @xmath57 are continuous on @xmath6 , we can always choose @xmath59 small enough such that @xmath60 for _ any _ given direction @xmath52 .
+this implies that there exists a small neighborhood @xmath61 of @xmath62 such that @xmath63 .    in general
+, @xmath0 does not have to be connected .
+any connected component of @xmath0 will thus be termed as a `` connected f - trapped region '' .
+it is clear that @xmath0 can be empty , or it can be the whole spacetime .
+an example of the former case @xmath64 is provided by any globally static spacetime @xcite .
+examples of the latter case @xmath65 are de sitter spacetime or some contracting robertson - walker geometries , see section [ sec : rw ] . however , in asymptotically flat black - hole type spacetimes @xcite neither of these cases will happen , because there are no trapped surfaces near spatial infinity , and there will appear future - trapped surfaces in the black hole region . in these cases
+@xmath0 will have a boundary on @xmath3 .
+[ def : b ] we denote by @xmath1 the boundary of the future - trapped region @xmath0 : @xmath66    [ pr : bclosed ] @xmath1 being the boundary of an open set , it is itself a _ closed _ set without boundary .
+moreover @xmath67 .
+[ pr:2sides ] @xmath1 is also the boundary of the untrapped region defined by the set of points @xmath68 , that is , such that @xmath48 does not lie on any closed f - trapped surface .
+we remark that @xmath1 is not necessarily connected .
+@xmath0 and @xmath1 are genuine spacetime objects , independent of any foliations or initial cauchy data sets .
+therefore , @xmath0 and @xmath1 are different in nature from the trapped regions and their boundaries contained in given slices , as recently studied in @xcite .    the symmetries of the spacetimes respect @xmath0 and @xmath1 .
+more precisely :    [ res : bandsym ] if @xmath69 is the group of isometries of the spacetime @xmath3 , then @xmath0 is invariant under the action of @xmath69 , and the transitivity surfaces of @xmath69 , relative to points of @xmath1 , remain in @xmath1 .
+take any point @xmath50 .
+then there is a closed f - trapped surface @xmath6 passing through @xmath48 . by moving @xmath6 via the motion group @xmath69 , and
+as f - trapped surfaces are moved to f - trapped surfaces by isometries , it follows that the whole transitivity surface of the group passing through @xmath48 lies in @xmath0 .
+similarly , let @xmath70 , so that any small neighborhood of @xmath71 intersects @xmath0 . by moving one such small neighborhood using @xmath69
+one similarly deduces that the transitivity surface of @xmath69 relative to @xmath71 is part of @xmath1 .
+an implication of this result is that no globally defined killing vector can be transversal to @xmath72 .
+actually , this also holds for homothetic killing vectors ( vector fields @xmath73 satisfying @xmath74 ) as they also respect f - trapped surfaces ( if @xmath75 ) @xcite .
+[ cor : sym ] let @xmath76 be the ( global ) continuous group of isometries of @xmath3 where @xmath77 is its dimension ( i.e. , the number of linearly independent killing vectors ) and let @xmath78 be the dimension of its surfaces of transitivity .    1 .   if @xmath79 and @xmath80 , that is , if the spacetime is homogeneous , then @xmath81 and either @xmath64 or @xmath65 .
+2 .   if @xmath82 and @xmath83 , then either @xmath81 or each connected component of @xmath1 is one of the 3-dimensional surfaces of transitivity .
+3 .   if @xmath84 and @xmath85 , then either @xmath81 or each connected component of @xmath1 is a hypersurface without boundary foliated by the 2-dimensional surfaces of transitivity .
+in particular , in arbitrary spherically symmetric spacetimes , @xmath1 ( if not empty ) is a spherically symmetric hypersurface without boundary .
+point 1 is immediate .
+points 2 and 3 follow because any connected component of @xmath1 can not have a boundary and can not be given by isolated 2-dimensional surfaces of transitivity , as these would contradict its basic properties [ pr : bclosed ] and [ pr:2sides ] .
+what is the possible relevance of @xmath1 ?
+apart from answering natural questions such as `` where can there be closed f - trapped surfaces ? '' or `` is this event part of a closed f - trapped surface ? '' , the location of @xmath1 provides important physical information due to the fundamental relevance of closed trapped surfaces in the development of black holes and singularities @xcite .
+more importantly , it provides a precise limit as to where dynamical horizons or marginally trapped tubes can develop .
+one could also hope that @xmath1 is related to the surface of a dynamical black hole .
+we are going to see that this suffers from the same problems as other candidates .
+in this section we present the main results that will allow us to put restrictions on the location of the region @xmath0 containing the closed future - trapped surfaces of a spacetime and its boundary @xmath1 .
+these results are fully general , and can be obtained within the framework of the interplay between generalized symmetries and submanifolds with special properties of their mean curvature vector .
+the underlying ideas come from @xcite .
+we start with the main formula to be used in what follows .
+let @xmath73 be an arbitrary @xmath86 vector field on @xmath9 defined on a neighbourhood of @xmath6 .
+recalling the identity @xmath87 where @xmath88 denotes the lie derivative with respect to @xmath73 , one gets on using ( [ nablas2 ] ) @xmath89 contracting now with @xmath35 we arrive at [ main ] where @xmath90 is the orthogonal projector that projects any object to its part tangent to @xmath6 .
+the elementary formula ( [ main ] ) is very useful and permits one to obtain many interesting results about the existence of weakly trapped closed surfaces in the presence of generalized symmetries , see @xcite .
+for instance :    1 .
+if @xmath6 is minimal ( @xmath91 ) , integrating ( [ main ] ) and using gauss theorem one finds that the divergence term does not contribute _ whenever _
+@xmath6 is closed ( that is , compact without boundary ) , ergo @xmath92 observe that this relation must be satisfied for _ all _ possible vector fields @xmath73 .
+therefore , closed minimal surfaces are very rare .
+2 .   if @xmath73 is a killing vector , then the left hand side of ( [ main ] ) vanishes . integrating the righthand side on @xmath6 we get for closed @xmath6 @xmath93 therefore ,
+if the killing vector @xmath73 is timelike on @xmath6 , then @xmath6 can not be weakly trapped ( neither future nor past ) , unless it is minimal .
+the following is an important consequence of formula ( [ main ] ) .
+[ lem : basic ] let @xmath73 be a vector field which is future - pointing on a region @xmath94 , and let @xmath6 be a surface contained in @xmath95 such that @xmath96 . then , @xmath6 can not be closed and weakly f - trapped unless @xmath97 and @xmath98 .    integrating ( [ main ] ) on the closed @xmath6
+, the divergence term integrates to zero and we get @xmath99 which implies that @xmath37 can not be future pointing all over @xmath6 , unless @xmath100 .
+* remarks : *    * for non - minimal @xmath6 , the exceptional case @xmath97 implies that @xmath6 is marginally f - trapped and that @xmath101 is null and proportional to @xmath37 .
+* notice that only the averaged condition @xmath102 is needed here , so that @xmath103 can be negative somewhere on @xmath6 as long as the averaged formula holds .
+important instances where lemma [ lem : basic ] can be applied are given by the _ conformal killing vectors _
+( see e.g. @xcite ) and the _ kerr - schild vector fields _ @xcite . the former satisfy ( _ g)_=2 g _ [ ckv ] for some function @xmath104 , so that @xmath105 .
+thus , the condition on lemma [ lem : basic ] requires simply that @xmath106 . on the other hand ,
+kerr - schild vector fields are characterized by ( _ g)_=2h _ _ , ( _ ) _
+= b_[ksvf ] for some functions @xmath107 and @xmath108 , where @xmath109 is a fixed _
+null _ one - form field ( @xmath110 ) . therefore @xmath111 and the condition on the lemma [ lem : basic ] requires now @xmath112 .
+stronger results can be found for the case where @xmath73 is a hypersurface - orthogonal vector field , that is to say , @xmath113}=0 \hspace{2 mm } \longleftrightarrow \hspace{2 mm } \xi_{\mu}=-f \partial_{\mu } \tau\ ] ] for some local functions @xmath114 and @xmath115 .
+then , @xmath73 is orthogonal to the hypersurfaces @xmath116const .
+, which are called the level hypersurfaces .
+in this case we have the following fundamental result .
+[ th : no - min ] let @xmath73 be a vector field which is future - pointing and hypersurface - orthogonal on a region @xmath94 with level hypersurfaces @xmath116const .  and let @xmath6 be a f - trapped surface .
+then , @xmath6 can not have a local minimum of @xmath115 at any point @xmath117 where @xmath118 .
+in the case that @xmath6 is a weakly f - trapped surface the conclusion still holds unless .|_q=0 p^ ( _ g)_|_q=0 ._h^|_q=0 .[nueva ]    let @xmath119 be a point where @xmath6 has a local extreme of @xmath115 .
+then , @xmath73 is orthogonal to @xmath6 at @xmath120 , that is to say , @xmath121 .
+another way of stating the same is that @xmath122 where @xmath123 is the local parametric expression of @xmath115 in terms of the local coordinates @xmath7 of @xmath6 ( note that @xmath124 with @xmath125 ) .
+using the previous expression , we can now compute the divergence @xmath126 at @xmath120 : @xmath127 introducing this in formula ( [ main ] ) we get at @xmath120 @xmath128 so that , if @xmath6 has a future pointing ( possibly vanishing ) @xmath129 we deduce @xmath130 which , given that @xmath35 is positive definite , implies that @xmath131 can not be positive ( semi)-definite
+. therefore , @xmath132 can not have a local minimum at @xmath120 .
+* remarks : *    1 .   observe that @xmath6 does not need to be compact , nor contained in @xmath95 .
+2 .   notice that it is enough to assume @xmath118 only at the points @xmath120 that are local extrema of @xmath115 on @xmath6 .
+the sign of @xmath103 can thus be left arbitrary everywhere else on @xmath6 where @xmath133 .
+3 .   let us stress that the possibility with a positive semi - definite @xmath131 is also excluded , so that @xmath132 can not even be constant along one direction at @xmath120 . the only exceptional possibility is given by the case identified in the theorem satisfying ( [ nueva ] ) . if @xmath134 is timelike , the last in ( [ nueva ] ) implies that @xmath135 .
++ therefore , letting aside this exceptional possibility , @xmath115 will always decrease at least along one tangent direction in @xmath136 .
+it follows that , under the conditions of the theorem , starting from any point @xmath137 one can always follow a connected path along @xmath138 with decreasing @xmath115 .
+4 .   theorem [ th : no - min ] applies in particular ( but not only ! ) to ( i ) _ static _ killing vectors of course , ( ii ) hypersurface - orthogonal conformal killing vectors ( [ ckv ] ) with @xmath139 , and ( iii ) hypersurface - orthogonal kerr - schild vector fields ( [ ksvf ] ) with @xmath140 .
+5 .   the results in section iv of @xcite that any f - trapped surface penetrating a flat portion of the spacetime can not have a minimum of  inertial time " there , so that they have to  bend down in time" are simple consequences of the more general theorem [ th : no - min ] , which applies not only to flat spacetimes but in general to any static region , and to much more general cases as remarked above .
+another important result for hypersurface - orthogonal vector fields is ( see also @xcite ) :    [ th : untrapped ] let @xmath73 be a vector field which is future - pointing and hypersurface - orthogonal on a region @xmath94 .
+then , all spacelike surfaces @xmath6 ( compact or not ) contained in one of the level hypersurfaces @xmath141const . within @xmath95
+have 2_h^=p^ ( _ g|_s ) _
+.[tau = c ] in particular , at any point @xmath62 such that @xmath142 , @xmath6 has a mean curvature vector which is not timelike future - pointing , and it can be future - pointing null or zero only if @xmath143 .
+let @xmath138 be a ( portion of a ) surface contained in one of the hypersurfaces @xmath141const .
+then @xmath144 all over @xmath138 so that from ( [ main ] ) we deduce ( [ tau = c ] ) .
+this immediately implies the rest of results .    from theorems
+[ th : untrapped ] and [ th : no - min ] we deduce the following general property .
+[ cor : noposk ] no f - trapped surface ( closed or not ) can touch a spacelike hypersurface to its past at a single point , or have a 2-dimensional portion contained in the hypersurface , if the latter has a positive semi - definite second fundamental form .
+as the hypersurface is spacelike its normal vector , say @xmath73 , is timelike , can be extended to be hypersurface - orthogonal with level function @xmath115 and can be chosen to be future - pointing .
+then , the projection of @xmath145 to the hypersurface is proportional to its second fundamental form .
+thus , if this were positive semi - definite it would follow that @xmath96 where @xmath146 is the projector to any such surface @xmath6 , and the result follows .
+an intuitive explanation of this result is presented in figure [ fig : intuition ] .
+take the robertson - walker spacetimes , with line - element given by @xcite ds^2=-dt^2+a^2(t ) d^2_k[rw ] where @xmath147 is the standard metric on a maximally symmetric 3-dimensional space with normalized sectional curvature @xmath148 , and @xmath149 is a function of the preferred time @xmath150 called the scale factor .
+the future is defined by increasing values of @xmath150 .
+the above line - element possesses a timelike conformal killing vector given by @xmath151 such that @xmath104 in ( [ ckv ] ) is simply @xmath152 .
+furthermore , @xmath73 is obviously hypersurface - orthogonal @xmath153 with level surfaces given by the preferred hypersurfaces @xmath154const .
+@xmath73 has been used to derive results on closed weakly f - trapped surfaces in @xcite and more recently on mots in @xcite .
+[ adotnotpos ] no closed weakly f - trapped surface @xmath6 can be fully contained in the region @xmath155 of a robertson - walker spacetime , unless @xmath156 and @xmath6 is a minimal surface imbedded in a 3-sphere @xmath157 with @xmath158 .
+direct application of lemma [ lem : basic ] implies @xcite that the only open possibility is given by @xmath91 and @xmath159 .
+given that the hypersurface @xmath157 has vanishing second fundamental form , any such minimal surface must be minimal _ within _ the hypersurface @xmath157 .
+this immediately rules out the cases @xmath160 , as there are no compact minimal surfaces imbedded in euclidean or hyperbolic spaces @xcite .
+similarly , from theorem [ th : no - min ] follows that    [ nominadotpos ] no closed weakly f - trapped surface can have a local minimum of @xmath150 at the region with @xmath155 .
+thus , the minimum of @xmath150 must be attained at a hypersurface @xmath161 with @xmath162 , if they exist .    as a consequence ,
+f - trapped closed surfaces are absent in generic _ expanding _ robertson - walker models .
+they can only be present in models with contracting phases .
+actually , it is well - known e.g . @xcite
+that there are closed trapped round spheres at any @xmath154constant slice with @xmath163 and @xmath164 .
+this last condition is simply the positivity of @xmath165 , where @xmath166 is the energy density relative to the preferred observer @xmath167 and @xmath168 the cosmological constant . given the homogeneity of the maximally symmetric slices , this implies that there are closed trapped round spheres through _ any _ point of the the slices with @xmath163 and @xmath164 .
+these spheres are , of course , past - trapped if @xmath169 and f - trapped if @xmath170 . the only remaining possibility keeping @xmath164 is that of 3-sphere slices ( @xmath156 ) with @xmath171 , in which case all round spheres in the slice are untrapped except for the equatorial one which is a minimal surface .    from corollary [ cor : sym ]
+we already know that the boundary @xmath1 must be constituted by @xmath154constant slices .
+thus , @xmath1 splits into two different disconnected sets , @xmath172 and @xmath173 , according to whether the closed f - trapped surfaces lie locally to the future or past of @xmath1 , respectively . combining this with the arguments in the previous paragraph
+we can deduce the following .    on a general robertson - walker spacetime with line - element ( [ rw ] ) and @xmath174    * if @xmath175 everywhere , then @xmath176 and thus @xmath81 . * if @xmath177 everywhere , then @xmath178 and thus @xmath81 . * in the case that @xmath179 changes sign , the past boundary @xmath172 , if non - empty , is necessarily contained in the region with @xmath180 and @xmath181 : @xmath182    the first two points are direct consequences of results [ adotnotpos ] and [ nominadotpos ] . to prove the third point ,
+suppose that a f - trapped surface @xmath6 enters into a region with @xmath183 .
+then , @xmath6 can not have a minimum of @xmath150 there due to result [ nominadotpos ] .
+if @xmath6 is closed , @xmath6 must attain the minimum of @xmath150 , hence @xmath6 has to extend to the past for all values of @xmath150 until it crosses the first slice with @xmath184 and @xmath185 , entering into a region with @xmath170 .
+but we know that there are closed f - trapped round spheres through every point of such a region , so the boundary @xmath172 can not be there .
+proceeding towards the past , we either encounter another slice with @xmath171 and @xmath186 or not . in the second possiblility
+, there is no boundary @xmath172 for the connected component of @xmath187 . in the first case ,
+either that slice is such a boundary @xmath172 , or else there are closed f - trapped surfaces crossing the slice towards the past , that is , entering into another region with @xmath169 .
+we can then repeat the argument from the beginning until one of the slices with @xmath171 and @xmath186 is the past boundary of the mentioned connected f - trapped region or there is no such a boundary .
+the last point in the previous result can be re - phrased as saying that the past boundary @xmath172 is constituted by preferred slices with @xmath184 , which have a vanishing second fundamental form and therefore are maximal and totally geodesic , and such that the spacetime starts to re - collapse there .
+if the robertson - walker geometry ( with @xmath174 ) has an initial expanding epoch , then either @xmath81 if it is expanding forever , or the first re - collapsing time is always part of @xmath172 .
+there is the open question whether the future boundary @xmath173 can be non - empty .
+if so , one easily obtains that it is necessarily contained in the region with @xmath188 .
+( actually , one can further prove that @xmath189 , but this will not be necessary in what follows . ) the question of whether there can be weakly f - trapped surfaces intersecting both expanding and contracting regions is answered in the positive , as follows from de sitter spacetime or in more general cases from the results in @xcite .
+an important consequence of all the above is the following    [ res : nowtsinb ] on a general robertson - walker spacetime with line - element ( [ rw ] ) and @xmath174 , the boundary @xmath1 of the future - trapped region @xmath0 does not contain any non - minimal weakly f - trapped surface ( closed or not ) .
+take any slice @xmath157 which is part of @xmath1 , so that @xmath190 , and choose any surface @xmath6 , closed or not , imbedded into @xmath157
+. then @xmath73 is normal to @xmath6 so that @xmath191 and theorem [ th : untrapped ] implies that @xmath192 .
+thus , @xmath37 has to be spacelike , possibly zero , or past - pointing everywhere on @xmath6 ( the past - pointing possibility is forbidden if @xmath158 , i.e. , within @xmath172 . )    we will see that this turns out to be a rather general property in spherical symmetry , so that @xmath1 will never contain closed weakly f - trapped surfaces .
+observe that , in the case @xmath193 ( say ; a similar reasoning works for the case @xmath194 ) , if @xmath172 is non - empty , there are f - trapped round spheres as close to @xmath172 as we like .
+what happens if we try to approach @xmath172 following a sequence of such f - trapped round spheres ?
+the answer is simply that they get larger and larger , and if we go to the limit approaching @xmath172 , they actually break and become non - compact minimal planes .
+as we have seen , not all the @xmath184 hypersurfaces will be part of the boundary in general .
+an illustrative example is given by de sitter spacetime , which has @xmath156 and @xmath195 , so that @xmath179 is negative , zero , or positive for @xmath196 , @xmath197 or @xmath198 , respectively .
+thus , de sitter spacetime has f - trapped round spheres in any slice with @xmath196 . however
+, de sitter spacetime is maximally symmetric , and therefore all of its points are fully equivalent , so that there are f - trapped round spheres through every point .
+hence , @xmath81 and @xmath178 in de sitter spacetime .    a different , more standard example , is provided by the closed friedman model for dust and @xmath199 , defined by @xmath156 with the following parametric form for @xmath149 : @xmath200 where @xmath201 is a constant . obviously @xmath202 .
+now there are closed f - trapped round spheres through all points of any slice with @xmath203 ( @xmath204 ) , as then @xmath170 . however
+, no closed f - trapped surface can enter the region with @xmath205 ( @xmath206 ) , as otherwise they would reach their minimum value of @xmath150 at a slice with @xmath183 .
+thus , in this case @xmath207 .
+the penrose diagram of this situation is depicted in figure [ fig : rw ] .
+obviously , the same holds for arbitrary models , with any value of @xmath208 ( but keeping @xmath209 ) , such that @xmath149 has a unique maximum value , that is , for models with one expanding phase , a unique re - collapsing time , and one contracting phase .
+observe that , in accordance with our general results , the slice @xmath197 in de sitter spacetime has @xmath184 but @xmath185 , while in the previous models with a unique re - collapsing time , such as the closed robertson - walker dust model of figure [ fig : rw ] , @xmath181 everywhere .
+a spacetime is spherically symmetric if it admits an so(3 ) group of isometries .
+this group acts transitively on round spheres embedded in space - time .
+let @xmath210 denote the standard metric on the unit round spheres , then the line - element can always be written as @xmath211 for some lorentzian 2-dimensional metric @xmath212 and where @xmath213 is constant on each round sphere .
+we assume from now on that @xmath214 , hence @xmath213 can be chosen as one of the coordinates for the metric @xmath212 .
+it is called the area coordinate because the preferred round spheres have an area equal to @xmath215 .
+we shall use the invariantly defined _ mass function _ @xmath216 by choosing @xmath217 as a coordinate labeling the incoming radial null geodesics , the spherically symmetric line - element can then be written as ds^2=-e^2(1-)dv^2 + 2e^dvdr+r^2d^2 [ gds2 ] with @xmath218 .
+the future is defined by increasing values of @xmath217 .
+these are called the advanced eddington - finkelstein coordinates .
+they may not be globally defined in some spacetimes , but they are well adapted to our purposes : describing the cases with incoming matter and radiation .
+the future - directed radial null geodesic vector fields are given by = -e^-_r , k=_v + ( 1-)e^_r[ks ] so that @xmath219 they satisfy @xmath220 .
+the mean curvature vector for each round sphere @xmath221 can be easily computed h_sph=(e^-_v+(1-)_r ) .
+[ hspheres ] taking into account that for each round sphere the two future - pointing null normals are @xmath222 and @xmath223 , the null expansions can be read off from ( [ hspheres ] ) : _ sph^+ = ( 1- ) , _ sph^-=- .[thetaspheres ] thus , these round spheres are f - trapped if and only if @xmath224 , and they are marginally f - trapped if @xmath225 . the set defined by @xmath226
+is formed by hypersurfaces foliated by marginally f - trapped round spheres .
+thus , each of these hypersurfaces is a  marginally trapped tube " @xcite .
+they are called the spherically symmetric  apparent 3-horizons " , as each of its marginally f - trapped round spheres is an apparent horizon in the sense of @xcite , see also @xcite for a time slice that respects the symmetry . and
+it is unique with these properties :    [ res : ahunique ] ah are the unique spherically symmetric hypersurfaces with respect to the given so(3 ) group foliated by marginally f - trapped surfaces .
+* remarks : *    * there are lorentzian manifolds with several so(3 ) groups of isometries , such as flat , de sitter , or robertson - walker spacetimes ( simply change the origin of coordinates ) .
+this is why we have to fix the group defining the spherical symmetry .
+however , in generic situations the isometry group so(3 ) is unique , and then the ah is unique in absolute sense .
+* the _ foliation _ hypothesis is crucial here , as there can be marginally trapped surfaces different from round spheres , and actually of any genus , imbedded in spherically symmetric hypersurfaces .
+explicit examples are given in @xcite for robertson - walker spacetimes with @xmath156 , where marginally trapped surfaces of any genus are imbedded in @xmath154 const .
+the assumption of spherical symmetry for the hypersurface is essential here , as there are non - spherically - symmetric marginally trapped tubes in spherically symmetric spacetimes .
+this is a general property , as we will show in subsection [ subsec : pertnotiso ] .
+explicit examples for closed ( @xmath156 ) robertson - walker spacetimes are given in @xcite .
+that ah is the unique spherically symmetric set constituted by marginally f - trapped round spheres is obvious by construction .
+suppose then that there is a spherically symmetric hypersurface @xmath227 foliated by marginally f - trapped closed surfaces @xmath228 .
+pick up any such surface , say @xmath229 . by using the so(3 )
+group of isometries , move @xmath229 to obtain a new , necessarily marginally f - trapped , closed surface @xmath230 in @xmath227
+. this surface must be tangent at some point @xmath48 to one of the foliating surfaces , say @xmath231 .
+but then , using the maximum principle as in the proof of proposition 3.1 of @xcite one can deduce that @xmath232 , and a fortiori , that @xmath233 , so that @xmath229 must be tangent to the so(3 ) killing vectors . the proof in @xcite assumed that @xmath227 was spacelike ,
+however this is not necessary and the reasoning works equally well for timelike @xmath227 . actually , it can be seen that the result holds for null @xmath227 as long as its null generator does not point along the null direction with vanishing expansion of @xmath234 . in the remaining case in which the null generator of @xmath227 points along the direction of vanishing null expansion of the @xmath234 , all possible cross - sections of @xmath227 have the corresponding null expansion vanishing  in particular ,
+the round spheres in @xmath227 are marginally f - trapped , and therefore the result holds true too .
+the exceptional situation that has arisen in the previous proof is only possible in cases where ah happens to have portions of isolated - horizon type @xcite , that is , null portions such that their null generators point along @xmath222 .
+to understand when this occurs , note that the normal one - form to ah is @xmath235 whose norm is @xmath236 so that ah is null at any point @xmath237 with @xmath238
+. moreover , ah can be null at points where @xmath239 , and it can also be timelike or spacelike .
+therefore , ah is a dynamical horizon @xcite ( a spacelike marginally trapped tube ) on the region where it is spacelike , and an isolated horizon @xcite on any open region where @xmath240 .
+this isolated horizon portion of ah , if non - empty , is characterized also by : @xmath241 where @xmath242 is the einstein tensor of the spacetime .
+this will be relevant for the perturbations of ah to be studied in the next section .
+on the other hand , the dynamical horizon portion of ah is _ generic _ in the sense of @xcite , and therefore it is actually an outer trapping horizon in the sense of hayward @xcite . in an open region with @xmath243 the ah is null , but it is _ not _ an isolated horizon as the null normal to ah is not the null normal with vanishing expansion .
+a simple illustrative example of these different possibilities is provided by the robertson - walker spacetimes : fixing an origin of coordinates arbitrarily , the corresponding spherically symmetric apparent 3-horizon is a marginally trapped tube @xcite with the property of being spacelike , null or timelike if @xmath244 is less , equal or greater than zero , see pp.779 - 780 in @xcite see also @xcite , where @xmath166 and @xmath245 are the energy density and pressure , respectively ( @xmath246 , @xmath247 . )
+a timelike ah is explicitly shown in figure [ fig : rw ] .
+an example of a null ah which is not an isolated horizon is provided by the robertson - walker spacetime with @xmath248 and @xmath199 @xcite .
+these results are obviously related to the instability of mots in robertson - walker geometries proven in @xcite if @xmath249 , @xmath250 and @xmath251 .
+observe that ah can be empty ( e.g. in flat spacetime ) , but this will only happen if there are no marginally f - trapped round spheres on the entire spacetime .
+as our aim is to study the region with closed f - trapped surfaces and its boundary , we will assume that they certainly exist .
+in this situation , ah can not be empty . under reasonable hypotheses , and for general
+asymptotically flat initial data sets ( so that the cosmological constant @xmath252 ) , one then knows @xcite that there is a regular complete future null infinity @xmath253 ( so that close to infinity the round spheres are untrapped ) .
+the event horizon ( eh ) is defined as the boundary of the causal past of future null infinity : @xmath254 @xcite , hence it is a null hypersurface by definition . in our case , it is also spherically symmetric .    the apparent 3-horizon
+ah does not need to be connected , and it can have as many connected components as desired , even if @xmath255 is bounded everywhere by a finite positive mass @xmath256 . as an elementary example , take the case with @xmath240 , @xmath257 , so that ah is null everywhere .
+the connected components of ah are given by the null hypersurfaces @xmath258 where @xmath259 are the positive roots of the equation @xmath260 .
+in general , we will only be interested in the particular connected component of ah which is related to the event horizon ( eh ) of an asymptotically flat end ( in the example above , the one with the largest @xmath259 ) .
+this particular connected component of @xmath261 will be denoted by @xmath262 : @xmath263    the region where the round spheres are untrapped will be denoted by @xmath264 and we also use the notation @xmath265 note that @xmath266 can actually be empty . for instance , in cases where all the round spheres are f - trapped ( this happens for example in the kantowski - sachs models @xcite ) .
+however , @xmath266 can never be empty in the asymptotically flat cases considered herein , because then the round spheres close to spacelike infinity must be untrapped .
+notice , similarly , that the whole spacetime may sometimes coincide with @xmath95 , so that no round sphere is f - trapped , but they still can be marginally f - trapped .
+an example is provided by the extreme reissner - nordstrm solution which has a degenerate horizon @xcite .
+we avoid this situation due to the assumption of the existence of f - trapped spheres .
+we are going to use the stability operator @xcite to probe the possible perturbations of marginally f - trapped round spheres with the aim , in particular , of ascertaining if there can be closed f - trapped surfaces traversing ah @xcite .
+we will also find a characterization of the ah in terms of the einstein tensor , as well as other interesting results .
+related conclusions were derived in full generality , by the same method of perturbation , in @xcite .
+we will not restrict the causal character of ah , though , and we will also prove that the deformed surfaces can be made genuinely f - trapped while extending to both sides of @xmath267 .
+choose any connected component of ah , so that this is a spherically symmetric marginally f - trapped tube : a hypersurface foliated by marginally f - trapped round spheres ( defined by constant values of @xmath213 and @xmath217 ) . as explained in the previous section , the future null normals are given by ( [ ks ] ) with @xmath268 and @xmath269 , so that the corresponding expansions were presented in ( [ thetaspheres ] ) , which restricted to ah are : @xmath270 we can now perturb any such marginally f - trapped round sphere , say @xmath271 , along a direction @xmath272 defined on @xmath271 and orthogonal to it .
+following @xcite , @xmath273 is any function defined on @xmath271 and we describe @xmath274 by means of the outward vector field n = - . + k | _ [ n ] which is normalized with respect to the fixed null directions such that @xmath275 observe that the causal character of @xmath274 is unrestricted .
+deform the round sphere @xmath271 by going orthogonally to @xmath271 along @xmath272 a distance @xmath276 .
+the formula for the variation of the expansion @xmath45 can be found in many references , e.g. in @xcite , but the version better adapted to our purposes is that appearing in @xcite because it keeps the norm of @xmath274 free . given the marginal character of @xmath271 and its spherical symmetry most of the terms in the variation formula vanish and the outer expansion of the perturbed surface @xmath277 is given by ^+_= _
+fn ^+ + o(^2 ) , _ fn ^+=-_f+f(-.g_k^u^| _ ) [ deltatheta ] where @xmath278 is the constant value of @xmath213 on @xmath271 , @xmath279 is the laplacian on @xmath271 , and @xmath280 is the following vector field orthogonal to @xmath271 and @xmath274 : @xmath281    observe , by the way , that selecting @xmath282constant ( [ deltatheta ] ) informs us that the vector @xmath280 such that @xmath283 produces no variation on @xmath45 , so that the corresponding @xmath274 is tangent to the ah simply leading to other marginally f - trapped round spheres on ah .
+let us call such a vector field @xmath284 , so that -.g_k^^|_- .g_k^k^|_=0 [ m ] together with @xmath285 characterizes @xmath286 , since @xmath284 is the unique spherically symmetric direction tangent to it .
+the exceptional isolated - horizon portion @xmath287 has the null @xmath288 as the tangent vector field .
+observe that the only forbidden direction due to the normalization used for @xmath274 ( and @xmath284 ) is that defined by @xmath288 ( which would correspond to @xmath289 ) .
+the situation is depicted in figure [ fig : pert ] .        whether @xmath284 is spacelike , null or timelike ( and accordingly for ah ) depends on the magnitude of @xmath290 and the sign of @xmath291 .
+this sign is non - negative if the null energy condition is assumed . in the next section
+we will actually assume the stronger dominant energy condition , so that for most of our purposes the positive sign must be kept in mind .
+recall , though , that the condition @xmath292 defines the portions of ah which are isolated horizons .
+we have to consider both cases separately .
+assume that @xmath292 holds on a region so that we are dealing with @xmath287 .
+this can be seen equivalent to the condition @xmath293 . from the variation formula ( [ deltatheta ] )
+we deduce that @xmath294 so that the perturbed expansion is _ independent of the direction _ of deformation @xmath274 .
+one can check that @xmath295 and the previous relation can be rewritten as _ f - f(1 - 2.|_)=- _ fn ^+ .
+[ deltathetaiso ] notice that the term between round brackets will generally be positive for instance if @xmath296 const. , and it will certainly be so for any part of @xmath287 related to an asymptotically flat end , because then @xmath297 changes from negative to positive values .
+eq.([deltathetaiso ] ) can be seen as an equation @xmath298 where @xmath299 is an elliptic operator on @xmath271 , and thus it is adapted for direct application of the maximum principle , see e.g. @xcite or appendix 3 in @xcite .
+in particular , if @xmath300 is non - positive everywhere it follows that @xmath273 must be negative everywhere on @xmath271 .    combining this with the known fact that arbitrary perturbations along the null generator @xmath288 of the isolated horizon @xmath287 produce marginally f - trapped surfaces
+@xcite we obtain the following theorem .
+[ th : pertiso ] on any isolated - horizon portion @xmath287 of @xmath261 arbitrary deformations of its round spheres within @xmath287 lead to marginally f - trapped surfaces . moreover , if @xmath287 is such that @xmath301 , any other possible perturbation leading to weakly f - trapped surfaces has @xmath302 , so that the deformed surfaces lie strictly outside the region @xmath95 .
+observe that from ( [ deltathetaiso ] ) @xmath303 and , given that the righthand side can be chosen as small as desired , the minimum of the non - positive function @xmath273 can be made as small in magnitude as needed . in concrete situations , one can even use the freedom on choosing the variation vector @xmath274 if this helps .
+let us now consider the parts of @xmath261 with @xmath304 . from figure
+[ fig : pert ] we deduce that the perturbation along @xmath272 will enter into the region with f - trapped round spheres ( which is trivially part of @xmath0 and can be identified because @xmath288 always points into it ) at points with @xmath305 for easy control of these signs we note that , according to ( [ deltatheta]-[m ] ) , ( g_k^k^| _ ) f(n_n^ - m_m^ ) = -2(_f+_fn^+).[deltatheta1 ] an interesting conclusion arises by integrating this equality on @xmath271 @xmath306 from where we deduce the following facts :    * spherically symmetric deformations , defined by having constant @xmath273 and @xmath307 , are uninteresting because they only lead to untrapped round spheres in the region @xmath266 if @xmath308 and to f - trapped round spheres outside @xmath95 if @xmath309 . * the deformed surface can be f - trapped with a negative definite sign of the variation only if @xmath310 is positive somewhere . hence , a f - trapped surface ( obtained in this way ) must lie at least partially in the region where the round spheres are f - trapped .
+this will turn out to be a fully general result ( corollary [ cor : nor>2 m ] ) . *
+the deformed surface can be untrapped only if @xmath310 is somewhere negative . *
+if the deformed surface lies entirely within @xmath266 so that @xmath311 everywhere  , then @xmath312 must be positive somewhere . *
+if the deformed surface lies entirely outside @xmath95 , then @xmath312 must be negative somewhere .
+note that ( [ deltatheta ] ) is also adapted for direct application of the maximum principle , as it takes the form @xmath313 where now the elliptic operator @xmath314 .
+thus we also have    * all possible perturbations with @xmath315 and leading to @xmath316 everywhere are such that @xmath273 is negative everywhere .
+thus , all perturbed weakly f - trapped surfaces with @xmath317 are strictly outside @xmath266 .    in order to construct examples of f - trapped deformed surfaces
+which lie partly in @xmath266 we choose to consider perturbations such that @xmath318 for this choice the deformed surface enters the region with f - trapped round spheres if @xmath319 , and it enters @xmath266 if @xmath320 .
+we introduce a constant @xmath321 .
+we will aim for f - trapped surfaces for which @xmath322 by our assumptions this implies that @xmath323 if @xmath324 , so that the deformed surface is f - trapped .
+next we set @xmath325 for some as yet undetermined function @xmath326 .
+equation ( [ deltatheta1 ] ) becomes ( g_k^k^|_)(n_n^ - m_m^)f + 2_f = 0 .
+[ deltatheta2 ] we conclude that our assumptions require that ( g_k^k^|_)(n_n^ - m_m^ ) = - > 0 .
+[ finequal ] this is a ( mild ) restriction on the function @xmath326 .
+a simple solution is to choose @xmath326 to be an eigenfunction of the laplacian @xmath279 , say @xmath327 for a fixed @xmath328 and constants @xmath329 , where @xmath330 are the spherical harmonics .
+then , on using @xmath331 the deformation direction @xmath274 is determined by @xmath332 and the variation of the expansion then reads @xmath333 which is negative ( resp .
+positive ) for all @xmath334 ( resp .
+@xmath335 . ) as the other expansion was initally negative , by choosing @xmath276 very small we can always achieve that @xmath336 is also negative and therefore the deformed @xmath277 is f - trapped ( resp .
+untrapped ) .
+throughout we assume that the deformation is small enough so that the we can rely on the first order perturbation .
+it only remains to check that @xmath273 realizes all signs , so that the deformed surface criss - crosses ah .
+given that @xmath337 it is enough to adjust the constants @xmath329 to achieve this goal .
+for instance , the choice @xmath338 for @xmath339 and @xmath340 if @xmath324 ( or @xmath341 if @xmath335 ) will do , so that @xmath273 has the sign of @xmath342 at the region where @xmath343 , and the opposite sign around the north pole of @xmath271 where @xmath344 ( @xmath345 are the legendre polynomials ) .
+thus , we have proven the following theorem .
+[ th : ahnotb ] in arbitrary spherically symmetric spacetimes there are closed f - trapped , as well as untrapped , surfaces ( topological spheres ) penetrating both sides of the apparent 3-horizon ah at any region where @xmath346 .    therefore , any part of ah which is not an isolated horizon belongs to the f - trapped region @xmath0 , so that these parts of ah never belong to the boundary @xmath1 .
+we remark that the previous reasoning is independent of the causal character of ah , which can be spacelike , null or timelike .
+the only restriction is that @xmath347 .
+observe also that the original round sphere has a positive gaussian curvature , and thus the deformed f - trapped surfaces penetrating both sides of ah will also have , for sufficiently small @xmath276 , positive gaussian curvature .
+this disproves a conjecture by hayward @xcite .
+actually , explicit examples of the same kind but going far away from ah were presented in @xcite .
+we can now address the non - uniqueness of dynamical horizons .
+the perturbation argument tells us that there are f - trapped surfaces penetrating into both sides of @xmath267 .
+we also know that there are untrapped round spheres lying just outside it .
+if @xmath261 is spacelike this means that we can find a spacelike hypersurface having such an outer trapped sphere as its inner boundary and an untrapped round sphere as its outer boundary , and such that it contains a path connecting the boundaries and lying entirely outside @xmath261 ( that is , inside @xmath266 ) .
+there is a theorem that ensures that such a spacelike hypersurface necessarily contains a marginally ( outer ) trapped surface @xcite . by construction
+it has a part lying inside @xmath266 , and we know that it must penetrate outside @xmath95 .
+moreover , generically such a surface ` evolves ' into a marginally outer trapped tube @xcite .
+as long as we stay sufficiently close to @xmath261 all the marginally outer trapped surfaces in the argument will be inner trapped as well .
+thus we have obtained :    [ cor : lars ] in arbitrary spherically symmetric spacetimes there are marginally trapped tubes penetrating both sides of the apparent 3-horizon @xmath348 at any region where @xmath346 .    explicit examples in robertson - walker spacetimes can be found in @xcite , and in the vaidya spacetime in @xcite .    as a final question , we wonder how small the fraction of the closed f - trapped surface that extends outside @xmath95 can be made .
+this will be relevant in section [ sec : new ] , when we will ask the question of whether or not the complement of @xmath95 is the optimal set to be removed from spacetime in order to get rid of all closed f - trapped surfaces . with the assumptions used in the proof of theorem [ th : ahnotb ]
+we see that this means that we must produce a @xmath349 function @xmath326 defined on the sphere and obeying the inequality ( [ finequal ] ) , and which is positive only in a region that we can make arbitrarily small .
+if we choose a sufficiently small constant @xmath321 the last requirement implies that the region where the surface extends outside @xmath95 can be made arbitrarily small . to find such a function
+it is convenient to introduce stereographic coordinates @xmath350 on the sphere , so that the laplacian takes the form @xmath351 a solution to the problem as stated is f ( ) = \ {    lll c_1 ( e^(2a-^2 ) - 1 ) & & ^2 < 4a +   + -c_1(1+e^-1 ) & & ^2 > 4a  .    .
+this function is @xmath349 ( and can be further smoothed if necessary ) , and it is positive only if @xmath352 , that is on a disk surrounding the origin whose size can be chosen at will .
+the function obeys @xmath353 this is always larger than zero .
+thus we have proven the following important result .
+[ th : tiny ] in spherically symmetric spacetimes , there are closed f - trapped surfaces ( topological spheres ) penetrating both sides of the apparent 3-horizon @xmath354 with arbitrarily small portions outside the region @xmath95 .
+in this section we present the restrictions on the mass function in order to describe the case of inflow of matter and radiation , satisfying the dominant energy condition , entering into an initially flat spacetime and leading to the formation of a black hole .
+if the einstein field equations hold ( with vanishing cosmological constant ) , the dominant energy condition @xcite requires , among other restrictions , that the following inequalities hold , e.g. @xcite : 0 , [ dec1 ] + ( 1- ) , [ dec2 ] + -e^(1-)^2[dec3 ] . from ( [ dec1]-[dec2 ] )
+one can deduce ( see , e.g. , @xcite ) @xmath355 which implies that , at any null hypersurface @xmath356const .
+, the mass function satisfies @xmath357 so that , if the mass function happens to be positive at any round sphere @xmath358 , then it is positive for all round spheres @xmath359 with @xmath360 . in particular , if the mass function is non - negative at @xmath361 , then it is non - negative everywhere . note also that , using ( [ dec1 ] ) , ( [ dec2 ] ) implies that @xmath362 similarly , from ( [ dec1][dec3 ] ) we deduce @xmath363 at the same region @xmath95 .
+these last two expressions can be physically reinterpreted if we note that they are equivalent to ( m)0 , k(m)0 [ dec4 ] where the null vector fields @xmath364 and @xmath288 are given in ( [ ks ] ) .
+in other words , the dominant energy condition implies that the mass function must be non - increasing ( respectively , non - decreasing ) along any future - pointing ingoing ( resp .
+outgoing ) radial null geodesic .
+observe also that the mass function must be non - decreasing along any spacelike outward direction on @xmath95 ( see e.g. @xcite ) , as follows from @xmath365 yet another implication of the above conditions is that the hypersurfaces @xmath366 const .
+are non - spacelike everywhere on @xmath95 .
+observe also that , on ah , the dominant energy condition ( [ dec3 ] ) implies .|_ah0
+.[dotmah ]    only continuous piecewise differentiable mass functions will be considered , so that distributional singularities on the curvature tensor such as shells of matter or radiation  are avoided .
+we will restrict ourselves to mass functions bounded by a finite least upper bound @xmath367 , so that @xmath368 for all @xmath369 , and @xcite there is a regular complete future null infinity @xmath253 for an asymptotically flat end .
+we shall also restrict ourselves to the physical case where the mass - energy starts flowing in from past infinity at a given advanced time , so that previous to that instant the spacetime has no mass - energy and is flat . the value of @xmath217 when the mass inflow starts will be chosen as @xmath370 .
+then , the mass function satisfies m(v , r)=0 v<0 ; v>0 , 0 < m(v , r)m < [ massg ]
+we will not assume in general , however , that the energy - mass travels at the speed of light , so that the infalling mass can be composed of massive dust particles or more general matter . therefore , the hypersurface @xmath371 separating the flat portion and the rest of the spacetime can be timelike or null .
+the mass function can actually reach the value @xmath256 or not . in the former case , given that we are assuming that there is a regular future null infinity @xmath253 for an asymptotically flat end , there exists a value @xmath372 of @xmath217 such that @xmath373 for all @xmath374 .
+this implies that @xmath375 for all @xmath213 .
+note that charged cases ( such as those with an asymptotic , and static , reissner - nordstrm region ) are included in the other case characterized by @xmath376 everywhere .    whether or not the spacetime becomes singular when the incoming matter reaches the centre depends on the particular properties of the falling matter and energy .
+the intersection of @xmath371 with @xmath361 will _ not _ be a curvature singularity so that there will be a regular centre @xmath361 at a portion of the non - flat region if @xmath78 and @xmath377 satisfy there ( e.g. @xcite ) : ( v,0)=0 ; m(v,0)= ( v,0)= ( v,0)=0 .[regular ] in this case , some later singularities can develop . if ( [ regular ] ) do not hold
+, then the singularity appears already at @xmath378 . at this general level , and in any of the previous cases , one can not know if the singularity will be spacelike , timelike , or null .
+thus , we will not prejudge this , and leave the future evolution of the spacetime open , not showing it in some of the penrose diagrams .
+these are depicted , for the essentially different possibilities of interest herein , in figures [ fig : general1 ] , [ fig : vaidya ] and [ fig : general2 ] .
+summarizing , we consider spacetimes with line - element ( [ gds2 ] ) satisfying the dominant energy condition and subject to ( [ massg ] ) so that there is an asymptotically flat end with regular @xmath253 and a non - degenerate eh , and such that @xmath262 is the connected component of @xmath261 associated to this eh .
+the actual position of eh depends on the particular properties of the mass function @xmath255 .
+generically , @xmath262 separates the region @xmath379 , defined as the connected subset of @xmath266 which contains the flat region of the spacetime , from a region containing f - trapped round spheres . under these assumptions
+, @xmath262 will eventually be spacelike ( actually achronal ) and asymptotic ( probably merging ) to the eh , see @xcite .
+( the recent counterexamples presented in @xcite violate some of our assumptions . )
+thus , @xmath262 has a portion that is a spherically symmetric , regular , dynamical horizon .
+nevertheless , in general @xmath262 can have timelike and null portions , see e.g. @xcite .
+this has been represented in the penrose diagrams of figure [ fig : general2 ] .
+apart from the above , we will need a further assumption , given by 0 ( _ 1_1)j^+(eh ) [ dotm ] to justify this assumption , and to understand its reasonability , let us make the following considerations .
+the region @xmath380 may contain a portion of the flat region , where @xmath381 so that the assumption is trivial there , and it is bounded to the future by @xmath262 , where ( [ dotm ] ) holds due to ( [ dotmah ] ) . the rest of its boundary is given by a portion of eh , whose null generators are given by @xmath288 . observe also that @xmath382 .
+if there is part of the origin @xmath361 in @xmath380 , then from ( [ dec3 ] ) we have @xmath383 . and
+if there is a flat portion in @xmath380 , this is separated from the rest by the spherically symmetric hypersurface @xmath371 , where @xmath384 by continuity .
+let us denote by @xmath385 the vector field tangent to the hypersurfaces @xmath366const . and
+orthogonal to the round spheres .
+thus , we have @xmath386 note that @xmath387 is future - pointing on @xmath95 .
+the hypersurface @xmath371 is imbedded in flat spacetime , so that the mass - energy is flowing in only if @xmath388 .
+but this implies that @xmath389    all in all , the dominant energy condition always ensures that there is a region of @xmath380 where ( [ dotm ] ) is automatically satisfied , and this includes its future boundary and its frontier with the flat region if non - empty . in summary ,
+the assumption ( [ dotm ] ) is equivalent to assuming that the mass function is non - decreasing to the future along any hypersurface @xmath390const .  on @xmath380 .
+in this section , we are going to identify a past barrier for f - trapped surfaces in the spacetimes considered in the previous section .
+this barrier severely restricts the possible locations of marginally trapped tubes and dynamical horizons .
+consider the vector field @xmath391 which characterizes the spherically symmetric directions tangent to the hypersurfaces @xmath390const .
+these hypersurfaces are timelike everywhere on @xmath266 , and null at ah , while they are spacelike outside @xmath95 .
+@xmath73 is hypersurface orthogonal , with the level function @xmath115 defined by _
+dx^=-fd= dr - e^ ( 1- ) dv [ gtau ] .
+the hypersurfaces @xmath116const .
+are orthogonal to the hypersurfaces @xmath390const .  everywhere .
+put in another way , the expansion of the round spheres along @xmath73 vanishes , that is , the mean curvature vector defined in ( [ hspheres ] ) is such that @xmath392 hence @xmath73 provides the invariantly defined direction in which the area of the round spheres remains constant .
+we note that @xmath73 is the kodama vector field @xcite , which has been recently used in related investigations @xcite .
+we have @xmath393 so that @xmath73 is future - pointing timelike on the region @xmath266 , future - pointing null at @xmath261 , and spacelike outside @xmath95 .
+therefore , @xmath115 can considered as a time function the kodama time " @xcite in the whole region @xmath266 .
+observe that @xmath394    the deformation of the metric along @xmath73 can be easily computed ( _ g ) _
+= e^__-(_^r _ + _ ^r _ ) .
+[ deforxi ] thus , @xmath73 is a kerr - schild vector field @xcite on any open region with @xmath395 , an example is the vaidya spacetime treated in the appendix .
+@xmath73 is killing vector in the situations with @xmath396 , such as the case of the schwarzschild spacetime .
+we can use the kodama time to restrict the location of f - trapped surfaces .
+[ th : no - ming ] assume that the spacetime ( [ gds2 ] ) satisfies ( [ dotm ] ) .
+then , no f - trapped surface @xmath6 can have a local minimum of @xmath115 on @xmath266 , nor they can have an open portion with @xmath141 const . there .
+let @xmath119 be a point where @xmath6 has a local minimum of @xmath115 , or belonging to an open portion of @xmath397 for some constant @xmath398 .
+due to theorems [ th : no - min ] and [ th : untrapped ] , and since @xmath73 is future - pointing on @xmath95 , it is enough to show that on any such point @xmath399 projecting ( [ deforxi ] ) onto @xmath6 we get @xmath400 in particular , given that @xmath121 we obtain .p^ ( _ g|_s ) _
+|_q=.e^ |_a |^a |_q 0 [ poscon ] whose non - negativity follows from ( [ dotm ] ) .    by taking into account the third remark to theorem [ th : no - min ] , the same conclusion holds for weakly f - trapped surfaces unless the exceptional situation ( [ nueva ] ) occurs .
+[ cor : nor>2 m ] if the spacetime ( [ gds2 ] ) satisfies ( [ dotm ] ) , then no _ closed _ f - trapped surface can be contained in any connected component of @xmath95 .
+in particular , no _ closed _
+f - trapped surface can be fully contained in the region @xmath401 .
+the only weakly f - trapped surfaces contained in @xmath95 are the marginally f - trapped surfaces foliating ah .    combining this corollary with the standard result @xcite see @xcite for a rigourous derivation that no closed weakly f - trapped surface can penetrate outside the eh ( actually , no _ outer _
+f - trapped closed surface penetrates into this region @xcite ) , we arrive at the following conclusion .
+[ coro : nod- ] letting aside the marginally f - trapped surfaces in @xmath262 , no closed weakly f - trapped surface can be fully contained in the region @xmath402 , and thus they must penetrate outside @xmath401 .    observe that , in the cases when @xmath403 is spacelike so that it is a dynamical horizon , and recalling that then eh is its past cauchy horizon @xcite , eh=@xmath404 , corollary [ coro : nod- ] can be rephrased as `` no closed weakly f - trapped surface can be fully contained in the past cauchy development @xmath405 '' , which is in agreement with theorem 4.1 in @xcite .
+suppose that @xmath406 somewhere to one side of @xmath403 .
+we are naturally led to the question of what is the extension of the connected f - trapped region @xmath407 containing the f - trapped round spheres to that side of @xmath403 .
+equivalently , the question is what is the exact location of the connected component @xmath408 of the boundary @xmath1 which is to the past of @xmath403 . at first , one is tempted to think that @xmath403 could actually be this boundary @xmath408 , so that all f - trapped closed surfaces remain outside of @xmath409 , but we already know that this is not the case in general , as follows from theorem [ th : ahnotb ] . actually , f - trapped surfaces with spherical topology were explicitly exhibited in @xcite for the self - similar vaidya spacetime ( see appendix ) such that they penetrate @xmath379 and even extend to the flat region of the spacetime .
+the example from @xcite is shown in figure [ fig : improvement ] below , other examples were constructed in @xcite .
+thus , the connected f - trapped region @xmath410 will enter into @xmath411 .
+one can then wonder if @xmath410 will actually extend all the way down to eh .
+this was shown to be impossible in a particular vaidya solution with a shell of null dust in @xcite .
+we are going to prove in the following that this is a general property by identifying a past barrier to the connected f - trapped region @xmath410 .
+put by definition @xmath412 observe that @xmath413 is the least upper bound of @xmath115 on the event horizon eh . in other words
+, @xmath413 is either ( i ) the constant value of @xmath115 which defines the portion of the eh in the schwarzschild region of the spacetime in the case when @xmath373 for all @xmath374 , or ( ii ) the common limit of @xmath115 on both ah and eh when @xmath414 in the case that @xmath415 everywhere .
+@xmath227 can be completely characterized as the _ last _ hypersurface orthogonal to @xmath73 which is non - timelike everywhere .
+[ th : abovebg ] assume that the spacetime ( [ gds2 ] ) satisfies the dominant energy condition , ( [ massg ] ) and ( [ dotm ] ) .
+then , no closed f - trapped surface can penetrate into @xmath416 ( i.e.  the region with @xmath417 . )
+consider the closed set @xmath418 this set is contained in the region @xmath419 where @xmath73 is future pointing .
+@xmath420 is bounded to the future by @xmath421 and to the past by eh@xmath422 ( see figure [ fig : sigmainvaidya ] ) .
+therefore , any compact surface @xmath6 such that @xmath423 int@xmath424 will reach a minimum on @xmath420 .
+this minimum can not be on @xmath421 , because this is the maximum value of @xmath115 on @xmath420 .
+thus it will have to be either a non - local minimum on eh@xmath422 or a local one attained on @xmath425 .
+however these two possibilities forbid that @xmath6 be f - trapped , because the latter would contradict theorem [ th : no - ming ] , while the former would contradict the standard result @xcite that closed f - trapped surfaces never touch eh .
+thus , the hypersurface @xmath227 is a limit , to the past , for f - trapped closed surfaces .
+in fact , they can not even touch @xmath227 .
+[ th : aboveb ] under the assumptions of the previous theorem all closed f - trapped surfaces must be contained in the region @xmath426 ( defined by @xmath427 ) and penetrate outside @xmath428 .
+the last part of the theorem states that all f - trapped closed surfaces have points outside @xmath95 , that is points with @xmath406 , but this is already known from corollary [ coro : nod- ] . to prove the first part , observe that theorem [ th : abovebg ] ensures that @xmath429 on any such f - trapped closed surface @xmath6 .
+thus , we only need to show that @xmath115 can not reach the value @xmath413 on the surface , so that @xmath6 can never touch @xmath227 .
+but @xmath6 can not touch the portion of @xmath227 which coincides with eh ( if any ) , so this could only happen on the part of @xmath227 within @xmath430 , that is , with @xmath431 .
+but if there were a point @xmath432 , then theorem [ th : no - min ] would imply that @xmath433 can not have a local minimum on @xmath48 , and that there can not be any 1-dimensional line @xmath434 with @xmath435 such that @xmath436 ; theorem [ th : untrapped ] would imply that no 2-dimensional piece of @xmath6 can be entirely contained in @xmath227 . in summary
+, the existence of @xmath48 would lead to the existence of points on @xmath6 with @xmath417 , in contradiction .
+as we have shown , the hypersurface @xmath227 provides a strict limitation to the extension , towards the past , of the connected f - trapped region @xmath407 , and thereby to the location of its boundary @xmath408 .
+therefore , it is important to know the exact location of @xmath227 .
+this is the goal of this subsection .
+recall that @xmath227 is non - timelike everywhere , and actually spacelike on the entire portion where @xmath227 does not coincide with the eh .
+the location of @xmath227 depends , as is to be expected , on the particular properties of the mass function @xmath255 .
+however , one can deduce general properties of the hypersurfaces @xmath141const .
+( one may also consult the appendix where the specific case of the imploding vaidya spacetime is treated in full , as then the equations can be explicitly integrated for appropriate choices of the mass function . ) in particular , we are going to answer partially the question of whether or not @xmath227 can penetrate into the flat region of the spacetime . to that end , recall the definition ( [ gtau ] ) of @xmath115 , so that the @xmath141const .
+hypersurfaces are given by the solutions to the ode = .
+[ odeg ] let @xmath437 be the value of @xmath438 at @xmath361 .
+the ode ( [ odeg ] ) will not have any critical point at @xmath439 whenever _
+r0 = 0 .[nocrit ] in particular , this will be the case when there is no curvature singularity at @xmath440 , due to ( [ regular ] ) .    on the other hand , if ( [ nocrit ] ) does not hold , the ode ( [ odeg ] ) is equivalent to the autonomous system @xmath441 which has a critical point at @xmath442 .
+its linear stability is ruled by the eigenvalues @xmath443 and eigenvectors @xmath444 of the corresponding matrix @xmath445 where @xmath446 , @xmath447 and @xmath448 are the limits of @xmath377 , @xmath449 and @xmath450 when approaching @xmath451 , respectively .
+these eigenvalues and eigenvectors are @xmath452 the character of the critical point is different depending on the sign of @xmath453 .
+the different possibilities are    * if @xmath454 , the critical point is a focus if @xmath455 unstable or stable depending on whether @xmath456 is positive or negative . in this case
+no solution reaches @xmath440 .
+the hypersurface @xmath227 always penetrates the flat region in this case .
+see the illustrative explicit solution for the vaidya case in the appendix .
+if on the other hand @xmath457 , then the critical point is a centre at the linear level , and can become a focus , a node or remain as a centre depending on the properties of @xmath255 . * if @xmath458 , the critical point is a node , unstable or stable depending on whether @xmath456 is positive or negative . all possible solutions except one emerge from or approach @xmath440 with the same tangent direction , given by the eigenvector @xmath459 in the unstable case or by @xmath460 in the stable one . the exception for each case
+is given by one solution emerging from or approaching @xmath440 with the tangent direction of the other eigenvector .
+there exist three qualitatively different possibilities ( with the same values of @xmath447 and @xmath448 ) , depending on whether or not the special solutions @xmath461 corresponding to the eigenvalues @xmath462 at @xmath440 eventually meet @xmath262 .
+this , in turn , depends on the specific properties of the mass function and on the total mass @xmath256 .
+if at least one of the special solutions does _ not _ meet @xmath262 , then the hypersurface @xmath227 can not penetrate the flat region . on the other hand , if both special solutions meet @xmath262 then @xmath227 will have a portion in the flat region .
+explicit illustrative cases are given in the appendix for the vaidya spacetime .
+* if @xmath463 , the critical point is a degenerate node ( unstable or stable depending on whether @xmath456 is positive or negative ) in the linear stability analysis , and it remains as such , or it may become an unstable focus or node , depending on the specific properties of the mass function .
+its properties are once more analogous to those of the vaidya example in the appendix .
+in this section we want to discuss the possible extension of the connected f - trapped region @xmath407 associated to @xmath262 , and the relation between its boundary @xmath408 as defined in definition [ def : b ] with marginally trapped tubes and closed weakly f - trapped surfaces .
+having identified the past barrier @xmath227 for the connected f - trapped region @xmath407 , we can ask whether closed f - trapped surfaces can actually extend all the way down to @xmath227 , in other words , if @xmath227 coincides with the connected component @xmath408 of the boundary .
+this turns out not to be the case ( corollary [ cor : sigmanotb ] . )
+we already know that the region outside @xmath95 , such that @xmath406 , belongs to @xmath0 .
+now we collect some important properties of how closed f - trapped surfaces can cross @xmath403 penetrating into @xmath430 .
+[ th : taum ] assume that the spacetime ( [ gds2 ] ) satisfies the dominant energy condition , ( [ massg ] ) and ( [ dotm ] ) .
+any closed f - trapped surface @xmath6 crossing @xmath262 attains the minimum value @xmath464 of @xmath115 outside @xmath409 , and has @xmath465 where @xmath466 is the minimum value of @xmath467 on @xmath262 , and @xmath468 is the value of @xmath213 at the round sphere @xmath469 .
+( let us note that @xmath470eh . )
+as @xmath6 is compact , it must attain a minimum of @xmath115 which is also a local minimum unless @xmath471const .
+this last possibility is not feasible for @xmath6 entering into @xmath430 due to theorem [ th : untrapped ] and the non - negativity of @xmath472 ( if @xmath191 ) as follows from ( [ poscon ] ) . for the former possibility ,
+theorem [ th : no - min ] ensures that the local minimum can not lie on @xmath95 , so that @xmath464 has to be attained outside @xmath409 .
+pick up any value @xmath473 . as in the proof of theorem [ th : abovebg ]
+consider the closed set @xmath474 @xmath475 is bounded to the future partly by @xmath476 and partly by @xmath477 , and to the past by eh@xmath478 , see figure [ fig : sigmainvaidya ] .
+therefore , if @xmath479 int@xmath480 , @xmath481 will reach a minimum @xmath482 on @xmath475 . as usual , this minimum can not be on eh@xmath478 due to the standard result @xcite that @xmath6 can never touch eh ; it can not be on @xmath476 because this is the maximum value of @xmath115 on @xmath475 ; and it can not be on @xmath483 either , due to theorem [ th : no - min ] . therefore , such a minimum has to be attained on @xmath403 .
+besides , there can not be any point @xmath484 such that @xmath485 , because this would contradict either theorem [ th : no - min ] or theorem [ th : untrapped ] .
+thus , @xmath486 .
+consider now @xmath468 , and observe that it is the maximum value of @xmath213 on @xmath487 , because @xmath488 is a monotonically decreasing function of @xmath213 on ah as follows from the definition ( [ gtau ] ) . to prove the result ,
+recall that the hypersurfaces @xmath141 const . and
+are orthogonal everywhere , the former are spacelike and the latter are timelike on @xmath266 , and they both become null and tangent at @xmath261 . therefore , the hypersurface @xmath489 is to the future of all hypersurfaces @xmath490 everywhere on @xmath430 .
+thus , if @xmath6 reached a value of @xmath491 at a point @xmath484 , then @xmath48 would be to the past of @xmath492 , that is , @xmath493 which is impossible .
+in the case that @xmath403 is spacelike a dynamical horizon , theorem 4.3 in @xcite implies that no closed f - trapped @xmath6 can penetrate into the region @xmath494 .
+theorem [ th : taum ] provides a stricter restriction , independently of the causal character of @xmath403 , since @xmath6 can not penetrate @xmath495 .
+this is graphically explained in figure [ fig : improvement ] .
+[ prop : taubr=0 ] assume that the spacetime ( [ gds2 ] ) satisfies the dominant energy condition , ( [ dotm ] ) and ( [ massg ] ) , and it has f - trapped round spheres to one side of @xmath262 .
+then , the connected component @xmath496 can not have a positive minimum value of @xmath213 , and furthermore @xmath497    that @xmath498 is obvious , as the spacetime is flat for @xmath499 so that there can not be f - trapped surfaces penetrating the past of @xmath496 . to see that @xmath500 , we first note that @xmath501 is impossible , as otherwise there would be f - trapped closed surfaces penetrating the region to the past of @xmath227 contradicting theorem [ th : abovebg ] .    if @xmath502 , then @xmath496 would be fully contained in the region @xmath503 . but
+this would mean , due to properties [ pr : bclosed ] and [ pr:2sides ] , that the region defined by @xmath504 would be either part of @xmath0 , or completely external to it . however , this is again impossible because the part of this region with @xmath505 has f - trapped round spheres outside @xmath506 , and no closed f - trapped surface can penetrate its part with @xmath507 .
+the same reasoning serves to prove that @xmath508 for , if this infimum were positive , say @xmath509 , it would follow that @xmath496 would be fully contained in the region @xmath510 .
+but there are f - trapped round spheres for _ all _ values of @xmath511 outside @xmath506 .
+[ prop : merge ] under the same assumptions @xmath512 and @xmath496 merges with , or approaches asymptotically , @xmath227 , @xmath262 and eh in such a way that @xmath513 at any portion of @xmath262 with @xmath514 .
+furthermore , @xmath496 can not be non - spacelike everywhere .
+* remark : * in the case that @xmath372 is finite and the mass function is constant for @xmath374 the eh and @xmath262 coincide for all @xmath374 , and so does @xmath496 .
+this portion of @xmath261 is an isolated horizon with @xmath515=constant , and @xmath516 on that portion .
+however , there can be other portions of @xmath262 with @xmath516 such that they are isolated horizons .
+this happens if @xmath517 ( possibly constant ) for some interval @xmath518 with @xmath519 .
+physically , this means that the inflow of matter and radiation stops between @xmath520 and @xmath521 , and then it starts again . in principle , @xmath496 may coincide with @xmath262 on these particular portions of @xmath262 of isolated - horizon type .
+this is represented in figure [ fig : ahiso ] .
+it will be useful to have a name for these portions , so that we set : @xmath522 note that eh will belong to @xmath523 if @xmath372 is finite and the mass function reaches the value @xmath256 . also , that @xmath115 is constant on @xmath523 , as @xmath523 is defined by portions of @xmath390constant hypersurfaces within @xmath262 which are null .
+observe that the condition @xmath524 required also in the perturbations of section [ sec : notah] becomes @xmath525 if the dominant energy condition holds .
+there are f - trapped closed surfaces outside @xmath506 , but due to theorem [ th : abovebg ] there are none penetrating @xmath526 .
+thus , @xmath527 .
+however , @xmath496 can not meet @xmath528 according to theorem [ th : ahnotb ] .
+as @xmath227 and @xmath262 merge together , or approach each other asymptotically , so does @xmath496 .
+finally , consider the domain of dependence @xmath529 of @xmath227 .
+from the previuous observations , @xmath530 .
+but @xmath529 is globally hyperbolic with @xmath227 as a cauchy hypersurface , therefore if @xmath496 were non - spacelike everywhere it would have to cross @xmath227 @xcite , in contradiction with the fact that @xmath531 .    as in the case of robertson - walker spacetimes ( result [ res : nowtsinb ] , section [ sec : rw ] )
+we derive the following important result .
+[ th : nodh ] under the same assumptions , @xmath532 can not be a marginally trapped tube , let alone a dynamical or trapping horizon .
+furthermore , @xmath532 does not contain any non - minimal closed weakly f - trapped surface .    from the previous corollary @xmath532
+is contained in the region @xmath379 .
+but there are no closed weakly f - trapped surfaces completely contained in @xmath379 due to lemma [ lem : basic ] .    thus , the only closed marginally f - trapped surfaces that can be contained in @xmath496 are those which are actually on its part @xmath533 , if any .
+in fact , this property could have been deduced more easily from result [ res : ahunique ] , as @xmath496 is a spherically symmetric hypersurface .
+we have decided to include the alternative proof as it may probably be generalized to non - spherically - symmetric cases .
+theorem [ th : nodh ] implies that the notion of  limit section " in @xcite ( a spacelike 2-surface in @xmath1 arising as the uniform limit of a sequence of trapped surfaces approaching @xmath1 , definition in p.6473 ) is generically non - existent or ill defined .
+thus the assumptions of theorem 7 in @xcite are very rarely met .
+[ prop : bdecreasing ] assume that the spacetime ( [ gds2 ] ) satisfies the dominant energy condition , ( [ dotm ] ) and ( [ massg ] ) , and has f - trapped round spheres to one side of @xmath262 .
+then , @xmath115 is a non - increasing function of @xmath213 on any portion of the connected component @xmath496 which is locally to the past of @xmath410 . and
+it is actually strictly decreasing at least somewhere @xmath532 .
+* remark : * @xmath496 is a connected component of the boundary @xmath1 and , due to property [ pr:2sides ] , @xmath496 has two sides , one with and another without closed f - trapped surfaces .
+thus , by  locally to the past " we mean that the kodama vector field points towards @xmath410 at @xmath532 at @xmath534 it is tangent .    if @xmath496 coincides partly with @xmath523 the result is trivial there , as @xmath115 and @xmath213 are constant on @xmath523 .
+suppose then that @xmath535 were a non - decreasing function of @xmath213 around a round sphere @xmath536 given by @xmath537 for some constants @xmath538 and @xmath539 , and assume that the f - trapped region @xmath410 is to the future of @xmath271 ( see next figure ) .    in 1,2,3,4 ( , 0 ) 
+( , 4 ) ; ( 0,1 ) 
+( 4.2,1 ) ; ( 0.3,0.3 ) 
+node[sloped , above , very near end ] @xmath496 ( 4.1,4.1 ) ; ( 2,2 ) circle ( 2pt ) ; ( 2.15,1.85 ) node @xmath271 ; ( 0.7,2 ) 
+( 4.2,2 ) ; ( 4.7,1.8 ) node @xmath540 ; ( 0.6,2.8 )  ( 4.1,2.8 ) ; ( 4.75,2.95 ) node @xmath541 ; ( 0.7,2.5 )  ( 4.2,2.5 ) ; ( 4.85,2.5 ) node @xmath492 ; ( 2,-0.2 ) node @xmath542 ; ( 2.25,0.3 )  ( 2.25,4 ) ; ( 2.25,0.25 ) node @xmath543 ; ( 2,2.8 ) circle ( 1pt ) ; ( 1.87,2.93 ) node @xmath48 ; ( 2,2.8 ) .. controls ( 0.5,2.6 ) and ( 1.5,2.6 ) .. ( 2.25,2.5 ) ; ( 1.35,2.7 ) node[anchor = east ] ; ( 2.25,2.5 ) circle ( 1pt ) ; ( 2.4,2.63 ) node@xmath544 ; ( 1.5,3.5 ) node @xmath410 ;    then , any point @xmath545 lying on the round spheres with @xmath542 and @xmath546 but near enough @xmath547 would belong to at least one f - trapped closed surface .
+pick up any such @xmath48 and a f - trapped @xmath51 , and let @xmath466 and @xmath468 be the minimum and the maximum values of @xmath467 and @xmath548 on @xmath262 , respectively . from theorem [ th : taum ] we know that @xmath549 and @xmath550 . in particular , @xmath551 , @xmath552 . from theorem [ th : no - min ]
+( see its third remark ) there should be a connected path @xmath553 lying entirely on @xmath6 starting at @xmath48 and finishing on @xmath554 , @xmath555 , such that @xmath556 is non - increasing and strictly decreasing somewhere .
+thus , @xmath557 would eventually cross all hypersurfaces @xmath390const . with
+@xmath558 $ ] , and each of the crossings would happen with a smaller value of @xmath115 .
+due to the results in corollary [ cor : sym ] and proposition [ prop : taubr=0 ] , and since @xmath6 , and hence @xmath557 , can not intersect @xmath496 , this would mean that @xmath466 and @xmath468 should be such that @xmath559 and @xmath560 .
+but this leads to a contradiction , because if such a result held for _ all _ @xmath561 , by taking an appropriate sequence @xmath562 of such @xmath48 approaching @xmath271 , the sequence would have a limit on @xmath271 , which would in turn produce a sequence of round spheres @xmath563 , all of them belonging to @xmath262 , and converging to @xmath564 .
+as @xmath262 is closed , @xmath271 would belong to @xmath262 .
+but this is impossible as @xmath565 due to proposition [ prop : merge ] .
+[ cor : anot0 ] under the same assumptions , @xmath532 can not be tangent to a @xmath141const .
+hypersurface everywhere .
+in particular , @xmath496 never touches @xmath227 before they merge together ( and together with @xmath566eh ) , that is to say , @xmath567 .
+[ cor : sigmanotb ] the past barrier @xmath568 is not part of the boundary @xmath496 .    [ cor : bspacelike ] under the same assumptions ,
+@xmath496 is spacelike close enough to its merging ( or asymptotic approaching ) to eh , @xmath227 and @xmath262 .
+we already know that @xmath496 has to be spacelike somewhere . in the region of this corollary
+the f - trapped closed surfaces are to the future of @xmath496 , so that @xmath115 has to be a non - increasing function of @xmath213 .
+the limitation to the past by @xmath227 and to the future by @xmath262 then implies the result .
+the combinations of all results obtained hitherto can be schematically represented as in figure [ fig : whereisb ] .
+we can see that the boundary @xmath496 is highly non - local too , and it can have portions in flat regions of spacetime whose whole past is also flat .
+this is surely not a good candidate for the surface of a dynamical black hole .
+nevertheless , it remains as an interesting puzzle to find the exact location and the defining properties of @xmath1 .
+some relevant results in this direction are collected in the remaining of this section .
+proposition [ prop : bdecreasing ] informs us that @xmath532 has to bend down in the kodama time @xmath115 .
+this has direct consequences on the extrinsic curvature of @xmath496 .
+observe that , as follows from ( [ deforxi ] ) and ( [ dotm ] ) , we know that the level hypersurfaces @xmath141const .
+have a non - negative semi - definite second fundamental form .
+actually , they have two vanishing eigenvalues and the other one is proportional to @xmath449 .
+hence , one can prove that the boundary @xmath496 must have a second fundamental form with a non - positive double eigenvalue .
+[ prop : knegative ] assume that the spacetime ( [ gds2 ] ) satisfies the dominant energy condition , ( [ dotm ] ) and ( [ massg ] ) .
+then , any portion of the connected component @xmath496 which is locally to the past of @xmath569 has a second fundamental form with a non - positive ( and strictly negative whenever @xmath496 is not tangent to a @xmath141const .
+hypersurface ) double eigenvalue at any point point where it is spacelike .
+in particular , it can not have a positive semi - definite second fundamental form there .
+as @xmath496 is part of the boundary , it has spherical symmetry .
+take a portion @xmath570 of @xmath496 where it is spacelike and to the past of @xmath410 , and include this portion in a local foliation by spherically symmetric spacelike hypersurfaces @xmath571const .
+locally , the future - pointing vector field orthogonal to the foliation can be given by = e^-_v+a _ r , + _ dx^=-f dt = dr -e^(1 - -a)dv for some function @xmath572 .
+the level hypersurfaces are spacelike ( @xmath573 is timelike ) so that 1 - -2a>0 .[spacelike ] observe that @xmath574 , and furthermore @xmath575 by using the kodama time @xmath115 on @xmath576 .
+on @xmath577 we have that @xmath150 is constant , so that @xmath578 however , proposition [ prop : bdecreasing ] implies that this is strictly negative , which requires necessarily ( if @xmath579 ) @xmath580 given that @xmath581 at @xmath582 , this together with ( [ spacelike ] ) implies that ( if @xmath579 ) @xmath583 we are now going to show that @xmath584 is essentially the double eigenvalue of the second fundamental form of @xmath577 .
+a straightforward calculation provides the deformation of the metric along @xmath573 ( _ g ) _
+= -2 _ _ + e^ ( _ _ + _ _ ) + + _ _ [ deforeta ] + + 2ra d _ where @xmath585 represents the angular part of the metric , that is , the metric on the unit round sphere .
+of course , the projection to @xmath496 of @xmath586 is ( proportional to ) the second fundamental form @xmath587 of @xmath496 whenever it is spacelike , so that @xmath588 is proportional to the restriction to @xmath577 of the second and third lines in ( [ deforeta ] ) . in particular ,
+the double eigenvalue is proportional to @xmath584 .    as a matter of fact
+, one can try to do better and try to set restrictions also on the third eigenvalue of @xmath588 .
+this is given by the expression on the second line of ( [ deforeta ] ) ( projected to @xmath577 ) .
+the idea is based on theorem [ th : no - min ] and corollary [ cor : noposk ] .
+there are closed f - trapped surfaces passing through every point @xmath589 which is locally to the future of @xmath570 .
+choose a sufficiently smooth sequence of closed f - trapped surfaces approaching @xmath570 .
+the smoothness is assumed such that one can take the limit and obtain a piece of a surface @xmath590 touching @xmath570 . the set obtained as limit of the surfaces may fail to be compact , e.g. the robertson - walker example mentioned after result [ res : nowtsinb ] ; or to be spacelike everywhere , or even to be connected . however , all these problems will be irrelevant in what follows as long as @xmath590 exists .
+( this is the main problem when trying to turn this reasoning into a formal proof , as proving the existence of @xmath590 encounters some technical difficulties from a mathematical viewpoint ) .    given that all the surfaces in the sequence are f - trapped , they all have @xmath591 , where @xmath592 is the constant value of @xmath150 at @xmath570 .
+therefore , @xmath590 is such that @xmath593 , which implies that @xmath590 has a local minimum of @xmath150 at the intersection @xmath594 , or that @xmath590 has a two - dimensional portion within @xmath570 . in particular , @xmath590 is spacelike around that minimum because @xmath573 is orthogonal to @xmath590 there
+. the mean curvature vector of this spacelike portion of @xmath590 ( including @xmath594 ) must be future - pointing or zero , given that @xmath590 is limit of the sequence of f - trapped surfaces .
+therefore , we have @xmath595 and also @xmath596 .
+now , we can apply the same reasoning as in theorem [ th : no - min ] , for which the compactness is not necessary .
+formula ( [ main ] ) applied to the spacelike portion of @xmath590 containing @xmath594 gives @xmath597 where @xmath146 is the orthogonal projector to @xmath590 .
+thus , we deduce that @xmath598 observe that , provided this argument can be promoted into a rigourous proof , it may restrict the third eigenvalue severely , because it has to hold for _ all _ projectors which are limits of the projectors to closed f - trapped surfaces close enough to @xmath577 .
+if one could gain control on the variety of such projectors , then much more precise restrictions could be set on the boundary @xmath1 .
+at this point we know that the eh is teleological , and also that closed f - trapped surfaces are clairvoyant : they are  aware " of things that happen elsewhere , with spacelike separation . for instance
+, they can have portions in a flat region of spacetime whose whole past is also flat in clairvoyance of energy that crosses them elsewhere to make their compactness and trapping feasible @xcite , see figure [ fig : improvement ] .
+this non - local property of trapped surfaces is inherited by everything which is based on them , such as marginally trapped tubes including dynamical horizons . in conjunction with the non - uniqueness of dynamical horizons , this poses a fundamental puzzle for the physics of black holes , a problem that has been recognized and discussed many times lately , see e.g. @xcite and references therein .
+four possible solutions have been put forward @xcite .
+first , one can rely on the old and well defined event horizon .
+this encounters very serious problems because one needs to know the whole future evolution of the spacetime .
+the event horizon is unreasonably global @xcite .
+actually , the whole construction of trapping and dynamical horizons was developed to solve this problem and to have nice , local , definitions of the surface of a black hole @xcite .
+second , one can treat all possible horizons on equal footing .
+the problem is how to associate unique physical properties to the corresponding black hole , because each dynamical horizon comes with its own set of magnitudes .
+and they do not agree .
+the third strategy consisted in finding the boundary @xmath1 as defined in this paper . however , as we have shown , not only @xmath1 will not be a marginally trapped tube in general , it also suffers from the non - local properties associated to f - trapped surfaces .
+for instance , we have seen that @xmath1 can enter the flat regions of spacetime . finally , the fourth approach consists in trying to define a preferred dynamical horizon .
+hitherto , there has been no good definition for that .    in the following we are going to pursue a novel strategy .
+the idea is based on the simple question : what part of the spacetime is absolutely indispensable for the existence of the black hole ?
+we already know that , in the cases considered so far with flat regions and matter imploding so that a black hole eventually forms , the flat region is certainly not essential for the existence of the black hole .
+what is ? by answering this question we might actually get a bonus and provide a positive , constructive solution to the fourth strategy mentioned before : it may happen that a unique dynamical horizon is selected .    from corollary [ coro : nod- ] and theorem [ th : aboveb ]
+it is clear that if the whole complement of @xmath95 is removed from the spacetime , then no closed f - trapped surfaces remain .
+the question arises of whether or not proper subsets of that removed region suffice to achieve the same , that is , to short - circuit all closed f - trapped surfaces . to be precise , we give the following definition .
+a region @xmath599 is called the _ core _ of a connected component @xmath410 of the f - trapped region
+@xmath0 if it is a minimal closed connected set that needs to be removed from the spacetime in order to get rid of all closed f - trapped surfaces in @xmath410 , and such that any point on the boundary @xmath600 is connected to @xmath601 in the closure of the remainder .    here , 
+minimal " means that there is no other set @xmath602 with the same properties and properly contained in @xmath603 .
+the final condition states that the excised spacetime @xmath604 , which no longer has a connected f - trapped region @xmath410 , has the property that furthermore each point in the closure @xmath605 can be joined to the original boundary @xmath496 by a continuous curve fully contained in @xmath605 .
+( this curve may have zero length at points @xmath606 ) .
+this is needed because one could identify a particular removable region to eliminate the f - trapped surfaces , excise it , but then put back a tiny but central isolated portion to make it smaller . however
+, this is not what one wants to cover with the definition .
+obviously , @xmath607 , however , @xmath603 will be generally smaller than @xmath410 .
+as an example , take the robertson - walker spacetime of figure [ fig : rw ] .
+there , the future trapped region @xmath0 is the whole future of the recollapsing time , shown in red .
+however , one only needs to remove the triangle to the future of the ah in order to get rid of all f - trapped surfaces .
+( note that the boundary of this region is an apparent 3-horizon ah ) .
+this example also proves that @xmath2 is not unique : one can choose any other region @xmath2 equivalent to the chosen one by moving all its points by the group of symmetries on each homogeneous slice .
+actually this kind of non - uniqueness is rather trivial , and is due to the existence of a high degree of symmetry .
+nevertheless , even in less symmetric cases the uniqueness of the cores @xmath2 can not be assumed beforehand .
+we are actually going to show that it does not hold in general .
+we can use the results found in section [ sec : notah ] , especially theorem [ th : tiny ] , to identify one core of the f - trapped region in spherically symmetric spacetimes .
+assume that @xmath608 for simplicity .
+then , the complement of @xmath266 ( i.e. the region @xmath609 ) is the disjoint union of core f - trapped regions .
+each of its connected components is the core of the corresponding connected components of @xmath0 .
+* remark : * the cases with @xmath610 are technically more involved , but one expects that the result will hold true too .
+first of all , it is clear that every closed f - trapped surface has points in @xmath611 , as follows from corollary [ coro : nod- ] or theorem [ th : aboveb ] .
+hence , if we remove @xmath2 from the spacetime all closed f - trapped surfaces disappear . to see that there is no proper subset of @xmath2 with this property , observe that its boundary is @xmath612 .
+take then any closed connected proper subset @xmath602 of @xmath2 such that all points of @xmath613 are connected to its nearest part of the boundary @xmath1 .
+this implies that there is a curve from every @xmath614 to such a part of the boundary @xmath1 , and all these curves must therefore cross ah . in summary , @xmath615 always contains an open region around @xmath261 and outside @xmath616 .
+but then , theorem [ th : tiny ] ensures that there are closed f - trapped surfaces fully contained in @xmath617 , so that @xmath602 can not be a core .    as a bonus
+, we have obtained that the boundary of the identified core @xmath618 is formed by the marginally trapped tubes ah , in particular by their dynamical horizon portions .
+one can wonder if this property selects these marginally trapped tubes in spherically symmetric spacetimes .
+observe , however , that according to the results in @xcite , given any regular dynamical horizon @xmath619 , there can not be any closed weakly f - trapped surface fully contained in its past domain of dependence @xmath620 .
+therefore , if we remove the appropriate future part of @xmath619 we also remove all possible closed f - trapped surfaces .
+the question now is whether or not these alternative would - be cores are actually optimal , or if they remove more than is needed from the spacetime to get rid of the f - trapped region . independently of whether or not they are optimal , the result in @xcite allows us to prove that there are non - spherically symmetric cores in spherically symmetric spacetimes .
+first we show that @xmath2 are the unique spherically symmetric cores .
+[ prop : sphsymcore ] in spherically symmetric spacetimes , @xmath618 are the only cores of @xmath0 which are invariant under the action of the corresponding so(3 ) group of isometries . therefore , @xmath621 are the only spherically symmetric boundaries of a core .
+suppose there were another spherically symmetric core @xmath602 . obviously @xmath602 could not be a proper subset of @xmath2 , nor vice versa , because both are cores .
+thus @xmath622 and this set would be spherically symmetric .
+however , every round sphere in @xmath2 is f - trapped , and therefore there would be f - trapped round spheres having no intersection with @xmath602 , contradicting the hypothesis that @xmath602 was a core of the trapped region .    [ prop : nonsphsymcore ] there exist non - spherically symmetric cores of the f - trapped region in spherically symmetric spacetimes .    consider the case when the spacetime has only one connected component of ah , which is spacelike , such as for example the vaidya spacetime in the appendix . from corollary [ cor : lars ] or
+the general results in @xcite we know that there are non - spherically symmetric dynamical horizons interweaving the ah see also the explicit constructions in @xcite .
+take any of these , say @xmath619 , so that @xmath619 lies partly to the future of ah ( and partly to its past ) . from theorem 4.1 in @xcite , no weakly f - trapped surface can be fully contained in the past domain of dependence of @xmath619 .
+consider then the causal future @xmath623 of @xmath619 .
+removing @xmath623 from the spacetime eliminates all closed f - trapped surfaces .
+nevertheless , it may happen that @xmath623 is not a core , because it is not minimal . in any case , there is a subset of @xmath623 which is a core of the f - trapped region @xmath0 .
+this new core will never include those parts of the spacetime which are to the future of ah but to the past of @xmath619 .
+thus , this core of @xmath0 is not @xmath2 , and due to proposition [ prop : sphsymcore ] , it can not be spherically symmetric .    still , the identified core @xmath618 may be unique in the sense that its boundary @xmath621 is a marginally trapped tube .
+this would happen if , for instance in the example of the previous proof , any dynamical horizon @xmath619 other than ah is such that @xmath623 is _ not _ a core of the f - trapped region , the core being a proper subset of @xmath623 .
+if this is the case , then ah would be selected as the unique dynamical horizon which is the boundary of a core of the f - trapped region @xmath0 .
+whether or not this happens is a very interesting open question .
+we thank the wenner - gren foundation for making this research possible .
+ib was supported by the swedish research council .
+jmms thanks the theoretical physics division at fysikum in albanova , stockholms universitet , for hospitality .
+he also acknowledges financial support from grants fis2004 - 01626 ( micinn ) and giu06/37 ( upv / ehu ) .
+finally we happily acknowledge the help we received from robert wald , greg galloway , an anonymous referee , and jan man .
+consider the important case of the vaidya spacetime with incoming radiation .
+the line - element reads @xcite ds^2=-(1-)dv^2 + 2dvdr+r^2d^2 [ ds2 ] so that this is the particular case of ( [ gds2 ] ) with @xmath624 and a mass function independent of @xmath213 , @xmath625 .
+the einstein tensor of ( [ ds2 ] ) is of pure radiation type @xmath626 and thus , if the einstein field equations are assumed , the null convergence condition ( which in this particular case implies the dominant energy condition ) @xcite requires that 0 [ mdot ] so that the mass function can not decrease as a function of @xmath217 .
+thus , in this case the condition ( [ dotm ] ) is guaranteed .
+there is only one connected component of ah defined by @xmath627 and unique associated regions @xmath628 and @xmath629 .
+ah is a spacelike hypersurface for all @xmath217 such that @xmath630 , and it is null where @xmath631 .
+therefore , ah is a dynamical horizon @xcite on the region where it is spacelike , and an isolated horizon @xcite on any open region where @xmath632const .
+the spherically symmetric collapse of null radiation may lead to the formation of a naked singularity @xcite . to avoid this possibility one has to assume that @xcite @xmath633 a hidden , non - naked
+, curvature singularity is always present at @xmath634 .
+this is a spacelike future singularity .
+under all the above conditions , the penrose diagrams for the imploding vaidya spacetime are depicted in figure [ fig : vaidya ] , the first of them for the case with @xmath635 everywhere , the second with @xmath636 from @xmath637 on .
+the kodama vector field @xmath638 defined in subsection [ sec : kodama ] is actually a proper kerr - schild vector field @xcite ( ksvf from now on ) of type ( [ ksvf ] ) relative to the null direction @xmath364 for the vaidya spacetime .
+it is immediate to get @xmath639 so that the function @xmath107 in ( [ ksvf ] ) is @xmath640 .
+this is one of the requirements of theorem [ th : no - min ] .
+the other requirements are satisfied as in the general case , so that @xmath73 is future pointing on the region @xmath641 , and the level function @xmath115 is defined by _
+dx^=-fd= dr-(1- ) dv . [ tau ] besides , @xmath73 is timelike on @xmath266 and null at the ah : @xmath642 .
+notice that the ksvf @xmath643 coincides with the standard static killing vector on the regions with @xmath632 const .  and in particular with a static killing vector in the flat region @xmath499 where @xmath644 .
+thus , all portions of ah that are isolated horizons are actually killing horizons , including the portion of the eh with @xmath374 in the case that @xmath636 for all @xmath374 .
+[ [ the-level-hypersurfaces-tau-const.and-the-past-barrier-sigma-in-the-vaidya-spacetime . ] ] the level hypersurfaces @xmath141 const .  and
+the past barrier @xmath227 in the vaidya spacetime .
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    now , we analyze the shape and position of the level hypersurfaces @xmath141const . for the ksvf @xmath643 in the vaidya spacetime ( [ ds2 ] )
+subject to ( [ mdot],[mass ] ) .
+observe that these hypersurfaces are characterized by being spherically symmetric and orthogonal to the hypersurfaces @xmath390const .
+the definition of @xmath115 is ( [ tau ] ) , so that the sought hypersurfaces are defined by the solution to the differential equation = .
+[ ode ] this is equivalent to the autonomous system @xmath645 so that its orbits on the phase plane @xmath646 provide the required hypersurfaces . given that @xmath647 , the ode ( [ ode ] ) has a critical point at @xmath648 .
+its linear stability is ruled by the eigenvalues @xmath443 and eigenvectors @xmath444 of the corresponding matrix @xmath649 which are given by @xmath650 the character of the critical point is different depending on whether @xmath651 or not .
+if @xmath652 , the critical point is an unstable focus , so that no solution actually reaches @xmath653 .
+the schematic phase plane is represented in figure [ fig : focus ] .
+as we can check , the hypersurface @xmath227 always penetrates the flat region in this case .        if @xmath651 the critical point is an unstable node , with @xmath654 real and positive .
+in fact , one can see that @xmath655 , \hspace{5 mm } \lambda_-\in \left[0,\frac{1}{2}\right ) , \hspace{1 cm } \lambda_+ + \lambda_- = 1\ , .\ ] ] in this case , all possible solutions except one emerge from @xmath653 with the same tangent direction given by the eigenvector @xmath459 .
+the exception is given by one solution emerging from @xmath653 with the tangent direction of the other eigenvector @xmath460 .
+recall that @xmath656 is necessary to avoid ( locally ) naked singularities @xcite , and thus the allowed intervals for @xmath462 can be further restricted if such singularities are to be avoided .
+there are three qualitatively different possibilities in this case ( with the same value of @xmath657 ) , depending on whether or not the special solutions @xmath461 corresponding to the eigenvalues @xmath462 at @xmath653 eventually meet the ah .
+this , in turn , will depend on the specific properties of the mass function @xmath658 for @xmath659 and on the total mass @xmath256 . loosely speaking
+, if there is a period when the mass function has a large derivative , then the chances are that the special solutions will meet the ah .
+if at least one of the special solutions does _ not _ meet the ah , then the hypersurface @xmath227 can not penetrate the flat region . on the other hand , if both special solutions meet ah then @xmath227 will have a portion in the flat region .
+these possibilities are schematically represented in the figures [ fig : node1]-[fig : node2 ] .
+the limit case with @xmath660 has the character of a degenerate unstable node ( only one universal direction through which all solutions emerge from the critical point ) in the linear stability analysis , and it remains as such , or it may become an unstable focus or node , depending on the specific properties of the function @xmath658 around @xmath370 .
+the schematic structure of the phase portraits for this case are thus analogous to those already shown , with the small difference that the solutions @xmath661 and @xmath662 coincide when @xmath653 is a degenerate node for the full , non - linear , system .
+to illustrate the above , we present a particular example where the solutions of ( [ ode ] ) can be given explicitly in full .
+this is given by the self - similar vaidya spacetime , with a linear mass function @xmath663 which admits the following homothetic killing vector field for all @xmath664 @xmath665 observe that @xmath666 in this case , so that @xmath667 . the solutions to the ode ( [ ode ] )
+provide the level hypersurfaces for @xmath73 .
+they are given by @xmath668 for all @xmath669 .
+for @xmath670 we have :    * @xmath671 .
+the critical point is an unstable focus and the solutions are @xmath672 * @xmath673 .
+the critical point is a degenerate unstable node whose particular special solution is simply @xmath674 and the rest of solutions , all of them emanating from the origin tangent to the special solution @xmath675 , are @xmath676 * @xmath677 .
+the critical point is an unstable node with the special solutions @xmath678 the first of them being the exceptional one .
+the rest of solutions , all of them emanating from the origin tangent to the second special solution @xmath679 , are @xmath680    in all three cases , the hypersurface @xmath227 is given by @xmath421 , where @xmath681 .
+observe that @xmath227 does not enter the flat region if @xmath682 , and therefore no closed f - trapped surface can penetrate the flat region in these cases @xcite .
+we note as a final remark that the ah in this particular vaidya spacetime is an intrinsically flat hypersurface , and that the trace of its second fundamental form ( its expansion ) is proportional to @xmath683 .
+therefore , the ah is non - expanding exactly for the limit case with @xmath673 .
+in the cases where the past barrier @xmath684 enters the flat portion of the spacetime , the ah is contracting .
+senovilla , novel results on trapped surfaces , in  mathematics of gravitation ii " , ( warsaw , september 1 - 9 , a krlak and k borkowski eds , 2003 ) ; http://www.impan.gov.pl/gravitation/confproc/index.html ( gr - qc/03011005 ) .

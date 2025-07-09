@@ -1,0 +1,485 @@
+we wish to study algebraic geometry over the max - plus or tropical algebra . in order to do so
+, we should look at roots of polynomials .
++ the common definition for tropical roots of polynomials is a point of equality between two monomials or more ( ref .
+@xcite,@xcite ) .
+izhakian has built a structure that defines the sum of two equal elements as a  ghost " element , and treats these ghosts as zeros since we want to view them as roots . + further research led izhakian and rowen ( @xcite ) to the idea of a graded algebra . not only
+do we  remember " the sum as a  ghost " , we also keep a layer element that gives us more information .
+for example , assuming a natural or a tangible element is of layer one , then the sum of three tangible elements is of layer three . in the broad perspective we will see the graded algebra as a lesser degeneration of the classical geometry than the supertropical algebra , which is lesser than tropical geometry .
++ we introduce an extension of the max - plus algebra with layers , called exploded layered tropical algebra ( or elt algebra for short ) .
+given this new structure we further refine the definition of a root to be a point where the layer of the evaluation of the polynomial is zero .
+this structure is similar to parker s  exploded " semiring and holomorphic curves ( @xcite ) .
+parker uses exploded manifolds to define and compute gromov - witten invariants .
++    the roots of the polynomial @xmath0}0}}\lambda^2+{{^{[1]}2}}$ ] in elt algebra over the complex field are @xmath1}1}}.$ ] + indeed , @xmath2}1 } } ) = { { ^{[a]}0}}\big({{^{[\frac{\pm i}{\sqrt{a}}]}1}}\big)^2+{{^{[1]}2}}= { { ^{[a]}0}}\big({{^{[\frac{-1}{a}]}2}}\big)+{{^{[1]}2}}={{^{[-1]}2}}+{{^{[1]}2}}={{^{[0]}2}}.\ ] ]    in this paper , we focus on the problem of factorization of polynomials and the necessary requirements from the layer structure .
+the factorization of tropical polynomials is important for a number of reasons : first , the factors of a certain polynomial help us split the variety of the polynomial into smaller varieties ; second , the way polynomials factor affects the algebraic structure of the polynomials ring and its ideals .
+this is important since we aim to create an extensive algebraic base .
+also , gathmann ( ref .
+@xcite ) explained the importance of factorization of tropical polynomials and its connection to ordinary polynomial factorization .
++ we will show that in this structure most polynomials in one indeterminate factor uniquely .
+we will also show that polynomials in several variables , in which all monomials have the same tangible value at some point ( called primary polynomials ) , factor uniquely .
++    for example , consider the variety of three geometric lines which intersect at ( 0,0 ) .
++ @xmath3 this variety may factor into the three geometric lines , or a tropical line and a tropical quadratic factor .
+the distinction between these two cases is encapsulated in the layer of the intersection point .
+we will see that since this is a primary polynomial it factors uniquely in our structure .
++      next we define the algebraic structure we use throughout this paper , which is inherited from the work of parker ( @xcite ) and izhakian and rowen ( @xcite,@xcite ) .
++    let @xmath4 be a set closed under addition and multiplication and @xmath5 a totally ordered group ( such as @xmath6 or @xmath7 ) .
+elt algebra _ is the set @xmath8}\lambda}}|\lambda\in
+f,\ell\in l\}$ ] together with the semi - ring structure : +    1 .   @xmath9}\lambda}}+{{^{[\ell_2]}\lambda } } = { { ^{[\ell_1+_l\ell_2]}\lambda } } , $ ] 2 .   if @xmath10 then @xmath9}\lambda_1}}+{{^{[\ell_2]}\lambda_2 } } = { { ^{[\ell_1]}\lambda_1 } } , $ ] 3 .
+@xmath9}\lambda_1}}\cdot{{^{[\ell_2]}\lambda_2}}={{^{[\ell_1\cdot_l\ell_2]}(\lambda_1+_{f}\lambda_2)}}. $ ]    let r be an elt algebra .
+we write @xmath11 for the function which extracts the coefficient : @xmath12}\lambda}})=\ell,\ ] ] and @xmath13 for the function which extracts the tangible value : @xmath14}\lambda}})=\lambda.\ ] ]    we extend the total order on @xmath5 to a partial order on @xmath15 in the natural way : @xmath16}\lambda_1}}\geq { { ^{[\ell_2]}\lambda_2 } } \iff \lambda_1 \geq_f \lambda_2.\ ] ]    zur izhakian s supertropical geometry ( ref .
+@xcite ) is equivalent to an elt algebra with @xmath17 such that @xmath18 and @xmath19 + the supertropical `` ghost '' element @xmath20 is equivalent to @xmath21}1}}$ ] in the elt notation , and the tangible element @xmath22 to @xmath23}1}}$ ] .
++ therefore , in this paper we will refer to this specific elt algebra as a supertropical algebra .
++    the classical max - plus algebra is equivalent to the trivial elt algebra with @xmath24 .
+we call this case tropical algebra .
+we would also like to define the element @xmath25 .
+define @xmath26 such that for all @xmath27 : @xmath28 @xmath29 we also define @xmath30 and @xmath31
+we wish to define polynomials over the elt algebra with @xmath32 .
+one must note that unlike polynomials over classical algebra , two elt polynomials may be equal everywhere yet contain different monomials .
+consider the two elt polynomials @xmath33}2}},\ ] ] and , @xmath34}2}}.\ ] ]    for each @xmath35 such that @xmath36 , the monomial @xmath37 dominates the other monomial since @xmath38 .
+thus , in this case , @xmath39 . + if @xmath40 then @xmath41}2}}$ ] . in the polynomial @xmath42 , the monomials @xmath43}2}}$ ] dominates the monomial @xmath44 and so @xmath45 as well .
++ the last case is @xmath46 in which similarly @xmath47}2}}$ ] .
++ therefore @xmath48 and @xmath42 are equal at every point of @xmath15 even though they contain different monomials . +    for this reason we define elt polynomials as * functions*.    an elt _ polynomial _ @xmath49 is a function @xmath50 of the form @xmath51 where @xmath52 is a finite set and for all @xmath53 the coefficient @xmath54 is in @xmath15 .
++ we denote the set of all such polynomials as @xmath55 $ ] .
+let @xmath48 be a polynomial of the form @xmath56 , where @xmath57 are monomials .
+write @xmath58 . then
+a monomial @xmath59 is called * inessential at a point @xmath60 * if @xmath61 .
+if @xmath59 is inessential at every point , then @xmath59 is called * inessential*. 2 .
+a monomial @xmath59 is called * essential at a point @xmath60 * if it is not inessential at @xmath60 ( needed for layer zero ) and @xmath62 . if such a point exists , then @xmath59 is called * essential*. 3 .
+a monomial @xmath59 is called * quasi - essential at a point @xmath60 * if it is neither essential nor inessential at @xmath60 .
+if @xmath59 is neither essential nor inessential , then it is called * quasi - essential*. +    consider @xmath63}1}}\lambda + { { ^{[1]}2}}$ ] .
+then @xmath64 is essential at each tangible point with value greater than @xmath22 . at @xmath22
+all of the monomials are quasi - essential , and for tangibles lesser than @xmath22 the fixed monomial @xmath65 is essential . +    the monomial of a univariate polynomial @xmath48 with the highest power of @xmath66 is called the _ leading _ monomial .
+the monomial with the lowest power is called the _ tail _ monomial .
+any other monomial is called a _ middle _ monomial .
++    a _ corner root _ of an elt polynomial is a point at which at least two monomials dominate .
+i.e. , @xmath67 is a corner root of @xmath68 if the set @xmath69 is of order @xmath65 at least .
++ in other words , a point @xmath60 is a corner root of a polynomial @xmath56 if @xmath70 is quasi - essential at @xmath60 for some @xmath71 .
++    a polynomial @xmath48 in one variable has only finitely many corner roots .
++    by definition , a corner root is a point where two monomials @xmath72 have the same tangible value .
+there are only finitely many different possible pairs of monomials , each contributing at most one root .
++    let @xmath48 and @xmath42 be two polynomials in several variables .
+we say that @xmath48 and @xmath42 are _ root equivalent _ if @xmath73 for every corner root @xmath74 .
++    let @xmath48 be a multivariate polynomial .
+if all of the monomials of @xmath48 have the same tangible value at the point @xmath60 , then @xmath48 is called * primary in @xmath60*. +    let @xmath48 be primary in @xmath60 .
+then @xmath48 is of the form @xmath75}0}}a_i\lambda^i$ ] where @xmath76 , @xmath77 , @xmath78 , @xmath79 , @xmath80 , @xmath81 , and @xmath74 is tangible .
+first we let @xmath74 be the tangible value of @xmath82 .
+let @xmath83 be any monomial of @xmath48 .
+then it is quasi - essential or essential at @xmath60 .
+thus the tangible value of @xmath84 must be @xmath74 .
+therefore , @xmath85}0}}a_1^{-i_1}\cdot\cdot\cdot a_n^{-i_n}c$ ] where @xmath86 is the layer of @xmath87 .
+@xmath80 since otherwise the monomial could not be quasi - essential .
+the _ essential part _ of a general polynomial @xmath88 at a point @xmath60 is the polynomial @xmath89 such that @xmath90 if and only if @xmath70 is not inessential at @xmath60 .
++    it is fairly clear that the essential part at @xmath60 is always primary at @xmath60 .
+we wish to obtain a basic algebraic result - unique factorization - for polynomials over the elt structure . in their paper ( ref .
+@xcite ) , izhakian and rowen showed that unique factorization fails in their original supertropical structure even when considering polynomials as functions .
++ as we explained in the introduction , we try to expand the structure of @xmath4 .
+first we consider @xmath91 with the usual operations . considering @xmath92 $ ] , the polynomials in one variable over this structure , we wish to know if there is unique factorization .
+a rather simple counterexample arises which we will explore . + we would hope generally that a polynomial would factor according to the variety of its roots ; for each of the connected parts there would be one factor ( not necessarily irreducible ) . in the one variable case , each such part is a single point .
++ now we are ready to study the following polynomial over the supertropical algebra : @xmath93}1}}\lambda + { { ^{[1]}0}}.\ ] ]    in this example , the roots are @xmath94 and @xmath95 .
+we expect that the above polynomial will factor into @xmath96}1}})({{^{[2]}1}}\lambda+0)$ ] , since these are the roots with the correct layers .
+we are rather close but not exactly there , as we get @xmath97}1}})({{^{[2]}1}}\lambda+0)= { { ^{[2]}1}}\lambda^2 + 0\lambda + { { ^{[2]}1}}{{^{[2]}1}}\lambda + { { ^{[2]}1 } } = { { ^{[2]}1}}\lambda^2 + { { ^{[2]}1}}\lambda + { { ^{[2]}1 } } = { { ^{[2]}1}}(\lambda^2 + { { ^{[2]}1}}\lambda + 0 ) = { { ^{[2]}1}}f.\ ] ] the polynomial @xmath48 is irreducible and also @xmath96}1}})$ ] and @xmath98}1}}\lambda+0)$ ] are irreducible , which contradicts unique factorization of @xmath99}1}}f=(\lambda+{{^{[2]}1}})({{^{[2]}1}}\lambda+0)$ ] .
++ however , these factorizations are not inherently different .
+the main problem is the lack of an inverse for the layer .
+if we add fractional positive layers , i.e. take @xmath100 , the unique factorization of the polynomial will be    @xmath101}(-1)}}(\lambda+{{^{[2]}1}})({{^{[2]}1}}\lambda+0 ) = ( \lambda+{{^{[2]}1}})(\lambda+{{^{[1/2]}(-1)}}).\ ] ]
+for this section we fix @xmath100 . +      we will show that polynomials which are equal as functions must consist of the same monomials ( other than the inessential ones ) .
+moreover , we will see that given enough points of equality , two polynomials are equal everywhere .
++    let @xmath102 and @xmath103 . the polynomial @xmath104 has a corner root @xmath35 .
+for any substitution @xmath105 , the second monomial is essential and for any substitution @xmath106 , the first monomial is essential .
+a tangible point @xmath44 is a corner root if @xmath107 , and therefore @xmath108 .
+given our assumptions , such a corner root exists .
+if @xmath109 then @xmath110 and therefore @xmath111 ; similarly if @xmath112 then @xmath113 . we see that the corner root is like a scale ; on one side one monomial is essential and on the other side the second monomial is essential .
+this is the piecewise linear behavior of supertropical algebras .    given a polynomial in one variable @xmath114 such that @xmath115 , @xmath116 and @xmath117 , then @xmath48 has a finite set of corner roots @xmath118    the monomials @xmath119 are quasi - essential at @xmath120 for some @xmath121 .
+the monomial @xmath122 is essential at @xmath123 , the monomial @xmath124 is essential at @xmath125 , and the monomials between them are inessential at @xmath126 . +
+the monomials @xmath127 are quasi - essential at @xmath128 for some @xmath129 .
+the rightmost monomial is essential at @xmath130 , and the monomial between it and the leftmost monomial are inessential at @xmath131 .
++ this continues until the rightmost monomial is @xmath132 which is essential at @xmath133 .
++    if @xmath134 is a multivariate polynomial with a non - empty set of corner roots , then for all @xmath135 , @xmath57 is quasi - essential on at least one corner root of @xmath48 .
+recall that @xmath57 is not inessential .
+therefore , let @xmath74 be a point so that @xmath57 is essential or quasi - essential at @xmath74 .
+if @xmath74 is a corner root we are done , so we assume that it is not .
++ the monomial @xmath57 is in several variables and is not inessential at some point @xmath136 . consider @xmath48 as a polynomial of one variable by fixing all of the variables other than @xmath137 at @xmath74 ( we specialize @xmath138 ) .
+there is only a finite number of monomials , and so there is only a finite number of corner roots between @xmath57 and any other monomial @xmath139 of @xmath48 ; we denote them as @xmath120 .
+first , assume that @xmath140 is not an empty set .
+tangibles are from an ordered monoid .
+thus we can sort these corner roots along with the point @xmath74 by size .
+considering the fact that @xmath57 is quasi - essential at @xmath74 , we take the closest corner root in the array after which @xmath57 is inessential to be @xmath141 .
+since this corner root is the closest to @xmath74 , @xmath57 and @xmath142 are quasi - essential at @xmath141 , for otherwise there is another monomial @xmath143 bigger than @xmath57 but then @xmath144 is between @xmath74 and @xmath141 which is false .
+we obtained @xmath141 as a corner root on which @xmath57 is quasi - essential .
++ however , if the set of corner roots @xmath140 is empty we choose a variable other then @xmath145 . if the corner roots sets are empty for all variables , it follows that the polynomial has no corner roots altogether , which is absurd . indeed ,
+if @xmath48 has any corner root , it must have at least one monomial which differs in at least one variable power from @xmath57 . leaving this variable free
+we obtain a non empty set of roots .
+we will prove that given @xmath146}a}}))$ ] for all @xmath44 , one can know all of the monomials that are quasi - essential at @xmath60 . as a consequence , one can know all of the monomials of a polynomial  @xmath48 , due to the lemma above that assures us that each monomial is at least quasi - essential at some corner root .
++    let @xmath48 be a univariate polynomial , and let @xmath42 be the polynomial which contains all of the monomials of @xmath48 which are not inessential at some given point @xmath60 .
+then @xmath42 is of the form @xmath147}0 } } } \lambda^ka^{n - k}$ ] , where @xmath148 is tangible .
+clearly , all of the monomials of @xmath42 have the same tangible value at @xmath60 .
+let @xmath149 be the degree of @xmath42 , and define @xmath150 .
+let @xmath59 be a monomial of @xmath42 of degree @xmath151 .
+then @xmath152 .
+therefore @xmath153 , as desired .    if @xmath48 and @xmath42 are two polynomials in one variable ( with non - empty corner root sets ) , then @xmath48 and @xmath42 are root - equivalent and are equal at one point @xmath154 @xmath48 and @xmath42 have the same monomials @xmath154
+@xmath155 everywhere . +    fix a tangible corner root @xmath60 and look at the sum of all non - inessential monomials at  @xmath60 ; @xmath156}0}}}\lambda^ka^{n - k}.\ ] ] next we look at the root at layer @xmath135 : @xmath157}a}})=c_a\sum_{k=0}^{n}{{{^{[b_k\cdot i^k]}a^{n}}}}$ ] .
+now its layer @xmath158}a}}))=s(c_a\sum_{k=0}^{n}{{{^{[b_k\cdot i^k]}a^{n}}}})=\sum_{k=0}^{n } b_ki^k\ ] ] ( we include the layer of @xmath148 into the @xmath159 s , and therefore @xmath160 ) .
+this equation holds for all @xmath161 . a similar argument for @xmath42 yields @xmath162}a}}))=\sum d_ki^k$ ] , with @xmath163 as the constant .
+our goal is to show that @xmath164 and that @xmath148=@xmath163 .
+this will prove that @xmath48 and @xmath42 have the same monomials , and the rest of the proof is trivial .
++ next let us prove that @xmath164 . we take a number @xmath165 so that @xmath166 and @xmath167 are in @xmath168 for all @xmath151 ( this is the @xmath169 of all of the denominators ) .
+now take @xmath135 to be @xmath170 .
+@xmath171 is written to the base @xmath135 , but this form is unique .
+recalling @xmath157}a}})=g({{^{[i]}a}})$ ] , we use the same argument for @xmath42 to obtain @xmath172 and finally @xmath164 .
++ we will now show that given the constant @xmath148 of a root @xmath60 , all of the other constants are known .
+let @xmath173 be the sorted set of roots of @xmath48 ( and @xmath42 ) .
+fix a root @xmath174 and assume @xmath175 is known . between two consecutive roots @xmath176 and @xmath177 ,
+there is one essential monomial ( otherwise there would be another root between them ) .
+clearly , this essential monomial is quasi - essential at the roots also .
+therefore there is a monomial of the form @xmath178}0}}\lambda^ka_i^{n - k}$ ] and also of the form @xmath179}0}}\lambda^ka_{i+1}^{n - k}$ ] .
+we conclude that @xmath180 and therefore we can calculate @xmath181 from @xmath182 and @xmath183 .
+this argument works in the other direction as well , and thus all of @xmath184 are known .
++ finally , since @xmath48 and @xmath42 are equal at some point , they have equal constants @xmath185 for some @xmath60 .
+the rest of the constants are equal since they are calculated from this constant and the other roots ( which are equal for @xmath48 and @xmath42 ) .
+we obtained the desired result : if @xmath48 and @xmath42 are root - equivalent and are equal at some point , then they have exactly the same monomials , and therefore are equal everywhere
+. if they are equal everywhere , then clearly they are equal at some point and root - equivalent .
+we will now prove this monomial equality for several variables using an induction whose base is the above lemma . in several variables ,
+the corner roots are much more complex and interesting as we will see later in this paper .
+first we prove a simple lemma which helps us show that any point of equality between two root - equivalent polynomials means equality at every point .
+let @xmath186 be a polynomial in @xmath149 variables with a non - empty set of corner roots , and let @xmath136 be any point .
+then there is a variable @xmath187 , and a corner root @xmath60 such that @xmath188 .
+having a corner root set is equivalent to @xmath48 having at least two monomials , as we have seen when proving monomial equality .
+these two monomials must differ at the power of at least one variable , call it @xmath137 .
+now fix any @xmath189 such that @xmath190 .
+clearly we obtain a polynomial with @xmath191 variables and at least two different monomials .
+therefore , this polynomial has a corner root @xmath192 and @xmath60 above is a corner root of @xmath48 as desired .
+[ moneq ] let @xmath48 and @xmath42 be two polynomials with non - empty corner root sets , then @xmath48 and @xmath42 are root - equivalent and are equal at one point @xmath154 @xmath48 and @xmath42 have the same monomials @xmath154 @xmath155 everywhere .
++    assume that @xmath48 and @xmath42 are root - equivalent and there exists a point @xmath74 such that @xmath193 .
+by the lemma above there is a variable , call it @xmath194 , and a corner root @xmath60 such that @xmath195 .    at any given corner root
+the layers behave like classical polynomials .
+for example consider @xmath196}\lambda}}+{{^{[1]}0}}$ ] then @xmath197}0}})={{^{[2x+1]}0}}$ ] .
+since @xmath48 equals @xmath42 at every layer of the corner root , their essential monomials at the corner root must be equal up to multiplication by a constant . in view of the point of equality
+they are exactly equal .    similarly to the proof of the above lemma , by choosing different variables and direction
+we prove that @xmath48 and @xmath42 must consist of exactly the same monomials , and the rest of the proof follows .
+if @xmath48 and @xmath42 are two polynomials with non - empty corner root sets such that @xmath48 and @xmath42 are root - equivalent , then there is some constant @xmath74 such that @xmath198 .
++      let @xmath48 be a polynomial in one variable .
+then there is a factorization of @xmath48 into primary polynomials of its roots , and a power of @xmath66 .
++    take the highest @xmath165 such that @xmath199 divides each monomial in @xmath48 .
+after we factor out @xmath199 , the constant monomial is essential .
+we call the new polynomial @xmath200 , and order the root set @xmath201 where @xmath202
+. the essential part at @xmath203 is primary in @xmath203 .
+let @xmath145 be the highest power of @xmath66 in this primary polynomial , and let @xmath204 be the coefficient of @xmath205 .
+we normalize by multiplying by @xmath206 , and call this primary polynomial @xmath207 . +
+now take the essential part at @xmath208 .
+the highest power of @xmath66 of a monomial in @xmath207 is the smallest power here .
+therefore by factoring out @xmath205 where @xmath209 of the essentials above , we get a primary polynomial @xmath210 in @xmath208 .
+let us look at @xmath211 as a polynomial .
+first , it has the roots @xmath203 and @xmath208 . also , when @xmath212 , @xmath213
+therefore , @xmath211 and @xmath200 have the same layers at images of all layers of @xmath203 . when @xmath214 , the essential monomial of @xmath207 at @xmath60 is @xmath205 and therefore @xmath215
+. thus @xmath211 has the same layers as @xmath200 for @xmath208 as well .
++ we normalize @xmath216 and continue to get @xmath217 as before .
+@xmath218 for @xmath219 is exactly the constant we normalized @xmath216 with , and therefore @xmath220 has the same layers on @xmath203 , @xmath208 and @xmath221 .
+we continue this process and obtain that @xmath222 due to theorem [ moneq ] , and thus @xmath223 , as desired .    we will now factor a polynomial into primary polynomials .
+consider @xmath224 first we factor @xmath64 and are left with @xmath225 the root set here is @xmath226 .
+the essential monomials in @xmath203 are @xmath227 .
+we normalize by @xmath228 and obtain @xmath229 .
+the essential monomials in @xmath208 are @xmath230 .
+we factor by @xmath231 and obtain @xmath232 .
+@xmath233 for @xmath234 , specifically @xmath235 .
+when @xmath236 then @xmath237 ; therefore @xmath238 , specifically @xmath239 .
+in this case , the factorization process ends here , and @xmath240      let @xmath48 be a univariate polynomial
+. then @xmath48 factors uniquely into polynomials which are primary at the corner roots , possibly including @xmath199 for some @xmath165 ( up to multiplication by constants ) . +    by the above lemma we know that such a factorization exists .
+suppose that there are two different factorizations of @xmath48 , called @xmath241 and @xmath242 .
+take the smallest corner root @xmath60 .
+let @xmath42 be a primary polynomial in a root bigger than @xmath60 .
+then @xmath243 is the constant of @xmath42 . now
+@xmath244}a}})=c$ ] for all @xmath135 , since @xmath60 is smaller than the corner root of @xmath42 .
+thus , both @xmath241 and @xmath242 have the same layers at the primary in @xmath60 up to a constant ( since the other primaries yield constants in @xmath60 ) .
+thus the primaries in @xmath60 of both @xmath241 and @xmath242 are equal up to multiplication by a constant .
+we factor out the primaries in @xmath60 , and continue this process to see that all the primaries are equal up to a multiplication by constants .    now
+the natural question is whether or not a primary polynomial factors uniquely into irreducibles . define @xmath245 to be the set of polynomials of the form @xmath246}0}}\lambda^ka^{n - k}$ ] , and the function @xmath247 $ ] defined by @xmath248 .
+@xmath249 is the set of positive rational numbers .
++    let @xmath48 and @xmath42 be primary polynomials in @xmath60
+. then @xmath250 and @xmath251 .
+moreover , @xmath252 is an isomorphism up to multiplication by a tangible constant in @xmath245 .
++    let @xmath48 be of the form @xmath253 and @xmath254 .
+assume @xmath255 ; then @xmath256 therefore , @xmath257@xmath258 + now for multiplication , @xmath259 @xmath260    next , @xmath252 is clearly onto , and in order to prove it is also an isomorphism we must verify it is injective .
+assume @xmath261 , @xmath262 .
+we see that @xmath263 .
+since both @xmath48 and @xmath42 are primary in @xmath60 , the tangible values of @xmath264 are fixed up to a multiplication by a tangible constant @xmath74 , and so we get @xmath198 .
+we have unique factorization for primary polynomials iff there is unique factorization in @xmath265 $ ] .
++    unfortunately , unique factorization fails in polynomials over the positive rational numbers ( or even the positive real numbers ) .
+take the following example : @xmath266 in order to verify that these polynomials are irreducible , we will look at the complete factorization over  @xmath267 : @xmath268 one can easily see that the above factorizations are obtained by combining the left pair of polynomials [ @xmath269 or the right one [ @xmath270 .
+it is immediate that primary polynomials do not factor uniquely in this structure .
+( i thank professor uzi vishne for his elegant counterexample . ) +
+we have seen that unique factorization fails for primary polynomials , due to the lack of negative layers . unlike positive layers ,
+negative layers first arise in light of the factorization problem .
+we will see that this expansion will be interesting in itself , and will solve our factorization problem .
++ from now on , we fix @xmath271 .
++      one should introduce a new layer 
+zero , which changes the rules .
+consider the primary polynomial @xmath272 ; here @xmath273 is quasi - essential .
+however , if we change the polynomial slightly into @xmath274}2}}\lambda + 4 $ ] , we turn the middle monomial into an inessential one .
+this is true since this monomial does not change the size of the polynomial at any point , but it also does not change the layer because it contributes zero .
+these layer zero monomials will be the only exception to unique factorization in one variable .
++ for example , let us look at the following polynomial : @xmath275}0}}(\lambda^2 + 1\lambda+0).\ ] ] @xmath48 is equal to @xmath276}0}}(\lambda+{{^{[y]}1}})(\lambda+{{^{[x]}(-1)}})$ ] for any @xmath277 .
+unfortunately , this is not the only type of counterexample to unique factorization .
+however , the only counterexamples to unique factorization involve layer zero monomials which do not factor polynomials without zero layer monomials , as we will see in the next subsections .
++      first we must obtain the same monomial equality result that we have seen only for positive layers .
+we wish to prove that if two polynomials are equal as functions , they have the same essential and quasi - essential monomials .
++ we notice that root - equivalence is weaker than monomial equivalence in this structure .
+consider the polynomials @xmath278}3}}\lambda^3 + 0 $ ] , @xmath279}2}}\lambda^2 + 0 $ ] .
+both @xmath48 and @xmath42 have corner roots @xmath22 and @xmath280 .
+also @xmath281}(-1)}})=g({{^{[i]}(-1)}})=0 $ ] and @xmath282}1}}))=s(g({{^{[i]}1}}))=i^4 $ ] .
+therefore @xmath48 and @xmath42 are root - equivalent , but clearly not equal .
+we need to capture the monomials with layer zero coefficients which are lost on corner roots because they are inessential there .
+we capture these monomials by looking at the slopes of the polynomial as well .
++    let @xmath283 and @xmath284 be two primary polynomials in @xmath60 .
+assume that @xmath285}a}}))=s(p_2({{^{[\ell]}a}}))$ ] , and assume that @xmath283 and @xmath284 have no monomials with layer zero coefficients .
+then @xmath283=@xmath286 for some constant @xmath74 .
++    assume that @xmath287 .
+now choose a polynomial @xmath49 with high layer coefficients so that @xmath288 and @xmath289 are both primary polynomials in @xmath60 with positive layer coefficients ( @xmath74 is a constant ) .
+also we choose @xmath49 so that it does not have any monomials in which both @xmath283 and @xmath286 are missing .
+due to our results in the positive layer section , we know that @xmath290 .
+now since @xmath283 and @xmath284 do not have layer zero monomials , we can remove @xmath49 from the equations by adding @xmath291}0}}p$ ] : @xmath292}0}}p$ ] is @xmath283 with the addition of layer zero monomials ; assume @xmath59 is such a monomial . since @xmath283 does not have monomials of layer zero @xmath59 can not be a monomial of @xmath283 , and therefore it must be a monomial of @xmath49 .
+@xmath293}0}}p = p_1 + p +   { { ^{[-1]}0}}p$ ] so @xmath59 must not be a monomial of either @xmath283 nor @xmath284 implying @xmath59 is in @xmath49 which is absurd . we conclude that @xmath292}0}}p$ ] has no layer zero monomials and is equal to @xmath283 , and @xmath293}0}}p = cp_2 $ ] so @xmath294 .
+let @xmath295 be two tangibles , and @xmath296 .
+then there is no more than one monomial @xmath297 such that @xmath298 and @xmath299 .
+this is a case of two linear equations in two variables . @xmath300 since @xmath298 and therefore @xmath301 .
+due to our assumptions , there is only one @xmath151 such that @xmath302 . then @xmath303
+since the layer zero is not our main interest and it turns out to be a counterexample to unique factorization , we will prove an easier theorem for monomial equality . instead of building an exact description of the minimal amount of data we need in order to reconstruct the polynomial
+, we assume that we have all the data .
++    [ moneqmult ] for any two polynomials @xmath48 and @xmath42 , @xmath48 and @xmath42 have the same monomials if and only if @xmath155 everywhere .
++    assume @xmath155 everywhere .
+we already know that each monomial with layer different from zero must be quasi - essential at some point .
+as we have seen , this monomial has to be in the polynomial ( both in @xmath48 and @xmath42 ) .
++ assume that @xmath59 is a monomial with layer zero
+. then @xmath59 must be essential at some point @xmath304 . as we have seen , when all variables are specialized to @xmath60 except for @xmath187 , then @xmath59 is a monomial in one variable which is essential at least between @xmath305 for some @xmath295 . due to our assumptions
+there are at least two points @xmath306 such that @xmath307 and the monomial is essential at @xmath308 and @xmath309 .
+thus @xmath310 and @xmath311 , and as a consequence of the above lemma , @xmath59 is known .
+therefore we know the exponent of @xmath187
+. we can calculate the exponent of all the variables this way , and then the coefficient is given because we know @xmath312 .
++ in conclusion , any monomial of @xmath48 or @xmath42 is uniquely determined by the polynomial as a function , as desired .
+the other direction is trivial .
+we will describe the multiplication process of polynomials , since it differs from classic multiplication and is essential to our paper . even though multiplication is distributive , some monomials of the product are inessential and therefore deleted , since we view polynomial as functions .
+the multiplication is well defined due to theorem [ moneqmult ] .
++    consider the two polynomials @xmath313 , @xmath314 . both @xmath48 and @xmath42 have corner roots @xmath22 and @xmath65 .
+thus @xmath315 @xmath316 @xmath317}0}}\lambda + 1.\ ] ] whereas @xmath318 is essential at @xmath319 , @xmath320 are quasi - essential at @xmath321 , @xmath322 is essential at @xmath323 , @xmath324}0}}\lambda + 1 $ ] are quasi - essential at @xmath325 , and @xmath22 is essential at @xmath326 .    a polynomial @xmath327}a_i}}\lambda^i\in r[\lambda_1, ... ,\lambda_n]$ ]
+is called _ regular _ if @xmath328 for all @xmath329 .
+we wish to prove that regular polynomials have unique factorization . in order to give this result more meaning
+, we would also like to prove that the product of two regular polynomials is also regular .
++    let @xmath42 and @xmath59 be polynomials .
+a monomial of @xmath330 is essential at @xmath60 @xmath154 it is a product of an essential monomial of @xmath42 at @xmath60 and an essential monomial of @xmath59 at @xmath60 .
++    a monomial of @xmath48 is the sum of products of monomials from @xmath42 and monomials from  @xmath59 .
+for example , @xmath331 , @xmath332}0}}$ ] , @xmath333}0}}$ ] .
+the middle monomial @xmath334 is the sum of @xmath335}0}}+0\cdot\lambda$ ] .
++ assume that @xmath336 is an essential monomial of @xmath48 at point @xmath60 , then @xmath337 . if for any @xmath135 @xmath338 of @xmath57 are inessential then @xmath336 is inessential , thus at @xmath60 for all of the monomials @xmath339 are quasi - essential .
+therefore @xmath340 is also quasi - essential at @xmath60 for every @xmath341 .
+assume @xmath342 , the monomials @xmath343 and @xmath344 must have different powers of the variables otherwise @xmath241 and @xmath242 have the same powers which is absurd .
+we obtained two different monomials which are quasi - essential at @xmath60 which contradicts the assumption that @xmath336 is essential at @xmath60 , and thus @xmath345 . + as a consequence of the contradiction , any essential monomial of @xmath48 is a product of an essential monomial of @xmath42 and an essential monomial of @xmath59 as desired . + in the other direction ,
+assume @xmath336 is a monomial of @xmath48 which is the product of monomials of @xmath42 and @xmath59 which are essential at @xmath60 , @xmath346 .
+clearly @xmath336 is essential at @xmath60 as any other product of two monomials @xmath340 is inessential at @xmath60 due to @xmath338 , @xmath347 or both .
+[ regfactor ] let @xmath330 be a factorization of a polynomial @xmath48 .
+then @xmath48 is regular @xmath154 @xmath42 and @xmath59 are regular .
++    any monomial of layer zero which is not essential at a certain point must be inessential at that point . thus in order for a polynomial to be regular , all of its essential monomials must be of layer different from zero .
++ a product of monomials @xmath348 is an essential monomial of @xmath48 at @xmath60 @xmath154 @xmath349 and @xmath70 are essential at @xmath60 due to the corollary above .
+the layer of @xmath350 is the product of the layers of @xmath349 and @xmath70 , thus the layer of @xmath350 is zero @xmath154 the layer of either @xmath349 or @xmath70 is zero .
++ therefore @xmath48 is regular @xmath154 all monomials of @xmath48 are of layer other than zero @xmath154 all of the monomials of @xmath42 and @xmath59 are with layer different than zero @xmath154 @xmath42 and @xmath59 are regular .      given an essential monomial @xmath59 of a polynomial @xmath48 , the largest corner root of @xmath48 at which @xmath59 is quasi - essential is called the _ big root _ of @xmath59 and the smallest corner root is called the _ small root _ of @xmath59 . note that @xmath59 may have one corner root which is both the big root and small root of @xmath59 .
++    consider polynomial @xmath351}0}}.\ ] ] the only corner root of @xmath48 is@xmath352}0}}$ ] .
+thus it is both the big root and small root of every monomial .
++    let @xmath48 be a polynomial with a constant term , and let @xmath59 be an essential monomial of @xmath48 so that @xmath353 , and the big root and small root of @xmath59 are distinct .
+then @xmath48 factors uniquely , up to multiplication by a constant into @xmath354 , so that @xmath207 contains all of the corner roots greater or equal to the big root of @xmath59 , and @xmath210 contains all of the corner roots less than or equal to its small root .
+also any irreducible factor of @xmath48 divides either @xmath207 or @xmath210 .
++    let @xmath355 and @xmath356 for some @xmath151 .
+define @xmath357 , and @xmath358 ( here we use the fact that @xmath353 ) .
+multiplication is very easy since the corner roots of @xmath207 are bigger than those of @xmath210 .
+when a point has value smaller or equal to the small root of @xmath59 , then in @xmath207 the essential monomial is @xmath359
+. therefore @xmath360 are essential and quasi - essential monomials of @xmath211 . when a point has value greater than the small root of @xmath59 , the only essential monomial of @xmath210 is @xmath361 .
+multiplying by @xmath207 we get @xmath362 .
+together we get @xmath363 . + now
+, assume that there is another factorization @xmath364 with the same properties . since @xmath48 has a constant term , then
+so must @xmath365 and @xmath366 .
+the constant of @xmath365 multiplied by @xmath366 must equal monomials of @xmath48 which are essential and quasi - essential at the corner roots of @xmath366 and @xmath210 , as before .
+so @xmath367 for some constant @xmath74 .
+by a similar argument , @xmath368 are the remaining monomials of @xmath48 for some constant @xmath87 , and so the factorization @xmath354 is unique up to multiplication by constants .
++ let @xmath369 be a factorization of @xmath48 into irreducible factors .
+we will show that each @xmath370 has corner roots which are all larger than the big root of  @xmath59 or all smaller than the small one .
+otherwise , there is a factor @xmath371 that has a corner root bigger than the big root of @xmath59 and a corner root smaller than the small root of @xmath59 .
+the polynomial @xmath372 is irreducible , and so from the first part of the theorem we have already proved , the essential monomials which are not at the edges must have layer zero coefficient ( or @xmath372 would factor further ) .
+therefore between the big and small roots of @xmath59 , the essential monomial of @xmath372 is of layer zero , and so the essential monomial at this point of @xmath48 is of layer zero which is absurd .      we have expanded the layer structure further in order to solve the problem of unique factorization of primary polynomials .
+next we will verify that this property indeed holds .
++ recall that the function @xmath373 $ ] , where @xmath245 is the semiring of primary polynomials in @xmath60 and @xmath374 for @xmath375 .
+we will use @xmath252 here to prove unique factorization for primary polynomials .
++ in the case of positive layers , @xmath252 is an isomorphism . in this structure
+, we have for example @xmath376}\lambda } } + 0 ) = 1 = \psi({{^{[0]}\lambda^2 } } + 0)$ ] , so @xmath252 is not an isomorphism .
+fortunately , it is still a homomorphism , since this part of the proof is not affected by the existence of layer zero .
++    let @xmath48 and @xmath42 be primary univariate polynomials without monomials of layer zero .
+then @xmath377 for some tangible constant @xmath74 .
+the proof is similar to the positive layer case . knowing that @xmath48 and @xmath42 has no layer zero monomials leaves only one choice up to a tangible constant for @xmath378 .
+it is important to note that primary polynomials can not have layer zero monomials other than the leading monomial and the constant .
+the reason is that a quasi - essential monomial with layer zero is an inessential monomial and therefore is not part of the polynomial .
++    let @xmath48 be a primary univariate polynomial ( with @xmath271 ) . then @xmath48 factors uniquely into irreducible factors ( up to multiplication by a constant ) .
++    assume that @xmath48 is a regular primary polynomial , and that it factors in two different ways @xmath379 . since @xmath48 is regular ,
+so are @xmath380 . as a consequence of the lemma , these factorizations are the same up to a multiplication by a constant .
++ now we take @xmath48 with a leading monomial of layer zero .
+@xmath48 must be of the form @xmath381}\lambda^n } } + g$ ] for @xmath42 with @xmath382 and @xmath42 with lead monomial of layer different than zero .
+first we will show that @xmath48 factors into @xmath383}\lambda}}+a)^{n-\deg(g)}(-a)^{n-\deg(g)}g=({{^{[0]}\lambda^{n-\deg(g)}}}+a^{n-\deg(g)})(-a)^{n-\deg(g)}g={{^{[0]}\lambda^n } } + g = f.\ ] ] note that @xmath42 has a leading monomial coefficient of size @xmath384 , and note that we strike out any middle monomial with layer zero .
++ take a factorization @xmath385 .
+at least one factor must have a layer zero leading monomial .
+we rearrange and rename the factors to obtain @xmath330 , where @xmath42 has leading monomial of layer zero and @xmath59 does not . the polynomial @xmath48 factors
+further to @xmath386}\lambda}}+a)^{l}(-a)^{l}uh$ ] where u has no leading monomial of layer zero , and neither does @xmath387 . since the sum of the lowest degree monomials of @xmath48 equals to @xmath387 and also to @xmath42 we have @xmath388 , and @xmath389 .
+thus any factorization of @xmath48 is a sub - factorization of @xmath386}\lambda}}+a))^{n-\deg(g)}$ ] . +
+a similar argument applies to @xmath48 with layer zero constant .
+@xmath390}a^{\deg(g)+k}}}$ ] where @xmath42 has a constant term @xmath391 .
+we factor @xmath48 ; @xmath392}a}})^k$ ] . like the leading monomial of layer zero argument , @xmath48 factors uniquely into @xmath393}a^{\deg(g)+k}}}$ ] .
++ in conclusion , a general primary polynomial @xmath48 factors into @xmath394}\lambda}}+a)^m(\lambda+{{^{[0]}a}})^kg$ ] where @xmath42 has no layer zero monomials , and not a layer zero constant .
+it is easy to see that the middle monomials of this product are @xmath395 , therefore @xmath396 and @xmath397 are determined uniquely according to the middle monomials of @xmath48 .
+we already know that such @xmath42 factors uniquely , and so every primary polynomial  @xmath48 factors uniquely into irreducible factors .
+we are now ready to prove our main theorem .
+any regular polynomial @xmath48 factors uniquely into irreducible factors .
++    from previous sections we know that @xmath48 factors uniquely into primary polynomials around each essential monomial with layer different from zero . thus a regular polynomial @xmath48 factors uniquely into primary polynomials at each of its corner roots .
+moreover , we proved that primary polynomials factor uniquely into irreducible factors . thus @xmath48 factors uniquely into irreducible factors .
+next we will discuss non - regular polynomials .
+we will first describe the basic irreducible factors , then examine some counterexamples to unique factorization , and thereafter we will sum up the factorization process for a general polynomial .
++      unlike the case of positive layers , here we have an irreducible polynomial that is not primary .
+fortunately , this is the only form of an irreducible polynomial other than the primary polynomials @xmath398}0}}b\lambda^k + c.\ ] ] we list three properties of this form :    1 .
+@xmath74 must be of layer different from zero , or this polynomial will be reducible .
+not all polynomials of this form are irreducible .
+we choose this polynomial not to be primary ; thus it has two corner roots .
+non primary polynomials of the form @xmath399}b}}\lambda+c\ ] ] and @xmath400}b}}\lambda^k+c,\ ] ] are irreducible .    since a polynomial of this form has two corner roots , there are three types of polynomials that can factor it : primaries in the first corner root , primaries in the second corner root , and polynomials with both of these roots .
+we will try all of these options to determine when these polynomials are irreducible .
++ first , we will try to multiply two primary polynomials , one for each corner root . since the leading monomial and the constant do not have layer zero ,
+the leading monomial and constant of their factors also must not be of layer zero .
+therefore any such primaries are regular ( since quasi - essential monomials of ghost layer zero are deleted ) .
+clearly , this product can not yield a polynomial of the form [ basici ] ( since the product is regular as well ) .
++ next , we try to multiply a primary polynomial in the small root , with a polynomial having two corner roots .
+it is easier to look first at the essential monomials only , so we will assume @xmath42 and @xmath59 have no monomials which are never essential .
+define @xmath401 , @xmath402 where @xmath403 are monomials .
+then @xmath404 where @xmath405 and @xmath406 are never essential .
+in order for the result to be of the desired form , @xmath407 must be zero , and @xmath408 must not be zero ; therefore @xmath409 .
+we remain with the monomial @xmath406 which is never essential , and therefore we have failed to achieve the desired form .
++ we get a similar result by multiplying a primary in the big root together with a polynomial with both corner roots .
+@xmath401 , @xmath402 , @xmath410 with @xmath411 and @xmath412 never essential .
+we must have @xmath413 , and @xmath414 .
+we again get a polynomial with a monomial which is never essential .
++ now we multiply two polynomials both having two corner roots . @xmath415 ,
+@xmath416 , @xmath417 with the essentials @xmath418 .
+we do not want any monomials which are never essential , so we have @xmath419 .
+clearly @xmath420 , and so @xmath421 .
+finally we obtain @xmath422 .
+this is the only way a polynomial of the above form will factor , and when this factorization is impossible then the polynomial is irreducible .
++ since our @xmath42 and @xmath59 each have three monomials , then @xmath423 and @xmath424 must have degree at least @xmath22 in @xmath66 . thus @xmath425 must have @xmath426 , and any polynomial of the form @xmath399}b}}\lambda+c\ ] ] which is not primary is irreducible . moreover , since @xmath427 and @xmath428 , then @xmath429 .
+thus the second type of irreducible non - regular polynomials is @xmath400}b}}\lambda^k+c.\ ] ]    we will later see that these are the only examples of irreducible polynomials which are not primary .
++      we provide a few counterexamples to unique factorization for non - regular polynomials .
+we will start with the trivial case , and finish with more complex cases .
++ we have already seen that a product of irreducible non - regular polynomials is a product of pairs of matching monomials .
+changing the layers of matching monomials , we can produce different factorizations : @xmath430}1}}\lambda + { { ^{[1/3]}0}})(\lambda^2 + { { ^{[0]}1}}\lambda + { { ^{[3]}0}})=(\lambda^4 + { { ^{[0]}2}}\lambda^2 + 0)= ( \lambda^2 + { { ^{[0]}1}}\lambda + 0)^2.\ ] ]    next , we notice that layer zero coefficients eliminate quasi - essential monomials .
+we will build an example with different quasi - essential monomials which disappear .
+we will multiply an irreducible polynomial , with a primary polynomial at a corner root which is between the big and small root of the irreducible one .
+we will first study the general case , and then bring a concrete example .
++ take @xmath431}b}}+c$ ] with big root @xmath203 and small root @xmath208 , and take @xmath432 primary at @xmath221 so that @xmath433 .
+think of @xmath434 as any number of quasi - essential monomials ( including none ) .
+then @xmath435}0}}(bd+be+bf ) + cf$ ] where @xmath436 is quasi - essential of layer zero and so is inessential . + a concrete example : @xmath437}1}}\lambda + 0)$ ] with corner roots @xmath438 , and a primary at @xmath359 : @xmath439
+. then @xmath440}1}}\lambda^3 + { { ^{[0]}0}}1\lambda+0 $ ] .
+the monomial @xmath441 would be quasi - essential at @xmath359 , but the layer zero makes it inessential . if instead @xmath442 , the product @xmath330 remains the same .
++ we have seen how to factor a non - regular polynomial with two corner roots .
+we will now give an example of different ways to factor the same polynomial .
++    take @xmath443}\lambda^4}}+0 $ ] with corner roots @xmath22 and @xmath359
+. then @xmath444}\lambda^2}}+0)^2\ ] ] but also @xmath445}\lambda}}+0)((-1)\lambda^4 + { { ^{[0]}\lambda^3}}+0).\ ] ]
+so far we have seen various examples of non - unique factorizations of polynomials with the same corner roots .
+now we will show an example of factorization into polynomials with different corner roots .
+@xmath446}4}}\lambda^5+{{^{[0]}4}}\lambda^4 + 0.\ ] ] this polynomial has corner roots @xmath447 .
+we factor it into two factors , the first with corner roots @xmath448 and the second with corner roots either @xmath449 or @xmath450 .
+@xmath451}3}}\lambda^3 + 0)(1\lambda^2+{{^{[0]}1}}\lambda+0)\ ] ] @xmath452}4}}\lambda^4 + 0)((-1)\lambda^2+{{^{[0]}\lambda}}+0).\ ] ] these polynomial are not all irreducible , but they factor into polynomials having the same corner roots , which differ in the two cases . +      we have introduced the basic irreducible polynomial , but we have yet to prove that it is the only non - regular irreducible polynomial .
+we will answer this question now .
+the only irreducible non - primary polynomials are the basic irreducible polynomials .
+as we have seen before , any polynomial with a middle essential monomial with layer different from zero is reducible .
+therefore we are only interested in polynomials which are not primary , having middle essential monomials of layer zero .
++ we start with the case of a polynomial with more than one corner root ( since it is not primary ) with quasi - essential monomials of layer different from zero at some corner root @xmath60 .
+the polynomial is of the form @xmath453}a_k}}\lambda^k + a_m\lambda^m + ... + a_0 $ ] , where @xmath276}0}}a_k\lambda^k + a_m\lambda^m$ ] have the same tangible value at @xmath60 .
+we claim that @xmath454}a_k}}\lambda^{k - m}+a_m).\ ] ] it is easy to see that the corner roots of the left polynomial are the corner roots of @xmath48 which are less than or equal to @xmath60 , and the right polynomial has all of the corner roots of @xmath48 which are larger or equal to @xmath60 .
+when @xmath455 , the essential part is @xmath456}a_k}}\lambda^{k - m})=a_n\lambda^n+ ... +{{^{[0]}a_k}}\lambda^k.\ ] ] when @xmath457 the essential part is @xmath458 ( note that the quasi - essential monomials at @xmath60 multiplied by layer zero are inessential . )
+thus we have proved that @xmath48 factors into the above polynomials .
++ we are left with the case of polynomials with three or more corner roots and only essential monomials : @xmath459 where @xmath460 for some polynomial @xmath461 .
+let @xmath462 be the corner roots of @xmath48 , @xmath463 .
+we claim that @xmath464 the corner root of the second polynomial is @xmath208 . indeed , if @xmath465 then @xmath466 .
+it is easy to verify that the corner roots of the right polynomial are @xmath467 .
+the only non - trivial case is of @xmath221 : @xmath468 therefore the product indeed equals @xmath48 .    note that this holds for polynomials with leading monomial and/or constant of layer zero .      in this section
+we describe the factorization process for a general polynomial , and then give an example .
++ the first step is partitioning the polynomial around its essential middle monomials of layer different from zero .
+afterwards , we factor the polynomial until we get to an irreducible factor , or to a primary polynomial .
+we factor the primary polynomials so they do not have layer zero leading monomials or constants .
+finally , we factor the regular primary part in the same way polynomials factor over @xmath469 .
++      consider the polynomial : @xmath275}(-10)}}\lambda^{10}+(-4)\lambda^8 + ( -1)\lambda^7+{{^{[0]}3}}\lambda^5 + 5\lambda^3+{{^{[-1]}5}}.\ ] ]    first we see that @xmath470 is the smallest corner root since it is the solution of the equation @xmath471}5}}$ ] .
+@xmath472 is the essential monomial with two distinct big and small roots , and thus @xmath48 factors into @xmath473}(-15)}}\lambda^{7}+(-9)\lambda^5 + ( -6)\lambda^4+{{^{[0]}(-2)}}\lambda^2 + 0)(5\lambda^3+{{^{[-1]}5}})=\ ] ] @xmath474}\lambda^{7}}}+6\lambda^5 + 9\lambda^4+{{^{[0]}13}}\lambda^2 + 15)(\lambda^3+{{^{[-1]}0}}).\ ] ]    now the smallest corner root of @xmath276}\lambda^{7}}}+6\lambda^5 + 9\lambda^4+{{^{[0]}13}}\lambda^2 + 15 $ ] is @xmath94 .
+the next essential monomial is @xmath276}13}}\lambda^2 $ ] , which has layer zero and therefore we will factor it later to basic irreducible factors .
+the next corner root is @xmath321 , and the essential monomial is @xmath475 .
+therefore @xmath48 factors further into @xmath476}(-9)}}\lambda^{3}+(-3)\lambda + 0)(9\lambda^4+{{^{[0]}13}}\lambda^2 + 15)(\lambda^3+{{^{[-1]}0}})=\ ] ] @xmath474}\lambda^{3}}}+6\lambda + 9)(\lambda^4+{{^{[0]}4}}\lambda^2 + 6)(\lambda^3+{{^{[-1]}0}}).\ ] ]    we obtained three factors  primary at @xmath477 , the basic irreducible factor at @xmath65 and @xmath22 , and a primary at @xmath359 .
+we further factor each of these polynomials : @xmath478}\lambda^{3}}}+6\lambda + 9=({{^{[0]}\lambda}}+3)^2(\lambda + 3)\ ] ] @xmath479}4}}\lambda^2 + 6=(\lambda^2+{{^{[0]}2}}\lambda+3)^2\ ] ] @xmath480}0 } } = ( \lambda + { { ^{[-1]}0}})(\lambda^2+\lambda+0).\ ] ] thus : @xmath481}\lambda}}+3)^2(\lambda + 3)(\lambda^2+{{^{[0]}2}}\lambda+3)^2(\lambda + { { ^{[-1]}0}})(\lambda^2+\lambda+0).\ ] ]
+the key to this proof is to build a homomorphism between primary polynomials at a given point and polynomials over @xmath469 .
+first we need to verify that a primary polynomial factors into primary polynomials .
+let @xmath42 and @xmath59 be polynomials so that @xmath330 .
+assume @xmath42 has a monomial @xmath336 which is inessential at @xmath60 , and let @xmath424 be any monomial of @xmath59 .
+then @xmath482 is inessential at @xmath60 .
+however , @xmath336 must not be inessential so @xmath483 must be at least quasi - essential for some @xmath484 in @xmath59 . thus @xmath483 is a monomial of @xmath48 which is not quasi - essential at @xmath60 , which contradicts the definition of a primary polynomial .
++ we define @xmath245 to be the set of regular polynomials @xmath48 which are primary in @xmath60 and for which the tangible value of @xmath82 is 0 .
+the latter means that the constant @xmath74 in the form @xmath75}0}}a_i\lambda^i$ ] is @xmath359 .
+we will show that @xmath245 is closed under multiplication , and also under factorization .
++ assume @xmath485 .
+clearly , any monomial @xmath336 of @xmath330 is the sum of products @xmath337 where @xmath338 are monomials of @xmath42 , and @xmath57 are monomials of @xmath59 . since @xmath42 and @xmath59 are primary in @xmath60 and their tangible value is @xmath359 , the tangible value of @xmath486 is also @xmath359 . due to corollary [ regfactor ] , @xmath48 is regular
+. thus @xmath48 is primary in @xmath60 and the tangible value of @xmath82 is @xmath359 , and in other words @xmath487 .
++ assume @xmath487 , and assume @xmath48 factor into @xmath330 .
+due to corollary [ regfactor ] , @xmath42 and @xmath59 are regular .
+assume @xmath42 has a monomial @xmath336 which is inessential at @xmath60 .
+@xmath336 must not be completely inessential , so @xmath336 must be at least quasi - essential for some point @xmath488 .
+let @xmath484 be a monomial which is not inessential in @xmath59 at @xmath488 .
+thus @xmath483 is a monomial of @xmath48 which is not inessential at @xmath488 .
+however , since @xmath336 in inessential at @xmath60 then @xmath483 is inessential at @xmath60 ; thus @xmath483 is a monomial of @xmath48 which is not quasi - essential at @xmath60 , and that is absurd .
+therefore both @xmath42 and @xmath59 are primary at @xmath60 .
+the tangible value of @xmath82 is 0 , so the product of the tangible values of @xmath489 must be 0 as well .
+assume that the tangible value of @xmath490 is @xmath74 ; then @xmath491 .
+the tangible value of @xmath492 is clearly 0 , and since the tangible value of @xmath48 is @xmath359 then so is the tangible value of @xmath493 .
+thus @xmath494 .
++ define @xmath495 $ ] , by sending @xmath496}0}}a_i\lambda^i$ ] to @xmath497 .
++ we wish to prove that @xmath251 . for all @xmath498
+we know we can write the polynomials in the form @xmath496}0}}a_i\lambda^i$ ] and @xmath499}0}}a_i\lambda^i$ ] .
+we also know that the product @xmath500 is also in @xmath245 , and thus @xmath501}0}}a_i\lambda^i$ ] .
+define @xmath502 to be the sum of products of the form @xmath503 such that @xmath504 .
+if @xmath505 then we already proved that the monomial @xmath276}0}}a_i\lambda^i$ ] is inessential and should be deleted .
+now , @xmath507 , as desired .
++ having seen that @xmath252 is an homomorphism , we now prove it is an isomorphism .
+clearly @xmath252 is onto , and we will prove it is also injective .
+assume @xmath508 .
+then @xmath48 and @xmath42 both must equal @xmath509}0}}a_i\lambda^i$ ] .
+note that this is mainly due to the fact that @xmath48 and @xmath42 are regular .
++ since @xmath252 is a multiplicative isomorphism , and since @xmath510 $ ] has unique factorization , @xmath245 has unique factorization as well .
+now , let @xmath48 be any primary polynomial at @xmath60 .
+if @xmath74 is the tangible value of @xmath82 , then @xmath511 ; @xmath512 factors uniquely up to multiplication by a constant and clearly so does @xmath48 as desired .
+primary polynomials play an important role in our theory . recall that the essential part at a certain point is a primary polynomial .
+thus , at any corner root , the essential part factors uniquely as a polynomial . one might think this will lead to a proof of unique factorization of general polynomials .
+however this idea fails , as we will now show .
++ let us focus on polynomials in two variables .
+the corner root set consists of line segments , and the points where these segments intersect . as we have seen , the monomials which are quasi - essential on the line segment are quasi - essential at the intersection .
++ assume that the quasi - essential monomials at point @xmath60 factor into @xmath517 , at point @xmath488 the quasi - essential monomials factor into @xmath211 and at the line segment between @xmath518 the quasi - essential monomials factor into @xmath519 .
+clearly , @xmath519 are obtained by deleting inessential monomials from @xmath517 and @xmath211 .
+considering @xmath520 as a part of @xmath241 and @xmath207 , one can reconstruct part of the factors of the polynomial by identifying @xmath207 with @xmath241 .
+however , consider the case that @xmath521 .
+one may identify @xmath207 with @xmath242 and @xmath210 with @xmath241 or @xmath338 with @xmath57 , for @xmath522 . as we will see in the next example , this provides a counterexample to unique factorization .        in the above notation , the points @xmath518 are @xmath526 . for both @xmath42 and @xmath48 at @xmath60 ,
+the quasi - essential monomials are @xmath527 . at @xmath488 , @xmath528 . at the line between @xmath60 and @xmath488 ,
+the quasi - essential monomials are @xmath529 .
+the reconstruction of the irreducible factors of the polynomial can yield either @xmath48 or @xmath42 .
+next we will prove that this is a good example ( i.e. , @xmath155 ) .
++ recall that two regular polynomials are identical if they are root - equivalent .
+therefore , it is enough to show that @xmath155 on the corner roots of @xmath48 and @xmath42 in order to prove that @xmath155 everywhere .
+the corner root set of @xmath530 is the union of the corner root set of @xmath200 and @xmath531 . in the following figures
+, we can see the corner roots of @xmath532 ( solid ) and of @xmath533 ( dashed ) .
++                assume that @xmath535 .
+since @xmath536 is a monomial of @xmath48 , without loss of generality , @xmath200 must have @xmath537 as a monomial , and @xmath531 must have @xmath538 as a monomial for some constant @xmath74 .
+clearly @xmath200 and @xmath531 can not have any monomials of the type @xmath539 where @xmath540 , since @xmath48 does not have such monomials .
+thus @xmath541 , @xmath542 . + fix @xmath543 . for any @xmath544 ,
+there is a monomial of the form @xmath545 of @xmath350 which is not inessential .
+take @xmath546 to obtain a monomial of the form @xmath547 of @xmath48 which is not inessential , in contradiction to the form of @xmath48 .
++ assume @xmath59 has a monomial of the form @xmath548 with @xmath549 , and assume that this monomial is essential or quasi - essential at a point @xmath488 .
+take @xmath550 , to obtain an essential or quasi - essential monomial of @xmath48 of the form @xmath545 , which is absurd .
+thus @xmath551 where @xmath74 is a constant .
++ therefore @xmath552 is the only factorization of @xmath48 and thus @xmath48 is irreducible , as desired .
+a. gathmann , _ tropical algebraic geometry _ , jahresbericht der dmv 108 ( 2006 ) no . 1 , 3 - 32 . i. itenberg , g. mikhalkin , e. shustin , _ tropical algebraic geometry _ , oberwolfach seminars vol .
+35 , birkhauser , ( 2007 ) .
+z. izhakian , l. rowen , _ supertropical algebra _ , advances in mathematics 225.4 , 2222 - 2286 , ( 2010 ) .
+z. izhakian , l. rowen , _ ghost - graded supertropical algebra and its differential calculus _ , preprint , ( 2008 )
+. g. mikhalkin , _ tropical geometry and its applications _ , arxiv preprint math/0601041 ( 2006 ) .
+b. parker , _ exploded manifolds _ , adv .
+math , 229 , ( 2012 ) .

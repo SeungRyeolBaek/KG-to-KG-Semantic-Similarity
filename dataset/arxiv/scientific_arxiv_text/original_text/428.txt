@@ -1,0 +1,247 @@
+it is an interesting fact that the liquid state has proven to be difficult to describe by theory throughout the history of condensed matter research @xcite .
+the problem extends beyond condensed matter and exists in other areas where strong interactions are combined with dynamical disorder such as field theory .    in a weakly - interacting system such as a dense gas ,
+the potential energy is much smaller than the kinetic energy .
+these systems are amenable to perturbation treatment giving corrections to the non - interacting case @xcite .
+perturbation approaches have been widely explored to calculate liquid thermodynamic properties but have not been able to agree with experiments .
+for example , the analysis of tractable models such as van der waals or hard - spheres systems returns the gas - like result for the liquid constant - volume specific heat @xmath0 @xcite .
+this is in contrast to experimental results showing that @xmath1 of monatomic liquids close to the melting point is nearly identical to the solid - like result , @xmath2 and decreases to about @xmath3 at high temperature @xcite .
+as expected on general grounds , the perturbation approach does not work for strongly - interacting systems .
+strong interactions are successfully treated in solids , crystals or glasses , where the harmonic model is a good starting point and gives the most of the vibrational energy .
+however , this approach requires fixed reference points around which the energy expansion can be made . with small vibrations around
+mean atomic positions , solids meet this requirement but liquids seemingly do not : liquid ability to flow implies that the reference lattice is non - existent .
+therefore , liquids seemingly have no simplifying features such as small interactions of gases or small displacements of solids @xcite . in other words , liquids have no small parameter .
+one might adopt a general approach not relying on approximations and seek to directly calculate the liquid energy for a model system where interactions and structure are known .
+this meets another challenge : because the interactions are both strong and system - dependent , the resulting energy and other thermodynamic functions will also be strongly system - dependent , precluding their calculation in general form and understanding using basic principles , in contrast to solids and gases @xcite .
+consistent with this somewhat pessimistic view , the discussion of liquid thermodynamic properties has remained scarce . indeed
+, physics textbooks have very little , if anything , to say about liquid specific heat , including textbooks dedicated to liquids @xcite .    as recently reviewed @xcite , emerging evidence advances our understanding of the thermodynamics of the liquid state .
+the start point is the early theoretical idea of j frenkel @xcite who proposed that liquids can be considered as solids at times smaller than liquid relaxation time , @xmath4 , the average time between two particle rearrangements at one point in space .
+this implies that phonons in liquids will be similar to those in solids for frequencies above the frenkel frequency @xmath5 :    @xmath6    the above argument predicts that liquids are capable of supporting shear modes , the property hitherto attributable to solids only , but only for frequencies above @xmath5 .
+we note that low - frequency modes in liquids , sound waves , are well - understood in the hydrodynamic regime @xmath7 @xcite , however eq .
+( 1 ) denotes a distinct , solid - like elastic regime of wave propagation where @xmath8 .
+in essence , this suggests the existence of a cutoff frequency @xmath5 above which particles in the liquid can be described by the same equations of motion as in , for example , solid glass .
+therefore , liquid collective modes include both longitudinal and transverse modes with frequency above @xmath5 in the solid - like elastic regime and one longitudinal hydrodynamic mode with frequency below @xmath5 ( shear mode is non - propagating below frequency @xmath5 as discussed below ) .
+recall the earlier textbook assertion @xcite that a general thermodynamic theory of liquids can not be developed because liquids have no small parameter .
+how is this fundamental problem addressed here ?
+according to frenkel s idea , liquids behave like solids with small oscillating particle displacements serving as a small parameter .
+large - amplitude diffusive particle jumps continue to play an important role , but do not destroy the existence of the small parameter
+. instead , the jumps serve to modify the phonon spectrum : their frequency , @xmath5 , sets the minimal frequency above which the small - parameter description applies and solid - like modes propagate .
+it has taken a long time to verify this picture experimentally .
+the experimental evidence supporting the propagation of high - frequency modes in liquids currently includes inelastic x - ray , neutron and brillouin scattering experiments but most important evidence is recent and follows the deployment of powerful synchrotron sources of x - rays @xcite .
+early experiments detected the presence of high - frequency longitudinal acoustic propagating modes and mapped dispersion curves which were in striking resemblance to those in solids @xcite . these and similar results were generated at temperature just above the melting .
+the measurements were later extended to high temperatures considerably above the melting point , confirming the same result .
+it is now well established that liquids sustain propagating modes with wavelengths extending down towards interatomic separations , comparable to the wave vectors of phonons in crystals at the brillouin zone boundaries @xcite .
+more recently , the same result has been asserted for supercritical fluids @xcite .
+importantly , the propagating modes in liquids include acoustic transverse modes .
+these were first seen in highly viscous fluids ( see , e.g. , refs .
+@xcite ) , but were then studied in low - viscosity liquids on the basis of positive dispersion @xcite ( the presence of high - frequency transverse modes increases sound velocity from the hydrodynamic to the solid - like value ) .
+these studies included water @xcite , where it was found that the onset of transverse excitations coincides with the inverse of liquid relaxation time @xcite , as predicted by frenkel @xcite .
+more recently , high - frequency transverse modes in liquids were directly measured in the form of distinct dispersion branches and verified on the basis of computer modeling @xcite , and the striking similarity between dispersion curves in liquids and their crystalline ( poly - crystalline ) counterparts was noted .
+we note that the contribution of high - frequency modes is particularly important for liquid thermodynamics because these modes make the largest contribution to the energy due to quadratic density of states .
+the above discussion calls for an important question about liquid thermodynamics . in solids , collective modes , phonons ,
+play a central role in the theory , including the theory of thermodynamic properties .
+can collective modes in liquids play the same role , in view of the earlier frenkel proposal and recent experimental evidence ?
+we have started exploring this question @xcite just before the high - frequency transverse modes were directly measured and subsequently developed it in a number of ways @xcite .
+this involves calculating the liquid energy as the phonon energy where transverse modes propagate above @xmath5 in eq .
+( [ omega ] ) .
+the main aim of this paper is to provide direct computational evidence to the phonon theory of liquid thermodynamics and its predictions .
+we achieve this by calculating the liquid energy and @xmath5 in extensive molecular dynamics simulations . in the next chapter ,
+we briefly discuss the main steps involved in calculating the liquid energy .
+we then proceed to calculating the liquid energy and frenkel frequency independently from molecular dynamics simulations using several methods which agree with each other .
+we do this for three systems chosen from different classes of liquids : noble , metallic and molecular , and find good agreement between predicted and calculated results in the wide range of temperature and pressure .
+the range includes both subcritical liquids and supercritical state below the frenkel line where transverse waves propagate .
+we calculate and analyze liquid energy and @xmath1 using several different methods .
+finally , we discuss how our results offer insights into inter - relationships between structure , dynamics and thermodynamics in liquids and supercritical fluids .
+we summarize the main result of calculation of the liquid energy on the basis of propagating modes .
+a detailed discussion can be found in a recent review @xcite .    according to the previous discussion ,
+the propagating modes in liquids include two transverse modes propagating in the solid - like elastic regime with frequency @xmath9 .
+the energy of these modes , together with the energy of the longitudinal mode gives the liquid vibrational energy .
+in addition to vibrations , particles in the liquids undergo diffusive jumps between quasi - equilibrium positions as discussed above . adding the energy of these jumps to the phonon energy in the debye model
+gives the total energy of thermal motion in the liquid @xcite :    @xmath10    where @xmath11 is the number of particles and @xmath12 is transverse debye frequency and the subscript refers to thermal motion . here and below ,
+@xmath13 .
+at low temperature , @xmath14 , where @xmath15 is the debye vibration period , or @xmath16 . in this case ,
+( [ harmo ] ) gives the specific heat @xmath17 close to 3 , the solid - like result .
+at high temperature when @xmath18 and @xmath19 , eq .
+( [ harmo ] ) gives @xmath1 close to 2 .
+the decrease of @xmath1 from 3 to 2 with temperature is consistent with experimental results in monatomic liquids @xcite .
+the decrease of @xmath1 is also seen in complex liquids @xcite .
+( [ harmo ] ) attributes the experimental decrease of @xmath1 with temperature to the reduction of the number of transverse modes above the frequency @xmath20 .
+the comparison of this effect with experiments can be more detailed if @xmath1 is compared in the entire temperature range where it decreases from @xmath21 to @xmath22 .
+this meets the challenge that @xmath5 in eq .
+( [ harmo ] ) is not directly available in the cases of interest . @xmath5
+( @xmath4 ) is measured is dielectric relaxation or nmr experiments in systems responding to electric or magnetic fields only .
+these liquids are often complex and do not include simple model systems that are widely studied theoretically such as liquid ar .
+importantly , the range of measured @xmath5 does not extend to high frequency comparable to @xmath12 , and it is in this range where liquid @xmath1 undergoes an important change from 3 to 2 as discussed above .
+@xmath5 can be calculated from the maxwell relationship @xmath23 , where @xmath24 is the instantaneous shear modulus and @xmath25 is viscosity taken from a different experiment @xcite .
+more recently , it has been suggested @xcite that taking the shear modulus at a finite high frequency ( rather than infinite frequency ) agrees better with the modelling data .
+apart from rare estimations @xcite , @xmath24 is not available . in practice ,
+the comparison of experimental @xmath1 and @xmath1 predicted as @xmath26 with @xmath27 given by eq .
+( [ harmo ] ) is done by keeping @xmath24 as a free parameter , obtaining a good agreement between experimental and predicted @xmath1 and observing that @xmath24 lies in the range of several gpa typical for liquids @xcite . in the last few years , eq .
+( [ harmo ] ) and its extensions to include the phonon anharmonicity and quantum effects of phonon excitations was shown to account for the experimental @xmath1 of over 20 different systems , including metallic , noble , molecular and network liquids @xcite .
+in view of the persisting problem of liquid thermodynamics , it is important to test eq .
+( [ harmo ] ) directly by linking the liquid energy ( @xmath1 ) on one hand and @xmath5 on the other and testing the theory in a precise way .
+this , together with achieving consistency with other approaches to calculate the liquid energy , is one of the objectives of this study .
+importantly , this programme includes supercritical fluids as well as subcritical liquids , as discussed below .
+if the system is below the critical point ( see figure 1 ) , the temperature increase eventually results in boiling and the first - order transition , with @xmath1 discontinuously decreasing to about @xmath28 in the gas phase .
+the intervening phase transition excludes the state of the liquid where @xmath1 can gradually reduce to @xmath28 and where interesting physics operates .
+however , this becomes possible above the critical point .
+this brings us to the interesting discussion of the supercritical state of matter .
+theoretically , little is known about the supercritical state , apart from the general assertion that supercritical fluids can be thought of as high - density gases or high - temperature fluids whose properties change smoothly with temperature or pressure and without qualitative changes of properties .
+this assertion followed from the known absence of a phase transition above the critical point .
+we have recently proposed that this picture should be modified , and that a new line , the frenkel line ( fl ) , exists above the critical point and separates two states with distinct properties ( see figure [ frenline ] ) @xcite .
+physically , the fl is not related to the critical point and exists in systems where the critical point is absent .
+the main idea of the fl lies in considering how the particle dynamics change in response to pressure and temperature .
+recall that particle dynamics in the liquid can be separated into solid - like oscillatory and gas - like diffusive components .
+this separation applies equally to supercritical fluids as it does to subcritical liquids .
+indeed , increasing temperature reduces @xmath4 , and each particle spends less time oscillating and more time jumping ; increasing pressure reverses this and results in the increase of time spent oscillating relative to jumping . increasing temperature at constant pressure or density ( or decreasing pressure at constant temperature ) eventually results in the disappearance of the solid - like oscillatory motion of particles ; all that remains
+is the diffusive gas - like motion .
+this disappearance represents the qualitative change in particle dynamics and gives the point on the fl in figure [ frenline ] .
+most important system properties qualitatively change either on the line or in its vicinity @xcite . in a given system
+, the fl exists at arbitrarily high pressure and temperature , as does the melting line .
+quantitatively , the fl can be rigorously defined by pressure and temperature at which the minimum of the velocity autocorrelation function ( vaf ) disappears @xcite . above the line defined in such a way
+, velocities of a large number of particles stop changing their sign and particles lose the oscillatory component of motion . above the line
+, vaf is monotonically decaying as in a gas @xcite .
+for the purposes of this discussion , the significance of the fl is that the phonon approach to liquids and eq .
+( [ harmo ] ) apply to supercritical fluids below the fl to the same extent as they apply to subcritical liquids .
+indeed , the presence of an oscillatory component of particle motion below the fl implies that @xmath4 is a well - defined parameter and that transverse modes propagate according to eq .
+( [ omega ] ) .
+the ability of the supercritical system to sustain solid - like rigidity at frequency above @xmath5 suggested the term `` rigid '' liquid to differentiate it from the `` non - rigid '' gas - like fluid above the fl @xcite .
+therefore , the fl separates the supercritical state into two states where transverse modes can and can not propagate .
+this is supported by direct calculation of the current correlation functions @xcite showing that propagating and non - propagating transverse modes are separated by the frenkel line .
+interestingly , eq .
+( [ harmo ] ) can serve as a thermodynamic definition of the fl : the loss of the oscillatory component of particle motion at the fl approximately corresponds to @xmath18 ( here , @xmath15 refers to debye period of transverse modes ) or @xmath19 . according to eq .
+( [ harmo ] ) , this gives @xmath1 of about 2 . using the criterion @xmath29 gives the line that is in remarkably good coincidence with the line obtained from the vaf criterion above @xcite .
+we have considered liquids from three important system types : noble ar , molecular co@xmath30 and metallic fe .
+we have used the molecular dynamics ( md ) simulation package dl_poly @xcite and simulated systems with @xmath31 particles with periodic boundary conditions .
+the interatomic potential for ar is the pair lennard - jones potential @xcite , known to perform well at elevated pressure and temperature . for co@xmath30 and fe
+, we have used interatomic potentials optimized tested in the liquid state at high pressure and temperature .
+the potential for co@xmath30 is the rigid - body nonpolarizable potential based on a quantum chemistry calculation , with the partial charges derived using the distributed multipole analysis method @xcite .
+fe was simulated using the many - body embedded - atom potential @xcite . in the case of co@xmath30
+, the electrostatic interactions were evaluated using the smooth particle mesh ewald method .
+the md systems were first equilibrated in the constant pressure and temperature ensemble at respective state points for 20 ps .
+system properties were subsequently simulated at different temperatures and averaged in the constant energy and volume ensemble for 30 ps .
+we are interested in properties of real dense strongly - interacting liquids with potential energy comparable to kinetic energy and hence have chosen fairly high densities : @xmath32 g/@xmath33 and @xmath34 g/@xmath33 for ar , @xmath35 g/@xmath33 and @xmath36 g/@xmath33 for fe and @xmath37 g/@xmath33 for co@xmath30 .
+the lowest temperature in each simulation was the melting temperature at the corresponding density , @xmath38 .
+the highest temperature significantly exceeded the temperature at the frenkel line at the corresponding density , @xmath39 , taken from the earlier calculation of the frenkel line in ar @xcite , fe @xcite and co@xmath30 @xcite .
+as discussed above , the temperature range between @xmath38 and @xmath39 corresponds to the regime where transverse modes progressively disappear and where eq .
+( [ harmo ] ) applies .
+we have simulated @xmath40 temperature points at each pressure depending on the system .
+the number of temperature points was chosen to keep the temperature step close to 10 k.    as discussed above , eq .
+( [ harmo ] ) applies to subcritical liquids as well as to supercritical fluids below the frenkel line .
+our simulations include the temperature range both below and above the critical temperature .
+this will be discussed in more detail below .
+we have calculated @xmath5 in ( [ harmo ] ) from its definition in ( [ omega ] ) , as @xmath20 .
+@xmath4 can be calculated in a number of ways .
+most common methods calculate @xmath4 as decay time of the self - intermediate scattering or other functions by the factor of @xmath41 or as the time at which the mean - squared displacement crosses over from ballistic to diffusive regime @xcite .
+these methods give @xmath4 in agreement with a method employing the overlap function depending on the cutoff parameter @xmath42 provided @xmath43 , where @xmath44 is the inter - molecuar distance @xcite .
+we use the latter method and calculate @xmath4 at 13 - 20 temperature points at each density depending on the system . at each density
+, we fit @xmath4 to the commonly used vogel - fulcher - tammann dependence and use @xmath20 to calculate the liquid energy predicted from the theory .
+the predicted @xmath1 is calculated as @xmath17 where @xmath27 is given by eq .
+( [ harmo ] ) :    @xmath45    where @xmath11 is the number of atoms for ar and fe and the number of molecules for co@xmath30 .
+the first two terms in ( [ cv ] ) give @xmath29 when @xmath5 tends to its high - temperature limit of @xmath5 .
+the last term reduces @xmath1 below 2 by a small amount because @xmath46 is close to zero at high temperature @xcite .
+we now compare the calculated energy and @xmath1 with those directly computed in the md simulations .
+we note that the energy in eq .
+( [ harmo ] ) is the energy of thermal phonon motion , @xmath47 , which contributes to the total liquid energy as    @xmath48    where @xmath49 is liquid energy at zero temperature and represents temperature - independent background contribution due to the interaction energy .    in comparing the calculated @xmath50 in eq .
+( [ harmo ] ) with the energy from md simulations , we therefore subtract the constant term from the md energy . the comparison of @xmath17 is performed directly because the constant term does not contribute to @xmath1 .
+we have also calculated @xmath1 using the fluctuations formula for the kinetic energy @xmath51 in the constant energy ensemble : @xmath52 @xcite .
+both methods agree well , as follows from figures [ ar]a and [ ar]b .    there is only one adjustable parameter in eq .
+( [ harmo ] ) , @xmath12 , which is expected to be close to transverse debye frequency .
+@xmath5 is independently calculated from the md simulation as discussed above . in figures [ ar ] and [ fe ]
+we compare the energy and @xmath1 calculated on the basis of eqs .
+( [ harmo ] ) and ( [ cv ] ) and compare them with those computed in md simulations .
+blue circle in each figure shows the critical temperature .
+we observe good agreement between predicted and calculated properties in a temperature range including both subcritical and supercritical temperature .
+this involved using @xmath53 ps ( @xmath35 g/@xmath33 ) and @xmath54 ps ( @xmath36 g/@xmath33 ) for fe , @xmath55 ps ( @xmath32 g/@xmath33 ) and @xmath56 ps ( @xmath34 g/@xmath33 ) for ar and @xmath57 ps for co@xmath30 , in reasonable order - of - magnitude agreement with experimental @xmath15 of respective crystalline systems as well as maximal frequencies seen in experimental liquid dispersion curves ( see , e.g. , @xcite ) .
+we note the expected trend of @xmath15 reducing with density .    at high temperature where @xmath58 , eq .
+( [ cv ] ) predicts @xmath1 close to 2 , noting that the last term gives only a small contribution to @xmath1 because @xmath5 becomes slowly varying at high temperature .
+consistent with this prediction , we observe the decrease of @xmath1 from 3 to 2 in figures [ ar ] and [ fe ] .
+the agreement between the predicted and calculated results supports the interpretation of the decrease of @xmath1 with temperature discussed in the introduction : @xmath5 decreases with temperature , and this causes the reduction of the number of transverse modes propagating above @xmath5 and hence the reduction of @xmath1 .    for co@xmath30 ,
+the same mechanism operates except we need to account for degrees of freedom in a molecular system .
+we first consider the case of solid co@xmath30 .
+the md interatomic potential treats co@xmath30 molecules as rigid linear units , contributing the kinetic term of 2.5 to the specific heat per molecule including 1 from the rotational degrees of freedom of the linear molecular and 1.5 from translations ( here , we have noted that co@xmath30 molecules librate and rotate in the solid at low and high temperature , respectively @xcite ) .
+noting the potential energy contributes the same term due to equipartition , the specific heat becomes 5 per molecule .
+this implies that for molecular co@xmath30 , eqs .
+( [ harmo ] ) modifies as @xmath59 , where @xmath11 is the number of molecules and @xmath5 is related to the jump frequency of molecules and which gives @xmath60 in the solid state where @xmath5 is infinite .
+we use the modified equation to calculate the energy and @xmath1 and compare them to those computed from the md simulation in figure [ co2 ] .
+consistent with the above discussion , we observe that @xmath1 for co@xmath30 calculated directly from the md simulations is close to 5 at low temperature just above melting . at this temperature , @xmath16 , giving the solid - like value of @xmath1 as in the case of monatomic ar and fe . as temperature increases , two transverse modes of inter - molecular motion
+progressively disappear , resulting in the decrease of @xmath1 to the value of about @xmath61 , in agreement with @xmath1 calculated from the theoretical equation for @xmath50 .
+we note that the temperature range in which we compare the predicted and calculated properties is notably large ( e.g. , @xmath62 k for ar , and @xmath63 k for fe ) .
+this range is 10 - 100 times larger than those typically considered earlier @xcite .
+the higher temperatures for fe might appear as unusual , however we note that liquid iron as well as supercritical iron fluid remains an unmodified system up to very high temperature : the first ionization potential of fe is 7.9 ev , or over 90,000 k. hence the considered temperature range is below the temperature at which the system changes its structure and type of interactions .    the very wide temperature range reported here is mostly related to the large part of the temperature interval in figures [ ar]-[co2 ] being above the critical point where no phase transition intervenes and where the liquid phase exists at high temperature , in contrast to subcritical liquids where the upper temperature is limited by the boiling line .
+the agreement between predicted and calculated properties in such a wide temperature range adds support to the phonon approach to liquid thermodynamics we propose .
+we make three points regarding the observed agreement between the calculated and predicted results .
+first , the collective modes contributing to the thermal energy in ( [ harmo ] ) are considered to be harmonic .
+the anharmonicity can be accounted for in the grneisen approximation , however this involves an additional parameter @xcite .
+we attempted to avoid introducing additional parameters and sought to test eq .
+( [ harmo ] ) which contains only one parameter , @xmath12 .
+second , eq .
+( [ harmo ] ) involves the debye model and quadratic density of states ( dos ) .
+this approximation is justified since the debye model is particularly relevant for disordered isotropic systems such as glasses @xcite , which are known to be nearly identical to liquids from the structural point of view .
+furthermore , the experimental dispersion curves in liquids are very similar to those in solids such as poly - crystals @xcite .
+therefore , the debye model can be used in liquids to the same extent as in solids .
+one important consequence of this is that the high - frequency range of the phonon spectrum makes the largest contribution to the energy , as it does in solids including disordered solids .
+we also note that liquid dos can be represented as the sum of solid - like and gas - like components in the two - phase thermodynamic model @xcite , and the solid - like component can be extracted from the liquid dos calculated in md simulations .
+this can provide more information about the dos beyond debye approximation .
+third , eq . ( [ harmo ] ) assumes a lower frequency cutoff for transverse waves , @xmath20 , as envisaged by frenkel in ( [ omega ] ) .
+our recent detailed analysis of the frenkel equations shows that the dispersion relationship for liquid transverse modes is @xmath64 , where @xmath65 is the shear speed of sound and @xmath66 is wavenumber @xcite . here
+, @xmath67 gradually crosses over from @xmath68 to its solid - like branch @xmath69 when @xmath70 . in this sense , using a lower frequency cutoff in ( [ harmo ] ) might be thought of as an approximation .
+however , we have recently shown @xcite that the square - root dependence of @xmath67 gives the liquid energy that is identical to ( [ harmo ] ) .
+the results in the previous sections support the picture in which the decrease of liquid @xmath1 from 3 to 2 is related to reduction of the energy of transverse modes propagating above @xmath5 as described by eq .
+( [ cv ] ) . according to eq .
+( [ cv ] ) , @xmath29 corresponds to complete disappearance of transverse modes at the fl when @xmath58 ( the disappearance is supported by the direct calculation of transverse modes on the basis of current correlation functions @xcite ) .
+importantly , @xmath29 marks the crossover of @xmath1 because the evolution of collective modes is qualitatively different below and above the fl @xcite .
+below the line , transverse modes disappear starting from the lowest frequency @xmath5 . above the line ,
+the remaining longitudinal mode starts disappearing starting from the highest frequency @xmath71 , where @xmath72 is the particle mean free path ( no oscillations can take place at distance smaller than @xmath72 ) .
+this gives qualitatively different behavior of the energy and @xmath1 below and above the fl , resulting in their crossover at the fl @xcite .
+interestingly , the thermodynamic crossover at @xmath29 implies a structural crossover .
+indeed , the energy per particle in a system with pair - wise interactions is    @xmath73    where @xmath74 is number density and @xmath75 is radial distribution function .
+according to eq .
+( [ toten ] ) , the liquid energy is @xmath76 , where @xmath50 is given by eq .
+( [ harmo ] ) . if the system energy undergoes the crossover at the fl where @xmath29 , eq .
+( [ ene ] ) implies that @xmath75 should also undergo a crossover .
+therefore , the structural crossover in liquids can be predicted on the basis of the thermodynamic properties .
+we also expect the structural crossover at the fl to be related to the dynamical crossover on general grounds . as discussed above , below
+the fl particles oscillate around quasi - equilibrium positions and occasionally jump between them .
+the average time between jumps is given by liquid relaxation time , @xmath4 ( figure [ atoms ] schematically shows a local jump event from its surrounding `` cage '' . )
+this means that a static structure exists during @xmath4 for a large number of particles below the fl , giving rise to the well - defined medium - range order comparable to that existing in disordered solids @xcite . on the other hand ,
+the particles lose the oscillatory component of motion above the fl and start to move in a purely diffusive manner as in gases .
+this implies that the features of @xmath75 are expected to be gas - like . as a result
+, @xmath75 medium - range peaks are expected to have different temperature dependence below and above the fl .
+this behavior was observed in ar in md simulations in the short - range structure @xcite .
+more recently , the crossover in supercritical ne in the medium range at the fl was ascertained on the basis of x - ray scattering experiments @xcite .    in figure
+[ rdf]a we plot pair distribution functions ( pdfs ) of ar at density @xmath34 g/@xmath33 in a wide temperature range . using the fl criterion @xmath29 gives the temperature at the fl , @xmath39 , of about 4000 k at that density , which we find to be consistent with the criterion of the disappearance of the minimum of the velocity autocorrelation function @xcite .
+the pdf was calculated with the distance step of @xmath77  , giving 600 pdf points .
+we observe pdf peaks in the medium range order up to about 20   at low temperature .
+the peaks reduce and broaden with temperature . to study this in more detail ,
+we plot the peak heights vs temperature in figure [ rdf]b .
+we observe that the medium - range third and fourth peaks persist well above the critical temperature ( @xmath78 k for ar ) : the highest temperature simulated corresponds to @xmath79 .
+this interestingly differs from the traditional expectation that the structure of the matter so deep in the supercritical state has gas - like features only . at temperature above @xmath39 ,
+the height of the fourth peak becomes comparable to its temperature fluctuations ( calculated as the standard deviation of the peak height over many structures separated in time by 1 ps at each temperature ) by order of magnitude .
+the fifth and higher - order peaks disappear before the highest temperature in the simulated range is reached .
+we plot the peak heights in figure [ rdf]b in the double - logarithmic plot because we expect to see an approximate power - law decay of the peak heights at low temperature .
+indeed , pdf in solids can be represented as a set of gaussian functions with peaks heights @xmath80 depending on temperature as @xmath81 where @xmath82 is a temperature - independent factor @xcite .
+this temperature dependence of @xmath80 was also quantified in md simulations @xcite .
+@xmath80 decrease mostly due to the factor @xmath83 whereas the effect of the exponential factor on @xmath80 is small and serves to reduce the rate at which @xmath80 decrease @xcite .
+this implies that in solids , @xmath84 approximately holds .    in liquids
+, we expect the same relationship to hold below the fl where @xmath14 , corresponding to a particle oscillating many times before diffusively moving to the next quasi - equilibrium position . indeed , the ratio of the number of diffusing particles @xmath85 to the total number of particles @xmath11 in the equilibrium state is @xmath86 @xcite at any given moment of time .
+@xmath87 is small when @xmath14 below the fl and can be neglected .
+hence , @xmath84 applies to liquids at any given moment of time below the fl where @xmath14 .
+this also applies to longer observation times if @xmath80 is averaged over @xmath4 @xcite .
+we note that the above result , @xmath88 , involves the assumption that the energy of particle displacements is harmonic ( see , e.g. , ref .
+anharmonicity becomes appreciable at high temperature , however the anharmonic energy terms are generally small compared to the harmonic energy .
+this is witnessed by the closeness of high - temperature @xmath1 to its harmonic result for both solids and high - temperature liquids @xcite .
+we therefore expect that @xmath89 approximately holds in the low - temperature range below the fl as in solids but deviates from the linearity around the crossover at the fl where @xmath18 and where the dynamics becomes gas - like ( the calculated pdf in fig .
+[ rdf]a is normalized to 1 where no correlations are present at large distances ; hence we plot @xmath90 in order to compare it with the theoretical result @xmath88 which tends to zero when no correlations are present at high temperature ) .
+we note that the crossover is expected to be broad because @xmath14 applies well below the fl only .
+a substantial diffusive motion takes place in the vicinity of the line where @xmath87 can not be neglected , affecting the linear relationship .
+consistent with the above prediction , we observe the linear regime at low temperature in figure [ rdf]b , followed by the deviation from the straight lines taking place around 3000 k for the 2nd peak , 5000 k for the 3rd peak and 4000 k for the 4th peak , respectively .
+the smooth crossover in the 3000 - 5000 k range is centered around 4000 k , consistent with the temperature at the frenkel line discussed above .
+we also note that 4000 k corresponds to the specific heat @xmath29 in figure [ ar]b , in agreement with the earlier discussion .
+as discussed in the introduction , liquids have been viewed as inherently complicated systems lacking useful theoretical concepts such as a small parameter @xcite .
+together with recent experimental evidence and theory @xcite , the modelling data presented here and its quantitative agreement with predictions are beginning to change this traditional perspective . our extensive molecular dynamics simulations of liquid energy and specific heat provide direct evidence for the link between dynamical and thermodynamic properties of liquids .
+we have found this to be the case for several important types of liquids at both subcritical and supercritical conditions spanning thousands of kelvin .
+this supports an emerging picture that liquid thermodynamics can be understood on the basis of high - frequency collective modes .
+a more general implication is that , contrary to the prevailing view , liquids are emerging as systems amenable to theoretical understanding in a consistent picture as is the case in solid state theory .
+in addition to the link between dynamical and thermodynamic properties , we have discussed how these properties are related to liquid structure .
+this research utilised midplus computational facilities supported by qmul research - it and funded by the epsrc grant ep / k000128/1 .
+we acknowledge the support of the royal society , rfbr ( 15 - 52 - 10003 ) and csc .

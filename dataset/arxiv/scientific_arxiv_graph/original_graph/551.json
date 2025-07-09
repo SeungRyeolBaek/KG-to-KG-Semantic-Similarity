@@ -1,0 +1,579 @@
+{
+  "nodes": [
+    {
+      "id": "Capillary Rise",
+      "type": "Phenomenon",
+      "properties": {}
+    },
+    {
+      "id": "Average Radius",
+      "type": "Measure",
+      "properties": {}
+    },
+    {
+      "id": "Pore Pressure",
+      "type": "Pressure",
+      "properties": {}
+    },
+    {
+      "id": "Water Table",
+      "type": "Level",
+      "properties": {}
+    },
+    {
+      "id": "Discharge Vector",
+      "type": "Vector",
+      "properties": {}
+    },
+    {
+      "id": "Inlet Mesh",
+      "type": "Mesh",
+      "properties": {}
+    },
+    {
+      "id": "Outlet Mesh",
+      "type": "Mesh",
+      "properties": {}
+    },
+    {
+      "id": "Channel Incision",
+      "type": "Process",
+      "properties": {}
+    },
+    {
+      "id": "Erosion",
+      "type": "Process",
+      "properties": {}
+    },
+    {
+      "id": "Hydrodynamic Stresses",
+      "type": "Stress",
+      "properties": {}
+    },
+    {
+      "id": "Viscous Shear Stress",
+      "type": "Stress",
+      "properties": {}
+    },
+    {
+      "id": "Shields Number",
+      "type": "Number",
+      "properties": {}
+    },
+    {
+      "id": "Grain Diameter",
+      "type": "Length",
+      "properties": {}
+    },
+    {
+      "id": "Inclination Angle",
+      "type": "Angle",
+      "properties": {}
+    },
+    {
+      "id": "Seepage Force",
+      "type": "Force",
+      "properties": {}
+    },
+    {
+      "id": "Boundary Shear Stress",
+      "type": "Stress",
+      "properties": {}
+    },
+    {
+      "id": "Surface Water Layer Thickness",
+      "type": "Thickness",
+      "properties": {}
+    },
+    {
+      "id": "Surface Water Flux",
+      "type": "Flux",
+      "properties": {}
+    },
+    {
+      "id": "Particle Reynolds Number",
+      "type": "Number",
+      "properties": {}
+    },
+    {
+      "id": "Bottom Shear Stress",
+      "type": "Stress",
+      "properties": {}
+    },
+    {
+      "id": "Shear Velocity",
+      "type": "Velocity",
+      "properties": {}
+    },
+    {
+      "id": "Surface Flow Thickness",
+      "type": "Thickness",
+      "properties": {}
+    },
+    {
+      "id": "Normal Component",
+      "type": "Component",
+      "properties": {}
+    },
+    {
+      "id": "Seepage Force Reduction Factor",
+      "type": "Factor",
+      "properties": {}
+    },
+    {
+      "id": "Erosive Force",
+      "type": "Force",
+      "properties": {}
+    },
+    {
+      "id": "Water Level Excess",
+      "type": "Level",
+      "properties": {}
+    },
+    {
+      "id": "Hydraulic Head",
+      "type": "Head",
+      "properties": {}
+    },
+    {
+      "id": "Seepage Face",
+      "type": "Face",
+      "properties": {}
+    },
+    {
+      "id": "Seepage Flux",
+      "type": "Flux",
+      "properties": {}
+    },
+    {
+      "id": "Width Of Seepage Face",
+      "type": "Width",
+      "properties": {}
+    },
+    {
+      "id": "Surface Flow Depth",
+      "type": "Depth",
+      "properties": {}
+    },
+    {
+      "id": "Critical Shields Number",
+      "type": "Number",
+      "properties": {}
+    },
+    {
+      "id": "Channelization Boundary",
+      "type": "Boundary",
+      "properties": {}
+    },
+    {
+      "id": "Phase Diagram",
+      "type": "Diagram",
+      "properties": {}
+    },
+    {
+      "id": "Shields_H",
+      "type": "Document",
+      "properties": {}
+    },
+    {
+      "id": "Shields_Seep",
+      "type": "Figure",
+      "properties": {}
+    },
+    {
+      "id": "Phase",
+      "type": "Figure",
+      "properties": {}
+    },
+    {
+      "id": "Fluidize",
+      "type": "Figure",
+      "properties": {}
+    },
+    {
+      "id": "Slump_Jump",
+      "type": "Figure",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Capillary Rise",
+        "type": "Phenomenon",
+        "properties": {}
+      },
+      "target": {
+        "id": "Average Radius",
+        "type": "Measure",
+        "properties": {}
+      },
+      "type": "MEASURES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Capillary Rise",
+        "type": "Phenomenon",
+        "properties": {}
+      },
+      "target": {
+        "id": "Pore Pressure",
+        "type": "Pressure",
+        "properties": {}
+      },
+      "type": "AFFECTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Pore Pressure",
+        "type": "Pressure",
+        "properties": {}
+      },
+      "target": {
+        "id": "Water Table",
+        "type": "Level",
+        "properties": {}
+      },
+      "type": "DEFINES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Water Table",
+        "type": "Level",
+        "properties": {}
+      },
+      "target": {
+        "id": "Discharge Vector",
+        "type": "Vector",
+        "properties": {}
+      },
+      "type": "PARALLEL_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Inlet Mesh",
+        "type": "Mesh",
+        "properties": {}
+      },
+      "target": {
+        "id": "Pore Pressure",
+        "type": "Pressure",
+        "properties": {}
+      },
+      "type": "AFFECTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Outlet Mesh",
+        "type": "Mesh",
+        "properties": {}
+      },
+      "target": {
+        "id": "Boundary Shear Stress",
+        "type": "Stress",
+        "properties": {}
+      },
+      "type": "AFFECTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Channel Incision",
+        "type": "Process",
+        "properties": {}
+      },
+      "target": {
+        "id": "Erosion",
+        "type": "Process",
+        "properties": {}
+      },
+      "type": "COINCIDES_WITH",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Hydrodynamic Stresses",
+        "type": "Stress",
+        "properties": {}
+      },
+      "target": {
+        "id": "Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "type": "DETERMINES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Viscous Shear Stress",
+        "type": "Stress",
+        "properties": {}
+      },
+      "target": {
+        "id": "Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "type": "DETERMINES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "target": {
+        "id": "Grain Diameter",
+        "type": "Length",
+        "properties": {}
+      },
+      "type": "COMPARES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "target": {
+        "id": "Inclination Angle",
+        "type": "Angle",
+        "properties": {}
+      },
+      "type": "COMPARES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "target": {
+        "id": "Seepage Force",
+        "type": "Force",
+        "properties": {}
+      },
+      "type": "COMPARES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Seepage Force",
+        "type": "Force",
+        "properties": {}
+      },
+      "target": {
+        "id": "Inclination Angle",
+        "type": "Angle",
+        "properties": {}
+      },
+      "type": "AFFECTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Seepage Force",
+        "type": "Force",
+        "properties": {}
+      },
+      "target": {
+        "id": "Seepage Force Reduction Factor",
+        "type": "Factor",
+        "properties": {}
+      },
+      "type": "REDUCES_BY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Seepage Force Reduction Factor",
+        "type": "Factor",
+        "properties": {}
+      },
+      "target": {
+        "id": "Inclination Angle",
+        "type": "Angle",
+        "properties": {}
+      },
+      "type": "AFFECTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Seepage Force Reduction Factor",
+        "type": "Factor",
+        "properties": {}
+      },
+      "target": {
+        "id": "Erosion",
+        "type": "Process",
+        "properties": {}
+      },
+      "type": "REALIZES_IMPORTANCE_FOR",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Seepage Force Reduction Factor",
+        "type": "Factor",
+        "properties": {}
+      },
+      "target": {
+        "id": "Critical Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "type": "AFFECTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Erosion",
+        "type": "Process",
+        "properties": {}
+      },
+      "target": {
+        "id": "Critical Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "type": "DETERMINES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Erosion",
+        "type": "Process",
+        "properties": {}
+      },
+      "target": {
+        "id": "Critical Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "type": "PREDICTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Critical Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "target": {
+        "id": "Slope",
+        "type": "Angle",
+        "properties": {}
+      },
+      "type": "DEPENDS_ON",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Critical Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "target": {
+        "id": "Water Level",
+        "type": "Level",
+        "properties": {}
+      },
+      "type": "DEPENDS_ON",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Critical Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "target": {
+        "id": "Channelization Boundary",
+        "type": "Boundary",
+        "properties": {}
+      },
+      "type": "DETERMINES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Phase Diagram",
+        "type": "Diagram",
+        "properties": {}
+      },
+      "target": {
+        "id": "Critical Shields Number",
+        "type": "Number",
+        "properties": {}
+      },
+      "type": "PLOTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shields_H",
+        "type": "Document",
+        "properties": {}
+      },
+      "target": {
+        "id": "Shields_Seep",
+        "type": "Figure",
+        "properties": {}
+      },
+      "type": "SHOWS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shields_H",
+        "type": "Document",
+        "properties": {}
+      },
+      "target": {
+        "id": "Phase",
+        "type": "Figure",
+        "properties": {}
+      },
+      "type": "SHOWS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shields_H",
+        "type": "Document",
+        "properties": {}
+      },
+      "target": {
+        "id": "Fluidize",
+        "type": "Figure",
+        "properties": {}
+      },
+      "type": "SHOWS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Shields_H",
+        "type": "Document",
+        "properties": {}
+      },
+      "target": {
+        "id": "Slump_Jump",
+        "type": "Figure",
+        "properties": {}
+      },
+      "type": "SHOWS",
+      "properties": {}
+    }
+  ]
+}

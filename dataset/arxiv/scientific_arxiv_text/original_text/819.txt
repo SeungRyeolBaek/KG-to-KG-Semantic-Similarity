@@ -1,0 +1,153 @@
+the `` nodal defect '' of an eigenfunction of a schrdinger operator is closely related to the difference between the upper bound on the number of nodal domains given by courant s theorem and the number of nodal domains . in the recent paper @xcite
+, gregory berkolaiko proves a nice formula for the nodal defect of an eigenfunction of a schrdinger operator on a finite graph in terms of the morse index of the corresponding eigenvalue as a function of a magnetic deformation of the operator .
+his proof remains mysterious and rather indirect . in order to get a better understanding in view of possible generalizations , it is desirable to have a more direct approach .
+this is what we do here .    after reviewing our notation
+, we summarize the main result and give an informal description of the proof in section  [ sec : statement ] .
+the proof itself is implemented in sections  [ sec : qf ] and [ sec : hess ] with an alternative view provided in appendix  [ sec : pedestrian ] .
+the continuous schrdinger operator on a circle is considered in appendix  [ sec : hills ] and various special cases and further ideas are explored in other appendices .
+let @xmath0 be a finite connected graph where @xmath1 is the set of vertices and @xmath2 the set of unoriented edges .
+we denote by @xmath3 the edge linking the vertices @xmath4 and @xmath5 .
+we denote by @xmath6 the set of oriented edges and by @xmath7 $ ] the edge from @xmath4 to @xmath5 ; the set @xmath6 is a 2-fold cover of @xmath2 .
+a 1-form @xmath8 on @xmath9 is a map @xmath10 such that @xmath11)=-\ga([x , y])$ ] for all @xmath12 .
+we denote by @xmath13 the vector space of dimension @xmath14 of 1-forms on @xmath9 . the operator @xmath15 is defined by @xmath16)=f(y)-f(x)$ ] .
+if @xmath17 is a non - degenerate , not necessarily positive , quadratic form on @xmath13 , we denote by @xmath18 the adjoint of @xmath19 where @xmath20 carries the canonical euclidean structure and @xmath13 is equipped with the symmetric inner product @xmath21 associated to @xmath17 .
+we have @xmath22 where @xmath23 is the dimension of the space of cycles of @xmath9 .
+we will show later that , in our context , we have the hodge decomposition @xmath24 where both spaces are @xmath21-orthogonal .
+following @xcite , we denote by @xmath25 the set of @xmath26 real symmetric matrices @xmath27 which satisfy @xmath28 if @xmath29 and @xmath30 if @xmath31 and @xmath32 .
+note that the diagonal entries of @xmath27 are arbitrary .
+an element @xmath27 of @xmath25 is called a _ schrdinger operator _ on the graph @xmath9
+. it will be useful to write the quadratic form associated to @xmath27 as @xmath33 with @xmath34 .
+a _ magnetic field _ on @xmath9 is a map @xmath35 defined by @xmath36)= e^{i \ga _ { x , y}}$ ] where @xmath7 \mapsto   \ga _ { x , y}$ ] is a 1-form on @xmath9 .
+we denote by @xmath37 the manifold of magnetic fields on @xmath9 .
+the magnetic schrdinger operator @xmath38 associated to @xmath39 and @xmath40 is defined by the quadratic form @xmath41\in \vec{e } } h_{x , y}| f(x)-e^{i\ga_{x , y}}f(y)|^2 + \sum_{x\in x } v_x |f(x)|^2\ ] ] associated to a hermitian form on @xmath42 . more explicitly , if @xmath43 , @xmath44    we fix @xmath27 and we denote by @xmath45 the eigenvalues of @xmath38 .
+it will be important to notice that @xmath46 .
+moreover , we have a gauge invariance : the operators @xmath38 and @xmath47 with @xmath48 for some @xmath49 are unitarily equivalent .
+hence they have the same eigenvalues .
+this implies that , if @xmath50 ( this is not always the case because @xmath17 is not positive ) , it is enough to consider @xmath51forms in the subspace @xmath52 of @xmath13 when studying the map @xmath53 .
+this holds in particular for investigations concerning the hessian and the morse index .
+before stating the main result , we recall the    [ def : index ] the morse index @xmath54 of a quadratic form @xmath55 on a real vector space @xmath2 is defined by @xmath56 where @xmath57 is a subspace of @xmath2 so that @xmath58 is @xmath59 .
+the nullity of @xmath55 is the dimension of the kernel of @xmath55 .
+the morse index of a smooth real - valued function @xmath60 defined on a smooth manifold @xmath61 at a critical point @xmath62 ( i.e. a point satisfying @xmath63 ) is the morse index of the hessian of @xmath60 , which is a canonically defined quadratic form on the tangent space @xmath64 . the critical point @xmath65 is called non - degenerate if the previous hessian is non - degenerate .
+the nullity of the critical point @xmath65 of @xmath60 is the nullity of the hessian of @xmath60 at the point @xmath65 .
+the aim of this note is to prove the following nice results due to berkolaiko @xcite :    [ theo : main ] let @xmath0 be a finite connected graph and @xmath66 the dimension of the space of cycles of @xmath9 .
+we suppose that the @xmath67-th eigenvalue @xmath68 of @xmath69 is simple .
+we assume moreover that an associated non - zero eigenfunction @xmath70 satisfies @xmath71 for all @xmath72
+. then , the number @xmath73 of edges along which @xmath74 changes sign satisfies @xmath75 .
+moreover @xmath76 is smooth at @xmath77 which is a critical point of @xmath78 and the nodal defect , @xmath79 is the morse index of @xmath80 at that point . if @xmath61 is the manifold of dimension @xmath81 of magnetic fields on @xmath9 modulo the gauge transforms , the function @xmath82 \ra \lambda _ n ( b)$ ] has @xmath83 $ ] as a non - degenerate critical point .
+the previous results can be extended by replacing the critical point @xmath84 by @xmath85 for all edges @xmath86 .
+the number @xmath73 is then the number of edges @xmath87 satisfying @xmath88 where @xmath74 is the corresponding eigenfunction .
+the assumptions on @xmath27 are satisfied for @xmath27 in an open dense subset of @xmath25 .
+the upper bound of @xmath89 in the first part of theorem [ theo : main ] is related to courant nodal theorem ( see @xcite section vi.6 ) as follows : a nodal domain on a graph for the eigenfunction @xmath74 is a connected component of the sub - graph @xmath90 of @xmath9 obtained by removing the edges along which @xmath74 changes sign .
+denoting by @xmath91 the number of nodal domains of @xmath74 , the courant theorem for graphs ( see @xcite , theorem 2.4 ) asserts that @xmath92 ; using euler formula for the graph @xmath90 and because @xmath93 , the number of connected components of the graph @xmath90 , we get also a lower bound ( see @xcite ) :    under the assumptions of theorem [ theo : main ] , we have @xmath94    * important warning : * _ without loss of generality , we can and will assume in the rest of this note that @xmath95 .
+this implies that the morse index of @xmath96 is @xmath97 .
+_    in the course of the proof we will use a special choice of gauge in which we can compute the hessian explicitly .
+more precisely , according to the classical perturbation formulae , @xmath98 where we assumed that @xmath99 is at a critical point : @xmath100 .
+the first term is easy to calculate explicitly ; for perturbation in the direction of the 1-form @xmath101 it is @xmath102)^2 ~{\rm with } ~     a_{x , y}=-h_{x , y}\phi_n(x)\phi_n(y)=a_{y , x}~.\ ] ] considered as a quadratic form in @xmath101 , @xmath17 is already in the diagonal form .
+its index is clearly the number of negative values among @xmath103 , or , in other words , the number @xmath89 of edges where @xmath74 changes sign !    we will present an explicit choice of gauge in which the second term vanishes .
+the condition for this is @xmath104 which , after explicit calculation , can be interpreted as @xmath105 , where @xmath106 is the conjugate of @xmath19 with respect to the inner product induced by .
+finally , we observe that the index of @xmath107 has been computed to be @xmath89 in the whole of @xmath108 , whereas we should be restricting ourselves to our chosen gauge , @xmath105
+. we will show that this restriction reduces the index precisely by @xmath97 .
+indeed , the splitting @xmath109 is orthogonal with respect to the form @xmath17 , therefore @xmath110 we establish that @xmath111 by relating the form @xmath17 on @xmath112 to the quadratic form @xmath96 around the point @xmath74 .
+the set of forms @xmath113 where @xmath114 , the set of subsets with two elements of @xmath1 , and @xmath115 with @xmath116 is a basis of the set of quadratic forms on @xmath20 .
+a quadratic form @xmath55 on @xmath117 is said of laplace type if @xmath118 where @xmath119 is the symmetric bi - linear form associated to @xmath55 .
+[ lemm : lapl ] the set of forms @xmath120 is a basis of the space of quadratic forms of laplace type .    the form @xmath121 , where @xmath122 is the point - wise product of @xmath74 and @xmath60 , is of laplace type because @xmath123 hence @xmath124 .
+moreover , @xmath125 . indeed , because of lemma [ lemm : lapl ] , it is enough to compare the coefficients of the basis forms @xmath126 .
+the form @xmath127 is already expanded in this basis . to find the coefficient for the form @xmath128
+, we observe that ( because we know it is of laplace type ) the coefficient in question is minus the coefficient in front of the term @xmath129 , divided by two .
+this evaluates to @xmath130 ( see equation ( [ equ : axy ] ) ) .
+in fact , we will need to use @xmath131 .
+the morse index of @xmath132 is equal to @xmath97 .
+it is a general fact that the morse index of the quadratic form @xmath133 is the same as the morse index of the restriction of @xmath17 to the image of @xmath134 .
+hence , the morse index of @xmath132 is the morse index of @xmath135 on @xmath20 . because @xmath136 is a linear isomorphism ,
+this index is equal to the index of @xmath96 by sylvester theorem . since @xmath137
+, the index of @xmath96 is @xmath97 by elementary spectral theory .
+[ lemm : hodge ] let us denote by @xmath18 the adjoint of @xmath19 where @xmath20 is equipped with the canonical euclidean structure and @xmath138 with the inner product associated to @xmath17 .
+the space @xmath138 splits as @xmath139 ( hodge type splitting ) , and this decomposition is @xmath17-orthogonal .
+more explicitly @xmath18 is given by @xmath140)~.\ ] ]    if @xmath141 satisfies @xmath142 , we have @xmath143 .
+hence @xmath144 for all @xmath145 and @xmath146 .
+because @xmath147 is of multiplicity @xmath148 , this implies that @xmath60 is constant and hence @xmath149 .
+so @xmath150 and the conclusions follow .    at this point , we know that the nodal defect is the morse index of the restriction of @xmath17 to the space @xmath151 of dimension @xmath66 . the first part of the theorem follows .
+we need one more fact to complete the proof : to identify the hessian of @xmath78 on @xmath152 at @xmath84 with the restriction of @xmath17 to @xmath151 .
+let us denote by @xmath153 the set of unit vectors @xmath60 normalized so that @xmath154 is real and @xmath155 where @xmath65 is chosen in @xmath156 .
+the point @xmath84 is a critical point of @xmath78 . if @xmath157 is the eigenfunction of @xmath38 corresponding to the eigenvalue @xmath158 , the differential of @xmath159 vanishes at @xmath84 on @xmath151 .
+the first property comes from the fact that @xmath160 .
+we can compute , for any variation @xmath161 , @xmath162 close to @xmath163 , of @xmath84 , @xmath164 .
+the condition @xmath165 can be written as @xmath166 for all @xmath116 . from equation ( [ equ : magn ] ) , this is equivalent to @xmath167 .
+hence @xmath168 and @xmath169 since @xmath170 is simple . from the normalization @xmath171 , we get @xmath172 and , since @xmath173 , the number @xmath174 is real .
+we deduce that @xmath175 .
+[ lemm : hess ] the function @xmath176 defined by @xmath177 admits @xmath178 as a critical point and the hessian of @xmath179 at the point @xmath84 is the form @xmath17 .    the differential of @xmath57 with respect to @xmath60 vanishes because @xmath60 is an eigenfunction of @xmath27 . the differential with respect to @xmath151 vanishes , because @xmath180 .
+the hessian of @xmath57 at @xmath181 is well defined . because the differential at @xmath182 of @xmath183 vanishes on @xmath152 , the hessians of @xmath184 and @xmath185 agree .
+a simple calculation of the hessian of @xmath186 gives the result : @xmath187\in\vec{e } } h_{x , y}|   \phi_n ( x)-e^{i\ga _ { x , y}}\phi_n ( y)|^2 + \sum _ { x\in x}v_x |\phi_n(x)|^2=\ ] ] @xmath188\in { e}}h_{x , y } \left ( \phi_n(x)^2 + \phi_n(y)^2 -2\cos \ga _ { x , y}\phi_n(x)\phi_n(y)\right)+\sum _ { x\in x}v_x |\phi_n(x)|^2 .\ ] ] computing the second derivative with respect to @xmath189 at @xmath190 gives @xmath191 .
+we will derive a direct approach to the calculus of the second derivative of an eigenvalue which could be used directly in the proof of lemma [ lemm : hess ] .
+let @xmath192 be a @xmath193 curve defined near @xmath194 in the space of hermitian matrices on a finite dimensional hilbert space @xmath195 .
+let us assume that @xmath196 is an eigenvalue of @xmath197 of multiplicity one with a normalized eigenvector @xmath198 .
+then , for @xmath162 close to @xmath163 , @xmath199 has a simple eigenvalue @xmath200 of multiplicity one which is a @xmath193 function of @xmath162 .
+we can choose an associated eigenfunction @xmath201 which is @xmath193 with respect to @xmath162 .
+the following assertions give the values of the first and second derivatives of @xmath200 at @xmath194 :    [ prop : deriv ] under the previous assumptions , we have @xmath202 if @xmath203 , we have @xmath204 where @xmath205 is any solution of @xmath206 .    in particular , if @xmath207 , @xmath208    we start with @xmath209 where @xmath201 is an eigenfunction of @xmath199 which depends in a @xmath193 way of @xmath162 . taking the first derivative ,
+we get @xmath210 putting @xmath194 and taking the scalar product with @xmath211 , we get the formula for @xmath212 .
+similarly , the @xmath162-derivative of equation ( [ equ : first ] ) is @xmath213 pouting @xmath194 , taking the scalar product with @xmath211 and using @xmath203 , we get the result
+.    we can apply this to @xmath214 with @xmath215 in order to get the hessian of @xmath78 in section [ sec : hess ] .
+the condition @xmath216 is exactly @xmath165 !
+in this appendix , we will describe the case of a schrdinger operator on the circle , also called the hill s operator .
+this is the simplest continuous case , but it may be useful to do it with some details in order to try to extend the method to higher dimensional manifolds .
+the hill s operator is @xmath217 where @xmath218 is a smooth , @xmath148-periodic , function .
+the spectral theory of hill s operators has been well studied ; in particular , the inverse spectral theory for this operator allows to solve non - linear evolution equations , like the korteweg - de vries one .
+a presentation of the properties of hill s operators is given in @xcite .
+the following facts are known :    if we denote by @xmath219 the spectra of @xmath27 acting on periodic ( resp anti - periodic ) functions of period @xmath148 , we have the inequalities @xmath220 and the spectrum of @xmath27 on @xmath221 is then union of intervals , called the bands , @xmath222\cup   [ \gl_2 ^ - , \gl_2^+]\cup [ \gl_3^+,\gl_3 ^ -]\cup \cdots ~.\ ] ]    these statements are linked to the properties of the _ discriminant _ @xmath223 : if @xmath224 and @xmath225 are the _
+normalized solutions _ of @xmath226 whose cauchy data are @xmath227 , the discriminant @xmath228 is the entire function given by @xmath229 .
+the spectrum of @xmath27 on @xmath221 is the set of real @xmath230 s so that @xmath231 .
+the periodic ( resp .
+anti - periodic ) spectra are given by @xmath232 ( resp .
+@xmath233 ) . the function @xmath234 is a regularization of @xmath235 in the spirit of @xcite .
+it is proved in @xcite , section ii , that , if @xmath236 is simple , @xmath237 and the sign of this derivative is that of @xmath238 .
+we will assume that @xmath239 is equal to @xmath163 and is a simple eigenvalue of @xmath27 acting on @xmath148-periodic functions .
+up to gauge transform , every magnetic potential on the circle is a constant @xmath240 .
+the bands are linked to the addition of a magnetic field as follows : the @xmath67-th band is the image of the circle @xmath241 by the map @xmath242 where @xmath243 is the @xmath67-th eigenvalue of @xmath244 which is @xmath27 acting on functions @xmath60 so that @xmath245 . in particular , if @xmath67 is even , @xmath236 is a maximum of @xmath242 while if @xmath67 is odd , @xmath236 is a minimum of @xmath242 .
+this fits with berkolaiko s formula because the ( even ! ) number of zeros of the corresponding periodic eigenfunction @xmath74 is @xmath246 if @xmath67 is even and @xmath247 if @xmath67 is odd ( see @xcite theorem 2.14 ) . in this appendix , we will use the general formula for the second derivative in order to reprove this result and to show that the critical points are non - degenerate .
+a direct computation of @xmath248 using the discriminant works as follows : the spectrum of @xmath244 is given by @xmath249 .
+near @xmath250 , we have @xmath251 .
+this gives @xmath252 , hence the morse index of @xmath242 at @xmath190 is @xmath163 if @xmath67 is odd and @xmath148 is @xmath67 is even
+.      we will denote with a `` dot '' the derivatives w.r . to @xmath240 and by a `` prime '' the derivatives w.r . to @xmath4 .
+the operator @xmath244 is unitarily equivalent to @xmath253 acting on @xmath148-periodic functions .
+we have @xmath254 the derivatives of @xmath255 w.r . to @xmath8 at @xmath190 are @xmath256 and @xmath257 . applying proposition [ prop : deriv ] and denoting by @xmath258 a corresponding normalized eigenfunction , we get @xmath259 moreover @xmath260 .
+let us denote by @xmath261 the function @xmath262 . then , using the method of `` variation of parameters '' ( i.e. making the ansatz @xmath263 with @xmath264 ) , we get @xmath265 where the constant @xmath266 is chosen so that @xmath267 is periodic and @xmath268 is an arbitrary constant which can be fixed by a normalization of @xmath74 .
+we can always assume that @xmath269 by shifting the origin of @xmath270 to some zero of @xmath74 .
+using the wronskian , we see that @xmath271 .
+we have to check the derivatives : @xmath272 or @xmath273 .
+this gives , using equation ( [ equ : phin ] ) , @xmath274    we get @xmath275\phi_n'(x)dx ~.\ ] ] by integration by parts , we have @xmath276 .
+moreover , again by integration by parts , @xmath277 and , since the wronskian @xmath278 is constant and @xmath279 , @xmath280 .
+we get @xmath281 moreover , it follows from equation ( 2.13 ) , page 16 in @xcite and the fact that @xmath282 , that this is exactly @xmath283 .
+in this appendix , we take @xmath284 and assume that @xmath137 is non - degenerate eigenvalue of @xmath27 with a normalized eigenfunction @xmath285 .
+we have the    [ prop : var ] let us assume that , for all vertices @xmath4 satisfying @xmath286 , there exists a vertex @xmath287 so that @xmath288 .
+then , for any @xmath289 orthogonal to @xmath285 , there exists a smooth deformation @xmath290 of @xmath27 so that @xmath291 .
+it is enough to check that the space of @xmath292 is @xmath20 and to use the first variation formulae given in appendix a.    let us assume that the function @xmath293 vanishes at the unique vertex @xmath65 .
+then , the nullity of the hessian of the  magnetic variation  of @xmath27 is at least @xmath294 where @xmath295 is the number of vertices @xmath296 so that @xmath297 .    choose a smooth variation @xmath298 of @xmath27 so that @xmath299 .
+let @xmath73 be the number of sign changes of @xmath293 away of @xmath65 .
+then , for @xmath300 small enough , the number of sign change of @xmath301 is @xmath302 while , for @xmath303 small enough , it is @xmath304 .
+we see from theorem [ theo : main ] that the magnetic morse index is @xmath305 for @xmath300 and @xmath306 .
+the discontinuity of the morse index at @xmath194 is @xmath294 .
+this gives the lower bond on the nullity .
+if @xmath307 , the eigenvalue @xmath163 is degenerate .
+let us remark that this lower bound is not always sharp . in the following example
+, we have @xmath308 , @xmath309 and the nullity of the hessian is @xmath310 .
+the graph @xmath9 is made of 2 cycles of length 3 with a common vertex .
+the matrix of @xmath27 is chosen as follows : @xmath311=-\left(\begin{array}{ccccc}1&1&1&0&0 \\                                    1&1&2&0&0 \\                                    1&2&1&1&2 \\                                    0&0&1&1&1 \\
+0&0&2&1&1   \end{array}\right)\ ] ] using the fact that the graph has a symmetry of order 2 exchanging the 2 cycles , one can split @xmath117 and the matrix @xmath27 into the even and odd parts .
+this allows to check that @xmath312 is non - degenerate .
+in order to compute the magnetic hessian , we check that it is possible to build a decomposition @xmath313 which is @xmath17 orthogonal and with @xmath314 .
+it is then easy to check that the magnetic hessian evaluated on @xmath315 vanishes .
+let @xmath316 be a bipartite graph , with @xmath317 and all edges have a vertex in @xmath318 , the other in @xmath319 .
+let @xmath320 be the involution on @xmath321 given by @xmath322 if @xmath323 and @xmath324 if @xmath325 and let @xmath326 be a magnetic field .
+then @xmath327 with @xmath328 .
+so that @xmath329 .
+an hence it follows form the diamagnetic inequality that @xmath330 has a maximum at @xmath84 . and hence the morse index of the hessian of @xmath330 at @xmath84 is the dimension of the manifold of magnetic fields namely @xmath81 . on the other hand
+the first eigenfunction @xmath331 of @xmath332 is everywhere @xmath333 and the number of sign changes of @xmath334 is @xmath335 .
+so berkolaiko s formula for @xmath336 gives @xmath337 .
+this is the euler formula .
+let us assume that we are in the discrete case and the eigenvalue we consider is @xmath338 .
+then we have @xmath339 where @xmath340 is the product of the eigenvalues @xmath341 for @xmath342 .
+we have @xmath343 .
+hence the index of @xmath344 is the same as the index of @xmath345 .
+there is a formula for the characteristic polynomial of a magnetic laplacian on graphs due to robin forman @xcite and reproved by kenyon @xcite and burman @xcite .
+using the gauge change @xmath346 as in my paper gives a laplace type operator whose entries can be of any sign .
+forman s formula extends to that case and it would be nice to get berkolaiko s formula form forman s formula .

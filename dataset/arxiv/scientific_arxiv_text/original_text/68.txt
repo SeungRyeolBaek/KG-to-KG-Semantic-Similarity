@@ -1,0 +1,29 @@
+the open connectome project ( located at http://openconnecto.me ) aims to annotate all the features in a 3d volume of neural em data , connect these features , and compute a high resolution wiring diagram of the brain , known as a connectome .
+it is hoped that such work will help elucidate the structure and function of the human brain .
+the aim of this work is to automatically annotate axoplasmic reticula , since it is extremely time consuming to hand - annotate them .
+specifically , the objective is to achieve an operating point with high precision , to enable robust contextual inference .
+there has been very little previous work towards this end @xcite .
+axoplasmic reticula are present only in axons , indicating the identity of the surrounding process and informing automatic segmentation .
+the brain data we are working with was color corrected using gradient - domain image - stitching techniques @xcite to adjust contrast through the slices .
+we use this data as the testbed for running our filters and annotating axoplasmic reticula .
+the bilateral filter @xcite is a non - linear filter consisting of one 2d gaussian kernel @xmath0 , which decays with spatial distance , and one 1d gaussian kernel @xmath1 , which decays with pixel intensity : @xmath2_p =   \frac{1}{w_p}\sum_{q\in s}g_{\sigma_{s}}(||p - q||)g_{\sigma_{r}}(i_p - i_q)i_q,\\      & \hspace{4mm}\textrm{where } w_p = \sum_{q\in s}g_{\sigma_{s}}(||p - q||)g_{\sigma_{r}}(i_p - i_q ) \end{split}\ ] ] is the normalization factor .
+this filter smooths the data by averaging over neighboring pixels while preserving edges , and consequently important detail , by not averaging over pixels with large intensity difference . applying this filter
+accentuates features like axoplasmic reticula in our data .
+even with a narrow gaussian in the intensity domain , the bilateral filter causes some color bleeding across edges .
+we try to undo this effect through laplacian sharpening .
+the laplacian filter computes the difference between the intensity at a pixel and the average intensity of its neighbors .
+therefore , adding a laplacian filtered image to the original image results in an increase in intensity where the average intensity of the surrounding pixels is less than that of the center pixel , an intensity drop where the average is greater , and no change in areas of constant intensity .
+hence , we use the 3x3 laplacian filter to highlight edges around dark features such as axoplasmic reticula .
+we use a morphological region growing algorithm on our filtered data to locate and annotate axoplasmic    26.5 mm     @xmath3    26.5 mm     @xmath3    26.5 mm     @xmath3    26.5 mm     @xmath3    26.5 mm     26.5 mm     2 reticula .
+we implement this by iterating over the filtered image and looking for dark pixels , where a dark pixel is defined as a pixel with value less than a certain specified threshold .
+when a dark pixel is found , we check its 8-neighborhood to determine if the surrounding pixels are also below the threshold .
+then , we check the pixels surrounding these , and we do this until we find only high intensity pixels , or until we grow larger than the diameter of an axoplasmic reticula .
+the thresholds we use in our algorithm are biologically motivated and tuned empirically .
+finally , we track our annotations through the volume to verify their correctness and identify axoplasmic reticula that were missed initially . for each slice , we traverse the annotations and check if an axoplasmic reticulum is present in the corresponding xy - location ( with some tolerance ) in either of the adjacent slices .
+if a previously annotated axoplasmic reticulum object is present , we confirm the existing annotation .
+otherwise , the adjacent slice locations are checked for axoplasmic reticula with a less restrictive growing algorithm , and new annotations are added in the corresponding slice . if no axoplasmic reticulum object is found in either of the adjacent slices , then we assume the annotation in the current slice to be incorrect , and delete it .
+we qualitatively evaluated our algorithm on 20 slices from the kasthuri11 dataset , and quantitatively compared our results against ground truth from a neurobiologist .
+our algorithm annotates axoplasmic reticulum objects with 87% precision , and 52% recall .
+these numbers are approximate since there is inherent ambiguity even among expert annotators .
+our current algorithm is designed to detect transverally sliced axoplasmic reticula . in future work , we plan to extend our morphological region growing algorithm to also find dilated axoplasmic reticula , and to incorporate a more robust tracking method such as kalman or particle filtering .
+additionally , our algorithm can be adapted to annotate other features in neural em data , such as mitochondria , by modifying the morphological region growing algorithm .

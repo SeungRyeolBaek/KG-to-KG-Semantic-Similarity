@@ -1,0 +1,181 @@
+{
+  "nodes": [
+    {
+      "id": "Apartment",
+      "type": "Property",
+      "properties": {}
+    },
+    {
+      "id": "Credit",
+      "type": "Financial aspect",
+      "properties": {}
+    },
+    {
+      "id": "Applicant",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Income",
+      "type": "Financial aspect",
+      "properties": {}
+    },
+    {
+      "id": "Landlord",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Renter",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Property Owner",
+      "type": "Person",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Applicant",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Apartment",
+        "type": "Property",
+        "properties": {}
+      },
+      "type": "RENTING",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Applicant",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Credit",
+        "type": "Financial aspect",
+        "properties": {}
+      },
+      "type": "BAD_CREDIT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Apartment",
+        "type": "Property",
+        "properties": {}
+      },
+      "target": {
+        "id": "Landlord",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "REQUIRE_CREDIT_CHECK",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Apartment",
+        "type": "Property",
+        "properties": {}
+      },
+      "target": {
+        "id": "Renter",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "TURN_DOWN_APPLICANTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Applicant",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Income",
+        "type": "Financial aspect",
+        "properties": {}
+      },
+      "type": "PAY_FOR_APARTMENT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Renter",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Landlord",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "GOOD_REFERENCES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Property Owner",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Apartment",
+        "type": "Property",
+        "properties": {}
+      },
+      "type": "RENT_OUT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Property Owner",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Landlord",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "TROUBLE_SELLING_PROPERTY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Renter",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Property Owner",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "GOOD_TENANT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Renter",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Apartment",
+        "type": "Property",
+        "properties": {}
+      },
+      "type": "KEEP_PLACE_CLEAN",
+      "properties": {}
+    }
+  ]
+}

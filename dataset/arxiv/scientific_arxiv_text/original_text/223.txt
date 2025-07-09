@@ -1,0 +1,549 @@
+graphene , a two - dimensional ( 2d ) crystal of carbon atoms tightly packed in a honeycomb lattice , is at the center of an ever growing research effort , due to its potential as a platform material for a variety of applications in fields ranging from electronics , to food packaging  @xcite . in particular , in optoelectronics , photonics , and
+plasmonics graphene has decisive advantages , such as wavelength - independent absorption , tunability via electrostatic doping , large charge - carrier concentrations , low dissipation rates , high mobility , and the ability to confine electromagnetic energy to unprecedented small volumes  @xcite .
+these unique properties make it an ideal material for a variety of photonic applications  @xcite , including fast photodetectors  @xcite , transparent electrodes in displays and photovoltaic modules  @xcite , optical modulators  @xcite , plasmonic devices  @xcite , microcavities  @xcite , ultrafast lasers  @xcite , just to cite a few .
+therefore , understanding the microscopic interactions between light and matter is an essential requirement to progress these emerging research areas into technological applications .
+when light arrives on a graphene sample it creates a highly non - equilibrium `` hot '' electron distribution ( he d ) , which first relaxes on an ultrafast timescale to a thermalized ( but still hot ) fermi - dirac ( fd ) distribution and then slowly cools , _ via _ optical and acoustic phonon emission , eventually reaching thermal equilibrium with the lattice .
+pump - probe spectroscopy is a very effective tool to study the non - equilibrium dynamics of hot carriers and has been extensively applied to a variety of graphene samples and other carbon - based materials  @xcite .
+there is consensus in the literature on the fact that the time scales of the thermalization process , primarily controlled by electron - electron ( e - e ) interactions , are extremely short , of the order of tens of femtoseconds .
+indeed , early theoretical calculations  @xcite based on the _ equilibrium _ many - body diagrammatic perturbation theory for an interacting system of massless dirac fermions ( mdfs ) all pointed to ultrashort e - e inelastic carrier lifetimes , with a sensitive dependence on doping .     of electron states .
+light - gray and dark - gray shaded areas denote occupied states .
+these plots correspond to a non - equilibrium hot - electron distribution .
+arrows mark electron transitions from initial to final states .
+the electron population in each band is conserved in ( a ) and ( b ) , but not in ( c ) and ( d ) .
+( c ) and ( d ) represent `` auger processes , '' which can only take place when the wave vectors of the initial and final states are _
+[ fig : scatteringprocesses ] ]    the theory of the _ non - equilibrium _ dynamics of hot carriers in graphene has also been extensively investigated  @xcite .
+previous works , however , heavily relied on numerical analysis and did not address the following issues . when electrons in graphene are described by the low - energy 2d mdf model  @xcite , a special class of two - body scattering processes poses a serious conundrum . these are `` collinear '' events , in which incoming and outgoing momenta of the scattering particles lie on the same line  @xcite ( see fig .  [
+fig : scatteringprocesses ] ) . on one hand , due to the geometrical nature of these events , one
+is very tempted to conclude that they are irrelevant , since they lie on a one dimensional ( 1d ) manifold embedded in a 2d space , i.e.  a set of zero measure . as we will see in sec .
+[ ssec : coulombkernel ] , this intuitive statement can be formally proven by employing conservation of energy and momentum .
+thus , the phase space for collinear scattering events vanishes in the case of 2d mdf bare bands . on the other hand , when e - e interactions are taken into account going beyond the single - particle picture
+, several interesting things happen .
+i ) mdfs moving in a collinear way along the same directrix `` spend a lot of time together '' since they travel with the same speed  @xcite , the fermi velocity @xmath1 .
+they thus interact very strongly through the non - relativistic coulomb interaction . a simple analysis based on the fermi golden rule shows that this yields  @xcite logarithmically - divergent quasiparticle decay rates and transport coefficients , such as viscosities and conductivities .
+ii ) interactions ( even at the hartree - fock level  @xcite ) are responsible for deviations of the energy - momentum dispersion relation from linearity .
+the renormalized quasiparticle spectrum , controlled by the real part of the quasiparticle self - energy , displays a concave curvature  @xcite , an effect that suppresses collinear scattering .
+iii ) the broadening of the energy - momentum dispersion , which follows from the finiteness of the quasiparticle lifetime ( an effect beyond the hartree - fock theory ) , opens up the phase space for collinear scattering , as thoroughly discussed in sec .
+[ sect : auger ] .
+the broadening of the quasiparticle spectrum is controlled by the imaginary part of the quasiparticle self - energy , a quantity directly probed by angle - resolved photoemission spectroscopy  @xcite .
+iv ) the situation is further complicated by the role of _ screening _ , a key phenomenon in systems with long - range coulomb interactions  @xcite . as we will discuss in sec .
+[ sect : screening ] , static screening does not have a detrimental effect on collinear scattering .
+the opposite occurs when dynamical screening is considered at the level of the random phase approximation ( rpa ) .
+v ) non - linearities and anisotropies in the band structure beyond the mdf model ( such as `` trigonal warping ''  @xcite ) may affect the efficiency of screening .
+these issues were recently addressed in ref .   by means of the equilibrium many - body perturbation theory , as we will discuss in sec .
+[ ssec : screeningmodels ] .
+all these issues raise the following question : is collinear scattering relevant or irrelevant to understand quasiparticle dynamics and transport in graphene ?
+collinear ( or forward ) scattering plays a special role in the dynamics of quasiparticles  @xcite and photo - excited carriers in graphene  @xcite . the finiteness of the quasiparticle lifetime on the mass shell  @xcite can be traced back to the divergence of the density of electron - hole pairs in the collinear direction . in this case , it is the only configuration in which `` impact ionization '' ( imi ) and `` auger recombination '' ( ar ) processes are possible  @xcite ( see fig .  [
+fig : scatteringprocesses ] ) .
+imi and ar ( which we will refer to with the generic term `` auger processes '' ) have been studied since the later fifties  @xcite . in recent years they attracted attention in the context of semiconductors  @xcite and quantum dots  @xcite .
+imi and ar are of fundamental interest because they strongly influence the relaxation dynamics of a he d .
+e.g. , ar in optically - pumped 2d electron systems in the quantum hall regime is responsible  @xcite for emission from states with energy higher than those optically pumped , and thwarts the realization of a landau - level laser , i.e.  a laser that would operate under the 2d landau quantization , with population inversion in the landau levels  @xcite .
+most importantly , auger processes can be exploited to design solar cells  @xcite or other photovoltaic devices that can overcome fundamental limitations  @xcite to photocurrent production by relying on `` carrier multiplication '' ( cm ) .
+we reported evidence of auger processes in graphene  @xcite , proving the existence of imi and cm in a short transient following ultrafast photo - excitation in the optical domain  @xcite .
+the excess energy of photo - excited electrons can also be transferred to secondary electron - hole pairs by intra - band scattering , _ without _ cm from the valence to conduction band .
+this process , also recently experimentally demonstrated  @xcite , proceeds by promotion of electrons from below to above the fermi energy and does not involve processes b)-d ) in fig .
+[ fig : scatteringprocesses ] . on the other hand , refs .  , by probing the non - equilibrium dynamics of mdfs by time- and angle - resolved photo - emission spectroscopy , found no evidence for cm .
+we note , however , that refs .   operated in a regime of pump fluences @xmath2 where cm is not expected on the basis of calculations relying on static screening  @xcite .
+moreover , both experiments lacked sufficient time resolution to observe cm .
+indeed , the higher the pump fluence , the shorter is the time window in which cm exists  @xcite .
+e.g. , for a pump fluence @xmath3 as in ref .
+, cm exists in a time window @xmath4 ( substantially larger than the time resolution in ref .  ) .
+refs .   used much higher pump fluences , i.e.  @xmath5 and @xmath6 , respectively .
+ref .   reported strong evidence of population inversion in graphene after intense photoexcitation , similar to what reported in ref .
+, where evidence of stimulated emission was seen for pump fluences @xmath7 . because of the large fluences in refs .
+, the existence of population inversion can not be ascribed to the absence of auger processes .    in semiconductors , imi ( ar )
+creates ( annihilates ) an electron - hole pair and takes place when the energy transfer to ( from ) one electron is sufficient to overcome the band gap . since graphene is a zero - gap semiconductor , the scattering rates of auger processes are generally larger than in most other common semiconductors , as discussed in ref .  .
+however , ref .   did not address the issue of the vanishing phase space for 2d mdf bare bands .
+moreover , the imi and ar rates calculated in ref .
+refer to fd distributions [ eq .  ( 20 ) in ref .  ] , thus do not apply to generic non - equilibrium situations .
+finally , ref .   did not discuss the role of dynamical screening , now known to play a pivotal role in the electronic and optoelectronic properties of graphene  @xcite .
+here we analyze in detail the interplay between collinear scattering and e - e interactions in the context of the non - equilibrium dynamics of photo - excited electrons .
+we first show that electron lifetime effects open up a finite phase space for collinear scattering processes , thereby regularizing the pathologies mentioned above . here
+we consider the broadening of the energy - momentum dispersion , but we neglect its deviations from linearity due to e - e interactions . although these two effects could be treated in principle on an equal footing ( since they are described by the imaginary and real part of the quasiparticle self - energy , respectively ) , changes in the dispersion due to the real part of the quasiparticle self - energy are relevant only for low carrier densities  @xcite . while our theory is general , the numerical calculations we present in sec .
+[ sec : results ] are focused on a regime with large density of photo - excited carriers , @xmath8 .
+this is a value that is typically used in experimental time - resolved techniques for mapping the relaxation dynamics of electron distributions  @xcite .
+we then discuss the contribution of collinear processes to the coulomb collision integral in the semiclassical boltzmann equation ( sbe ) , which determines , _ together _ with electron - optical phonon ( e - ph ) scattering , the early stages ( sub-@xmath0 ) of the time evolution .
+most importantly , we go beyond the fermi golden rule , by introducing screening at the rpa level .
+contrary to what happens in a conventional 2d parabolic - band electron gas  @xcite , the introduction of _ dynamical _ screening brings in _ qualitative _ new features . on one hand ,
+rpa dynamical screening represents the most natural and elementary way to regularize  @xcite the logarithmic divergences of quasiparticle decay rates and transport coefficients  @xcite . on the other hand , due to a @xmath9 divergence that arises in the polarization function  @xcite @xmath10 of 2d mdfs when the collinear scattering condition @xmath11 is met , rpa dynamical screening
+completely suppresses auger processes .
+this article is organized as follows .
+[ sec : hamiltonian ] describes the model mdf hamiltonian and the sbe for the coupled dynamics of electrons and optical phonons .
+it also reviews the typical timescales , as set by e - e and e - ph interactions .
+[ sect : collinearscattering ] introduces the isotropic sbe and discusses in detail the treatment of collinear scattering in the coulomb collision integral .
+the role of screening is considered in sec .
+[ sect : screening ] .
+[ sec : results ] presents our main numerical results for the electron and phonon dynamics , as obtained from the solution of the isotropic sbe .
+finally , sec .
+[ sec : conclusions ] , summarizes our main conclusions .
+carriers in graphene are described in a wide range of energies ( @xmath12 ) by the mdf hamiltonian  @xcite , @xmath13 where the field operator @xmath14 annihilates an electron with 2d momentum @xmath15 , valley @xmath16 , band index @xmath17 ( or @xmath18 , @xmath19 for conduction and valence band , respectively ) , and spin @xmath20 .
+the quantity @xmath21 represents the mdf band energy , with a slope @xmath22 .
+mdfs interact through the non - relativistic coulomb potential @xmath23 with the following 2d fourier transform @xmath24 where @xmath25 is an average dielectric constant  @xcite calculated with the dielectric constants @xmath26 and @xmath27 of the media above and below the graphene flake .
+intra - valley e - e interactions are described by the following hamiltonian ( in the eigenstate representation ) : @xmath28 where @xmath29 is 2d electron system area and the delta distribution imposes momentum conservation .
+the matrix element of the coulomb potential reads @xmath30 where @xmath31 / 2 $ ] is the so - called `` chirality factor ''  @xcite , which depends on the polar angle @xmath32 of the wave vector @xmath33 .
+the following dimensionless coupling constant  @xcite controls the strength of e - e interactions ( relative to the typical kinetic energy ) : @xmath34      the distribution function @xmath35 represents the probability that a given single - particle state with quantum numbers @xmath36 is occupied .
+the equation of motion ( eom ) for this distribution function in the presence of e - e interactions is given by  @xcite :    @xmath37~.\end{aligned}\ ] ]    the right - hand side of the previous equation is the collision integral and the dirac delta distributions enforce conservation of momentum and energy in each e - e scattering event .
+the quantity  @xcite @xmath38 in the collision integral includes a direct ( hartree ) and an exchange ( fock ) term , non - vanishing if two colliding electrons have parallel spins ( @xmath39 ) .
+this expression for the kernel in the collision integral corresponds to the second - order hartree - fock approximation  @xcite . if spin - flip processes are absent ( as in the case considered here ) , the distribution function does not depend on the spin label , which can be dropped .
+the summation over @xmath40 in eq .
+( [ eq : eescattering ] ) can be performed explicitly , obtaining the spin - independent kernel @xmath41 in agreement with ref .  .
+electrons scatter with lattice vibrations and lose ( gain ) energy by emitting ( absorbing ) phonons . only optical phonons in the neighborhood of the @xmath42 and @xmath43 points of the brillouin zone ( bz ) matter for electrons with energy of several hundred @xmath44 above the fermi energy . at each point , both the transverse ( t ) and the longitudinal ( l ) phonon modes are considered .
+the distribution function of the @xmath45-th phonon mode with @xmath46 and 2d momentum @xmath47 is denoted by the symbol @xmath48 .
+the electron - phonon ( e - ph ) contribution to the eom for the electron distribution is  @xcite    @xmath49\nonumber \\ & & + \frac{2 \pi}{\hbar } \frac{1}{a}~\sum_{\bm q}\sum_{s',\ell ' , \nu } { \cal a}_{0 } |g^{(\nu)}_{{\bm k } + { \bm q},\ell ' \to { \bm k},\ell}|^{2 } f_{{\bm k } + { \bm q},\ell ' , s ' } ( 1 - f_{{\bm k } , \ell , s } ) \nonumber \\ & & \times \left[\delta ( \varepsilon_{{\bm k } , s } - \varepsilon_{{\bm k } + { \bm q } , s ' } + \hbar\omega^{(\nu)}_{\bm q } )   ( n^{(\nu)}_{\bm q } + 1 ) + \delta ( \varepsilon_{{\bm k } , s } - \varepsilon_{{\bm k } + { \bm q } , s ' } - \hbar\omega^{(\nu)}_{\bm q } ) n^{(\nu)}_{\bm q } \right]~,\end{aligned}\ ] ]    where @xmath50 is the area of the elementary cell of graphene s honeycomb lattice .
+the terms proportional to @xmath51 represent electronic transitions from the single - particle state with quantum numbers @xmath52 , @xmath53 , @xmath54 , to the state @xmath55 , @xmath56 , @xmath57 .
+the transition is suppressed if the value @xmath58 of the distribution function in the final state is close to unity ( pauli blocking ) .
+the terms proportional to @xmath59 correspond to absorption of phonons , while the terms proportional to @xmath60 correspond to emission of phonons .
+the latter coefficient is larger than the former ( bose enhancement ) because phonons , being bosonic excitations , experience bunching .
+the kernels @xmath61 can be written as : @xmath62 \nonumber \\    & = & \langle g_{\gamma}^{2 } \rangle [ 1 - \cos{(\theta_{{\bm k } , { \bm q } } + \theta_{{\bm k } + { \bm q } , { \bm q } } ) } ] \nonumber \\    & = & \langle g_{{\rm k},1}^{2 } \rangle \nonumber \\    & = & \langle g_{{\rm k},2}^{2 } \rangle [ 1 + \cos{(\theta_{{\bm k } , { \bm k } + { \bm q}})}]~,\end{aligned}\ ] ] where @xmath63 denotes the angle between the wave vectors @xmath52 and @xmath47 and @xmath64 are the electron - phonon couplings ( epcs )  @xcite .
+phonons at the @xmath42 ( @xmath43 ) point are responsible for intra - valley ( inter - valley ) scattering only .
+the complete eom for the electron distribution is the sum of eqs .
+( [ eq : eescattering ] ) and ( [ eq : electronphononboltzmann ] ) , i.e. : @xmath65 finally , the sbe for the phonon distribution is : @xmath66 \nonumber \\ & & - \frac{\gamma_{\rm ph}}{\hbar } \left [ n^{(\nu)}_{\bm q } -   \frac{1}{\exp{(\hbar\omega^{(\nu)}_{\bm q } / ( k_{\rm b } t_0 ) ) } - 1 } \right ] ~.\end{aligned}\ ] ] the right - hand side of the previous equation includes a phenomenological decay term which describes phonon - phonon interactions ( due to the anharmonicity of the lattice ) . indeed anharmonic couplings play an important role in the graphene lattice  @xcite and , in principle , the decay coefficient @xmath67 could be calculated by means of atomistic monte carlo simulations based on a realistic description of interatomic interactions  @xcite .
+the decay term induces relaxation of the phonon distribution towards the equilibrium value , given by a bose - einstein distribution at the temperature @xmath68 of the lattice .
+accurate calculations of relaxation timescales in e.g.  semiconductors pose a challenging problem of great theoretical and practical relevance  @xcite . in graphene ,
+three stages of the time evolution have been identified  @xcite , which follow the creation of a he d due to the action of a laser - light `` pump '' pulse promoting a certain density of electrons from valence to conduction band .    in the first stage ,
+@xmath69 , the initial he d thermalizes to a hot fd distribution and the two bands are characterized by different chemical potentials .
+recently , we were able to track this initial stage with sufficient time - resolution to directly measure the transition from a non - thermal to a hot fd distribution  @xcite .
+cooling of the hot fd distribution and equilibration of the chemical potentials between the two bands take place in the second and third stage , where the dominant process is phonon emission .
+the second stage , @xmath70 , is dominated by the emission of _ optical _ phonons  @xcite , which in graphene are associated with an unusually large energy scale ( @xmath71 )  @xcite and are moderately coupled to the electronic degrees of freedom .
+this cooling channel experiences a bottleneck when the phonon distribution heats up  @xcite . the third stage , which occurs when the bulk of the electron distribution lies below the optical - phonon energy scale , is characterized by the emission of _ acoustic _ phonons  @xcite .
+these processes take place for @xmath72 , but can experience a substantial speed - up ( @xmath73 ) in the case of disorder - assisted collisions  @xcite .
+since here we focus on the electron relaxation dynamics in the sub-@xmath0 time scale , we neglect the contribution of acoustic phonons in our sbe formulation .    throughout the relaxation dynamics ,
+phonons dissipate energy into the lattice by means of phonon - phonon interactions .
+in this section we simplify eqs .
+( [ eq : summingrates])-([eq : phonon ] ) by assuming that the electron and phonon distributions are _ isotropic_. while this assumption does not apply _ during _ the application of the pump pulse ( since this couples anisotropically  @xcite ) , it has been shown that e - e interactions restore isotropy in the very short time scale of a few fs  @xcite .
+hence , our assumption applies to the thermalization and cooling stages of the time evolution , i.e. what we aim to study here .
+the electron distribution @xmath74 is therefore assumed to depend on the wave vector @xmath52 only through the energy @xmath75 .
+similarly , the phonon distribution @xmath76 is assumed to depend only on the magnitude @xmath77 of the phonon wave vector @xmath47 .
+since the slope of the phonon dispersion @xmath78 is negligible with respect to @xmath79 , we drop the momentum dependence and use constant values @xmath80 and @xmath81 .
+equations for isotropic distributions can be obtained by performing the angular integrations in the collision integrals of eqs .
+( [ eq : summingrates ] ) and  ( [ eq : phonon ] ) .
+we now outline our approach in the case of a single summation over a wave vector @xmath52 , involving a generic function @xmath82 , which depends on the direction of @xmath52 and another wave vector @xmath47 , and a functional @xmath83 $ ] , which depends only on the isotropic quantities @xmath84 and @xmath85 .
+we have  @xcite : @xmath86 \nonumber \\ & & = \int_{-\infty}^{\infty } d\varepsilon ' \ , \int_{-\infty}^{\infty}d\varepsilon '' \ , { \cal f}[\varepsilon',\varepsilon '' ] { \cal   q}[\varepsilon',\varepsilon'']~,\end{aligned}\ ] ] where the kernel @xmath87 = \sum_{\bm k } \delta ( \varepsilon ' -\varepsilon_{{\bm k},s } ) \delta ( \varepsilon '' - \varepsilon_{{\bm k } +   { \bm q},s ' } ) g({\bm k } , { \bm q})$ ] depends now only on isotropic quantities .    the calculation of the isotropic kernels in eqs .
+( [ eq : summingrates ] ) and  ( [ eq : phonon ] ) is summarized in the following .
+this approach is convenient from a computational point of view since it reduces the number of variables in the integrations that have to be carried out numerically ( see app .
+[ ssec : numerical ] ) .
+most importantly , it also allows us to handle analytically the contribution of collinear scattering to the e - e interaction in the boltzmann collision integral .
+the final results for the e - ph contributions are :    @xmath88 \int_{-\infty}^{\infty } d\varepsilon f_{\ell}(\varepsilon)[1-f_{\ell'}(\varepsilon^{(\nu,-)})]{\cal q}^{(\nu,-)}_{\ell,\ell'}(\varepsilon , q ) \nonumber \\ & - & n^{(\nu)}(q ) \int_{-\infty}^{\infty } d\varepsilon f_{\ell}(\varepsilon)[1-f_{\ell'}(\varepsilon^{(\nu,+ ) } ) ] { \cal q}^{(\nu,+)}_{\ell,\ell'}(\varepsilon , q ) \bigg\ } - \frac{\gamma_{\rm ph}}{\hbar } \left [ n^{(\nu)}(q ) - \frac{1}{\exp{(\hbar\omega^{(\nu ) } / ( k_{\rm b } t_{0 } ) ) } - 1 } \right ] \end{aligned}\ ] ]    and @xmath89 \int_{0}^{\infty } dq ( \hbar v_{\rm f})[n^{(\nu)}(q ) + 1]~{\cal   i}^{(\nu,-)}_{\ell,\ell'}(\varepsilon , q ) \nonumber\\ & - & f_{\ell}(\varepsilon)[1-f_{\ell'}(\varepsilon^{(\nu,+)})]\int_{0}^{\infty } dq ( \hbar v_{\rm f } ) n^{(\nu)}(q)~{\cal   i}^{(\nu,+)}_{\ell,\ell'}(\varepsilon , q ) \nonumber \\ & + & f_{\ell'}(\varepsilon^{(\nu,+ ) } )   [ 1-f_{\ell}(\varepsilon)]\int_{0}^{\infty } dq ( \hbar v_{\rm f } ) [ n^{(\nu)}(q ) + 1]~{\cal   i}^{(\nu,+)}_{\ell,\ell'}(\varepsilon , q ) \nonumber \\ & + & f_{\ell'}(\varepsilon^{(\nu,- ) } ) [ 1-f_{\ell}(\varepsilon ) ] \int_{0}^{\infty } dq ( \hbar v_{\rm f } ) n^{(\nu)}(q ) ~ { \cal   i}^{(\nu,-)}_{\ell,\ell'}(\varepsilon , q)\bigg\}~,\end{aligned}\ ] ]    with the shorthand @xmath90 .    in eqs .
+( [ eq : phononsisotropic])-([eq : electronsphononsisotropic ] ) , we introduced the following functions : @xmath91\ ] ] and @xmath92 with @xmath93 \equiv \theta(x_{0 } - |x_{1 } - 1| ) \theta(x_{1 } + 1 - x_{0 } ) \nonumber \\ & & \times \frac{2 x_{0}}{\sqrt{4x_{1}^{2}-(x_{0}^{2}-x_{1}^{2}-1)^{2 } } } \nonumber \\ & & \times { \cal f } \left ( x_{1},\arccos[(x_{0}^{2 } - x_{1}^{2 } - 1)/(2 x_{1 } ) ] \right ) ~.\end{aligned}\ ] ] here @xmath94 is the heaviside distribution and the quantities @xmath95 are dimensionless . for notational convenience ,
+we write the wave vector dependence of the e - ph kernel @xmath96 in the form @xmath97 , where @xmath98 and @xmath99 .
+finally , the e - e contribution reads @xmath100 [ 1 - f_{\ell}(\varepsilon_{2})]f_{\ell}(\varepsilon_{3 } ) f_{\ell}(\varepsilon_{4 } ) \right .
+\nonumber \\ & & -   \left .
+f_{\ell}(\varepsilon_{1 } ) f_{\ell}(\varepsilon_{2 } ) [ 1 -   f_{\ell}(\varepsilon_{3})][1 - f_{\ell}(\varepsilon_{4 } ) ] \right \rbrace~.\end{aligned}\ ] ] where the coulomb kernel @xmath101 , with physical dimensions @xmath102 , represents a two - particle scattering rate .
+the energies of the incoming ( with indexes @xmath103 and @xmath104 ) and outgoing particles ( with indexes @xmath105 , @xmath106 ) are fixed .
+the total energy @xmath107 is conserved and , finally , @xmath108 .      simplifying eq .
+( [ eq : eescattering ] ) along the lines of eq .
+( [ eq : haugtrick ] ) leads to the following expression for the coulomb kernel :    @xmath109    here , the wave vector @xmath110 has modulus @xmath111 , while its direction can be fixed at will ( i.e.  along the @xmath112 axis ) because the final result @xmath113 is scalar under rotations .
+the total wave vector @xmath114 is conserved in all scattering processes . in the summation over @xmath115 and @xmath116 ,
+the dirac delta distributions ensure that only scattering configurations that are compatible with the choice of incoming @xmath117 and outgoing @xmath118 energies are considered . moreover , the three delta distributions restrict the 4d integral to a 1d integral ( at most ) , after the usual continuum limit @xmath119 is performed .
+we choose to reduce the summations to an integration over the modulus @xmath120 of the total momentum , in terms of which we are able to represent with clarity the phase space available for coulomb scattering ( see fig .  [
+fig : integrationdomain ] ) .
+we stress that in eq .
+( [ eq : coulombkernel ] ) we introduced an _ infinitesimal _
+quantity @xmath121 in the argument of one of the delta distributions .
+as we will see in the next section , if the limit @xmath122 is taken _ before _ calculating the 4d integral in eq .
+( [ eq : coulombkernel ] ) , collinear scattering processes do not contribute to @xmath113 .
+we introduced @xmath121 to slightly relax the condition of energy conservation .
+the latter is recovered only in the limit @xmath122 .
+we can justify this by considering the following physical explanation .
+the delta distribution of conservation of energy in eq .
+( [ eq : eescattering ] ) originates from the so - called `` quasiparticle approximation , '' applied to the kadanoff - baym equations ( kbes ) , from which the sbe is derived  @xcite .
+more precisely , the kbes involve the true quasiparticle spectral function , which has a finite width . in the quasiparticle approximation
+, the spectral function is substituted with a delta distribution , which is a reasonable approximation when the width of the quasiparticle spectral function can be neglected . as we will see in this section ,
+in the quasiparticle approximation applied to 2d mdfs an entire class of two - body collisions ( collinear processes ) yields vanishing scattering rates .
+our procedure takes effectively into account the fact that quasiparticles have a finite lifetime  @xcite , thereby allowing for a finite collinear scattering contribution to the coulomb kernel .
+we first calculate the coulomb kernel with a finite @xmath121 and then apply the quasiparticle @xmath122 approximation at the end of the calculation .    to make analytical progress , we now introduce elliptic coordinates for the evaluation of the coulomb kernel  @xcite .
+this is most natural because , for every fixed value of @xmath115 , the equation @xmath123 for the total energy defines a conic section in momentum space .
+more precisely , if @xmath124 ( @xmath125 ) , the vector @xmath126 lies on an ellipse ( hyperbola ) with focuses located at @xmath127 and major axis of length @xmath128 .
+elliptic coordinates @xmath129 are related to the cartesian coordinates @xmath130 by the transformation @xmath131 , @xmath132 , with area element @xmath133 \ , du \ , dv$ ] . in these coordinates ,
+@xmath134 $ ] and @xmath135 $ ] , so that non - linear combinations between integration variables in eq .
+( [ eq : coulombkernel ] ) disappear .
+elliptic coordinates are also extremely useful to prove that imi and ar can only occur when @xmath136 are collinear ( see figs .
+4a and  b in ref .  ) .    carrying out algebraic manipulations , we rewrite eq .
+( [ eq : coulombkernel ] ) in the following simplified manner :    @xmath137[(\hbar v_{\rm f } q)^{2 } - e_{1,{\rm min}}^{2 } ] \right \rbrace ^{1/2 } } \frac { ( e_{3,{\rm max } } + \eta)^{2 } - ( e_{3,{\rm min } } - \eta)^{2 } } { \left \lbrace [ ( e_{3,{\rm max}}+\eta)^{2 } - ( \hbar v_{\rm f } q)^{2}][(\hbar v_{\rm f } q)^{2 } - ( e_{3,{\rm min } } - \eta)^{2 } ] \right \rbrace ^{1/2}}~. \nonumber \\ % \end{aligned}\ ] ]    we stress that this is the most important analytical result of this article .    note that the integrand in eq .
+( [ eq : kernelintegralsimplified ] ) is given by the product of the kernel ( [ eq : matrixelementsummed ] ) and a complicated expression arising from the phase space of the e - e scattering processes , the term in the second line of eq .
+( [ eq : kernelintegralsimplified ] ) . in eq .
+( [ eq : kernelintegralsimplified ] ) , @xmath138 and the dependence of @xmath33 on @xmath117 , @xmath118 , @xmath139 , and @xmath120 is left implicit for the sake of simplicity .
+the primed sum symbol indicates summation over the available configurations of vectors @xmath140 , @xmath116 , and @xmath141 . to identify these configuration ,
+one may proceed as follows .
+when @xmath117 , @xmath118 , @xmath139 , and @xmath120 are given , the lengths of all the sides of the two triangles @xmath142 and @xmath143 are uniquely fixed .
+these two triangles , which share the side of length @xmath120 , can be drawn on the same half - plane ( with respect to a line containing the vector @xmath115 ) or on opposite half - planes .
+thus , four geometric configurations for the wave vectors @xmath140 , @xmath116 , and @xmath141 are available in total . however ,
+when all vectors @xmath33 are collinear , the triangles are degenerate and only one configuration is possible . finally , in eq .
+( [ eq : kernelintegralsimplified ] ) we also introduced @xmath144 , @xmath145 , and @xmath146 let us first discuss the case in which @xmath121 is set to zero before carrying out the integral in eq .
+( [ eq : kernelintegralsimplified ] ) . in this case
+, one can prove that @xmath147 by using the triangular and reverse triangular inequalities , @xmath148 .
+when the previous inequalities turn into equalities , the length of the vector @xmath115 is fixed at @xmath149 , @xmath150 , and the integration domain vanishes .    ) for the variable @xmath120 in the integral  ( eq.[eq : kernelintegralsimplified ] ) . the regions labeled by i ,
+ii , and iii identify the values of the parameters @xmath151 and @xmath152 for which intra - band , inter - band , and auger processes take place , respectively . at @xmath149 collinear
+scattering takes place .
+this value is the maximum ( minimum ) of the integration domain in region i ( ii ) .
+the minimum ( maximum ) of the integration domain in region i ( ii ) is shown in the color scale , in units of @xmath128 .
+[ fig : integrationdomain ] ]    fig .
+[ fig : integrationdomain ] plots the integration domain relative to the variable @xmath120 in eq .
+( [ eq : integrationdomain ] ) , as a function of @xmath117 and @xmath118 , in the case @xmath153 . in region
+i , @xmath154 implies @xmath155 ( if the total energy is negative , all the inequalities are reversed ) .
+all the particles are either above ( @xmath156 ) or below ( @xmath157 ) the dirac point .
+region i , therefore , pertains to intra - band scattering events .
+similarly , one concludes that regions of type ii pertain to inter - band scattering ( two electrons are in opposite bands before and after the scattering ) .
+finally , regions of type iii pertain to imi and ar . in these regions
+the integration domain [ and , therefore , @xmath158 in eq .
+( [ eq : kernelintegralsimplified ] ) vanishes .
+we note that classification of regions i , ii , and iii holds true for arbitrary values of @xmath121 .
+( [ eq : kernelintegralsimplified ] ) is extremely helpful since it can be used to solve the sbe  ( [ eq : summingrates ] ) with arbitrary non - equilibrium initial conditions , more so since analytical expressions for the coulomb kernel of 2d mdfs such as that in eq .
+( [ eq : kernelintegralsimplified ] ) were not reported before , to the best of our knowledge .
+we now proceed to calculate @xmath159 in regions of type iii . in this case
+, a finite value of @xmath121 restores a non - vanishing integration domain for imi and ar and a finite contribution to @xmath159 due to these processes .
+note that the sign of @xmath121 should be chosen such that @xmath160 .
+let us consider , for the sake of definiteness , the region of type iii where @xmath161 .
+we have @xmath162 .
+the integrand in eq .
+( [ eq : kernelintegralsimplified ] ) factors into two portions , one that depends smoothly on @xmath120 and can therefore be evaluated at @xmath163 and taken out of the integral , and another singular at the boundaries of the integration domain .
+the integral of the latter part must be carefully evaluated and is : @xmath164^{1/2 } } = \pi~.\ ] ] note that the result of the previous integral does _ not _ depend on @xmath121 , therefore remains finite in the limit @xmath122 .
+the final result for the auger contribution to the coulomb kernel , valid in _ all _ regions of type iii , can be written as : @xmath165 where the convention for @xmath166 and @xmath33 has been introduced after eq .
+( [ eq : kernelintegralsimplified ] ) . the term on the second line of eq .
+( [ eq : augerresult ] ) comes from the smooth portion of the integrand in eq .
+( [ eq : kernelintegralsimplified ] ) .
+we stress that eq .
+( [ eq : augerresult ] ) follows from the general expression  ( [ eq : kernelintegralsimplified ] ) without _ a priori _ restrictions to collinear scattering configurations .
+although eq .
+( [ eq : augerresult ] ) mathematically coincides with eq .  ( 14 ) of ref .  , ref .
+does not report any discussion on how to bypass the vanishing phase space problem for 2d mdfs . here , the finiteness of imi and ar contributions to the coulomb kernel , as for eq .
+( [ eq : augerresult ] ) , originates from electron - lifetime effects .
+incidentally , since the value of the integral in eq .
+( [ eq : abeautifulintegral ] ) does not depend on the value of @xmath121 , the precise mechanism ( e - e interactions , electron - impurity scattering , etc . )
+responsible for the broadening of the delta distribution in eq .
+( [ eq : eescattering ] ) into a finite - width quasiparticle spectral function is unimportant .
+finally , we emphasize that imi and ar scattering rates were calculated in ref .   for fd distributions only , as seen in eq .
+( 20 ) of ref .  .
+on the contrary , eqs .
+( [ eq : kernelintegralsimplified ] ) and  ( [ eq : augerresult ] ) can be used to solve the sbe  ( [ eq : summingrates ] ) with _ arbitrary _ non - equilibrium initial conditions .
+we finally consider @xmath159 in regions of type i and ii .
+the integrand in eq .
+( [ eq : kernelintegralsimplified ] ) diverges as @xmath167 for @xmath168 , which coincides with the upper @xmath169 or lower @xmath170 boundaries of the integration domain for regions of type i and ii . when @xmath168 , intra - band or inter - band scattering occur in a collinear fashion .
+this strong divergence of the integrand physically arises from the expression for the phase space of e - e scattering , while @xmath171 is well behaved .
+therefore , @xmath159 diverges for both intra - band and inter - band scattering processes .
+a possible way to cure this divergence  @xcite is to introduce an ultraviolet cut - off @xmath172 , which yields a coulomb kernel @xmath173 .
+logarithmic enhancements for 2d fermions with a linear dispersion were discussed in ref .  , and allow one to find a sbe solution in the form of an effective equilibrium distribution , with parameters depending on the direction of motion  @xcite .
+peculiar properties of mdfs , which are sensitive to collinear scattering , include a finite conductivity in the absence of impurities  @xcite and an unusually low shear viscosity  @xcite .    a different way to treat this divergence is to invoke _ screening _ , which suppresses the kernel @xmath174 and regularizes the behavior of the integrand in a neighborhood of @xmath149 .
+this approach is discussed in the next section in great detail .
+the sbe is a second - order expression in the _ bare _ coulomb potential @xmath175 and describes e - e interactions at level of the fermi golden rule  @xcite .
+this approximation neglects many - body effects , and most importantly electronic screening .
+formally , screening can be taken into account  @xcite by substituting the bare coulomb potential @xmath176 with a _ screened _ potential @xmath177 . when the 2d mdf system is out of equilibrium , the screening properties change in time and the screened potential depends on time @xmath178 as well .
+it has been pointed out  @xcite that screening may preempt the strong collinear scattering singularity mentioned above and suppress auger processes .
+indeed , the rpa dynamical dielectric function at equilibrium @xmath179 diverges for collinear scattering configurations for which @xmath11 ( see sec .  [ ssec : dielectric ] ) . when substituted into eq .
+( [ eq : kernelintegralsimplified ] ) , the screened potential @xmath177 vanishes like @xmath180 , thereby compensating the aforementioned divergence arising from the expression of the phase space .
+the integral in eq .
+( [ eq : kernelintegralsimplified ] ) is then finite , while the contribution to the coulomb kernel due to auger processes vanishes .
+the matrix element of the screened potential is obtained by the replacement : @xmath181 where @xmath182 is defined in eq .
+( [ eq : matrixinteraction ] ) and @xmath179 is the dynamical dielectric function  @xcite
+. here , @xmath183 and @xmath184 are the momentum and energy transferred in the scattering process , respectively .
+we stress that the prescription  ( [ eq : screenedpotential ] ) must be applied only to the first term on the right hand side of eq .
+( [ eq : hf ] ) , i.e.  to the _ direct _ term . in principle , one could apply eq .
+( [ eq : screenedpotential ] ) to screen both direct and exchange contributions in eq .
+( [ eq : hf ] ) .
+the latter procedure was previously used in refs .   to compute scattering rates , but has a major drawback : it is easy to see that the corresponding sbe does _ not _ conserve the particle number . in other words , the approximation obtained by screening both direct and exchange terms in eq .
+( [ eq : hf ] ) according to eq .
+( [ eq : screenedpotential ] ) is not conserving in the sense of kadanoff and baym  @xcite . on the contrary , retaining the direct term only corresponds to the well - known  shielded potential approximation "  @xcite , which is conserving in the sense of kadanoff and baym .
+this is the approach we follow below , setting @xmath185 in eq .
+( [ eq : hf ] ) .    in the rpa
+, the dielectric function is given by  @xcite @xmath186 where @xmath175 is the bare coulomb potential , defined in eq .
+( [ eq : coulomb ] ) , and @xmath10 is the non - interacting polarization function  @xcite ( or lindhard function ) for 2d mdfs : @xmath187 where @xmath188/2 $ ] and the factor @xmath189 accounts for spin degeneracy .
+it is intended that @xmath179 and @xmath10 depend _ explicitly on time _ @xmath178 through the time - dependence of the distribution function @xmath74 .
+one route to include screening in the sbe calculations is to compute  @xcite the polarization function @xmath10 at each time @xmath178 according to eq .
+( [ eq : polarization ] ) and use it to evaluate the expressions ( [ eq : kernelintegralsimplified ] ) and ( [ eq : augerresult ] ) for the coulomb kernel . in this article , however , we prefer to use a more analytical approach , which turns out to reduce dramatically the computational costs associated with solving the sbe with screening . since thermalization occurs on a very fast time scale  @xcite , we calculated the polarization function analytically by employing the following _ thermal _ ansatz for the distribution function @xmath74 in eq .
+( [ eq : polarization ] ) : @xmath190 where @xmath191 } + 1}\ ] ] is the usual fd distribution . in eq .
+( [ eq : distrotwomu ] ) , @xmath192 and @xmath193 are chemical potentials in conduction and valence band , respectively , and @xmath194 is the temperature .
+the values of the three parameters @xmath192 , @xmath193 , and @xmath194 can be obtained at each time @xmath178 by fitting eq .
+( [ eq : distrotwomu ] ) to the he d derived by solving the sbe . in writing eq .
+( [ eq : distrotwomu ] ) we assumed that conduction- and valence - band electrons thermalize at the same @xmath194 .
+this approximation is certainly valid for times longer than @xmath195 ( see sec .  [
+ssec : timescales ] ) , because energy equilibration between the two bands sets in on the time scale induced by e - e interactions . at earlier times , the estimate of @xmath194 and @xmath196 obtained by fitting the profile ( [ eq : distrotwomu ] ) to the he d is certainly not precise , but can be improved _ a posteriori _ by extrapolating to @xmath69 the results of the fits obtained at later times .
+although a common @xmath194 between the two bands is established in the very early stages of the dynamics , carrier equilibration between the two bands , on the contrary , is mainly due to phonon - assisted inter - band transitions , which act on a much longer time scale ( @xmath197 ) . assuming two different chemical potentials is thus essential to obtain a correct representation of screening in the non - equilibrium dynamics after photo - excitation .
+our analytical approach to the calculation of @xmath10 allows us to describe well the rapidly changing dielectric function and , at the same time , to determine analytically its behavior for collinear configurations , crucial to the issues discussed in sec .
+[ ssec : divergencies ] .
+in the rest of this section we outline the calculation of the polarization function of a photo - excited 2d mdf fluid .
+we start by noting that the polarization function @xmath10 as obtained from eq .
+( [ eq : polarization ] ) with the thermal ansatz  ( eq.[eq : distrotwomu ] ) physically represents the polarization function @xmath198 of a 2d mdf fluid with _ two _ chemical potentials @xmath192 and @xmath193 , at a finite @xmath194 . to the best of our knowledge
+, this function is unknown .
+we therefore proceed to calculate @xmath198 following a well - known procedure due to maldague  @xcite .
+this route allows us to write this polarization function in terms of an integral involving the well - known lindhard function @xmath199 of a 2d mdf fluid at zero @xmath194 and at a fermi energy @xmath200
+the final result is :    @xmath201 \nonumber \\ & & - \left .
+\pi_0(q,\omega)\right|_{\varepsilon_{\rm f } \to 0 } \left [ f(0;\mu_{\rm c},t ) - f(0;\mu_{\rm v},t ) \right ] ~,\end{aligned}\ ] ]    where @xmath202 note that @xmath199 is particle - hole symmetric ( therefore identical for positive and negative values of the fermi energy @xmath200 ) and that @xmath203 is the lindhard function of an undoped 2d mdf system  @xcite .
+here we have @xmath204 .
+eq .  ( [ eq : lindhardtwomu ] ) is the main result of this section and reveals that the thermal polarization function @xmath198 naturally decomposes into the sum of two contributions stemming from each band .
+however , the extra correction in the second line of eq .
+( [ eq : lindhardtwomu ] ) needs to be taken into account at finite @xmath194 .
+the following three identities are necessary to derive eq .
+( [ eq : lindhardtwomu ] ) : i ) @xmath205 , ii ) @xmath206 f(\varepsilon;0,0)$ ] , and iii ) @xmath207 illustrative plots of the real and imaginary parts of the polarization function  ( [ eq : lindhardtwomu ] ) are reported in figs .
+[ fig : chi2d],[fig : chicuts ] . in these plots
+we rescaled @xmath208 with the conduction - band fermi energy @xmath209 , @xmath210 and the wave vector @xmath77 with the conduction - band fermi wave number @xmath211 . in eq .
+( [ eq : fermienergyconduction ] ) , @xmath212 is the spence s function  @xcite .
+we note that the reactive part of the polarization function manifests a singularity along the `` light cone '' @xmath213 , entirely inherited from @xmath199 .
+the dissipative part displays a striking difference with respect to @xmath214 $ ] : the usual triangular region above the light cone where both intra- and inter - band particle - hole pairs are suppressed  @xcite is not present in fig .  [
+fig : chi2d](b ) .
+moreover , above the light cone and for @xmath215 , a region where the imaginary part of @xmath216 is _ positive _ appears .
+fig03(2,60)(a )    fig04(2,60)(b )    fig05(2,60)(a )    fig06(2,60)(b )    here we approximate the time - dependent polarization function @xmath10 in eq .
+( [ eq : polarization ] ) as : @xmath217      in this article we focus on the following three screening models :    \i ) _ dynamical screening_. in this case the polarization function @xmath216 in eq .
+( [ eq : finalapproximation ] ) is evaluated  on shell " , i.e.  at @xmath218 , which is the energy transferred in the two - body scattering process .
+as mentioned above , in this case inter - band and intra - band scattering rates are finite while the auger contribution ( [ eq : augerresult ] ) to the coulomb kernel vanishes .
+static screening_. in this case the polarization function @xmath216 in eq .
+( [ eq : finalapproximation ] ) is evaluated at @xmath219 .
+this approximation is justified when the energy @xmath218 transferred in the two - body scattering process is significantly smaller than the energy @xmath220 , necessary to excite a plasmon  @xcite . in the static screening approximation ,
+inter - band and intra - band scattering rates diverge and can be regularized by employing an infrared and an ultraviolet cutoff  @xcite ( further details are reported in the appendix ) .
+we find , however , that the resulting non - equilibrium dynamics does not depend on the values of these two cutoffs .
+the reason is the following .
+intra- and inter - band scattering processes are responsible only for redistributing energy , rapidly driving the two bands towards thermal equilibrium .
+therefore , for @xmath151 and @xmath152 varying in regions of type i and ii ( see fig .  [ fig : integrationdomain ] ) the quantity in curly brackets in eq .
+( [ eq : finalboltzmann ] ) vanishes . in the static approximation the auger contribution ( [ eq : augerresult ] ) to the coulomb kernel is finite .
+\iii ) _ regularized screening_. finally , we introduce a `` regularized '' screening model  @xcite in which the polarization function @xmath216 in eq .
+( [ eq : finalapproximation ] ) is evaluated on shell , but its singularity around the light cone @xmath213 is _ smeared _ by means of a cutoff @xmath221 ( see app .
+[ ssec : numerical ] for more details ) . in the limit
+@xmath222 this model reduces to dynamical screening , as described at point i ) above .
+various physical mechanisms can smear the singularity of the polarization function on the light cone , including many - body effects beyond rpa ( as suggested in ref .  ) or single - particle effects beyond the 2d mdf model , e.g.  trigonal warping ( as suggested in ref .  ) . in our regularized screening model
+the auger contribution ( [ eq : augerresult ] ) to the coulomb kernel is finite and , in particular , its magnitude is intermediate between that evaluated within the dynamical and static screening models .
+in this section we summarize our main numerical results , obtained from the solution of the isotropic sbe within the three screening models listed in sec .
+[ ssec : screeningmodels ] .
+we compared the outcome of a closely related approach with our experimental measurements in ref .  .
+there we applied screening to both direct and exchange terms in eq .
+( [ eq : hf ] ) .
+the data that we present in this section are in agreement with our previous results in ref .  , therefore fully support the interpretation of the experimental data given there . more precisely ,
+very good quantitative agreement is found for the static and dynamical screening models , which do not depend on free parameters .
+there are some differences , however , between the dynamical behavior illustrated in ref .   and that discussed in this section , when the regularized screening model is used .
+although the mathematical definition of the cutoff @xmath221 here is analogous to the definition of @xmath172 in ref .  , the equations of motion induced by the regularized screening models differ .
+as repeatedly stressed above , in the present paper we never screen dynamically the exchange contribution to eq .
+( [ eq : hf ] ) .
+moreover , here we mostly focus on undoped samples , although some results for @xmath223-doping are presented in fig .
+[ fig : maximumtransmission ] . on the other hand , ref .   reported experiments and calculations for a @xmath224-doped sample . even though ref .
+already allowed us to conclude that rpa dynamical screening is not capable of explaining the experimental results , in this article for sake of completeness we will present a comparative study of all screening models listed in sec .  [ ssec : screeningmodels ] .      as initial condition for the solution of the sbe we use a distribution function which is the sum of a fd distribution , with chemical potential @xmath225 and temperature @xmath68 , and two gaussian - shaped peaks ( one below and one above the dirac point ) : @xmath226}\nonumber\\ & - & g_{\rm max } \exp{\left[-\left(\frac{\varepsilon + \hbar \omega_{\rm p}/2}{\hbar \delta \omega_{\rm p}/2}\right)^2\right]}~.\end{aligned}\ ] ] the initial distribution function is identical in both @xmath16 valleys .
+the choice ( [ eq : initialstate ] ) is motivated by pump - probe spectroscopy experiments on graphene , where electrons are promoted from valence to conduction band by using a laser light pulse . before the pump pulse
+is applied , the electronic subsystem is at equilibrium with the lattice at a given @xmath194 , say @xmath227 ( room @xmath194 ) .
+the momentum transferred by the laser light to the electrons is negligible , hence the transitions are `` vertical '' in momentum space , from energy @xmath228 in valence band to energy @xmath229 in conduction band . the width @xmath230 of the light pulse determines the width of the resulting he d .
+consistent with our recent experiments  @xcite , and for the sake of definiteness , we take @xmath231 , @xmath232 , and @xmath233 .
+we point out that these parameters correspond to a strongly non - equilibrium distribution , obtained by shining a light pulse with fluence @xmath234 .
+finally , we note that , although in general the light - matter coupling is anisotropic , the he d has been shown to relax to an isotropic profile in @xmath235  @xcite . as we mentioned above ,
+the description of these very early stages of the non - equilibrium dynamics , which comprise the buildup of the he d , is beyond the scope of the present article . here
+, we study the time evolution of the isotropic initial state ( [ eq : initialstate ] ) , as dictated by the sbe .
+the energies of the phonon modes are  @xcite @xmath236 and @xmath237 .
+the epc of the @xmath238 phonon at the brillouin - zone center ( @xmath42 point ) , associated to the @xmath239 peak of the raman spectrum , is taken from ref .  :
+this value , which we use in our numerical calculations , is in good agreement with experimental results  @xcite . on the other hand ,
+the value of the epc relative to the transverse mode at the @xmath43 point has been debated  @xcite .
+the value calculated by density - functional theory  @xcite is @xmath241 , but e - e interactions renormalize this value by a factor @xmath242  @xcite .    in our numerical calculations
+we take @xmath243 .
+the epc of the longitudinal phonon mode at @xmath43 point is taken to be @xmath244 , as in ref .  .
+following ref .  , we take @xmath245 for the phenomenological phonon decay rate in eq .
+( [ eq : phonon ] ) .
+fig07a(2,60)(a )    fig07b(2,60)(b )    fig08(2,60)(c )    fig09(2,60)(a )    fig10(2,60)(b )    we start by discussing the role of different screening models , and choose a strength of e - e interactions @xmath246 , appropriate  @xcite for graphene on a sio@xmath247 substrate , see eq .
+( [ eq : fsc ] ) . the corresponding sbe solution for undoped graphene
+is shown in panels ( a)(c ) of fig .
+[ fig : evolutiondistro ] for static , regularized , and dynamical screening , respectively . in all cases
+we see that the peak ( dip ) of the he d above ( below ) the dirac point shifts rapidly towards the dirac point .
+there is however a striking difference between panels ( a),(b ) and panel ( c ) : in dynamical screening , panel ( c ) , a much larger electron ( hole ) population persists in conduction ( valence ) band even at times as long as @xmath248 .
+the reason is that dynamical screening suppresses ar events , thus delays equilibration of the electron populations across the two bands .
+indeed , in the initial stage of the time evolution , auger processes are the most important processes for the equilibration of the electron populations . on a longer time scale ,
+relaxation by phonon emission allows the system to reach inter - band equilibrium .
+however , in this case , the existence of a substantial inverted carrier population around the dirac point at times as long as @xmath249 is due to the suppression of ar processes .
+we point out that thermal equilibrium between the two bands , on the contrary , mainly occurs _ via _
+inter - band scattering , and is reached after a much shorter time @xmath195 .    a more quantitative analysis of the inter - band equilibration dynamics is shown fig .
+[ fig : thermalization ] . here
+we also report numerical results based on the regularized screening model .
+a fd distribution with time - dependent temperature @xmath250 and chemical potential @xmath251 [ @xmath252 in conduction ( valence ) band can be fitted to the numerical results from the solution of the isotropic sbe for @xmath253 .
+@xmath250 remains well above room @xmath194 for @xmath254 . in the absence of ar processes , a much faster cooling of the initial he d occurs , at the price of a larger chemical potential @xmath251 in conduction band .
+the energy stored in the electronic degrees of freedom is then transferred to the phonon modes and dissipated into the lattice by means of phonon - phonon interactions , responsible for the phenomenological decay term proportional to @xmath67 in eq .
+( [ eq : phonon ] ) .
+eventually , equilibration with the lattice at room @xmath250 is achieved ( data not shown ) . figs .
+[ fig : evolutiondistro ] , [ fig : thermalization ] indicate that different screening models strongly affect the he d time evolution .     per unit cell area and energy obtained from the numerical solution of the isotropic sbe as a function of energy @xmath255 ( in units of @xmath256 ) .
+black curves refer to @xmath257 .
+gray curves to @xmath248 .
+different line styles refer to the three screening models : static ( dashed lines ) , regularized ( solid lines ) , and dynamical ( dotted lines ) .
+the initial state at @xmath258 ( dash - dotted line ) was divided by a factor @xmath105 to fit into the frame of the figure.[fig : evolutiondensity ] ]     time evolution of the differential transmission @xmath259 as calculated from the numerical solution of the sbe .
+different line styles refer to the three screening models : static ( dashed line ) , regularized ( solid line ) , and dynamical ( dotted line ) .
+the data in this figure refer to a probe energy @xmath260 .
+each curve is normalized to have maximum @xmath261 .
+note that dynamical screening gives a much slower time evolution since it completely suppresses auger scattering . ]    in fig .
+[ fig : evolutiondensity ] we illustrate the dependence of the electron density per unit cell area and energy , @xmath262 on the energy @xmath255 .
+note that @xmath263 has dimensions @xmath264 . in eq .
+( [ densityversusenergy ] ) @xmath265 is the 2d mdf density of states as a function of energy . the quantity @xmath266 represents the valley degeneracy .
+the energy at which @xmath263 peaks strongly depends on the screening model .
+the optical properties of the mdf system are very sensitive to the time evolution of @xmath263 since light absorption is strongly inhibited ( pauli blocking ) when the corresponding electronic transitions are towards states with a larger occupation . by shining a probe laser pulse with frequency @xmath267 through the sample
+one can measure the time evolution of the electron distribution , a procedure enabled by pauli blocking . a viable experimental route to directly measure the impact of screening is thus available , provided that short enough probe pulses of appropriate frequency are used  @xcite .
+the propagation of the probe pulse through the sample can be quantified by calculating the differential transmission  @xcite ( dt ) @xmath268~ , \nonumber \\\end{aligned}\ ] ] where @xmath269 is the fine - structure constant and @xmath225 and @xmath68 are the chemical potential and temperature of the electron system before the pump pulse is applied .
+the time evolution of the normalized dt is shown in fig .
+[ fig : transmission ] for the three screening models , at a fixed value of the probe energy @xmath270 .
+the much slower dynamics in the absence of auger processes ( dynamical screening , dotted line ) is clearly seen .
+the time @xmath271 at which the dt peaks is a convenient measure of the speed of the electron dynamics .
+below we discuss the dependence of @xmath271 on various relevant parameters , see fig .
+[ fig : maximumtransmission ] .     as a function of wave vector @xmath272 ( in @xmath273 ) and time @xmath178 ( in units of @xmath274 ) , showing the distribution function @xmath275 for the transverse phonon mode at @xmath43 ( @xmath276 ) .
+the inset shows the same quantity at @xmath248.[fig : evolutionphonon ] ]    although the focus of the present article is on the time evolution of the electron distribution function , for the sake of completeness in fig .
+[ fig : evolutionphonon ] we illustrate the time evolution of the distribution function of the transverse optical phonon mode at @xmath43 , i.e.  the mode most strongly coupled to the electronic subsystem  @xcite . in a sub-@xmath0 time
+a large population accumulates in the mode ( with respect to the equilibrium population ) and remains steady up to the maximum time @xmath248 considered here .
+this hot phonon distribution  @xcite cools on a longer time scale as outlined in sec .
+[ ssec : timescales ] by anharmonic phonon - phonon interactions , which dissipate the thermal energy into the lattice .
+thus , electronic screening is responsible for qualitative modifications of the dynamics in the sub-@xmath0 time scale , which were not unveiled previously to the best of our knowledge .
+this early stage of the dynamics is temporally decoupled from other relaxation channels ( phonon and radiative emission ) , thus the effects of electronic screening do not modify the hot - electron relaxation picture as outlined in sec .
+[ ssec : timescales ] . at later times
+, our numerical results broadly agree with previous theoretical works  @xcite .
+fig14(2,60)(a )    fig15(2,60)(b )    fig16(2,60)(a )    fig17(2,60)(b )    we now show that the results presented in the previous section are robust with respect to changes in parameter space .
+we find that , to a large extent , the speed of the relaxation dynamics in the sub-@xmath0 time range is controlled by the particular screening model one chooses .
+[ fig : maximumtransmission](a ) plots @xmath271 as a function of @xmath277 for two choices of the largest epc , @xmath278 , gray - shading the region in - between . the largest epc ( then used in all other figures ) yields the smallest @xmath271 , i.e.  a faster relaxation dynamics .
+this is due to the fact that a larger coupling of the electrons to the phonon bath allows a more efficient dissipation of the excess energy .
+the dt peaks later for smaller energy , reflecting the shifting of the peak of the electron density @xmath263 towards the dirac point ( see fig .  [
+fig : evolutiondensity ] ) .
+the three screening models give quantitatively different results , with static screening remaining in the sub-@xmath0 range , and dynamical screening showing a much more pronounced dependence on electron energy .
+most importantly , there is very limited overlap between gray - shaded regions , meaning that the three screening models yield distinctly different relaxation speeds , even if the epc is increased by a factor @xmath104 .
+these results are robust with respect to doping : fig .
+[ fig : maximumtransmission](b ) , e.g. , illustrates essentially unchanged results for an @xmath223-doped sample , with a finite positive chemical potential @xmath279 .    fig .
+[ fig : effectsee ] compares the time evolution of the electron density @xmath263 as calculated for @xmath246 , with results obtained for @xmath280 ( describing graphene on hexagonal boron nitride  @xcite ) and @xmath281 , the maximum value corresponding to a suspended graphene  @xcite .
+as expected , the broadening of the initial photo - excited electron distribution is faster for larger @xmath282 ( due to enhanced coulomb repulsion ) but , in general , @xmath263 at a given @xmath178 depends weakly on the e - e interaction strength . using regularized dynamical screening instead of static further reduces the effects of increasing @xmath282 .
+this behavior can be understood by recalling that electron thermalization takes place in a sub-@xmath283 time interval , as pointed out earlier  @xcite .
+this means that the electron distribution rapidly reaches the form of a quasi - equilibrium fd distribution which nullifies the intra- and inter - band contributions of the collisional integral ( eq.[eq : finalboltzmann ] ) , as remarked in sec .
+[ ssec : screeningmodels ] as well .
+variations in the the e - e coupling constant , which multiplies the collisional integral , contribute minor corrections to the dynamics in the collisional regime .     and _
+static screening_. black ( gray ) lines refer to @xmath284 ( @xmath285 ) .
+solid ( dashed ) lines refer to results without ( with ) the exchange contribution to the scattering amplitude , second term in eq .
+( [ eq : hf ] ) .
+the initial state at @xmath258 ( dash - dotted line ) is divided by a factor @xmath105 to fit into the frame of the figure.[fig : effectsexchange ] ]    finally , fig .
+[ fig : effectsexchange ] shows the role of the exchange term @xmath286 in eq .
+( [ eq : hf ] ) , by treating screening statically to ensure a particle - number - conserving collision integral . in this case
+@xmath287 is calculated at @xmath288 for the direct term and at @xmath289 for the exchange term . as clearly seen in fig .
+[ fig : effectsexchange ] , the exchange term is responsible for small corrections to the electron density @xmath263 , although it is expected  @xcite that larger corrections may arise in a fermi liquid when perturbations are applied close to the fermi surface .
+we studied the non - equilibrium dynamics of a high - density photo - excited electron distribution in graphene .
+we used the massless dirac fermion model and a semiclassical boltzmann equation approach , which includes electron and optical phonon degrees of freedom .
+our approach neglects light - matter interactions in the very early stages of the dynamics ( before the electron distribution becomes isotropic ) , quantum effects ( coherences ) , and non - markovian memory effects .
+a quantitative analysis of these effects is beyond the scope of this work .
+taking into consideration light - matter interactions allowed us to describe the buildup of an anisotropic he d .
+calculated that the electron distribution evolves to an isotropic profile on a 10-fs timescale .
+we therefore decided for computational convenience to consider an isotropic distribution as initial condition for the semiclassical boltzmann equation , without loss of generality .
+we also assumed the pump pulse , which creates the initial he d , to be sufficiently short to neglect phonon - scattering - induced dephasing .
+indeed , it was experimentally shown  @xcite that the latter effect should be considered when applying pump pulses with duration comparable to the electron - phonon scattering time , which exceeds the @xmath0 time scale of our present work .
+the effect of phonon - scattering - induced dephasing is to broaden the initial he d .
+we checked that our results are very stable with respect to changes of this type .
+the coulomb - scattering - induced broadening of the he d in the initial @xmath290 is much larger than the broadening due to phonons .
+we took into account both electron - electron and electron - phonon scattering during the whole time evolution , and showed that electron - phonon scattering does indeed play a minor role also in the initial , coulomb - scattering - dominated , stage of the dynamics .
+intra- and inter - band coherences were previously considered  @xcite in the framework of the density - matrix formalism (  semiconductor bloch equations " ) . in the range of parameters we used here
+, the solution of the semiclassical boltzmann equation agrees with these results . taking coherences into consideration gives minor oscillations of the electron density ( analogous to the rabi oscillations in a two - level system  @xcite ) , which damp out quickly due to dephasing induced by electron and phonon scattering .
+genuine quantum kinetic effects  @xcite affect the dynamics on time scales of a few fs . to the best of our knowledge , quantum kinetic theory was never applied to ultrafast electron dynamics in graphene .
+although quantum kinetic effects are fundamental to describe the _ coherent buildup _ of screening  @xcite , here we targeted the role of screening in the time window @xmath291 .
+the effects of screening on this time scale are a dominant contribution to the dynamics , and it is unlikely that a more precise description of the buildup of screening can substantially alter this picture .
+indeed , it is known  @xcite that quasi - classical theories can be used to fit coulomb quantum kinetics on a timescale longer than @xmath283 .
+we also point out that it is an extremely difficult task to estimate _ a priori _ the short initial transient in which the coherent buildup of screening takes place . in an equilibrium state ,
+basic consideration of the screening dynamics  @xcite suggests that the buildup of screening , on a given length scale , should take place on a time scale comparable with the period of the plasma oscillations at the corresponding wavelength .
+this implies that coherent screening buildup is faster in systems with a large carrier density ( several hundreds @xmath44 ) , which corresponds to the parameters that we use in this work .
+however , the initial state that we consider is strongly displaced from equilibrium and the relation between coherent buildup of screening and carrier density is less clear .
+it is arguable that electron - electron scattering is much more effective in a non - equilibrium state than in a thermal state , thus the electron - scattering - induced dephasing further reduces the time span where coherent buildup of screening plays a relevant role .
+a second outcome of quantum kinetic theory is the ability to describe memory ( or non - markovian ) effects , which could play in principle an important role on ultrafast time scales . as discussed in ref .
+, the general effect of using a quantum kinetic equation is to introduce oscillations in the response of the system on very short timescales , typically of the order of @xmath274 in solid state systems .
+we focused here on the time window @xmath292 , where memory effects which survive for a few @xmath274 only are likely to be irrelevant .
+moreover , memory effects seem to be very important in systems with long - range coulomb interactions  @xcite . in our system , instead , electron - electron interactions are well screened since we are studying the dynamics of a high - density droplet of excited carriers . in the case of effectively short - range interactions ,
+memory effects are much less pronounced  @xcite and seem to be more important at low energies  @xcite . in graphene the density - of - states vanishes at low energies , therefore further suppressing them .
+thus , although our theory does not apply down to the few-@xmath274 time scale , where the coherent buildup of screening and memory effects take place , these effects do not change the dynamics in the window of interest , @xmath291 . in this time window
+we demonstrated that it is of utmost importance to have an accurate description of screening , which dominates the relaxation dynamics .
+an analytical treatment of the coulomb collision integral distinguishes our work from previous ones  @xcite . in this respect , our main result , eq .  ( [ eq : kernelintegralsimplified ] ) , expresses the coulomb collision integral in terms of a compact and computationally - convenient 1d integral over the modulus @xmath120 of the total momentum of a two - particle scattering process .
+this approach allows us to carefully deal with _ all _ the singularities that arise in the limit of collinear electron - electron scattering .
+different screening models have been analyzed , and their impact on the collinear scattering singularities elucidated .
+we also proposed a computationally - efficient way to take into account screening in eqs .
+( [ eq : lindhardtwomu ] ) , ( [ eq : finalapproximation ] ) , which is fully quantitative after thermalization occurs .
+solving numerically the semiclassical boltzmann equation , we concluded that the particular form of screening one uses largely controls the speed of the relaxation dynamics in the sub-@xmath0 time range .
+different screening models yield markedly different time evolutions in a large portion of parameter space .
+our semi - analytical approach can be easily generalized to other carbon - based materials , such as bilayer and trilayer graphene and carbon nanotubes .
+we thank denis basko , annalisa fasolino , misha katsnelson , frank koppens , leonid levitov , allan macdonald , jairo sinova , justin song , and giovanni vignale for very useful and stimulating discussions .
+this work was supported by the italian ministry of education , university , and research ( miur ) through the program `` firb - futuro in ricerca 2010 '' grant no .
+rbfr10m5bt ( `` plasmograph : plasmons and terahertz devices in graphene '' ) , erc grants nanopot and stratus ( erc-2011-adg no .
+291198 ) , eu grants rodin and genius , a royal society wolfson research merit award , epsrc grants ep / k017144/1 , ep / k01711x/1 , ep / go30480/1 and ep / g042357/1 , and the cambridge nokia research centre .
+we have made use of free software ( www.gnu.org , www.python.org ) .
+the electron energy states are discretized on a uniform mesh @xmath293 , centered around the dirac point .
+we take up to @xmath294 , with step @xmath295 .
+the wave vectors of the phonon modes are discretized on a matching mesh @xmath296 with @xmath297 .
+the phonon energies are approximated to a multiple of the energy step .
+the total number of variables , including spin and valley degeneracy for the electrons and the four phononic modes , is then @xmath298 .
+the sbe are first - order differential equations which are solved using a standard fourth - order runge - kutta algorithm  @xcite , with a time step @xmath299 as small as @xmath300 .
+the kernels  ( [ eq : phononkernels ] ) of the e - ph interactions are computed at the beginning of the time evolution .
+the largest computational burden is the evaluation of the coulomb kernel  ( [ eq : coulombkernel ] ) , which scales cubically with the number of states @xmath301 .
+the coulomb kernel is updated at a variable rate , depending on the stage of the time evolution . for @xmath302 , when the system has not reached a thermal state yet , we update the kernel each @xmath303 .
+we use @xmath304 in the early cooling stage @xmath305 and @xmath306 afterwards .
+we checked that the numerical results do not depend on the specific choice of these parameters .    before updating the coulomb kernel at time @xmath178
+, we estimate @xmath194 and @xmath196 of the electron population in the two bands . to this end
+, we define the two functionals @xmath307
+\equiv \int_{0}^{\infty } d\varepsilon \varphi(\varepsilon)$ ] and @xmath308 \equiv \int_{0}^{\infty } d\varepsilon \varphi(\varepsilon)^{2}$ ] .
+the values of the two functionals applied to the fd distribution can be computed exactly : @xmath309 & = & - k_{\rm b } t \ln{f(\mu;0,t ) } \nonumber \\ \phi_{2}[f(\varepsilon ; \mu , t ) ] & = & k_{\rm b } t \left [ f(\mu;0,t ) - 1 \right ] + \mu \nonumber \\ & & - k_{\rm b } t \ln{f(-\mu;0,t)}~.\end{aligned}\ ] ] we tabulated these values on a mesh of @xmath225 and @xmath194 . then
+, during the time evolution , we evaluate @xmath310 $ ] and @xmath311 $ ] .
+we then find the values @xmath225 and @xmath194 on the mesh which minimize @xmath312 - \phi_{i}[f(\varepsilon ; \mu , t)]|$ ] .
+this procedure yields our estimate for @xmath194 and @xmath313 , @xmath314 , with the advantage that can be applied automatically during the time evolution and is more robust than a standard fitting procedure .
+the consistency of the estimate for @xmath315 and @xmath194 is checked at the end of the time evolution using a more precise fitting procedure for the electron distribution .
+the values of @xmath196 and @xmath194 are used to compute @xmath216 , according to eq .
+( [ eq : lindhardtwomu ] ) .
+the polarization function is evaluated on a 2d mesh for the modulus of the transferred wave vector @xmath77 [ with step @xmath316 and maximum value @xmath317 and frequency @xmath318 ( symmetric about @xmath219 , with @xmath319 ) .
+the integration over @xmath320 in eq .
+( [ eq : lindhardtwomu ] ) is performed over a rather rough mesh with @xmath321 points up to @xmath322 using rectangles rule .
+this is sufficient to capture the effects of @xmath194 to good accuracy , as we tested by reproducing with this method the lindhard function at equilibrium  @xcite .
+the procedure of regularization of the polarization function introduced in sec .
+[ ssec : screeningmodels ] is implemented by replacing @xmath216 with @xmath323 when @xmath324 $ ] below the light cone ( and similarly above the light cone ) .
+special care has to be taken when @xmath325 in the proximity of the origin . in this article we used @xmath326 .
+finally , the coulomb kernel is computed according to eqs .
+( [ eq : kernelintegralsimplified ] ) and ( [ eq : augerresult ] ) . for each choice of the energies of the incoming and outgoing particles , and
+the modulus @xmath120 of the total momentum ( only one value is possible for auger processes ) the closer values for the transferred wave vector and frequency are matched on the mesh for the polarization function .
+for intra - band and inter - band terms , the integral over the total momentum is performed using the standard simpson rule  @xcite mesh with @xmath327 points . before performing the integration ,
+a change of variables is performed to an effective angle variable @xmath328 given by @xmath329 \cos\phi$ ] , to improve the precision of the integral at the extremes . to numerically avoid the collinear divergence we restrict the integration variable in the interval @xmath330 $ ] , where we take @xmath331 ( different choices over a few orders of magnitude do not contribute substantial changes to the results ) .
+the speed in solving the sbe with this method can be increased substantially by reducing @xmath301 , and the final results are qualitatively correct even with @xmath332 and @xmath333 although , in this case , the different phonon energies are not resolved .
+d. brida , a. tomadin , c. manzoni , y.j .
+kim , a. lombardo , s. milana , r.r .
+nair , k.s .
+novoselov , a.c .
+ferrari , g. cerullo , and m. polini , nature commun .
+( in press ) and http://arxiv.org/abs/1209.5729[arxiv:1209.5729 ( 2012 ) ] .
+j. mertens , a.l .
+eiden , d.o .
+sigle , a. lombardo , z. sun , r.s .
+sundaram , a. colli , c. tserkezis , j. aizpurua , s. milana , a.c .
+ferrari , and j.j .
+baumberg , http://arxiv.org/abs/1305.5367[arxiv:1305.5367 ( 2013 ) ] .
+s. bae , h. kim , y. lee , x. xu , j .- s .
+park , y. zheng , j. balakrishnan , t. lei , h.r .
+kim , y.i .
+song , y .- j .
+kim , k.s .
+kim , b. zyilmaz , j .- h .
+ahn , b.h .
+hong , and s. iijima , http://dx.doi.org/10.1038/nnano.2010.132[nature nanotech .
+* 4 * , 574 ( 2010 ) ] .
+echtermeyer , l. britnell , p.k .
+jasnos , a. lombardo , r.v .
+gorbachev , a.n .
+grigorenko , a.k .
+geim , a.c .
+ferrari , and k.s .
+novoselov , http://dx.doi.org/10.1038/ncomms1464[nature commun .
+* 2 * , 458 ( 2011 ) ] .
+s. winnerl , m. orlita , p. plochocka , p. kossacki , m. potemski , t. winzer , e. mali , a. knorr , m. sprinkle , c. berger , w.a .
+de heer , h. schneider , and m. helm , http://dx.doi.org/10.1103/physrevlett.107.237401 [ , 237401 ( 2011 ) ] .
+s. winnerl , f. gttfert , m. mittendorff , h. schneider , m. helm , t. winzer , e. mali , a. knorr , m. orlita , m. potemski , m. sprinkle , c. berger , and w.a .
+de heer , http://dx.doi.org/10.1088/0953-8984/25/5/054202[j .
+phys . : condens .
+matter * 25 * , 054202 ( 2013 ) ] .
+walter , a. bostwick , k .- j .
+jeon , f. speck , m. ostler , t. seyller , l. moreschini , y.j .
+chang , m. polini , r. asgari , a.h .
+macdonald , k. horn , and e. rotenberg , http://dx.doi.org/10.1103/physrevb.84.085410 [ , 085410 ( 2011 ) ] .
+johannsen , s. ulstrup , f. cilento , a. crepaldi , m. zacchigna , c. cacho , i.c.e .
+turcu , e. springate , f. fromm , c. raidel , t. seyller , f. parmigiani , m. grioni , and p. hofmann , http://arxiv.org/abs/1304.2615[arxiv:1304.2615 ( 2013 ) ] .
+t. li , l. luo , m. hupalo , j. zhang , m.c .
+tringides , j. schmalian , and j. wang , http://dx.doi.org/10.1103/physrevlett.108.167401 [ , 167401 ( 2012 ) ] ; j. zhang , t. li , j. wang , and j. schmalian , http://arxiv.org/abs/1303.7014[arxiv:1303.7014 ( 2013 ) ] ; j. zhang , j. schmalian , t. li , and j. wang , http://arxiv.org/abs/1303.6902[arxiv:1303.6902 ( 2013 ) ] .
+elias , r.v .
+gorbachev , a.s .
+mayorov , s.v .
+morozov , a.a .
+zhukov , p. blake , l.a .
+ponomarenko , i.v .
+grigorieva , k.s .
+novoselov , f. guinea , and a.k .
+geim , http://dx.doi.org/10.1038/nphys2049[nature phys . * 7 * , 701 ( 2011 ) ] .
+ferrari , j.c .
+meyer , v. scardaci , c. casiraghi , m. lazzeri , f. mauri , s. piscanec , k.s .
+novoselov , d. jiang , s. roth , and a.k .
+geim , http://dx.doi.org/10.1103/physrevlett.97.187401[phys .
+lett . * 97 * , 187401 ( 2006 ) ] .
+a. grneis , j. serrano , a. bosak , m. lazzeri , s.l .
+molodtsov , l. wirtz , c. attaccalite , m. krisch , a. rubio , f. mauri , and t. pichler , http://dx.doi.org/10.1103/physrevb.80.085423[phys .
+b * 80 * , 085423 ( 2009 ) ] .      c.r .
+dean , a.f .
+young , i. meric , c. lee , l. wang , s. sorgenfrei , k. watanabe , t. taniguchi , p. kim , k.l .
+shepard , and j. hone , http://dx.doi.org/10.1038/nnano.2010.172[nature nanotech . * 5 * , 722 ( 2010 ) ] .
+a. leitenstorfer , a. lohner , t. elsaesser , s. haas , f. rossi , t. kuhn , w. klein , g. boehm , g. traenkle , and g. weimann , http://dx.doi.org/10.1103/physrevlett.73.1687[phys .
+73 * , 1687 ( 1994 ) ] .

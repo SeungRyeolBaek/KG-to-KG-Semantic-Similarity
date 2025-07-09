@@ -1,0 +1,160 @@
+the discontinuous galerkin method  @xcite nowadays is a well - established method for solving partial differential equations , especially for time - dependent problems .
+it has been thoroughly investigated by cockburn and shu as well as hesthaven and warburton , who summarized many of their findings in  @xcite and @xcite , respectively . concerning maxwell s equations in time - domain ,
+the dgm has been studied in particular in  @xcite .
+the former two apply tetrahedral meshes , which provide flexibility for the generation of meshes also for complicated structures .
+the latter two make use of hexahedral meshes , which allow for a computationally more efficient implementation  @xcite .    in  @xcite the authors state that the method can easily deal with meshes with hanging nodes since no inter - element continuity is required , which renders it particularly well suited for @xmath2-adaptivity .
+indeed , many works are concerned with @xmath0- , @xmath1- or @xmath2-adaptivity within the dg framework .
+the first published work of this kind is presumably @xcite , where the authors consider linear scalar hyperbolic conservation laws in two space dimensions . for a selection of other publications
+see @xcite and references therein .
+the latter three are concerned with the adaptive solution of maxwell s equations in the time - harmonic case .    in this article
+, we are concerned with solving the maxwell equations for electromagnetic fields with arbitrary time dependence in a three - dimensional domain @xmath3 .
+they read    [ eq : maxwell ] @xmath4    with the spatial variable @xmath5 and the temporal variable @xmath6 subject to boundary conditions specified at the domain boundary @xmath7 and initial conditions specified at time @xmath8 .
+the vectors of the electric field and flux density are denoted by @xmath9 and @xmath10 and the vectors of the magnetic field and flux density by @xmath11 and @xmath12 .
+the electric current density is denoted by @xmath13 .
+however , we assume the domain to be source free and free of conductive currents ( @xmath14 ) . furthermore , we assume heterogeneous , linear , isotropic , non - dispersive and time - independent materials in the constitutive relations    @xmath15    the material parameters @xmath16 and @xmath17 are the magnetic permeability and dielectric permittivity . at the domain boundary , we apply either electric ( @xmath18 ) or radiation boundary conditions ( @xmath19 ) , where @xmath20 denotes the local speed of light @xmath21 . we also introduce the electromagnetic energy @xmath22 contained in a volume @xmath23 obtained by integrating the energy density @xmath24 as @xmath25    this paper focuses on a general formulation of the dgm on non - regular hexahedral meshes as well as the projection of solutions during mesh adaptation . the issues of optimality of the projections and stability of the adaptive algorithm are addressed .
+special emphasis is put on discussing the computational efficiency . to the best of our knowledge ,
+this is the first publication dealing with dynamical @xmath2-meshes for the maxwell time - domain problem employing the dg method in three - dimensional space .
+as they are key aspects of adaptive and specifically @xmath2-adaptive methods , we will also address the issues of local error and smoothness estimation .
+this includes comments on the computational efficiency of the estimates .
+as estimators are not at the core of this article the discussion is , however , rather short .
+we perform a tesselation of the domain of interest @xmath26 into @xmath27 hexahedra @xmath28 such that the tesselation @xmath29 is a polyhedral approximation of @xmath26 .
+the tesselation is not required to be regular , however , it is assumed to be derivable from a regular root tesselation @xmath30 by means of element bisections .
+the number of element bisections along each cartesian coordinate , which is required to an obtain element @xmath31 of @xmath32 is referred to as the refinement levels @xmath33 . as we allow for anisotropic bisecting the refinement levels of one element may differ . in case of isotropic refinement
+we simply use @xmath34 .
+the intersection of two neighboring elements @xmath35 is called their interface , which we denote as @xmath36 . as we consider non - regular grids , every face @xmath37 of a hexahedral element
+may be partitioned into several interfaces depending on the number of neighbors @xmath38 such that @xmath39 .
+the face orientation is described by the outward pointing unitary normal @xmath40 .
+the union of all faces is denoted as @xmath41 , and the internal faces @xmath42 are denoted as @xmath43 .
+finally , the volume , area and length measures of elements , interfaces , faces and edges are referred to as @xmath44 , @xmath45 , @xmath46 and @xmath47 , where @xmath48 denotes any of the cartesian coordinates .
+every element of the tesselation @xmath32 is related to a master element @xmath49 ^ 3 $ ] through the mapping @xmath50 @xmath51 where @xmath52 denotes the element center .      multiplying maxwell s equations  ( [ eq : maxwell ] ) by a test function @xmath53 , integrating over @xmath54 and performing integration by parts yields    [ eq : weakmaxwell ] @xmath55    where the explicit dependencies of @xmath56 and @xmath6 have been omitted .
+equations  ( [ eq : weakmaxwell ] ) constitute the generic weak formulation of the time - dependent maxwell s equations . in the following
+, we will replace the exact field solutions @xmath9 and @xmath11 by approximations using the discontinuous galerkin framework .
+the space and time continuous electromagnetic field quantities are approximated on @xmath32 as @xmath57 where @xmath58 .
+the element - local approximation @xmath59 reads @xmath60 with the polynomial basis functions @xmath61 and the time - dependent vector of coefficients @xmath62^\text{t } ,       \ ] ] representing the numerical degrees of freedom .
+the basis functions are defined with element - wise compact support , which is an essential property of dg methods @xmath63 we define the basis functions on the master element @xmath64 and obtain the element - specific basis through the mapping @xmath50 as @xmath65 we employ cartesian grids and tensor product basis functions of the form @xmath66 where @xmath1 is a multi - index obtained from all @xmath67 .
+we denote by @xmath68 the local maximum approximation orders of element @xmath28 .
+the finite element space ( fes ) @xmath69 spanned by the basis functions is given by the tensor product of the respective one - dimensional spaces @xmath70 the approximation may , thus , make use of different orders @xmath71 in each of the coordinate directions , where we drop the subscript if they are equal .
+the basis functions are legendre polynomials scaled such that  @xcite @xmath72 in the following the dependence of the spatial and temporal variable is not written down explicitly .    if now we were to substitute the exact electromagnetic field solution @xmath73 for its approximation the surface integral term of ( [ eq : weakmaxwell ] ) can not be evaluated straightforwardly at the internal faces @xmath43 .
+this is due to the ambiguity of the dg approximation at any interface as a result of ( [ eq : approx ] ) and ( [ eq : basisfcts ] ) . weak continuity at internal faces is obtained locally by introducing numerical interface fluxes as @xmath74 where @xmath75 is a unique interface value computed solely from @xmath76 and @xmath77 , where @xmath78 is a neighboring element .
+common choices include centered and upwind fluxes .
+the centered interface value is given as @xmath79 computing the upwind value is more involved .
+it is obtained as the exact solution of maxwell s equations for piece - wise constant initial data after an infinitesimal time span , which is referred to as the riemannian problem  @xcite . for the @xmath80-component of the electric and magnetic field at an interface with normal @xmath81 they read    [ eq : upw ] @xmath82    with the intrinsic impedance and admittance
+@xmath83 other components are obtained by cycling the component indices and signs .
+note that centered fluxes preserve the hamiltonian structure of maxwell s equations while this property does not carry over to the semi - discrete equations when applying upwind fluxes due to the mixing of electric and magnetic quantities in  ( [ eq : upw ] ) .
+consequently , an energy conservation property  @xcite can be obtained with the centered flux formulation only , determining the kind of time integration schemes to be used as well  @xcite .
+our implementation includes both flux types .
+having resolved the ambiguity at interfaces , we insert the approximations  ( [ eq : approx ] ) into the weak formulation  ( [ eq : weakmaxwell ] ) and follow the galerkin procedure yielding the semi - discrete dg formulation    [ eq : dgmaxwell ] @xmath84    @xmath85 , @xmath86 .
+the volume integrals are referred to as the mass and stiffness terms , the surface integrals represent face fluxes . note that no assumptions on the grid regularity have been made in the derivation .
+due to the strictly element - local support of the basis and test functions , the dgm is highly suited for the application on non - regular grids .
+the actual difference of the refinement levels @xmath87 and @xmath88 of neighboring elements , i.e. , the level of hanging nodes , plays a minor role as shown in the following .    inspecting equations  ( [ eq : dgmaxwell ] ) it is seen that the mass and stiffness terms are not affected by the grid regularity as they are strictly local to the element @xmath28 .
+the flux term , however , involves neighboring elements as well . decomposing the surface integral into the six contributing face integrals @xmath89 and considering centered fluxes for brevity
+each of these can be expressed as @xmath90.\ ] ] accounting for the kind of non - regular grids described above , i.e.  grids obtained from a regular root tesselation , requires no more than summing up the contributions of all neighboring elements to the total flux .
+this is independent of the hanging node levels as well as the actual number of neighboring elements .
+inserting the approximation ( [ eq : elocal ] ) into ( [ eq : faceinterfaces ] ) yields @xmath91.\ ] ] again , the first integral term does not depend on the grid regularity .
+assuming @xmath92 to be aligned with the @xmath93-coordinate and to point towards positive direction it amounts to @xmath94 due to the basis function scaling  ( [ eq : orthogonalbasis ] ) .
+the second integral term can be expressed as @xmath95 in this case the orthogonality property of the basis functions is lost due to non - identical supports of @xmath96 and @xmath97 .
+we gather the terms ( [ eq : faceinterfaceregular ] ) and ( [ eq : faceinterfaceirregular ] ) in the interior and exterior flux matrices @xmath98 and @xmath99 . following to the usual notation
+the sign indicates the evaluation from the interior and exterior side of the interface .
+any non - regularity of the grid is now concealed within @xmath100 , which reduces to the standard form on regular grids .    for high level hanging nodes
+the number of integrals to compute quickly becomes large , imposing a heavy computational burden if integration is performed at run time .
+however , as the integrals @xmath101 in ( [ eq : faceinterfaceirregular ] ) do not include the actual approximation but basis functions only , they can be precomputed analytically ( making use of the master basis functions ) and stored in tabulated form in the code .
+this has to be done for all combinations of @xmath102 and @xmath103 as well as for each possible edge overlap according to the respective difference in the refinement levels @xmath104 ( cf .
+[ fig : nonregularinterface ] ) .
+the number of possible overlaps grows as @xmath105 .
+we tabulated the integrals up to @xmath106 and for basis functions up to order six , yielding 247 matrices @xmath107 of size @xmath108 . in the isotropic refinement case
+@xmath106 corresponds to one element interfacing with @xmath109 neighbors . in the case of even larger differences in the refinement levels of neighboring elements , which are unlikely to occur a numerical integration is invoked at run time .
+if the neighboring element has a smaller instead of higher refinement level the respective transposed matrix @xmath110 is applied . for upwind fluxes ,
+the interior and exterior flux matrices do not change , however , they are applied to both , the electric and the magnetic field due to  ( [ eq : upw ] ) .
+-axis for a better visualization .
+the left hand root element has been refined several times , the right hand element is at root level .
+the interface i connects an element of refinement levels @xmath111 with the root level element .
+the tick marks indicate possible locations for the imprint of elements of these refinement levels .
+the actual imprint on the root element face fills the first and sixth slab along the @xmath80- and @xmath112-axis , respectively .
+the interface ii fills the respective second slab along the @xmath80-axis.,scaledwidth=60.0% ]    in order to further enhance computational performance , all combinations of @xmath113 and the integrals @xmath114 arising form the stiffness terms of ( [ eq : dgmaxwell ] ) are evaluated and tabulated as well . precomputing the interface integrals maintains the high computational efficiency of the dg methods also for non - regular grids . using matrix notation , the semi - discrete dg maxwell equations  ( [ eq : dgmaxwell ] ) read @xmath115 where * s * and * z * denotes the stiffness and impedance matrix . the matrix operator on the right hand side of  ( [ eq : maxwellsemimatrix ] ) represents a weak dg curl operator .
+choosing @xmath116 as either zero or one yields centered or upwind fluxes , respectively . by applying centered fluxes the hamiltonian structure of maxwell s equations in continuum
+is preserved , whereas upwind fluxes lead to a mixed form .
+symplectic explicit time integration can be applied in the former case but not in the latter one  @xcite . for examples of symplectic time integration for maxwell s equations in the dg framework
+see , e.g. , @xcite . in @xcite upwind fluxes and runge - kutta schemes
+are applied for the time integration , where the latter one is concerned with maxwell s equations .
+the adaptation techniques presented in the following are based on projections between the finite element spaces introduced in ( [ eq : dgtensorspace ] ) .
+the projection operators have been introduced in  @xcite , however , they are included for completeness .
+also , we address the issue of stability in depth and amended this section with examples .
+the approximation @xmath117 to a given function @xmath118 in the fes @xmath69 is obtained by performing an orthogonal projection .
+the projection is carried out in an element - wise manner , by means of the projection operator @xmath119 given by @xmath120 where @xmath121 denotes the inner product @xmath122 on the element @xmath28 with the associated 2-norm @xmath123 . when applied successively to all elements and all components of given initial conditions of the electric field , @xmath124 , and the magnetic field , @xmath125 ,
+the respective dg approximations @xmath126 and @xmath127 are obtained .
+these approximations are optimal in the sense that the projection errors @xmath128 are orthogonal to the space of basis functions @xmath69 @xmath129,\ , \varphi_i^p = \hat{\varphi}^p \circ g_i^{-1},\ , \varphi^p \in \mathcal{v}^p\ ] ]      as stated above @xmath0-refinement is achieved by means of element bisections along the coordinate directions , where we allow for anisotropic refinements .
+the refined elements are referred to as the left and right hand side element @xmath130 and @xmath131 with basis functions denoted as @xmath132 and @xmath133 spanning the spaces @xmath134 and @xmath135 in a full analogy to @xmath69 defined in  ( [ eq : dgtensorspace ] ) .
+the approximation orders @xmath136 and @xmath137 in each child element do not have to be identical , neither are they required to be equal to the respective order @xmath71 of the parent element .
+the direct sum of the spaces @xmath138 and @xmath139 is denoted by @xmath140 @xmath141    in the following , the projection   can be applied in order to project an approximation given in an element @xmath28 to the fes associated with an @xmath0-refined or @xmath0-reduced element . for @xmath0-refinement
+this yields @xmath142 due to the tensor product character of the basis , this can be expressed as @xmath143 for the left and right child , respectively .
+if refinement is carried out along one coordinate only , e.g.  @xmath80 , this further simplifies to @xmath144 where @xmath145 denotes the kronecker delta .
+note that above we loop over @xmath146 , whereas in ( [ eq : projsolutionrefine2 ] ) the loop parameter is @xmath1 . as , moreover , @xmath147 vanishes for any @xmath148 , we can limit the above loop to the range @xmath149 $ ] , which reduces the number of addends to the minimum possible .    for the merging of elements , the approximation within the parent element , @xmath28 , is considered to be given piece - wise within its child elements .
+the projection reads @xmath150 where the simplifications  ( [ eq : projsolutionrefine2 ] ) and ( [ eq : projsolutionrefine3 ] ) apply .      for the case of @xmath1-enrichments ,
+the local fes are amended with the @xmath151 order basis functions @xmath152 where any ( non - zero ) number of the local maximum approximation orders @xmath71 may be increased . also , an enrichment by more than one higher order basis function is possible .
+formally , we perform the orthogonal projection  ( [ eq : projectionoperator ] ) , however , due to the orthogonality property of the basis functions the coefficients @xmath153 remain unaltered under a projection from @xmath154 to @xmath155 . practically , we simply extend the local vectors of coefficients @xmath156 with the new coefficients @xmath157 , which are initialized to zero .
+conversely , for the case of a @xmath1-reduction , the local fes is reduced by discarding the @xmath71-order basis functions @xmath158 again , by virtue of the orthogonality , we find that the coefficients @xmath159 are deleted from the local vectors of coefficients while the coefficients @xmath160 remain unaltered .
+we denote by @xmath161 the projection of the global approximation @xmath162 from the current discretization to another one obtained by local @xmath0- and @xmath1-adaptations .
+an approximation @xmath163 with coefficients according to is optimal in the sense of  ( [ eq : dgapproxerror ] ) .
+the approximations within refined and merged elements with coefficients obtained through the orthogonal projections and are , hence , optimal in the same sense .    if @xmath164 and @xmath165 holds true for all @xmath48 , the fes @xmath166 is a subspace of @xmath140 ( cf .
+( [ eq : legendrespaceunion ] ) ) and every function of @xmath166 is representable in @xmath140 but not vice versa . in this case ,
+a given approximation is exactly represented within an element under @xmath0-refinement but not under @xmath0-reduction .
+see fig .
+[ fig : adaplegendreremarks ] for an example .
+[ cc](a ) [ cc](b ) [ cc]@xmath167 [ cc]@xmath168 [ cc]@xmath169 [ cc]@xmath170 [ cc]@xmath171 [ lb]@xmath80 [ cb]@xmath172   and @xmath173 , the approximations of the parent and child elements agree point - wise .
+the projection to a merged element shown in ( b ) can , in general , not be exact due to the discontinuity .
+, title="fig:",scaledwidth=95.0% ]      since the projections  ( [ eq : projsolutionrefine ] ) for performing @xmath0-refinement are independent of the actual approximation , we also tabulated the projection operators @xmath174 and @xmath175 ( expressed in master basis functions ) yielding the matrix operators @xmath176 and @xmath177 , where the superscript denotes that the refinement level @xmath178 is increased .
+accordingly , we make use of the matrix operators @xmath179 and @xmath180 for evaluating the projections of  ( [ eq : projsolutionreduce ] ) in the case of element merging .
+the matrix operators are related as @xmath181 this allows for the computation of the approximations within adapted elements by means of efficient matrix - vector multiplications . as all projection matrices are triangular the evaluation can be carried out as an in - place operation requiring no allocation of temporary memory .
+the global approximation associated with an adapted grid is computed as @xmath182 .
+it can be considered as initial conditions applied on the new discretization obtained by performing the refinement operations .
+assuming stability of the time stepping scheme ( cf .
+@xcite ) , it is sufficient to show that the application of the projection operators at some time @xmath183 does not increase the electromagnetic energy associated with the approximate dg solution , i.e. , @xmath184 in this case it follows @xmath185 and , thus , stability of the adaptive scheme .
+following  ( [ eq : energydensity ] ) the energy associated with element @xmath28 is given as @xmath186 as a consequence of ( [ eq : projsolutionrefine2 ] ) , it is sufficient to show that the energy  ( [ eq : dgenergy ] ) is non - increasing during any adaptation involving one coordinate only .    [
+[ sec : h - refinement-1 ] ] @xmath0-refinement + + + + + + + + + + + + + + + + + + + + + + + + + +    for the following discussion of stability it is assumed that refinement is carried out along the @xmath80-coordinate .
+also we assume the maximum approximation orders @xmath187 and @xmath188 to be identical .
+it is clarified later , that this does not pose a restriction to the general validity of the results .    in the case of @xmath0-refinement , the operators @xmath189 and @xmath190 project from the space @xmath166 to the larger space @xmath140 .
+following the argument of paragraph  [ sec : optimality ] on optimality , any function defined in the space @xmath166 is exactly represented in @xmath140 .
+the conservation of the discrete energy is a direct consequence as the approximation in the parent and child elements are point - wise identical .
+we find the following relation for the 2-norms of the respective local vectors of coefficients @xmath191 the exemplary parent element approximation plotted in fig .
+[ fig : adaplegendreremarks]a has a maximum order of @xmath192 with all coefficients equal to one .
+the coefficients of the child element approximations and the square values of their 2-norms are given in tab .
+[ tab : adapdgcoeffsr ] . if the vector @xmath193 is considered to be either the vector of coefficients of the electric field @xmath194 or the magnetic field @xmath195 the result agrees with  ( [ eq : dgenergy1drefine ] ) .
+.parent and child element coefficients of the function plotted in fig .
+[ fig : adaplegendreremarks]a [ cols="^,^,^,^,^,^,^,^,>",options="header " , ]     we chose a maximum @xmath0-refinement level of two and the local element order to vary in between zero and four .
+the local energy density , introduced in  ( [ eq : energydensity ] ) , serves as the criterion for controlling the adaptation procedure .
+denoting by @xmath196 the average energy density of element @xmath31 and by @xmath197 the normalized energy density with @xmath198 , we assigned the local refinement levels according to @xmath199 and polynomial orders as @xmath200 with @xmath201 .
+the initial discretization consisted of @xmath202 elements . during the simulation
+the number of elements varies and grew strongly after scattering from the reflector took place , when it reached close to 800,000 elements corresponding to slightly more than 55  million dof . for comparison
+, we note that employing the finest mesh resolution globally as well as fourth order approximations uniformly would lead to approximately 7.5  billion ( @xmath203 ) dof .
+this corresponds to a factor of approximately 130 in terms of memory savings .
+we emphasize that the simulations were carried out on a single machine .
+the implementation takes full advantage of multi - core capabilities through openmp parallelization .
+the numerous run - time memory allocations and deallocations are handled through a specialized memory management library based on memory blocking , which we implemented for supporting the main code  @xcite .
+figure  [ fig : eygrids ] depicts cut - views of the @xmath112-component of the electric field and the respective @xmath2-mesh at three instances in time .
+note that the scaling of the electric field differs for every time instance , which is necessary to allow for a visual inspection .
+the enlargement shows details of the computational grid .
+all elements are of hexahedral kind , however , we make use of the common tensor product visualization technique ( cf .
+@xcite ) using embedded tetrahedra for displaying the three tensor product orders ( out of which only @xmath204 and @xmath205 are visible in the depicted @xmath206-plane ) .
+as we employed isotropic @xmath0- as well as @xmath1-refinement all tetrahedra associated with one element share the same color .
+figure  [ fig : signals ] shows plots of the outgoing and reflected waveform recorded along the waveguide center .
+the blue dashed line was obtained with the commercial cst microwave studio software  @xcite on a very fine mesh and serves as a cross comparison result .
+-component of the electric field ( top panel ) and the computational grid ( bottom panel ) at three instances in time .
+the enlargement shows details of the grid .
+we employ hexahedral elements for the computation but make use of embedded tetrahedra for displaying the tensor product orders in the grid view .
+as isotropic @xmath1-refinement was employed in this examples all tetrahedra associated with one element share a common color .
+note that different scalings are used for the time instances in the top panel.,scaledwidth=100.0% ]
+we presented a discontinuous galerkin formulation for non - regular hexahedral meshes and showed that hanging nodes of high level can easily be included into the framework .
+in fact , any non - regularity of the grid can be included in a single term reflecting the contribution of neighboring elements to the local interface flux .
+we demonstrated that the method can be implemented such that it maintains its computational efficiency also on non - regular and locally refined meshes as long as the mesh is derived from a regular root tesselation by means of element bisections .
+this is achieved by extensive tabulations of flux and projection matrices , which are obtained through ( analytical ) precomputations of integral terms .
+we also presented local refinement techniques for @xmath0- and @xmath1-refinements , which are based on projections between finite element spaces .
+these projections were shown to guarantee minimal projection errors in the @xmath207-sense and to lead to an overall stable time - domain scheme .
+local error and smoothness estimates have been addressed , both of them relate to the size of the interface jumps of the dg solution .
+we considered the simulation of a smooth and a non - smooth waveform in a one - dimensional domain for validating the error and smoothness estimates .
+as an application example in three - dimensional space the backscattering of a broadband waveform from a radar reflector was considered . in this example the total wave propagation distance corresponds to approximately sixty wavelengths involving thousand of local mesh adaptations . as
+the implementation of the derived error and smoothness estimates for three - dimensional problems is subject of ongoing work , we chose to drive the grid adaptation using the energy density as refinement indicator . crosschecking with a result obtained using a commercial software package showed good agreement .
+l.  fezoui , s.  lanteri , s.  lohrengel , s.  piperno , convergence and stability of a discontinuous galerkin time - domain method for the 3d heterogeneous maxwell equations on unstructured meshes , esaim - math model num 39  ( 6 ) ( 2005 ) 11491176 .
+d.  wirasaet , s.  tanaka , e.  j. kubatko , j.  j. westerink , c.  dawson , a performance comparison of nodal discontinuous galerkin methods on triangles and quadrilaterals , int j numer meth fluids 64  ( 10 - 12 ) ( 2010 ) 13361362 .
+l.  krivodonova , j.  xin , j.  remacle , n.  chevaugeon , j.  flaherty , shock detection and limiting with discontinuous galerkin methods for hyperbolic conservation laws , appl numer math 48  ( 3 - 4 ) ( 2004 ) 323338 .
+smove , a program for the adaptive simulation of electromagnetic fields and arbitrarily shaped charged particle bunches using moving meshes , technical documentation : _
+- school - ce.de / files2/schnepp / smove/_.

@@ -1,0 +1,218 @@
+we can study the effect of electromagnetic fields on fluids only if we know the stress induced due to the fields in the fluids . despite its importance , this topic
+is glossed over in most works on the otherwise well - established subjects of fluid mechanics and classical electrodynamics . the resultant force and torque acting on the body as a whole
+are calculated but not the density of body force which affects flow and deformation of materials .
+helmholtz and korteweg first calculated the body force density in a newtonian dielectric fluid in the presence of an electric field , in the late nineteenth century .
+however , their analysis was criticized by larmor , livens , einstein and laub , who favoured a different expression proposed by lord kelvin .
+it was later on shown that the two formulations are not contradictory when used to calculate the force on the body as whole and that they can be viewed as equivalent if we interpret the pressure terms appropriately .
+we refer to bobbio s treatise  @xcite for a detailed account of the controversy , the experimental tests of the formulas and their eventual reconciliation .
+the few published works on the topic like the text books of landau and lifshitz  @xcite , panofsky and phillips  @xcite and even bobbio  @xcite treat fluids and elastic solids separately .
+further , they restrict themselves to electrically and magnetically linear materials alone . in this paper , we develop an expression for stress due to external electromagnetic fields for materials with simultaneous fluid and elastic properties and which may have non - linear electric or magnetic properties .
+our analysis is thus able to cater to dielectric viscoelastic fluids and ferro - fluids as well .
+we also extend rosensweig s treatment  @xcite , by allowing ferro - fluids to have elastic properties .
+let us first see why the problem of finding stress due to electric or magnetic fields inside materials is a subtle one while that of calculating forces on torques on the body as a whole is so straightforward .
+the standard approach in generalizing a collection of discrete charges @xmath0 to a continuous charge distribution is to replace the charges themselves with a suitable density function @xmath1 and sums by integrals .
+thus , the expression for force @xmath2 , ( @xmath3 is the electric field at the location of the charge @xmath0 . ) on a body on @xmath4 discrete charges in an electric field @xmath5 , is replaced with @xmath6 , when the body is treated as a continuum of charge , the integral being over the volume of the body .
+the integral can be written as @xmath7 where @xmath8 is the force density in the body due to an external electric field .
+it can be shown that  @xcite that the same expression for force density is valid even inside the body . if instead , the body were made up of discrete dipoles instead of free charges , then the force on the body as a whole would be written as  @xcite @xmath9 where @xmath10 is the dipole moment of the @xmath11th point dipole and @xmath3 is the electric field at its position .
+if the body is now approximated as a continuous distribution of dipoles with polarization @xmath12 , then the force on the whole body is written as @xmath13 while this is a correct expression for force on the body as a whole , it is not valid if applied to a volume element inside the material . in other words , @xmath14 is not a correct expression for density of force in a continuous distribution of dipoles although @xmath15 is the density of force in the analogous situation for monopoles .
+we shall now examine why it is so .
+consider two bodies @xmath16 and @xmath17 that are composed of charges and dipoles respectively .
+( the subscripts of quantities indicate their composition . )
+let @xmath18 and @xmath19 be volume elements of @xmath16 and @xmath17 respectively .
+the volume elements are small compared to dimensions of the body but big enough to have a large number of charges or dipoles in them .
+the forces @xmath20 and @xmath21 on @xmath18 and @xmath19 respectively due to the surrounding body are @xmath22 where @xmath4 is the number of charges or dipoles inside the volume element under consideration . in both these expressions , @xmath3 is the macroscopic electric field at the position of @xmath11th charge or dipole .
+it is the average value of the microscopic electric field @xmath23 at that location .
+that is @xmath24 , where @xmath25 denotes the spatial average of the enclosed quantity .
+the microscopic field @xmath23 can be written as @xmath26 where @xmath27 is the microscopic field due to the charges or dipole outside the volume element and @xmath28 is the field due to charges or dipoles inside the volume element other than the @xmath11th charge or dipole .
+for the volume element @xmath18 of point charges , @xmath29 where @xmath30 is the microscopic electric field at the position of @xmath11th charge due to @xmath31th charge inside @xmath18 .
+therefore , @xmath32 newton s third law makes the second sum on the right hand side of the above equation zero .
+@xmath20 is thus due to charges outside @xmath18 alone for which the standard approach of replacing sum by integral and discrete charge by charge density is valid .
+therefore , @xmath15 continues to be the volume force density inside the body .
+if the same analysis were to be done for the volume element @xmath19 of point dipoles , it can be shown that the contribution of dipoles inside @xmath19 is not zero .
+in fact , the contribution depends on the shape of @xmath19  @xcite .
+that is the reason why @xmath14 , also called kelvin s formula , is not a valid form for force density in a dielectric material .
+we would have got the same results for a continuous distribution of magnetic monopoles , if they had existed , and magnetic dipoles .
+that is @xmath33 is not the correct form of force density of a volume element in a material with magnetization @xmath34 in a magnetic field @xmath35 .
+the goal of this paper is to develop an expression for stress inside a material with both viscous and elastic properties in the presence of an external electric or magnetic field , allowing the materials to have non - linear electric and magnetic properties .
+we demonstrate that by making some fairly general assumptions about thermodynamic potentials , it is possible to develop a theory of stresses for materials with fluid and elastic properties .
+we check the correctness of our results by showing that they reduce to the expressions developed in earlier works when the material is a classical fluid or solid . to our knowledge
+, there is no theory of electromagnetic stresses in general continua with simultaneous fluid and elastic properties .
+since we are using techniques of equilibrium thermodynamics for our analysis , we will not be able to get results related to dissipative phenomena like viscosity .
+deriving an expression for viscosity for even a simple case of a gas requires full machinery of kinetic theory  @xcite .
+developing a theory of electro and magneto viscous effects is a much harder problem and we shall not attempt to solve it in this paper .
+we begin our analysis in section ( [ sec : thermod ] ) by reviewing expressions for the thermodynamic free energy of continua in electric and magnetic fields .
+after pointing out the relation between stress and free energy in section ( [ sec : dielectric ] ) , we obtain a general relation for stress in a dielectric material in presence of an electric field .
+we check its correctness by showing that it reduces to known expressions for stress in newtonian fluids and elastic solids .
+the framework for deriving electric stress is useful for deriving magnetic stress in materials that are not permanently magnetized .
+section ( [ sec : magnetic ] ) mentions the expression for stress in a continuum in presence of a static magnetic field .
+we then point out the assumptions in derivations of ( [ sec : dielectric ] ) and ( [ sec : magnetic ] ) that render the expressions of stress unsuitable for ferro - fluids and propose the one that takes into account the permanent magnetization of ferro particles .
+we derive expressions for ponderomotive forces in section ( [ sec : ponder ] ) from the expressions for stress obtained in previous sections .
+most of our analysis rests on framework scattered in the classic works of landau and lifshitz on electrodynamics  @xcite and elasticity  @xcite generalizing it for continua of arbitrary nature .
+electromagnetic fields alter thermodynamics of materials only if they are able to penetrate in their bulk . conducting materials have plenty of free charges to shield their interiors from external static electric fields .
+therefore , the effect of external static electric fields are restricted to their surface alone , in the form of surface stresses .
+the situation in dielectrics is different - a paucity of free charges allows an external static field to penetrate throughout its interior polarizing its molecules . the external field has to do work to polarize a dielectric .
+this is akin to work done by an external agency in deforming a body .
+the same argument applies to a body exposed to a magnetic field . unlike static electric fields that are shielded in conductors ,
+magnetic fields always penetrate in bodies , magnetizing them .
+the nature of the response depends on whether a body is diamagnetic , paramagnetic or ferromagnetic . in all the cases , magnetic fields have to do work to magnetize them and therefore the thermodynamics of continua is always affected by a magnetic field .
+we shall develop thermodynamic relations for materials exposed to static electromagnetic fields in this section .    at a molecular level ,
+electric and magnetic fields deform matter for which the fields have to do work .
+the material and the field together form a thermodynamic system .
+the work done on it is of the form @xmath36 where @xmath37 is an intensive quantity and @xmath38 a related extensive quantity denotes the possibly inexact differential of a quantity @xmath37 . ] . in the case of a dielectric material in a static electric field , the intensive quantity is the electric field @xmath5 and the extensive quantity is the total dipole moment @xmath39 , @xmath12 being the polarization and @xmath40 being the volume of the material . in the case of a material getting magnetized , the intensive quantity is the magnetizing field @xmath35 and the extensive quantity is the total magnetic moment @xmath41 , @xmath34 being the polarization and @xmath40 being the volume of the material .
+the corresponding work amounts are @xmath42 and @xmath43 respectively .
+we added a subscript @xmath44 because this is only one portion of the work .
+the other portion of the work is required to increment the fields themselves to achieve a change in polarization or magnetization .
+they are @xmath45 and @xmath46 respectively , where @xmath47 is the permittivity of free space and @xmath48 is the permeability of free space respectively and that of a magnetic field is @xmath49 . ] therefore , the total work needed to polarize and magnetize a material , at constant volume , are @xmath50 we have derived these relations for linear materials .
+we will now show that they are true for any material .
+imagine a dielectric immersed in an electric field .
+let the electric field be because of a charge density @xmath51 .
+let the electric field be increased slightly by changing the charge density by an amount @xmath52 .
+work done to accomplish this change is @xmath53 where @xmath54 is the electric potential . since @xmath55 , @xmath56
+if the charge density is localized then the volume of integration can be taken as large as we like .
+we do so and also convert the first integral on the right hand side to a surface integral .
+the first term then makes a vanishingly small contribution to the total and the work done in polarizing a material can be written as @xmath57      let a material be magnetized by immersing it in a magnetic field .
+the magnetic field can be assumed to be created because of a current density @xmath58 .
+let the magnetic field be increased slightly by changing the current density .
+we further assume that the rate of increase of current is so small that @xmath59 at all stages .
+the source of current has to do an additional work while increasing the amount of current density in order to overcome the opposition of the induced electromotive force .
+if @xmath60 is the induced emf , then the sources will have to do an additional work at the rate @xmath61 , where @xmath62 is the magnetic flux and the dot over head denotes total time derivative .
+the amount of work needed is @xmath63 . if @xmath64 is the cross sectional area of the current , then @xmath65 but @xmath66 , therefore , @xmath67 since we assumed the current to be increased at an infinitesimally slow rate , there are no displacement currents and @xmath68 .
+@xmath69 where we have used the vector identity @xmath70 .
+we once again assume that the current density is localized and therefore converting the second integral on the right hand side of equation ( [ thermod : e6 ] ) into a surface integral results in an infinitesimally small quantity .
+the work done in magnetizing a material is therefore , @xmath71      a change in the helmholtz free energy of a system is equal to the work done by the system in an isothermal process , which in turn is related to stresses in the continuum
+. we will show how stress is related to the helmholtz free energy .
+let us consider the example of an ideal gas .
+the change in its helmholtz free energy , is given by @xmath72 .
+using the first and the second laws of thermodynamics we have @xmath73 .
+therefore , @xmath74 , which under isothermal conditions means @xmath75 . in this simple system , @xmath76 is the isotropic portion of the stress and @xmath77 is related to the isotropic strain .
+thus , we can get @xmath76 is we know change in helmholtz free energy and volume .
+therefore , a first step toward getting an expression for stress is to find the helmholtz free energy . under isothermal conditions ,
+the first law of thermodynamics is @xmath78 where @xmath79 is the total free energy , @xmath80 is the absolute temperature , @xmath81 is the total entropy and @xmath82 is the work done on the system .
+first law of thermodynamics for polarizable and magnetizable media is @xmath83 where @xmath84 is the mechanical work done on the system .
+if @xmath85 , @xmath86 and @xmath87 are internal energy , mechanical work and entropy of the media _ per unit volume _
+, first law of thermodynamics for polarizable and magnetizable media is @xmath88 the mechanical work done on a material is @xmath89 where @xmath90 is the stress tensor and @xmath91 is the strain tensor in the medium .
+further , with this substitution , all quantities in equations ( [ fe:4 ] ) and ( [ fe:5 ] ) become exact differentials allowing us to replace @xmath92 with @xmath93 . if @xmath94 is the helmholtz free energy per unit volume , @xmath95 these relations give change in helmholtz free energy in terms of change in @xmath96 and @xmath97 .
+the @xmath96 field s source is free charges alone while the @xmath97 field s source is all currents . in an experiment
+, we can control the total charge and free currents .
+therefore , it is convenient to express free energy in terms of @xmath5 , whose source is all charges - free and bound , and @xmath35 , whose source is free currents .
+we therefore introduce associated helmholtz free energy function @xmath98 for polarizable media as @xmath99 and for magnetizable media as @xmath100 .
+equations ( [ fe:6 ] ) and ( [ fe:7 ] ) therefore become @xmath101 if @xmath102 is the deviatoric stress , @xmath103 , where @xmath76 is the hydrostatic pressure .
+therefore we have , @xmath104 the quantity @xmath105 is the dilatation of the material during deformation . therefore the thermodynamic potential @xmath98 of a polarizable ( magnetizable ) medium is thus , a function of @xmath80 , @xmath40 , @xmath91 and @xmath5(@xmath35 ) .
+equivalently , it can be considered a function of @xmath80 , @xmath106 , @xmath91 and @xmath5(@xmath35 ) , where @xmath106 is the mass density of the medium .
+we will now calculate the stress tensor in a polarizable medium .
+we consider a small portion of the material and find out the work done by the portion in a deformation in presence of an electric field .
+the portion is small enough to approximate the field to be uniform throughout its extent .
+we emphasize that through this assumption we are not ruling out non - uniform fields but only insisting that the portion be small enough to ignore variations in it .
+since a sufficiently small portion of a material can be considered to be plane , the volume element under consideration can be assumed to be in form of a rectangular slab of height @xmath107 .
+let it be subjected to a virtual displacement @xmath108 which need not be parallel to the normal @xmath109 to the surface .
+the virtual work done by the medium per unit area in this deformation is @xmath110 , where @xmath111 is the stress _ on _ the portion .
+if @xmath90 is the stress _ due to _ the portion _ on _ the medium , then @xmath112
+. therefore , the virtual work done by the medium on the portion is @xmath113 .
+further , since both @xmath111 and @xmath90 are symmetric , the virtual work can also be written as @xmath114 . the change in helmholtz
+free energy during the deformation is @xmath115 per unit surface area .
+if we assume the deformation to be isothermal , @xmath116 change in height of the slab is @xmath117    [ dielectric : f1 ]     the geometry of the problem is described in figure 2 . for an isothermal variation @xmath118
+we depart from the convention in thermodynamics , to indicate variables held constant as subscripts to partial derivatives , to make our equations appear neater .
+we shall also use the traditional notation for partial derivatives .
+we will now get expressions for each term on the right hand side of equation ( [ dielectric:3 ] ) .    1 .
+if @xmath119 is the helmholtz free energy in absence of electric field , @xmath120 , where @xmath121 is the permittivity tensor .
+permittivity is known to be a function of mass density of a material , the dependence being given by clausius - mossotti relation@xcite .
+electric field is _ usually _ independent of mass density of the material .
+however , that is not so if the material has a pronounced density stratification like a fluid heated from above .
+if @xmath122 and @xmath123 are two elements of such a fluid , at the top and bottom respectively , both having identical volume then @xmath122 will have less number of dipoles than @xmath123 .
+the electric field inside them , due to matter within their confines too will differ .
+we point out that although divergence of @xmath5 depends only on the density of free charges , @xmath5 itself is produced by all multipoles .
+therefore , @xmath124 the last term in equation ( [ dielectric:4 ] ) is absent if the material has a uniform temperature .
+it is not included in the prior works of bobbio@xcite and landau and lifshitz@xcite .
+if the @xmath125 ( or @xmath126 ) axis is assumed to be along the normal and the deformation is uniform , the displacement of a layer of the volume element can be described as @xmath127 where @xmath125 is the vertical distance from the lower surface .
+since @xmath108 is fixed , @xmath128 and @xmath129 since the strain tensor is always symmetric , @xmath130 the electric field does not depend on strain but permittivity does .
+this is because , deformation may change the anisotropy of the material , which determines its permittivity .
+likewise , permittivity and strain tensors do not depend on electric field ] .
+therefore they can be pulled out of the integral and @xmath131 3 .   from equation ( [ fe:8 ] )
+, @xmath132 therefore , the last term is just @xmath133 .
+using equations ( [ dielectric:4 ] ) , ( [ dielectric:9 ] ) and ( [ dielectric:10 ] ) in ( [ dielectric:3 ] ) , we get @xmath134 substituting ( [ dielectric:11 ] ) and ( [ dielectric:2 ] ) in ( [ dielectric:1 ] ) we get @xmath135 we have gathered terms independent of electric field in the first curly bracket of equation ( [ dielectric:12 ] ) , keeping the contribution of electric field to stress in the rest .
+we still have to find out the expressions for @xmath136 and @xmath137 .
+a change in density of a layer depends on the change it its height ( or thickness ) , therefore , @xmath138 or , @xmath139 we will now estimate change in electric field due to deformation . consider a volume element at a point @xmath140 .
+let it undergo a deformation by @xmath141 . as a result ,
+matter that used to be at @xmath142 now appears at @xmath140 . in a virtual homogeneous deformation ,
+every volume element carries its potential as the material deforms .
+therefore , the change in potential at @xmath140 is @xmath143 . since @xmath144 ( see equation ( [ dielectric:5 ] ) ) , @xmath145 since @xmath146 , @xmath147 we have used the assumption that the region is small enough to have almost uniform electric field and therefore it can be pulled out of the gradient operator .
+equation ( [ dielectric:12 ] ) therefore becomes @xmath148 stress in a polarized viscoelastic material at rest is therefore , @xmath149 we can simplify equation ( [ dielectric:16a ] ) by writing the terms in the first curly bracket as familiar thermodynamic quantities . if @xmath150 is the total helmholtz free energy of the substance in absence of electric field and @xmath119 is the helmholtz free energy per unit volume then @xmath151 , where @xmath152 is the volume of the substance , @xmath153 the mass and @xmath106 the density .
+maxwell relation for pressure in terms of total helmholtz free energy is @xmath154 similarly , the dependence of @xmath119 on strain tensor @xmath155 can be written as @xmath156@xcite , where we have retained only the deviatoric of the strain tensor because the isotropic part is already accounted in hydrostatic pressure of equation ( [ dielectric:16a ] ) .
+the constant @xmath157 is the shear modulus of the substance .
+therefore , @xmath158 equation ( [ dielectric:16a ] ) can therefore be written as @xmath159 we will now look at some special cases of ( [ dielectric:16 ] ) ,    1 .   if there is no matter , terms with pressure , density and strain tensor will not be present .
+further @xmath160 and equation ( [ dielectric:16 ] ) becomes the maxwell stress tensor for electric field in vacuum .
+@xmath161 we emphasize that the general expression for stress in a material exposed to static electric field reduces to maxwell stress tensor only when we ignore all material properties .
+if there is no electric field , all terms in the second and third curly bracket of ( [ dielectric:16 ] ) vanish .
+further , if the medium is a fluid without elastic properties , @xmath119 , will not depend on @xmath155 and the stress will be @xmath162 thus the stress in a fluid without elastic properties is purely hydrostatic .
+we do not see viscous terms in ( [ dielectric:17 ] ) because viscosity is a dissipative effect while @xmath163 is obtained from helmholtz free energy which has information only about energy than can be extracted as work .
+if the material were a solid and if there are no electric fields as well , the stress is @xmath164 it is customary to write the first term of equation ( [ dielectric:18 ] ) in terms of @xmath165 , the bulk modulus as @xmath166 4 .   for a fluid dielectric with isotropic permittivity tensor , @xmath119 is independent of @xmath155 and @xmath167 .
+if the fluid has a uniform density , equation ( [ dielectric:16 ] ) then becomes @xmath168 this expression matches the one obtained in  @xcite , after converting to gaussian units , and after accounting for the difference in the interpretation of stress tensor .
+landau and lifshitz s stress tensor is @xmath169 .
+5 .   for a fluid dielectric with isotropic permittivity tensor and
+in which the electric field depends on density equation ( [ dielectric:16 ] ) then becomes @xmath170 6
+.   for a solid dielectric we can assume that @xmath119 , @xmath5 and @xmath171 are independent of @xmath106 . equation ( [ dielectric:16 ] ) now becomes @xmath172 if the solid is isotropic and remains to be so after application of electric field , @xmath167 and ( [ dielectric:20 ] ) simplifies to @xmath173 where @xmath174 is the part of stress tensor that exists even in absence of electric field .
+this expression matches with the one in  @xcite if one converts it to gaussian units , assumes the constitutive relation @xmath175 and takes into account that their stress tensor is @xmath169 .
+7 .   for a viscoelastic liquid that is also a linear dielectric with uniform density , @xmath176
+in order to calculate stress in a magnetic fluid , we continue to use the physical set up used in section ( [ sec : dielectric ] ) of a small slab of viscoelastic liquid subjected to magnetic field .
+if there are no conduction and displacement currents , ampere s law becomes @xmath177 , making the @xmath35 field conservative .
+it can then be treated like the electrostatic field of section ( [ sec : dielectric ] ) . in order to extend the analysis of section ( [ sec : dielectric ] ) to magnetic fluids ,
+we need an additional assumption of magnetic permeability being independent of @xmath35 .
+although the first assumption , of no conduction and displacement currents , is valid in the case of ferro - viscoelastic fluids , the second assumption of field - independent permeability is not .
+therefore , this analysis is valid only for the single - valued , linear section of the @xmath97 versus @xmath35 curve of ferro - viscoelastic liquid , giving @xmath178 where @xmath179 is the magnetic permeability tensor . we have omitted the term accounting for dependence of @xmath35 on mass density @xmath106 because we are not aware of a situation where it may happen .
+the expressions derived in sections ( [ sec : dielectric ] ) and ( [ sec : magnetic ] ) are valid only if permittivity and permeability are independent of electric and magnetic fields respectively .
+ferro - fluids are colloids of permanently magnetized particles .
+as the applied magnetic field increases from zero , an increasing number of sub - domain magnetic particles align themselves parallel to the field opposing the random thermal motion leading to a magnetization that increased in a non - linear manner . the magnetic susceptibility and
+therefore permeability depend on the field .
+it can not be pulled out of the integral sign .
+equation ( [ magnetic:1 ] ) should be written as @xmath180 if the elastic effects are negligible , equation ( [ ferro:1 ] ) reduces to @xmath181 if @xmath182 , as is normally for ferro - fluids  @xcite , @xmath183 since the applied magnetic field is independent of density , @xmath184 where to get the last equation we have used the relation @xmath185 and the fact that @xmath35 does not depend on @xmath106 .
+if @xmath186 is the specific volume , that is @xmath187 , equation ( [ ferro:5 ] ) can be written as @xmath188 further , @xmath189 and @xmath185 imply , @xmath190 using equations ( [ ferro:5 ] ) and ( [ ferro:6 ] ) in equation ( [ ferro:3 ] ) , we get @xmath191dh_r\right\}\delta_{ij } - h_i b_j\ ] ] this is same as rosensweig s  @xcite equation ( 4.28 ) except that he calculates @xmath111 , which is related to our stress tensor as @xmath169 .
+we do not know of electric analogues of ferro fluids ( electro - rheological fluids are analogues of magneto - rheological fluids , not ferro fluids ) . however , there are permanently polarized solids , called ferro - electrics . for such materials ,
+the stress is @xmath192
+the old term `` ponderable media '' means media that have weight .
+ponderomotive force is the one that cause motion or deformation in a ponderable medium . in contemporary terms , it is the density of body force in a material .
+it is related to the stress tensor @xmath90 as @xmath193 we mention a few familiar special cases of this equation for fluids of various kinds .    1 .   for incompressible , newtonian fluids the stress tensor
+is given by ( [ dielectric:17 ] ) and the force density is @xmath194 note that the force density does not include the dissipative component due to viscosity .
+2 .   for an incompressible ,
+newtonian , dielectric fluid in presence of static electric field , assuming that the electric field inside the fluid is independent of density , the stress tensor is given by equation ( [ dielectric:19 ] ) and the ponderomotive force is @xmath195 where @xmath196 is the density of free charges in the fluid and @xmath197 is its relative permittivity .
+in deriving equation ( [ ponder:3 ] ) we used gauss law @xmath198 and the fact that we are dealing with an electrostatic field ( @xmath199 ) , for which @xmath200 . in an ideal , dielectric fluid @xmath201 and @xmath202 the relative permittivity is a function of temperature and the term @xmath203 is significant in a single - phase fluid only if there is a temperature gradient .
+the third term in equation ( [ ponder:4 ] ) is called the electro - striction term and it is present only when the electric field or @xmath204 or both are non - uniform .
+the derivative of the relative permittivity with respect to mass density is calculated using the clausius - mossotti relation  @xcite ,  @xcite .
+3 .   continuing with the same fluid as above but now having a situation
+in which the electric field is a function of mass density @xmath106 , we have an additional term in equation ( [ ponder:4 ] ) given by @xmath205 we come across such a situation when there is a strong temperature gradient in the fluid resulting in a gradient of dielectric constant @xmath197 .
+since the electric field depends on @xmath197 and @xmath197 depends on mass density through the clausius - mossotti relation , the electric field is a function of mass density and we have to consider this additional term .
+we hasten to add that it not necessary for there to be a temperature gradient to have such a situation , a gradient of electric permittivity suffices to give rise to such a situation .
+the derivation for force density in an incompressible , newtonian , diamagnetic or paramagnetic fluid in presence of a static magnetic field is similar except that we use the maxwell s equations @xmath206 and @xmath207 .
+we also assume the auxiliary magnetic field , @xmath35 , inside the fluid is independent of density .
+we get @xmath208 the term @xmath209 is the lorentz force term and it is zero if the fluid is not conducting .
+@xmath210 is the relative permeability of the fluid . the fourth term in equation ( [ ponder:5 ] )
+is called the magneto - striction force .
+it is present only if the magnetic field or @xmath211 or both are non - uniform .
+the derivative of relative permeability with respect to mass density is calculated using the magnetic analog of the clausius - mossotti relation  @xcite .
+several forms of body force density , all equivalent to each other , can be derived for ferro - fluids from equations ( [ ferro:7 ] ) and ( [ ponder:1 ] ) .
+we refer to  @xcite for more details .
+[ ponder : i5 ] if the material is dielectric and viscoelastic , we assume that the permittivity depends on the strain .
+even though the material was isotropic before applying electric field , it may turn anisotropic as its molecules get polarized and align with the field .
+the scalar permittivity is then replaced with a second order permittivity tensor @xmath171 . following landau and lifshitz s treatment of solid dielectrics  @xcite
+, we assume that the permittivity tensor is a linear function of the strain tensor and write it as @xmath212 where @xmath213 and @xmath214 are constants indicating rate of change of permittivity with strain .
+we call them @xmath213 and @xmath214 to differentiate them from @xmath215 and @xmath216 used to describe behavior of solid dielectric  @xcite .
+if we assume the material to be incompressible , @xmath217 and @xmath218 for an incompressible material , equation ( [ dielectric:16c ] ) becomes , @xmath219 since @xmath213 and shear modulus @xmath157 are constants , they do not survive in the expression for @xmath220 .
+the expression for ponderomotive force in a dielectric , viscoelastic fluid is same as that for a dielectric , newtonian fluid .
+[ ponder : i6 ] the same conclusion follows for a viscoelastic fluid subjected to a magnetic field if we assume that @xmath221 , @xmath222 and @xmath223 being constants , when a fluid is magnetized .
+time - varying electric fields can penetrate conductors up to a few skin depths that depends on the frequency of the fields and physical parameters of the material like its ohmic conductivity or magnetic permeability .
+the general problem of response of materials to time - varying fields is quite complicated .
+however , the results in this paper can be applied for slowly varying fields , that is , the ones that do not significantly radiate . for such fields
+, the time varying terms of maxwell equations can be ignored . whether a time varying field can be considered quasi - static or not depends on the linear dimension of the materials involved . if @xmath224 is the angular frequency of the fields , the wavelength of corresponding electromagnetic wave is @xmath225 , @xmath226 being the velocity of light in vacuum . if the linear dimension @xmath227 of the materials is much lesser than @xmath228 , for any element @xmath229 of the path of current , there is another within @xmath227 that carries same current in the opposite direction , effectively canceling the effect of current . for power line frequencies ,
+the value of @xmath227 is a few hundred miles and even for low frequency radio waves , with @xmath230 hz , @xmath227 is of the order of @xmath231 m. thus the _ slowly - varying fields _ or _ quasi - static _
+approximation  @xcite is valid for frequencies up to that of radio waves and our results can be applied under those conditions .
+1 .   proof of equation ( [ dielectric:8 ] ) .
+@xmath232 interchange the indices in the first term , @xmath233 since @xmath91 is a symmetric tensor , @xmath234    99 bobbio , s. , electrodynamics of materials : forces stresses , and energies in solids and fluids , academic , new york , chapter 4 , ( 2002 ) .
+landau l. d. and lifshitz e. m. , electrodynamics of continuous media , pergamon , oxford , ( 1960 )
+. panofsky w. k. h. and phillips m. , classical electricity and magnetism , 2nd edition , dover publications inc .
+, new york , ( 1962 ) .
+rosensweig r. e. , ferrohydrodynamics , dover publications , mineola , new york , ( 1997 ) .
+reitz , j. r. , milford , f. j. and christy , r. w. , foundations of electromagnetic theory , 3rd edition , narosa publishing house , new delhi , ( 1990 ) .
+jackson , j. d. , classical electrodynamics , 3rd edition , john wiley & sons inc , new york , ( 1999 ) .
+chapman , s. and cowling , t. g. , mathematical theory of non - uniform gases , 3rd edition , cambridge university press , cambridge , ( 1970 ) .
+landau l. d. and lifshitz e. m. , theory of elasticity , pergamon , oxford , ( 1960 ) .
+joshi amey , radhakrishna m.c . and
+rudraiah n , rayleigh - taylor instability in dielectric fluids , physics of fluids , volume 22 , issue 6 , ( 2010 ) .

@@ -1,0 +1,180 @@
+organic molecular crystals , namely crystals composed of organic molecules held together by weak van der waals forces , are emerging as excellent candidates for fabricating nanoscale devices .
+these have potential application in electronics and optoelectronics in particular in areas such as solar energy harvesting , surface photochemistry , organic electronics and spintronics  @xcite . a feature common to such class of devices
+is that they are composed from both an organic and inorganic component , where the first forms the active part of the device and the second provides the necessary electrical contact to the external circuitry .
+clearly the electronic structure of the interface between these two parts plays a crucial role in determining the final device performance and needs to be understood carefully .
+in particular it is important to determine how charge transfers between the organic and the inorganic component and the energies at which the transfer takes place .
+this is a challenging task , especially in the single - molecule limit .
+upon adsorption on a substrate , the electron addition and removal energies of a molecule change value from that of their gas phase counterparts .
+this is expected since , when the molecule is physisorbed on a polarisable substrate , the removal ( addition ) of an electron from ( to ) the molecule gives rise to a polarisation of the substrate .
+the image charge accumulated on the substrate in the vicinity of the molecule alters the addition or removal energy of charge carriers from the molecule .    a common way to calculate the addition and removal energies
+is to use a quasiparticle ( qp ) description . within the qp picture
+, one ignores the effects of relaxation of molecular orbitals due to addition or removal of electrons and consequently takes the relative alignment of the metal fermi level , @xmath1 , with either the lowest unoccupied molecular orbital ( lumo ) and highest occupied molecular orbital ( homo ) of a molecule as removal energy .
+this effectively corresponds to associate the electron affinity and the ionization potential respectively to the lumo and homo of the molecule .
+the adequacy of the qp description then depends on the level of theory used to calculate the energy levels of the homo and lumo .
+if the theory of choice is density functional theory ( dft )  @xcite , then a number of observations should be made .
+firstly , it is important to note that except for the energy of the homo , which can be rigorously interpreted as the negative of the ionization potential  @xcite , in general the kohn - sham orbitals can not be associated to qp energies .
+this is , however , commonly done in practice and often the kohn - sham qp levels provide a good approximation to the true removal energies , in particular in the case of metals . for molecules
+unfortunately the situation is less encouraging with the local and semi - local approximations of the exchange and correlation functional , namely the local density approximation ( lda ) and the generalized gradient approximation ( gga ) , performing rather poorly even for the homo level .
+such situation is partially corrected by hybrid functionals  @xcite or by functional explicitly including self - interaction corrections  @xcite , and extremely encouraging results have been recently demonstrated for range separated functionals  @xcite .
+the calculation of the energy levels alignment of a molecule in the proximity of a metal , however , presents additional problems .
+in fact , the formation of the image charge , although it is essentially a classical electrostatic phenomenon , has a completely non - local nature .
+this means that unless a given functional is explicitly non - local it will in general fail in capturing such effect . the most evident feature of such failure is that the position of the homo and lumo changes very little when a molecule approaches a metallic surface  @xcite .
+such failure is typical of the lda and gga , and both hybrid and self - interaction corrected functionals do not improve much the situation .
+a possible solution to the problem is that of using an explicit many - body approach to calculate the qp spectrum .
+this is for instance the case of the gw approximation  @xcite , which indeed is capable of capturing the energy levels renormalization due to the image charge effect  @xcite .
+the gw scheme , however , is highly computationally demanding and can be applied only to rather small systems .
+this is not the case for molecules on surfaces , where the typical simulation cells have to include several atomic layers of the metal and they should be laterally large enough to contain the image charge in full . this , in addition to the gw necessity to compute a significant fraction of the empty states manifold , make the calculations demanding and it is often not simple even to establish whether convergence has been achieved .
+in this paper we approach the problem of evaluating the charge transfer energies of an organic molecule physisorbed on an inorganic substrate with the help of a much more resource - efficient alternative , namely constrained density functional theory ( cdft )  @xcite . in cdft ,
+one transfers one electron from the molecule to the substrate ( and vice versa ) and calculates the difference in energy with respect to the locally charge neutral configuration ( no excess of charge either on the molecule or the substrate )  @xcite . as such cdft avoids the calculation of a qp spectrum , which is instead replaced by a series of total energy calculations for different charge distributions
+this approach is free of any interpretative issues and benefits from the fact that even at the lda level the total energy is usually an accurate quantity . finally , it is important to remark that , for any given functional , cdft is computationally no more demanding than a standard dft calculation , so that both the lda and the gga allow one to treat large systems and to monitor systematically the approach to convergence .    here
+we use the cdft approach to study the adsorption of molecules on a 2-dimensional ( 2d ) metal in various configurations .
+it must be noted that in contrast to a regular 3d metal , in a 2d one the image charge induced on the substrate is constrained within a one - atom thick sheet .
+this means that electron screening is expected to be less efficient than in a standard 3d metal and the features of the image charge formation in general more complex .
+in particular we consider here the case of graphene , whose technological relevance is largely established  @xcite .
+most importantly for our work , recently graphene has been used as template layer for the growth of organic crystals  @xcite .
+it is then quite important to understand how such template layer affects the level alignment of the molecules with the metal . as a model system
+we consider a simple benzene molecule adsorbed on a sheet of graphene .
+this has been studied in the past  @xcite , so that a good description of the equilibrium distance and the corresponding binding energy of the molecule in various configurations with respect to the graphene sheet are available .
+furthermore , a @xmath2 study for some configurations exists  @xcite , so that our calculated qp gap can be benchmarked .
+our calculations show that the addition and removal energies decrease in absolute value as the molecule is brought closer to the graphene sheet .
+such decrease can be described with a classical electrostatic model taking into account the true graphene dielectric constant .
+as it will be discussed , a careful choice of the substrate unit cell is necessary to ensure the inclusion of the image charge , whose extension strongly depends on the molecule - substrate distance .
+we also reveal that the presence of defects in the graphene sheet , such as a stone - wales one , does not significantly alter the charge transfer energies . in realistic situations , _
+e.g. _ at the interface between a molecular crystal and an electrode , a molecule is surrounded by many others , which might alter the level alignment .
+we thus show calculations , where neighboring molecules are included above , below and in the same plane of the one under investigation .
+interestingly , our results suggest that the charge transfer states are weakly affected by the presence of other molecules .
+in order to find the ground state energy of a system , kohn - sham dft minimises a universal energy functional @xmath3=\sum_{\sigma}^{\alpha,\beta}\sum_{i}^{n_\sigma}\langle \phi_{i \sigma}|-\frac{1}{2}\nabla^{2}|\phi_{i \sigma}\rangle+\int d\mathbf{r}v_n(\mathbf{r})\rho(\mathbf{r})+j[\rho]\\ + e_\mathrm{xc}[\rho^{\alpha},\rho^{\beta}]\ : , \end{split}\ ] ] where @xmath4 , @xmath5 and @xmath6 denote respectively the hartee , exchange - correlation ( xc ) and external potential energies .
+the kohn - sham orbitals , @xmath7 , for an electron with spin @xmath8 define the non - interacting kinetic energy @xmath9 , while @xmath10 is the total number of electrons with spin @xmath8 . the electron density ,
+is then given by @xmath11 .
+in contrast to regular dft , in cdft one wants to find the ground state energy of the system subject to an additional constraint of the form @xmath12 where @xmath13 is a weighting function that describes the spatial extension of the constraining region and @xmath14 is the number of electrons that one wants to confine in that region . in our case
+@xmath15 is set to 1 inside a specified region and zero elsewhere . in order to minimise @xmath16 $ ] subject to the constraint
+, we introduce a lagrange multiplier @xmath17 and define the constrained functional @xcite @xmath18=e[\rho]+v_\mathrm{c}\left(\sum_{\sigma}\int w_\mathrm{c}^{\sigma}(\mathbf{r})\rho^{\sigma}(\mathbf{r})d\mathbf{r}-n_\mathrm{c}\right)\ ] ]    now the task is that of finding the stationary point of @xmath19 $ ] under the normalization condition for the kohn - sham orbitals .
+this leads to a new set of kohn - sham equations @xmath20\phi_{i\sigma}\\
+= \epsilon_{i\sigma}\phi_{i\sigma}\ : , \end{split}\ ] ] where @xmath21 is the exchange and correlation potential .
+equation  ( [ equ4 ] ) does not compute @xmath17 , which remains a parameter .
+however , for each value of @xmath17 it produces a unique set of orbitals corresponding to the minimum - energy density . in this sense we can treat @xmath19 $ ] as a functional of @xmath17 only .
+it can be proved that @xmath19 $ ] has only one stationary point with respect to @xmath17 , where it is maximized  @xcite .
+most importantly the stationary point satisfies the constraint .
+one can then design the following procedure to find the stationary point of @xmath19 $ ] : ( i ) start with an initial guess for @xmath22 and @xmath17 and solve eq .
+( [ equ4 ] ) ; ( ii ) update @xmath17 until the constraint eq .
+( [ equ2 ] ) is satisfied ; ( iii ) start over with the new @xmath17 and a new set of @xmath23s .
+here we use cdft to calculate the charge transfer energy between a benzene molecule and a graphene sheet . for any given molecule - to - substrate distance , @xmath24 , we need to perform three different calculations :    1 .
+a regular dft calculation in order to determine the ground state total energy @xmath25 and the amount of charge on each subsystem ( _ i.e. _ on the molecule and on the graphene sheet ) 2 .   a cdft calculation with the constraint that the graphene sheet contains one extra electron and
+the molecule contains one hole .
+this gives the energy @xmath26 .
+3 .   a cdft calculation with the constraint that the graphene sheet contains one extra hole and the molecule one extra electron . this gives the energy @xmath27 .
+the charge transfer energy for removing an electron from the molecule and placing it on the graphene sheet is then @xmath28 .
+similarly , that for the transfer of an electron from the graphene sheet to the molecule is @xmath29 . since in each run the cell remains charge neutral , there is no need here to apply any additional corrections .
+however , we have to keep in mind that this method is best used when the two subsystems are well separated so that the amount of charge localized on each subsystem is a well defined quantity .    in our calculations
+we use the cdft implementation  @xcite for the popular dft package siesta@xcite , which adopts a basis set formed by a linear combination of atomic orbitals ( lcao ) .
+the constrain is introduced in the form of a projection over a specified set of basis orbitals and in particular use the lowdin projection scheme . throughout this work
+we adopt double - zeta polarized basis set with an energy cutoff of 0.02  ry .
+the calculations are done with norm - conserving pseudopotential and the lda is the exchange - correlation functional of choice .
+a mesh cutoff of 300  ry has been used for the real - space grid .
+we impose periodic boundary conditions with different cell - sizes and the @xmath30-space grid is varied in accordance with the size of the unit cell .
+for instance , an in plane 5@xmath315 @xmath30-grid has been used for a 13@xmath3113 graphene supercell .
+we begin this section with a discussion on the equilibrium distance for a benzene molecule adsorbed on graphene .
+this is obtained by simply minimizing the total energy difference @xmath32 , where @xmath33 is the total energy for the cell containing benzene on graphene , while @xmath34 ( @xmath35 ) is the total energy of the same cell when only the benzene ( graphene ) is present .
+this minimization is performed for two different orientations of the benzene molecule with respect to the graphene sheet : the _ hollow _ ( h ) configuration , in which all the carbon atoms of the benzene ring are placed exactly above the carbon atoms of graphene , and the _ stack _ ( s ) configuration , in which alternate carbon atoms of the benzene molecule are placed directly above carbon atoms of the graphene sheet [ see fig .  [
+fig : figure1](a , b ) ] . for the h configuration
+we find an equilibrium distance of 3.4   , while for the s one this becomes 3.25   .
+these results are in fair agreement with another lda theoretical study  @xcite ( predicting 3.4   and 3.17   respectively for for the h and s orientations ) .
+note that a more precise evaluation of such distances requires the use of van der waals corrected functionals .
+this exercise , however , is outside the scope of our work and here we just wish to establish that the equilibrium distance is large enough for our constrain to remain well defined .
+it can also be noted that the equilibrium distance of 3.6   obtained with a vdw - df study  @xcite is not very different from our lda result .    , for different unit cell sizes of graphene sheet .
+the results are presented for two different molecule - to - graphene distances : 3.4    and 6.8  .,scaledwidth=45.0% ]    we then study the dependence of the charge transfer energies on the size of the graphene unit cell used .
+this is achieved by looking at the charge transfer gap , @xmath36 , as a function of the unit cell size at various molecule - to - graphene distances ( see fig .  [
+fig : figure2 ] ) .
+when the molecule is very close to the graphene sheet , after transferring an electron , the image charge is strongly attracted by the oppositely charged molecule and thereby remains highly localized . however , as the molecule moves away from the substrate , the attraction reduces since the coulomb potential decays with distance , resulting in a delocalization of the image charge .
+this will eventually spread uniformly all over the graphene sheet in the limit of an infinite distance .
+if the unit cell is too small , the image charge will be artificially over - confined , resulting in an overestimation of @xmath37 and @xmath38 and , as a consequence , of the charge transfer energies .
+this effect can be clearly seen in fig .
+[ fig : figure2 ] , where we display the variation of the charge transfer energies as a function of the cell size .
+clearly , for the shorter distance ( 3.4   corresponding to the average equilibrium distance ) , the energy gap converges for supercells of about 10@xmath3110 ( 10@xmath3110 graphene primitive cells ) . at the larger distance of 6.8  
+the same convergence is achieved for a 13@xmath3113 supercell .
+next we compute the charge transfer energies as a function of the distance between the sheet and the molecule . in order to compare our results with the gap expected in the limit of an infinite distance , we need to evaluate first the ionization potential , @xmath39 , and the electron affinity , @xmath40 , of the isolated benzene molecule .
+this is also obtained in terms of total energy differences between the neutral and the positively and negatively charged molecule , namely with the @xmath41scf method .
+this returns a quasiparticle energy gap , @xmath42 , of 11.02  ev , in good agreement ( within 4.5% ) with the experimental value  @xcite .
+likewise we also determine the fermi level ( @xmath43 ) of graphene , which is found to be  4.45 ev .    in fig .
+[ fig : figure3](a ) we show the change in the charge transfer energy gap with the distance of the benzene from the graphene sheet for the h configuration . as expected , when the molecule is close to the surface , there is a considerably large attraction between the image charge and the opposite charge excess on the molecule , resulting in an additional stabilization of the system and a reduction in magnitude of @xmath44 and @xmath37 .
+hence , in such case the charge transfer energies have a reduced magnitude and the charge transfer gap is smaller than that in the gas phase
+. then , as the molecule moves away from the graphene sheet , the charge transfer energies increase and so does the charge transfer energy gap until it eventually reaches the value corresponding to the homo - lumo gap of the isolated molecule in the limit of an infinite distance . in figs .
+[ fig : figure3](b ) , ( c ) , ( d ) and ( e ) we show the excess charge - density , @xmath45 , in different parts of the system after transferring one electron for two different molecule - to - graphene distances . the excess charge - density @xmath45 is defined as @xmath46 , where @xmath47 and @xmath48 are respectively the charge densities of the system before and after the charge transfer .
+thus the portion of @xmath45 localized on the graphene sheet effectively corresponds to the image charge profile . clearly , due to the stronger coulomb attraction , the image charge is more localized for @xmath49   than for @xmath50   . at equilibrium for the s configuration , @xmath51   ,
+the charge transfer energy gap is calculated to be 8.91  ev , which is in good agreement ( within 4% ) with the gap obtained by @xmath52  @xcite . in table
+[ table : configuration ] , for the purpose of comparison , we have listed the charge transfer energies and charge transfer gaps for two different heights , 3.4     and 6.8   , and in different configurations .
+the most notable feature is that for the case of a pristine graphene substrate the specific absorption site plays little role in determining the charge transfer levels alignment
+.      in general actual graphene samples always display lattice imperfections @xcite . in order to determine the effect of such structural defects on the ct energies , we consider a reference system where a stone - wales ( sw ) defect ( in which a single c - c bond is rotated by 90@xmath53 ) is present in the graphene sheet .
+we have then calculated @xmath54 for two different positions of the molecule with respect to the defect on the sheet , namely the @xmath55 position , in which the molecule is placed right above the defect and the @xmath56 position , in which it is placed above the sheet far from the defect ( see fig .
+[ fig : figure1 ] ) .
+our findings are listed in tab .
+[ table : configuration ] , where we report the charge transfer energies for both the configurations , assuming the molecule is kept at the same distance from the graphene sheet . from the table
+it is evident that the structural change in graphene due to presence of such defect does not alter the charge transfer energies of the molecule .
+this is because the image charge distribution on graphene is little affected by presence of the sw defect .
+in addition , the density of states ( dos ) of graphene remains almost completely unchanged near its fermi energy after introducing such defect as can be seen in fig .
+[ figure4 ] , which shows that the partial density of states ( pdos ) of the atoms forming the sw defect has no significant presence near the fermi level .
+thus , after the charge transfer , the electron added to ( or removed from ) the graphene sheet has the same energy that it would have in the absence of the defect , i.e. it is subtracted ( added ) from a region of the dos where there is no contribution from the sw defect . in this context , it is noteworthy that a @xmath52 study @xcite has concluded that altering the structure of pristine graphene by introducing dopant ( which raises the fermi level of graphene by 1  ev ) also has minor effect on the qp gap of benzene , reducing it by less than 3% .        .@xmath57 ,
+@xmath58 and @xmath59 for various configurations of a benzene molecule on pristine and defective graphene . h and s denote adsorption of benzene on graphene in
+the _ hollow _ and _ stack _ configuration , respectively .
+@xmath55 and @xmath56 correspond to adsorption on graphene with sw defect , with the former corresponding to adsorption exactly on top of the defect and the latter corresponding to adsorption away from the site of the defect . the configurations @xmath60 and @xmath61 both correspond to adsorption of two benzene molecules in _ hollow _
+configuration- one at height 3.4    and another at a height 6.8   .
+while in @xmath60 , the ct is calculated for the lower molecule , in @xmath61 , the ct is calculated for the upper one .
+finally @xmath62 represents the case in which we have a layer of non - overlapping benzenes adsorbed on graphene and one is interested in calculating the ct energy for one of them , which is placed in the _ hollow _ configuration .
+[ cols="^,^,^,^,^",options="header " , ]      in real interfaces between organic molecules and a substrate , molecules usually are not found isolated but in proximity to others .
+it is then interesting to investigate the effects that the presence of other benzene molecules produce of the charge transfer energies of a given one . to this end
+we select three representative configurations . in the first one , @xmath60 ,
+the graphene sheet is decorated with two benzene molecules , one at 3.4   while the other is placed above the first at 6.8    from the graphene plane .
+we then calculate the charge transfer energies of the middle benzene ( the one at 3.4   from the sheet ) . the excess charge on different parts of the system ( image charge ) , after transferring one electron to the sheet , is displayed in fig .
+[ fig : he](a ) and fig .
+[ fig : he](b ) .
+the second configuration , @xmath61 , is identical to the first one but now we calculate the charge transfer energies of the molecule , which is farther away from the graphene sheet , namely at a distance of 6.8   . for this configuration , the excess charge after a similar charge transfer
+is shown in fig .
+[ fig : he](c ) and fig .
+[ fig : he](d ) . in the third configuration , @xmath62
+, we arrange multiple benzene molecules in the same plane .
+the molecules are in close proximity with each other although their atomic orbitals do not overlap .
+charge transfer energies are then calculated with respect to one benzene molecule keeping the others neutral and an isovalue plot for similar charge transfer is shown in fig .
+[ fig : he](e ) and fig .
+[ fig : he](f ) .
+the charge transfer energies calculated for these three configurations are shown in tab .
+[ table : configuration ] .
+if one compares configurations where the molecule is kept at the same distance from the graphene plane , such as the case of h(@xmath49   ) , @xmath60 and @xmath62 or of h(@xmath50   ) and @xmath61 , it appears clear that the presence of other molecules has some effect on the charge transfer energies .
+in particular we observe than when other molecules are present both @xmath57 and @xmath58 get more shallow , i.e. their absolute values is reduced .
+interestingly the relative reduction of @xmath57 and @xmath58 depends on the details of the positions of the other molecules ( e.g. it is different for @xmath60 and @xmath62 ) but the resulting renormalization of the homo - lumo gap is essentially identical [ about 25  mev when going from h(@xmath49   ) to either @xmath60 or @xmath62 ] .
+this behaviour can be explained in terms of a simple classical effect .
+consider the case of @xmath60 for example .
+when one transfers an electron from the middle benzene to the graphene sheet the second benzene molecule , placed above the first , remains neutral but develops an induced charge dipole .
+the moment of such dipole points away from the charged benzene and lowers the associated electrostatic potential .
+importantly , also the potential of graphene will be lowered . however , since the potential generated by an electrical dipole is inversely proportional to the square of distance , the effect remains more pronounced at the site of the middle benzene than at that of the graphene sheet .
+a similar effect can be observed for an electron transfer from the graphene sheet to the middle benzene and for the @xmath62 configuration .    in the case of @xmath61 , the system comprising the topmost benzene ( from which we transfer charge ) and the graphene plane can be thought of as a parallel - plate capacitor .
+the work , @xmath64 , done to transfer a charge @xmath65 from one plate to the other is @xmath66 where @xmath67 is the capacitance , which in turn is proportional to the dielectric constant of the medium enclosed between the plates .
+hence , at variance with the case of h(d=6.8
+ ) , the space in between the molecule and the graphene sheet is occupied by a molecule with finite dielectric constant and not by vacuum .
+this results in a reduction of @xmath64 , so that the charge transfer energies for @xmath61 are smaller than those for h(d=6.8   ) .
+finally , we show that our calculated energy levels alignment can be obtained from a classical electrostatic model . if one approximates the transferred electron as a point charge and the substrate where the image charge forms as an infinite sheet of relative permittivity @xmath68 then , for a completely planar distribution of the bound surface charge , the work done by the induced charge to take an electron from the position of the molecule ( at a distance @xmath24 ) to infinity is @xmath69 hence , this electrostatic approximation predicts that the presence of the substrate lowers the @xmath70 of the molecule by @xmath71 with respect to the corresponding gas - phase value .
+however , the actual image charge is not strictly confined to a 2d plane but instead spills out over the graphene surface . we can account for such non - planar image charge distribution by introducing a small modification to the above expression  @xcite and write the lumo at a height @xmath24 as @xmath72 where @xmath73 is the distance between the centre of mass of the image charge and the substrate plane and @xmath74 is the gas - phase lumo ( the electron affinity ) .
+a similar argument for the homo level shows an elevation of same magnitude due to the presence of the substrate . in fig .
+[ fig : classical_plot ] we plot the charge transfer energies and show that they compare quite well with the curves predicted by the classical model by using an effective dielectric constant of 2.4 for graphene  @xcite . when drawing the classical curves we have used an approximate value , @xmath75   , which provides an excellent estimate for smaller distances , @xmath24 .
+it is worth noting that for larger distances , though the actual value of @xmath73 should be much less , the overall effect of @xmath73 is very small and almost negligible . in the same graph , we have also plotted the classical curves corresponding to benzene on a perfectly metallic ( @xmath76 ) surface .
+this shows that the level renormalization of benzene for physisorption on graphene is significantly different from that on a perfect metal , owing to the different screening properties of graphene .
+( circles ) and @xmath77 ( squares ) calculated for different molecule - to - substrate distances .
+the cdft results are seen to agree well with the classically calculated curve given in red .
+the horizontal lines mark the same quantities for isolated an molecule ( gas - phase quantities ) .
+the continuous black line shows the position of the classically calculated level curve for adsorption on a perfect metal @xmath76.,scaledwidth=44.0% ]
+we have used cdft as implemented in the siesta code to calculate the energy levels alignment of a benzene molecule adsorbed on a graphene sheet . in general
+the charge transfer energies depend on the distance between the molecule and the graphene sheet , and this is a consequence of the image charge formation .
+such an effect can not be described by standard kohn - sham dft , but it is well captured by cdft , which translates a quasi - particle problem into an energy differences one . with cdft
+we have simulated the energy level renormalization as a function of the molecule - to - graphene distance .
+these agree well with experimental data for an infinite separation , where the charge transfer energies coincide with the ionization potential and the electron affinity .
+furthermore , an excellent agreement is also obtained with @xmath0 calculations at typical bonding distances . since cdft is computationally inexpensive we have been able to study the effects arising from bonding the molecule to a graphene structural defect and from the presence of other benzene molecules .
+we have found that a stone - wales defect does not affect the energy level alignment since its electronic density of state has little amplitude at the graphene fermi level .
+in contrast the charge transfer energies change when more then a molecule is present .
+all our results can be easily rationalized by a simple classical electrostatic model describing the interaction of a point - like charge and a uniform planar charge distribution .
+this , at variance to the case of a perfect metal , takes into account the finite dielectric constant of graphene .
+this work is supported by the european research council , quest project .
+computational resources have been provided by the supercomputer facilities at the trinity center for high performance computing ( tchpc ) and at the irish center for high end computing ( ichec ) .
+additionally , the authors would like to thank dr .
+ivan rungger and dr .
+a. m. souza for helpful discussions .
+29ifxundefined [ 1 ] ifx#1 ifnum [ 1 ] # 1firstoftwo secondoftwo ifx [ 1 ] # 1firstoftwo secondoftwo `` `` # 1''''@noop [ 0]secondoftwosanitize@url [ 0 ]
+ + 12$12  & 12#1212_12%12@startlink[1]@endlink[0]@bib@innerbibempty @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( ) link:\doibase 10.1002/cphc.200700177 [ * * , ( ) ] @noop * * ,   ( ) link:\doibase 10.1103/physrev.136.b864 [ * * , ( ) ] link:\doibase 10.1103/physrevb.18.7165 [ * * , ( ) ] @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( ) link:\doibase 10.1103/physrevb.88.165112 [ * * ,   ( ) ] @noop * * ,   ( ) @noop ( ) \doibase    http://dx.doi.org/10.1016/j.apsusc.2010.07.069 [ * * , ( ) ] link:\doibase 10.1103/physrevlett.96.146107 [ * * ,   ( ) ] @noop * * ,   ( ) link:\doibase    10.1103/physrevb.88.235437 [ * * ,   ( ) ] @noop * * ,   ( ) \doibase http://dx.doi.org/10.1016/0022-1902(81)80486-1 [ * * ,   ( ) ] @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( ) @noop * * ,   ( )

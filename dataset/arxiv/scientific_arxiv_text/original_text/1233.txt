@@ -1,0 +1,201 @@
+recent progress in quantum communication technology has confirmed that the biggest challenge in using quantum methods of communication is to provide scalable methods for building large - scale quantum networks  @xcite .
+the problems arising in this area are related to physical realizations of such networks , as well as to designing new protocols that exploit new possibilities offered by the principles of quantum mechanics in long - distance communication .
+one of the interesting problems arising in the area of quantum internetworking protocols is the development of methods which can be used to detect errors that occur in large - scale quantum networks . a natural approach for developing such methods is to construct them on the basis of the methods developed for classical networks  @xcite .
+the main contribution of this paper is the development of a method for exploring quantum networks by mobile agents which operate on the basis of information stored in quantum registers .
+we construct a model based on a quantum walk on cycle which can be applied to analyse the scenario of exploring quantum networks with a faulty sense of direction .
+one should note that the presented model allows studying the situations where all nodes in the network are connected .
+the reason for this is that a move can result in the shift of the token from the current position to any other position in the network .
+thus we do not restrict ourselves to a cycle topology .
+this paper is organized as follows . in the remaining part of this section we provide a motivation for the considered scenario and recall a classical scenario described by magnus - derek game . in section  [ sec : quantum - magnus - derek ]
+we introduce a quantum the scenario of quantum network exploration with a distracted sense of direction . in section  [ sec : application - quantum ] we analyse the behaviour of quantum mobile agents operating with various classes of strategies and describe non - adaptive and adaptive quantum strategies which can be employed by the players . finally , in section  [ sec : final ] we summarize the presented work and provide some concluding remarks .      as quantum networks
+consist of a large number of independent parties  @xcite it is crucial to understand how the errors , that occur during the computation on nodes , influence their behaviour . such errors may arise , in the first place , due to the erroneous work of particular nodes .
+therefore it is important to develop the methods that allow the exploration of quantum networks and the detection of malfunctioning nodes .
+one of the methods used to tackle this problem in classical networks is the application of mobile agents , _
+i.e. _  autonomous computer programs which move between hosts in a network .
+this method has been studied extensively in the context of intrusion detection @xcite , but it is also used as a convincing programming paradigm in other areas of software engineering  @xcite .    on the other hand , recent results concerning the exploration of quantum graphs suggest that by using the rules of quantum mechanics it is possible to solve search problems  @xcite or rapidly detect errors in graphs  @xcite .    in this paper
+we aim to combine both methods mentioned above .
+we focus on a model of mobile agents used to explore a quantum network . for the purpose of modelling such agents we introduce and study the quantum version of the magnus - derek game  @xcite .
+this combinatorial game , introduced in  @xcite , provides a model for describing a mobile agent acting in a communication network .
+the magnus - derek game was introduced in @xcite and analysed further in  @xcite and  @xcite .
+the game is played by two players : derek ( from _ direction _ or _ distraction _ ) and magnus ( from _ magnitude _ or _ maximization _ ) , who operate by moving a token on a round table ( cycle ) with @xmath0 nodes @xmath1 .
+initially the token is placed in the position @xmath2 . in each round ( step ) magnus decides about the number @xmath3 of positions for the token to move and derek decides about the direction : clockwise ( @xmath4 or @xmath2 ) or counter - clockwise ( @xmath5 or @xmath6 ) .
+magnus aims to maximize the number of nodes visited during the game , while derek aims to minimize this value .
+derek represents a distraction in the sense of direction . for example , a  sequence of moves @xmath7 allowing magnus to visit three nodes , can be changed to @xmath8 due to the influence of derek represented by the @xmath4 and @xmath5 signs .
+the possibility of providing biased information about the direction prevents magnus permanently from visiting some nodes .    in the classical scenario
+one can introduce a function @xmath9 which , for a given number of nodes @xmath0 , gives the cardinality of the set of positions visited by the token when both players play optimally  @xcite .
+it can be shown that this function is well defined and @xmath10 with @xmath11 being the smallest odd prime factor of @xmath0 .
+by @xmath12 we denote the number of moves required to visit the optimal number of nodes . in the case
+@xmath13 , the number of moves is optimal and equals @xmath14 .
+et al . _
+proved  @xcite that if @xmath15 is a positive integer not equal to a power of @xmath16 , then there exists a strategy allowing magnus to visit at least @xmath9 nodes using at most @xmath17 moves .
+we distinguish two main types of regimes  adaptive and non - adaptive . in the adaptive regime ,
+both players are able to choose their moves during the execution of the game . in the non - adaptive regime
+, magnus announces the sequence of moves he aims to perform .
+in particular , if the game is executed in the non - adaptive regime , derek can calculate his sequence of moves before the game . in the classical case
+the problem of finding the optimal strategy for derek is @xmath18-hard  @xcite and is equivalent to the partition problem  @xcite .
+let us now assume that the players operate by encoding their positions on a cycle in an @xmath0-dimensional pure quantum states .
+thus the position of the token is encoded in a state @xmath19 . at the @xmath20-th step of
+the game magnus decides to move @xmath21 and derek decides to move in direction @xmath22 .
+one can easily express the classical game by applying the notation of quantum states .
+the evolution of the system during the move described above is given by a unitary matrix of the form @xmath23 where @xmath24 .
+clearly , as the above permutation operators express only the classical subset of the possible moves , by using it one can not expect to gain with respect to the classical scenario . in particular , the operators @xmath25 as introduced above do not allow the preparation of a move by using the information encoded in a superposition .    in order to exploit the possibilities offered by quantum mechanics in the magnus - derek scheme
+, we can use a quantum walk controlled by two registers . to achieve this
+we need to offer the players a larger state space .
+we introduce a quantum scheme by defining the following quantum version of the magnus - derek game .    1 .
+the state of the system is described by a vector of the form @xmath26 2 .
+the initial state of the system reads @xmath27 .
+3 .   at each step
+the players can choose their strategy , possibly using unitary gates . 1 .
+magnus operates on his register with any unitary gate @xmath28 resulting in a operation of the form @xmath29 performed on the full system .
+2 .   derek operates on his register with any unitary gate @xmath30 .
+if his actions are position - independent the operation performed on the full system takes the form @xmath31 .
+however , in section  [ sec : position_control ] we also allow position - controlled actions , resulting in the operator of the form @xmath32 .
+[ game:3b ] 4 .
+the change of the token position , resulting from the players moves , is described by the shift operator @xmath33    where the addition and the subtraction is in the appropriate ring @xmath34 .
+the single move in the game defined according to the above description is given by the position - independent operator @xmath35 taking this into account the state of the system after the execution of @xmath36 moves reads @xmath37 where each matrix @xmath38 depends on the move of each party .
+the distribution of the position on the cycle after @xmath36 moves is described by a reduced density matrix @xmath39 which represents the state of the token register after tracing - out the subsystems used to process the strategies . here
+@xmath40 represents the operation of tracing - out the subsystems used by magnus and derek to encode their strategies .
+the key part of this procedure is how the players choose their strategies .
+the selection of the method influences the efficiency of the exploration .
+below we study the possible methods and show how they influence the behaviour of the quantum version of the magnus - derek game .    clearly , by using the unitary gates magnus and derek are able to prepare the superpositions of base states .
+for this reason , one needs to provide the notion of node visiting suitable for analysing quantum superpositions of states .
+therefore , we introduce the notion of _ visiting _ and _ attaining _ a position .
+we say that the position @xmath41 is visited in @xmath42 steps , if for some step @xmath43 the probability of measuring the position register in the state @xmath44 is 1 , _
+i.e._@xmath45    in order to introduce the notion of attaining we use the concepts of measured quantum walk  @xcite and concurrent hitting time .
+a @xmath44-measured quantum walk from a discrete - time quantum walk starting in a state @xmath46 is a process defined by iteratively first measuring with the two projectors @xmath47 and @xmath48 . if @xmath49 is measured the process is stopped , otherwise a step operator is applied and the iteration is continued .
+a quantum random walk has a @xmath50 concurrent @xmath51 hitting - time if the @xmath44-measured walk from this walk and initial state @xmath52 has a probability @xmath53 of stopping at a time @xmath54 .    we say that the position @xmath41 is attained in @xmath42 steps , if @xmath44-measured exploration walk has a @xmath55 concurrent @xmath56 hitting time , i.e. the exploration walk with initial state @xmath46 has a probability of stopping at a time @xmath57 equal to @xmath6 .    with the help of these definitions , one can introduce the concepts of _ visiting strategy _ and _ attaining strategy_.    [ def : visiting - strategy ] if for the given sequence of moves performed by magnus , there exists @xmath42 such that each position on the cycle is visited in @xmath42 steps , then we call such sequence of moves a _ visiting strategy_.    [ def : attaining - strategy ] if for the given sequence of moves performed by magnus , each position on the cycle is attained , then we call such sequence of moves an _ attaining strategy_.
+the quantum scheme introduced in the previous section extends the space of strategies which can be used by both players .
+as there is a significant difference in situations where @xmath13 and @xmath58 , we will consider these cases separately .
+we start by considering the case @xmath13 . in this situation
+we have two possible alternatives . in
+the first one magnus uses the quantum version of the optimal classical strategy and derek while derek performs any possible quantum moves . in the second scenario
+both players are able to explore all possible quantum moves .
+let us first consider the quantum scheme executed by magnus with the use of the classical optimal strategy . as in the classical case
+derek is not able to prevent magnus from visiting all the nodes , it is natural to ask if he can achieve any advantage using unitary moves .
+if the number of nodes is equal to @xmath59 , for some integer @xmath36 , the optimal strategy for magnus can be computed at the beginning of the game . this strategy  _
+i.e. _  a sequence of magnitudes  is given as ( see lemma  2  in @xcite ) @xmath60 where @xmath61 denotes the repetition of the moves starting from the beginning of the sequence until the move preceding the @xmath61 and excluding it .
+the first few sequences resulting from eq .
+( [ eqn : classical - optimal-2k ] ) are presented in table  [ tab : magnus2-moves - examples ] .
+.optimal moves to be performed by magnus when the number of nodes is equal to @xmath59 .
+magnus is able to visit all @xmath0 positions in @xmath62 moves by using this strategy . [
+cols="<,<",options="header " , ]     by using this strategy in the classical case , magnus is able to visit all nodes using @xmath62 moves and derek is not able to prevent him from doing this .
+moreover , the bound for the number of moves required to visit all the nodes in the classical case is tight .
+let us now assume that magnus is using quantum moves constructed for the classical optimal strategy , but derek can use arbitrary quantum moves . for example , if @xmath63 magnus optimal strategy is realized by the following sequence of unitary gates @xmath64      first of all , as the moves performed by magnus allow him the sampling of the space of positions using @xmath65 steps , it can be easily seen that derek is not able to prevent magnus from attaining all nodes using @xmath12 moves .    on the other hand ,
+derek is able to prevent magnus from visiting all nodes .
+he can achieve this using the strategy given as follows .
+[ str:2k - strategy - h - id ] for steps @xmath66 perform the following gate @xmath67 where @xmath68 denotes the hadamard gate .
+the probabilities of finding a token at each position for the scheme with magnus using the optimal strategy and derek using strategy [ str:2k - strategy - h - id ] is presented in fig .
+[ fig : qpos-2k - strategy - h - id ] .
+clearly , magnus is able to attain all the nodes is in @xmath69 steps .
+however , derek can prevent him from visiting all nodes in @xmath69 steps .
+this is expressed in the following .
+[ tw : vs - optimal ] let us take @xmath70 .
+then , there exists a strategy for derek preventing magnus from visiting all nodes in @xmath69 steps .
+moreover , there is no strategy for derek that enables him to prevent magnus from attaining all nodes in @xmath69 steps .    _
+proof._the first part follows from the construction of the strategy [ str:2k - strategy - h - id ] .
+in fact , any strategy of this form , not necessarily using hadamard gate , will prevent magnus from visiting all nodes .
+the second part follows from the construction of the magnus strategy .
+let s assume that there is a strategy that allows derek to prevent magnus from attaining a position @xmath41 i.e. this position is not attained .
+then a @xmath44-measured walk has no @xmath71 concurrent hitting time .
+thus , there is a non - zero probability that the process will not stop in @xmath0 steps .
+this means that at each step @xmath42 there is a non - zero amplitude for some state @xmath72 with @xmath73 _ i.e. _  the state will not get measured by effect @xmath74 .
+the sequence of directions resulting from the above @xmath75 used by derek in a classical version of the game would give him a strategy forbidding a visit in position @xmath41 .
+it is a contradiction of the properties of magnus classical strategy .
+@xmath76    the above proposition can be easily extended as , by using a quantum strategy with only one hadamard gate , derek can prevent magnus from visiting more than two nodes .
+this result shows that by using quantum moves against the classical strategy , derek is not able to exclude additional positions .
+however , he gains in comparison to the classical case as he is able to introduce more distraction in terms of the reliability of the exploration .
+in the situation @xmath77 , the quantum strategies used by derek to distract the sense of directions can depend on the type of information which is available to him . without the possibility to perform position - controlled operations he can only use classical information about history of choices of magnus unitaries that gives him an estimate of the current state . on the other hand , if he is able to decide about his move using the current position , the resulting strategy is more robust .      in the classical case the adaptive strategy allows derek to use the knowledge about magnus move to choose a step according to the position of a token in the moment of the decision . in the quantum case , when a superposition of positions is possible and no measurement is allowed , derek s decision can not depend on the position of the token .
+instead , derek can maintain only information about the history and the current state of the walk in order to choose the optimal move .    in this section
+we provide such quantum adaptive strategy for derek under the principles of the game introduced in section [ sec : quantum - magnus - derek ] , _ i.e. _  without using controlled operations , which can be used by derek to execute his move .
+using the presented strategy derek can reduce the number of visited positions to 2 ( or even one in the case of odd @xmath0 ) at the cost of increasing the number of attained positions .
+the main result of this section can be stated as follows .
+[ tw : pm1 ] in the case when @xmath78 contains in its decomposition two distinct odd prime numbers @xmath11 and @xmath79 there exists a strategy for derek that allows him to assert that :    1 .   only the starting position ( and the symmetric one in the case of even @xmath0 ) will be visited , 2 .
+the total number of attained positions during the walk will be at most @xmath80m = n-(n / q
+- n / pq)$ ] ,    assuming that magnus uses only permutation operators .
+one should note that for @xmath81 magnus can not apply the provided strategy .
+moreover , the strategy could be applied recursively by excluding subsequent pairs of least odd prime divisors in order to slightly improve this result  not all multiplications of @xmath82 need to be attained and the number of attained positions would be at most @xmath83 , for @xmath84 .    in order to prove this , we provide a method for constructing a strategy for derek , which allows him to obtain the desired result .
+we show that the provided strategy guarantees that the amplitudes of a state , at every step corresponding to a fixed set of positions , will be equal to zero and , as a consequence , there is zero probability of measuring any such positions during the walk _
+i.e. _  none of them is attained .
+the first requirement for derek is the choice of the set of _ restricted positions _ , _
+i.e. _  positions which will be protected from being visited or attained by magnus .
+restricted positions have to be distributed on the cycle in a regular way .
+more precisely , we have the following .
+[ fact : structure ] a set of restricted positions which can be chosen by derek in order to construct a strategy in proposition  [ tw : pm1 ] is a subset of @xmath85 where @xmath11 is a divisor of @xmath0 .    _
+_ to show that the set of restricted position has to be of this form it is sufficient to prove that the intervals between subsequent restricted positions have to be equal .
+let us assume that this is not the case and consider three subsequent restricted positions .
+if the distance between two of them is even , magnus , after visiting the position in the middle , would be able to visit one of the restricted positions .
+if both distances are odd , but different , then the sum of them is even and by repeating the reasoning track we obtain that magnus is able to visit at least one of the restricted positions .
+@xmath76    after choosing the set @xmath86 and for a given position on the cycle , derek can choose his move independently from the magnus choice .
+when we assign the positions with possible directions according to particular magnitudes it turns out that some of the positions are not distinguishable from derek s point of view .
+let us call two positions _ symmetric _ if their distance to the nearest restricted position in the direction indicated by the coin register is identical .
+this allows us to state the following .
+[ fact : symmetric ] considering two symmetric positions the sets of directions that can be chosen by derek in order to avoid visiting restricted positions are identical for every magnus call .
+one can note that the relation of being symmetric is invariant under the action of the step operator .
+two facts stated above allow derek to restrict the choice of moves in such manner that he is able prevent magnus from visiting the set of restricted positions . however , the most important part of derek s strategy is steering the state of the system into a superposition of symmetric states .
+such a state guarantees the possibility to perform a strategy in which none of the states will be visited ( only attained ) .
+when such a superposition is achievable from the beginning , derek achieves the result similar to the classical case ( equal number of restricted positions ) assuming that none of the states is visited . on the other hand ,
+when he needs to adopt to the standard situation when the starting state is a base state with one particular position , then the number of states that are attained is greater than the number of the positions visited in the classical scenario .
+[ fact : distance ] if a superposition of two symmetric states has been created from a base state , the beginning position must be equally distant from two closest positions from every set of the restricted positions .
+_ if this were not the case , the resulting states in a superposition would not be equally distant from restricted positions and , as the result , not symmetric .
+@xmath76    the above stated facts allow the formulation of the proof of proposition  [ tw : pm1 ] .
+_ proof of proposition  [ tw : pm1 ] .
+_ as a consequence of fact  [ fact : distance ] , the starting point has to belong to every restricted set .
+using fact  [ fact : structure ] , magnus can design a strategy that allows him to visit all positions from an arbitrarily fixed set @xmath86 ( by calling appropriate multiplications of @xmath11 ) even when restricted to the permutation operators .
+thus derek has to choose two prime divisors of @xmath0 and decide which will be used as the restricted positions set , according to the magnus first move .
+the optimal choice is to use two smallest factors . in this case
+the optimal strategy for magnus would be to call @xmath87 and visit all positions that are multiplications of @xmath82 , and then switch to @xmath11 .
+for this reason derek uses the restricted set which is identical as in the case of restricting @xmath88 excluding all the positions numbered with common multiplications of @xmath11 and @xmath79 .
+from fact  [ fact : symmetric ] it follows that each strategy excluding a given set of positions allows the exclusion of the same set while operating on a superposition .
+taking into account the above considerations , we define the strategy for derek , which fulfills the requirements of proposition  [ tw : pm1 ] .
+[ str : adaptive - no - control ] for any classical strategy used by magnus , derek has to perform the following steps :    * step :*    apply the hadamard gate .    if magnus chooses a magnitude equal to @xmath89 , for some @xmath36 , apply @xmath90 and repeat this step .
++ if magnus chooses other magnitude go to * step  3*.    if magnus chooses a multiplication of @xmath11 ( respectively @xmath79 ) , set the restricted positions to be @xmath91 ( respectively @xmath92 ) .
+apply the classical strategy @xcite .    having strategy [ str : adaptive - no - control ] , while magnus applies the magnitude equal to @xmath89 and derek performs step 2 , no positions restricted in terms of prop .
+[ tw : pm1 ] . will be attained .
+starting from the moment that magnus chooses some other magnitude derek applies unitaries that correspond to the classical strategy .
+this ensures that none of the restricted positions will be attained ( otherwise magnus would be able to visit more than @xmath93 positions in the classical @xmath94 case , see proof of prop .
+[ tw : vs - optimal ] ) .
+@xmath76    an example of state evolution in the game executed using strategy  [ str : adaptive - no - control ] is presented in fig .
+[ fig : nocontrol ] .
+the starting position is the only one that is visited .
+[ fig : nocontrol ]      as it was shown in the previous section a strategy allowed for derek in the scenario introduced at the beginning of this paper is not sufficient to maintain the number of restricted positions characteristic for classical strategy and limiting magnus only to attain positions .
+however , the notion of adaptive strategies for derek can be transferred into quantum scenario .    in order to let derek use position information in his strategy we have to modify the model introduced in section  [ sec : quantum - magnus - derek ] .
+we do this by replacing the local operators @xmath95 available to derek with the position - controlled operators of the form @xmath96 .
+having such operators at his disposal , derek is able to apply a different strategy to each part of the state separately .
+let us consider magnus - derek game on @xmath94 , @xmath97 , @xmath98 positions with @xmath11 being the least prime divisor of @xmath0 .
+when the set of operators available for derek includes the operators of the form @xmath99 where @xmath36 is an arbitrary position and @xmath100 is an arbitrary local unitary operation then the maximum number of attained positions for magnus is equal to @xmath101 ( as in the classical case ) and the total number of visited positions is at most 2 ( respectively 1 if @xmath0 is an odd number ) .
+_ proof._in the simplest case derek leads to a superposition of two states . in this case
+he needs only to ensure that the superposition will not vanish .
+an example of such strategy is presented in fig .
+[ fig : controlled - one - hadamard ] .
+[ str : adaptive - controled ] for any magnus strategy based on permutation operators , when @xmath102 and @xmath11 is a prime number , derek has to perform the following steps :    * step :*    apply the hadamard gate .
+if @xmath0 is even do nothing as long as magnus move is equal to @xmath103 .
+if @xmath0 is odd go to * step  3*.    find a set of @xmath104 equally distant positions that is disjoint with already visited positions .
+apply classical strategy to both parts of the state using position 
+controlled operators .
+the strategy is based on the classical one that is proven to be optimal .
+if there would be a strategy for magnus that allows him to attain additional position , there would be also an analogous classical strategy ( see proof of prop .
+[ tw : vs - optimal ] ) .
+@xmath76    one can also consider a modification of the above strategy with the additional ability of operating on the superposition of more than two base states . the main restriction on the strategy executed by derek is , in this case , the equality of amplitudes @xmath105 for every position @xmath41 and current magnus call @xmath106 . when the condition is satisfied derek is able to set an arbitrary direction in every position of the cycle using the @xmath107 and @xmath108 operators .
+the example is shown in the fig .
+[ fig : pos_controled ] .
+after the second step the state of the token is a superposition of at least three states . as the consequence , the probabilities are more distributed over the cycle .
+the presented game provides a model for studying the exploration of quantum networks .
+the model presented in this paper is based on a quantum walk on a cycle . despite its simplicity
+, the presented model can be used to describe complex networks and study the behaviour of mobile agents acting in such network .
+one should note that in the case of the magnus - derek game the main objective is to optimize the number of nodes visited during the game .
+the actual goal of visiting depends on the computation which is required to take place at the nodes .    we have shown that by extending the space of possible moves , both players can significantly change the parameters of the exploration . in particular ,
+if magnus uses the sequence of moves optimal for the classical case , derek is able to prevent him from visiting all nodes .
+we have assumed that in the quantum scenario not only the number of attained positions is at stake but also the number of positions that are visited by magnus .
+we have considered a modification of a classical strategy that enables both players to preform their tasks efficiently .
+this analysis provides an interesting insight into the difficulty of achieving quantum - oriented goals .
+we have also shown that without a proper model of adaptiveness , it is not possible for derek to obtain the results analogous to the classical case ( the number of restricted positions is lower or the no - visiting condition is validated ) . performing a strategy optimized in order to reduce the number of visited slots
+requires a trade - off with the total number of attained positions . with additional control resources
+the total number of attained positions is maintained if the number of visited positions is strictly limited .
+the authors acknowledge the support by the polish national science centre ( ncn ) under the grant number dec-2011/03/d / st6/00413 .
+jam would like to acknowledge interesting discussions with m.  mc  gettrick and c.  rver .
+bernardes and e.  dos santos  moreira .
+implementation of an intrusion detection system based on mobile agents . in _ proceedings of the international symposium on software engineering for parallel and distributed systems , 2000
+_ , pages 158164 , 2000 .
+t.  e. chapuran , p.  toliver , n.  a. peters , j.  jackel , m.  s. goodman , r.  j. runser , s.  r. mcnown , n.  dallmann , r.  j. hughes , k.  p. mccabe , j.  e. nordholt , c.  g. peterson , k.  t. tyagi , l.  mercer , and h.  dardy .
+optical networking for quantum key distribution and quantum communications .
+, 11:105001 , 2009 .

@@ -1,0 +1,449 @@
+{
+  "nodes": [
+    {
+      "id": "Cloudflare",
+      "type": "Company",
+      "properties": {}
+    },
+    {
+      "id": "Iot Devices",
+      "type": "Device",
+      "properties": {}
+    },
+    {
+      "id": "Anti-Patterns",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Security Nightmares",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Alarm Clock",
+      "type": "Device",
+      "properties": {}
+    },
+    {
+      "id": "Http Request",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Coffee Machine",
+      "type": "Device",
+      "properties": {}
+    },
+    {
+      "id": "Pub/Sub Pattern",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Security Risk",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Ddos Vulnerability",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Attacker",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Subscriptions",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Internet Property",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Toast",
+      "type": "Food",
+      "properties": {}
+    },
+    {
+      "id": "Toaster",
+      "type": "Device",
+      "properties": {}
+    },
+    {
+      "id": "Car",
+      "type": "Vehicle",
+      "properties": {}
+    },
+    {
+      "id": "Road Traffic Sensor",
+      "type": "Device",
+      "properties": {}
+    },
+    {
+      "id": "Trigger",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Large Scale Ddos",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Web Property",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Vasile Savu",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Western Union",
+      "type": "Company",
+      "properties": {}
+    },
+    {
+      "id": "Hollywood, Florida",
+      "type": "Location",
+      "properties": {}
+    },
+    {
+      "id": "Clerk",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Flight Itinerary",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Pretense",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Thumb-Drive",
+      "type": "Device",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Cloudflare",
+        "type": "Company",
+        "properties": {}
+      },
+      "target": {
+        "id": "Iot Devices",
+        "type": "Device",
+        "properties": {}
+      },
+      "type": "TRANSFORMED_INTO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Iot Devices",
+        "type": "Device",
+        "properties": {}
+      },
+      "target": {
+        "id": "Security Nightmares",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "CAUSED_BY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Alarm Clock",
+        "type": "Device",
+        "properties": {}
+      },
+      "target": {
+        "id": "Http Request",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "INSTRUCTED_TO_SEND",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Alarm Clock",
+        "type": "Device",
+        "properties": {}
+      },
+      "target": {
+        "id": "Coffee Machine",
+        "type": "Device",
+        "properties": {}
+      },
+      "type": "ON_EVENT_SEND_HTTP_REQUEST",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Pub/Sub Pattern",
+        "type": "Concept",
+        "properties": {}
+      },
+      "target": {
+        "id": "Http Request",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "IMPLEMENTED_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Pub/Sub Pattern",
+        "type": "Concept",
+        "properties": {}
+      },
+      "target": {
+        "id": "Security Risk",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "CAUSES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Receiver",
+        "type": "Concept",
+        "properties": {}
+      },
+      "target": {
+        "id": "Subscribed Message",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "WANTS_MESSAGE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Ddos Vulnerability",
+        "type": "Concept",
+        "properties": {}
+      },
+      "target": {
+        "id": "Attacker",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "EXPLOITED_BY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Attacker",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Alarm Clock",
+        "type": "Device",
+        "properties": {}
+      },
+      "type": "SET_SUBSCRIPTIONS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Attacker",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Http Messages",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "SEND_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Attacker",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Device",
+        "type": "Device",
+        "properties": {}
+      },
+      "type": "SEND_HTTP_MESSAGES_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Ddos Vulnerability",
+        "type": "Concept",
+        "properties": {}
+      },
+      "target": {
+        "id": "Internet Property",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "CREATES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Toast",
+        "type": "Food",
+        "properties": {}
+      },
+      "target": {
+        "id": "Toaster",
+        "type": "Device",
+        "properties": {}
+      },
+      "type": "POPPING_OUT_OF",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Car",
+        "type": "Vehicle",
+        "properties": {}
+      },
+      "target": {
+        "id": "Road Traffic Sensor",
+        "type": "Device",
+        "properties": {}
+      },
+      "type": "DRIVING_OVER",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Trigger",
+        "type": "Concept",
+        "properties": {}
+      },
+      "target": {
+        "id": "Large Scale Ddos",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "OF_FUTURE_AGAINST",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Large Scale Ddos",
+        "type": "Concept",
+        "properties": {}
+      },
+      "target": {
+        "id": "Web Property",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "AGAINST",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vasile Savu",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Western Union",
+        "type": "Company",
+        "properties": {}
+      },
+      "type": "ACCUSED_OF",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vasile Savu",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Hollywood, Florida",
+        "type": "Location",
+        "properties": {}
+      },
+      "type": "VISITED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vasile Savu",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Clerk",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "ASKED_TO_PRINT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Clerk",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Flight Itinerary",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "PRINTED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Vasile Savu",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Pretense",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "USED",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Clerk",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Thumb-Drive",
+        "type": "Device",
+        "properties": {}
+      },
+      "type": "INSERTED",
+      "properties": {}
+    }
+  ]
+}

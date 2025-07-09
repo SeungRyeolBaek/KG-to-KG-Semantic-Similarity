@@ -1,0 +1,235 @@
+entanglement is a uniquely quantum mechanical phenomenon in which quantum systems exhibit correlations not possible for classical systems . as such
+, entanglement is a vital resource for many aspect of quantum information processing including quantum computation , quantum metrology , and quantum communication @xcite . but despite its fundamental and practical importance and much work in the subject , there are many aspects of entanglement , especially multi - partite entanglement , that are in need of further study @xcite .
+a major challenge facing experimental implementations of quantum computation , sensing , and communication is decoherence , unwanted interactions between the system and environment .
+decoherence may be especially detrimental to highly non - classical , and hence most potentially useful , entangled states @xcite .
+a manifestation of this is entanglement suddent death ( esd ) in which entanglement is completely lost in a finite time @xcite despite the fact that the coherence loss of the system is asymptotic .
+this aspect of entanglement has been well explored in the case of bi - partite systems and there are a number of studies looking at esd in multi - partite systems @xcite .
+in addition , there have been several initial experimental studies of this phenomenon @xcite .
+however , even when analyzing a multi - partite system , previous works demonstrate esd only for bi - partite entanglement , either via concurrence or negativity rather than using measures for purely multi - partite entanglement .
+it is important to note that the characterization and quantification of true multi - partite entanglement is still very much an unsettled area for pure states and even more so for mixed states .    in this paper
+i explore the loss of detectable entanglement in a three qubit system by invoking entanglement witnesses , observables that can detect the presence of entanglement .
+entanglement may be present in a system but still not be practically useful @xcite . for entanglement to be useful
+its presence should be efficiently detectable experimentally .
+multi - partite entanglement can be detected inefficiently via quantum state tomography or a violation of bell inequalities .
+it can be detected efficiently by utilizing properly constructed entanglement witnesses @xcite .
+i compare the entanglement detection abilites of tri - partite entanglement witnesses to esd of tri- and bi - partite entanglement in a given system . in this exploration
+i find a state which has no concurrence and no tri - partite entanglement as measured by the tri - partite negativity but is entangled as measured by the negativity .
+i then apply these results to a three qubit quantum error correction ( qec ) code and explore how esd affects the working of this code .
+three qubit pure states can assume a ` standard ' form with respect to local unitary operations @xcite , @xmath0 where @xmath1 , @xmath2 and @xmath3 .
+these states can be separated into four broad categories : separable ( in all three qubits ) , biseparable , and there exist two types of locally inequivalent tri - partite entanglement ( ghz and w - type ) @xcite .
+similar classification schemes exist for mixed states .
+reference @xcite defines four classes of three qubit mixed states each of which includes the preceeding classes as special cases .
+they are separable ( s ) states , bi - separable ( b ) states , w states , and ghz states , which encompasses the complete set of three qubit states .
+note that additional subtlety exists in characterizing the entanglement within each of these classes @xcite .    to determine in which class a given state belongs one can use entanglement witnesses , observables which give a positive or zero expectation value for all states of a given class and negative expectation values for at least one state in a higher ( i.e. more inclusive ) class .
+specifically , i will make use of entanglement wintesses @xcite to identify whether a state is in the ghz@xmath4w class ( i.  e.   a state in the ghz class but not in the w class ) , in which case it certainly has ghz type tri - partite entanglement , the w@xmath4b class , in which case the state certainly has true tri - partite entanglement either of the ghz - type or w - type , or the b class in which case it is not certain that the state has any tri - partite entanglement . while the witnesses we explore may not be of the sort that can be implemented efficiently for experimentally determining the presence of tri - partite entanglement , they are among the most sensitive , or finest , known witnesses . thus , if these witnesses do not detect the presence of entanglement neither will any of the effeciently implementable witnesses
+i will compare the detection ability of the witnesses to the evolution of the concurrence @xcite , @xmath5 , for measuring the bi - partite entanglement between qubits @xmath6 and @xmath7 after partial trace over one qubit .
+the concurrence of a two qubit state with density matrix @xmath8 is defined as the maximum of zero and @xmath9 , where @xmath10 and the @xmath11 are the eigenvalues of @xmath12 in decreasing order , where @xmath13 is the @xmath14 pauli matrix of qubit @xmath15 .
+other entanglement measures that i will look at are the negativity , @xmath16 , for which i will use the sum of the absolute values of the negative eigenvalues of the partial transpose of the density matrix @xcite with respect to one qubit , and the tri - partite negativity , @xmath17 , a tri - partite entanglement measure for mixed states which is simply the third root of the product of the negativities with respect to each of three qubits @xcite .
+if the negativity is the same when taking the partial transpose with respect to any of the three qubits , @xmath18 .
+we look at a three qubit system , with no interaction between the qubits , placed in a dephasing environment fully described by the kraus operators @xmath19 where the dephasing parameter @xmath20 can also be written in a time - dependent fashion @xmath21 . when all three qubits undergo dephasing we have eight kraus operators each of the form @xmath22 where @xmath23 and @xmath24 .
+the next three sections are dedicated to exploring the entanglement dynamics and detectability of three types of three qubit states : ghz - type states in section [ sghz ] , w - type states in section [ sw ] , and a state with ghz - type tri - partite entanglement and bi - partite entanglement in section [ sgb ] . in section [ sqec ]
+we apply our results to the three qubit phase flip quantum error correction code and study the affect of esd on the code .
+section [ sconc ] contains some further observations and conclusions .
+in this section i explore the affects of dephasing on the following three qubit ghz - type states , @xmath25 where @xmath26 .
+these states have no bi - partite entanglement and non - zero negativity and tri - partite negativity equal to @xmath27 $ ] .
+the state @xmath28 is certainly in the ghz@xmath4w class for @xmath29 since it can be detected via the witness @xcite @xmath30 .
+@xmath28 is in at least the class w@xmath4b for @xmath31 since it can be detected via the witness @xcite @xmath32 .
+the effect of dephasing all of the qubits of @xmath28 is simply to reduce the magnitude of the off diagonal elements @xmath33 .
+for @xmath34 the entanglement witness @xmath35 gives @xmath36 which decays exponentially with time .
+in other words , the state can always be detected by a w - state witness and does not exhibit tri - partite esd @xcite .
+however , the dephased state can not always be detected as belonging to the ghz@xmath4w class .
+this can be seen from the expectation value @xmath37 which is negative ( thus detected ) only as long as @xmath38 .
+thus , we have a ` sudden death ' type phenomenon with respect to the ghz entanglement witness .
+experimentally we can not be sure the state exhibits ghz - type entanglement .
+the inability to detect any tri - partite entanglement in the state @xmath28 can occur for @xmath39 .
+in such a case we find @xmath40 and @xmath41 .
+the behavior , as a function of time , for both entanglement witnesses is similar , as shown in fig .
+[ ghzstate ] , and clearly demonstrates the inability of the witnesses to detect any entanglement at sufficiently long but finite time .    comparing this to the entanglement measures
+, we note that there is only one eigenvalue of the partially transposed density matrix that can be negative and so @xmath42 $ ] . for @xmath34 ,
+i.e. initially pure states , this is equal to @xmath43 and thus the witness always detects the tri - partite entanglement . for @xmath39 the initial state is mixed and @xmath43 is no longer equal to @xmath16 .
+instead , the entanglement witness goes to zero at a rate approaching three times that of @xmath16 demonstrating that there is remaining tri - partite entanglement in the system beyond the detection of the entanglement witness .
+nevertheless , even @xmath16 decays to zero in finite time exhibiting the esd phenomenon , fig .
+[ ghzstate ] .
+as expected , @xmath44 between any two qubits of @xmath28 after partial trace over the third qubit is always zero thus the system never exhibits bi - partite entanglement .     as a function of the initial state paramaterized by @xmath45 , and the dephasing constant @xmath46 . at sufficiently low values of @xmath45 or high values of @xmath46 the state
+can no longer be detected by a ghz - type entanglement witness .
+top - right : @xmath43 as a function of the same parameters .
+this entanglement witness shows when the state can no longer be detected as one with tri - partite entanglement .
+bottom : the negativity with respect to any qubit partition ( and thus in this case the negativity is equivalent to the tri - partite negativity ) .
+when this is zero the state has no distillable entanglement . for @xmath34 ( initial pure state )
+the negativity is equal to @xmath43 meaning that the @xmath35 entanglement witness always detects the presence of the tri - partite entanglement . when @xmath39 the state is mixed and the witness does not always detect the tri - partite entanglement which is known to be present via the tri - partite negativity measure . ,
+title="fig:",width=160 ]   as a function of the initial state paramaterized by @xmath45 , and the dephasing constant @xmath46 . at sufficiently low values of @xmath45 or high values of @xmath46 the state
+can no longer be detected by a ghz - type entanglement witness .
+top - right : @xmath43 as a function of the same parameters .
+this entanglement witness shows when the state can no longer be detected as one with tri - partite entanglement .
+bottom : the negativity with respect to any qubit partition ( and thus in this case the negativity is equivalent to the tri - partite negativity ) .
+when this is zero the state has no distillable entanglement . for @xmath34 ( initial pure state )
+the negativity is equal to @xmath43 meaning that the @xmath35 entanglement witness always detects the presence of the tri - partite entanglement . when @xmath39 the state is mixed and the witness does not always detect the tri - partite entanglement which is known to be present via the tri - partite negativity measure .
+, title="fig:",width=160 ]   as a function of the initial state paramaterized by @xmath45 , and the dephasing constant @xmath46 . at sufficiently low values of @xmath45 or high values of @xmath46 the state
+can no longer be detected by a ghz - type entanglement witness .
+top - right : @xmath43 as a function of the same parameters .
+this entanglement witness shows when the state can no longer be detected as one with tri - partite entanglement .
+bottom : the negativity with respect to any qubit partition ( and thus in this case the negativity is equivalent to the tri - partite negativity ) .
+when this is zero the state has no distillable entanglement . for @xmath34 ( initial pure state )
+the negativity is equal to @xmath43 meaning that the @xmath35 entanglement witness always detects the presence of the tri - partite entanglement . when @xmath39 the state
+is mixed and the witness does not always detect the tri - partite entanglement which is known to be present via the tri - partite negativity measure .
+, title="fig:",width=160 ]
+unlike ghz states the w state @xmath47 , retains a high degree of ( bi - partite ) entanglement upon partial trace over one qubit . thus , w - type states allow some comparison between tri - partite and bi - partite entanglement evolution .
+we start with the state @xmath48 where @xmath49 .
+states of this sort in the w@xmath4b class may be detected by the entanglement witness @xcite @xmath50 . for @xmath34
+the expectation value of the entanglement witness is @xmath51 and the concurrence of any two qubits is @xmath52 .
+the entanglement witness detects the state , for all @xmath53 .
+@xmath44 , after partial trace of a qubit , remains positive for all @xmath54 and @xmath16 , which is equal to @xmath17 since the results of the partial trace over any of the three qubits are equivalent , is non - zero for @xmath55 .
+once again the witness is successful in detecting tri - partite entanglement only up to a certain point despite the continued presence of tri - partite entanglement . in addition , for @xmath56 there is surviving tri - partite @xmath57-type entanglement , as measured by @xmath17 , even when there is no longer any residual bi - partite entanglement .
+the effect of dephasing on the state @xmath28 is to degrade the off - diagonal terms by @xmath58 .
+the state is detected by @xmath59 only for @xmath60 while @xmath44 , after tracing out any qubit , is @xmath61 $ ] .
+we compare these values to @xmath16 where again there is only one negative eigenvalue upon partial transpose of the density matrix : @xmath62 $ ] . for @xmath34 and sufficiently large @xmath46 we do not find esd for @xmath44 or @xmath16 but nevertheless find that the tri - partite entanglement can not be detected by @xmath59 . for @xmath39 esd
+occurs for @xmath44 and @xmath16 as shown in fig .
+[ wstate ] with the tri - partite entanglement witness going to zero first followed by @xmath44 and finally the @xmath18 . in other words , after a certain time there is no longer bi - partite entanglement in the system despite the remaining w - type tri - partite entanglement .
+the above expressions also show that each entanglement measure decreases at the exponential rate @xmath63 and there is no difference in the exponential rate of decay between the bi - partite and tri - partite entanglement .
+the difference in entanglement measure evolution comes from different coefficients mulitplying the exponential and additional constants .
+( solid line ) , the bi - partite concurrence ( medium dashed line ) , and the negativity ( large dashed line ) as a function of the dephasing constant @xmath46 .
+top left : @xmath34 , the initial state is pure . in this case
+@xmath64 goes to zero in finite time , but the other entanglement measures do not .
+top right : @xmath65 , for any @xmath39 the concurrence undergoes esd before the negativity ( which is equal to the tri - partite negativity ) goes to zero .
+bottom : @xmath66.,title="fig:",width=151 ]   ( solid line ) , the bi - partite concurrence ( medium dashed line ) , and the negativity ( large dashed line ) as a function of the dephasing constant @xmath46 .
+top left : @xmath34 , the initial state is pure . in this case
+@xmath64 goes to zero in finite time , but the other entanglement measures do not .
+top right : @xmath65 , for any @xmath39 the concurrence undergoes esd before the negativity ( which is equal to the tri - partite negativity ) goes to zero .
+bottom : @xmath66.,title="fig:",width=151 ]   ( solid line ) , the bi - partite concurrence ( medium dashed line ) , and the negativity ( large dashed line ) as a function of the dephasing constant @xmath46 . top left : @xmath34 , the initial state is pure . in this case
+@xmath64 goes to zero in finite time , but the other entanglement measures do not .
+top right : @xmath65 , for any @xmath39 the concurrence undergoes esd before the negativity ( which is equal to the tri - partite negativity ) goes to zero .
+bottom : @xmath66.,title="fig:",width=151 ]
+we would like to explore a system that contains both bi - partite and tri - partite ghz - type entanglement to compare and contrast the two types of entanglement evolution .
+we look at the following initial state @xmath67 where @xmath68 and @xmath69 . in order to detect the tri - partite entanglement of such states we must first find the proper ghz and w - type entanglement witnesses . the closest state to @xmath70 with no w - type vectors is likely to be the ghz state with an @xmath71-rotation about the third qubit . with this in mind
+we construct ghz and w state witnesses @xmath72 and @xmath73 , for third qubit rotation of state @xmath74 by angle @xmath75 .
+the @xmath75 that minimizes the witnesses is @xmath76 .    with these tools we can explore the entanglement of this system . with no
+dephasing the state @xmath28 is detected by @xmath77 for @xmath78 and detected by @xmath79 for @xmath80 . taking a partial trace over one of the qubits leads to non - zero concurrence only when tracing over the third qubit .
+this concurrence , @xmath81 , is non - zero only when @xmath82 .
+the lowest lying eigenvalue of the partial transpose of @xmath83 is when the partial transpose is taken with respect to the first or second qubit and gives non - zero negativity for @xmath84 .
+the tri - partite negativity in this case is not equal to the negativity and is nonzero only for @xmath85 .
+the effect of dephasing on the entanglement of this state is shown in fig .
+[ ghzbstate ] . for @xmath34 the tri - partite entanglement witnesses can not detect the entanglement below a certain threshold @xmath46 , but @xmath81 , @xmath16,and @xmath17 do not exhibit esd . for @xmath39 all of the entanglement measures exhibit esd .
+it is interesting to compare and contrast the behavior of the various entanglement measures especially with respect to @xmath81 . when @xmath39 the entanglement that takes the longest amount of time to exhibit esd is @xmath16 . for sufficiently high values of @xmath45
+the tri - partite negativity goes to zero before @xmath81 . for the time between the subsequent sudden death of @xmath81 and the esd of @xmath16
+the entanglement present in the system is not of the bi - partite type since it is not destroyed by the partial trace , nor is it tri - partite in the sense that it can be measured by @xmath17 . the ability of the tri - partite entanglement witnesses to detect entanglement is weaker than any of the entanglement measures .
+as @xmath45 decreases @xmath81 decreases at a faster rate than any of the other entanglement measures . for sufficiently low values of @xmath45
+the concurrence , @xmath81 , exhibits esd before @xmath17 such that the bi - partite entanglement is the first to experience esd , followed by the tri - partite entanglement measured by @xmath17 . after this time there is
+entanglement that can be measured only by @xmath16 .
+the behavior of @xmath17 is different than that of the other entanglement measures . rather than an exponential decay minus some constant
+there is initial exponential decay and then an inflection point before @xmath17 goes to zero . decreasing @xmath45
+futher we see that @xmath81 undergoes esd even before the w - state entanglement witness can no longer detect entanglement .
+this is in sharp contrast to the w - state case in which @xmath86 always went to zero before the bi - partite @xmath44 .
+this again shows the possibility of states with tri - partite w - type entanglment without the presence of @xmath44 when tracing over one of the qubits .
+-type states .
+each plot shows @xmath81 ( solid line ) , @xmath16 ( large dashed line ) , @xmath17 ( medium dashed line ) , @xmath87 ( small dashed line ) , and @xmath88 ( dotted line ) as a function of the dephasing constant @xmath46 .
+top left : @xmath34 , the initial state is pure . in this case
+the tri - partite entanglement witnesses go to zero in finite time but the concurrence , negativity , and tri - partite negativity do not undergo esd .
+top right : @xmath89 , for any sufficiently high value of @xmath45 where @xmath39 the concurrence undergoes esd before the negativity but after the tri - partite negativity .
+bottom : @xmath90 , the concurrence undergoes esd before the tri - partite negativity and even before the tri - partite entanglement witness .
+thus , there is detectable tri - partite entanglement in the system though there is no concurrence remaining when one of the qubits is traced over.,title="fig:",width=151 ] -type states .
+each plot shows @xmath81 ( solid line ) , @xmath16 ( large dashed line ) , @xmath17 ( medium dashed line ) , @xmath87 ( small dashed line ) , and @xmath88 ( dotted line ) as a function of the dephasing constant @xmath46 .
+top left : @xmath34 , the initial state is pure . in this case
+the tri - partite entanglement witnesses go to zero in finite time but the concurrence , negativity , and tri - partite negativity do not undergo esd .
+top right : @xmath89 , for any sufficiently high value of @xmath45 where @xmath39 the concurrence undergoes esd before the negativity but after the tri - partite negativity .
+bottom : @xmath90 , the concurrence undergoes esd before the tri - partite negativity and even before the tri - partite entanglement witness .
+thus , there is detectable tri - partite entanglement in the system though there is no concurrence remaining when one of the qubits is traced over.,title="fig:",width=151 ] -type states .
+each plot shows @xmath81 ( solid line ) , @xmath16 ( large dashed line ) , @xmath17 ( medium dashed line ) , @xmath87 ( small dashed line ) , and @xmath88 ( dotted line ) as a function of the dephasing constant @xmath46 .
+top left : @xmath34 , the initial state is pure . in this case
+the tri - partite entanglement witnesses go to zero in finite time but the concurrence , negativity , and tri - partite negativity do not undergo esd .
+top right : @xmath89 , for any sufficiently high value of @xmath45 where @xmath39 the concurrence undergoes esd before the negativity but after the tri - partite negativity .
+bottom : @xmath90 , the concurrence undergoes esd before the tri - partite negativity and even before the tri - partite entanglement witness .
+thus , there is detectable tri - partite entanglement in the system though there is no concurrence remaining when one of the qubits is traced over.,title="fig:",width=151 ]    [ cols="^,^,^,^",options="header " , ]     [ tab1 ]    the results of the above explorations are summarized in the table [ tab1 ] .
+there are a few points worth noting .
+first , we see the shortcomings of the entanglement witnesses in detecting mixed state entanglement . this is especially important for experimental realizations where entanglement witnesses may suggest there is no entanglement present between systems when in fact there is .
+second , for the ghz and w - type states the different entanglement measures decrease at the same rate , _
+i.  e.  _ , the exponential term is the same . however ,
+this is not so for the state that has both ghz and bi - partite entanglement .
+finally , we have found states where the negativity is non - zero despite the states having no tri - partite negativity and no concurrence between any set of two qubits .
+with what we have learned concerning the entanglement behavior of tri - partite systems and the advent of esd , we address the question of whether esd affects the reliability of quantum error correction ( qec ) or can esd be used as a signature that error correction has only been successful up to a certain accuracy .
+initial explorations of a possible connection were reported in ref .
+@xcite . due to the fragility of certain quantum states
+qec will be a necessary component of any working quantum computer .
+the multi - qubit logical states in which quantum information is encoded by a qec code are typically highly entangled at the level of the physical qubits and thus may be subject to esd .
+i explore the reliability of a qubit of quantum information encoded into a qec code capable of correcting phase flips on one ( physical ) qubit .
+the goal is to determine whether esd is a reliable signature to the success or failure of the code .    to encode the state @xmath91 into the phase flip code one simply uses the unencoded qubit as the control of two controlled - not gates each gate implemented between itself and an additional qubit in state @xmath92
+this is followed by hadamard gates on all qubits . for simplicity
+we have chosen @xmath93 . unless @xmath94 or @xmath95 there is always some tri - partite entanglement present in this state which can be detected by a proper entanglement witness and measured by @xmath16 ( which in this case is equivalent to @xmath17 ) .
+we use the follwing w - state witness to detect all types of tri - partite entangement @xmath96 where @xmath97 is a hadamard on all three qubits .
+detection of a possible error is done via syndrome measurement .    when only one of the three physical qubits undergoes dephasing there are parameters of the intial state @xmath98 and the dephasing parameter , @xmath20 , which lead to finite time non - detection of entanglement in the error state @xmath99 by the entanglement witness @xmath100
+. however , there is no esd of @xmath16 or @xmath17 ( though @xmath101 ) .
+the three qubit qec code always corrects the error .
+thus , there is no clear correlation between the detection of tri - partite entanglement by the entanglement witness or any of the entanglement measures and the success of the qec .
+when all three qubits are placed in a dephasing environment ( where , for simplicity we have assumed that the dephasing parameter @xmath20 is the same for all three qubits and thus ensure that @xmath18 ) the density matrix after the dephasing , @xmath102 , exhibits tri - partite esd , as shown in fig .
+moreover , the qec code will not , in general , completely protect the encoded quantum information .
+we can measure the effectiveness of the qec code by looking at the purity , @xmath103 of the final single qubit state , @xmath104 after error correction and decoding or by looking at the fidelity of @xmath104 to the initial state .
+for the case at hand these two measures exhibit almost the exact same behavior .
+we can then ask whether the parameters for which this indicator is minimized ( maximized ) are those which exhibit ( do not exhibit ) esd .
+we note that in general @xmath104 , and thus the purity , @xmath105 , will depend on whether or not the syndrome measurement detects an error or not . the purity of the final decoded state for both cases is shown in fig .
+[ qec ] .
+when @xmath106 the qec code perfectly corrects even complete dephasing on all three qubits depite the onset of tri - partite esd . as @xmath107 moves away from this point the purity decreases as a function of @xmath20 , due to the inability of the qec to correct the dephasing .
+not surprisingly , some regions of low purity correspond to regions that exhibit esd . however , even error regions in which the entanglement is detected by the entanglement witness can exhibit purity below @xmath108 .
+this suggests that , for the particular qec code studied here , any correlation between esd and the success of the code is not fundamental .
+a comparison of the onset of esd due to the dephasing error with the purity is shown in fig .
+in conclusion , i have studied the effect of dephasing on entanglement in three qubit systems .
+i have demonstrated esd for both bi - partite and tri - partite entanglement using concurrence , the negativity , and the tri - partite negativity .
+these were compared to the detection ability of tri - partite entanglement witnesses . in general
+we find that for mixed states the entanglement witnesses fail to detect the presence of entanglement well before the entanglement goes to zero .
+in addition , i have found a state in which there is no concurrence nor tri - partite negativity but entanglement as measured by the negativity still exists .
+based on these exploration i considered whether esd affects the workings of the three - qubit qec phase flip code and concluded that there is no fundamental relationship between esd and the failure of the code .    as the number of system qubits grow studies of entanglement become more complex as the number of different types of entanglement continually increase .
+however , a study of four qubit systems would allow for explorations of cluster state entanglement by using the proper entanglement witnesses @xcite .
+this would be of central importance to issues of cluster state quantum computation @xcite .
+m nielsen , i. chuang , _ quantum information and computation _ ( cambridge university press , cambridge , 2000 ) .
+for a recent review see r. horodecki , p. horodecki , m. horodecki , k. horodecki , arxiv : quant - ph/0702225 . c. simon and j. kempe , phys .
+a * 65 * , 052327 ( 2002 ) ; w. dur and h .- j .
+briegel , phys .
+. lett . * 92 * 180403 ( 2004 ) ; m. hein , w. dur , and h .- j .
+briegel , phys .
+a * 71 * , 032350 ( 2005 ) ; s. bandyopadhyay and d.a .
+lidar , phys .
+a * 72 * , 042339 ( 2005 ) ; o. guhne , f. bodosky , and m. blaauboer , arxiv:0805.2873 .
+p.j . dodd and j.j .
+halliwell , phys .
+a * 69 * , 052105 ( 2004 ) .
+t. yu and j.h .
+eberly , phys .
+lett . * 93 * , 140404 ( 2004 ) ; _ ibid . _ * 97 * , 140403 ( 2006 ) .
+i. sainz and g. bjork , phys .
+a * 76 * , 042313 ( 2007 ) . l. aolita , r. chaves , d. cavalcanti , a. acin , and l. davidovich , phys .
+* 100 * , 080501 ( 2008 ) .
+lopez , g. romero , f. lastra , e. solano , and j.c .
+retamal , arxiv:0802.1825 .
+m. yonac , t. yu , j.h .
+eberly , j. phys .
+b * 39 * , 5621 ( 2006 ) ; _ ibid . _
+* 40 * , 545 ( 2007 ) .
+almeida , _ et al .
+_ , science * 316 * , 579 ( 2007 ) ; j. laurat , k.s .
+choi , h. deng , c.w .
+chou , and h.j .
+kimble , phys .
+99 * , 180504 ( 2007 ) ; a. salles , f. de melo , m.p .
+almeida , m. hor - meyll , s.p .
+walborn , p.h .
+souto ribeiro , and l. davidovich , phys .
+a * 78 * , 022322 ( 2008 ) .
+a. acin , d. bru , m. lewenstein , a. sanpera , phys .
+rev . lett . * 87 * , 040401 , ( 2001 ) . c. sabin and g. garcia - alcaine , eur .
+j. d * 48 * , 435 ( 2008 ) .
+w. dur , g. vidal , and j.i .
+cirac , phys . rev .
+a * 62 * , 062314 ( 2000 ) .
+g. toth and o. guhne , phys .
+rev . lett . * 94 * , 060501 ( 2005 ) .
+a. acin , a. andrianov , l. costa , e. jane , j.i .
+latorre , and r. tarrach , phys .
+. lett . * 85 * , 1560 ( 2000 ) . s. hill and w.k .
+wootters , phys .
+lett * 78 * , 5022 ( 1997 ) .
+g. vidal and r.f .
+werner , phys .
+a * 65 * 032314 ( 2002 ) .
+i. sainz and g. bjork , phys .
+rev a * 77 * , 052307 ( 2008 ) .
+r. raussendorf and h.j .
+briegel , phys .
+* 86 * , 5188 ( 2001 ) .

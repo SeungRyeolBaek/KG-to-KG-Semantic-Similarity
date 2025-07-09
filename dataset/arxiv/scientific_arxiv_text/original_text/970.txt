@@ -1,0 +1,334 @@
+molecules can be assembled from atoms using laser light . this process is termed photoassociation . with the advent of femtosecond lasers and pulse shaping techniques ,
+photoassociation became a natural candidate for coherent control of a binary reaction .
+coherent control had been conceived as a method to determine the fate of chemical reactions using laser fields.@xcite the basic idea is to employ interference of matter waves to constructively enhance a desired outcome while destructively suppressing all undesired alternatives.@xcite control is exerted by shaping the laser pulses , the simplest control knobs being time delays and phase differences.@xcite over the last two decades , the field of coherent control has developed significantly both theoretically and experimentally.@xcite however , a critical examination of the achievements reveals that successful control has been demonstrated almost exclusively for unimolecular processes such as ionization , dissociation and fragmentation .
+it is natural to ask why the reverse process of controlling binary reactions@xcite is so much more difficult .
+the main difference between unimolecular processes and a binary reaction lies in the initial state  a single or few well - defined bound quantum states vs an incoherent continuum of scattering states.@xcite for a binary reaction , the nature of the scattering continuum is mainly determined by the temperature of the reactants . as temperature decreases ,
+higher partial waves are frozen out . at the very low temperatures of ultracold gases , the scattering energy of atom pairs is so low that the rotational barrier can not be passed , and the scattering becomes purely @xmath0-wave.@xcite in this regime , the reactants are pre - correlated due to quantum threshold effects@xcite and the effect of scattering resonances
+is particularly pronounced.@xcite at a temperature of about 100@xmath1k , photoassociation with femtosecond laser pulses has been demonstrated.@xcite coherent transient rabi oscillations were observed as the prominent feature in the pump - probe spectra .
+the transients are due to long tails of the pulses caused by a sharp spectral cut which is necessary to avoid excitation into unbound states.@xcite this pinpoints to the fact that the large spectral bandwidth of a femtosecond pulse is unsuitable to one - photon photoassociation at ultralow temperatures . in this regime
+, a narrow - band transition needs to be driven in order to avoid atomic excitation.@xcite    the situation changes completely for high temperatures where the scattering states can penetrate rotational barriers due to the large translational kinetic energy .
+the association process is then likely to happen at short internuclear distance close to the inner turning point and for highly excited rotational states . in this case , the large spectral bandwidth of femtosecond laser pulses is ideally adapted to both the broad thermal width of the ensemble of scattering states and the depth of the electronically excited state potential in which molecules are formed .
+the disadvantage of this setting is that the initial state is completely incoherent , impeding control of the photoreaction .
+photoassociation with femtosecond laser pulses was first demonstrated under these conditions , employing a one - photon transition in the uv.@xcite subsequent to the photoassociation , coherent rotational motion of the molecules was observed.@xcite we have recently demonstrated generation of both rotational and vibrational coherences by two - photon femtosecond photoassociation of hot atoms.@xcite this is a crucial step toward the coherent control of photoinduced binary reactions since the fate of bond making and breaking is determined by the vibrational motion .
+employing multi - photon transitions comes with several advantages : the class of molecules that can be photoassociated by near - ir / visible femtosecond laser pulses is significantly larger for multi - photon than one - photon excitation .
+femtosecond laser technology is most advanced in the near - ir spectral region . due to the different selection rules ,
+different electronic states become accessible for multi - photon transitions compared to one - photon excitation .
+control strategies differ for multi - photon and one - photon excitation .
+in particular , large dynamic stark shifts and an extended manifold of quantum pathways that can be interfered come into play for multi - photon excitation.@xcite the theoretical description needs to account for these strong - field effects .
+we have constructed a comprehensive theoretical model from first principles to describe the experiment in which magnesium atoms in a heated cell are photoassociated by femtosecond laser pulses.@xcite it is summarized in figure  [ fig : scheme ] .
+magnesium in its electronic ground state is a closed shell atom .
+its ground electronic potential , x@xmath2 , therefore displays only a weak van der waals attractive well . a femtosecond pulse of 100@xmath3fs transform - limited duration with a central wavelength of @xmath4 nm promotes an electron to the @xmath5 orbital .
+this two - photon transition is driven since a wavelength of 840@xmath3 nm is far from any one - photon resonance both for magnesium atoms and mg@xmath6 molecules , cf .
+[ fig : scheme ] . upon excitation
+, a strong chemical bond is formed in the @xmath7 state with a binding energy of @xmath8ev or , equivalently , @xmath9@xmath10 .
+a time - delayed femtosecond pulse probes the excited mg@xmath6 molecule by inducing a one - photon transition to a higher excited electronic state ( @xmath11 ) .
+this state has a strong one - photon transition back to the ground state .
+the corresponding experimental observable is the intensity of the resulting uv fluorescence ( @xmath12 nm ) , measured as a function of the pump - probe time delay .
+an oscillating signal is a manifestation of coherent rovibrational dynamics in the @xmath13 state.@xcite    the correct description of the thermal initial state is crucial to capture the generation of coherence out of an incoherent ensemble .
+the density operator , @xmath14 , describing the initial state of hot atom pairs at temperature , @xmath15 , is constructed by a thermal average over suitable basis functions .
+since no dissipative processes occur on the sub - picosecond timescale of the experiment , the coherent time evolution of the density operator is efficiently carried out by propagating the basis functions .
+expectation values are obtained by thermally averaging the corresponding operator over the propagated basis functions .
+a numerically efficient description of the initial thermal ensemble is essential to facilitate the time - dependent simulations .
+the present work on _ ab initio _ simulation of ultrafast hot photoassociation presents a detailed account of theoretical and numerical components and their integration into a comprehensive framework .
+the paper is organized as follows .
+section  [ sec : model ] presents the theoretical framework by introducing the hamiltonian describing the coherent interaction of an atom pair with strong femtosecond laser pulses .
+the relevant electronic states , their potential energy curves , transition matrix elements and non - adiabatic couplings , all obtained employing highly accurate state of the art _ ab initio _ methods , are discussed .
+section  [ sec : thermal ] derives an effective description of the thermal ensemble of translationally and rotationally hot atom pairs in their electronic ground state based on random phase thermal wave functions .
+we consider three different choices of basis functions , two of them turn out to be practical
+. convergence of the photoassociation probability is studied in section  [ sec : conv ] for the different thermal averaging procedures , and the role of shape resonances is discussed .
+section  [ sec : results ] investigates the generation of coherence in terms of the quantum purity and a dynamical coherence measure .
+finally , we conclude in section  [ sec : concl ] .
+atomic units are used throughout our paper , unless specified otherwise .
+the coherent ( 2 + 1 ) three - photon excitation of a pair of magnesium atoms , that collide with rotational quantum number @xmath16 , by a strong femtosecond laser pulse is described by the time - dependent hamiltonian ,    @xmath17    here @xmath18 is the nuclear hamiltonian of electronic state @xmath19 , @xmath20 with @xmath21 the vibrational kinetic energy , @xmath22 the reduced mass and @xmath23 the potential energy curve of electronic state @xmath19 . @xmath24 and @xmath25 denote the ( one - photon ) transition dipole moments between the @xmath26 state and the first and second @xmath11 states .
+the hamiltonian   neglects ro - vibrational couplings . in a two - photon rotating - wave approximation ,
+the two - photon coupling between the @xmath27 @xmath28 and @xmath29 @xmath30 states is denoted by @xmath31,@xcite @xmath32 with @xmath33 the electric field envelope of the laser pulse , @xmath34 the polarization component ( @xmath35 ) , and @xmath36 the tensor elements of the two - photon electric transition dipole moment between the ground ( @xmath37 ) and excited ( @xmath38 ) states,@xcite @xmath39\,.\ ] ] the summation is carried out over all electronic states @xmath40 , except for the states which are explicitly accounted for in our model , cf .
+@xmath41 and @xmath42 are the transition frequencies between state @xmath40 and , respectively , state @xmath43 and @xmath44 .
+note that the two - photon transition moment , @xmath45 , depends on the central laser frequency , @xmath46 . here
+we keep @xmath47 nm fixed .
+the strong laser field driving the two - photon transitions may lead to non - negligible dynamic stark shifts @xmath48,@xcite @xmath49 where the tensor elements of the dynamic electric dipole polarizability are given by@xcite @xmath50\,,\ ] ] where the sum runs over all electronic states @xmath40 , except those explicitly accounted for in our model , cf .
+eq .  , and @xmath51 is the transition frequency between states @xmath40 and @xmath19 ( @xmath52 ) .
+we account only for the isotropic part of the polarizability , neglecting anisotropic terms that occur for open shell states with the projection of the electronic angular momentum not equal to zero.@xcite this corresponds to two - photon transitions with @xmath53 , neglecting transitions with @xmath54 .
+similarly to the two - photon transition moment , @xmath45 , the dynamic polarizability , @xmath55 , depends on the central laser frequency , @xmath56 .
+note that resonant transitions , both one - photon and two - photon transitions , are treated in a non - perturbative way while all non - resonant transitions are accounted for within second order perturbation theory .
+the @xmath26 excited state that is accessed by the two - photon transition is weakly coupled to the @xmath57 , and @xmath58 states due to the spin - orbit interaction .
+the spin - orbit matrix elements relevant for our work read @xmath59 @xmath60 @xmath61 where @xmath62 is the spin - orbit coupling hamiltonian in the breit - pauli approximation including all one- and two - electron terms .
+the effect of the spin - orbit coupling was actually observed in the fluorescence signal , but it was so weak that we could neglect the triplet states in the time - dependent calculations .
+a one - photon transition connects the @xmath26 state to the adiabatic @xmath63 and @xmath64 states that are strongly coupled by the radial nuclear momentum operator . in order to include this non - adiabatic coupling ,
+the diabatic representation is employed , see e.g. ref .  .
+@xmath65 and @xmath66 denote the corresponding diagonal diabatic potentials and @xmath67 the coupling term .
+analogously , @xmath68 ( @xmath69 ) denote the stark shifts in the diabatic basis .
+the angle of the rotation matrix transforming adiabatic into diabatic representation is given by@xcite @xmath70 with the nonadiabatic radial coupling @xmath71 consequently , the one - photon transition dipole moments @xmath72 , @xmath73 are calculated from the diabatic molecular wave functions , obtained by rotating the adiabatic @xmath63 and @xmath64 wave functions .
+.spectroscopic characteristics , i.e. , equilibrium bond lengths , @xmath74 , and well depths , @xmath75 , of our _ ab initio _ potentials .
+[ tab : spec ] [ cols="<,>,>,>",options="header " , ]     state - of - the - art _ ab initio _ techniques have been applied to compute the potential energy curves of the magnesium dimer in the born - oppenheimer approximation .
+all calculations employed the aug - cc - pvqz basis set of quadruple zeta quality as the atomic basis for mg .
+this basis set was augmented by the set of bond functions consisting of @xmath76 $ ] functions placed in the middle of the mg dimer bond .
+all potential energy curves were obtained by a supermolecule method , and the boys and bernardi scheme was used to correct for the basis - set superposition error.@xcite    the ground @xmath27 state potential was computed with the coupled cluster method restricted to single , double , and noniterative triple excitations , ccsd(t ) . for the excited @xmath77 and @xmath63 states ,
+linear response theory ( equation of motion approach ) within the coupled - cluster singles and doubles framework , lrccsd , was employed .
+the potential energy curve of the excited @xmath64 state in the region of the minimum of the potential was also obtained with the lrccsd method . at larger internuclear distances
+this potential energy curve was represented by the multipole expansion with electrostatic and dispersion terms @xmath78 up to and including @xmath79 .
+the long - range coefficients @xmath80 were obtained within the multireference configuration interaction method restricted to single and double excitations , mrci , with a large active space .
+the latter procedure was necessary since the @xmath64 state dissociates into mg@xmath81+mg@xmath81 atoms and can not be asymptotically described by a single slater determinant .
+the ccsd(t ) and ccsd calculations , including the response functions calculations , were performed with the dalton program,@xcite while the mrci calculations were carried out with the molpro suite of codes.@xcite    the energy of the separated atoms was set equal to the experimental value for each electronic state , although the atomic excitation energies obtained from the lrccsd calculations were very accurate and for the lowest @xmath82p state the deviation from the experimental values was approximately 100@xmath3@xmath10 .
+a high accuracy of the computed potential energy curves is confirmed by an excellent agreement of the theoretical dissociation energy for the ground @xmath27 state ( @xmath83403.1@xmath10 ) with the experimental value ( @xmath83404.1@xmath840.5@xmath10).@xcite moreover , the number of bound vibrational states for @xmath85 supported by the electronic ground state agrees with the experimental number , @xmath86 .
+spectroscopic parameters of the other experimentally observed state , @xmath87 , also agree with our values , for the well position within 0.07@xmath3bohr , while the binding energy ( @xmath75=9427@xmath10 ) is only 0.4% higher than the experimental value ( @xmath75=9387@xmath10).@xcite the root mean square deviation of the rovibrational levels computed with the potential energy curves from the ccsd(t ) and lrccsd calculations for the ground and @xmath88 states were 1.3@xmath3@xmath10 and 30@xmath3@xmath10 , respectively , i.e. , 0.3% of the potential well depth .
+such a good agreement of the calculations with the available experimental data strongly suggests that we can expect a comparable level of accuracy for the other computed potential energy curves and molecular properties .
+the spectroscopic characteristics of the ground and excited electronic states are gathered in table  [ tab : spec ] , while the corresponding potential energy curves are reported in fig .
+[ fig : abinitio ] .
+inspection of table  [ tab : spec ] shows that most of the excited electronic states of mg@xmath6 are strongly bound with the dissociation energies ranging from 5400@xmath3@xmath10 for the @xmath63 state up to 18000@xmath3@xmath10 for the @xmath26 state .
+only the @xmath89 and @xmath90 states are very weakly bound with binding energies of 49@xmath3@xmath10 and 110@xmath3@xmath10 , respectively .
+the agreement of our results with data reported by czuchaj and collaborators in 2001@xcite is relatively good , given the fact that their results were obtained with the internally contracted multireference configuration singles and doubles method based on a casscf reference function . indeed , for the @xmath26 , a@xmath91 , @xmath89 , @xmath57 , @xmath90 , and @xmath92 states the computed well depths agree within 600 @xmath10 or better ,
+i.e. , within a few percent , while the equilibrium distances agree within a few tenths of bohr at worst . only for the @xmath63 state
+we observe a very large difference in the binding energy , 3000 @xmath10 .
+such a very strong binding in the @xmath63 state is very unlikely , since this state would then show a strong interaction with the spectroscopically observed a@xmath91 state .
+this interaction would , in turn , show up in the observed @xmath93 spectra as inhomogeneous perturbations of lines .
+however , such perturbations have not been observed in the recorded spectra,@xcite suggesting our _ ab initio _
+potential for the @xmath63 state to be more accurate .         and
+the @xmath57 states , and @xmath94 and @xmath90 states ( left panel ) and radial nonadiabatic coupling between the@xmath63 and @xmath64 states of the mg@xmath6 molecule . ]
+potential energy curves for all electronic states computed in the present work are reported in fig .
+[ fig : abinitio ] . they all show a smooth behavior with well defined minima and in some cases maxima due to the first - order resonant interactions .
+the potential energy curves of the a@xmath91 and @xmath90 states and of the @xmath26 and @xmath89 cross each other .
+these crossings should experimentally be observed as a perturbation due to the very weak , but non - zero spin - orbit coupling between the singlet and triplet states .
+indeed , the experimental data on the @xmath93 transitions,@xcite and the uv fluorescence spectra from the @xmath26 state @xcite confirm weak perturbations due to the spin - orbit coupling .
+the corresponding matrix elements are shown in fig .
+[ fig : abinitio1 ] .
+except for small interatomic distances they show a weak @xmath95 dependence and smoothly tend to the atomic value .
+the @xmath96 and @xmath97 show an avoided crossing , but the gap between the two curves is so large that most probably no homogeneous perturbations will be observed in the spectra . by contrast , the @xmath63 and @xmath64 states show a very pronounced avoided crossing with a gap of a few wavenumbers .
+this suggests a strong interaction between these states through the radial nonadiabatic coupling matrix element .
+the shape of this element is shown in the right panel of fig .
+[ fig : abinitio1 ] . as expected , the nonadiabatic coupling matrix element is a smooth lorenzian - type function , which , in the limit of an inifintely close avoided crossing , becomes a dirac @xmath98-function .
+the height and width of the curve depends on the strength of the interaction , and the small width of the coupling in fig .
+[ fig : abinitio1]b suggests a strong nonadiabatic coupling . it is gratifying to observe that the maximum on the nonadiabatic coupling matrix element agrees well with the location of the avoided crossing , despite the fact that two very different methods were employed in the _ ab initio _ calculations .
+as discussed above , the potential energy curves were shown to be accurate , so we are confident that also the nonadiabatic coupling matrix element are essentially correct .
+the electric transition dipole moments between states @xmath99 and @xmath100 , @xmath101 , where the electric dipole operator , @xmath102 , is given by the @xmath103th component of the position vector and @xmath104 are the wave functions for the initial and final states , respectively , were computed as the first residue of the lrccsd linear response function for the @xmath27 , @xmath77 , and @xmath105 states . for transitions to the @xmath64 state ,
+the mrci method was employed .
+the two - photon transition moment , eq .  , can in practice be obtained as a residue of the cubic response function.@xcite for transitions between the @xmath27 and @xmath77 states , @xmath106 was computed as a residue of the coupled cluster cubic response function with electric dipole operators and wave functions within the ccsd framework.@xcite the tensor elements of the electric dipole polarizability of the ground @xmath27 state were obtained as the coupled cluster linear response function with electric dipole operators and wave functions within the ccsd framework.@xcite the dynamic polarizabilities of the excited states were computed as double residues of the coupled cluster cubic response function with electric dipole operators and wave functions within the ccsd framework.@xcite the nonadiabatic radial coupling matrix elements as well as the spin - orbit coupling matrix elements have been evaluated with the mrci method .
+state as obtained from response calculations ( black solid line ) and after eliminating the contribution from @xmath107 state ( red dashed line ) in the region important for the time - dependent calculations ( right panel ) .
+the inset illustrates the smooth behavior of the dynamic stark shift after elimination of the resonance due to the @xmath107 state . ]
+the electric transition dipole moments from the ground electronic state to the three lowest singlet states of ungerade symmetry are reported in fig .
+[ fig : abinitio2 ] .
+the transition moment to the a@xmath91 state is almost constant over a wide range of interatomic distances @xmath95 , and smoothly approaches the atomic value .
+the transition moments to the @xmath63 and @xmath64 states show more pronounced variations .
+in fact , the @xmath95 dependence of these two transition moments reflects the avoided crossing of the corresponding potential energy curves around @xmath108 bohr .
+also reported in fig .
+[ fig : abinitio2 ] is the trace of the dynamic stark shift for the @xmath26 state as a function of @xmath95 .
+as expected from the definition , the dynamic stark shift shows resonances for transition energies close to the laser frequency @xmath56 . since the adiabatic elimination that leads to eq
+.   assumes only non - resonant transitions , the electronic states that cause these resonances need to be included explicitly in the non - perturbative hamiltonian .
+this eliminates their contribution to the dynamic stark shift .
+[ fig : abinitio2]b illustrates the procedure , showing the trace of the dynamic polarizability as a function of @xmath95 .
+the black solid line shows a broad resonance around @xmath109 bohr .
+this resonance corresponds to transitions from the the @xmath26 to the @xmath107 state .
+the latter state is explicitly included in our hamiltonian for the time - dependent calculations and eliminated from eq .  . once this is done ,
+a smooth and almost constant behavior is obtained , as illustrated in fig .
+[ fig : abinitio2]b .
+of course , also the contributions from all other electronic states that are explicitly accounted for in the hamiltonian for the time - dependent calculations are eliminated from eq .  .
+the hamiltonian for the time - dependent calculation , neglecting the weak spin - orbit coupling between the @xmath26 , @xmath89 and @xmath57 states and accounting for states with dipole transitions that are near - resonant to the laser frequency , becomes    @xmath110    note that eq .
+makes use of the two - photon rotating wave approximation , i.e. , the electric field envelope , @xmath111 , in eq .
+, may be complex , @xmath112 , and a non - zero @xmath113 denotes the relative phase with respect to the central laser frequency s phase . the hamiltonian
+is represented on an equidistant grid for each partial wave @xmath16 .
+convergence with respect to the grid size @xmath114 and number of grid points @xmath115 is discussed below in section  [ sec : conv ] .
+the initial state for photoassociation is given by the ensemble of magnesium atoms in the heated cell which interact via the @xmath27 electronic ground state potential .
+assuming equilibrium , the initial state is represented by the canonical density operator for @xmath116 atoms held in a volume @xmath117 at temperature @xmath15 .
+due to the moderate density in a heat pipe , the description can be restricted to atom pairs . the density operator for @xmath118 atom pairs
+is then obtained from that for a single atom pair , @xmath119 , which is expanded into a suitable complete orthonormal basis.@xcite thermally averaged time - dependent expectation values of an observable @xmath120 are calculated according to @xmath121\,.\ ] ] the time evolution of @xmath122 is given by @xmath123 starting from the initial state @xmath124 where @xmath125 is the hamiltonian and @xmath126 $ ] the partition function . for a thermal , i.e. incoherent , initial state , undergoing coherent time evolution ,
+it is not necessary to solve the liouville von - neumann equation for the density operator . instead
+, the dynamics can be captured by solving the schrdinger equation for each basis function .
+thermally averaged expectation values are calculated by properly summing over the expectation values obtained from the propagated basis states.@xcite    since many scattering states in a broad distribution of rotational quantum numbers are thermally populated , the approach of propagating all thermally populated basis states directly@xcite becomes numerically expensive .
+alternatively , an effective description of the thermal ensemble of scattering atoms is obtained by averaging over realizations of random phases .
+it makes use of thermal random wave functions , @xmath127 . here
+, the index @xmath128 labels a set of random phases and @xmath129 the basis states . choosing an arbitrary complete orthonormal basis , @xmath130 , and given that @xmath131 for random phases @xmath132
+, @xmath133 and @xmath116 large , an expansion into random phase wave functions yields a representation of unity,@xcite @xmath134 where @xmath135 and @xmath136 .    here , we use a random phase expansion of unity for the vibrational degree of freedom , i.e. , the radial part @xmath95 of the relative motion @xmath137 of the diatom in its electronic ground state .
+no electronic excitations are excited thermally .
+a separation of rotational and vibrational dynamics and subsequent expansion into partial waves is natural to make use of spherical symmetry , @xmath138 , i.e. , the vibrational motion is conditioned on @xmath16 .
+this implies a complete set of vibrational basis functions ( both true vibrational eigenfunctions and scattering states ) , and subsequently , a different set of random phases , for each @xmath16 .    in principle , one could apply a random phase expansion of unity also in the rotational degree of freedom
+this would be useful to study the generation of rotational coherence .
+it requires a model that accounts for rotational coherence , i.e. , either a full rovibrational hamiltonian or , as a minimal approximation , a generalization of eq .
+comprising @xmath139 and @xmath140 in addition to @xmath141 .
+however , in the present work , we focus on the generation of vibrational coherence which is crucial for bond formation .    in the following ,
+we discuss three possible bases for the vibrational hamiltonian , from which random phase wave functions are generated .
+all three possibilities will lead , when averaged , to the initial thermal ensemble corresponding to the experiment . while formally equivalent , convergence of the thermal averages with respect to the number of required basis functions differs significantly for the three representations .
+the simplest but , as it turns out , most inefficient approach uses , for each partial wave @xmath16 , the coordinate basis of @xmath98-functions localized at each grid point @xmath95 , @xmath142.@xcite a random phase wave function is obtained by multiplying each basis state with a different random phase , @xmath143 , @xmath144 with @xmath128 labeling one realization of @xmath115 random phases , @xmath145 .
+the resulting wave function , @xmath146 , has constant amplitude and a different random phase at each @xmath95 .
+the initial density operator is obtained by propagating each basis function @xmath147 under @xmath148 in imaginary time , @xmath149 with @xmath150 , using the chebychev propagator.@xcite this yields the thermal random phase wave functions , @xmath151 and thus the initial density operator ,    @xmath152 thermal random phase wave functions @xmath153 are propagated in real time , @xmath154 with the hamiltonian   as generator .
+thermally averaged time - dependent expectation values are obtained from eq .  , using cyclic permutation under the trace ,    @xmath155 & = &    \frac{1}{n}\sum_{k=1}^n    \sum_{r , j}(2j+1 )    \langle \psi^k_{r , j}|{\boldsymbol{\mathsf{\hat{a } } } } { \boldsymbol{\mathsf{\hat{u}}}}(t,0 )    { \boldsymbol{\mathsf{\hat{\rho}}}}_t(t=0){\boldsymbol{\mathsf{\hat{u}}}}^+(t,0)|\psi^k_{r , j}\rangle \nonumber \\ & = &    \frac{1}{z}\frac{1}{n}\sum_{k=1}^n    \sum_{r , j}(2j+1 )    \langle \psi^k_{r , j}|    e^{-\frac{\beta}{2}{\boldsymbol{\mathsf{\hat{h}}}}^j_g } { \boldsymbol{\mathsf{\hat{u}}}}^+(t,0 ) { \boldsymbol{\mathsf{\hat{a } } } } { \boldsymbol{\mathsf{\hat{u}}}}(t,0 )    e^{-\frac{\beta}{2}{\boldsymbol{\mathsf{\hat{h}}}}^j_g } |    \psi^k_{r , j}\rangle \nonumber \\ & = &    \frac{1}{z}\frac{1}{n}\sum_{k=1}^n    \sum_{j=0}^{j_{max}}(2j+1)\ ; _ t\langle \psi^k_{j}(t)|{\boldsymbol{\mathsf{\hat{a}}}}|\psi^k_{j}(t)\rangle_t \,.\end{aligned}\ ] ]    obtaining the @xmath156 solutions of the schrdinger equation , @xmath157 , required by eq .
+requires typically significantly less numerical effort than propagating @xmath158 @xmath159-dimensional density matrices , neglecting the rovibrational coupling , or once the full @xmath160-dimensional density matrix .
+note that while @xmath153 has zero components on all electronic states except the ground state , @xmath161 will be non - zero for all electronic states due to the interaction with the field .
+relevant expectation values are the excited state population after the pump pulse , possibly @xmath16-resolved .
+the corresponding operators are the projectors onto the electronically excited state , @xmath162 , and @xmath163 , i.e. , @xmath164    the convergence of this approach is slow .
+the number of realizations required to reach convergence was found to be much larger than the number of grid points .
+the reason for the slow convergence is that there is no preselection of those basis states that are most relevant in the thermal ensemble .
+we will therefore not use this method and have included it here only for the sake of completeness .
+a preselection of the relevant states becomes possible by choosing the eigenbasis @xmath165 of @xmath166 and evaluating the trace only for basis states with sufficiently large thermal weights , @xmath167 where @xmath168 is a prespecified error .
+the eigenfunction - based random phase wave functions are given by @xmath169 where @xmath16 denotes the partial wave and @xmath40 is the vibrational quantum number in the bound part of the spectrum of @xmath166 or , respectively , the label of box - discretized continuum states .
+it is straightforward to evaluate the representation of the initial density operator in this basis ,    @xmath170    where @xmath171 denotes an eigenvalue of the partial wave ground state hamiltonian , @xmath166 , and the @xmath156 initial random phase wave functions are given by @xmath172 thermally averaged time - dependent expectation values are calculated analogously to eq .  , where the time - dependent wave functions are obtained by propagating the wave functions of eq .   instead of the initial states given by eqs .   and
+. for convenience ,
+we use normalized random phase wavefunctions instead of eq .  , @xmath173 where @xmath174 and @xmath114 indicates the size of the box .
+for the thermally averaged time - dependent expectation values , this yields @xmath175 = \frac{1}{n }    \sum_{k=1}^n\sum_{j=0}^{j_{max } } p_j    \langle\tilde\psi^k_j(t)|{\boldsymbol{\mathsf{\hat{a}}}}|\tilde\psi^k_j(t)\rangle\ ] ] with @xmath176 the weight of the contribution of partial wave @xmath16 .
+the eigenfunction - based random phase approach requires diagonalization of the @xmath177 partial wave ground state hamiltonians , @xmath166 . depending on the time required for the propagation of each basis state , this effort
+may very well be paid off by the much smaller number of basis states that need to be propagated .
+the partition function for the computational box of radius @xmath114 is straightforwardly evaluated in the eigenbasis , @xmath178 where @xmath179 , @xmath180 are chosen such that @xmath181 .
+since we are interested in high temperatures , it is natural to compare the calculated partition function @xmath182 to its classical approximation , @xmath183 with @xmath184 and @xmath185 .
+the derivation of @xmath186 is given in appendix  [ sec : app ] .
+for a temperature of 1000@xmath3k , we find @xmath182 and @xmath186 to agree within less than 1% . inserting the classical approximation of @xmath187 and @xmath188 into eq .
+, we find @xmath189 to roughly correspond to the normalized boltzmann weight at the end of the grid .
+the third approach avoids diagonalization of the partial wave ground state hamiltonians , @xmath166 , approximating them by the kinetic energy , @xmath190 , only .
+this approximation is valid at high temperatures where the kinetic energy of the scattering atoms is much larger than their potential energy due to the inter - particle interaction .
+it starts from a gaussian wave paket positioned sufficiently far from the interaction region .
+if the width of the wave packet is adjusted thermally , projection onto energy resolved scattering wave functions yields boltzmann weights , @xmath191 the thermal width is given by @xmath192 , and @xmath193 where @xmath194 is the interaction region .
+the fourier transformed wave packet , @xmath195 corresponds to eigenstates of the kinetic energy with boltzmann weights,@xcite i.e. , we approximate @xmath196 .
+random phase wave functions can be generated from eq .   by real - time propagation under @xmath166 as follows .
+the time - evolved wave packet at time @xmath197 is written as @xmath198 where expansion into the scattering states of the finite computation box , i.e. , the states @xmath165 with positive energy ( @xmath199 ) , has been used .
+@xmath200 is an initial phase due to @xmath201 . comparing to eq .
+, the random phases are given by @xmath202 .
+for sufficiently large times , @xmath203 and @xmath204 which , with @xmath205 yields @xmath206 , the wave function will spread significantly and fill the interaction region which is a prerequisite to correctly represent the thermal density .
+a different set of phases is obtained by propagating the gaussian wave packet under @xmath166 for a time @xmath207 . for mg@xmath6 and @xmath208k ,
+the two limits translate into @xmath209fs and @xmath210ps for @xmath211a@xmath212 . for large grids , these numbers grow correspondingly . moreover , to reproduce the boltzmann ensemble not only qualitatively , but also quantitatively , the smallest frequency difference between scatterings states in the computation box needs to be resolved .
+this translates into even longer propagation times .
+practically , a coordinate grid based wave packet , eq .
+, is propagated under @xmath166 by a chebychev propagator where each realization corresponds to a different time @xmath197 .
+the density operator is constructed by averaging over the times , @xmath197 , chosen randomly . alternatively ,
+if the eigenvalues @xmath171 and eigenstates @xmath165 are known , the thermal random phase wavefunctions can be obtained simply by projection on the @xmath165 , choice of a random phase and reassembly of the gaussian wavepacket from the random - phase projections .
+this avoids the very long propagation times required to faithfully represent the boltzmann ensemble .
+the method of choice , diagonalization of the ground state hamiltonians , @xmath166 , and subsequent projection , or propagation under @xmath166 depends on the dimensionality of the problem due to the different scaling of diagonalization and propagation . for a diatomic
+, the diagonalization approach was found to be more efficient . for larger systems ,
+the propagation approach is expected to take over .
+the convergence of random phase wave functions built on thermal gaussians with respect to the photoassocation yield is comparatively fast , only a few realizations are sufficient .
+the drawback of the procedure is that only the free part of the initial wave functions is represented , leaving out the interaction energy of the true scattering states as well as initial population in bound or quasi - bound states .
+thermal expectation values are obtained according to eq .   where @xmath213 is a ( normalized ) gaussian random packet , freely propagated for random times @xmath197 .
+the probability @xmath189 for partial wave @xmath16 , eq .  , needs to account for the fact that the gaussian is initially positioned at @xmath201 , not the edge of the grid .
+therefore , using the classical approximation , @xmath114 in eq .
+needs to be replaced by @xmath201 .
+another variant utilizes @xmath98-functions in momentum space , @xmath214 , and add random phases , @xmath215 , to the momentum components directly , @xmath216 the random phases , @xmath215 , translate into positions of the gaussian , @xmath217 .
+this procedure reconstructs the correct density in the regions of flat potential but fails in the interaction region and is therefore not employed here .
+the laser pulse excites a small fraction of the incoherent ensemble of ground state atom pairs to the @xmath26 state and further to the first and second @xmath11 state .
+this action corresponds to distillation and leads to higher purity and coherence of the photoassociated molecules.@xcite in order to study the purity of the subensemble of diatoms in the excited electronic state , @xmath218\,,\ ] ] the normalized density operator of electronic state @xmath219 , is formally constructed ,    @xmath220    in the grid representation using @xmath115 grid points , @xmath221 becomes a matrix of size @xmath222 , @xmath223    where @xmath224 is the excited state projection of the ( @xmath225)th propagated thermal random phase wave function , @xmath226 . since we expect to populate only a limited number of @xmath26 state eigenfunctions , say @xmath227 , it is computationally advantageous to transform the excited state component of the propagated thermal wave functions into the rovibrational eigenbasis , @xmath228 , of the @xmath26 state , @xmath229 with @xmath230 the resulting density matrix ,    @xmath231    is only of size @xmath232 and can more efficiently be squared to obtain the purity .
+moreover , this representation lends itself naturally to the evaluation of the dynamical coherence measure . in the eigenbasis
+, we can decompose the density operator into its static ( diagonal ) and dynamic ( off - diagonal ) part , @xmath233 .
+such a decomposition has been motivated in the study of dissipative processes , in particular by the fact that pure dephasing does not alter the static part.@xcite the dynamical coherence measure , @xmath234\,,\ ] ] captures the part of the purity that arises from the dynamical part of the density operator.@xcite    the purity of the excited state subensemble after the pump pulse , @xmath235 , shall be compared to the initial purity of the whole ensemble ( in the electronic ground state ) , @xmath236\,.\ ] ] to this end , but also to determine the photoassociation probability , cf .
+eq .  , the partition function @xmath237 needs to be determined explicitly .
+we need to take into account that our computation box represents only a small part of the experimental volume . the total partition function is therefore given by @xmath238 , where @xmath239@xmath240 for @xmath241a@xmath212 and @xmath117 the experimental volume . alternatively , the probability of a single atom in our computation box is @xmath242 with @xmath243 the experimental density , @xmath244 atoms/@xmath245 .
+the probability of finding two atoms in the box is then simply @xmath246 . using eq .   with @xmath247 , the purity of the initial state
+is obtained as @xmath248 taking @xmath249 in eq .   when evaluating @xmath189 .
+the interaction of the atom pair with the laser field is simulated by solving @xmath156 time - dependent schrdinger equations , @xmath250 for @xmath251 and @xmath252 , with a chebychev propagator@xcite and thermally averaging the solutions according to eq .  .
+to reduce the computational effort , we evaluate all sums over @xmath16 in steps of five .     of ground state atom pairs ( calculated using eq .   with 200 realizations for each @xmath16 and excluding bound states and
+shape resonances from the sum over @xmath128 ) . ]
+we first study the initial thermal density of atom pairs , cf .
+eq .  , that is excited by the laser pulse .
+it sets a limit to the excitation yield since thermalization occurs over timescales larger than that of the experiment .
+the initial thermal density of atom pairs is shown as a function of interatomic distance in fig .
+[ fig : rho_ini ] for random phase wave functions built from eigenfunctions , cf .
+eq .   and built from gaussians , cf .
+eq .  . for photoassociation ,
+distances smaller than @xmath253 are relevant .
+the thermal density is converged in this region by including rotational quantum numbers up to @xmath254 .
+the contribution of higher partial waves only ensures a constant density at large interatomic distances .
+the long - distance part naturally converges very slowly but this is irrelevant for the dynamical calculations .
+the peak at short interatomic separations is due to bound levels , shape resonances and the classical turning point of the scattering states at the repulsive barrier of the potential : the difference between the red and orange curves in fig .
+[ fig : rho_ini ] indicates the contribution of bound levels , the difference between the orange and the purple curve that of shape resonances .
+the gaussian method requires much larger grids than the eigenfunction based method to converge the initial thermal density since it is based on the assumption that the effective potential is zero at the position of the gaussians .
+however , for large values of @xmath16 , the rotational barrier is non - zero even at comparatively large internuclear separations .
+this leads to a spurious trapping of probability amplitude , cf . the dashed curves in fig .  [ fig : rho_ini ] .
+at short internuclear separations , the pair density calculated from thermal gaussians in the upper panel of fig .
+[ fig : rho_ini ] shows the same behavior as the purple curve in the lower panel of fig .
+[ fig : rho_ini ] ( up to scaling which is due to the accumulation of amplitude at large internuclear separations ) . this indicates that random phase wave functions built from thermal gaussians do not capture bound states and shape resonances .
+state , calculated as @xmath255 , vs initial partial wave @xmath16 , averaged over 200 realizations of random phase wave functions , for three different grid sizes @xmath114 and a transform - limited pulse with @xmath256w/@xmath257 and @xmath258fs ( excluding the bound states and shape resonances from the sum over @xmath128 in eq .  ) .
+the light - blue shaded part indicates the contribution of scattering states , i.e. , photoassociation , for @xmath241a@xmath212 .
+the contributions of the shape resonances is given by the difference between the blue solid and dashed curves .
+propagating random phase wave functions calculated from thermal gaussians , cf .
+eq .  , does not capture excitation of bound levels and shape resonances ( dotted curves ) .
+bottom panel : ratio of the excitation yields calculated from random phase wavefunctions based on eigenfunctions and thermal gaussians . for large @xmath16 and sufficiently large grid size , the two methods coincide as expected . ]    these two features of the gaussian random phase wave functions show also up in the population transferred from the initial incoherent ensemble to the @xmath259 state , shown in fig .
+[ fig : pumpfree ] .
+the thermal averaging procedure has been repeated for increasing initial rotational quantum number , @xmath16 .
+that is , for each rotational barrier , eigenfunction - based and gaussian random phase wave functions are propagated in real time with the full , time - dependent hamiltonian , @xmath260 .
+expectation values , such as the population of the @xmath259 state after the pump pulse is over , are calculated for each random phase realization , @xmath128 , and averaged over , including the rotational degeneracy factor @xmath261 , cf .
+eq .  . for large grids ( @xmath241a@xmath212 , @xmath262a@xmath212 ) and large @xmath16 , random phase wave functions built from eigenfunctions and built from thermal gaussians yield the same results
+due to the trapping of probability amplitude at large internuclear separations , for small grids ( @xmath263a@xmath212 ) and large @xmath16 , the gaussian method underestimates the excitation yield . since our random phase wave functions are normalized in the computation box , this results in an initial thermal density which is too small at the internuclear separations , @xmath264a@xmath265a@xmath212 , that are relevant for the laser excitation .
+this is illustrated by the black curve in the lower panel of fig .
+[ fig : pumpfree ] which deviates from the blue and green curves even for large @xmath16 . for @xmath266 ,
+the potential supports bound levels which are not captured by the gaussian random phase wave functions .
+once the bound levels and shape resonances are removed from the eigenfunction based approach ( solid blue curve ) , the eigenfunction - based approach roughly agrees with the gaussian approach ( blue dotten curve ) .
+this comparison allows for estimating the contribution of the bound levels .
+for @xmath267 the ground state potential does not support any bound levels due to the high centrifugal barrier .
+the total contribution of the bound part of the spectrum to the excitation of @xmath77 population amounts to about 20% .
+the differences between @xmath268 to @xmath269 are attributed to insufficient sampling of the free propagation method .
+qualitatively , however , the two approaches yield the same result with a steep rise at low @xmath16-values , a peak at intermediate @xmath16 and an exponential tail for @xmath270 .
+the peak is shifted toward larger @xmath16 for the gaussian method since it can not capture the excitation of bound levels and shape resonances .
+each random phase approach represents a statistical sampling of the photoassociation yield .
+the deviation of an expectation value from its mean scales as @xmath271 where @xmath116 is the number of realizations .
+this was checked for @xmath272 and @xmath273 the pre - factor @xmath274 is estimated as @xmath275 for the free propagation method and @xmath276 for the eigenvalue method ( note that @xmath277 for the grid based method ) .
+this makes the eigenvalue method converge fastest .    .
+bottom panel : lifetimes in nanoseconds of the high - lying shape resonances vs partial wave @xmath16 . ]
+the shape resonances are analyzed in fig .
+[ fig : shaperes ] which displays their position in energy ( top panel ) and the lifetimes of those shape resonances that are sufficiently short lived , i.e. , sufficiently broad , to contribute to the photoassociation process ( bottom panel ) .
+the shape resonances were calculated using a complex absorbing potential.@xcite shape resonances are found for @xmath278 .
+the positions of the short - lived resonances lie between 15@xmath3k and 300@xmath3k . with a sample temperature of 1000@xmath3k i.e. , at least the higher lying of these resonances are thermally populated .
+it is therefore not surprising that a contribution of the shape resonances is observed for @xmath279 , cf .
+the difference between the solid and dashed curves in fig .
+[ fig : pumpfree ] .
+the contribution is easily rationalized by the shape resonances representing quasi - bound states that are ideally suited for photoassociation.@xcite they give structure to the continuum of scattering states which otherwise is completely flat at high temperature .
+this can be utilized for generation of coherence and control .    in conclusion ,
+the random phase wave functions built from thermal gaussians can be used if a rough estimate of the photoassociation yield is desired .
+when further refinement is required the eigenvalue approach converges faster by a factor of 2 .
+since the gaussian approach excludes the bound part of the spectrum and the resonances , it comes with error bars of about 20% . if more accurate results are desired , the eigenfunction based random phase approach is the method of choice .
+the eigenfunction based method is also best suited to capture the contribution of bound states and shape resonances to the photoassociation yield .
+, and coherence measure , @xmath280 , cf . eqs .   and , vs pulse intensity for the subensemble of photoassociated molecules .
+bottom panel : photoassociation yield for @xmath272 as a function of peak pulse intensity .
+all calculations employ transform - limited pulses of 100@xmath3fs full - width at half maximum . ]
+the degree of distillation of coherence out of an incoherent initial ensemble can be rationalized and quantified by considering the enhancement of quantum purity @xmath281 $ ] and coherence .
+the experimental signature is the periodic modulation of the pump probe signal.@xcite the purity for an incoherent ensemble is inversely proportional to the number of occupied quantum states of a pair of atoms .
+this number is completely determined by the temperature @xmath208k , and density , @xmath282atoms/@xmath245 , in the experiment .
+the bandwidth of our pulse plus stark shift largely exceeds the thermal width .
+this implies that all atom pairs within the franck - condon window are excited on equal ground , irrespective of their collision energy .
+we partition the total volume into identical smaller volumes containing exactly one pair of atoms such that the smaller volume corresponds to our computation box.@xcite the initial purity of the atom pair in our computation box of volume @xmath283 is given by the ground state purity , @xmath284 , multiplied by the probability for two atoms to occupy this box , @xmath285 , cf .
+section  [ subsec : rhosq ] .
+the initial ground state purity is bounded from below by the purity of a maximally mixed state represented in our box . for @xmath286 random phase realizations and @xmath287 we estimate the lower bound to be @xmath288
+. evaluating @xmath284 using the classical approximation for @xmath189 in eq .
+we obtain @xmath289 for @xmath241a@xmath212 and @xmath208k and thus @xmath290 for the initial purity .    for the ensemble of molecules in the electronically excited @xmath77 state ,
+the density operator is given by eq .   and the purity within the computational box by eq .  .
+the actual excited state purity is obtained by multiplying eq .   by the probability for finding two atoms to be in the computational box , @xmath291 .
+note that the excited state density operator is normalized with respect to the excitation yield , @xmath292 .
+we obtain a purity @xmath293 for the molecular sub - ensemble in the @xmath77 excited state for the experimental pulse parameters .
+we thus observe a significant increase in the quantum purity , @xmath294 $ ] , induced by the femtosecond laser pulse .
+the underlying physical mechanism can be viewed as `` franck - condon filtering '' : for a given initial @xmath16 value there is only a limited range of collision energies that allow the colliding pair to reach the franck - condon window for pa located at short internuclear distances@xcite .    in order to obtain a quantitative estimate of the degree of distillation achieved by the femtosecond photoassociation process
+, we have calculated the purity of the ensemble of photoassociated molecules in the @xmath295 state for a range of laser intensities , cf .
+[ fig : intensity_j ] . for weak fields ,
+the purity is roughly constant as a function of intensity and about three times larger than the purity obtained for the intensity of @xmath296w/@xmath257 used in the experiment . as intensity
+is increased , a drop in the purity is observed which levels off at large intensities .
+we attribute this drop to power broadening for strong fields , which brings more atom pairs into the franck - condon window for pa .    the purity of the photoassociated sub - ensemble is less than the inverse of the number of occupied energy states due to coherence . to quantify this effect we separate static and dynamic contributions , @xmath297 . expressing the density operator @xmath298 in the energy representation the static part corresponds to the diagonal matrix elements and the dynamical coherence to the off - diagonal elements .
+the dynamical contributions are quantified by the coherence measure @xmath299$].@xcite .
+figure  [ fig : intensity_j ] shows the coherence measure of the excited state , @xmath300 , as a function of laser intensity ( red diamonds ) .
+it is found to be about one order of magnitude smaller than the purity .
+this is rationalized by the change in franck - condon points with different @xmath16 which degrade the vibrational coherence . within a sub - ensemble for a given angular momentum @xmath16
+the difference between @xmath301 and @xmath302 is less than an order of magnitude .
+we have described two - photon femtosecond photoassociation of magnesium atoms from first principles using state of the art _ ab initio _ methods and quantum dynamical calculations .
+highly accurate potential energy curves were obtained using the coupled cluster method and a large basis set .
+two - photon couplings and dynamic stark shifts are important to correctly model the interaction of the atom pairs with the strong field of a femtosecond laser pulse .
+they were calculated within the framework of the equation of motion ( response ) coupled cluster method .
+the photoassociation dynamics were obtained by solving the time - dependent schrdinger equation for all relevant partial waves , accounting for the laser - matter interaction in a non - perturbative way , and performing a thermal average .
+we have developed an efficient numerical method to describe the incoherent thermal ensemble that is the initial state for photoassociation at high temperatures .
+it is based on random phase wave packets which can be built from eigenfunctions of the grid , the hamiltonian , or the kinetic energy .
+the latter can provide a rough estimate which is sufficient to yield qualitatively correct results .
+it neglects , however , the contribution from bound levels and long - lived shape resonances and therefore comes with error bars of about 20% .
+the best compromise between high accuracy and convergence is found for the eigenfunction - based method where random phase realizations are built from the eigenfunctions of the electronic ground state hamiltonian .
+about 200 partial waves and 200 realizations for each partial wave are required for converged photoassociation dynamics .
+time - dependent thermal averages are obtained by propagating each of the random phase wave functions and incoherently summing up all single expectation values .
+the random phase approach allows for constructing the thermal atom pair density as a function of interatomic separation for high temperatures .
+this is important to highlight the difference between hot and cold photoassociation.@xcite in the cold regime , the largest density is defined by the quantum reflection and resides in the long - distance , downhill part of the potential .
+the opposite is true in the hot regime : here , the largest density is found in the repulsive part of the ground state potential .
+this is due to the many partial waves that are thermally populated and the colliding atom pairs having sufficiently high kinetic energy to overcome the rotational barriers . for specific partial waves ,
+shape resonances are found to play a role .
+this is not surprising since they represent quasi - bound states that are ideally suited for photoassociation.@xcite at very low temperatures , most partial waves are frozen out and the scattering is almost exclusively @xmath0-wave .
+the role of the rotational quantum numbers @xmath16 is less important in the electronically excited state but it is still detectable in form of quantum beats.@xcite both hot and cold photoassociation come with advantages as well as drawbacks . in the hot regime ,
+molecules with much shorter bond length than in the cold regime are formed .
+however , the quantum purity and coherence of the created molecules is much larger in the cold regime where dynamical correlations exist prior to photoassociation .
+these correlations indicate pre - entanglement of the atom pair .
+making a molecule corresponds to entangling two atoms , and photoassociation amounts to filtering out an entangled subensemble both in the hot and cold regime .
+our work has opened up the possibility to study femtosecond photoassociation and its control at high temperatures and to investigate systematically the generation of coherence out of an incoherent initial state .
+future efforts will address the efficient theoretical description of the probe step . the theme of coherent control of binary reactions requires a sound theoretical basis to which our current study lays the ground work .
+this study was supported by the israeli science foundation isf grant no .
+1450/10 , by the deutsche forschungsgemeinschaft and in part by the national science foundation under grant no .
+nsf phy11 - 25915 .
+cpk , dmr , mt , rk and rm enjoyed hospitality of kitp .
+rm and mt would like to thank the polish ministry of science and higher education for the financial support through the project n n204 215539 .
+mt was supported by the project operated within the foundation for polish science mpd programme co - financed by the eu european regional development fund .
+the classical approximation of the partition function is obtained starting from the standard definition , @xmath303 performing the integral over angles and introducing polar momentum coordinates , we find @xmath304 where we made use of @xmath305 .
+carrying out the integral over the radial momentum yields @xmath306 approximating the potential @xmath307 , the integral over the computational box of size @xmath114 can be performed , @xmath308 with @xmath309 \\ & & + r_{max } e^{-\beta\frac{j^2}{2mr_{max}^2}}\,.\end{aligned}\ ] ]

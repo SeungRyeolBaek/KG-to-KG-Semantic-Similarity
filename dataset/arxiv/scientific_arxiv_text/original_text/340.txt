@@ -1,0 +1,277 @@
+quantum bits , or qubits  @xcite , have been realized using , for example , superconducting circuits  @xcite , quantum dots  @xcite , trapped ions  @xcite , single dopants in silicon  @xcite , and nitrogen vacancy centres  @xcite .
+the state of a qubit is affected by various sources of error such as finite qubit lifetime , measurement imperfections , non - ideal initialization , and imprecise external control .
+provided that these errors are below a certain threshold , they can be corrected with quantum error correction codes  @xcite which encode the information of a logical qubit into an ensemble of physical qubits .
+surface codes  @xcite , error correction codes with the highest known thresholds , may require thousands of physical qubits for each fault - tolerant logical qubit .
+controlling such a large ensemble of qubits consumes a great amount of power , rendering heat management at the qubit register an important challenge .
+the power consumption of a quantum processor can be decreased by implementing more accurate physical qubits , thus leading to smaller ensembles forming the logical qubits .
+however , it is known that gate errors also arise from the quantum - mechanical uncertainties in the control pulse  @xcite . in the case of a resonant disposable control pulse ,
+this type of error is inversely proportional to the pulse energy , and hence poses a trade - off in the power management of the quantum computer . even in the absence of all other types of error
+, this result implies such a high level of dissipated power at the chip temperature that it challenges the commercially available cryogenic equipment , as we estimate in appendix  [ appa ] for a typical superconducting quantum computer running a surface code to factorize a 2000-bit integer .    in this work ,
+we derive the greatest lower bound for the gate error within the resonant jaynes  cummings model  @xcite .
+the inevitable error originates from the quantum nature of the driving mode and becomes dominant in the regime of low driving powers .
+in contrast to previous work  @xcite , our constructive derivation does not need to assume any particular state of the system and is applicable to qubit rotations of arbitrary angles .
+in addition to the lower bound itself , our method naturally finds the bosonic quantum states of the pulse that reach the bound .
+we explicitly show that single - qubit rotations are optimally realized by applying a certain amount of squeezing to coherent states .
+the optimal states do not alone solve the above - mentioned heat dissipation problem , but we additionally find that back - action - induced correlations between the control pulse and the controlled qubit can be transferred to auxiliary qubits ( see also refs .
+thus we propose a control protocol where multiple gates are generated with a single control pulse which is frequently refreshed using auxiliary qubits .
+whereas previous studies suggest that it is not possible to save energy by reusing control pulses without sacrificing the minimum gate fidelity  @xcite , our method exhibits orders of magnitude smaller energy consumption with no drop in the average gate fidelity .
+this paper is organized as follows . in sec .
+[ sec : semiclassical ] , we briefly summarize the formalism used to describe qubit rotations and discuss gate errors in the semiclassical model . in sec .
+[ sec : optimization ] , we derive the quantum limit of gate error . the refreshing protocol is constructed and studied in sec .
+[ sec : protocol ] and the key results are summarized and discussed further in sec .  [ sec : discussion ] .
+let us first review the semiclassical formalism of single - qubit control and the resulting gate errors .
+the state of a qubit can be represented as a bloch vector constrained inside a unit sphere , see fig .
+single - qubit logic gates @xmath0 , realized using , e.g. , microwave pulses , rotate the bloch vector by @xmath1 about the axis @xmath2 . assuming that the control pulse is a classical waveform in resonance with the qubit transition energy @xmath3
+, the system may be described in the rotating frame using a semiclassical interaction hamiltonian of the form  @xcite @xmath4 where @xmath5 and @xmath6 denote the ground and excited states of the qubit , respectively , @xmath7 represents the classical amplitude @xmath8 and phase @xmath9 of the control field , @xmath10 is the coupling constant including the pulse envelope , and @xmath11 is the reduced planck constant .
+the gate @xmath0 is implemented by choosing the interaction time @xmath12 and the pulse envelope such that they satisfy @xmath13 . for example , setting @xmath14 and @xmath2 along the @xmath15-axis , the temporal evolution operator @xmath16 $ ] becomes @xmath17 , where @xmath18 is the pauli @xmath19-operator .
+thus , up to a redundant global phase factor , the interaction implements a perfect not gate @xmath20 .     model system .
+( a ) ideal two - level system ( bottom ) interacting with a harmonic oscillator ( top ) .
+( b ) bloch vector representation of the qubit state @xmath21 and an example @xmath20 rotation . ]
+we assess gate errors by utilizing the state transformation error @xmath22 where the initial qubit state is given by @xmath23 and @xmath24 is the desired gate . in general , the qubit state is unknown during the computation , and therefore we choose not to restrict our analysis to any specific state .
+instead , we study the average of a given error measure @xmath25 over a uniform state distribution on the bloch sphere , generally given by @xmath26    semiclassically , a source of gate error arises from uncertainties in the phase and the photon number @xmath27 , which are , for small phase fluctuations , fundamentally bounded by quantum mechanics through the minimal uncertainty relation  @xcite @xmath28 .
+thus we consider a control pulse with an average of @xmath29 photons and minimal uncertainties @xmath30 and @xmath31 , where @xmath32 is a free squeezing parameter .
+these uncertainties carry on to the temporal evolution operator @xmath33 , and we find from eq .   that the average gate error becomes inversely proportional to the photon number . for the @xmath20 gate for example
+, we obtain the average gate error @xmath34 in the limit @xmath35 .
+interestingly , the error is minimized with a non - zero squeezing parameter @xmath36 , a result also obtained in the full quantum treatment in sec .
+[ minimizationmethod ] .
+an alternative qubit - independent error quantity is the maximum gate error given by @xmath37 , which obeys a similar @xmath38-dependence  @xcite .
+let us proceed to the full quantum treatment , where the gate operation arises from the quantum - mechanical interaction between the qubit and a single bosonic mode referred to as the drive .
+utilization of such quantum drive  @xcite allows us to account for the changes in its state arising from the interaction with the qubit . in practice ,
+qubits are also driven by propagating photons described by a continuum of modes , but such arrangements do not save energy in comparison to a well - controlled single mode .
+hence our description below is expected to yield a fundamental lower bound for the energy needed for controlling a single qubit at a given fidelity .
+in contrast to the semiclassical model , the evolution of the qubit is not unitary .
+after the interaction , the qubit state is extracted by taking a partial trace over the drive degrees of freedom as @xmath39,\ ] ] where @xmath40 and @xmath41 denote the arbitrary initial density operator and the evolution operator of the qubit  drive system , respectively .
+the error , or infidelity , between the target and the resulting qubit state is here defined as @xmath42=1-\m{tr}\left [ \hat{\chi}(t)\hat{k}\hat{\chi}_{0}\hat{k}^{\dagger}\right ] , \label{eq : errortraces}\ ] ] which can be regarded as a generalization of eq .  .
+the dynamics of the qubit  drive system is generally described by the jaynes 
+cummings model  @xcite , which includes the rotating - wave approximation .
+assuming resonant interaction , the system is governed by the interaction hamiltonian @xmath43 where @xmath44 is the bosonic annihilation operator of the drive mode . without loss of generality , we assume an on - off envelope such that @xmath45 for @xmath46 and @xmath47 otherwise .
+most features of the semiclassical model are reobtained if @xmath48 and the drive is in the coherent state @xmath49 , where @xmath50 is the @xmath27th fock state .
+for example , taking the expectation value of @xmath51 in the state @xmath52 yields the semiclassical hamiltonian in eq .
+( [ eq : classicalh ] ) .
+thus the coherent state approximately induces a gate @xmath0 if the timing condition @xmath53 is satisfied .
+if the initial state of the joint system is separable , @xmath54 , where @xmath55 and @xmath56 denote the initial qubit and drive states , respectively , the gate error of eq .   induced by the jaynes 
+cummings interaction can be written in the general form @xmath57 here , @xmath58 denotes either the transformation error @xmath59 of a particular qubit state , the average gate error @xmath60 [ eq .  ] , or the maximum gate error @xmath61 . the information about the desired gate and chosen interaction time is contained in the corresponding operator @xmath62 which is denoted either by @xmath63 , @xmath64 , or @xmath65 , respectively . an analytical expression for @xmath63 and @xmath64 can be found for any gate , whereas an expression for @xmath65 exists for at least rotations @xmath66 , where the rotation axis @xmath67 is restricted to the @xmath68-plane of the bloch sphere .
+see appendix [ appb ] for derivations and detailed expressions .
+optimal drive states and the resulting error .
+( a ) numerically solved initial drive states @xmath69 that minimize the average error of rotations @xmath70 and @xmath20 as wigner distributions above and below the dashed line , respectively .
+the wigner function is defined as @xmath71 $ ] , where @xmath72 is the displacement operator .
+the interaction time for each operation @xmath0 is @xmath73 , which is expected to yield states with @xmath74 .
+( b ) gate error for an @xmath20 operation as a function of the average photon number @xmath75 of the driving pulse which is initialized either in the coherent state ( red color ) or the squeezed cat state ( blue color ) .
+the highlighted areas indicate the range of error , depending on the initial state of the qubit , and the solid lines show the error averaged over qubit states distributed uniformly on the bloch sphere , @xmath60 .
+the inset shows the difference @xmath76 between the numerically calculated errors and their analytical first - order approximations ( table  [ tab_1 ] ) , with dashed lines indicating the difference in maximum errors . ]
+[ bt ! ]    [ cols="^,^,^,^,^,^,^,^,^ " , ]     we solve the drive states that minimize the average or maximum gate error for a given interaction time and a desired rotation @xmath77 . to this end , it is sufficient to consider only pure states  @xcite , and hence we may employ the forms given by eq .  .
+the error - minimizing states are the eigenstates of operators @xmath62 that correspond to the largest eigenvalue @xmath78 , @xmath79 by definition , the optimal states @xmath80 provide a fundamental lower bound for the error @xmath58 .
+we solve this eigenvalue equation numerically .
+examples of fidelity - optimal solutions are shown in fig .
+[ fig2]a using the wigner pseudo - probability function  @xcite .
+the numerically obtained states can be accurately described using the squeezed coherent states @xmath81 , where @xmath82 and @xmath83 are the displacement and squeezing operators , respectively  @xcite .
+importantly , the numerical solutions possess the correct amplitude and phase to satisfy the timing condition @xmath53 and to set the desired direction of the rotation axis , without imposing them explicitly . furthermore ,
+the average errors , as well as the optimal squeezing parameters , are equal to those obtained in the semiclassical approach in sec .
+[ sec : semiclassical ] .    in the specific case of @xmath84-rotations , a sum of two eigenvectors ,
+i.e. , the squeezed cat state  @xcite @xmath85 where the positive constant @xmath86 ensures normalization , is a state that minimizes both the average and the maximum error simultaneously ( see appendix  [ appb ] ) .
+comparison of errors produced by such a state and a coherent state is presented in fig .
+[ fig2]b .
+the numerical approach for solving the eigenstates of @xmath62 has the disadvantage of truncating the infinite - dimensional state vector to a finite vector of length @xmath87 , which might distort or exclude some of the possible solutions .
+however , the obtained gaussian - like solutions are not affected by changes in the cut - off for @xmath88 . raising
+the cut - off reveals more energetic solutions , but these correspond to pulses that implement the chosen gate after an integer number of unnecessary @xmath89 rotations .
+generally for @xmath90 gates , we find solutions with errors that vanish as @xmath38 in the limit @xmath35 , as shown in appendix  [ appc ] .
+the lower bounds together with errors induced by non - squeezed coherent states are shown in table  [ tab_1 ] .
+other gates , such as the pauli - z gate and the hadamard gate , can be constructed as sequences of @xmath90 gates .
+recently , it was shown that squeezing also improves the fidelity of the phase gate in the dispersive regime  @xcite .
+schematic diagram of the drive - refreshing protocol . during one cycle ,
+the circulating drive pulse ( red ) induces a chosen rotation @xmath91 on one of the qubits @xmath92 in the register and is then refreshed by sequential @xmath20 interactions with each ancillary qubit \{@xmath93}. in an ideal setting , each ancilla is prepared precisely into the state @xmath94 and reset after each cycle . in practice , the ancilla qubits are initially in their ground states and their preparation and reset is implemented by a circulating corrector pulse ( green ) . ]    all of the fundamental lower bounds derived above are inversely proportional to the average photon number .
+intuitively , a drive with a large photon number should be capable of inducing multiple gates without changing substantially , thus decreasing the required amount of energy per gate for nearly equal error level .
+we show below that reusing a drive effectively decreases the energy consumption well below the lower bound of average gate error for disposable pulses .
+furthermore , the drive can be corrected between successive gates such that the consumption drops without essential decrease of the average gate fidelity .    in our protocol
+, an itinerant control drive cyclically interacts with a register of resonant qubits and ancillary qubits , see fig .
+a cycle begins with the drive , initially in a suitable squeezed coherent state , applying a chosen gate operation with minimal error on a register qubit .
+consequently , the drive state changes due to the quantum back - action . to undo this ,
+the drive is set to sequentially interact with corrective ancilla qubits , initialized in a superposition of ground and excited states , for a time corresponding to a @xmath84-rotation . as a result ,
+the purity , energy , and phase of the drive are restored in successive interactions ( see appendix  [ appd ] ) . at the end of the cycle ,
+the ancilla qubits are reset and the refreshed drive is usable for another high - fidelity gate .    with increasing number of ancilla qubits , the execution time of a full cycle increases and
+thus one itinerant pulse applies a gate on the register less frequently . to compensate for this , one could add another drive pulse for each ancilla in the array , and synchronize their travel times such that each qubit would interact with one of the pulses at a given time .
+such a system would apply as many gates on the register per cycle as there are itinerant pulses in circulation .
+however , we restrict our analysis to a single pulse .     evolution of an ancilla state during a refreshing cycle : ( i ) preparation from the ground state into the state @xmath95 , ( ii ) drive refresh as a result the primary rotation ( red ) , and ( iii ) ancilla reset .
+we either assume that the preparative steps ( i ) and ( iii ) are ideal or induced by a corrector pulse as shown in fig .
+[ fig3 ] . ]    the refreshing by the ancillary interactions is understood by considering the path traversed by the bloch vector of the ancillary qubit , as illustrated in fig .
+a drive lacking energy rotates the vector with smaller angular frequency , leaving the ancilla slightly biased towards the ground state and gaining energy in the process .
+similarly , excessive energy in the drive is transferred to the ancilla due to rotating it closer to the excited state .
+the hilbert space of this system is formally a composite space of the fock space @xmath96 of the drive and the two - level spaces @xmath97 of the register and ancilla qubits , @xmath98 the drive only interacts with one qubit at a time and therefore each interaction can be calculated in the subspace of the relevant qubit and the drive , assuming the qubits are not correlated .
+after the interaction , the drive state is extracted by tracing over the associated qubit space .
+namely , the @xmath99th iteration of the drive state is given by @xmath100 ,   \label{eq : nextstate}\ ] ] where @xmath101 acts in the subspace of the drive and the @xmath99th qubit in the protocol sequences described in the following sections .
+consider first the case where the ancilla qubits are perfectly reset during each cycle , and the gate we wish to apply on each register qubit is @xmath102 .
+the protocol is executed with the following steps :    1 .
+the drive state is initialized to the @xmath103-minimizing state @xmath104 .
+a new register qubit is initialized in a random pure state , chosen uniformly from the bloch sphere .
+the drive interacts with the register qubit for interaction time @xmath105 [ eq .  .
+the @xmath106 ancilla qubits are initialized to @xmath95 .
+the drive interacts with an ancilla qubit for interaction time @xmath105 .
+repeat for all ancillas .
+evaluate the average error @xmath60 of a hypothetical @xmath20 gate with eqs .   and   using the current drive state .
+continue from step  ( ii ) .    for gates other than @xmath102 ,
+the phases of the drive and ancillas , as well as the interaction time in step  ( iii ) , but not step  ( v ) , would be shifted accordingly .
+average error @xmath60 of @xmath20 gates generated by an itinerant drive pulse which initially had an average photon number @xmath75 and has reached the steady state due to ancilla refreshing .
+the drive is set to interact with @xmath106 ideal ancillas ( @xmath95 ) per cycle as indicated , leading to effective refreshing of the drive state .
+the dashed line indicates the lower bound of error which is achieved either with a disposable optimal pulse or with a pulse refreshed by infinitely many ideal ancillas .
+the inset shows the average gate error as a function of @xmath106 for @xmath107 . ]
+we numerically simulate the evolution of the drive and evaluate the average error of the gate @xmath20 for a register qubit after each cycle . during the protocol , the average error @xmath60 will increase from its initial lower - bound value at varying rates depending on the randomized states of the register qubits .
+we find that after many cycles , the drive reaches a steady state that generates the desired gates with a predictable average error .
+with 13 ancillas per cycle , the average error saturates after a hundred cycles ; with ten or more ancillas , the saturation takes less than ten cycles .
+if no corrective ancillas are used , the average error eventually reaches @xmath108 .
+figure  [ fig5 ] shows how the eventual error level depends on the number of photons and ancillas .
+the average gate error approaches its theoretical lower bound , in the limit of many drive - refreshing ancilla qubits . for smaller rotation angles ,
+qualitatively similar results are obtained with more slowly accumulating error .
+thus a single itinerant drive pulse supplied with ideal ancilla states can generate an infinite number of high - fidelity gates .      in the previous section , the qubits in the register were assumed to be essentially uncorrelated to justify the partial tracing over each qubit after the respective interaction .
+here we demonstrate the beneficial performance of our method in the case where the register qubits are maximally entangled . we initialize the register of @xmath109 qubits in the greenberger  horne 
+zeilinger ( ghz ) state @xmath110 .
+the control protocol is physically the same as in the previous section : the drive interacts with only one qubit at a time to implement a single - qubit gate @xmath24 and is refreshed by @xmath106 ideally prepared ancillas between each such gate .
+the target operation on the register is thus @xmath111 . due to the entangled register
+, the temporal evolution operators must be calculated in the hilbert space @xmath112 or @xmath113 for interactions between the drive and a register qubit , or drive and the @xmath114th ancilla , respectively .
+no partial trace over any register qubit is taken .
+after the drive has interacted with every register qubit once , the state of the register has transformed into @xmath115 and the total transformation error is computed as @xmath116.\ ] ] we divide this error by the number of qubits to obtain the effective error per gate , @xmath117
+.     state preparation error per qubit @xmath118 for a register of @xmath109 qubits initially in a ghz state .
+the target gate is an @xmath119 rotation for all qubits individually , implemented by a squeezed state of @xmath120 photons ( @xmath121 ) that is refreshed by @xmath106 ideal ancillas per cycle .
+the circles represent the data , whereas the coloured lines extend the line segments between the first two data points , to distinguish deviations from linear behaviour .
+the black dashed line represents the error obtained using @xmath109 disposable pulses of constant photon number @xmath120 .
+the dotted line is the error due to disposable pulses of constant total energy @xmath122 . ]
+results of a simulation for an @xmath119 gate with the initial drive state @xmath123 are shown in fig .
+a behaviour similar to fig .
+[ fig5 ] is observed : with enough ancillary corrections between the register gates , the error produced by an itinerant drive can be reduced to the level given by individual pulses .
+the figure also suggests that even without corrections , reusing a drive of certain energy is more beneficial in practice than dividing the same amount of photons into individual , weaker disposable pulses .
+thus we conclude that regardless of the state of the register , refreshment of a drive pulse likely serves to improve the trade - off between gate error and required energy .
+the above case of entangled qubits also provides a way to compare our results to the previous work by gea - banacloche and ozawa  @xcite , where they studied a register in a ghz state that was operated by a drive of @xmath75 photons on average .
+they showed that the maximum error of the @xmath119 gate in this system scales as @xmath124 per qubit .
+this scaling was used to argue that a pulse of average photon number @xmath125 can not outperform @xmath109 individual pulses of @xmath126 average photons , although their performance was not compared explicitly .
+the key differences here are that ref .
+@xcite does not consider the possibility of using ancillary qubits , and that it employs a definition of error which also accounts for the infidelity of the drive state .
+our results suggest that even though the errors due to both reused and disposable pulses of equal total energy increase almost linearly with @xmath109 , the prefactor of the former is much smaller and can be greatly improved by the refreshing protocol .
+average gate error as a function of the total mean number of initial photons , @xmath127 for @xmath128 and @xmath75 for @xmath129 , divided by the number of @xmath20 register gates generated .
+the ancilla states are non - ideally prepared by a corrector pulse initially in state @xmath130 . during the protocol ,
+the curve advances from right to left and the results are averaged over multiple simulations .
+the dashed line indicates the lower bound of error which is achieved either with a disposable optimal pulse or with a pulse refreshed by infinitely many ideal ancillas . ]
+the total energy consumption of the protocol can be meaningfully estimated only if the method and energy cost of the ancilla preparation is specified . to this end
+, we propose to prepare the ancillas by a circulating corrector pulse shown in fig .
+[ fig3 ] . in the full protocol ,
+the ancilla qubits are first prepared in their ground state and then controlled by the corrector pulse from cycle to cycle . with opposite phase and half the interaction time compared with the drive
+, the corrector pulse applies an @xmath131  gate on the ancilla before and after a @xmath20  gate introduced by the drive pulse . for simplicity , we assume that the state of the register is separable .
+the full protocol is given by the following steps :    1 .
+the drive state is initialized to @xmath132 , the corrector pulse to @xmath133 and all @xmath106 ancillas to the ground state .
+a new register qubit is initialized in a random pure state .
+the drive interacts with the register qubit with interaction time @xmath105 [ eq .  .
+4 .   an ancilla qubit interacts sequentially with the corrector , the drive , and the corrector again , with interaction times @xmath134 , @xmath12 , and @xmath134 , respectively .
+repeat for all other ancillas .
+5 .   evaluate the average error @xmath60 of a hypothetical @xmath20 gate with eqs .   and using the current drive state .
+continue from step  ( ii ) .
+in addition to computing the drive state after each interaction , the state of the interacting qubit is also extracted for subsequent use by a partial trace over the drive degrees of freedom .
+this is justified if the ancilla qubits do not become strongly correlated during the evolution .
+this approximation is more accurate the closer the control pulses are to classical pulses which do not induce entanglement .
+since all ancilla qubits are prepared to the ground state , the energy consumption fully arises from the drive and corrector pulses , both of which have the initial average energy @xmath135 .
+thus , the average energy consumption per register gate is @xmath136 , where @xmath109 is the number of elapsed cycles , or equally gates generated . in the case where the drive - refreshing protocol is not used , @xmath129
+, we have @xmath137 .
+results from multiple simulations are averaged and shown in fig .
+in contrast to the ideal case , the system accumulates error over repeated cycles and the average gate error does not saturate .
+nevertheless , we find that with a sufficient number of ancillary qubit interactions between the register gates , the average error remains nearly constant for a large number of successive gates
+. the protocol can be stopped before the error reaches a desired threshold .
+this shows that the total energy cost per register gate is effectively reduced to orders of magnitude below the lower bound for disposable pulses .
+in fact , fig .
+[ fig7 ] suggests that the gate error may be , in theory , reduced indefinitely without increasing the power consumption by using more energetic pulses .
+in this work , we derived the greatest lower bound for the error of a single - qubit gate implemented with a single resonant control mode of certain mean energy .
+in contrast to previous work , our method for obtaining the bound is not restricted to any particular gate or state of the qubit  drive system .
+the method can also be used to find the quantum state of the drive mode that minimizes the average gate error , or alternatively the transformation error for a chosen initial qubit state .
+specifically , we found that the lower bounds for rotations about axes in the @xmath68-plane are achieved by squeezing the quantum state of a coherent drive pulse by an amount that depends on the target gate .
+together with the recent result that squeezing also significantly improves the phase gate in the dispersive regime  @xcite , our results suggest that squeezing may generally yield useful improvements in different control schemes .
+this calls for experimental studies on outperforming the widely - used coherent state .
+importantly , our results also impose a lower bound on the energy consumption of individually driven qubits . delivering the required power to the qubit level , possibly through a series of attenuators ,
+implies heat management challenges that must be addressed in future large - scale quantum computers . as a solution
+, we introduced a concrete protocol where an itinerant control pulse is used to generate multiple gates and is refreshed between them to avoid loss of gate fidelity .
+the refreshing process may also prove useful in correcting the phase and amplitude errors of a noisy control pulse .
+our protocol can possibly be realized in some form with future low - loss microwave components such as photon routers  @xcite , circulators , and nanoelectromechanical systems  @xcite .
+technical limitations in the quality of these devices will set in practice the trade - off between the achievable gate fidelity and the dissipated power . in the future
+, our work can be extended to error bounds for 2-qubit gates , state preservation , pulse amplification , and propagating control pulses composed of a continuum of bosonic modes .
+we thank paolo solinas and benjamin huard for useful discussions .
+this work was supported by the european research council under starting independent researcher grant no .
+278117 ( singleout ) and under consolidator grant no .
+681311 ( quess ) .
+we also acknowledge funding from the academy of finland through its centres of excellence program ( grant nos  251748 and 284621 ) and grant ( no .
+286215 ) and from the finnish cultural foundation .
+we estimate the power required by a superconductor - based quantum computer solving a 2000-bit factorization problem , stabilized by a surface code . for this particular computation ,
+the needed number of physical qubits has been estimated by fowler  @xcite to be @xmath138 .
+we assume that the physical qubits are controlled with typical coherent microwave pulses and that @xmath139 gates are completed in equal time and with lower power than @xmath84 gates .
+the average power needed during one surface code cycle is calculated by counting the frequency of measurements , @xmath140 , @xmath141 , and cnot operations , and by taking a duration - weighted average of the corresponding powers .
+the operation times depend on implementation . using operation times achieved in ref .
+@xcite , @xmath142 ns , @xmath143 ns , and @xmath144 ns , for @xmath84-rotations , controlled phase gates , and measurements , respectively , and assuming that our code executes as many operations in parallel as possible , the average power per physical qubit is approximately @xmath145 where the @xmath146 s denote the average drive powers for the the above - mentioned operations . for simplicity
+, we neglect the two - qubit gates and measurements and use @xmath147 .
+typical powers at the chip are of the order of @xmath148 w , after being generated in the room temperature and attenuated by tens of decibels on their way to roughly 10-mk base temperature . using only @xmath149  db of attenuation at the base temperature , the total power dissipation here becomes @xmath150  mw .
+such power level is much higher than the typical cooling power of @xmath151w in state - of - the - art dilution refrigerators at 10  mk .
+note that using an open transmission line is expected to consume more power than required in the single - mode case considered in sec .
+[ sec : optimization ] . the average energy density in a transmission line is given by @xmath152 , where @xmath153 is the capacitance per unit length and @xmath154 is the root mean square of the voltage . in a time interval @xmath155 , a propagating drive pulse advances a distance @xmath156 , effectively transporting a power of @xmath157 , where @xmath158 is the photon wavelength .
+in comparison , consider a @xmath159 resonator which is used to apply @xmath154 to the qubit for an equal operation time .
+the resonator requires a power @xmath160 , and with a typical qubit frequency of @xmath161 ghz , the ratio between the powers is @xmath162 .
+thus qubit control using propagating photons in a transmission line seems to lead to orders of magnitude higher power consumption than our single - mode case .
+however , a more comprehensive study employing the quantization of the transmission line is required to reach accurate estimates .
+we leave such study for future research .
+finally , let us consider the lower bound for the power to drive the qubits using disposable pulses .
+the minimum amount of photons ( see sec .  [ minimizationmethod ] ) to produce the gate error @xmath163 used by fowler in ref .
+@xcite is @xmath164 photons at the qubit level . with @xmath161 ghz ,
+the corresponding powers are @xmath165 w and @xmath166w .
+this suggests that the lower bound for our example problem size is at the border where current refrigeration equipment fail to deliver the required cooling power , and hence significant increments in the problem size or non - ideal implementation of the suggested driving techniques call for inventive solutions to the emerging heat management problem .
+a way to avoid the attenuation at the base temperature would be to generate the control pulses at the chip level . to our knowledge
+, however , no present chip - level photon source is capable of producing pulses that are accurate and intense enough to induce quantum gates of high fidelity .
+furthermore , the operation efficiency of such devices needs to be sufficiently high to be a considerable alternative .
+typically microwave sources internally dissipate much more power than their maximum output .
+assuming the qubit  drive system is initially in a pure state , @xmath167 , eq .
+reduces to @xmath168\hat{k}\c_{0}\hat{k}^{\dagger}\right\ } \nonumber \\ \quad\;=1-\sum_{k=0}^{\infty}\left|\b{\chi_{0},k}(\hat{k}^{\dagger}\otimes\hat{\mathbb{i}})\hat{u}(t)\k{\chi_{0},\sigma_{0}}\right|^{2 } , \label{eq : err1}\end{gathered}\ ] ] where @xmath24 is the desired gate , @xmath12 is the interaction time , @xmath41 is the temporal evolution operator , and @xmath169 are the photon number states .
+we represent the basis of the qubit space using vectors @xmath170 and @xmath171 , and explicitly write @xmath172 in this basis , @xmath173 , and @xmath41 is given by @xmath174 with the shorthand notations @xmath175 , @xmath176 , and @xmath177 . using the expressions above , the matrix element in eq .
+can be structured as @xmath178 where @xmath179,\nonumber \\
+\gamma_{01}^{k}(\vartheta,\varphi ) & = & -is_{k}\left[k_{12}^{*}\sin^{2}\left(\frac{\vartheta}{2}\right)+k_{11}^{*}\frac{1}{2}\sin\left(\vartheta\right)\e{i\varphi}\right],\nonumber \\
+\gamma_{10}^{k}(\vartheta,\varphi ) & = & -is_{k+1}\left[k_{21}^{*}\cos^{2}\left(\frac{\vartheta}{2}\right)+k_{22}^{*}\frac{1}{2}\sin\left(\vartheta\right)\e{-i\varphi}\right],\nonumber \\
+\gamma_{11}^{k}(\vartheta,\varphi ) & = & c_{k+1}\left[k_{22}^{*}\sin^{2}\left(\frac{\vartheta}{2}\right)+k_{21}^{*}\frac{1}{2}\sin\left(\vartheta\right)\e{i\varphi}\right].\nonumber\end{aligned}\ ] ] the error is thus given by @xmath180    we can define the transformation operator through its matrix elements in the photon number basis as @xmath181 , where @xmath182 and @xmath183 is a kronecker delta that is zero for any negative index .
+equation   is thus reduced to the form given in eq .  , that is , @xmath184      using eq .
+, the average error and its corresponding operator can be structured in a similar manner . defining the matrix elements of the operator @xmath185 as @xmath186
+the average error also assumes the form of eq .  .
+as shown in ref .
+@xcite , the average error integrated over the bloch sphere is equal to the arithmetic mean of the error of six so - called axial states .
+this provides an alternative expression for the operator @xmath185 , namely , @xmath187.\end{aligned}\ ] ]      we can optimize the maximum error if there exists an initial qubit state which produces the highest error regardless of the drive state , i.e. , @xmath188 . specifically for gates @xmath66 , computing the gradients of @xmath189 with respect to @xmath190 and @xmath191 shows that the maximum point is virtually independent of the drive state , and that the maximum error is obtained with @xmath192 and @xmath193 , or equivalently @xmath194 , where @xmath9 is the angle between the horizontal rotation axis @xmath67 and the @xmath15-axis . due to symmetry , the initial drive state that optimizes
+@xmath61 is an eigenvector of @xmath195 which corresponds to the mean error of these two states .
+the elements of the commutator @xmath196 $ ] turn out to decrease as @xmath197 .
+thus it follows that the eigenvectors of @xmath185 , i.e. , the squeezed cat states given by eq .
+, simultaneously minimize both @xmath61 and @xmath60 in the limit @xmath35 .
+this section shows how the gate error can be analytically approximated for a specific gate . as an example
+, we choose @xmath60 for the gate @xmath20 . using @xmath198 ,
+it is straightforward to evaluate the integrals in eq .  , and hence the average error [ eq .   becomes @xmath199\right .
+\nonumber \\   & & \left .
++ 2s_{n}(t)s_{n+1}(t)\m{re}\left(c_{n+1}c_{n-1}^{*}\right)\right\}. \label{eq : exactaverageerror}\end{aligned}\ ] ] the error is then obtained by inserting the coefficients @xmath200 of the desired drive state : coherent , squeezed cat , or some other state .
+we choose a squeezed cat state @xmath201 where @xmath32 is an unknown squeezing parameter and the amplitude satisfying @xmath202 is real . in the high energy limit ,
+the occupation numbers in a squeezed state @xmath203 obey the normal distribution @xmath204,\ ] ] with mean @xmath205 and standard deviation @xmath206 .
+the amplitudes of a squeezed cat state @xmath207 , are obtained by allowing either even ( or odd ) states to be occupied , such that @xmath208,\ ] ] if @xmath27 is even ( odd ) and @xmath209 otherwise .
+insertion of these coefficients into eq .
+yields @xmath210 where    @xmath211 \left[\sin^{2}\left(\frac{\pi}{2}\sqrt{2m\alpha^{-2}}\right)+\sin^{2}\left(\frac{\pi}{2}\sqrt{\left(2m+1\right)\alpha^{-2}}\right)\right],\ ] ]    and @xmath212^{2}+\left(2m\alpha^{-1}-\alpha\right)^{2}\right\ } \right ) \sin\left[\frac{\pi}{2}\sqrt{\left(2m+1\right)\alpha^{-2}}\right]\sin\left[\frac{\pi}{2}\sqrt{\left(2m+2\right)\alpha^{-2}}\right].\ ] ]    the sums can be computed by a change of variables @xmath213 and treating the infinite sum @xmath214 as an integral @xmath215 , which justified in the limit @xmath216 , where the functions are rather smooth and have support on a region much wider than unity . approximating the result to the lowest order in @xmath217 eventually yields @xmath218 this expression is minimized with the choice of the squeezing parameter @xmath36 , independently of @xmath219 .
+thus we have @xmath220 .
+approximate average errors for gates @xmath119 , @xmath221 , and @xmath222 implemented by different drive states , such as the coherent state , can be computed in a similar fashion .
+this approach also works with the maximum error for rotations of @xmath84 .
+expressions obtained this way are listed in table  [ tab_1 ] .
+to build our protocol , we first search for initial states of the ancillas and the drive , such that each ancilla  drive interaction would steer the drive towards a stable state .
+for the protocol to work , the following conditions must be satisfied :    1 .   in the vicinity of the stable state ,
+the drive is able to induce high - fidelity gates on a register qubit .
+an ancilla  drive interaction increases the purity of the drive state , defined here as  @xcite @xmath223 .
+interactions with register qubits in randomized states tend to decrease the purity of a drive , rendering it less useful for subsequent gates . thus increasing the purity effectively transfers entropy from the drive to the ancilla qubits .
+an ancilla  drive interaction steers the amplitude , or equally energy , of the drive towards its steady state value .
+this is needed since we want to generate gates with a fixed interaction time .
+the interaction steers the relative phase of the drive towards its initial value .
+purity change of a drive state due to the interaction with an ancilla qubit initialized in state @xmath224 .
+the shown change is @xmath225 averaged over multiple simulations , where @xmath226 is the result of the evolution of @xmath227 .
+the impure initial drive state @xmath228 was obtained by letting a squeezed coherent state @xmath229 with @xmath230 interact with 10 qubits in randomly chosen initial states .
+the interaction time corresponds to a @xmath84 rotation . ]
+condition  ( i ) suggests that the most promising candidates for the initial drive state are the coherent state @xmath231 and its squeezed variant @xmath232 .
+we study condition  ( ii ) by computing the change in purity @xmath233 where @xmath234 is given by eq .  .
+figure  [ fig8 ] shows that the purity of the drive state increases if the ancilla is initialized close to the state @xmath95 .
+the figure also implies that the protocol works even if there is some error when preparing the ancilla in this state .
+change of the average photon number @xmath235 in an initial drive state @xmath236 as a function of the deviation @xmath237 . the change results from an interaction of a fixed time @xmath238 with an ancilla qubit prepared in the state @xmath239 . ]    furthermore , changes in photon occupation , @xmath240 with different initial energies of the drive shows in fig .
+[ fig9 ] that this ancilla state also enforces negative feedback on the average photon number , satisfying condition  ( iii ) .
+our study of the wigner representation of the drive state after successive ancilla interactions shows that condition  ( iv ) is also satisfied .    for a protocol generating only @xmath140 gates , the squeezed cat state @xmath241 was also tested as an initial drive state .
+unfortunately , in this case conditions ( ii ) and ( iii ) do not hold for any choice of the ancilla state since the cat state does not rotate the bloch vector of the ancilla in a specific direction , which is essential for the feedback mechanism depicted in fig .
+[ fig4 ] .
+33ifxundefined [ 1 ] ifx#1 ifnum [ 1 ] # 1firstoftwo secondoftwo ifx [ 1 ] # 1firstoftwo secondoftwo `` `` # 1''''@noop [ 0]secondoftwosanitize@url [ 0 ]
+ + 12$12  & 12#1212_12%12@startlink[1]@endlink[0]@bib@innerbibempty link:\doibase 10.1098/rspa.1998.0167 [ * * ,   ( ) ] http://dx.doi.org/10.1038/19718 [ * * ,   ( ) ] http://dx.doi.org/10.1038/nature13171 [ * * , ( ) ] http://dx.doi.org/10.1038/nature14270 [ * * ,   ( ) ] link:\doibase 10.1126/science.282.5393.1473 [ * * ,   ( ) ] http://dx.doi.org/10.1038/nature15263 [ * * ,   ( ) ] http://dx.doi.org/10.1038/35005011 [ * * ,   ( ) ] link:\doibase 10.1038/nature18648 [ * * , ( ) ] http://dx.doi.org/10.1038/nature11449 [ * * ,   ( ) ] http://dx.doi.org/10.1038/nature09256 [ * * ,   ( ) ] link:\doibase    10.1103/revmodphys.87.307 [ * * ,   ( ) ] link:\doibase 10.1103/physreva.86.032324 [ * * ,   ( ) ] link:\doibase 10.1103/physrevlett.89.057902 [ * * ,   ( ) ] link:\doibase    10.1103/physrevlett.89.217901 [ * * ,   ( ) ] http://stacks.iop.org/1464-4266/7/i=10/a=017 [ * * ,   ( ) ] link:\doibase 10.1103/physreva.74.060301 [ * * ,   ( ) ] link:\doibase 10.1103/physreva.78.032331 [ * * ,   ( ) ] http://stacks.iop.org/1751-8121/42/i=22/a=225303 [ * * , ( ) ] link:\doibase    10.1103/physreva.87.022321 [ * * ,   ( ) ] link:\doibase 10.1109/proc.1963.1664 [ * * , ( ) ] link:\doibase 10.1080/09500349314551321 [ * * ,   ( ) ] link:\doibase    10.1103/physreva.93.040301 [ * * ,   ( ) ] link:\doibase    10.1103/physrevlett.63.934 [ * * ,   ( ) ] link:\doibase 10.1103/physrevlett.113.150402 [ * * ,   ( ) ] @noop _ _  ( ,  ) link:\doibase 10.1103/physreva.39.1665 [ * * ,   ( ) ] link:\doibase 10.1103/physreve.89.052128 [ * * ,   ( ) ] @noop _ _
+( ,  ) http://stacks.iop.org/1464-4266/4/i=1/a=201 [ * * ,   ( ) ] http://stacks.iop.org/1367-2630/16/i=4/a=045011 [ * * ,   ( ) ]
+link:\doibase    10.1126/science.1243289 [ * * ,   ( ) ] link:\doibase    10.1103/physrevlett.116.180501 [ * * ,   ( ) ] link:\doibase 10.1103/physrevapplied.6.024009 [ * * ,   ( ) ] link:\doibase 10.1103/physrevlett.107.073601 [ * * ,   ( ) ] http://dx.doi.org/10.1038/nphys2527 [ * * ,   ( ) ] link:\doibase 10.1016/s0375 - 9601(02)00069 - 5 [ * * ,   ( ) ]

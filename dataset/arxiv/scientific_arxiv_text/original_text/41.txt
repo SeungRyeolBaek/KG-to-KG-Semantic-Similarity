@@ -1,0 +1,68 @@
+classification problem is one of the most important tasks in time series data mining . a well - known 1-nearest neighbor ( 1-nn ) with dynamic time warping ( dtw )
+distance is one of the best classifier to classify time series data , among other approaches , such as support vector machine ( svm ) @xcite , artificial neural network ( ann ) @xcite , and decision tree @xcite .    for the 1-nn classification ,
+selecting an appropriate distance measure is very crucial ; however , the selection criteria still depends largely on the nature of data itself , especially in time series data .
+though the euclidean distance is commonly used to measure the dissimilarity between two time series , it has been shown that dtw distance is more appropriate and produces more accurate results .
+sakoe - chiba band ( s - c band ) @xcite originally speeds up the dtw calculation and later has been introduced to be used as a dtw global constraint .
+in addition , the s - c band was first implemented for the speech community , and the width of the global constraint was fixed to be 10% of time series length .
+however , recent work @xcite reveals that the classification accuracy depends solely on this global constraint ; the size of the constraint depends on the properties of the data at hands . to determine a suitable size , all possible widths of the global constraint
+are tested , and the band with the maximum training accuracy is selected .    ratanamahatana - keogh band ( r - k band ) @xcite has been introduced to generalize the global constraint model represented by a one - dimensional array .
+the size of the array and the maximum constraint value is limited to the length of the time series .
+and the main feature of the r - k band is the multi bands , where each band is representing each class of data . unlike the single s - c band
+, this multi r - k bands can be adjusted as needed according to its own class warping path .
+although the r - k band allows great flexibility to adjust the global constraint , a learning algorithm is needed to discover the best multi r - k bands . in the original work of r - k band ,
+a hill climbing search algorithm with two heuristic functions ( accuracy and distance metrics ) is proposed .
+the search algorithm climbs though a space by trying to increase / decrease specific parts of the bands until terminal conditions are met .
+however , this learning algorithm still suffers from an overfitting phenomenon since an accuracy metric is used as a heuristic function to guide the search .    to solve this problem ,
+we propose two new learning algorithms , i.e. , band boundary extraction and iterative learning .
+the band boundary extraction method first obtains a maximum , mean , and mode of the paths positions on the dtw distance matrix , and the iterative learning , band s structures are adjusted in each round of the iteration to a silhouette index @xcite .
+we run both algorithms and the band that gives better results . in prediction step ,
+the 1-nn using dynamic time warping distance with this discovered band is used to classify unlabeled data .
+note that a lower bound , lb_keogh @xcite , is also used to speed up our 1-nn classification .
+the rest of this paper is organized as follows .
+section 2 gives some important background for our proposed work . in section 3 ,
+we introduce our approach , the two novel learning algorithms .
+section 4 contains an experimental evaluation including some examples of each dataset .
+finally , we conclude this paper in section 5 .
+our novel learning algorithms are based on four major fundamental concepts , i.e. , dynamic time warping ( dtw ) distance , sakoe - chiba band ( s - c band ) , ratanamahatana - keogh band ( r - k band ) , and silhouette index , which are briefly described in the following sections .
+dynamic time warping ( dtw ) @xcite distance is a well - known similarity measure based on shape .
+it uses a dynamic programming technique to find all possible warping paths , and selects the one with the minimum distance between two time series . to calculate the distance
+, it first creates a distance matrix , where each element in the matrix is a cumulative distance of the minimum of three surrounding neighbors .
+suppose we have two time series , a sequence @xmath0 of length @xmath1 ( @xmath2 ) and a sequence @xmath3 of length @xmath4 ( @xmath5 ) .
+first , we create an @xmath1-by-@xmath4 matrix , where every ( @xmath6 ) element of the matrix is the cumulative distance of the distance at ( @xmath6 ) and the minimum of three neighboring elements , where @xmath7 and @xmath8 .
+we can define the ( @xmath6 ) element , @xmath9 , of the matrix as :    @xmath10    where @xmath11 is the squared distance of @xmath12 and @xmath13 , and @xmath9 is the summation of @xmath14 and the the minimum cumulative distance of three elements surrounding the ( @xmath6 ) element .
+then , to find an optimal path , we choose the path that yields a minimum cumulative distance at ( @xmath15 ) , which is defined as :    @xmath16    where @xmath17 is a set of all possible warping paths , @xmath18 is ( @xmath6 ) at @xmath19 element of a warping path , and @xmath20 is the length of the warping path .    in reality , dtw may not give the best mapping according to our need because it will try its best to find the minimum distance .
+it may generate the unwanted path .
+for example , in figure [ flo : dtw1 ] @xcite , without global constraint , dtw will find its optimal mapping between the two time series .
+however , in many cases , this is probably not what we intend , when the two time series are expected to be of different classes .
+we can resolve this problem by limiting the permissible warping paths using a global constraint .
+two well - known global constraints , sakoe - chiba band and itakura parallelogram @xcite , and a recent representation , ratanamahatana - keogh band ( r - k band ) , have been proposed , figure [ flo : dtw2 ] @xcite shows an example for each type of the constraints .    [
+cols="^,^ " , ]     [ flo : result ]
+in this work , we propose a new efficient time series classification algorithm based on 1-nearest neighbor classification using the dynamic time warping distance with multi r - k bands as a global constraint .
+to select the best r - k band , we use our two proposed learning algorithms , i.e. , band boundary extraction algorithm and iterative learning .
+silhouette index is used as a heuristic function for selecting the band that yields the best prediction accuracy .
+the lb_keogh lower bound is also used in data prediction step to speed up the computation .
+we would like to thank the scientific parallel computer engineering ( space ) laboratory , chulalongkorn university for providing a cluster we have used in this contest .    1 fumitada itakura .
+minimum prediction residual principle applied to speech recognition .
+, 23(1):6772 , 1975 .
+eamonn  j. keogh and chotirat  ann ratanamahatana .
+exact indexing of dynamic time warping .
+, 7(3):358386 , 2005 .
+alex nanopoulos , rob alcock , and yannis manolopoulos .
+feature - based classification of time - series data .
+, pages 4961 , 2001 .
+chotirat  ann ratanamahatana and eamonn  j. keogh . making time - series classification more accurate using learned constraints . in _ proceedings of the fourth siam international conference on data mining ( sdm 2004 ) _ , pages 1122 , lake buena vista ,
+fl , usa , april 22 - 24 2004 .
+chotirat  ann ratanamahatana and eamonn  j. keogh .
+three myths about dynamic time warping data mining . in _ proceedings of 2005
+siam international data mining conference ( sdm 2005 ) _ ,
+pages 506510 , newport beach , cl , usa , april 21 - 23 2005 .
+juan  jos rodrguez and carlos  j. alonso .
+interval and dynamic time warping - based decision trees . in _ proceedings of the 2004 acm symposium on applied computing ( sac 2004 ) _ , pages 548552 , nicosia , cyprus , march 14 - 17 2004 .
+peter rousseeuw .
+silhouettes : a graphical aid to the interpretation and validation of cluster analysis . , 20(1):5365 , 1987 .
+hiroaki sakoe and seibi chiba .
+dynamic programming algorithm optimization for spoken word recognition .
+, 26(1):4349 , 1978 .
+yi  wu and edward  y. chang .
+distance - function design and fusion for sequence data . in _ proceedings of the 2004 acm
+cikm international conference on information and knowledge management ( cikm 2004 ) _ , pages 324333 , washington , dc , usa , november 8 - 13 2004 .

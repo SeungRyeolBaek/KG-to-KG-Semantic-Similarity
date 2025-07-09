@@ -1,0 +1,251 @@
+semiconductor devices have been continuously downscaled ever since the invention of the first transistor @xcite , such that the size of the single building component of modern electronic devices has already reached to a few nanometers ( nm ) .
+in such a @xmath6 regime , two conceptual changes are required in the device modeling methodology .
+one aspect is widely accepted where carriers must be treated as quantum mechanical rather than classical objects . the second change is the need to embrace the multi - band models which can describe atomic features of materials , reproducing experimentally verified bulk bandstuructures . while the single - band effective mass approximation ( ema ) predicts bandstructures reasonably well near the conduction band minimum ( cbm ) , the subband quantization loses accuracy if devices are in a sub - nm regime @xcite .
+the ema also fails to predict indirect gaps , inter - band coupling and non - parabolicity in bulk bandstructures @xcite .
+the nearest - neighbor empirical tight - binding ( tb ) and next nearest - neighbor @xmath0@xmath1@xmath2 ( kp ) approach are most widely used band models of multiple bases @xcite .
+the most sophisticated tb model uses a set of 10 localized orbital bases ( s , s * , 3@xmath7p , and 5@xmath7d ) on real atomic grids ( 20 with spin interactions ) , where the parameter set is fit to reproduce experimentally verified bandgaps , masses , non - parabolic dispersions , hydrostatic and biaxial strain behaviors of bulk materials using a global minimization procedure based on a genetic algorithm and analytical insights @xcite .
+this @xmath8 tb approach can easily incorporate atomic effects such as surface roughness and random alloy compositions as the model is based on a set of atomic grids .
+these physical effects have been shown to be critical to the quantitative modeling of resonance tunneling diodes ( rtds ) , quantum dots , disordered sige / si quantum wells , and a single impurity device in si bulk @xcite .    the kp approach typically uses four bases on a set of cubic grids with no spin interactions @xcite .
+while it still fails to predict the indirect gap of bulk dispersions since it assumes that all the subband minima are placed on the @xmath9 point , the credibility is better than the ema since the kp model can still explain the inter - band physics of direct gap iii - v devices , and valence band physics of indirect gap materials such as silicon ( si ) @xcite .
+one of the important issues in modeling of nanoscale devices , is to solve the quantum transport problem with a consideration of real 3-d device geometries .
+although the non - equilibrium green s function ( negf ) and wavefunction ( wf ) formalism have been widely used to simulate the carrier transport @xcite , the computational burden has been always a critical problem in solving 3-d open systems as the negf formalism needs to invert a system matrix of a degree - of - freedom ( dof ) equal to the hamiltonian matrix @xcite .
+the recursive green s function ( rgf ) method saves the computing load by selectively targeting elements needed for the matrix inversion @xcite .
+however , the cost can be still huge depending on the area of the transport - orthogonal plane ( cross - section ) and the length along the transport direction of target devices @xcite .
+the wf algorithm also saves the computing load if the transport is ballistic as it does nt have to invert the system matrix and finding a few solutions of the linear system is enough to predict the transport behaviors .
+but , the load still depends on the size of the system matrix and the number of solution vectors ( modes ) needed to describe the carrier - injection from external leads @xcite . in fact , rgf and wf calculations for atomically resolved nanowire field effect transistors ( fets ) have demonstrated the need to consume over 200,000 parallel cores on large supercomputing clusters @xcite .    developed by mamaluy _
+@xcite , the contact block reduction ( cbr ) method has received much attention due to the utility to save computing expense required to evaluate the retarded green s function of 3-d open systems .
+the cbr method is thus expected to be a good candidate for transport simulations since the method does nt have to solve the linear system yet reducing the computing load needed for matrix inversion @xcite .
+the method indeed has been extensively used such that it successfully modeled electron quantum transport in experimentally realized si finfets @xcite , and predicted optimal design points and process variations in design of 10-nm si finfets @xcite .
+however , all the successful applications for 3-d systems so far , have been demonstrated only for the systems represented by the ema .
+while the use of multi - band approaches can increase the accuracy of simulation results , it requires more computing load as a dof of the hamiltonian matrix is directly proportional to the number of bases required to represent a single atomic ( or grid ) spot in the device geometry . to suggest a solution to this _ trade - off _ issue
+, we examine the numerical utilities of the cbr method in multi - band ballistic quantum transport simulations , focusing on multi - band 3-d systems represented by either of the tb or kp band model .
+the objective of this work is to provide detail answers to the following questions through simulations of small two - contact ballistic systems focusing on a proof of principles : ( 1 ) can the original cbr method be extended to simulate ballistic quantum transport of multi - band systems ? ( 2 ) if the answer to the question ( 1 ) is @xmath10 , what is the condition under which the multi - band cbr method becomes particularly useful ? , and ( 3 )
+how is the numerical practicality of the multi - band cbr method compared to the rgf and wf algorithms , in terms of the accuracy , speed and scalability on high performance computing ( hpc ) clusters ?
+in real transport problems , a device needs to be coupled with external contacts that allow the carrier - in - and - out flow . with the negf formalism ,
+this can be done by creating an open system that is described with a non - hermitian system matrix @xcite . representing this system matrix as a function of energy , we compute the transmission coefficient and density of states , to predict the current flow and charge profile in non - equilibrium .
+this energy - dependent system matrix is called the retarded green s function @xmath11 for an open system ( eq .
+( 1 ) ) .
+@xmath12^{-1 } , \indent \eta \rightarrow 0^{+}\ ] ]    where @xmath13 is is the hamiltonian representing the device and @xmath14 is the self - energy term that couples the device to external leads .
+as already mentioned in the previous section , the evaluation of @xmath11 is quite computationally expensive since it involves intensive matrix inversions .
+the cbr method , however , reduces matrix inversions with the mathematical process based on the dyson equation .
+we start the discussion revisiting the cbr method that has been so far utilized for ema systems .
+the cbr method starts decomposing the device domain into two regions : ( 1 ) the boundary region @xmath15 that couples with the contacts , and ( 2 ) the inner region @xmath16 that does nt couple to the contacts .
+as the self - energy term @xmath14 is non - zero only in the boundary region , @xmath13 and @xmath14 are decomposed as shown in eq .
+( 2 ) , where subscripts ( @xmath15 , @xmath16 ) denote above - mentioned regions , respectively .    @xmath17
+then , @xmath18 can be evaluated with the dyson equation defined in eq .
+( 3 ) and eq . ( 4 ) , where @xmath19 and @xmath20 are conditioned with a hermitian matrix @xmath21 to minimize matrix inversions by solving the eigenvalue problem ( eqs . ( 5 ) ) .
+@xmath22    @xmath23^{-1 } \nonumber \\ & = & \begin{bmatrix } g_c^x & g_{cd}^x \\ g_{dc}^x & g_d^x   \end{bmatrix }   = \sum_\alpha\frac{|\psi_\alpha\rangle\langle\psi_\alpha|}{e-\epsilon_\alpha+i\eta } \nonumber \end{aligned}\ ] ]    where @xmath24 and @xmath25 are the @xmath26 eigenvalue and eigenvector of the modified hamiltonian ( @xmath13+@xmath21 ) . here
+, we note that the matrix inversion is performed only to evaluate the boundary block @xmath27 ( contact - block ) for one time while the rgf needs to perform the block - inversion many times depending on the device channel length .
+the computing load for matrix inversion is thus significantly reduced , and the method is also free from solving a linear - system problem .
+instead , the major numerical issue now becomes a normal eigenvalue problem for a hermitian matrix ( @xmath13+@xmath21 ) .
+for the numerical practicality , it is thus critical to reduce a number of required eigenvalues , and for ema hamiltonian matrices , a huge reduction in the number of required eigenvalues can be achieved via a smart choice of the _ prescription matrix _ @xmath21 .        to find the matrix @xmath21 and see if it can be extended to multi - band systems , we first need to understand how to couple external contacts to the device . fig .
+1 illustrates the common approach which treats the contact as a semi - infinite nanowire of a finite cross - section . here , @xmath28 is a block matrix that represents the unit - slab along the transport direction , and @xmath29 is another block matrix which represent the inter - slab coupling .
+the eigenfunction of the plane wave at the @xmath30 mode in the @xmath31 slab , @xmath32 should then obey the schrdinger equation and the bloch condition ( eqs .
+( 6 ) ) .
+@xmath33    where @xmath34 is the plane - wave vector at the @xmath30 mode , @xmath35 is the length of a slab along the transport direction , and m is the maximum number of plane - wave modes that can exist in a single slab and is equal to the dof of @xmath28 .
+then , the surface green s function @xmath36 and self - energy term @xmath14 can be evaluated by converting eqs .
+( 6 ) to the generalized eigenvalue problem for a complex and non - hermitian matrix @xcite .
+the solution for @xmath36 and @xmath14 are provided in eqs .
+( 7 ) , where @xmath37 and @xmath38 are shown in eqs .
+@xmath39^{-1}k^{-1 } , \nonumber \\ \sigma & = & w^+g_{surf } w\end{aligned}\ ] ]    @xmath40 , \nonumber \\ \lambda & = & diag[exp(ik_1l)\text { } exp(ik_2l)\ldots\text { } exp(ik_ml)]\end{aligned}\ ] ]    in systems described by the nearest - neighbor ema , each slab becomes a layer of common cubic grids such that each grid on one layer is coupled to the same grid on the nearest layer .
+the inter - slab coupling matrix @xmath29 thus becomes a @xmath41 , with which the general solution for @xmath36 and @xmath14 in eqs .
+( 7 ) can be simplified using a process described in eq .
+( 9 ) and eq .
+we note that previous literatures have shown only the simplified solution for @xmath36 and @xmath14 @xcite .
+@xmath42^{-1}k^{-1 } \nonumber \\ & = & k[k^{-1}(h_{b}-ei)k+w^+\lambda]^{-1}k^{-1 } \nonumber \\ & = & k[-k^{-1}(w^+k\lambda+wk\lambda^{-1})+w^+\lambda]^{-1}k^{-1 } \nonumber \\ & & [ \because ( ei - h_{b})k = w^+k\lambda+wk\lambda^{-1 } ] \nonumber \\ & = & -k[w\lambda^{-1}]^{-1}k^{-1 } = -k\lambda w^{-1}k^{-1 } \\ \nonumber \\
+\sigma & = & w^+g_{surf}w \nonumber \\ & = & w^+(-k\lambda w^{-1}k^{-1})w \nonumber \\ & = & -w^+k\lambda k^{-1}\text {    } ( \because w^+ = w ) \nonumber \\    & = & -wk\lambda k^{-1}\end{aligned}\ ] ]    the original cbr method coupled to the ema prescribes the hermitian matrix @xmath21 as @xmath43 or its hermitian component ( if @xmath29 is complex ) .
+the new self - energy term @xmath44 in eqs .
+( 5 ) then becomes ( eq .
+( 11 ) ) :    @xmath45    where the matrix ( @xmath46 ) becomes zero at @xmath9 point , where ema subband minima are always placed on .
+the resulting new hamitonian ( @xmath13-@xmath29 ) , becomes the hamiltonian with the generalized @xmath47-@xmath48 boundary condition at contact boundaries .
+the spectra of the matrix ( @xmath13-@xmath29 ) , therefore become approximate solutions of the open boundary problem , and the retarded green s function @xmath49 in eq .
+( 4 ) can be thus @xmath50 with an incomplete set of energy spectra of the hermitian matrix near subband minima @xcite .      regardless of the band model , the @xmath49 in eq .
+( 4 ) can be accurately calculated with a complete set of spectra since it then becomes the dyson equation ( eq .
+( 3 ) ) itself .
+the important question here is then whether we can make the cbr method be still numerically practical for multi - band systems such that the transport can be simulated with a narrow energy spectrum . to study this issue ,
+we focus on the inter - slab coupling matrix @xmath29 of multi - band systems .
+a toy si device that consists of two slabs along the [ 100 ] direction , is used as an example for our discussion .    fig .
+2 shows the device geometry and corresponding hamiltonian matrix built with the ema , kp and tb model , respectively . here
+, we note that the simplifying process in eq .
+( 9 ) and eq . (
+10 ) is not strictly correct if the inter - slab coupling matrix @xmath29 is not an identity matrix , since , for any square matrix @xmath37 and @xmath29 , @xmath51 can not be simplified to @xmath29 if @xmath29 is neither an identity matrix nor a scaled identity matrix .
+when a system is represented with kp model , a single slab is still a layer of common cubic grids as the kp approach also uses a set of cubic grids .
+but , the non - zero coupling is extended up to next - nearest neighbors such that the inter - slab coupling matrix @xmath29 is no more an identity matrix . the simplified solution for @xmath52 and @xmath14 ,
+however , can be still used to @xmath53 the general solutions in eqs .
+( 7 ) since the coupling matrix @xmath29 is @xmath54 and invertible .
+but , the situation becomes tricky for tb systems that are represented on a set of real zincblende ( zb ) grids .     and @xmath14 are even mathematically invalid . ]    in the zb crystal structure , a si unit - slab has a total of four unique atomic layers along the [ 100 ] direction . because the tb approach assumes the nearest - neighbor coupling , only the last layer in one slab is coupled to the first layer in the nearest slab while all the other coupling blocks among layers in different slabs become zero - matrices . as described in fig .
+2 , this makes the inter - slab coupling matrix @xmath29 be @xmath55 such that matrix inversions become impossible . the simplified solution for @xmath52 and @xmath14 in eq .
+( 9 ) and eq .
+( 10 ) are therefore mathematically invalid , and they can not be even used to approximate the full solution ( eqs .
+( 7 ) ) . a new prescription for @xmath21 is thus needed to make the cbr method
+be still practical for zb - tb systems , and we propose an alternative in eq .
+( 12 ) .    @xmath56    where @xmath57 is the energetic position of the cbm ( valence band maximum ( vbm ) ) of the bandstructure of the semi - infinite contact .    if only a few subbands near the cbm ( or vbm ) of the contact bandstructure are enough to describe the external contact , the prescription suggested in eq
+( 12 ) works quite well as @xmath21 is the hermitian part of the self - energy term , such that ( @xmath58 ) approximates the open system near the edge of the contact bandstructure , the approximation , however , becomes less accurate if more subbands in higher energy ( in lower energy for valence band ) are involved to the open boundaries .
+away from the band edge , subband placement becomes denser and inter - subband coupling becomes stronger .
+the prescription @xmath21 in eq .
+( 12 ) then would not be a good choice as it only approximate the open boundary solution near band edges , and the cbr method thus needs more eigenspectrums to solve open boundary transport problems .
+so , for example , the multi - band cbr method would not be numerically practical to simulate fets at a high source - drain bias , since a broad energy spectrum is then needed to get an accurate solution .    before closing this section , we note that , if the inter - slab coupling matrix @xmath29 is either an identity matrix or a scaled identity matrix , the prescription matrix @xmath21 in eq .
+( 12 ) becomes @xmath59 to the one utilized to simulate 3-d systems in the previous literatures @xcite , where ( @xmath58 ) approximates the open system well near @xmath60 @xmath61 @xmath62 if the system is represented by the ema @xcite .
+once @xmath52 and @xmath14 are determined from the prescription matrix @xmath21 , evaluation of the transmission coefficient ( tr ) and the density of states ( dos ) can be easily done @xcite .
+further detailed mathematics regarding derivation of tr and dos will not be thus discussed here .
+the results are discussed in two subsections .
+first , we validate the cbr method for multi - band systems with the new prescription for @xmath21 in eq .
+focusing on a proof of principles , we compute the tr and dos profiles for a toy tb and kp system , compare the result to the references obtained with the rgf algorithm , and suggest the device category where the multi - band cbr method could be particularly practical .
+second , we examine the numerical practicality of the multi - band cbr method by computing tr and dos profiles of a resonant tunneling device and a nanowire fet .
+the accuracy , the speed of calculations in a serial mode , and the scalability on hpc clusters , are compared to those obtained with the rgf and wf algorithm .
+we assume a two - contact ballistic transport for all the numerical problems .      to validate the multi - band cbr method that has been discussed in the previous section , we consider two multi - band toy si systems represented by the 10-band @xmath8 tb and 3-band kp approach .
+here , we intentionally choose extremely small systems to calculate a complete set of energy spectra of the hamiltonian , with which the cbr method should produce results identical to the ones obtained by the rgf algorithm .
+for the tb system , the electron - transport is simulated while we calculate the hole - transport for the kp system due to a limitation of the kp approach in representing the si material @xcite .    _
+tb system _ : fig .
+3 illustrates the tr and dos profile calculated for the tb si toy device which consists of ( 2@xmath72@xmath72 ) ( 100 ) unit - cells ( @xmath631.1(nm ) ) .
+the device involves a complex hermitian hamiltonian matrix of 640 dof , and electrons are assumed to transport along the [ 100 ] direction .
+the tr and dos profiles are calculated using the cbr method for a total of three cases - with 6 , 60 and full ( 640 ) energy spectra that correspond to 1@xmath64 , 10@xmath64 , and 100@xmath64 of the hamiltonian dof , respectively .
+the transport happens at the energy above 2.32(ev ) which is the cbm of the contact bandstructure .
+we note that this energetic position is higher than the si bulk cbm ( 1.13(ev ) ) , due to the structural confinement stemming from the finite cross - section of the nanowire device @xcite .        with the new prescription matrix @xmath21 suggested in eq .
+( 12 ) , the tr and dos profile obtained by the cbr method become closer to the reference result as more spectrums are used , and eventually reproduce the reference result with a full set of spectrums , as shown in the left column of fig .
+3 . here , the cbr result turns out to be quite accurate near the cbm even with 1@xmath64 of the total spectrums , indicating that the tb - cbr method could be a practical approach if most of the carriers are injected from the first one or two subbands of the contact bandstructure
+. this condition can be satisfied when ( 1 ) only the first one or two subbands in the contact bandstructure are occupied with electrons , and ( 2 ) the energy difference between the source and drain contact fermi - level ( the source - drain fermi - window ) becomes extremely narrow .
+so , the simulation of fets at a high source - drain bias would not be an appropriate target of the tb - cbr simulations since the source - drain fermi - window may include many subbands , and many spectra may be thus needed for accurate solutions @xcite .
+instead , we propose that rtds could be one of device categories for which the tb - cbr method is particularly practical , since the fermi - window for transport becomes extremely small in rtds in some cases @xcite .        the same calculation is performed again but using the old prescription @xmath21 suggested for the ema , and corresponding tr and dos profiles are shown in the right column of fig .
+3 . the cbr method still reproduce the reference result with a full set of energy spectra since the dyson equation ( eq .
+( 4 ) ) should always work for any @xmath21 s .
+the accuracy of the results near the cbm , however , turns out to be worse than the one with the new prescription .
+the results furthermore reveal that the accuracy with 10@xmath64 of the total spectra does not necessarily becomes better than the one with 1@xmath64 , indicating that the old prescription for @xmath21 can not even approximate the solution near the cbm of open tb systems .
+_ kp system _ : the tr and dos profile of the kp si 2.0(nm ) ( 100 ) cube , are depicted in fig .
+the structure is discretized with a 0.2(nm ) grid and involves a complex hermitian hamiltonian of 3,000 dof . here , the dof of the real - space kp hamiltonian can be effectively reduced with the @xmath65-@xmath66 approach @xcite .
+the effective dof of the hamiltonian therefore becomes 500 , where we consider 50 modes per each slab along the transport direction .
+again , we note that the vbm of the contact bandstructure is placed at -0.4(ev ) , and lower in energy than the vbm of si bulk ( 0(ev ) ) due to the confinement created by the finite cross - section .
+we claim that the cbr method works quite well for the kp system , since the tr and dos profiles not only become closer to the reference results as more of the energy spectrums are used , but also exhibit excellent accuracy near the vbm of the contact bandstructure as shown in fig .
+we , however , observe a remarkable feature that is not found in the cbr method coupled to tb systems : the kp - cbr method shows a good accuracy with both the old and new prescription matrix @xmath21 , which supports that the simplified solution for @xmath36 and @xmath14 ( eq .
+( 9 ) and eq .
+( 10 ) ) are still useful to approximate the full solution ( eqs .
+( 7 ) ) as discussed in the previous section .
+we also claim that the utility of the kp - cbr method could be extended to nanowire fets because the mode - space approach reduces the dof of the hamiltonian such that we save more computing cost needed to calculate energy spectra . in the next subsection
+, we will come back to this issue again .    ) , with respect to the si bulk , is superposed to the channel potential profile to consider the sharp structural confinement stemming from the single donor . ]      in this subsection , we provide a detailed analysis of the numerical utility of the multi - band cbr method in terms of the accuracy and speed . based on discussions in the previous subsection with a focus on a proof of principles on small systems , a rtd is considered as a simulation example of tb systems , while a nanowire fet is again used as an example of kp systems to discuss the numerical practicality of the method .
+the tr and dos profiles obtained by the rgf and wf algorithm are used as reference results .
+we note that the wf case is added in this subsection to provide a complete and competitive analysis on the speed and scalability on hpc clusters .
+_ tb system _ : a single phosphorous donor in host si material ( si : p ) creates a 3-d structural confinement around itself .
+such si : p @xmath67 @xmath68 have gained scientific interest due to their potential utility for qubit - based logic applications @xcite . especially , the stark effect in si : p quantum dots is one of the important physical problems , and was quantitatively explained by previous tb studies @xcite . the electron - transport in such si : p systems should be therefore another important problem that needs to be studied .
+the geometry of the example si : p device is illustrated in fig .
+, we consider a [ 100 ] si nanowire that is 14.0(nm ) long and has a 1.7(nm ) rectangular cross - section .
+the first and last 3.0(nm ) along the transport direction , are considered as densely n - type doped source - drain region assuming a 0.25(ev ) band - offset in equilibrium @xcite .
+then , a single phosphorous atom is placed at the channel center with a superposition of the impurity coulombic potential that has been calibrated for a single donor in si bulk by by rahman _
+the electronic structure has a total of 1872 atoms and involves a complex hamiltonian matrix of 18,720 dof .
+6 shows the tr and dos profiles in four cases , where the first three cases are the cbr results with 10 , 20 and 40 spectra that correspond to 0.05@xmath64 , 0.1@xmath64 , and 0.2@xmath64 of the hamiltonian dof , and the last one is used as a reference . due to
+the donor coulombic potential , the channel forms a double - barrier system such that the electron transport should experience a resonance tunneling . as shown in fig . 5
+, the cbr method produces a nice approximation of the reference result such that the first resonance is observed with just 10 energy spectra .
+it also turns out that 40 spectra are enough to capture all the resonances that show up in the range of energy of interest .
+the accuracy of the solutions approximated by the cbr method , is examined in a more quantitative manner by @xmath69 the tr and dos profile over energy .
+fig . 7 illustrates this @xmath70 tr ( ctr ) and dos ( cdos ) profile , which are @xmath71 equivalent to the current and charge profile , respectively . in spite of a slight deviation in absolute values
+, the ctr profiles still confirm that the cbr method captures resonances quite precisely such that the energetic positions where the tr sharply increases , are almost on top of the reference result .
+the cdos profile exhibits much better accuracy such that the result with 40 spectra almost reproduces the reference result even in terms of absolute values .
+we claim that the accuracy in the cdos profile is particularly critical , since it is directly connected to charge profiles that are essential for charge - potential self - consistent simulations .    ,
+turn out to be enough to almost reproduce the reference solutions in the entire range of energy of interest ( 0.8(ev ) beyond the vbm of the wire bandsturcutrue ) . ]
+_ kp system _ : si nanowire fets obtained through top - down etching or bottom - up growth have attracted attention due to their enhanced electrostatic control over the channel , and thus become an important target of various modeling works @xcite . for kp systems , the cbr method could become a practical approach to solve transport behaviors of fet devices since the computing load for solving eigenvalue problems can be reduced with the mode - space approach .    a [ 100 ] si nanowire fet of a 15.0(nm ) long channel and a 3.0(nm ) rectangular cross - section , is therefore considered as a simulation example to test the performance of the kp - cbr method .
+the hole - transport is simulated with the 3-band kp approach , where the simulation domain is discretized with a set of 0.2(nm ) mesh cubic grids and involves a real - space hamiltonian matrix of 50,625 dof .
+as the device has a total of 75 slabs along the transport direction , the mode - space hamiltonian has 9,000 dof with a consideration of 120 modes per slab .
+it has been reported that the wire bandstructure obtained with 120 modes per slab , becomes quite close to the full solution for a cross - section smaller than 5.0@xmath75.0(nm@xmath72 ) @xcite .
+the wire is assumed to be purely @xmath73 such that neither the doping nor band - offset are considered .    to see
+if the cbr method can be reasonably practical in simulating the hole - transport at a relatively large source - drain bias , we plan to cover the energy range at least larger than 0.4(ev ) beyond the vbm of the wire bandstucture . for this purpose
+, we compute 50 , 100 , and 200 energy spectra that correspond to 0.5@xmath64 , 1.1@xmath64 , and 2.2@xmath64 of the dof of the mode - space hamiltonian , respectively . fig .
+8(a ) shows the corresponding tr and dos profiles . here , the cbr solution not only become closer to the reference result with more spectra considered , but also demonstrate fairly excellent accuracy near the vbm of the wire bandstructure .
+the ctr and cdos profiles provided in fig .
+8(b ) further support the preciseness of the cbr solutions near the vbm .
+the cumulative profiles also support that the cbr solution covers a relatively wide range of energy , such that 50 energy spectra are already enough to cover @xmath630.4(ev ) below the vbm quite well .
+we note that the solution obtained with 200 spectra almost replicates the reference result in the entire range of energy that is considered for the simulation ( @xmath630.8(ev ) below the vbm ) .        .
+the time required to evaluate the tr and dos per single energy point in a serial mode , for the rtd and nanowire fet considered as simulation examples .
+[ cols="<,<,<,<",options="header " , ]     _ speed and scalability on hpcs _ : so far , we have discussed the practicality of the multi - band cbr method focusing on the accuracy of the solutions for two - contact , ballistic - transport problems . another important criterion to determine
+the numerical utility should be the speed of calculations .
+we therefore measure the time needed to evaluate the tr and dos per single energy point for the tb si : p rtd and the kp si nanowire fet represented that are utilized as simulation examples . to examine the practicality of the multi - band cbr method on hpc clusters
+, we also benchmark the scalability of the simulation time on the @xmath74 cluster under the support of the rosen center for advanced computing ( rcac ) at purdue university .
+the cbr , rgf , and wf methods are parallelized with mpi / c++ , the multifrontal massively parallel sparse direct linear solver ( mumps ) @xcite , and a self - developed eigensolver based on the shift - and - invert arnoldi algorithm @xcite .
+all the measurements are performed on a 64-bit , 8-core hp proliant dl585 g5 system of 16 gb sdram and 10-gigabit ethernet local to each node .
+table i summarizes the wall - times measured for various methods in a serial mode .
+generally , the simulation of the kp si nanowire fet needs less computing loads , such that the wall - times are reduced by a factor of two with respect to the computing time taken for the tb si : p rtd .
+this is because the kp approach can represent the electronic structure with the mode - space approach such that the hamiltonian matrix has a smaller dof ( 9,000 ) , compared to the one used to describe the tb si : p rtd ( 18,720 ) .
+compared to the rgf algorithm in a serial mode , the cbr method demonstrates a comparable ( kp ) , or better ( tb ) performance . since a single slab of the kp si nanowire
+is represented with a block matrix @xmath75 ( fig .
+1 ) of 120 dof , the matrix inversion is not a critical problem any more in the rgf algorithm such that the cbr method does nt necessarily show better performances than the rgf algorithm .
+the tb example device , however , needs a @xmath75 of 720 dof to represent a single slab ( a total of 26 slabs ) so the burden for matrix inversions become bigger compared to the kp example . as a result
+, the cbr method generally shows better performances .
+the cbr method , however , does nt beat the wf method in both the tb and kp case since , in a serial mode , the cbr method consumes time to allocate a huge memory space that is needed to store `` full '' complex matrices via vector - products ( eqs .
+( 5 ) ) .
+the strength of the cbr method emerges in a @xmath76 mode ( on multiple cpus ) , where the vector - products are performed via mpi - communication among distributed systems and each node thus saves only a fraction of the full matrix .
+the scalability of the various methods is compared up to a total of 16 cpus in fig .
+the common rgf calculation can be effectively parallelized only up to a factor of two , due to its recursive nature @xcite , and the scalability of the wf method becomes worse in many cpus because it uses a direct - solver - based lu factorization to solve the linear system .
+as a result , the cbr method starts to show the best speed when more than 8 cpus are used .
+in this work , we discuss numerical utilities of the cbr method in simulating ballistic transport of multi - band systems described by the the atomic 10-band @xmath8 tb and 3-band kp approach .
+although the original cbr method developed for single - band ema systems achieves an excellent numerical efficiency by approximating solutions of open systems , we show that the same approach ca nt be used to approximate tb systems as the inter - slab coupling matrix becomes singular .
+we therefore develop an alternate method to approximate open system solutions . focusing on a proof of principles on small systems
+, we validate the idea by comparing the tr and dos profile to the reference result obtained by the rgf algorithm , where the alternative also works well with the kp approach .
+since the major numerical issue in the cbr method is to solve a normal eigenvalue problem , the numerical practicality of the method becomes better as the transport can be solved with a less number of energy spectra . generally , the practicality would be thus limited in multi - band systems , since multi - band approaches need a larger number of spectra to cover a certain range of energy than the single band ema does .
+we , however , claim that the rtds could be one category of tb devices , for which the multi - band cbr method becomes particularly practical in simulating transport , and the numerical utility can be even extended to fets when the cbr method is coupled to the kp band model . to support this argument
+, we simulate the electron resonance tunneling in a 3-d tb rtd , which is basically a si nanowire but has a single phosphorous donor in the channel center , and the hole - transport of a 3-d kp si nanowire fet .
+we examine numerical practicalities of the multi - band cbr method in terms of the accuracy and speed , with respect to the reference results obtained by the rgf and wf algorithm , and observe that the cbr method gives fairly accurate tr and dos profile near band edges of contact bandstructures .    in terms of the speed in a serial mode ,
+the strength of the cbr method over the rgf algorithm depends on the size of the hamiltonian such that the cbr shows a better performance than the rgf as a larger block - matrix is required to represent the unit - slab of devices .
+but , the speed of the wf method is still better than the cbr method as the cbr method consumes time to store a full complex matrix during the process of calculations . in a parallel mode
+, however , the cbr method starts to beat both the rgf and wf algorithm since the full matrix can be stored into multiple clusters in a distributive manner , while the scalability of both the rgf and wf algorithm are limited due to the nature of recursive and direct - solver - based calculation , respectively .
+h. ryu , h .- h . park and g. klimeck acknowledge the financial support from the national science foundation ( nsf ) under the contract no . 0701612 and the semiconductor research corporation .
+m. shin acknowledges the financial support from basic science research program through the national research foundation of republic of korea , funded by the ministry of education , science and technology under the contract no .
+2010 - 0012452 .
+authors acknowledge the extensive use of computing resources in the rosen center for advanced computing at purdue university , and nsf - supported computing resources on nanohub.org .
+100 g. e. moore , _ electronics _ * 38 * , 114 , ( 1965 ) .
+m. luisier , a. schenk and w. fichtner , _ phys .
+b _ * 74 * 205323 , ( 2006 ) .
+g. klimeck , s. s. ahmed , h. bae , n. kharche , r. rahman , s. clark , b. haley , s. lee , m. naumov , h. ryu , f. saied , m. prada , m. korkusinski and t. b. boykin , _ ieee trans .
+_ * 54 * , 2079 , ( 2007 ) .
+y. x. liu , d. z. -y .
+ting and t. c. mcgill , _ phys .
+b _ * 54 * , 5675 , ( 1996 )
+. g. klimeck , r. lake , r. c. bowen , c. fernando and w. frensley , _ vlsi design _ * 8 * , 79 , ( 1998 )
+. t. b. boykin , g. klimeck and f. oyafuso , _ phys .
+b _ , * 69 * 115201 , ( 2004 ) .
+r. c. bowen , g. klimeck , w. r. frensley , r. k. lake , _ j. appl
+_ * 81 * , 3207 , ( 1997 ) n. kharche , m. prada , t. b. boykin and g. klimeck , _ appl
+* 90 * , 9 , ( 2007 ) .
+r. rahman , c. j. wellard , f. r. bradbury , m. prada , j. h. cole , g. klimeck and l. c. l. hollenberg , _ phys .
+lett . _ * 99 * , 036403 , ( 2007 ) .
+g. p. lansbergen , r. rahman , c. j. wellard , i. woo , j. caro , n. collaert , s. biesemans , g. klimeck , l. c. l. hollenberg and s. rogge , _ nature physics _ * 4 * , 656 , ( 2008 ) .
+m.  shin ,
+_ j. appl .
+phys . _ * 106 * , 054505 , ( 2009 ) . c. pryor , _ phys .
+b _ * 57 * , 7190 , ( 1998 ) s.  datta , _ superlatt . microstruct . _ * 28 * , 253 , ( 2000 ) .
+m.  stdele , b. r. tuttle and k. hess , _ j. appl
+. phys . _ * 89 * , 348 , ( 2001 ) .
+n. kharche , g. klimeck , d. -h .
+kim , j. a. del alamo and m. luisier , _ proceedings of ieee international electron devices meeting _ , ( 2009 ) .
+r. lake , g. klimeck , r. c. bowen and d. jovanovic , _ j. appl .
+* 81 * , 7845 , ( 1996 ) . c. rivas and r. lake , _ phys .
+( b ) _ * 239 * , 94 , ( 2003 )
+. s. cauley , j. jain , c. -k . koh and v. balakrishnan , _ j. appl .
+phys . _ * 101 * , 123715 , ( 2007 ) .
+d. mamaluy , m. sabathil , t. zibold , p. vogl and d. vasileska , _ phys .
+b _ * 71 * , 245321 , ( 2005 ) .
+g. klimeck and m. luisier , _ computing in science and engineering _ * 12 * , 28 , ( 2010 ) .
+d. mamaluy , d. vasileska , m. sabathil and p. vogl , _ semicond .
+sci . tech _ * 19 * , 118 , ( 2004 ) .
+h. r. khan , d. mamaluy and d. vasileska , _ ieee trans .
+dev . _ * 54 * , 784 , ( 2007 ) .
+h. r. khan , d. mamaluy and d. vasileska , _ ieee trans .
+dev . _ * 55 * , 743 , ( 2008 ) .
+h. r. khan , d. mamaluy and d. vasileska , _ ieee trans . elec .
+dev . _ * 55 * , 2134 , ( 2008 ) .
+d. mamaluy , m. sabathil and p. vogl , _ j. appl
+. phys . _ * 93 * , 4628 , ( 2003 ) . in principle
+, the 4-band kp model uses a total of four bases to model direct bandgap materials such as gaas and inas , where one basis is used to model the conduction band and the remaining three bases are used to model the valence band . the valence band of indirect bandgap materials such si
+, however , can be still modeled with three bases if vbm is at the @xmath9 point ( ref .
+both the tb and kp model considered in this work place the vbm of si bulk at 0 ( ev ) .
+assuming that the source contact is grounded , the fermi - window at @xmath77 = v , becomes [ @xmath78-@xmath79 , @xmath80+@xmath79 ] = [ @xmath82-@xmath83-@xmath79 , @xmath82+@xmath79 ] , where @xmath84 is the single electron charge and @xmath82 is the fermi - level of the system in equilibrium .
+the maximum and minimum of the window are determined at the source and drain side , respectively .
+e. lind , b. gustafson , i. pietzonka and l. -e .
+wernersson , _ phys .
+b _ * 68 * , 033312 , ( 2003 ) . l. c. l. hollenberg , a. s. dzurak , c. j. wellard , a. r. hamilton , d. j. reilly , g. j. milburn and r. g. clark , _ phys .
+b _ * 69 * , 113301 , ( 2004 ) .
+the band - offset between the intrinsic channel and densely doped source - drain leads , is taken from the work of martinez _ et al .
+_ , where the equilibrium potential profile has been self - consistently obtained for a 14.0(nm ) long [ 100 ] si nanowire that has a 2.0(nm ) rectangular cross - section and 4.0(nm ) long source - drain regions ( ref . [ 32 ] ) .
+a. martinez , n. seoane , a. r. brown , j. r. barker and a. asenov , _ ieee trans .
+* 8 * , 603 , ( 2009 ) .
+n. neophytou , a. paul , m. s. lundstrom and g. klimeck , _ ieee trans .
+dev . _ * 55 * , 1286 , ( 2008 ) . v. mehrmann and d. watkins , _
+siam j. sci .
+* 22 * , 1905 , ( 2001 ) .

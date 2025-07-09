@@ -1,0 +1,160 @@
+proteins are essential building blocks of living organisms .
+they function as catalyst , structural elements , chemical signals , receptors , etc . the molecular mechanism of protein functions are closely related to their structures .
+the study of structure - function relationship is the holy grail of biophysics and has attracted enormous effort in the past few decades .
+the understanding of such a relationship enables us to predict protein functions from structure or amino acid sequence or both , which remains major challenge in molecular biology .
+intensive experimental investigation has been carried out to explore the interactions among proteins or proteins with other biomolecules , e.g. , dnas and/or rnas . in particular , the understanding of protein - drug interactions is of premier importance to human health .
+a wide variety of theoretical and computational approaches has been proposed to understand the protein structure - function relationship .
+one class of approaches is biophysical . from the point of view of biophysics , protein structure , function , dynamics and transport are , in general , dictated by protein interactions .
+quantum mechanics ( qm ) is based on the fundamental principle , and offers the most accurate description of interactions among electrons , photons , atoms and even molecules .
+although qm methods have unveiled many underlying mechanisms of reaction kinetics and enzymatic activities , they typically are computationally too expensive to do for large biomolecules . based on classic physical laws , molecular mechanics ( mm ) @xcite can , in combination with fitted parameters , simulate the physical movement of atoms or molecules for relatively large biomolecular systems like proteins quite precisely .
+however , it can be computationally intractable for macromoelcular systems involving realistic biological time scales . many time - independent methods like normal mode analysis ( nma ) @xcite , elastic network model ( enm ) @xcite , graph theory @xcite and flexibility - rigidity index ( fri ) @xcite are proposed to capture features of large biomolecules .
+variational multiscale methods @xcite are another class of approaches that combine atomistic description with continuum approximations .
+there are well developed servers for predicting protein functions based on three - dimensional ( 3d ) structures @xcite or models from the homology modeling ( here homology is in biological sense ) of amino acid sequence if 3d structure is not yet available @xcite .
+another class of important approaches , bioinformatical methods , plays a unique role for the understanding of the structure - function relationship .
+these data - driven predictions are based on similarity analysis .
+the essential idea is that proteins with similar sequences or structures may share similar functions .
+also , based on sequential or structural similarity , proteins can be classified into many different groups .
+once the sequence or structure of a novel protein is identified , its function can be predicted by assigning it to the group of proteins that share similarities to a good extent .
+however , the degree of similarity depends on the criteria used to measure similarity or difference .
+many measurements are used to describe similarity between two protein samples .
+typical approaches use either sequence or physical information , or both . among them , sequence alignment can describe how closely the two proteins are related .
+protein blast @xcite , clustalw2 @xcite , and other software packages can preform global or local sequence alignments .
+based on sequence alignments , various scoring methods can provide the description of protein similarity @xcite .
+additionally , sequence features such as sequence length and occurrence percentage of a specific amino acid can also be employed to compare proteins .
+many sequence based features can be derived from the position - specific scoring matrix ( pssm ) @xcite . moreover
+, structural information provides an efficient description of protein similarity as well .
+structure alignment methods include rigid , flexible and other methods .
+the combination of different structure alignment methods and different measurements such as root - mean - square deviation ( rmsd ) and z - score gives rise to various ways to quantify the similarity among proteins .
+as per structure information , different physical properties such as surface area , volume , free energy , flexible - rigidity index ( fri ) @xcite , curvature @xcite , electrostatics @xcite etc . can be calculated .
+a continuum model , poisson boltzmann ( pb ) equation delivers quite accurate estimation for electrostatics of biomolecules .
+there are many efficient and accurate pb solvers including pbeq @xcite , mibpb @xcite , etc .
+together with physical properties , one can also extract geometrical properties from structure information .
+these properties include coordinates of atoms , connections between atoms such as covalent bonds and hydrogen bonds , molecular surfaces @xcite and curvatures @xcite .
+these various approaches reveal information of different scales from local atom arrangement to global architecture .
+physical and geometrical properties described above add different perspective to analyze protein similarities .
+due to the advance in bioscience and biotechnology , biomolecular structure date sets are growing at an unprecedented rate .
+for example , the http://www.rcsb.org/pdb/home/home.do[protein data bank ( pdb ) ] has accumulated more than a hundred thousand biomolecular structures .
+the prediction of the protein structure - function relationship from such huge amount of data can be extremely challenging .
+additionally , an eve - growing number of physical or sequence features are evaluated for each data set or amino - acid residue , which adds to the complexity of the data - driven prediction . to automatically analyze excessively large data sets in molecular biology , many machine learning methods
+have been developed @xcite .
+these methods are mainly utilized for the classification , regression , comparison and clustering of biomolecular data .
+clustering is an unsupervised learning method which divides a set of inputs into groups without knowing the groups beforehand .
+this method can unveil hidden patterns in the data set .
+classification is a supervised learning method , in which , a classifier is trained on a given training set and used to do prediction for new observations .
+it assigns observation to one of several pre - determined categories based on knowledge from training data set in which the label of observations is known .
+popular methods for classification include support vector machine ( svm ) @xcite , artificial neural network ( ann ) @xcite , deep learning @xcite , etc . in classification ,
+each observation in training the set has a feature vector that describes the observation from various perspectives and a label that indicates to which group the observation belongs . a model trained on the training set indicates to which group a new observation belongs with feature vector and unknown label . to improve the speed of classification and reduce effect from irrelevant features
+, many feature selection procedures have been proposed @xcite .
+machine learning approach are successfully used for protein hot spot prediction @xcite .
+the data - driven analysis of the protein structure - function relationship is compromised by the fact that same protein may have different conformations which possess different properties or delivers different functions . for instance , hemoglobins have taut form with low affinity to oxygen and relaxed form with high affinity to oxygen ; and ion channels often have open and close states .
+different conformations of a given protein may only have minor differences in their local geometric configurations .
+these conformations share the same sequence and may have very similar physical properties .
+however , their minor structural differences might lead to dramatically different functions .
+therefore , apart from the conventional physical and sequence information , geometric and topological information can also play an important role in understanding the protein structure - function relationship .
+indeed , geometric information has been extensively used in the protein exploration . in contrast , topological information has been hardly employed in studying the protein structure - function relationship .    in general , geometric approaches are frequently inundated with too much geometric detail and are often prohibitively expensive for most realistic biomolecular systems , while traditional topological methods often incur in too much reduction of the original geometric and physical information .
+persistent homology , a new branch of applied topology , is able to bridge traditional geometry and topology .
+it creates a variety of topologies of a given object by varying a filtration parameter , such as a radius or a level set function . in the past decade
+, persistent homology has been developed as a new multiscale representation of topological features .
+the 0-th dimensional version was originally introduced for computer vision applications under the name  size function " @xcite and the idea was also studied by robins @xcite .
+the persistent homology theory was formulated , together with an algorithm given , by edelsbrunner et al .
+@xcite , and a more general theory was developed by zomorodian and carlsson @xcite
+. there has since been significant theoretical development @xcite , as well as various computational algorithms @xcite .
+often , persistent homology can be visualized through barcodes @xcite , in which various horizontal line segments or bars are the homology generators which survive over filtration scales .
+persistence diagrams are another equivalent representation @xcite .
+computational homology and persistent homology have been applied to a variety of domains , including image analysis @xcite , chaotic dynamics verification @xcite , sensor network @xcite , complex network @xcite , data analysis @xcite , shape recognition @xcite and computational biology @xcite .
+compared with traditional computational topology @xcite and/or computational homology , persistent homology inherently has an additional dimension , the filtration parameter , which can be utilized to embed some crucial geometric or quantitative information into the topological invariants . the importance of retaining geometric information in topological analysis has been recognized @xcite , and topology has been advocated as a new approach for tackling big data sets @xcite .    recently , we have introduced persistent homology for mathematical modeling and prediction of nano particles , proteins and other biomolecules @xcite .
+we have proposed molecular topological fingerprint ( mtf ) to reveal topology - function relationships in protein folding and protein flexibility @xcite .
+we have employed persistent homology to predict the curvature energies of fullerene isomers @xcite , and analyze the stability of protein folding @xcite .
+more recently , we have introduced resolution based persistent topology @xcite .
+most recently , we have developed new multidimensional persistence , a topic that has attracted much attention in the past few years @xcite , to better bridge geometry and traditional topology and achieve better characterization of biomolecular data @xcite .
+we have also introduced the use of topological fingerprint for resolving ill - posed inverse problems in cryo - em structure determination @xcite .
+the objective of the present work is to explore the utility of mtfs for protein classification and analysis .
+we construct feature vectors based on mtfs to describe unique topological properties of protein in different scales , states and/or conformations .
+these topological feature vectors are further used in conjugation with the svm algorithm for the classification of proteins .
+we validate the proposed mtf - svm strategy by distinguishing different protein conformations , proteins with different local secondary structures , and proteins from different superfamilies or families .
+the performance of proposed topological method is demonstrated by a number of realistic applications , including protein binding analysis , ion channel study , etc .
+the rest of the paper is organized as following .
+section [ sec : methods ] is devoted to the mathematical foundations for persistent homology and machine learning methods .
+we present a brief description of simplex and simplicial complex followed by basic concept of homology , filtration , and persistence in section [ persistenthomology ] .
+three different methods to get simplicial complex , vietoris - rips complex , alpha complex , and ech complex are discussed .
+we use a sequence of graphs of channel proteins to illustrate the growth of a vietoris - rips complex and corresponding barcode representation of topological persistence . in section [ svm+roc ] , fundamental concept of support vector machine
+is discussed .
+an introduction of transformation of the original optimization problem is given .
+a measurement for the performance of classification model known as receiver operating characteristic is described .
+section [ feature+preprocessing ] is devoted to the description of features used in the classification and pre - processing of topological feature vectors . in section [ sec : numerical ]
+, four test cases are shown .
+case 1 and case 2 examine the performance of the topological fingerprint based classification methods in distinguishing different conformations of same proteins . in case 1 , we use the structure of the m2 channel of influenza a virus with and without an inhibitor . in case 2 , we employ the structure of hemoglobin in taut form and relaxed form .
+case 3 validates the proposed topological methods in capturing the difference between local secondary structures . in this study
+, proteins are divided into three groups , all alpha protein , all beta protein , and alpha+beta protein . in case 4 ,
+the ability of the present method for distinguishing different protein families is examined .
+this paper ends with some concluding remarks .
+this section presents a brief review of persistent homology theory and illustrates its use in proteins . a brief description of machine learning methods is also given .
+the topological feature selection and construction from biomolecular data are described in details .
+* simplex * a @xmath0-simplex denoted by @xmath1 is a convex hull of @xmath2 vertices which is represented by a set of points @xmath3 where @xmath4 is a set of affinely independent points .
+geometrically , a @xmath5-@xmath6 is a line segment , a @xmath7-simplex is a triangle , a @xmath8-simplex is a tetrahedron , and a @xmath9-simplex is a @xmath10-cell ( a four dimensional object bounded by five tetrahedrons ) .
+a @xmath11face of the @xmath0-simplex is defined as a convex hull formed from a subset consisting @xmath12 vertices .
+* simplicial complex * a simplicial complex @xmath13 is a finite collection of simplices satisfying two conditions .
+first , faces of a simplex in @xmath13 are also in @xmath13 ; second , intersection of any two simplices in @xmath13 is a face of both the simplices .
+the highest dimension of simplices in @xmath13 determines dimension of @xmath13 .
+* homology * for a simplicial complex @xmath13 , a @xmath0-chain is a formal sum of the form @xmath14 $ ] , where @xmath15 $ ] is oriented @xmath0-simplex from @xmath13 . for simplicity
+, we choose @xmath16 .
+all these @xmath0-chains on @xmath13 form an abelian group , called chain group and denoted as @xmath17 .
+a boundary operator @xmath18 over a @xmath0-simplex @xmath1 is defined as , @xmath19,\ ] ] where @xmath20 $ ] denotes the face obtained by deleting the @xmath21th vertex in the simplex .
+the boundary operator induces a boundary homomorphism @xmath22 .
+an very important property of the boundary operator is that the composition operator @xmath23 is a zero map , @xmath24+\sum_{j > i}(-1)^i(-1)^{j-1}[u_0, ... ,\widehat{u_j}, ... \widehat{u_i}, ... u_k ] \\ & = 0 \end{aligned}\ ] ] a sequence of chain groups connected by boundary operation form a chain complex ,    @xmath25{}}c_n(\mathcal{k})\xrightarrow{\makebox[.27in]{$\partial_n$}}c_{n-1}(\mathcal{k})\xrightarrow{\makebox[.27in]{$\partial_{n-1}$}}\cdots\xrightarrow{\makebox[.27in]{$\partial_1$}}c_0(\mathcal{k } ) \xrightarrow{\makebox[.27in]{$\partial_0$}}0.\ ] ]    the equation @xmath26 is equivalent to the inclusion @xmath27 , when @xmath28 and @xmath29 denotes image and kernel
+. elements of @xmath30 are called @xmath0th cycle group , and denoted as @xmath31=ker@xmath18 .
+elements of @xmath32 are called @xmath0th boundary group , and denoted as @xmath33=im@xmath34 .
+a @xmath0th homology group is defined as the quotient group of @xmath31 and @xmath33 .
+@xmath35 the @xmath0th betti number of simplicial complex @xmath13 is the rank of @xmath36 , @xmath37 betti number @xmath38 is finite number , since @xmath39 .
+betti numbers computed from a homology group are used to describe the corresponding space . generally speaking ,
+the betti numbers @xmath40 , @xmath41 and @xmath42 are numbers of connected components , tunnels , and cavities , respectively .    *
+filtration and persistence * a filtration of a simplicial complex @xmath13 is a nested sequence of subcomplexes of @xmath13 .
+@xmath43 with a filtration of simplicial complex @xmath13 , topological attributes can be generated for each member in the sequence by deriving the homology group of each simplicial complex .
+the topological features that are long lasting through the filtration sequence are more likely to capture significant property of the object .
+intuitively , non - boundary cycles that are not mapped into boundaries too fast along the filtration are considered to be possibly involved in major features or persistence .
+equipped with a proper derivation of filtration and a wise choice of threshold to define persistence , it is practicable to filter out topological noises and acquire attributes of interest . the @xmath44-persistent @xmath0th homology group of @xmath45 is defined as @xmath46 where @xmath47 and @xmath48 . the consequent @xmath44-persistent @xmath0th betti number is @xmath49 .
+a well chosen @xmath44 promises reasonable elimination of topological noise .
+* vietoris - rips complex * based on a metric space @xmath50 and a given cutoff distance @xmath51 , an abstract simplicial complex can be built .
+if two points in @xmath50 have a distance shorter than the given distance @xmath51 , an edge is formed between these two points . consequently , simplices of different dimensions are formed and a simplicial complex is built . for a point cloud data ,
+natural metric space based on euclidean distance or other metric spaces based on alternative definition of distance can be used to build a vietoris - rips complex .
+for example , any correlation matrix can be used directly to form a vietoris - rips complex .
+figure  [ fig : ex1 ] illustrates growth of vietoris - rips complex along with increment of @xmath51 over the point set of @xmath52 atoms from m2 chimera channel .
+there are many ways of constructing complex other than vietoris - rips complex , including alpha complex , cech complex , cw complex , etc . in the present work ,
+we used vietoris - rips complex in part because of its intuitive nature and in part because of the moderate size of the systems we studied .
+the computational topology package javaplex@xcite was used for computation of persistent homology .
+the results were represented in the form of barcodes @xcite .
+figure  [ fig : ex2 ] illustrates barcodes computed from a point cloud data extracted from @xmath53 atoms of protein i d 2ljc .
+svm is a machine learning method that can be applied to classification and regression problems .
+it computes a hyperplane which maximizes margin between positive and negative training sets . in this work , classification svm type 1 ,
+also known as c - support vector classification ( c - svc ) @xcite is used .
+for the problem of classification , with pre - determined classes , a classifier is trained on a data set with the description of samples and their classes and it predicts the class of a new observation .
+the input for svm is a set of samples .
+each sample has a feature vector that describes the properties of the sample and a label that implies to which class the sample belongs .
+given the input which is the training set , svm will generate a hyperplane in the feature space or higher dimensional spaces depending on which kernel it uses that separates the classes .
+for two - class svm , it looks for a hyperplane @xmath54 that separates the classes . the determination of the coefficients @xmath55 and @xmath56 breaks down to a constrained optimization problem as @xmath57 subject to @xmath58 where @xmath59 denotes the feature vector of the @xmath21th sample , @xmath60 is the label of the @xmath21th sample which takes value of either @xmath5 or @xmath61 , and @xmath62 is a penalty coefficient for misclassified points . to handle linearly inseparable data ,
+one maps the data into a higher dimensional space as @xmath63 with @xmath64 . since in the optimization problem and in scoring function of the classifier ,
+the operator used is dot product , @xmath65 does not need to be explicitly found . a decaying kernel @xmath66 function is used to represent @xmath67 .
+commonly used kernel functions include linear function : @xmath68 , polynomial : @xmath69 , radial basis functions ( rbfs ) such as gaussian @xmath70 .
+in fact , the admissible kernels of fleibility - rigidity index ( fri ) @xcite work too . in this work ,
+the gaussian kernel is used and a 5-fold cross validation was applied to search for optimized training parameters for problems with large amount of samples . to solve the optimization problem ,
+the original problem is transformed into the corresponding lagrange dual problem . for a contained optimization problem
+@xmath71 the lagrange function of this problem is defined as @xmath72 where @xmath73 and @xmath74 are lagrange multipliers .
+the lagrange dual problem is defined as @xmath75 where @xmath76 .
+the lagrange function of the original optimization problem ( [ eq : opt-1 ] ) is formulated as @xmath77 tthe corresponding dual problem with karush - kuhn - tucker conditions is defined as @xmath78 the dual problem can be solved with sequential minimal optimization ( smo ) method @xcite .
+roc is a plot that visualizes the performance of a binary classifier @xcite . a binary classifier uses a threshold value to decide the prediction label of an entry . in testing process , we define true positive rate ( tpr ) and false positive rate ( fpr ) for the testing set . @xmath79 an roc space is a two dimensional space defined by points with @xmath80 coordinate representing fpr and @xmath81 coordinate representing tpr . in the prediction process of a binary classifier , a score is assigned to a sample by the classifier .
+a test sample may be labeled as positive or negative with different threshold value used by the classifier .
+corresponding to a certain threshold value , there is a pair of fpr and tpr values which is a point in the roc space .
+all such points will fall in the box @xmath82\times[0,1]$ ] .
+points above the diagonal line @xmath83 are considered as good predictors and those below the line are considered as poor predictors . if a point is below the diagonal line , the predictor can be inverted to be a good predictor . for points that are close to the diagonal line
+, they are considered to act similarly to random guess which implies a relatively useless predictor .
+roc curve is obtained by plotting fpr and tpr as continuous functions of threshold value .
+the area between roc curve and @xmath80 axis represents probability that the classifier assigns higher score to a randomly chosen positive sample than to a randomly chosen negative sample if positive is set to have higher score than negative .
+the area under the curve ( auc ) of roc is a measure of classifier quality .
+intuitively , a higher auc implies a better classifier .      in this work ,
+algebraic topology is employed to discriminate proteins . specifically , we compute mtfs through the filtration process of protein structural data .
+mtfs bear the persistence of topological invariants during the filtration and are ideally suited for protein classification .
+to implement our topological approach in the svm algorithm , we construct protein feature vectors by using mtfs .
+we select distinguishing protein features from mtfs .
+these features can be both long lasting and short lasting betti 0 , betti 1 , and betti 2 intervals .    table  [ tab : features ] lists topological features used for classification
+. detailed explanation of these features is discussed .
+the length and location value of bars are in the unit of angstrom (  ) for protein data .

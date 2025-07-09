@@ -1,0 +1,160 @@
+the lattice provides a useful tool for studying the gluon propagator because it is a first principles treatment that can , in principle , access any momentum window .
+there is tremendous interest in the infrared behavior of the gluon propagator as a probe into the mechanism of confinement  @xcite and lattice studies focusing on its ultraviolet behavior have been used to calculate the running qcd coupling  @xcite .
+such studies can also inform model hadron calculations  @xcite .
+although there has recently been interest in coulomb gauge  @xcite and generic covariant gauges  @xcite , the usual gauge for these studies has been landau gauge , because it is a ( lattice ) lorentz covariant gauge that is easy to implement on the lattice , and its popularity means that results from the lattice can be easily compared to studies that use different methods .
+finite volume effects and discretization errors have been extensively explored in lattice landau gauge  @xcite .
+unfortunately , lattice landau gauge suffers from the well - known problem of gribov copies . although the ambiguity originally noticed by gribov  @xcite is not present on the lattice , the maximization procedure used for gauge fixing does not uniquely fix the gauge .
+there are , in general , many local maxima for the algorithm to choose from , each one corresponding to a gribov copy , and no local algorithm can choose the global maximum from among them . while various remedies have been proposed  @xcite , they are either unsatisfactory or computationally very intensive . for a recent discussion of the gribov problem in lattice gauge theory , see ref .  @xcite .
+an alternative approach is to operate in the so - called laplacian gauge  @xcite .
+this gauge is `` landau like '' in that it has similar smoothness and lorentz invariance properties  @xcite , but it involves a non - local gauge fixing procedure that avoids lattice gribov copies .
+laplacian gauge fixing also has the virtue of being rather faster than landau gauge fixing on the lattice .
+the gluon propagator has already been studied in laplacian gauge in refs .
+@xcite and the improved staggered quark propagator in laplacian gauge in ref .
+@xcite .    in this report
+we explore three implementations of the laplacian gauge and their application to the gluon propagator on coarse , large lattices , using an improved action as has been done for landau gauge in ref .
+we study the gluon propagator in quenched qcd ( pure @xmath1 yang - mills ) , using an @xmath2 mean - field improved gauge action . to assess the effects of finite lattice spacing
+, we calculate the propagator on a set of lattices from @xmath3 at @xmath4 having @xmath5 fm to @xmath6 at @xmath7 having @xmath0 fm . to assist us in observing possible finite volume effects ,
+we add to this set a @xmath6 lattice at @xmath8 with @xmath5 , which has the very large physical size of @xmath9 .
+the infrared behavior of the laplacian gauge gluon propagator is found to be qualitatively similar to that seen in landau gauge . like refs .
+@xcite , little volume dependence is seen in the propagator , but , unlike landau gauge , the laplacian gauge displays strong sensitivity to lattice spacing , making large volume simulations difficult .
+we conclude that further work involving an improved gauge fixing is desired .
+laplacian gauge is a nonlinear gauge fixing that respects rotational invariance , has been seen to be smooth , yet is free of gribov ambiguity .
+it reduces to landau gauge in the asymptotic limit , yet is computationally cheaper than landau gauge .
+there is , however , more than one way of obtaining such a gauge fixing in @xmath10 .
+the three implementations of laplacian gauge fixing discussed are    1 .
+@xmath11  gauge ( qr decomposition ) , used by alexandrou _
+_ in ref .
+2 .   @xmath12  gauge ( maximum trace ) , where the laplacian gauge transformation is projected onto @xmath1 by maximizing its trace .
+also used in ref .
+@xmath13  gauge ( polar decomposition ) , the original prescription described in ref .
+@xcite and tested in ref .
+@xcite .
+all three versions reduce to the same gauge in @xmath14 .
+the gauge transformations employed in laplacian gauge fixing are constructed from the lowest eigenvectors of the covariant lattice laplacian @xmath15 where @xmath16,\ ] ] @xmath17 for @xmath10 and @xmath18 labels the eigenvalues and eigenvectors . under gauge transformations of the gauge field ,
+@xmath19 the eigenvectors of the covariant laplacian transform as @xmath20 and this property enables us to construct a gauge fixing that is independent of our starting place in the orbit of gauge equivalent configurations .    the three implementations discussed differ in the way that the gauge transformation is constructed from the above eigenvectors . in all cases
+the resulting gauge should be unambiguous so long as the nth and ( n+1)th eigenvectors are not degenerate and the eigenvectors can be satisfactorily projected onto @xmath10 . a complex @xmath21 matrix can be uniquely projected onto @xmath14 , but this is not the case for @xmath10 . here
+we can think of the projection method as defining its own , unambiguous , laplacian gauge fixing .    in the original formulation  @xcite , which we shall rather perversely refer to as @xmath13
+, the lowest @xmath22 eigenvectors are required to gauge fix an @xmath10 gauge theory .
+these form the columns of a complex @xmath23 matrix , @xmath24 which is then projected onto @xmath10 by polar decomposition .
+specifically , it is possible to express @xmath25 in terms of a unitary matrix and a positive hermitian matrix : @xmath26 .
+this decomposition is unique if @xmath27 is invertible , which will be true if @xmath25 is non - singular , i.e. , if the eigenvectors used to construct @xmath25 are linearly independent .
+the gauge transformation @xmath28 is then obtained by factoring out the determinant of the unitary matrix @xmath29.\ ] ] the gauge transformation @xmath28 obtained in this way is used to transform the gauge field ( i.e. , the links ) to give the laplacian gauge - fixed gauge field .
+@xmath28 can be uniquely defined by this presciption except on a set of gauge orbits with measure zero ( with respect to the the gauge - field functional intregral ) .
+note that if we perform a random gauge transformation @xmath30 on the initial gauge field used to define our laplacian operator , then we will have @xmath31 and @xmath32 .
+we see that @xmath33 and hence @xmath34 .
+when this is applied to the transformed gauge field it will be taken to exactly the same point on the gauge orbit as the original gauge field went to when gauge fixed .
+thus all points on the gauge orbit will be mapped to the same single point on the gauge orbit after laplacian gauge fixing and so it is a complete ( i.e. , gribov - copy free ) gauge fixing .
+this method was investigated for @xmath35 and @xmath14  @xcite .
+it is clear that any prescription for projecting @xmath25 onto some @xmath36 , which preserves the property @xmath34 under an arbitrary gauge transformation @xmath30 , will also be a gribov - copy free laplacian gauge fixing .
+every different projection method with this property is an equally valid but distinct form of laplacian gauge fixing .
+the next approach was used in ref .
+@xcite , and we shall refer to it as @xmath11  gauge .
+there it was noted that only @xmath37 eigenvectors are actually required . to be concrete , we discuss @xmath38 .
+first , apply a gauge transformation , @xmath39 , to the first eigenvector such that @xmath40_1 = || v(x)^1 ||\ ] ] and @xmath40_2 = \bigl [ g(x)^1 v(x)^1 \bigr]_3 = 0,\ ] ] where subscripts label the vector elements , i.e. , the eigenvector - with dimension 3 - is rotated so that its magnitude is entirely in its first element .
+another gauge transformation , @xmath41 , rotates the second eigenvector , @xmath42 , such that @xmath43_2 = \sqrt{(v_2 ^ 2)^2 + ( v_3 ^ 2)^2},\ ] ] and @xmath43_3 = 0.\ ] ] this second rotation is an @xmath14 subgroup , which does not act on @xmath44 .
+the gauge fixing transformation is then @xmath45 .
+compare this to qr decomposition , where a matrix , @xmath46 , is rewritten as the product of an orthogonal matrix and an upper triangular matrix .
+the gauge transformations are thus like householder transformations .
+in addition , we explore a third version , @xmath12gauge , where @xmath28 is obtained by projecting @xmath47 onto @xmath10 by trace maximization .
+@xmath47 is again composed of the @xmath22 lowest eigenvectors and the trace of @xmath48 is maximized by iteration over cabbibo - marinari subgroups .
+we extract the gluon field from the lattice links by @xmath49 which differs from the continuum field by terms of @xmath2 .
+@xmath50 is then transformed into momentum space , @xmath51 where the available momenta , @xmath52 , are given by @xmath53 .
+\label{eq : qhat}\ ] ] @xmath54 is the number of lattice sites in the @xmath55 direction .
+the momentum space gluon propagator is then @xmath56 note that this definition includes a factor of @xmath57 from eq .  ; this is the same normalization that was used in ref .
+@xcite .    in the continuum , the gluon propagator has the tensor structure into @xmath58 compared to ref .
+@xcite . ] @xmath59 in landau gauge the longitudinal part will be zero for all @xmath60 , but this will not be the case in laplacian gauge .
+we note that @xmath61 and use this to project out the longitudinal part .
+this , unfortunately , makes it impossible to directly measure the scalar propagator at zero four - momentum , @xmath62 .
+we are , however , able to measure the full propagator , @xmath63 . in a covariant gauge @xmath64 where @xmath65 is the bare gauge fixing parameter .    on the lattice
+the bare propagator is measured , which is related to the renormalized propagator by , @xmath66 where @xmath55 is the renormalization point . in a renormalizable theory such as qcd ,
+the renormalized quantities become independent of the regularization parameter in the limit where it is removed .
+@xmath67 is then defined by some renormalization prescription , such as the off - shell subtraction ( mom ) scheme , where the renormalized propagator is required to satisfy , @xmath68 it follows that @xmath69 with covariant gauge fixing , the longitudinal part is usually treated by absorbing the renormalization into the gauge parameter , @xmath70 .
+we shall not discuss the renormalized propagator in this paper , but only consider relative normalizations for the purpose of comparing different data sets .
+lcccdr & dimensions & @xmath71 & @xmath72 & & configurations + 1 & @xmath73 & 4.60 & 0.125 & 1.50 ^ 3 3.00 & 100 + 2i & @xmath74 & 4.60 & 0.125 & 2.00 ^ 3 4.00 & 100 + 2w & @xmath74 & 5.85 & 0.130 & 2.08 ^ 3 4.16 & 80 + 3 & @xmath74 & 4.38 & 0.166 & 2.64 ^ 3 5.28 & 100 + 4 & @xmath73 & 4.10 & 0.270 & 3.24 ^ 3 6.48 & 100 + 5 & @xmath3 & 3.92 & 0.353 & 3.53 ^ 3 7.06 & 100 + 6 & @xmath74 & 3.92 & 0.353 & 5.65 ^ 3 11.30 & 89 +    the ensembles studied are listed in table  1 . to help us explore lattice artifacts , some of the following figures will distinguish data on the basis of its momentum components .
+data points that come from momenta lying entirely along a spatial cartesian direction are indicated with a square while points from momenta entirely in the temporal direction are marked with a triangle .
+as the time direction is longer than the spatial directions any difference between squares and triangles may indicate that the propagator is affected by the finite volume of the lattice .
+data points from momenta entirely on the four - diagonal are marked with a diamond .
+a systematic separation of data points taken on the diagonal from those in other directions indicates a violation of rotational symmetry .    in the continuum ,
+the scalar function is rotationally invariant .
+although the hypercubic lattice breaks o(4 ) invariance , it does preserve the subgroup of discrete rotations z(4 ) . in our case , this symmetry is reduced to z(3 ) as one dimension will be twice as long as the other three in each of the cases studied .
+we exploit this discrete rotational symmetry to improve statistics through z(3 ) averaging  @xcite .
+as has become standard practice in lattice gluon propagator studies , we select our lattice momentum in accordance with the tree - level behavior of the action . with this improved action , @xmath75 this
+is discussed in more detail in ref .
+we start by checking that our finest lattice , at @xmath76 fm , is `` fine enough '' , by comparing the propagator with that of alexandrou _ et al . _
+[ fig : lap1_usandthem_polcut ] shows the momentum - enhanced propagator , @xmath77 , in @xmath11  gauge for ensemble 2i ( improved action ) compared to the data from ref .
+@xcite for the wilson action at @xmath78 gev for @xmath78 . ] .
+the two are in excellent agreement .    .
+[ fig : lap1_usandthem_polcut ]    as the gluon propagator has been extensively studied in landau gauge , it makes sense to understand the laplacian gauge propagator by comparing it to that in landau gauge . in accordance with custom
+, we will discuss the momentum - enhanced propagator , @xmath79 .
+we define the relative @xmath67 renormalization constant @xmath80 and choose to perform this matching at @xmath81 gev .
+the purpose of this is simply to make the ( bare ) gluon propagators agree in the ultraviolet for easy comparison between the gauges .
+we show the gluon propagator in both landau and @xmath12  gauges in fig .
+[ fig : comp_b460_cut ] . in this figure ,
+the data is for the largest finer lattices , 2i and 3 .
+the data has been cylinder cut  @xcite to make comparison easier .    as was seen in ref .
+@xcite , the gluon propagator in laplacian gauge looks very similar to the landau gauge case matching up in the ultraviolet but with a somewhat lower infrared hump .
+having compared the gluon propagator in @xmath12  gauge to landau gauge , we now compare it to other implementations of the laplacian gauge .
+we expect each implementation to provide a well defined , unambiguous , but different gauge . as we saw when comparing landau and @xmath12  gauges , there is some difference in normalization between the propagators in the different gauges , so we define , again at @xmath81 gev @xmath82    in fig .
+[ fig : lap12_b460_cut ] , the momentum - enhanced propagator is plotted in @xmath11  and @xmath12  gauges for one of the fine lattices ( ensemble 2i ) .
+there is a small relative normalization ( @xmath83 ) , but otherwise there is no significant difference between them , neither in the ultraviolet nor the infrared .
+@xmath11  and @xmath12  also show comparable performance in terms of rotational symmetry .
+one difference between landau and laplacian gauge is that in the former , the gluon propagator has no longitudinal component .
+we see in fig .
+[ fig : comp_b460_long_all ] that the longitudinal part of the propagator does indeed vanish in the ultraviolet , which is consistent with approaching landau gauge , but gains strength in the infrared . comparing @xmath11  and @xmath12  gauges we note that while the transverse parts look alike , the longitudinal behavior is quite distinct .
+the separation of squares and triangles in @xmath12  gauge suggests that @xmath58 has stronger volume dependence in that gauge . for a comparison between landau , @xmath11  and @xmath12  gauges for the quark propagator see ref .
+@xcite .
+@xmath13  gauge works badly , failing even to reproduce the correct asymptotic behavior .
+[ fig : lap3_b585_all ] shows data from only 76 configurations as the gauge fixing failed entirely on four of them . in @xmath1 ,
+the polar decomposition involves calculating determinants which , to our numerical precision , can become vanishingly small , in some cases even turning negative at some sites .
+gauge was also seen to be a very poor gauge for studying the quark propagator  @xcite .      when comparing results from ensembles with different simulation parameters we need to consider three possible effects :    1 .
+the dependence of @xmath67 on the lattice spacing , 2 .
+errors due to the finite lattice spacing , especially when probing momenta near the cutoff , 3 .
+finite volume effects , especially in the infrared .    in landau gauge ,
+the dependence of the gluon propagator renormalization , @xmath84 , on the cutoff is very weak .
+@xmath67 is approximately constant with respect to the lattice spacing  @xcite . in this case
+it is easy to compare propagators produced on a wide range of lattice spacings . in fig .
+[ fig : lap2_comp_cut ] we plot the momentum - enhanced propagator on four lattices , which have @xmath0 , 0.166 , 0.270 and 0.353 fm .
+we see a very different situation to the one observed in landau gauge  @xcite : the propagators appear to agree in the the deep infrared , yet diverge as the momentum increases .
+the difference is small for the two finest lattices - and non - existent in fig .
+[ fig : lap1_usandthem_polcut ] - but quite dramatic for the coarsest .
+the correct way to compare the propagators is to normalize them at some common , `` safe '' momentum , i.e. , one where we expect finite lattice spacing and finite volume effects to both be small .
+we choose @xmath85 gev and show the results in fig .
+[ fig : lap2_coarse_normpol ] . multiplying the propagator by @xmath60 in constructing the momentum - enhanced propagator
+@xmath77 reveals a rapid divergence in the ultraviolet .
+yet normalizing at higher momenta results in data sets that agree nowhere except for at the scale @xmath55 .
+it is interesting that the propagators from ensembles 5 and 6 , which have the same lattice spacing , have slightly different normalizations .
+also , as the lattice spacing is increased , the relative normalization between the gluon propagators in @xmath11  and @xmath12  gauges slowly diverges from one . as was seen above ( fig .
+[ fig : comp_b460_long_all ] ) , these two laplacian gauges produce gluon propagators with rather different longitudinal components .
+the longitudinal part of the gluon propagator , multiplied by @xmath60 , is plotted in @xmath11  and @xmath12gauges for ensembles 4 - 6 in fig .
+[ fig : comp_coarse_long ] , using the same normalization determined for the transverse parts .
+interestingly , the longitudinal part appears to be more affected by the finite volume of the lattice than the transverse part . in @xmath12  gauge @xmath86 may return to zero as @xmath87 , while in @xmath11  gauge a small , non - zero value appears likely , however , more work is required .
+in previous studies  @xcite it was observed that the infrared gluon propagator saturates at a small volume ( @xmath88 ) . to further explore this
+, we also study the propagator at zero four - momentum .
+as previously discussed , only the full propagator , @xmath63 , can be calculated at zero four - momentum . in order to compare results on all of our lattices
+we normalize the data at 1 gev .
+this represents a compromise and is certainly not ideal for all the data sets , hence there is some systematic error .
+these results are shown in table  [ tab : zeromom ] .
+.[tab : zeromom]the full propagator at zero four - momentum in @xmath11  and @xmath12  gauges , normalized at 1 gev for comparison . [ cols="^,^,^,^,^,^,^",options="header " , ]     if we restrict ourselves to ensembles 1 - 5 , we see that , given the uncertainties discussed , the sensitivity of @xmath63 to volume is indeed small .
+we also see the trend , already noted above , for @xmath11  and @xmath12  gauges to become more different as the lattice spacing increases , another example of the discretization sensitivity of the laplacian gauge . in the case of the very large lattice , ensemble 6 ,
+this sensitivity has become extreme .
+we examine this another way through the transverse propagator , shown in fig .
+[ fig : lap2_all_prop ] for ensembles 2i , 3 - 6 .
+the data here corresponds to table  [ tab : zeromom ] , having been normalized at 1 gev .
+the propagators are consistent down to low momenta , @xmath89 mev , where we strike trouble .
+not only is there a spread between the data sets , but for ensemble 6 , the point from purely temporal momentum is much lower than that from spatial momentum .
+the situation is the same in @xmath11  gauge .
+we have made a detailed study of the gluon propagator on coarse lattices with an improved action in laplacian gauges .
+we have described and tested three implementations of laplacian gauge .
+@xmath11  ( qr decomposition ) and @xmath12  ( maximum trace ) gauges produce similar results for the scalar transverse gluon propagator , but rather different longitudinal components . @xmath13 for numerical reasons , works very poorly in @xmath1 .    at sufficiently small lattice spacing ,
+the transverse part of the gluon propagator is very similar in laplacian gauge to that in landau gauge .
+laplacian gauge , however , exhibits great sensitivity to the lattice spacing , making results gained from coarse lattices difficult to compare with those from finer lattices .
+this is very different to the situation in landau gauge . by comparing the coarse data sets at sufficiently low momentum
+, however , we have seen a great deal of consistency . in the deep infrared ,
+the results from the largest lattice are difficult to reconcile with the other data . excluding that lattice , the total propagator shows little sign of volume dependence .
+the most likely explanation of the ( unimproved ) laplacian gauge results seen here is that on our coarsest lattices ( improved lattices with @xmath4 , 4.10 , and to some extent even @xmath90 ) , the lattice artifacts are much more severe than in the improved landau gauge case . on the very coarse @xmath4 and 4.10 lattices , it seems very likely that finite volume and discretization errors are actually being coupled together by the laplacian gauge fixing . by implementing an improved laplacian gauge fixing on these lattices
+we anticipate that these errors will decouple on these lattices and we will be in a better position to estimate the infinite volume and continuum limits of the different implementations of laplacian gauge - fixing . further studies , including an improved laplacian gauge fixing , will hopefully clarify these issues .
+the authors would like to thank constantia alexandrou for helpful discussions during the lattice hadron physics workshop in cairns , australia .
+computational resources of the australian national computing facility for lattice gauge theory are gratefully acknowledged .
+the work of umh and pob was supported in part by doe contract de - fg02 - 97er41022 .
+dbl and agw acknowledge financial support from the australian research council .
+jeffrey e.  mandula , _ the gluon propagator _ , hep - lat/9907020 ; l.  von smekal and r.  alkofer , _ what the infrared behavior of qcd green functions can tell us about confinement in the covariant gauge _ , hep - ph/0009219 ; for a recent demonstration of the connection between the gluon propagator and confinement , see e.g. , kurt langfeld , hep - lat/0204025 .

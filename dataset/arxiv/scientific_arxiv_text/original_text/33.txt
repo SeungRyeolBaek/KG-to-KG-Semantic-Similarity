@@ -1,0 +1,225 @@
+the origin - destination ( od ) matrix is important in transportation analysis .
+the matrix contains information on the number of travellers that commute or the amount of freight shipped between different zones of a region .
+the od matrix is difficult and often costly to obtain by direct measurements / interviews or surveys , but by using incomplete traffic counts and other available information one may obtain a reasonable estimate .
+a particular application of the od matrix estimation is in the area of public transport . in order to improve their service ,
+the responsible managers are looking for on - going evaluation of the passenger flow and the reasons that would influence this flow .
+this is typically the case for the city rail , sydney bus and sydney ferry organisations , which handle the public transport in the region around the city of sydney , australia .
+cityrail and co are handling a large number of stations ( wharfs , bus stops ) for trains ( buses and ferries ) across the state . they carry thousands of passengers every day , and periodically optimise the time - table schedule to best meet the changing demand .
++   + an ideal optimization of the schedule would consider the resources in trains , drivers , stations and passengers .
+while the primary informations ( trains , drivers , stations ) are known to cityrail and co , the number of passenger on each train between each station can not be deduced easily given their current passenger flow data collection processes .
++   + various approaches to estimating the od matrix using traffic counts have been developed and tested @xcite using traffic counts , or road traffic flows @xcite , @xcite .
+most of the papers in the literature solve this problem by postulating a general model for the trip distribution , for example a gravity type model @xcite , which aims at introducing a prior knowledge on the traffic flows and assigning a cost to each journey .
+then the inference is produced to estimate the parameters of this model .
+all these papers _ are not passengers oriented_. + most of the work relating to od matrix estimation are based on passengers observations assuming the knowledge of where the people get in and out of the public transport .
+lo et al @xcite developed a framework centred on the passenger choice , which they called the random link choice , and model this to obtain a maximum likelihood estimator .
+nandi et al @xcite applied a strategy centred on a fixed cost per person per kilometre assumption on the air - route network of india and provide some comparisons with the real data .
++ when the information is not available ( for example we have no data on when passengers get off the bus ) , kostakos @xcite offers to use a wireless detection of the passengers trips , and lundgren and peterson s model @xcite is based on a target od - matrix previously defined . however , none of the cited work considered using survey data . indeed , if no complete information is available about the passengers destinations , the simplest solution is to use an appropriate survey to estimate destination information . furthermore , what characteristics of the survey are required for the estimation to be accurate ?
+bierliaire and toint @xcite introduces a structure - based estimation of the origin - destination matrix based on parking surveys . in their article , they used the parking surveys to infer an a priori estimate of the od matrix , and they used this prior in coordination with the partial observations of the network flows to derive a generalized least square estimator of the od matrix . despite its novelty , this article assume that the behaviour of car - user and public transport users are the same , at least regarding their respective od matrix . given that the public transport network topology is often different from the road network topology , one may doubt the accuracy of this assumption .
+moreover , they just use the partial structure extracted from the surveys .
++ the purpose of this paper is then to develop an estimation procedure for the origin - destination matrix based on the ticket records available for the transport network and/or on previous surveys . unlike the article from bierliaire @xcite ,
+we use survey data collection from public transport users , and estimate the approximate whole matrix structure through the estimation of its eigenvectors .
+we propose a robust version of the estimator to avoid biases induced by the survey .
+we also construct a regression estimation procedure that accounts for the influence of exogenous variable such as the weather conditions or the time of the year .
++ we first briefly present the passenger model , and then move on to outlining the observations model . in section [ sec : om ] , we explain how the measurements are obtained , and what measurements error should be expected . in section
+[ sec : mam ] , we explain the assumptions we make on the measurements , and how this affects our estimation procedure .
+we present in section [ sec : est ] the maximum likelihood ( ml ) estimation procedure , by providing a system of equation to be solved , for deriving estimators .
+we improve on this ml estimation to make it robust to survey biases in section [ sec : rob ] . finally , we present a simulation example and an application to a real world case in section [ sec : app ] .
+we finally comment on the results and outline some future research opportunities .
+let @xmath0 be the matrix of passengers number between the stations in the rail network over time period @xmath1 so that @xmath2 is the number of passengers who depart from station @xmath3 and arrive at station @xmath4 at time period @xmath1 .
+given that there is an obvious time dependency here , denoted by @xmath1 the period in which the commuting occur ( for example a day ) .
+the purpose of this work is to provide an estimation of @xmath0 given the observations specified in section [ sec : om ] .
+the observations provided about the passengers are very different , and only considering them all allow a direct estimation of @xmath0 .
+we list in the subsections [ om - casual],[om - deparr ] and [ om - regular ] the different kind of observations .
+a casual commuter is defined as a single or return journey that is not repeated regularly ( e.g. daily ) .
+typically , people going to a once - in - a - year event will buy their ticket for that trajectory and will probably return on the same day . accordingly for single and day return tickets , we have complete information under the assumption that they take the next train after purchasing their ticket and that they take the shortest route .
+let @xmath5 be that matrix of measurements .
+each journey between major stations , the passenger has to validate his ticket through the machines at the entrance of the station , and do it again at the exit . between minor stations
+we assume they take the next train to arrive at the station they purchased their ticket at and assume they take the trio planners recommended route for that time .
+two scenarios are considered . in the first one , ( called @xmath6 ) , every station in the network have these machines . in the second case ( called @xmath7 ) only major stations have these machines . in any case
+, let call @xmath8 the vector corresponding to the departures at the stations , and @xmath9 the vector of arrivals .
+fortunately we can have regular passengers with specific departure and destination , and this matrix will be denoted @xmath10 , where the rows stand for the departure stations and the columns for the arrival stations . this matrix is observed , and assumed distributed according to a poisson probability function with mean @xmath11 .
++ the main part of the information , however , remains unknown .
+indeed most of the passengers will probably have a zone ticket for a period of time , from 1 week to 1 year .
+the nature of these tickets make the station of departure and arrival unknown , and is the main challenge of this paper .
+let call @xmath12 the matrix of zone passengers numbers .
++ to make a proper statistical inference , we need two assumptions ;    * the traveller will act independently of the validity duration of his ticket ; * the regular traveller commits to a return journey on each working day .
+the observations linked to this model are two - folds . for major stations
+, we have the total number of passengers that crossed the boom gates , in and out . for stations without boom gates , the observations have to estimated using a survey
+. we also have access to the total number of people with a valid zone ticket at time @xmath1 ( e.g. the day of the analysis ) , denoted @xmath13 , @xmath14 in the end , the total number of regular passenger at the time period @xmath1 will be denoted @xmath15 , and we have , @xmath16
+with these very different observations , we need a good fitting model based on reasonable assumptions . sections [ mam - gm ] , [ mam - cm ] , [ mam - da ] and [ mam - rm ] presents these assumptions for each parameter in our model .
+recall that @xmath17 is a matrix of count , the main assumption on that matrix is that the number of passenger is the sum of the casual passengers ( @xmath18 ) plus the regular passengers ( @xmath15 ) plus a matrix stating the unusual big events such as major sporting events , or large concerts ( called @xmath19 ) ,    @xmath20      the casual commuter journey could be assumed to be poisson distributed i.e. @xmath21 is supposed to be drawn with a poisson distribution which parameter belong to the matrix @xmath22 . ] where @xmath22 is the matrix of means for the counts .
++ however , the variance of the counts are not expected to be equal to their mean and so the poisson counts assumption may be unrealistic .
+therefore , we decided to use a negative binomial regression model for @xmath23 , which can be over - dispersed in order to better describe the distribution of the counts .
+we specify that @xmath22 is distributed according to a gamma distribution , @xmath24 . for a purpose of simplicity ,
+let @xmath23 be distributed as negative binomial with parameters @xmath25 and @xmath26 ( we will denote @xmath27 ) .      according to the definition of the measurements ,
+the following relationships hold : @xmath28 where @xmath8 and @xmath9 are the vectors of the total number of departures and arrivals at each station during time period @xmath1 .      for the same reasons as described for the casual matrix
+, we will use a negative binomial distribution to model the uncertainty around the regular traveller s information .
+however , unlike the casual commuter , we do not suspect an over - dispersion but an under - dispersion , so that , @xmath29 and @xmath30 . let @xmath31 and @xmath32 be the expectation of @xmath33 and @xmath34 .
+when the model is well defined , the estimation procedure is computationally straight forward , e.g. , between major stations where we have complete information of arrivals and departures .
+meaning that the maximum likelihood estimation method accuracy , practically depends on the efficient solving of the optimization problem . in this section ,
+the stationary model parameters are estimated from the data .
+since the process is unlikely to be stationary , we present a second option ( section [ est : reg ] ) , a multivariate spatio - temporal model that we expect to fit the data better .
+the estimation procedure will be carried out in well - defined steps .
+if we ignore the time dependence , the successive observations can be considered independent , identical random counts from negative binomial or poisson distribution .
+this means that simple maximum likelihood estimation should work well , especially for large sample sizes .
+we observe @xmath18 for several realizations . given no space - time dependencies we assume that @xmath5 is independently distributed as @xmath35 .
+the likelihood is then , @xmath36\end{aligned}\ ] ] where @xmath37 stands for one element of the matrix @xmath5 .
+we thus can estimate the parameters through , @xmath38 despite the absence of closed form solution to this problem , the optimization algorithms can quickly lead to a global maximum .
+unfortunately we do nt have complete information for those with weekly , monthly , quarterly or anuual tickets ( long - term tickets ) .
+we have information of the times they enter and departs at major stations but we do nt have complete information for the long term tickets either to or from minor stations .
+our assumption here is that only a proportion @xmath39 of the @xmath32 people will travel on day @xmath1 , where @xmath40 .
+@xmath39 is an additional parameter that reflects the passengers habit .
+it does exist because when performing the estimation , one may find a bigger estimation of travellers than what is observed .
+some of the difference is due to the randomness of @xmath41 , but it might also be explained by the fact that travellers with prepaid long term tickets will not necessary travel each of the working day of the week .
++ however , we may provide the same estimation for the @xmath31 parameters as we did in the previous section , that is , @xmath42 where @xmath43 stands for the same likelihood function as above .
++ this leads us to the final estimation , the contribution this paper makes to the literature .
+the aim is to estimate the matrix @xmath12 with the available departure and arrival data .
+the first step is to estimate the general shape of the @xmath10 matrix .
+the problem is to achieve this in a simple way given that @xmath12 is to be estimated with @xmath44 parameters , and only @xmath45 equations .
+the following paragraph presents an elegant solution to this problem .
++ recall @xmath32 as the expectation of @xmath46 .
+it is assumed symmetric , we can diagonalize it , so that , @xmath47 where @xmath48 is a projection matrix of eigenvectors of @xmath32 and @xmath49 is a @xmath44 diagonal matrix , with terms equal to the respective eigenvalues . therefore ,
+if the structure of @xmath32 is known ( i.e. the eigenvectors are known ) and constant , then we have reduced the problem to solving a system of @xmath45 unknown parameters with @xmath45 equations .
+[ eq : odeq ] and the previous estimations , we have the following system , @xmath50 where @xmath51 and @xmath52 are obtained by simple subtraction .
+the probability density function of the observations @xmath53 can then be written , @xmath54 \quad p \big ( y_{di}^t \vert r_z , p_{rz } \big ) & \sim & \mathcal{nb } ( \sum_j r^{ij}_z , p_{rz})\end{aligned}\ ] ] where @xmath55 and @xmath56 .
+according to this equation , we then have @xmath57 likelihood equations ( @xmath58 $ ] ) but @xmath59 parameters to estimate ( @xmath32 being symmetric ) . to perform the estimation
+, we then need to reduce the number of parameters . according to eq .
+[ eq : diag ] , we have , @xmath60 then , if we knew @xmath48 , the maximum likelihood would be tractable and provide an estimation of @xmath32 ( with @xmath61 being the @xmath3th eigenvalue ) . the @xmath57 likelihoods would look like , @xmath62 \quad l \big ( y_{di}^t \vert r_z , p_{rz } \big ) & = & \prod_t p \big ( y_{di}^t \vert r_z , p_{rz } \big)\end{aligned}\ ] ] where @xmath63 .
+the maximum likelihood estimating equations are then , @xmath64 moreover , this complex equation can be simplified by assuming that the observations are independent conditionally on knowing the parameters ( e.g. the errors are independents ) , and then , @xmath65 the dimension of the parameter space is reduced according to the knowledge of @xmath48 . to estimate @xmath48 ,
+remember that @xmath31 is symmetric , we have , @xmath66 then , we make the assumption that all the regular passengers behave identically over time , that is , @xmath48 is not a function of time .
+then we have , @xmath67 then @xmath48 can be estimated from @xmath68 , and introduced into equation [ eq : density ] to obtain eq . [ eq : mle ] . finally , we can use @xmath69 and @xmath70 to estimate @xmath71 .
+finding the solution of equation [ eq : mle ] is a classic optimization problem .
+the simple likelihood shape insures the existence of a solution , and it can be found by any standard optimization function .
+let this solution be @xmath72 .
+the problem with this estimator is that we can not guarantee that it will fulfil the underlying constraint of the density parameters .
+indeed , some values in the matrix will be negative , and there will be some element in the diagonal that wo nt be null .
+therefore , some constraints have to be added to the ml estimating equations .
+these are : + * constraint 1 * _ all the elements in the matrix @xmath73 are greater than or equal to zero , or equivalently , @xmath74 _ + * constraint 2 * _ all the diagonal elements in the matrix @xmath71 must be zero , or equivalently , @xmath75 _ + * constraint 3 * _ the last set of parameters to be estimated is the probability matrix @xmath76 .
+therefore , all the elements should belong to the interval @xmath77 $ ] , @xmath78 \end{aligned}\ ] ] _ most of the optimization algorithms that deal with the constraint require an initialization which belong to the constrained space .
+one could be tempted to address as a starting point the mean value of the observations , according to the one - dimensional ( @xmath79 ) result .
+however , it is very unlikely that this initial point will satisfy the constraints .
+therefore , the best choice so far seems to be the diagonal elements of the matrix @xmath80 , given that they naturally fill * constraint 1 * and * constraint 2*. +   + the complete optimization program therefore becomes , @xmath81 with the initial value @xmath82 .
+this optimization program can be replaced by an explicit expression of the estimator , subject to some constraints stated in [ ann : a ] .
+the main constraint is the poisson distribution assumption , so that we have , + * proposition 1 : * _ assume that @xmath83 , then @xmath84^{-1 } \bar{y}\end{aligned}\ ] ] where @xmath85 is the matrix of estimated eigenvalues of @xmath32 . _
++ if now we consider a gaussian likelihood instead of poisson , the following maximum likelihood estimator is found , + * proposition 2 : * _ assume that @xmath86 , then @xmath87 where @xmath88 is the matrix of estimated eigenvalues of @xmath32 . _ + the proofs of propositions 1 and 2 are presented in [ ann : a ] .
+we can also derive the follwing theorem , that ensures us of the quality of the estimation , + * theorem 1 * + assume that @xmath89{\ a.s.\ } p$ ] ( see anderson @xcite,@xcite ) .
+then we have , @xmath90{\ \mathcal{p } \ } \lambda\end{aligned}\ ] ] the proof is presented in [ ann : b ] .
+if we want to deal with a more realistic modelling , it seems obvious that we have to consider spatial , temporal and multivariate influences on the number of passengers , and then on the parameters of our modelling .
++ let @xmath91 be a set of exogenous features , and @xmath92 their corresponding ( unknown ) influence on the number of passengers .
+therefore , the regression model can be written , + @xmath54 \quad p \big ( y_{di}^t \vert r_z , p_{rz } , ( x_i)_i \big ) & \sim & \mathcal{nb } \big ( \sum_{k } \lambda_k p_{ik } \sum_j p_{jk } + \sum_l x_l \beta_l , p_{rz}\big)\end{aligned}\ ] ] where the parameters to be estimated are @xmath93 .
+the likelihood is expressed as in eq .
+[ eq : like ] , and we have , @xmath94 then , if we consider the projection matrix to be constant over time , then we have the following proposition ( proved in [ ann : c ] ) , + * proposition 3 : * _ if we apply the same methodology as before we obtain the following estimator , @xmath95^{-1 } y { } ^t x ( x { } ^t x)^{-1}\end{aligned}\ ] ] where @xmath96 is the matrix of the exogenous variables . _ + a more complex solution would be to perform the same technique as before , except that @xmath48 will no longer be constant .
+therefore , the varying @xmath97 estimated from @xmath31 will help in the recovery of the matrix @xmath32 .
+the reason why we can not perform a direct estimation of the @xmath98 s through this technique is because @xmath32 can be diagonalize , but we do nt know how the @xmath98 influence the @xmath99 .
+then a space - time model for the regular zone passenger is required .
+a further sensitivity analysis has to be run in order to figure out if the results are significantly affected by the increased uncertainty .
+the quality of the estimator will strongly depend on the survey sub - matrix @xmath31 . in section [ sec : est ] , we assume that the similarity between the matrix @xmath31 and @xmath32 relies on the projection matrix @xmath48 and @xmath100 .
+moreover , we assume @xmath101 ( eq . [ eq : ass1 ] ) , and this assumption is the key to derive the propositions @xmath102 . + it is however difficult to design and implement a survey that provides accurate information . therefore , eq . [ eq : ass1 ] is no longer valid . to overcome this
+, we propose to consider an ad hoc estimation of the o - d matrix .
++      despite the survey having some unknown biases , it provides useful information that we need .
+let @xmath88 be the estimation based on the eigenvalues of @xmath32 , relying on the assumption @xmath101 . while inaccurate , this estimation looks like the perfect prior information .
+we define , @xmath103 now , given that the survey may be biased , we need to emphasize the influence of the observations @xmath104 , by building an observation - based matrix @xmath105 , such that , @xmath106 where @xmath107 and @xmath108 .
+@xmath109 is symmetric , and roughly correspond to an equal partition of the passengers in the different stations .
+let @xmath110 .
+now , we need to integrate the information provided by @xmath109 .
+then we define the final ad hoc estimator @xmath111 , @xmath112      we define the robustness of our estimation as its ability to overcome biased survey results .
+to analyse the performance of the estimators , we considered that the parameter matrix of the survey was biased according to the following two equations , @xmath113 where @xmath114 $ ] stands for the scale of the survey , @xmath115 $ ] stands for the varying noise level , and @xmath116 means the poisson distribution , and , @xmath117 the difference between the two equations relies in the bias structure . in eq .
+[ eq : noise ] , integer values are randomly added regardless of the real value of the parameter .
+it is the kind of errors we expect to find in badly designed surveys or respondents responding randomly . in eq .
+[ eq : prop.noise ] , we consider that the bias keeps the same structure as the @xmath32 matrix .
+this is more an equivalent of a measurement error usually described in the literature with centred gaussian distributions .
+therefore , we expect the estimators to provide better estimates when the survey s parameters are driven by eq .
+[ eq : prop.noise ] .
++ figure [ fig : sensnoise ] shows the ml and ad hoc estimation results for the two kind of bias , with different number of observations and different strength of bias . as expected , the second type of error ( eq . [ eq : prop.noise ] ) is more easily overcome by the estimators .
+the important conclusion we can make from this result is that the ad hoc estimation performs better than the naive ml estimation , no matter what kind of noise we add .
+the ad - hoc estimation is plotted in green .
+the upper line stands for a bias designed according to eq .
+[ eq : noise ] , and the bottom line for eq .
+[ eq : prop.noise ] .
+the mse is calculated among @xmath118 simulations .
+, title="fig:",width=264,height=226 ]   ci .
+the ad - hoc estimation is plotted in green .
+the upper line stands for a bias designed according to eq .
+[ eq : noise ] , and the bottom line for eq .
+[ eq : prop.noise ] .
+the mse is calculated among @xmath118 simulations .
+, title="fig:",width=264,height=226 ] +   ci .
+the ad - hoc estimation is plotted in green .
+the upper line stands for a bias designed according to eq .
+[ eq : noise ] , and the bottom line for eq .
+[ eq : prop.noise ] .
+the mse is calculated among @xmath118 simulations .
+, title="fig:",width=264,height=226 ]   ci .
+the ad - hoc estimation is plotted in green .
+the upper line stands for a bias designed according to eq .
+[ eq : noise ] , and the bottom line for eq .
+[ eq : prop.noise ] .
+the mse is calculated among @xmath118 simulations .
+, title="fig:",width=264,height=226 ]    finally , and also very important , the ad hoc estimator seems more consistent and its performances are less affected by the number of available observations .
+for instance , we can observe that the log(mse ) profile is identical in fig .
+[ fig : sensnoise ] for @xmath119 observations and for @xmath120 .
+the importance of that being to allow some reliable time - dependency analysis ( on a monthly basis , it would mean @xmath121 observations ) , which would be more complicated with the ml estimation .
+let m be a @xmath122 matrix , representing departure and arrival stations ( origin and destination ) .
+we assume that any value of m is a random number , generated according to the matrix of parameters @xmath123 , and the probability @xmath124 .
+the matrix @xmath123 has the following values , @xmath125\ ] ] let @xmath126 be an observed sub - sample of m , i.e. only a proportion @xmath127 of m is represented in @xmath126 .
+we assume that for every value of m , @xmath127 will be the same , only perturbed by some low - level additive noise .
+a realization of @xmath126 is the following matrix , @xmath128\ ] ] the value of @xmath127 in this example is roughly equal to @xmath129 . the estimation of @xmath130 is performed with the observations of this matrix .
+then , @xmath130 being symmetric , we diagonalize it , and using the optimization program described in section [ sec : oi ] we are able to provide the following estimated @xmath131 matrix ( for @xmath132 , @xmath133 , @xmath134 and @xmath135 observations respectively ) , @xmath136 & \left [ \begin{array}{ccccc } 0 & 68 & 24 & 42 & 54 \\ 68 & 0 & 18 & 36 & 124 \\ 24 & 18 & 0 & 126 & 12 \\ 42 & 36 & 126 & 0 & 18 \\ 54 & 124 & 12 & 18 & 0 \end{array } \right ] \\ &   \\ \left
+[ \begin{array}{ccccc } 0 & 78 & 12 & 60 & 42 \\ 78 & 0 & 24 & 48 & 78 \\ 12 & 24 & 0 & 102 & 12 \\ 60 & 48 & 102 & 0 & 24 \\ 42 & 78 & 12 & 24 & 0 \end{array } \right ] & \left [ \begin{array}{ccccc } 0 & 72 & 12 & 54 & 48 \\ 72 & 0 & 24 & 42 & 78 \\ 12 & 24 & 0 & 96 & 12 \\ 54 & 42 & 96 & 0 & 24 \\ 48 & 78 & 12 & 24 & 0 \end{array } \right ] \end{array}\ ] ] table [ tble : mse_bin ] provides the mean square error of the estimator for different number of observations and different value of dispersion in the case of a negative binomial modelling .
+we also display in table [ tble : norm_test ] the p - values for the cramer - von mises normality test of @xmath137 estimation procedures for each eigenvalue .
+.[tble : mse_bin ] negative binomial modelling : values of the mean square error of the parameter estimation with different number of observations and different distribution assumption over @xmath137 replication of the simulation , and the according variance ( under brackets ) . [ cols="^,^,^,^,^",options="header " , ]      we consider as an example the passengers commuting from the sydney region ferry , according to five surveys organized in @xmath138 , @xmath139 , and @xmath140 by the bureau of transport statistics of new south wales .
+the overall survey could have been analysed , but in order to be understandable , we will focus our analysis on the eastern suburbs route , composed with @xmath141 different wharfs and @xmath142 different days .
+[ fig : lpw20xx ] represents the links between the wharfs , meaning that you can have a direct access by taking only one ferry .
++    as we can see from the plots , all the wharfs seem to be able to be reached starting from any other wharf , except for darling point , watsons bay and garden island .
++ starting from this , the objective is the estimation of the od matrix , which is almost like the ferry links matrix presented in the figures except that instead of logical values , it will be filled by counts of passengers .
+however , this survey does not provide enough data to perform this estimation .
+in particular , it does nt give any observation on the ticket sales at the wharfs .
+then , to provide an estimation , we use a different survey from the same institute , which aimed at understanding the preferred mean of transport for people going to work . from this database , we only kept those who declared taking the ferry .
++    before we could provide an analysis of these data , we had to consider that the origins and destination of the people in the second survey did nt correspond to the wharfs of the first survey . therefore , we decided to attribute to every passenger the starting point of their journey as the closest wharf to their home , and a destination point the closest wharf to their office .
+the distance have been calculated according to each wharf and location longitude and latitude values .
+this being done , we can provide a new origin - destination matrix .
+it is plotted in fig .
+[ fig : jw2006 ] .
++    this od matrix is then supposed to have the same structure as the regular od of the barrier counts .
+therefore , we will apply the methodology presented in section [ sec : cpe ] to reconstruct the 2010 , 2011 and 2012 od matrix according to the barrier counts .
+the eigenvalues and eigenvectors are then calculated , and the reconstruction of the ferry passengers are presented in figs .
+[ fig : est1 ] and [ fig : est2 ] .
+we presented in this paper a new estimation technique for the od matrix .
+we use the information available from surveys to infer the correct projection matrix and reduce significantly the size of the parameter space . by using a maximum likelihood approach ,
+we compute the estimating equations and provide an ad hoc estimator of the od matrix .
+we demonstrated its robustness in section [ sec : rob ] .
++ we also demonstrated that a regression analysis could be performed on this kind of data , and showed that this estimation procedure is also consistent . to the best of our knowledge ,
+this is the first time that a such multivariate approach is used to estimate the od matrix .
+this approach will improve the prediction ability of passengers journeys .
++ we finally applied our techniques to simulated data and real - case scenario in sydney ferry transport using the data from the bureau of transport statistics . + the estimation of the od matrix is a first step for the analysis of the passengers flow over the transport network .
+then , beyond this estimation point , we may cite :    1 .
+[ monit ] monitoring the passengers count ; 2 .   [ forecast ] forecasting of the passengers count ( 1 week in advance for example ) ; 3 .
+[ predict ] predicting the passengers flow in case of spatio - temporal topological change in the network    in order to address the monitoring task ( [ monit ] ) , several strong assumptions have to be made , which will require ground verifications before being tested . among them
+, we can cite the time between ticket validation and getting into the train or the regularity at which people take their train if they are regular passengers .
+moreover , a real - time access to the data is necessary .
+while difficult , this seems achievable .
++ the forecasting of passenger counts ( [ forecast ] ) can be done without additional information ( if sufficient temporal information has been provided in a first place ) , even if more observation would probably mean smaller variances .
+these forecasts could be helpful for efficient scheduling the trains ( for example ) , but further study have to be done in order to understand the influence of complex variables such as the temperature or the humidity .
++ real - time prediction of passenger flows ( [ predict ] ) is more difficult , but is theoretically achievable .
+what we denote a spatio - temporal topological change is a change in the timetable , or in the public transport route .                                            _ to make it clear , we will explore a simple density example , where the poisson distribution will be used instead of the negative binomial .
+therefore , the pdf can be expressed as , @xmath143 where @xmath144 is the parameter we are interested in .
+then , if we make the assumption that the number of passengers in every station are independent , each @xmath145 is distributed according to a poisson distribution , with the parameter @xmath146 , which can be re - written according to eq .
+[ eq : diag2 ] , @xmath147 where the @xmath148 are the eigenvalues , and the @xmath149 the element of the matrix p. if we denote @xmath150 , the transformed density can then be written , @xmath151 + therefore , the log - likelihood can be expressed as follow , @xmath152 the maximum likelihood estimation is then equivalent to solve the following system , @xmath153 still under the constraint * c1 * and * c2*. * c3 * is excluded because this set of parameter does nt exist in the poisson modelling . if @xmath154 , @xmath155 and * c2 * does nt stand .
+then estimated value corresponds to the classical one dimensional poisson unbiased mean estimator @xmath156 .
++ the system of equations [ eq : sys_pois ] seems at first a quite complicated one .
+nevertheless , it can be simplify so as to become , @xmath157 where @xmath158 contains the unknown parameters . then , if we denote @xmath159 , then , @xmath160 where @xmath161 and @xmath162 . then
+, we can keep simplifying the expression , @xmath163 finally , the same reasoning leads to the following estimator , @xmath164 where @xmath165 .
+this estimator will probably not be the best estimator given that it relies on the inversion of @xmath166 , but has the advantage to be asymptotically unbiased , with variance decreasing to zero .
+_      _ let @xmath167 be a probability density function . if @xmath168 denotes the pdf of @xmath169 , and @xmath170 the pdf of @xmath100 , we can write , @xmath171 let consider the estimator presented in eq .
+[ eq : linsol_lamfg ] , and make the assumption that we are in a large value case , meaning @xmath172 .
+then , @xmath173 where , @xmath174 \tilde{s}_d^{-1 } \end{array } \right.\ ] ] and @xmath100 is an estimation of @xmath48 according to the first observations .
++   + _      to prove the convergence in probability , we need to demonstrate that , @xmath175 where @xmath176 .
+starting with the left hand side , we have , @xmath177 and we know that @xmath178{\ a.s.\ } p s_d \lambda $ ] . then , @xmath179 and we have , @xmath180 where @xmath181 stands for the probability density function of @xmath182 .
++ the first integral decreases towards @xmath183 as @xmath57 grows to infinity according to eq .
+[ eq : as ] .
+the argument for the second integral is the following . according to the assumption of strong convergence of @xmath100 , @xmath181
+converge towards the dirac function @xmath184 as @xmath185 goes to infinity .
+@xmath186 being strictly positive , this ends the proof . @xmath187 .      [
+[ calculation - in - case - of - poisson - regression - and - log - link - function ] ] * calculation in case of poisson regression ( and log link function ) * + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +    _ the beginning of the reasoning is similar to the previous one .
+then , if we assume that exogenous variables have impacts on the number of passengers , we can write , @xmath188 where @xmath98 are symmetric matrices reflecting the intercept ( @xmath189 ) for baseline commuter flows and the variable influences ( @xmath190 ) for changes in commuter flows from known daily influences . moreover , we assume that the same diagonalization ( meaning with the same eigenvectors ) can be applied , which lead us to , @xmath191 therefore , @xmath192 will be distributed according to a poisson distribution with the following parameter , @xmath193 where the parameters to be estimated are @xmath194 , which means we have to estimate @xmath195 parameters . + the probability of one observation
+can then be written , @xmath196 which gives the following log - likelihood , @xmath197 therefore , to obtain the final system of equation , we need to calculate the derivatives of the log - likelihood with respect to each parameter @xmath198 . _

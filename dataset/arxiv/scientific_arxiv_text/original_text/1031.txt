@@ -1,0 +1,291 @@
+let @xmath0 be a standard brownian motion .
+it @xcite defined the multiple stochastic integral of a function @xmath1 , @xmath2 taking care to ensure that the diagonal sets , like @xmath3 , do not contribute at all .
+for this reason the integral has very good properties and is easy to work with .
+however , for a function of the form @xmath4 we have that , in general , @xmath5 that means the it multiple integral does not behave like the integral with respect to a product measure .
+many years later , hu and meyer @xcite introduced ( although they believed that this integral was already known @xcite , page 75 ) a multiple integral , @xmath6 , which followed the ordinary rules of multiple integration .
+they called it the multiple stratonovich integral .
+furthermore , hu and meyer stated the relationship between the it and stratonovich integrals , the celebrated hu 
+meyer formula , adding the contribution of the diagonals to the it integral : for a function @xmath7 symmetric with good properties , @xmath8}\frac{n!}{(n-2j)!j!2^j } i_{n-2j } \biggl(\int_{{\mathbb{r}}_+^{j}}f(\bolds\cdot , t_1,t_1,t_2,t_2,\ldots , t_{j},t_{j } ) \,d t_{1}\cdots d t_{j } \biggr).\ ] ] this formula is simple because the quadratic variation of the brownian motion is  @xmath9 , and the integral over coincidences of order three or superior are zero .
+following their ideas , sol and utzet @xcite proved a hu 
+meyer formula for the poisson process .
+again , in that case , the formula is relatively simple because the variations of any order of the process can always be written in terms of the poisson process and @xmath9 .    from another point of view , engel @xcite , working with a general process with independent increments , related the ( it ) multiple stochastic integral with the theory of vector valued measures , and masani @xcite , using also vector valued measures and starting from the wiener s original ideas , developed both the it and stratonovich integrals ( with respect to the brownian motion ) and proved many profound results .
+the vector measures approach is no simple matter ; engel s work covers 82 pages , and masani s covers 160 .
+an important and clarifying contribution was made by rota and wallstrom @xcite who used combinatorial techniques to show the features of the multiple stochastic integration .
+they did not really work with integrals , but with products of vector measures .
+however , the path towards a general theory of multiple stochastic integration had been laid .
+see also prez 
+abreu @xcite for an interesting generalization to hilbert space valued random measures .
+further , vershik and tsilevich @xcite , in a more algebraic context , constructed a fock factorization for a lvy process , and some important subspaces can be described through rota and wallstrom concepts .
+we should also mention the very complete survey by peccati and taqqu @xcite in which a unified study of multiple integrals , moments , cumulants and diagram formulas , as well as applications to some new central limit theorems , is presented .
+it is worth remarking that rota and walstrom s @xcite combinatorial approach to multiple integration has been extended to the context of free probability in a very interesting and fertile field of research , started by anshelevich ( see @xcite and the references therein ) .
+in fact , rota and walstrom s ideas fit very well with the combinatorics of free probability ( see nica and speicher @xcite ) and noncommutative lvy processes .
+our renewed interest in rota and walstrom s paper @xcite was motivated by anshelevich s work .    in the present paper
+we use the powerful rota and wallstrom s @xcite combinatorial machinery to study the stratonovich integral ( the integral with respect to the product random measure ) with respect to a lvy processes with finite moments up to a convenient order .
+the key point is to understand how the product of stochastic measures works on the diagonal sets , and that leads to the diagonal measures defined by rota and wallstrom @xcite . for a lvy process
+those measures are related to the powers of the jumps of the process , and hence to a family of martingales introduced by nualart and schoutens @xcite , called teugels martingales , which offer excellent properties . specifically , these martingales have deterministic predictable quadratic variation and this makes it possible to easily construct an it multiple stochastic integral with respect to different integrators , which can be interpreted as an integral with respect to a random measure that gives zero mass to the diagonal sets . with all these ingredients
+we prove a general hu  meyer formula .
+the paper uses arduous combinatorics because of our need to work with stochastic multiple integrals with respect to the different powers of the jumps of the process , and such integrals can be conveniently handled through the lattice of the partitions of a finite set .    as in the brownian case
+( see , e.g. , @xcite ) , there are alternative methods to construct a multiple stratonovich integral based on approximation procedures , and it is possible to relax the conditions on the integrator process by assuming more regularity on the integrand function .
+such regularity is usually expressed in terms of the existence of _ traces _ of the function in a convenient sense .
+the advantage of using lvy processes with finite moments lies in the fact that simple @xmath10 estimates for the multiple stochastic integral of simple functions can be obtained , and then the multiple stratonovich integral can be defined in an @xmath11 space with respect to a measure that controls the behavior of the functions on the diagonal sets . in this way
+, the problem of providing a manageable definition of the traces is avoided .
+we would like to comment that an impressive body of work on multiple stochastic integrals with respect to lvy processes has been done by kallenberg , kwapien , krakowiak , rosinski , szulga , woyczinski and many others ( see @xcite and the references therein ) .
+however , their approach is very different from ours , and assumes different settings to those used in this work .
+for this reason , we have only used a few results by those authors .
+the paper is organized as follows . in section [ sec2 ]
+we review some combinatorics concepts and the basics of the stochastic measures as vector valued measures . in section [ random ]
+we introduce the random measures induced by a lvy process , and we identify the diagonal measures in such a case . in section [ measure ]
+we study the relationship between the product and it measures of a set , and we obtain a hu  meyer formula for measures . in section
+[ integral ] we define the multiple it stochastic integral and the multiple stratonovich integral and also prove the general hu 
+meyer formula for integrals . in section [ sec6 ] , as particular cases
+, we deduce the classical hu 
+meyer formulas for the brownian motion and for the poisson process .
+we also study the case where the lvy process is a subordinator , and prove that both the multiple it stochastic integral and the multiple stratonovich integral can be computed in a pathwise sense .
+finally , in order to make the paper lighter , some of the combinatorial results are included as an .
+we need some notation of the combinatorics of the partitions of a finite set ; for details we refer to stanley @xcite , chapter 3 , or rota and wallstrom @xcite .
+let @xmath12 be a finite set .
+a partition of @xmath12 is a family @xmath13 of nonvoid subsets of @xmath12 , pairwise disjoint , such that @xmath14 .
+the elements @xmath15 are called the _ blocks _ of the partition .
+denote by @xmath16 the set of all partitions of @xmath12 , and write @xmath17 for @xmath18 .
+given @xmath19 , we write @xmath20 if each block of @xmath21 is contained in some block of @xmath22 ; we then say that @xmath21 is a refinement of @xmath22 .
+this relationship defines a partial order that is called the _ reversed refinement order _ , and it makes @xmath16 a lattice .
+we write @xmath23 , which is the minimal element , and @xmath24 the maximal one .
+we say that a partition @xmath25 is of type @xmath26 if @xmath22 has exactly @xmath27 blocks with 1 element , exactly @xmath28 blocks with 2 elements , and so on . in the same way , for @xmath29 and @xmath30
+, we say that the segment @xmath31 $ ] is of type @xmath32 if there are exactly @xmath27 blocks of @xmath22 in @xmath21 ; there are exactly @xmath28 blocks of @xmath22 that each one gives rise to 2 blocks of @xmath21 , etc .
+necessarily , @xmath33 in that situation , the mbius function of @xmath31 $ ] is @xmath34 we use the mbius inversion formula , that in the context of the lattice of the partitions of a finite set , says that for two functions @xmath35 , @xmath36 if and only if @xmath37 ( see @xcite , proposition 3.7.2 ) .      as we commented in the
+, we will introduce two random measures on a @xmath38-dimensional space , and the diagonal sets will play an essential role .
+diagonal sets can be conveniently described through the partitions of the set @xmath39 .
+we use the notation introduced by rota and wallstorm @xcite .
+let @xmath40 be an arbitrary set , and consider @xmath41 .
+given @xmath42 , we write @xmath43 if @xmath44 and @xmath45 belong to the same block of @xmath22 .
+put @xmath46 and @xmath47 the sets @xmath48 are called _ diagonal sets_. note that @xmath49 and @xmath50 .
+for example , for @xmath51 and @xmath52 , we have @xmath53 and @xmath54    the sets corresponding to the minimal and maximal partitions are specially important @xmath55 and @xmath56    if @xmath57 , then @xmath58 the above notation @xmath59 is coherent with the reversed refinement order @xmath60 in particular , @xmath61 .
+let @xmath62 be a complete probability space
+. in this paper , a random measure @xmath63 on a measurable space @xmath64 is an @xmath10-valued @xmath21-additive vector measure , that means , a map @xmath65 such that for every sequence @xmath66 , such that @xmath67 , @xmath68    the @xmath21-additive vector measures defined on a @xmath21-field inherit some basic properties of the ordinary measures , but not all .
+so , for a sake of easy reference , we write here a uniqueness property translated to our setting .
+the proof is the same as the one for ordinary measures .
+[ monotona ] let @xmath63 and @xmath69 be two random measures on @xmath64 , and consider a family of sets @xmath70 closed under finite intersection and such that @xmath71 .
+then @xmath72      assume that the measurable space @xmath64 satisfies that for every set @xmath73 and every @xmath42 , we have @xmath74 . as rota and
+wallstrom @xcite point out , this condition is satisfied if @xmath40 is a polish space and @xmath75 its borel @xmath21-algebra .
+we extend the definition of _ good random measure _ introduced by rota and wallstorm @xcite to a family of measures ; specifically , we say that the random measures @xmath76 over a measurable space @xmath64 are _ jointly good random measures _ if the finite additive product vector _ measure _ @xmath77 defined on the product sets by @xmath78 can be extended to a ( unique ) @xmath21-additive random measure on @xmath79 .
+this extension , obvious for ordinary measures , is in general not transferred to arbitrary vector measures ( see engel @xcite , masani @xcite and kwapien and woyczynski @xcite ) .
+given a good random measure @xmath63 ( in the sense that the @xmath38-fold product @xmath80 satisfies the above condition ) , the starting point of rota and wallstrom  ( @xcite , definition 1 ) is to consider new random measures given by the restriction over the diagonal sets ; specifically , for @xmath42 they define @xmath81}_\pi(c):=\phi^{\otimes n}(c_{\pi})\qquad \mbox{for } c\in\mathcal{s}^{\otimes n}.\ ] ]    the following definitions are the extension of these concepts to a family of random measures .
+let @xmath82 be jointly good random measures on @xmath64 .
+for a partition @xmath42 , define @xmath83 and @xmath84    in agreement with the notation in rota and wallstrom @xcite , when @xmath85 , we simply write @xmath86 for @xmath87 and @xmath88}_\pi$ ] for the corresponding measure given in ( [ def - ito ] ) . since @xmath89 , then @xmath90 , that is the product measure .
+the measure @xmath91 is called _ the it multiple stochastic measure _ relative to @xmath82 .
+as the ordinary multiple it integral , the it multiple stochastic measure gives zero mass to every diagonal set different from @xmath92 :    [ 0diagonals ] let @xmath42 such that @xmath93 .
+for every @xmath73 , we have @xmath94    from ( [ incompatibilitat ] ) we have @xmath95 .
+the basic result of rota and wallstrom @xcite , proposition 1 , is transferred to this situation :    [ strato - ito1 ] @xmath96 and @xmath97 where @xmath98 is the mbius function defined in section [ partitions ] .
+the equality ( [ mesura - prod ] ) is deduced from ( [ union ] ) and the definitions ( [ def - producte ] ) and ( [ def - ito ] ) .
+the equality ( [ mesura - ito ] ) follows from ( [ mesura - prod ] ) and the mebius inversion formula ( [ moebius ] ) .
+let @xmath99 \}$ ] be a lvy process , that is , @xmath100 has stationary and independent increments , is continuous in probability , is cadlag and @xmath101 . in all the paper
+we assume that @xmath100 has moments of all orders ; however , if the interest is restricted to multiple integral up to order @xmath102 , then it is enough to assume that the process has moments up to order @xmath103 .
+denote the lvy measure of @xmath100 by @xmath104 , and by @xmath105 the variance of its gaussian part .
+the existence of moments of @xmath106 of all orders implies that @xmath107 and @xmath108 .
+write @xmath109,\nonumber\\[-8pt]\\[-8pt ] k_2&= & \sigma^2+\int_{\mathbb{r } } x ^2 \nu(dx ) \quad\mbox{and}\quad k_n=\int_{\mathbb{r } } x ^n \nu(dx)<\infty,\qquad n\ge3.\nonumber\end{aligned}\ ] ]    from now on , take @xmath110 $ ] and @xmath111)$ ] .
+the basic random measure @xmath112 that we consider is the measure induced by the process @xmath100 itself , defined on the intervals by @xmath113s , t])=x_t - x_s,\qquad 0\le s\le t\le t,\ ] ] and extended to @xmath114)$ ] .
+the measure @xmath112 is an independently scattered random measure , that is , if @xmath115)$ ] are pairwise disjoint , then @xmath116 are independent .    the random measures induced by the powers of the jumps of the process , @xmath117 , are also used .
+consider the _ variations _ of the process @xmath100 ( see meyer @xcite , page 319 ) @xmath118_t=\sum_{0<s\le t } ( \delta x_s ) ^2+\sigma^2t,\\ x ^{(n)}_t&=&\sum_{0<s\le t } ( \delta x_s ) ^n,\qquad n \ge3 .
+\nonumber\end{aligned}\ ] ] the processes @xmath119 are lvy processes such that @xmath120=k_n t\qquad \forall n\ge1.\ ] ] so , the centered processes , @xmath121 are square integrable martingales , called _ teugels martingales _ ( see nualart and schoutens @xcite ) , with predictable quadratic covariation @xmath122    we denote by @xmath123 the random measure induced by @xmath124 , and for @xmath125 , @xmath126 ( we indistinctly use both @xmath127 and @xmath112 ) .
+every @xmath123 is a independently scattered random measure . for @xmath128)$ ] , @xmath129=k_{n+m } \int_{a\cap b}dt+ k_nk_m \int_{a } dt\int _ { b}dt.\ ] ]    we stress the following property , which is the basis of all the paper , and is a consequence of theorem 10.1.1 by kwapien and woyczynski @xcite .    for every @xmath130 , the random measures
+@xmath131 are jointly good random measures on @xmath132^n,\mathcal{b } ( [ 0,t]^n ) ) $ ] .
+rota and wallstrom @xcite define the diagonal measure of order @xmath38 of @xmath112 as the random measure on @xmath133 $ ] given by @xmath134).\ ] ] to identify the diagonal measures is a necessary step to study the stochastic multiple integral . in the case of a random measure generated by a lvy process
+we show that the diagonal measures are the measures generated by the variations of the process .
+[ diagonal - simple ] for every @xmath135)$ ] and @xmath136 , @xmath137 where @xmath123 is the random measure induced by @xmath124 .
+since both @xmath138 and @xmath123 are random measures , by proposition [ monotona ] it is enough to check the equality for @xmath139 $ ] .
+consider an increasing sequence of equidistributed partitions of @xmath140 $ ] with the mesh going to 0 ; for example , take @xmath141 and let @xmath142 to shorten the notation , write @xmath143 instead of @xmath144 .
+consider the sets @xmath145^n\cup(t_1,t_2 ] ^n\cup\cdots\cup(t_{2^m-1},t ] ^n.\ ] ] random measures are sequentially continuous and @xmath146^n_{\widehat1}$ ] , when @xmath147 , so we have that @xmath148)=\lim_m \sum_{k=0}^{2^m-1 } ( \phi ( ( t_k , t_{k+1 } ] ) ) ^n= \lim_m \sum_{k=0}^{2^m-1 } ( x_{t_{k+1}}-x_{t_{k } } ) ^n\ ] ] in @xmath10 .
+for @xmath149 , @xmath150_t=\phi_2 ( ( 0,t ] ) \qquad \mbox{in probability},\ ] ] so the proposition is true in this case . for @xmath151 , by it s formula ,    @xmath152 \nonumber\\ \label{equa } & & \qquad = n\int_0^t \biggl(\sum_{k=0}^{2^m-1 } ( x_{s-}- x_{t_{k } } ) ^{n-1}\mathbf{1 } _ { ( t_{k},t_{k+1}]}(s ) \biggr ) \,dx_s\\ \label{equb } & & \qquad\quad{}+\pmatrix{n\cr2}\int_0^t \biggl(\sum_{k=0}^{2^m-1 } ( x_{s-}- x_{t_{k } } ) ^{n-2}\mathbf{1}_{(t_{k},t_{k+1}]}(s ) \biggr ) \,d[x , x]_s\\ \label{equc } & & \qquad\quad{}+\sum_{j=3}^n\sum_{k=0}^{2^m-1}\sum_{t_{k}<s\le t_{k+1 } } \pmatrix{n\cr j } ( x_{s-}- x_{t_{k } } ) ^{n - j } ( \delta x_s ) ^j.\end{aligned}\ ] ]    for @xmath153 , the corresponding term in ( [ equc ] ) is @xmath154}(s ) \biggr ) \,dx^{(j)}_s.\ ] ]    hence , ( [ equa ] ) , ( [ equb ] ) and ( [ equd ] ) have the same structure @xmath155 where @xmath156}(s)$ ] is a predictable process and @xmath157 is a semimartingale .
+since @xmath158 is left continuous , @xmath159 moreover , @xmath160 and the process @xmath161 \}$ ] is cadlag and adapted , and as a consequence , it is prelocally bounded ( see pages 336 and 340 in dellacherie and meyer  @xcite ) . by the dominated convergence theorem for stochastic integrals ( dellacherie and meyer @xcite , theorem 14 , page 338 ) , @xmath162 finally , for @xmath163 , the term in ( [ equc ] ) is @xmath164 , and the proposition is proved .
+diagonal measures associated to a random measure of the form @xmath165 are needed .
+this is an extension of the previous proposition , and it is a key result for the sequel .    [ diagonal - diversos ] let @xmath130 , @xmath102 , and @xmath135)$ ]
+. then @xmath166    as in the proof of the last proposition and with the same notation , it suffices to prove that for all @xmath167 @xmath168 ) \ ] ] in probability .
+this convergence follows from proposition [ diagonal - simple ] by polarization .
+the hu  meyer formula gives the relationship between the product measure @xmath169 and the it stochastic measures @xmath170 . in this section
+we obtain this formula for measures and in the next one we extend it to the corresponding integrals .    the idea of hu 
+meyer formula is the following . given @xmath171^n)$ ] , we can decompose @xmath172 so @xmath173 next step is to express each @xmath174 as a multiple it stochastic measure .
+for example , take @xmath175 and @xmath176 .
+then , @xmath177 and we will prove that @xmath178 that is , both the product measure and the product set on the last two variables collapse to produce a diagonal measure , and since @xmath179 , we get an it measure . to handle in general this property , we need some notation .    given a partition @xmath180 with blocks @xmath15 , we can order the blocks in agreement with the minimum element of each block . when necessary , we assume that the blocks have been ordered with that procedure , and we simply say that @xmath15 are ordered .
+in that situation , we write @xmath181    we start considering a set @xmath182 , with @xmath135)$ ] , and later we extend the hu  meyer formula to an arbitrary set @xmath183^n)$ ] .
+[ hu - meyer1 ] let @xmath135)$ ] . then @xmath184    to prove this theorem we need two lemmas
+the first one is an invariance - type property of product measures under permutations .
+we remember some standard notation .
+we denote by @xmath185 the set of permutations of @xmath186 .
+consider @xmath187 .    1 .   for a partition @xmath180 with blocks
+@xmath15 , we write @xmath188 for the partition with blocks @xmath189 . note that in general the blocks @xmath190 are not ordered , even when @xmath191 are .
+2 .   for a vector @xmath192 , we write @xmath193 given @xmath194 , we put @xmath195    [ permutacio ] let @xmath187 and @xmath130 .
+then for every @xmath196^n)$ ] , @xmath197 and @xmath198    define the vector measure @xmath199 for @xmath200 , we have that @xmath201 and it is clear that @xmath202 then , equality ( [ permut1 ] ) follows from proposition [ monotona ] .    to prove ( [ permut2 ] ) , first note that , by definition , the it stochastic measure satisfies @xmath203 moreover @xmath204 . so it suffices to prove ( [ permut2 ] ) for a set @xmath205 .
+denote by @xmath206 the @xmath207-algebra trace of @xmath114^n)$ ] with @xmath133^n_{\widehat0}$ ] , which is composed by all sets  @xmath92 , with @xmath208^n)$ ] .
+this @xmath21-algebra is generated ( on @xmath133^n_{\widehat0}$ ] ) by the family of rectangles @xmath209 , with @xmath210 pairwise disjoint . by proposition  [ monotona ]
+, we only need to check ( [ permut2 ] ) for this type of rectangle , and the property reduces to  ( [ permut1 ] ) .
+the next lemma is an important step in proving theorem [ hu - meyer1 ] .
+to have an insight into its meaning , consider the following example : let @xmath51 and @xmath211 . with a slight abuse of notation , we can write @xmath212 by theorem [ diagonal - diversos ] , @xmath213 however , if you consider @xmath214 , even though @xmath215 and @xmath21 have the same number of blocks with 1 element and the same number of blocks with 2 elements ( they have the same type ) , the computation of @xmath216 is not so straightforward .
+the lemma gives such computation .
+its proof demands some combinatorial results and it is transferred to appendix [ prova - lema ] .
+[ lema - basic ] let @xmath130 , @xmath180 with blocks @xmath15 ( ordered ) , and @xmath217)$ ] .
+then @xmath218    proof of theorem [ hu - meyer1 ] by proposition [ strato - ito1 ] , @xmath219}(a^{n}).\ ] ] so it suffices to prove that @xmath220}(a^{n})={\mathrm{st}}_{\widehat0}^{\overline\sigma}(a^{\ # \sigma}).\ ] ] by the second statement in proposition [ strato - ito1 ] we have @xmath221}(a^{n})=\sum_{\pi\in[\sigma,\widehat1]}\mu ( \sigma , \pi)\phi ^{\otimes n}_\pi(a^n)=\sum_{\pi\in[\sigma,\widehat1]}\mu(\sigma , \pi ) \phi^{\otimes n } ( a^n_{\ge\pi } ) .\ ] ] by lemma [ lema - basic ] , @xmath222 let @xmath223 be the blocks of @xmath180 ( ordered ) and write @xmath224 the partition @xmath225 $ ] , with blocks @xmath226 , induces a unique partition of @xmath227 , with blocks @xmath228 such that @xmath229 ( see proposition [ bijeccio ] in the ) . hence , for @xmath230 , @xmath231 thus , from ( [ hu - form3 ] ) and lemma [ lema - basic ] , @xmath232 by ( [ hu - form2 ] ) and ( [ hu - form4 ] ) using again the bijection between @xmath233 $ ] and @xmath234 stated in proposition [ bijeccio ] in the , and proposition [ strato - ito1 ]
+, we obtain @xmath235}(a^{n})&=&\sum_{\pi\in[\sigma,\widehat1]}\mu ( \sigma , \pi ) ( \phi_{s_1}\otimes\cdots\otimes\phi_{s_m } ) ( a^m_{\ge\pi^*})\\ & = & \sum_{\rho\in\pi_{m}}\mu(\widehat0,\rho ) ( \phi_{s_1}\otimes\cdots\otimes\phi_{s_m } ) ( a^m_{\ge\rho } ) = { \mathrm{st}}_{\widehat 0}^{\overline\sigma}(a^{\#\sigma}).\end{aligned}\ ] ]    in order to extend the hu 
+meyer formula for a general set in @xmath236^n)$ ] , we use a set function to express for an arbitrary set the contraction from @xmath237 to @xmath238 . that is , given a partition @xmath180 , with blocks @xmath223 ordered , we want to contract a set @xmath208^n)$ ] into a set of @xmath114^{\ # \sigma})$ ] according to the structure of the @xmath21-diagonal sets .
+with this purpose , define the function @xmath239^{\#\sigma } & \longrightarrow & [ 0,t]^n,\nonumber\\[-8pt]\\[-8pt ] ( x_1,\ldots , x_m ) & \longrightarrow & ( y_{1},\ldots , y_{n } ) , \nonumber\end{aligned}\ ] ] where @xmath240 , if @xmath241 .
+for example , if @xmath51 and @xmath242 , @xmath243 note that @xmath244 see appendix [ q - sigma ] for more details .
+[ hu - meyer2 ] let @xmath208^n)$ ] .
+then @xmath245    we separate the proof in two steps . in the first one ,
+we show that it is enough to prove the theorem for a rectangle of the form @xmath246 where @xmath247 are pairwise disjoint . in the second step we check formula ( [ hu - meyer2-form ] ) for those rectangles .
+_ first step .
+_ by proposition [ monotona ] , it suffices to prove the theorem for a rectangle @xmath209 .
+since every rectangle can be written as a disjoint union of rectangles such that every two components are either equal or disjoint , we consider one of this rectangles , @xmath200 , where for every @xmath248 , @xmath249 or @xmath250 .
+now we show that the formula ( [ hu - meyer2-form ] ) applied to @xmath251 is invariant by permutations : specifically , we see that for any permutation @xmath187 @xmath252 the first equality is deduced from ( [ permut1 ] ) . for the second one ,
+applying proposition  [ perm - delta](i ) , we have @xmath253 where @xmath254 is the permutation that gives the correct order of the blocks of @xmath188 ( see the lines before proposition [ perm - delta ] ) . by lemma [ permutacio ] @xmath255 where the last equality is due to the fact that @xmath256 by the definition of @xmath257 [ see ( [ barra2 ] ) ] .
+finally , @xmath258 because we are adding over all the set @xmath259 .
+_ second step .
+_ consider @xmath260 with @xmath261 pairwise disjoint and @xmath262 . by theorem [ hu - meyer1 ] , @xmath263 where the last equality is due to the fact that @xmath264 and the definition of the it measure @xmath265 .
+let @xmath266 be the partition with blocks @xmath267 there is a bijection between the elements @xmath180 , with @xmath268 , and @xmath269 such that @xmath270 where we use equality ( [ projector2 ] ) in the .
+then , @xmath271 where the last equality is due to the fact that if @xmath272 , then @xmath273 [ see ( [ projector2 ] ) ] .
+we extend theorem [ hu - meyer2 ] to integrals with respect to the random measures involved .
+we first define an it - type multiple integral and an integral with respect to the product measure .
+we generalize the multiple it integral with respect to the brownian motion ( it @xcite ; see also @xcite ) to a multiple integral with respect to the lvy processes @xmath274 . as we will prove , that integral
+can be interpreted as the integral with respect to the it stochastic measure .
+the ideas used to construct this integral are mainly it s ; however , the fact that these processes ( in general ) are not centered obstructs the classical isometry property , being substituted by an inequality .    write @xmath275^n,\mathcal{b}([0,t]^n ) , ( dt)^{\otimes n})$ ] .
+denote by @xmath276 the set of the so - called it - elementary functions , having the form @xmath277 where @xmath278)$ ] are pairwise disjoint , and @xmath279 is zero if two indices are equal .
+it is well known ( see it @xcite ) that @xmath276 is dense in @xmath280 .
+consider @xmath281 and define the multiple it integral of @xmath282 with respect to @xmath274 by @xmath283    let @xmath281 and @xmath284 . then @xmath285\le\alpha_{\mathbf{r}}\int _ { [ 0,t]^n}f^2(t_1,\ldots , t_n ) \,dt_1\cdots dt_n,\ ] ] where @xmath286 is a constant that depends on @xmath287 but not on @xmath282 .
+the proof follows exactly the same steps as that of theorem 4.1 in engel @xcite .
+the key point is that the measures @xmath288 can be written as @xmath289 where @xmath290 is the centered and independently scattered random measure corresponding to @xmath291 .
+the extension of the multiple it stochastic integral to @xmath280 , stated below , is proved as in the brownian case ( see it @xcite ) .
+[ ito - ext - th ] the map @xmath292 can be extended to a unique linear continuous map from @xmath280 to @xmath10 .
+in particular , @xmath293 satisfies the inequality @xmath294\le\alpha_{\mathbf{r}}\int _ { [ 0,t]^n}f^2(t_{1},\ldots , t_{n } ) \,dt_1\cdots dt_n.\ ] ]    as in the brownian case , it is useful to express the multiple integral in terms of iterated integrals of the form @xmath295 where @xmath296 is a permutation of @xmath186 .
+this integral is properly defined for @xmath297 .
+this can be checked using the decomposition of @xmath298 as a special semimartingale @xmath299 , where , as we said in section [ random ] , @xmath291 is a square integrable martingale with predictable quadratic variation @xmath300 .
+the previous iterated integral then reduces to a linear combination of iterated integrals of type @xmath301 being @xmath302 either @xmath9 or @xmath303 .
+hence , at each iteration , the integrability condition @xmath304<\infty\ ] ] of a predictable process @xmath305 with respect to @xmath306 can be easily verified .
+next proposition gives the precise expression of the multiple integral as a sum of iterated integrals .
+since we are integrating with respect to different processes , we need to separate the space @xmath133^n$ ] into simplexs .
+let @xmath297 .
+then @xmath307 where @xmath308 , and the integrals on the right - hand side are interpreted as iterated integrals .    by linearity and density arguments
+, it suffices to consider a function @xmath309 where @xmath310 $ ] are pairwise disjoint , and a computation gives the result .    when @xmath311 , we write @xmath312 instead of @xmath313 ; in that case , the multiple it integral enjoys nicer properties .
+[ nicer ]    1 .
+let @xmath297 .
+then @xmath314 where @xmath315 is the symmetrization of @xmath282 @xmath316 2 .
+assume @xmath317=0 $ ] .
+for @xmath318 , @xmath319=\delta_{n , m } k_2^n n!\int _ { [ 0,t]^n}\widetilde{f } \widetilde g \,d\mathbf{t},\ ] ] where @xmath320 , and 0 otherwise .
+3 .   let @xmath297 be a symmetric function .
+then @xmath321    we now state the relationship between the it stochastic measure @xmath170 and the it multiple integral @xmath322 .
+[ stochastic - int ] let @xmath208^n)$ ] and @xmath323 . then @xmath324    by ( [ desigualtat - integral ] ) the map @xmath325 defines a vector measure on @xmath114^n)$ ] . on the left - hand side of ( [ ito - int - mes ] ) ,
+the it measure satisfies @xmath326 now , look at right - hand side of ( [ ito - int - mes ] ) .
+for @xmath327 we have that @xmath328^n_\pi$ ] . for all @xmath93 , @xmath329\le \alpha_n\int_{[0,t]^n } \mathbf{1}_{c_\pi}\,dt_1\cdots dt_n\le\alpha _ n\int _ { [ 0,t]^n } \mathbf{1}_{[0,t]^n_\pi } \,dt_1\cdots dt_n=0.\ ] ] hence , @xmath330    from ( [ f-0 ] ) and ( [ f-00 ] ) , it suffices to prove ( [ ito - int - mes ] ) for a set @xmath205 .
+as in the proof of the second part of lemma [ permutacio ] , this can be reduced to check that equality for a rectangle @xmath331\times\cdots\times(s_n , t_n]$ ] , with the intervals pairwise disjoint .
+this follows from the fact that both sides of ( [ ito - int - mes ] ) are equal to @xmath332)\cdots\phi_{r_n}((s_n , t_n])$ ] .
+the property @xmath333 is lost when the integrators are different .
+however , from proposition [ stochastic - int ] and ( [ permut2 ] ) we can deduce the following useful property :    [ perm - int ] let @xmath297 , and @xmath323 , where @xmath334 .
+consider @xmath187 .
+then @xmath335      given a map @xmath336^n\to{\mathbb{r}}$ ] , the integral with respect to the product measure @xmath169 is called the multiple stratonovich integral , and denoted by @xmath6 .
+its basic property is that the integral of a product function factorizes @xmath337 where @xmath338 in order to construct this integral , we consider ordinary simple functions of the measurable space @xmath339^n,\mathcal{b}([0,t]^n))$ ] .
+specifically , denote by @xmath340 the set of functions with the form @xmath341 where @xmath342^n ) , i=1,\ldots , k$ ] .
+for such @xmath282 , define the multiple stratonovich integral by @xmath343 the integral of a simple function does not depend on its representation , and it is linear .
+moreover ,    [ hu - meyer - funct - prop ] let @xmath344 .
+then we have the hu 
+meyer formula @xmath345 where the function @xmath346^{\#\sigma } \to[0,t]^n$ ] is introduced in ( [ qsigma ] ) , @xmath347 is the vector whose components are the sizes of the ordered blocks of @xmath21 , and @xmath348 is the multiple it integral of order @xmath349 with respect to the measures @xmath350 .    by linearity
+, it suffices to consider @xmath351 , where @xmath208^n)$ ] .
+a generic term on the right - hand side of ( [ hu - meyer - funct1 ] ) is @xmath352 and @xmath353 hence , by proposition [ stochastic - int ] , @xmath354 and ( [ hu - meyer - funct1 ] ) follows from theorem [ hu - meyer2 ] .
+let @xmath180 , with @xmath355 , and denote by @xmath356 the image measure of the lebesgue measure @xmath357 by the function @xmath346^{m } \to[0,t]^n$ ] .
+the image measure theorem implies that for @xmath358^n\to{\mathbb{r}}$ ] measurable , positive or @xmath359-integrable , @xmath360^n } f(t_1,\ldots , t_n ) \,d\lambda_\sigma(t_1,\ldots , t_n)= \int_{[0,t]^m } f(q_\sigma(t_1,\ldots , t_m ) ) \,dt_1 \cdots dt_m.\hspace*{-28pt}\ ] ] define on @xmath114^n)$ ] the measure @xmath361 and write @xmath362 for @xmath363^n,\mathcal { b}([0,t]^n),\lambda_n)$ ] .    in order to extend the multiple stratonovich integral
+we need the following inequality of norms :    let @xmath344 .
+then @xmath364\le c\int_{[0,t]^n}f^2\ , d\lambda_n,\ ] ] where @xmath251 is a constant .    by ( [ hu - meyer - funct1 ] ) , ( [ desigualtat - integral ] ) and
+( [ image ] ) , @xmath365 & \le & c \sum_{\sigma\in\pi_n } { \mathbb{e}}\bigl [ \bigl(i_{\#\sigma}^{\overline\sigma}(f\comp q_\sigma ) \bigr)^2 \bigr]\\ & \le & c \sum_{\sigma\in\pi_n}\int_{[0,t]^{\#\sigma}}(f\comp q_\sigma)^2\ , dt_1\cdots dt_{\#\sigma}\\ & = & c \sum_{\sigma\in\pi_n}\int_{[0,t]^{n}}f^2 \,d\lambda_\sigma\\ & = & c\int _ { [ 0,t]^{n}}f^2 \,d\lambda_n.\end{aligned}\ ] ]    the main result of the paper is the following theorem :    the map @xmath366 can be extended to a unique linear continuous map from @xmath362 to @xmath10 , and we have the hu 
+meyer formula @xmath367    the extension of @xmath368 to a continuous map on @xmath362 is proved using a density argument and inequality ( [ desigualtat - strato ] ) . to prove the hu 
+meyer formula , let @xmath369 and @xmath370 such that @xmath371 in @xmath362 . for every @xmath180 , we have @xmath372 in @xmath373 ; hence , from theorem [ ito - ext - th ] the it integrals on the right - hand side of ( [ hu - meyer - funct ] ) converge , and the formula follows from proposition [ hu - meyer - funct - prop ] .    1 .
+let @xmath374,dt)$ ]
+. then @xmath375 and @xmath376 this result is easily checked for simple functions @xmath377 and extended to the general case by a density argument .
+2 .   in order to prove the hu  meyer formula for @xmath368 it is enough to assume that the process @xmath100 has moments up to order @xmath103 .
+3 .   for @xmath378 ,
+the measure @xmath359 is singular with respect to the lebesgue measure on @xmath133^n$ ] .
+for example , for @xmath149 and @xmath379 , let @xmath380\}$ ] be the diagonal of @xmath133 ^ 2 $ ] . then @xmath381 is concentrated in @xmath382 , that has zero lebesgue measure , but @xmath381 is nonzero @xmath383 ^ 2}\mathbf{1}_{d}(s , t ) \,d\lambda _ { \widehat 1}(s , t)=\int _ { [ 0,t]}\mathbf{1}_{d}(t , t ) \,dt = t.\ ] ] 4 .
+as in the brownian case ( see @xcite and the references therein ) , there are other procedures to construct the multiple stratonovich integral .
+the main difficulty in every approach is that the usual condition @xmath297 in it s theory is not sufficient to guarantee the multiple stratonovich integrability of @xmath282 .
+the reason is that one needs to control the behavior of @xmath282 on the diagonal sets @xmath133_\sigma^n$ ] that have zero lebesgue measure when @xmath384 .
+we solve this difficulty using the norm induced by the measure @xmath385 , which seems to be appropriate for dealing with the diagonal sets , avoiding in this way the difficulty of a manageable definition of the _ traces_.    when the function @xmath369 is symmetric , the hu 
+meyer formula can be considerably simplified .
+we show that we can assume that symmetry on @xmath282 without loss of generality .
+let @xmath369 .
+then @xmath386 , where @xmath315 is the symmetrization of @xmath282 [ see ( [ simetrizacio ] ) ] .
+the proof is straightforward for @xmath387 , @xmath171^n)$ ] , using lemma [ permutacio ] . by linearity
+the equality @xmath388 is extended to @xmath389 , and by density to @xmath362 .
+next we show the hu 
+meyer formula for a symmetric function @xmath282 . in general ( for @xmath282 symmetric ) , the function @xmath390 is nonsymmetric , but as we will see in the proof of the next theorem , its multiple it integral depends only on the block structure of @xmath21 ( the type of @xmath21 ) . for example , with @xmath391 , @xmath392 and @xmath393 , we have that @xmath394 that is nonsymmetric .
+its integral is @xmath395 take @xmath396 .
+then @xmath397 and @xmath398 where the last equality is due to proposition [ perm - int ] .
+we use the following notation : given nonnegative integers @xmath399 such that @xmath400 , we write @xmath401=(\underbrace{1,\ldots,1}_{r_1},\underbrace { 2,\ldots , 2}_{r_2},\ldots).\ ] ] note that this corresponds to @xmath402 when @xmath403 we also write @xmath404 for @xmath405 , with @xmath21 the above partition .
+let @xmath406 be a symmetric function
+. then @xmath407 } ( f\comp q_{r_1,\ldots , r_k } ) , \ ] ] where the sum is extended over all nonnegative integers @xmath408 such that @xmath400 , for @xmath409 .
+let @xmath369 symmetric .
+for every @xmath180 and @xmath187 , @xmath410 where ( [ equa ] ) is due to proposition [ perm - delta](ii ) , the equality ( [ equb ] ) follows from the symmetry of @xmath282 and ( [ equc ] ) from proposition [ perm - int ] and the fact that @xmath257 gives the correct order of @xmath188 [ see ( [ barra2 ] ) ] .
+this implies that all the partitions that have the same number of blocks of 1 element , the same number with two elements , etc .
+( i.e. , they have the same type ) give the same it multiple integral in the hu  meyer formula . to obtain ( [ hu - meyer - simetric ] ) it suffices to count the number of partitions of @xmath39 with @xmath27 blocks with 1 element , @xmath28 blocks with 2 elements@xmath411 blocks with @xmath412 elements , which is @xmath413    _ final remark .
+_ one may expect that by decomposing the lvy process into a sum of two independent processes , one with the small jumps and the other with the large ones , the assumption of the existence of moments could be avoided .
+however , this decomposition introduces dramatic changes to the context of the work , and such an extension is beyond the scope and purposes of the present paper .
+when @xmath414 is a standard brownian motion , @xmath415)=t \quad\mbox{and}\quad \phi_n=0,\qquad n\ge3.\vadjust{\goodbreak}\ ] ] it follows that in the hu 
+meyer formula only the partitions with all blocks of cardinality 1 or 2 give a contribution , and all the it integrals are a mixture of multiple stochastic brownian integrals and lebesgue integrals .
+we can organize the sum according the number of blocks of two elements . for a partition having @xmath45 blocks of @xmath416 elements , and @xmath406 symmetric ,
+the multiple it integral is @xmath417}_{n - j}(f)\\ & & \qquad=\int_{[0,t]^{n - j}}f(s_1,\ldots , s_{n-2j},\\ & & \hspace*{84.4pt}t_1,t_1,\ldots , t_{j},t_{j } ) \,dw_{s_1}\cdots dw_{s_{n-2j } } \,d t_{1}\cdots d t_{j}\\ & & \qquad = i_{n-2j } \biggl(\int_{[0,t]^{j}}f(\bolds\cdot , t_1,t_1,\ldots , t_{j},t_{j } ) \,d t_{1}\cdots d t_{j } \biggr),\end{aligned}\ ] ] where the last equality is due to a fubini - type theorem .
+therefore , @xmath418}\frac{n!}{(n-2j)!j!2^j}\nonumber\\[-8pt]\\[-8pt ] & & \hspace*{17.6pt}{}\times i_{n-2j } \biggl(\int_{[0,t]^{j}}f(\bolds\cdot , t_1,t_1,t_2,t_2,\ldots , t_{j},t_{j})\ , d t_{1}\cdots d t_{j } \biggr),\nonumber\end{aligned}\ ] ] which is the classical hu  meyer formula ( see @xcite ) .
+on the other hand , in the measure @xmath385 only participate the measures @xmath359 corresponding to the partitions above mentioned .
+consider the measure @xmath419 on @xmath133 ^ 2 $ ] , that is , for a positive or @xmath420 integrable function @xmath421 , @xmath422 ^ 2}h(s , t ) \,d\ell_2(s , t)=\int_{[0,t]}h(t , t)\,dt.\ ] ] given the partition @xmath180 , @xmath423 we have @xmath424      let @xmath425 be a standard poisson process with intensity 1 , and consider the process @xmath426 . for every @xmath102 , @xmath427 and hence ,
+a multiple it integral can be reduced to a linear combination of multiple integrals where all the integrators are @xmath428 or @xmath429 . for @xmath406 symmetric , each integral @xmath430 }
+( f\comp q_{r_1,\ldots , r_k})$ ] in ( [ hu - meyer - simetric ] ) can be expressed in terms of the number of lebesgue integrals that appear @xmath431 } ( f\comp q_{r_1,\ldots , r_k})\\ \hspace*{-5pt}&&\qquad=\sum_{j=0}^{r_2+\cdots+r_k}\hspace*{-0.9pt}i_{r_1+\cdots+r_k - j } \biggl ( \int_{[0,t]^j } \biggl(\mathop{\sum_{l_1,\ldots , l_j = r_1 + 1}}_{\mathrm { different}\mbox { } } ^{r_1+\cdots+r_k}\hspace*{-0.9pt } ( f\comp q_{r_1,\ldots , r_k})\\ \hspace*{-5pt}&&\hspace*{204.5pt}{}\times ( t_1,\ldots , t_{r_1+\cdots+r_k } ) \biggr)\,dt_{l_1}\cdots dt_{l_j } \biggr),\end{aligned}\ ] ] and the hu 
+meyer formula of sol and utzet @xcite can be deduced from this expression .
+a subordinator is a lvy process with increasing paths .
+an important example of a subordinator with moments of all orders is the gamma process , denoted by @xmath432 , which is the lvy process corresponding to an exponential law of parameter 1 .
+its lvy measure is @xmath433 the law of @xmath434 is gamma with mean @xmath9 and scale parameter equal to one .
+a gamma process can be represented as the sum of its jumps , that are all positive , @xmath435 the lvy measure of @xmath436 is ( see schoutens @xcite ) @xmath437 and the teugels martingales are @xmath438    in this case , unlike the brownian motion and the poisson process , the hu 
+meyer formula does not simplify , due to the fact that the diagonal measures can not be expressed in a simple way in terms of , say , the process and a deterministic measure .
+however , for a gamma process , and in general , for a subordinator without drift ( see below for the definition ) with moments of all orders , both the multiple it and stratonovich integrals can be computed pathwise integrating with respect to an ordinary measure .
+this is a multivariate extension of the property that states that the stochastic integral and the pathwise lebesgue 
+stieljes integral with respect to a semimartingale of bounded variation are equal ; such property was proved for the integral with respect to a lvy process of bounded variation by millar @xcite under weak conditions , and part of our proof follows his scheme .
+let @xmath439 be a subordinator . the lvy 
+it representation of @xmath100 takes the form @xmath440 with @xmath441 ( see sato @xcite , theorems 21.5 and 19.3 ) .
+the number @xmath442 is called the _ drift _ of the subordinator , and we will assume that @xmath443 . consider the sequence of stopping times @xmath444 with disjoint graphs that exhaust the jumps of @xmath445 , and @xmath100 only has jumps on these times ( see , e.g. , dellacherie and meyer @xcite , theorem b , page xiii , for a construction of this sequence ) .
+denote by @xmath446 the set of @xmath38-tuples @xmath447 , with @xmath448 , and all entries different . for @xmath130
+, define a measure on @xmath133^n$ ] by @xmath449 where @xmath450 is a dirac measure at point @xmath451 , with the convention that the sum is 0 if @xmath452 .
+we have the following property :    let @xmath439 be a subordinator without drift and with moments of all orders . with the preceding notation , for every @xmath297 , @xmath453^n}f \,d m_{r_1,\ldots , r_n}\qquad \mbox{a.s.}\ ] ]    first , note two facts :    \(a ) @xmath454 is a finite measure @xmath455^n)&=&\sum_{(t_{i_1},\ldots , t_{i_n})\in j_n } ( \delta x_{t_{i_1 } } ) ^{r_1}\cdots(\delta x_{t_{i_n } } ) ^{r_n}\\ & \le&\sum_{t_{i_1}\le t,\ldots , t_{i_n}\le t } ( \delta x_{t_{i_1 } } ) ^{r_1}\cdots(\delta x_{t_{i_n } } ) ^{r_n}\\ & = & x_t^{(r_1)}\cdots x_t^{(r_n)}<\infty.\end{aligned}\ ] ]    \(b ) if the intervals @xmath331,\ldots,(s_n , t_n]$ ] are pairwise disjoint , then ( [ path ] ) is true for @xmath456\times\cdots \times ( s_n , t_n]}$ ] .
+the proof is straightforward .
+we separate the proof of the proposition in two steps .
+_ step _ 1 . formula ( [ path ] ) is true for every map @xmath457^n\to { \mathbb{r}}$ ] @xmath458-measurable and bounded , where @xmath458 is the @xmath21-field on @xmath133^n$ ] generated by the rectangles @xmath331\times\cdots\times(s_n , t_n]$ ] , with @xmath331,\ldots,(s_n , t_n]$ ] pairwise disjoint .
+to prove this claim we use a convenient monotone class theorem . denote by @xmath459 the family of functions that satisfy ( [ path ] ) ; it is a vector space such that :    @xmath460 .    if @xmath461 , @xmath462 for some constant @xmath463 , and @xmath464 , then @xmath465 .    to see ( i ) ,
+consider the dyadic partition of @xmath133 $ ] with mesh @xmath466 , write @xmath467,\qquad j=1,\ldots , 2^k,\ ] ] and define @xmath468 by the remark ( b ) at the beginning of the proof , @xmath469^n}f_k
+\,d m_{r_1,\ldots , r_n}.\ ] ] moreover , @xmath470 out off the diagonal sets @xmath133^n_\sigma$ ] , with @xmath471 , and then @xmath470 a.e . with respect to the lebesgue measure , and in @xmath280 . therefore , @xmath472 on the other hand , for every @xmath473
+, the measure @xmath454 does not charge on any of the above mentioned diagonal sets .
+thus , the convergence @xmath470 is also @xmath454-a.e . by the monotone convergence theorem ,
+@xmath474^n}f_k \,d m_{r_1,\ldots , r_n}=\int_{[0,t]^n}1\ , d m_{r_1,\ldots , r_n},\ ] ] and ( i ) follows .    point ( ii ) is deduced directly from the monotone convergence theorem and taking into account that under the conditions in ( ii ) we have @xmath475 in @xmath280 .
+again by remark ( b ) above , the indicator of a set @xmath331\times \cdots\times(s_n , t_n]$ ] , with @xmath331,\ldots,(s_n , t_n]$ ] pairwise disjoint , is in @xmath459 , and this family of sets is closed by intersection . by the monotone class theorem , it follows that all bounded @xmath476-measurable functions are in @xmath459 .
+_ step _ 2 .
+extension of ( [ path ] ) to all @xmath297 .
+first , note that @xmath458 is the @xmath21-field generated by the borelian sets @xmath477^n)$ ] such that @xmath478^n_{\widehat0}$ ] . then
+, given @xmath477^n)$ ] , the indicator @xmath479^n_{\widehat0}}$ ] is @xmath458 measurable .
+let @xmath480 , and assume @xmath481 .
+there is a sequence of simple ( and then bounded ) functions such that @xmath482 .
+define @xmath483^n_{\widehat0}}$ ] , which is @xmath458 measurable , and @xmath484 a.e .
+with respect to the lebesgue measure .
+the convergence is also in @xmath280 , and then @xmath485 . on the other hand , @xmath484 , @xmath454-a.e .
+so @xmath486^n}f_m^0 \,d m_{r_1,\ldots , r_n}= \int_{[0,t]^n}f \,d m_{r_1,\ldots , r_n}.\ ] ] by step 1 , we get the result . for a general @xmath297 ,
+decompose @xmath487 .
+finally , for a subordinator without drift and with moments of all orders , the multiple stratonovich measure can be identified with the @xmath38-fold product measure of @xmath488 .
+so for @xmath489 , by definition , @xmath490^n}f \,d\phi^{\otimes n}.\ ] ] using similar arguments as in the previous proposition , but easier , it is proved that @xmath490^n}f \,d\phi^{\otimes n}\qquad \forall f\in l^2(\lambda_n).\ ] ] then , the hu  meyer formula can be transferred to a pathwise context .
+fix a partition @xmath180 , with blocks @xmath15 .
+let @xmath491 , with blocks @xmath492 ; each block @xmath493 is the union of some of the blocks @xmath15 .
+hence , we can consider the partition @xmath227 that gives the relationship between the @xmath493 s and the @xmath494 s , that is , @xmath495 has blocks @xmath228 defined by @xmath496    [ bijeccio ] let @xmath180 with @xmath355 . with the above notation ,
+the map @xmath497&\longrightarrow & \pi_m,\\ \pi&\mapsto&\pi^*\end{aligned}\ ] ] is a bijection and , for @xmath498 $ ] , @xmath499 moreover , @xmath500 where @xmath501 is the mbius function on @xmath502 .          \1 . for a subset @xmath505
+we denote by @xmath506 the image of @xmath507 by @xmath508 @xmath509 given a partition @xmath180 , with blocks @xmath223 , let @xmath188 be the partition with blocks @xmath510 defined by @xmath511 .
+note that in general the blocks @xmath190 are not ordered .
+the application @xmath512 is a bijection and for @xmath513 , @xmath514 this last property is clear , because if @xmath515 , and @xmath516 , then @xmath517      \2 . for a vector @xmath192 , we write @xmath519 and the application @xmath520 determines a bijection on @xmath504 , that we also denote by  @xmath508 . for a set @xmath194 , we write @xmath521 in particular , for @xmath522 , @xmath523 notice that if we look for the position of a particular set , say @xmath524 , in @xmath525 , we find it at place @xmath526 @xmath527 this last observation gives some light to the next property :          \(i ) let @xmath532 .
+write @xmath533 therefore , @xmath534 the condition on the right is equivalent to @xmath535 [ see ( [ equivalencia ] ) ] .
+so , returning to the @xmath536 s , @xmath537 call @xmath538 and @xmath539 .
+we have @xmath540 hence , @xmath541 .
+consider a partition @xmath180 with blocks @xmath15 ( ordered ) .
+if the elements of each block are consecutive numbers , then , @xmath543 when @xmath21 does not fulfill the previous condition , the expression ( [ descomposicio ] ) is not valid . however , since we are interested in computing @xmath544 , thanks to lemma [ permutacio ] , we fortunately can permute both the set and the product measure to make things work .
+the next proposition is essential for this purpose .
+let @xmath223 be the blocks of @xmath21 ordered . if @xmath21 is such that @xmath553 , by theorem [ diagonal - diversos ] , @xmath554 for the general case , let @xmath508 be the permutation given by proposition [ particio ] and write @xmath555 . by proposition [ particio ] ( first ) , and @xmath556 ( second )
+, we have @xmath557 by lemma [ permutacio ] and the first part of the proof , @xmath558 where @xmath559 . for every @xmath560 ,
+@xmath561      given a partition @xmath180 , with blocks @xmath15 ( ordered ) , the function @xmath405 [ see ( [ qsigma ] ) ] is defined by @xmath562^m & \longrightarrow & [ 0,t]^n,\\ ( x_1,\ldots , x_m ) & \to & ( y_{1},\ldots , y_{n}),\end{aligned}\ ] ] where @xmath240 , if @xmath241 .
+this function is a bijection between @xmath133^m$ ] and @xmath133^n_{\ge\sigma}$ ] , and it is borel measurable because @xmath563    given a partition @xmath180 , with blocks ( ordered ) @xmath564 and a permutation @xmath187 , as we commented , the blocks of @xmath188 in general are not ordered .
+it is convenient to consider the permutation @xmath565 that gives the correct order of the blocks of @xmath188 , that means , @xmath566 if @xmath567 is the first block of @xmath188 , @xmath568 if @xmath569 is the second block , and so on ; in other words , @xmath570 are the blocks of @xmath188 ordered
+. remember that we defined [ see ( [ barra ] ) ] the @xmath349-dimensional vector @xmath571 .

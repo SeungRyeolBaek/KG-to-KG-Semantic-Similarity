@@ -1,0 +1,195 @@
+dislocation behavior in solids under dynamic conditions ( e.g.  shock loading @xcite ) has recently attracted renewed attention , @xcite partly due to new insights provided by molecular dynamics studies .
+@xcite whereas theoretical investigations mainly focused on the stationary velocities that regular or twinning dislocations can attain as a function of the applied stress ( possibly intersonic or even supersonic with respect to the longitudinal wave speed @xmath0),@xcite one other major concern is to establish an equation of motion @xcite ( eom ) suitable to instationary dislocation motions towards or from such high velocities , and which is computationally cheap
+. this would be an important step towards extending dislocation dynamics ( dd ) simulations @xcite to the domain of high strain rates , in order to better understand hardening processes in such conditions .
+the key to instationary motion of dislocations lies in the inertia arising from changes in their long - ranged displacement field , which accompany the motion .
+these retarded rearrangements take place at finite speed , through wave emission and propagation from the dislocation . as a consequence , dislocations possess an effective inertial mass,@xcite which has bearings on the process of overcoming dynamically obstacles such as dipoles , etc .
+@xcite inertial effects are non - local in time , and are related to effective `` viscous '' losses . for small velocities where the eom is linear,@xcite
+this relation takes the form of the kramers - krnig relations between the reactive and dissipative parts of the causal mass kernel.@xcite one major ingredient of the eom should thus be the effective visco - inertial force exerted on the dislocation by its own wave emission.@xcite an eom results from balancing it by the applied stress , and by drags of various origins.@xcite eoms with effective masses , but which ignore retardation ( e.g. , ref . ) , can not truly capture visco - inertial effects .
+previous works on these questions having mainly been confined to the linear regime , their influence in the relativistic domain remains largely unexplored in spite of analytical progresses , partly due to the complexity of the formalism ( especially for edge dislocations ) .
+hereafter , eshelby s eom for screws with a rigid core,@xcite valid at small velocities , is first re - examined , and cast under a simple form which suggests a straightforward regularization procedure for finite core effects .
+this allows us to appeal to previous results for point dislocations valid at high velocities.@xcite we then build in an heuristic way an eom for accelerated or decelerated screw and edge dislocations in the drag - dominated subsonic regime , that consistently accounts for saturation effects at velocities comparable to the sound speed . results from the equation are compared to quasi - exact calculations from a numerical method of the phase - field type .
+having in mind applications to dd simulations , the scope of the study is limited to continuum theory , so that dispersion effects due to the atomic lattice,@xcite or to the influence of the peierls potential,@xcite are not explicitly considered .
+within the peierls - nabarro model in isotropic elasticity,@xcite and with the usual @xmath1 ansatz for the relative displacement @xmath2 of the atoms on both sides of the glide plane , eshelby computed the visco - inertial force @xmath3 experienced by a screw dislocation of burgers vector @xmath4 , centered on position @xmath5 at time @xmath6 , moving with a velocity @xmath7 small compared to the shear wave speed @xmath8:@xcite @xmath9^{1/2}}\\ & & { } + m_0\int_{-\infty}^t \hspace{-1em}{\rm d}\!\tau \frac{t_{\rm s}^2}{\left[(t-\tau)^2+t_{\rm s}^2\right]^{3/2 } } \frac{\rm d}{{\rm d}\tau}\left(\frac{x(t)-x(\tau)}{t-\tau}\right)\nonumber.\end{aligned}\ ] ] the dislocation is assumed to have a _ rigid _ core of half - width @xmath10 .
+then @xmath11 is the time of shear wave propagation over the core width .
+the mass per unit dislocation length @xmath12 depends on the shear modulus @xmath13 . in ref .
+( and in ref .   as well )
+, an incorrect factor @xmath14 is present in front of the second integral , and has been removed here .
+this factor is of no important physical consequence , save for different values of the linear response kernels ; see below .
+that ( [ eq : eshforce ] ) is correct can be verified as follows .
+starting from eshelby s expression of the force as a double integral in eq .
+( 26 ) of ref . , and
+expanding it to linear order in the velocity @xmath15 or in @xmath16 , the following expression is easily obtained : @xmath17\right\},\end{aligned}\ ] ] where @xmath18 . using integrations by parts over @xmath19 , each of eq .
+( [ eq : eshforce ] ) and ( [ eq : flin1 ] ) can be put under the following irreducible form : @xmath20^{3/2}},\ ] ] which shows them to coincide .    by the same token
+, we check that ( [ eq : eshforce ] ) can be further simplified as : @xmath21^{1/2}}\frac{\rm d}{{\rm d}\tau}\left(\frac{x(t)-x(\tau)}{t-\tau}\right).\ ] ] by fourier transforming @xmath22 [ under the form ( [ eq : canonical ] ) ] and by writing @xmath23\,x(\omega),\ ] ] we identify effective mass @xmath24 and viscosity @xmath25 kernels .
+@xcite their expression in closed form involves the modified bessel and struve functions @xmath26 , @xmath27 and @xmath28 :    [ eq : masskercf ] @xmath29\right\}\end{aligned}\ ] ]    to leading orders in the pulsation @xmath30 ,    [ eq : massker ] @xmath31    where @xmath32 is euler s constant .
+moreover , we observe that @xmath33 result ( [ eq : massker ] ) coincides to leading order with eshelby s , @xcite as @xmath34 . the mass increase with wavelength as @xmath35 implies very different behaviors for , e.g. , quasi - static and shock loading modes , since the latter involves a wider frequency range .
+we note that @xmath36 as @xmath34 , since losses should be absent from the model in the stationary subsonic regime .
+@xcite the non - analytical behavior of the kernels at @xmath37 ( due to @xmath38 ) , and its associated non - locality in time has been emphasized in ref .  .
+the finite `` instantaneous '' viscosity ( [ eq : viscoinfty ] ) stems from the first term in the r.h.s .  of ( [ eq : canonical ] ) , and is responsible for a velocity jump @xmath39 undergone by the dislocation when subjected to a jump @xmath40 in the applied force.@xcite from ( [ eq : viscoinfty ] ) we deduce : @xmath41 the velocity jump ( [ eq : vjump ] ) increases with core width .
+it was first predicted by eshelby from his equation,@xcite and can be understood as follows for a screw dislocation along the @xmath42 axis : the force jump @xmath40 is due to a shear stress jump @xmath43 attaining simultaneously all the points of the whole glide plane ( e.g. , as the result of shear loading applied on faces of the system containing the plane , parallel to the latter ) . neglecting material inertia of the atoms on both sides of the dislocation plane , the medium undergoes an elastic strain jump @xmath44 , determined by a material velocity jump @xmath45 .
+the latter is equilibrated through outward emission of a shear wave with velocity @xmath8 . on the other hand ,
+the slope of the displacement function near the core is @xmath46 , so that @xmath45 is related to the dislocation velocity jump @xmath39 by @xmath47 . combining these relationships yields ( [ eq : vjump ] ) , up to a numerical constant factor .
+the same argument applies to other types of dislocations . in case of several relaxation waves ( e.g. , longitudinal and shear waves for an edge dislocation ) , that of lowest celerity controls the amplitude of the velocity jump .
+it should be borne in mind , however , that accounting for material inertia from the atoms on both sides of the glide plane results in an instantaneous inertial force of order @xmath48 to be added to ( [ eq : eshforce]).@xcite by balancing the forces , it is seen that this force should spread the velocity jump over a short rise time @xmath49
+no expression analogous to ( [ eq : eshforce ] ) is available for edge dislocations .
+however , clifton and markenscoff computed the force acting on a _ point _ screw or edge dislocation moving with any subsonic velocity in an isotropic medium , that jumps instantaneously at instant @xmath50 from rest to a constant velocity @xmath51.@xcite a generalization to anisotropic media is available.@xcite to maintain its velocity constant , this dislocation must be subjected , at time @xmath52 , to the time - decaying force @xmath53 where the function @xmath54 depends on its character and on anisotropy .
+@xcite we now construct heuristically a force for accelerated motion by interpreting such a motion as a succession of infinitesimal velocity jumps . assuming that , for instationary motion , @xmath51 in ( [ eq : fcm ] ) can be interpreted as @xmath15 , the elementary force that would arise from the elementary jump @xmath55 at @xmath50 is : @xmath56\delta v(\tau)$ ] @xmath57 @xmath58 .
+then , the total force experienced by the dislocation results from integrating such elementary forces over past history : @xmath59 comparing ( [ eq : newforce0 ] ) to ( [ eq : flin2 ] ) shows , firstly , that the relevant `` accelerations '' at linear order are different .
+however , we remark that @xmath60/(t-\tau)\}\to \dot{v}(\tau)$ ] as @xmath61 , and moreover that for a screw dislocation , @xmath62 .
+@xcite hence , since we interpret @xmath51 in ( [ eq : fcm ] ) as @xmath15 , the numerator of the integrand in ( [ eq : newforce0 ] ) is correct at least for small velocities and for small times @xmath61 .
+its relevance for large velocities is demonstrated below through comparisons to full - field calculations .
+next , integral ( [ eq : newforce0 ] ) is singular at @xmath63 , due the point - dislocation hypothesis at the root of ( [ eq : fcm ] ) .
+however , using ( [ eq : flin2 ] ) as a physical motivation , we propose a regularization consisting in replacing the kernel @xmath64 in ( [ eq : newforce0 ] ) by @xmath65^{1/2}$ ] where @xmath66 , the counterpart of @xmath67 in ( [ eq : eshforce ] ) , is some time characteristic of sound propagation over a core diameter . in sec .
+[ sec : appli ] , @xmath66 is chosen alternatively proportional to @xmath11 and to @xmath68 in the case of edge dislocations for illustrative purposes , whereas @xmath66 is proportional to @xmath67 for screws
+. the proportionality factor , 1/2 in all cases , is justified below . from a physical point of view
+, inertia is controlled by the slowest wave so that better results are expected using @xmath8 for all types of dislocations .
+given eshelby s rigid - core hypothesis in ( [ eq : flin2 ] ) , and the approximations made , it would be pointless to refine this treatment .
+another kind of regularization is used in ref .
+( p.  195 ) , which consists in replacing the upper bound @xmath6 of integral ( [ eq : newforce0 ] ) by @xmath69 ( in ref .
+, the integrand assumes that @xmath70 ) .    with the above regularization
+the force eventually reads : @xmath71^{1/2}}\dot{v}(\tau).\ ] ] its fourier transform for small velocities where @xmath72 yields , in terms of modified bessel and struve functions of order 0 ,    [ eq : masskercfapprox ] @xmath73\nonumber\\ & = & \frac{\pi}{2}|\omega|+o(t_{\rm s}|\omega|^2)\\   \label{veshcfapproxinf}\eta(|\omega|\to\infty)/g'(0)&=&1/t_0.\end{aligned}\ ] ]    the approximation therefore preserves the logarithmic character of the mass , and the viscosity , to leading order . the mass is slightly decreased , the constant @xmath74 in ( [ mesh ] ) being absent .
+this difference is insignificant given the approximations made . in the limit of small velocity for a screw dislocation , our approximation amounts to retaining in ( [ eq : eshforce ] ) the first integral only . in order to recover a correct velocity jump for screws
+, we must take @xmath75 since the instantaneous viscosity ( [ veshcfapproxinf ] ) is different from ( [ eq : viscoinfty ] ) .
+this `` calibration '' is used in the next section for screws and ( somewhat arbitrarily ) for edges as well .    in the stationary limit , the visco - inertial force ( [ eq : newforce1 ] ) vanishes . for @xmath76 ,
+the asymptotic velocity should be determined by a viscous drag force , mainly of phonon origin,@xcite @xmath77 , where @xmath78 is the viscosity .
+this force is modified ( in the context of the peierls - nabarro model ) by the relativistic contraction of the core , into @xmath79 . for subsonic velocities , @xmath80 , where:@xcite @xmath81^{1/2},\ ] ] with @xmath82
+, is an effective viscosity - dependent core contraction factor , such that the core length in the laboratory frame reads : @xmath83 .
+the purely relativistic contraction factor @xmath84 is , with @xmath85:@xcite @xmath86 with this drag , and introducing the applied stress @xmath87 , the eom finally reads : @xmath88^{1/2}}+f_{\rm drag}(v(t))=b\sigma_a,\ ] ] where @xmath89 , and where:@xcite @xmath90/v,\quad\text{for edge dislocations}.\end{aligned}\ ] ] this is our main result . by construction
+, it reproduces the asymptotic velocities of ref .  .
+we checked numerically that the replacement of @xmath10 by @xmath91 in @xmath66 does not change by more than a few percent the overall results described in the following section .
+since this change in @xmath66 would bring in nothing useful , we choose to use @xmath10 in @xmath66 in the following section .
+upper : relationship between dimensionless applied stress @xmath92 and asymptotic velocity @xmath93 provided by the png code , @xcite for an accelerated edge dislocation in the stationary regime of an accelerated dislocation ( dots ) , compared to that predicted by rosakis s model i@xcite ( lines ) for different viscosity parameters @xmath94 , for a screw dislocation in the subsonic regime .
+lower : normalized velocity - dependent core width @xmath95 measured under same conditions .
+@xmath96 is the rayleigh velocity.,width=302 ]
+setting @xmath97 , eq .
+( [ eq : pdpeq ] ) is solved numerically for edge and screw dislocations , in an implicit way with a time step @xmath98 small enough .
+results are compared with numerical points obtained with the _ peierls - nabarro - galerkin _ ( png ) approach @xcite used here as a benchmark .
+this method is less noisy than molecular dynamics , allows for full - field dynamic calculations of the displacement and stress fields in the whole system , accounting for wave propagation effects , and allows for better flexibility .
+we can thus , e.g. , control boundary conditions by applying analytically computed forces , so as to prevent image dislocations from perturbing the simulation window .
+firstly , to check the accuracy of the benchmark , asymptotic velocities of screw and edge dislocations were compared to the stationary predictions of rosakis model 1.@xcite in the png method , the permanent lattice displacement field ( which is part of the full atomic displacement , @xmath99 ) is relaxed by means of a landau - ginzburg equation , with viscosity parameter @xmath100 .
+an exact correspondence holds between this viscosity and rosakis s viscosity parameter @xmath94 , namely @xmath101 , as can be shown by specializing to one dimension the general field equations of ref .. a @xmath32-potential @xmath102 , with @xmath103 , is used .
+the material is an elastically cubic material , with elastic moduli taken such that @xmath104 to insure isotropy .
+due to the elastic correction made to the @xmath32-surface potential in order to remove its quadratic elastic part,@xcite the core at rest is a bit larger in the png results than in the peierls - nabarro solution .
+the time dependent core width @xmath105 is measured from the numerical simulations by using @xmath106 ^ 2 $ ] ( the value corresponding to a core of the arctan type ) .
+two - dimensional calculations are carried out using a simulation box of size @xmath107 @xmath108 , with a unique horizontal glide plane along @xmath109 .
+eight nodes per burgers vector are used in both directions .
+forces are applied on the top and bottom sides so as to induce shear on the unique glide plane .
+free boundary conditions are used on sides normal to the @xmath109 axis .
+measurements are done near the center of the box , where the mirror attracting forces these sides generate on the dislocation , are negligible .
+the box is wide enough so that the dislocation accelerates and reaches its terminal velocity
+. comparisons between png results and rosakis model are displayed in fig .
+[ fig : rosakis ] for different viscosities @xmath94 , in the case of an edge dislocation .
+the core scaling factor @xmath110 and the asymptotic velocity @xmath93 , are directly measured from simulations under different applied stresses @xmath111 , and compared to theory .
+@xcite the png asymptotic velocities were found to be @xmath112 systematically lower than the theoretical results .
+this correction is accounted for in the figure .
+the overall agreement is excellent .
+it is emphasized that core contraction effects in the viscous drag [ eq .  ( [ eq : contract ] ) ] are required in order to obtain a good match .
+velocities vs.  time for accelerated screw dislocations : white dots , png code ; solid , ref .  ; dots ( in left curve only ) , eq .
+( [ eq : eshforce ] ) ; dash - dots , linear approximation to ( [ eq : pdpeq ] ) ; dashes , fully relativistic equation ( [ eq : pdpeq]).,width=321 ]    velocities vs.  time for accelerated edge dislocations : white dots , png code ; solid , ref .  ; dash - dots , linear approximation to ( [ eq : pdpeq ] ) ; dashes , fully relativistic equation ( [ eq : pdpeq ] ) .
+curves obtained from ( [ eq : pdpeq ] ) are duplicated , using either @xmath66 computed with @xmath8 ( upper ) , or with @xmath0 ( lower ) , see text.,width=321 ]    next , comparisons in the accelerated regime are made with eq .
+( [ eq : pdpeq ] ) and with other models . fig .
+[ fig : step_vis ] displays , as a function of time , the velocity of a screw dislocation accelerated from rest by a constant shear stress @xmath87 applied at @xmath113 .
+low and high shear stresses are examined .
+these stresses lead to terminal asymptotic velocities @xmath114 and @xmath115 , computed from ( [ eq : pdpeq ] ) .
+the results displayed are obtained : ( i ) with the png approach ( white dots ) ; ( ii ) with eq .
+( [ eq : pdpeq ] ) using fully `` relativistic '' expressions of @xmath116 and @xmath110 ( dashes ) ; ( iii ) with linear small - velocity approximations of @xmath116 , but with the full expression of @xmath110 , in order to emphasize the importance of relativistic effects in the retarded force ( dash - dots , for the case @xmath117 ) ; ( iv ) with a previous eom,@xcite using a typical cut - off radius @xmath118 nm in the logarithmic core term ( solid ) corresponding to a typical dislocation density of @xmath119/m@xmath120 .
+the result arising from using ( [ eq : eshforce ] ) in the eom is also displayed for the lowest speed ( dots , left figure only ) .
+figure [ fig : step_coin ] presents similar curves for an edge dislocation . for the latter , @xmath66 is taken either as @xmath121 or as @xmath122 , @xmath68 , thus providing two limiting curves .
+the curves with @xmath67 provide the best matches , consistently with the above observation that the wave of lowest velocity @xmath123 should provide the main contribution to inertia . at low and high speeds
+, good agreement is obtained between png points and eq .
+( [ eq : pdpeq ] ) , provided that fully `` relativistic '' expressions are used for @xmath124 ( especially for edge dislocations ) ; otherwise , inertia is strongly underestimated . in all the curves ,
+the relativistic expression of the non - linear viscous terms was used .
+moreover , variations of the core width with velocity,@xcite implicitly present in png calculations , and ignored in the expression of @xmath66 used in the visco - inertial term of ( [ eq : pdpeq ] ) , are not crucial to accelerated or to decelerated motion ( see fig .  [
+fig : deceler ] ) ; still , the core width shrinks by 20% during the acceleration towards @xmath125 . on the other hand , retardation effects in the effective mass are crucial : curves with non - local inertial forces are markedly different from the solid ones using the masses of ref .  , computed at constant velocity
+the version of the png code used here does not include the above - mentioned effects of material inertia in the glide plane , so that the full - field velocity curves indeed display what resembles a velocity jump , like the eom .
+owing to ( [ eq : risetime ] ) , this lack of accuracy solely concerns the time interval between the time origin and the first data point : hence we can consider that the velocity jump is a genuine effect , and not an artefact , at least from the point of view of full - field calculations in continuum mechanics .
+however , we should add that , to our knowledge , this effect has not been reported so far in molecular dynamics simulations .
+velocities vs.  time for a decelerated screw dislocation .
+comparison between the png method ( white dots)@xcite and equation ( [ eq : pdpeq ] ) with ( dashes ) or without ( dot - dash ) fully relativistic expressions.,width=321 ]    figure [ fig : deceler ] displays the velocity of screw and edge dislocations decelerated from the initial velocity @xmath126 .
+comparisons between eoms and png calculations are then harder to make than in the accelerated case . indeed , the non - relativistic ( resp .
+relativistic ) theoretical curves from eq.([eq : pdpeq ] ) ( dashed - dot ) [ resp .  ( dashed ) ] are obtained by assuming that an applied stress abruptly vanishes at @xmath113 .
+this induces a negative velocity jump in the curves .
+this jump is larger if non - relativistic expressions are used , which demonstrates in passing the higher inertia ( i.e.  `` mass '' ) provided by relativistic expressions .
+the same loading was tried in the png calculations as well , but led to non - exploitable results due to multiple wave - propagation and reflection phenomena .
+therefore , png curves for decelerated motion were obtained instead using a somewhat artificial loading : the medium was split in a zone of constant stress , separated from a zone of zero stress by an immobile and sharp boundary . the dislocation is then made to accelerate in the zone of constant stress . due to the finite core width , the boundary is crossed in a finite time @xmath127 , which explains the smoothed decay of the velocity in the png data points .
+this type of loading can not be realistically implemented within the framework of eq.([eq : pdpeq ] ) because the dislocation core is not spatially resolved . hence , though the curves strongly suggest that relativistic effects are as important in deceleration as in acceleration , and that ( [ eq : pdpeq ] ) reproduces well the png points , the comparison between the latter and theoretical curves should be taken here with a grain of salt . on the other hand , the eom of ref .
+( solid ) is once again clearly imprecise . as a final remark
+, we expect our neglecting of retardation effects in the nonlinear viscous term of ( [ eq : pdpeq ] ) to induce an underestimation of damping effects .
+this may explain why the png curves decay faster than that from eq .
+( [ eq : pdpeq ] ) .
+an empirical relativistic equation of motion for screw and edge dislocations , accounting for retardation effects in inertia , eq .
+( [ eq : pdpeq ] ) , has been proposed .
+we compared it , together with another available approximate eom , to a quasi - exact numerical solution of a dynamical extension of the peierls - nabarro model , provided by the _ peierls - nabarro galerkin _
+code.@xcite the latter was beforehand shown to reproduce very well the asymptotic velocities of rosakis s model 1@xcite in the subsonic regime .
+the best matches with full - field results were found with our eom , both for accelerated and for decelerated motion , thus illustrating quantitatively the importance of retardation and of relativistic effects in the dynamic motion of dislocations . to these effects
+, our eom provides for the first time a satisfactory approximation for high velocities in the subsonic range .
+our comparisons rule out the use of masses computed at constant velocity .
+one of the restrictions put forward by eshelby to his eom was its limitation to weakly accelerated motion , mainly due to the rigid core assumption.@xcite ours makes no attempt to explicitly overcome this simplification .
+however , comparisons with full - field calculations , where the core structure is not imposed from the start , but emerges as the result of solving the evolution equation for the displacement field , shows that this rigid - core assumption is acceptable on a quantitative basis as far as inertia is concerned , at least for velocities high , but not too close to @xmath128 .
+99 e.  hornbogen , acta metall .
+* 10 * , 978 ( 1962 )
+clifton and x.  markenscoff , j.  mech
+.  solids .  *
+29 * , 227 ( 1981 ) .
+d.  tanguy , m.  mareschal , p.s .
+lomdahl , t.c .
+germann , b.l .
+holian and r.  ravelo , phys .
+b * 68 * , 144111 ( 2003 ) .
+hirth , h.m .
+zbib and j.p .
+lothe , modelling simul.mater .
+* 6 * , 165 ( 1998 ) .
+p.  gumbsch and h.  gao , science * 283 * , 965 ( 1999 ) .
+j.  marian , w.  cai and v.v .
+bulatov , nature materials * 3 * , 158 ( 2004 ) . c.  denoual , phys .
+b * 70 * , 024 106 ( 2004 ) .
+l.  pillon , c.  denoual , r.  madec and y .- p .
+pellegrini , j.  phys .
+iv ( france ) * 134 * , 49 ( 2006 ) . c.  denoual , comput .
+methods appl .
+engrg .  * 196 * , 1915 ( 2007 ) .
+j.  weertman in _ mathematical theory of dislocations _ , edited by t.  mura ( asme , new york , 1969 ) , p.  178 .
+p.  rosakis , phys .
+* 86 * , 95 ( 2001 ) .
+eshelby , phys .
+* 90 * , 248 ( 1953 ) .
+b.  devincre and l.p .
+kubin , mater .
+a * 234 * -*236 * , 8 ( 1997 ) . v.v .
+bulatov , l.l .
+hsiung , m.  tang , a.  arsenlis , m.c .
+bartelt , w.  cai , j.n .
+florando , m.  hiratani , m.  rhee , g.  hommes , t.g .  pierce and t.  diaz de la rubia , nature * 440 * , 1174 ( 2006 ) . z.q .
+wang , i.j .
+beyerlein and r.  lesar , los alamos preprint la - ur-06 - 3602 ( unpublished ) .
+e. bitzek and p. gumbsch mater .
+a * 400 * , 40 ( 2005 ) .
+eshelby , proc .
+r.  soc .
+london , ser .
+a * 266 * , 222 ( 1962 ) .
+alshitz , v.l .  indenbom and a.a .
+shtolberg , zh .  eksp .
+fiz .  * 60 * , 2308 ( 1971 ) [ sov .
+jetp * 33 * , 1240 ( 1971 ) ] .
+nabarro , proc .
+r.  soc .
+london , ser .
+a * 209 * , 278 ( 1951 ) .
+alshits and v.l .
+indenbom , in _ dislocations in solids _ vol .  7 , edited by f.r.n .  nabarro ( north - holland , amsterdam , 1986 ) . s.  ishioka , j.  phys .  soc .
+japan * 34 * , 462 ( 1973 ) .
+r.  peierls , proc .
+soc .  * 52 * , 34 ( 1940 ) .
+nabarro , proc .
+soc .  * 59 * , 256 ( 1947 ) .
+wu , acta mechanica * 158 * , 85 ( 2002 ) .
+hirth and j.p .
+lothe , _ theory of crystal dislocations _
+( krieger , new york , 1982 ) .
+j.  weertman , in _ response of materials to high velocity deformations _ , edited by p.g .
+shewmon and v.f .
+zackay ( interscience , new york,1961 ) , p.  205 .
+eshelby , proc .
+a * 62 * , 307 ( 1949 ) .

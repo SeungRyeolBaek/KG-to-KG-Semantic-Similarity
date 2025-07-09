@@ -1,0 +1,351 @@
+factor analysis is one of the most useful tools for modeling common dependence among multivariate outputs .
+suppose that we observe data @xmath0 that can be decomposed as @xmath1 where @xmath2 are unobservable common factors ; @xmath3 are corresponding factor loadings for variable @xmath4 , and @xmath5 denotes the idiosyncratic component that can not be explained by the static common component . here ,
+@xmath6 and @xmath7 , respectively , denote the dimension and sample size of the data .    model ( [ eq1.1 ] ) has broad applications in the statistics literature .
+for instance , @xmath8 can be expression profiles or blood oxygenation level dependent ( bold ) measurements for the @xmath9th microarray , proteomic or fmri - image , whereas @xmath4 represents a gene or protein or a voxel .
+see , for example , @xcite .
+the separations between the common factors and idiosyncratic components are carried out by the low - rank plus sparsity decomposition .
+see , for example , @xcite . the factor model ( [ eq1.1 ] ) has also been extensively studied in the econometric literature , in which @xmath10 is the vector of economic outputs at time @xmath9 or excessive returns for individual assets on day @xmath9 .
+the unknown factors and loadings are typically estimated by the principal component analysis ( pca ) and the separations between the common factors and idiosyncratic components are characterized via static pervasiveness assumptions .
+see , for instance , @xcite among others . in this paper
+, we consider static factor model , which differs from the dynamic factor model [ @xcite , @xcite ( @xcite ) ] .
+the dynamic model allows more general infinite dimensional representations . for this type of model , the frequency domain pca [ @xcite ]
+was applied on the spectral density .
+the so - called _ dynamic pervasiveness _ condition also plays a crucial role in achieving consistent estimation of the spectral density .
+accurately estimating the loadings and unobserved factors are very important in statistical applications . in calculating the false - discovery proportion for large - scale hypothesis testing , one needs to adjust accurately the common dependence via subtracting it from the data in ( [ eq1.1 ] ) [ @xcite ] . in financial applications , we would like to understand accurately how each individual stock depends on unobserved common factors in order to appreciate its relative performance and risks . in the aforementioned applications
+, dimensionality is much higher than sample - size .
+however , the existing asymptotic analysis shows that the consistent estimation of the parameters in model ( [ eq1.1 ] ) requires a relatively large @xmath7 .
+in particular , the individual loadings can be estimated no faster than @xmath11 . but large sample sizes are not always available . even with the availability of `` big data , '' heterogeneity and other issues make direct applications of ( [ eq1.1 ] ) with large @xmath7 infeasible .
+for instance , in financial applications , to pertain the stationarity in model ( [ eq1.1 ] ) with time - invariant loading coefficients , a relatively short time series is often used . to make observed data less serially
+correlated , monthly returns are frequently used to reduce the serial correlations , yet a monthly data over three consecutive years contain merely 36 observations .
+to overcome the aforementioned problems , and when relevant covariates are available , it may be helpful to incorporate them into the model .
+let @xmath12 be a vector of @xmath13-dimensional covariates associated with the @xmath4th variables . in the seminal papers by @xcite and @xcite , the authors studied the following semi - parametric factor model : @xmath14 where loading coefficients in ( [ eq1.1 ] ) are modeled as @xmath15 for some functions @xmath16 .
+for instance , in health studies , @xmath17 can be individual characteristics ( e.g. , age , weight , clinical and genetic information ) ; in financial applications @xmath17 can be a vector of firm - specific characteristics ( market capitalization , price - earning ratio , etc . ) .    the semiparametric model ( [ eq1.2 ] ) , however , can be restrictive in many cases , as it requires that the loading matrix be fully explained by the covariates .
+a natural relaxation is the following semiparametric model : @xmath18 where @xmath19 is the component of loading coefficient that can not be explained by the covariates @xmath17 .
+let @xmath20 .
+we assume that @xmath21 have mean zero , and are independent of @xmath22 and @xmath23 .
+in other words , we impose the following factor structure : @xmath24 which reduces to model ( [ eq1.2 ] ) when @xmath25 and model ( [ eq1.1 ] ) when @xmath26 . when @xmath17 genuinely explains a part of loading coefficients @xmath27 , the variability of @xmath28 is smaller than that of @xmath27 .
+hence , the coefficient @xmath19 can be more accurately estimated by using regression model ( [ eq1.3 ] ) , as long as the functions @xmath29 can be accurately estimated .
+let @xmath30 be the @xmath31 matrix of @xmath32 , @xmath33 be the @xmath34 matrix of @xmath35 , @xmath36 be the @xmath37 matrix of @xmath38 , @xmath39 be the @xmath37 matrix of @xmath19 and @xmath40 be @xmath31 matrix of @xmath5 . then model ( [ eq1.4 ] )
+can be written in a more compact matrix form : @xmath41 we treat the loadings @xmath36 and @xmath39 as realizations of random matrices throughout the paper .
+this model is also closely related to the _ supervised singular value decomposition _ model , recently studied by @xcite .
+the authors showed that the model is useful in studying the gene expression and single - nucleotide polymorphism ( snp ) data , and proposed an em algorithm for parameter estimation .
+we propose a projected - pca estimator for both the loading functions and factors .
+our estimator is constructed by first projecting @xmath30 onto the sieve space spanned by @xmath22 , then applying pca to the projected data or fitted values .
+due to the approximate orthogonality condition of @xmath42 , @xmath40 and @xmath39 , the projection of @xmath30 is approximately @xmath43 , as the smoothing projection suppresses the noise terms @xmath39 and @xmath40 substantially .
+therefore , applying pca to the projected data allows us to work directly on the sample covariance of @xmath43 , which is @xmath44 under normalization conditions .
+this substantially improves the estimation accuracy , and also facilitates the theoretical analysis .
+in contrast , the traditional pca method for factor analysis [ e.g. , @xcite , @xcite ] is no longer suitable in the current context .
+moreover , the idea of projected - pca is also potentially applicable to dynamic factor models of @xcite , by first projecting the data onto the covariate space .
+the asymptotic properties of the proposed estimators are carefully studied .
+we demonstrate that as long as the projection is genuine , the consistency of the proposed estimator for latent factors and loading matrices requires only @xmath45 , and @xmath7 does not need to grow , which is attractive in the typical high - dimension - low - sample - size ( hdlss ) situations [ e.g. , @xcite ] .
+in addition , if both @xmath6 and @xmath7 grow simultaneously , then with sufficiently smooth @xmath29 , using the sieve approximation , the rate of convergence for the estimators is much faster than those of the existing results for model ( [ eq1.1 ] ) .
+typically , the loading functions can be estimated at a convergence rate @xmath46 , and the factor can be estimated at @xmath47 . throughout the paper , @xmath48 and @xmath49
+are assumed to be constant and do not grow .
+let @xmath50 be a @xmath37 matrix of @xmath51 .
+model ( [ eq1.3 ] ) implies a decomposition of the loading matrix : @xmath52 where @xmath36 and @xmath39 are orthogonal loading components in the sense that @xmath53 .
+we conduct two specification tests for the hypotheses : @xmath54 the first problem is about testing whether the observed covariates have explaining power on the loadings .
+if the null hypothesis is rejected , it gives us the theoretical basis to employ the projected - pca , as the projection is now genuine .
+our empirical study on the asset returns shows that firm market characteristics do have explanatory power on the factor loadings , which lends further support to our projected - pca method .
+the second tests whether covariates fully explain the loadings .
+our aforementioned empirical study also shows that model ( [ eq1.2 ] ) used in the financial econometrics literature is inadequate and more generalized model ( [ eq1.5 ] ) is necessary . as claimed earlier ,
+even if @xmath55 does not hold , as long as @xmath56 , the projected - pca can still consistently estimate the factors as @xmath45 , and @xmath7 may or may not grow .
+our simulated experiments confirm that the estimation accuracy is gained more significantly for small @xmath7 s .
+this shows one of the benefits of using our projected - pca method over the traditional methods in the literature .
+in addition , as a further illustration of the benefits of using projected data , we apply the projected - pca to consistently estimate the number of factors , which is similar to those in @xcite and @xcite .
+different from these authors , our method applies to the projected data , and we demonstrate numerically that this can significantly improve the estimation accuracy .
+we focus on the case when the observed covariates are time - invariant .
+when @xmath7 is small , these covariates are approximately locally constant , so this assumption is reasonable in practice . on the other hand
+, there may exist individual characteristics that are time - variant [ e.g. , see @xcite ] .
+we expect the conclusions in the current paper to still hold if some smoothness assumptions are added for the time varying components of the covariates . due to the space limit
+, we provide heuristic discussions on this case in the supplementary material of this paper [ @xcite ] .
+in addition , note that in the usual factor model , @xmath50 was assumed to be deterministic . in this paper , however , @xmath50 is mainly treated to be stochastic , and potentially depend on a set of covariates .
+but we would like to emphasize that the results presented in section  [ 1541512515 ] under the framework of more general factor models hold regardless of whether @xmath50 is stochastic or deterministic . finally ,
+while some financial applications are presented in this paper , the projected - pca is expected to be useful in broad areas of statistical applications [ e.g. , see @xcite for applications in gene expression data analysis ] .      throughout this paper , for a matrix @xmath57 ,
+let @xmath58 and @xmath59 , @xmath60 denote its frobenius , spectral and max- norms .
+let @xmath61 and @xmath62 denote the minimum and maximum eigenvalues of a square matrix .
+for a vector @xmath63 , let @xmath64 denote its euclidean norm .
+the rest of the paper is organized as follows .
+section  [ sec2 ] introduces the new projected - pca method and defines the corresponding estimators for the loadings and factors .
+sections  [ 1541512515 ] and [ s4 ] provide asymptotic analysis of the introduced estimators .
+section  [ sec5 ] introduces new specification tests for the orthogonal decomposition of the semiparametric loadings .
+section  [ sec6 ] concerns about estimating the number of factors .
+section  [ sec7 ] presents numerical results . finally , section  [ sec8 ] concludes .
+all the proofs are given in the and the supplementary material [ @xcite ] .
+in the high - dimensional factor model , let @xmath50 be the @xmath37 matrix of loadings . then the general model ( [ eq1.1 ] ) can be written as @xmath65    suppose we additionally observe a set of covariates @xmath66 .
+the basic idea of the projected - pca is to smooth the observations @xmath67 for each given day @xmath9 against its associated covariates .
+more specifically , let @xmath68 be the fitted value after regressing @xmath67 on @xmath69 for each given @xmath9 .
+this results in a smooth or projected observation matrix @xmath70 , which will also be denoted by @xmath71 .
+the projected - pca then estimates the factors and loadings by running the pca based on the projected data @xmath70 . here
+, we heuristically describe the idea of projected - pca ; rigorous analysis will be carried out afterward .
+let @xmath72 be a space spanned by @xmath73 , which is orthogonal to the error matrix @xmath40 .
+let @xmath74 denote the projection matrix onto @xmath72 [ whose formal definition will be given in ( [ eq2.5 ] ) below . at the population level
+, @xmath74 approximates the conditional expectation operator @xmath75 , which satisfies @xmath76 , then @xmath77 and @xmath78 .
+hence , analyzing the projected data @xmath79 is an approximately noiseless problem , and the sample covariance has the following approximation : @xmath80    we now argue that @xmath33 and @xmath81 can be recovered from the projected data @xmath70 under some suitable normalization condition .
+the normalization conditions we impose are @xmath82 under this normalization , using ( [ eq2.1a ] ) , @xmath83 .
+we conclude that the columns of @xmath84 are approximately @xmath85 times the first @xmath86 eigenvectors of the @xmath87 matrix @xmath88 .
+therefore , the projected - pca naturally defines a factor estimator @xmath89 using the first @xmath86 principal components of @xmath90 .
+the projected loading matrix @xmath81 can also be recovered from the projected data @xmath71 in two ( equivalent ) ways .
+given @xmath33 , from @xmath91 , we see @xmath92 .
+alternatively , consider the @xmath93 projected sample covariance : @xmath94 where @xmath95 is a remaining term depending on @xmath96 .
+right multiplying @xmath81 and ignoring @xmath95 , we obtain @xmath97 .
+hence , the ( normalized ) columns of @xmath81 approximate the first @xmath86 eigenvectors of @xmath98 , the @xmath93 sample covariance matrix based on the projected data .
+therefore , we can either estimate @xmath81 by @xmath99 given @xmath89 , or by the leading eigenvectors of @xmath98 .
+in fact , we shall see later that these two estimators are equivalent .
+if in addition , @xmath100 , that is , the loading matrix belongs to the space @xmath72 , then @xmath50 can also be recovered from the projected data .
+the above arguments are the fundament of the projected - pca , and provide the rationale of our estimators to be defined in section  [ sec2.3 ] .
+we shall make the above arguments rigorous by showing that the projected error @xmath101 is asymptotically negligible and , therefore , the idiosyncratic error term @xmath40 can be completely removed by the projection step .      as one of the useful examples of forming the space @xmath102 and the projection operator
+, this paper considers model ( [ eq1.4 ] ) , where @xmath17 s and @xmath32 s are the only observable data , and @xmath103 are unknown nonparametric functions .
+the specific case ( [ eq1.2 ] ) ( with @xmath104 ) was used extensively in the financial studies by @xcite , @xcite and @xcite , with @xmath17 s being the observed `` market characteristic variables . ''
+we assume @xmath86 to be known for now . in section  [ sec6 ] , we will propose a projected - eigenvalue - ratio method to consistently estimate @xmath86 when it is unknown .
+we assume that @xmath105 does not depend on @xmath9 , which means the loadings represent the cross - sectional heterogeneity only .
+such a model specification is reasonable since in many applications using factor models , to pertain the stationarity of the time series , the analysis can be conducted within each fixed time window with either a fixed or slowly - growing @xmath7 . through localization in time , it is not stringent to require the loadings be time - invariant .
+this also shows one of the attractive features of our asymptotic results : under mild conditions , our factor estimates are consistent even if @xmath7 is finite .    to nonparametrically estimate @xmath105 without the curse of dimensionality when @xmath17 is multivariate , we assume @xmath29 to be additive : for each @xmath106 , there are @xmath107 nonparametric functions such that @xmath108 each additive component of @xmath109 is estimated by the sieve method .
+define @xmath110 to be a set of basis functions ( e.g. , b - spline , fourier series , wavelets , polynomial series ) , which spans a dense linear space of the functional space for @xmath111 .
+then for each @xmath112 , @xmath113 here , @xmath114 are the sieve coefficients of the @xmath115th additive component of @xmath105 , corresponding to the @xmath116th factor loading ; @xmath117 is a `` remaining function '' representing the approximation error ; @xmath118 denotes the number of sieve terms which grows slowly as @xmath45 .
+the basic assumption for sieve approximation is that @xmath119 as @xmath120 .
+we take the same basis functions in ( [ eq2.4 ] ) purely for simplicity of notation .
+define , for each @xmath121 and for each @xmath122 , @xmath123 then we can write @xmath124 let @xmath125 be a @xmath126 matrix of sieve coefficients , @xmath127 be a @xmath128 matrix of basis functions , and @xmath129 be @xmath37 matrix with the @xmath130th element @xmath131 . then the matrix form of ( [ eq2.3 ] ) and ( [ eq2.4 ] ) is @xmath132 substituting this into ( [ eq1.5 ] ) , we write @xmath133 we see that the residual term consists of two parts : the sieve approximation error @xmath134 and the idiosyncratic @xmath40 .
+furthermore , the random effect assumption on the coefficients @xmath39 makes it also behave like noise , and hence negligible when the projection operator @xmath74 is applied .      based on the idea described in section  [ sec2.1 ] ,
+we propose a projected - pca method , where @xmath72 is the sieve space spanned by the basis functions of @xmath42 , and @xmath74 is chosen as the projection matrix onto @xmath72 , defined by the @xmath93 projection matrix @xmath135 the estimators of the model parameters in ( [ eq1.5 ] ) are defined as follows .
+the columns of @xmath136 are defined as the eigenvectors corresponding to the first @xmath86 largest eigenvalues of the @xmath87 matrix @xmath137 , and @xmath138 is the estimator of @xmath36 .
+the intuition can be readily seen from the discussions in section  [ sec2.1 ] , which also provides an alternative formulation of @xmath139 as follows : let @xmath140 be a @xmath141 diagonal matrix consisting of the largest @xmath86 eigenvalues of the @xmath93 matrix @xmath142 .
+let @xmath143 be a @xmath37 matrix whose columns are the corresponding eigenvectors . according to the relation @xmath144 described in section  [ sec2.1 ]
+, we can also estimate @xmath36 or @xmath81 by @xmath145 we shall show in lemma  [ la.1add ] that this is equivalent to ( [ eq2.6 ] ) .
+therefore , unlike the traditional pca method for usual factor models [ e.g. , @xcite , @xcite ] , the projected - pca takes the principal components of the projected data @xmath71 .
+the estimator is thus invariant to the rotation - transformations of the sieve bases .
+the estimation of the loading component @xmath39 that can not be explained by the covariates can be estimated as follows . with the estimated factors
+@xmath89 , the least - squares estimator of loading matrix is @xmath146 , by using ( [ eq2.1 ] ) and ( [ eq2.2 ] ) .
+therefore , by  ( [ eq1.5 ] ) , a natural estimator of @xmath147 is @xmath148      consider a panel data model with time - varying coefficients as follows : @xmath149 where @xmath17 is a @xmath13-dimensional vector of time - invariant regressors for individual @xmath4 ; @xmath150 denotes the unobservable random time effect ; @xmath5 is the regression error term .
+the regression coefficient @xmath151 is also assumed to be random and time - varying , but is common across the cross - sectional individuals .
+the semiparametric factor model admits ( [ eq2.8 ] ) as a special case . note that ( [ eq2.8 ] ) can be rewritten as @xmath152 with @xmath153 unobservable `` factors '' @xmath154 and `` loading '' @xmath155 .
+the model ( [ eq1.4 ] ) being considered , on the other hand , allows more general nonparametric loading functions .
+let us first consider the asymptotic performance of the projected - pca in the conventional factor model : @xmath156 in the usual statistical applications for factor analysis , the latent factors are assumed to be serially independent , while in financial applications , the factors are often treated to be weakly dependent time series satisfying strong mixing conditions .
+we now demonstrate by a simple example that latent factors @xmath33 can be estimated at a faster rate of convergence by projected - pca than the conventional pca and that they can be consistently estimated even when sample size @xmath7 is finite .
+[ ex3.1 ] to appreciate the intuition , let us consider a specific case in which @xmath157 so that model ( [ eq1.4 ] ) reduces to @xmath158 assume that @xmath159 is so smooth that it is in fact a constant @xmath160 ( otherwise , we can use a local constant approximation ) , where @xmath161 .
+then the model reduces to @xmath162 the projection in this case is averaging over @xmath4 , which yields @xmath163 where @xmath164 , @xmath165 and @xmath166 denote the averages of their corresponding quantities over @xmath4 . for the identification purpose , suppose @xmath167 , and @xmath168 . ignoring the last two terms
+, we obtain estimators @xmath169    these estimators are special cases of the projected - pca estimators . to see this , define @xmath170 , and let @xmath171 be a @xmath6-dimensional column vector of ones .
+take a naive basis @xmath172 ; then the projected data matrix is in fact @xmath173 .
+consider the @xmath87 matrix @xmath174 , whose largest eigenvalue is @xmath175 .
+from @xmath176 we have the first eigenvector of @xmath137 equals @xmath177 .
+hence , the projected - pca estimator of factors is @xmath178 .
+in addition , the projected - pca estimator of the loading vector @xmath179 is @xmath180 hence , the projected - pca - estimator of @xmath181 equals @xmath182 .
+these estimators match with ( [ e3.2 ] ) .
+moreover , since the ignored two terms @xmath183 and @xmath184 are of order @xmath185 , @xmath186 and @xmath187 converge whether or not @xmath7 is large .
+note that this simple example satisfies all the assumptions to be stated below , and @xmath188 and @xmath189 achieve the same rate of convergence as that of theorem  [ th4.1 ] .
+we shall present more details about this example in appendix g in the supplementary material [ @xcite ] .
+we now state the conditions and results formally in the more general factor model ( [ eq3.1 ] ) . recall that the projection matrix is defined as @xmath190    the following assumption is the key condition of the projected - pca .
+[ ass3.1 ] there are positive constants @xmath191 and @xmath192 such that , with probability approaching one ( as @xmath193 ) , @xmath194    since the dimensions of @xmath195 and @xmath50 are , respectively , @xmath196 and @xmath37 , assumption  [ ass3.1 ] requires @xmath197 , which is reasonable since we assume @xmath86 , the number of factors , to be fixed throughout the paper .
+assumption  [ ass3.1 ] is similar to the _ pervasive _ condition on the factor loadings [ @xcite ] . in our context
+, this condition requires the covariates @xmath42 have nonvanishing explaining power on the loading matrix , so that the projection matrix @xmath198 has spiked eigenvalues .
+note that it rules out the case when @xmath42 is completely unassociated with the loading matrix @xmath50 ( e.g. , when @xmath42 is pure noise ) .
+one of the typical examples that satisfies this assumption is the semiparametric factor model [ model ( [ eq1.4 ] ) ]
+. we shall study this specific type of factor model in section  [ s4 ] , and prove assumption  [ ass3.1 ] in the supplementary material [ @xcite ] .
+note that @xmath33 and @xmath50 are not separately identified , because for any nonsingular @xmath199 , @xmath200 .
+therefore , we assume the following
+.    [ ass3.2 ] almost surely , @xmath201 and @xmath198 is a @xmath141 diagonal matrix with distinct entries .
+this condition corresponds to the pc1 condition of @xcite , which separately identifies the factors and loadings from their product @xmath202 .
+it is often used in factor analysis for identification , and means that the columns of factors and loadings can be orthogonalized [ also see @xcite ] .
+[ ass3.3 ] ( i ) there are @xmath203 and @xmath204 so that with probability approaching one ( as @xmath193 ) , @xmath205    \(ii ) @xmath206 .    note that @xmath207 and @xmath208 is a vector of dimensionality @xmath209 .
+thus , condition ( i ) can follow from the strong law of large numbers .
+for instance , @xmath22 are weakly correlated and in the population level @xmath210 is well - conditioned . in addition , this condition can be satisfied through proper normalizations of commonly used basis functions such as b - splines , wavelets , fourier basis , etc . in the general setup of this paper , we allow @xmath211 s to be cross - sectionally dependent and nonstationary .
+regularity conditions about weak dependence and stationarity are imposed only on @xmath212 as follows .
+we impose the strong mixing condition .
+let @xmath213 and @xmath214 denote the @xmath215-algebras generated by @xmath216 and @xmath217 , respectively .
+define the mixing coefficient @xmath218    [ ass3.4 ] ( i ) @xmath219 is strictly stationary .
+in addition , @xmath220 for all @xmath221 ; @xmath222 is independent of @xmath223 .
+strong mixing : there exist @xmath224 such that for all @xmath225 , @xmath226    weak dependence : there is @xmath227 so that @xmath228    exponential tail : there exist @xmath229 satisfying @xmath230 and @xmath231 , such that for any @xmath232 , @xmath122 and @xmath233 , @xmath234    assumption  [ ass3.4 ] is standard , especially condition ( iii ) is commonly imposed for high - dimensional factor analysis [ e.g. , @xcite ] , which requires @xmath235 be weakly dependent both serially and cross - sectionally .
+it is often satisfied when the covariance matrix @xmath236 is sufficiently sparse under the strong mixing condition .
+we provide primitive conditions of condition ( iii ) in the supplementary material [ @xcite ] .
+formally , we have the following theorem :    [ th3.1 ] consider the conventional factor model ( [ eq3.1 ] ) with assumptions [ ass3.1][ass3.4 ] .
+the projected - pca estimators @xmath237 and @xmath238 defined in section  [ sec2.3 ] satisfy , as @xmath239 [ @xmath240 may either grow simultaneously with @xmath6 satisfying @xmath241 or stay constant with @xmath242 , @xmath243    to compare with the traditional pca method , the convergence rate for the estimated factors is improved for small @xmath7 . in particular , the projected - pca does not require @xmath244 , and also has a good rate of convergence for the loading matrix up to a projection transformation .
+hence , we have achieved a finite-@xmath7 consistency , which is particularly interesting in the `` high - dimensional - low - sample - size '' ( hdlss ) context , considered by @xcite .
+in contrast , the traditional pca method achieves a rate of convergence of @xmath245 for estimating factors , and @xmath246 for estimating loadings .
+see remarks [ re4.1 ] , [ re4.2 ] below for additional details .
+let @xmath247 be the @xmath93 covariance matrix of @xmath248 .
+convergence ( [ eq3.4add ] ) in theorem  [ th3.1 ] also describes the relationship between the leading eigenvectors of @xmath98 and those of @xmath249 . to see this ,
+let @xmath250 be the eigenvectors of @xmath249 corresponding to the first @xmath86 eigenvalues . under the _ pervasiveness condition _
+, @xmath251 can be approximated by @xmath50 multiplied by a positive definite matrix of transformation [ @xcite ] . in the context of projected - pca , by definition , @xmath252 ; here we recall that @xmath253 is a diagonal matrix consisting of the largest @xmath86 eigenvalues of @xmath98 , and @xmath254 is a @xmath37 matrix whose columns are the corresponding eigenvectors . then ( [ eq3.4add ] ) immediately implies the following corollary , which complements the pca consistency in _ spiked covariance models _ [ e.g. , @xcite and @xcite ] .
+[ th3.2 ] under the conditions of theorem  [ th3.1 ] , there is a @xmath141 positive definite matrix @xmath255 , whose eigenvalues are bounded away from both zero and infinity , so that as @xmath193 [ @xmath240 may either grow simultaneously with @xmath6 satisfying @xmath241 or stay constant with @xmath242 , @xmath256
+in the semiparametric factor model , it is assumed that @xmath257 , where @xmath105 is a nonparametric smooth function for the observed covariates , and @xmath19 is the unobserved random loading component that is independent of @xmath17 .
+hence , the model is written as @xmath258 in the matrix form , @xmath259 and @xmath36 does not vanish ( pervasive condition ; see assumption  [ ass4.2 ] below ) . the estimators @xmath237 and @xmath238 are the projected - pca estimators as defined in section  [ sec2.3 ] .
+we now define the estimator of the nonparametric function @xmath29 , @xmath260 . in the matrix form , the projected data has the following sieve approximated representation : @xmath261 where @xmath262 is `` small '' because @xmath39 and @xmath40 are orthogonal to the function space spanned by @xmath42 , and @xmath129 is the sieve approximation error .
+the sieve coefficient matrix @xmath263 can be estimated by least squares from the projected model ( [ eq4.1 ] ) : ignore @xmath264 , replace @xmath33 with @xmath237 , and solve ( [ eq4.1 ] ) to obtain @xmath265^{-1}\phi ( \bx ) ' \by{\widehat\bf}.\ ] ] we then estimate @xmath29 by @xmath266 where @xmath267 denotes the support of @xmath17 .      when @xmath268 , @xmath36 can be understood as the projection of @xmath50 onto the sieve space spanned by @xmath42 .
+hence , the following assumption is a specific version of assumptions [ ass3.1 ] and [ ass3.2 ] in the current context .
+[ ass4.1 ] ( i ) almost surely , @xmath201 and @xmath269 is a @xmath141 diagonal matrix with distinct entries .
+\(ii ) there are two positive constants @xmath191 and @xmath192 so that with probability approaching one ( as @xmath193 ) , @xmath270    in this section , we do not need to assume @xmath271 to be i.i.d . for the estimation purpose
+. cross - sectional weak dependence as in assumption  [ ass4.2](ii ) below would be sufficient .
+the i.i.d .
+assumption will be only needed when we consider specification tests in section  [ sec5 ] .
+write @xmath272 , and @xmath273    [ ass4.2 ] ( i ) @xmath274 and @xmath22 is independent of @xmath275 .
+\(ii ) @xmath276 , @xmath277 and @xmath278    the following set of conditions is concerned about the accuracy of the sieve approximation .
+[ ass4.3 ] @xmath279 ,    \(i ) the loading component @xmath280 belongs to a hlder class @xmath281 defined by @xmath282 for some @xmath283 ;    \(ii ) the sieve coefficients @xmath284 satisfy for @xmath285 , as @xmath286 , @xmath287 where @xmath288 is the support of the @xmath115th element of @xmath17 , and @xmath118 is the sieve dimension .
+\(iii ) @xmath289 .    condition ( ii ) is satisfied by common basis .
+for example , when @xmath290 is polynomial basis or b - splines , condition ( ii ) is implied by condition ( i ) [ see , e.g. , @xcite and @xcite ] .
+[ th4.1 ] suppose @xmath241 . under assumptions
+[ ass3.3 ] , [ ass3.4 ] , [ ass4.1][ass4.3 ] , as @xmath291 , @xmath7 can be either divergent or bounded , we have that @xmath292 in addition , if @xmath244 simultaneously with @xmath6 and @xmath118 , then @xmath293    the optimal @xmath294 simultaneously minimizes the convergence rates of the factors and nonparametric loading function @xmath29
+. it also satisfies the constraint @xmath295 as @xmath296 . with @xmath297
+, we have @xmath298 and @xmath299 satisfies @xmath300    some remarks about these rates of convergence compared with those of the conventional factor analysis are in order .
+[ re4.1]the rates of convergence for factors and nonparametric functions do not require @xmath244 .
+when @xmath301 , @xmath302 the rates still converge fast when @xmath6 is large , demonstrating the blessing of dimensionality .
+this is an attractive feature of the projected - pca in the hdlss context , as in many applications , the stationarity of a time series and the time - invariance assumption on the loadings hold only for a short period of time . in contrast , in the usual factor analysis , consistency is granted only when @xmath303 . for example , according to @xcite ( lemma c.1 ) , the regular pca method has the following convergence rate : @xmath304 which is inconsistent when @xmath7 is bounded .
+[ re4.2]when both @xmath6 and @xmath7 are large , the projected - pca estimates factors as well as the regular pca does , and achieves a faster rate of convergence for the estimated loadings when @xmath19 vanishes . in this case ,
+@xmath305 , the loading matrix is estimated by @xmath306 , and @xmath307 in contrast , the regular pca method as in @xcite yields @xmath308 comparing these rates , we see that when @xmath29 s are sufficiently smooth ( larger @xmath309 ) , the rate of convergence for the estimated loadings is also improved .
+the loading matrix always has the following orthogonal decomposition : @xmath310 where @xmath39 is interpreted as the loading component that can not be explained by @xmath42 .
+we consider two types of specification tests : testing @xmath311 , and @xmath312 .
+the former tests whether the observed covariates have explaining powers on the loadings , while the latter tests whether the covariates fully explain the loadings . the former provides a diagnostic tool as to whether or not to employ the projected - pca ; the latter tests the adequacy of the semiparametric factor models in the literature .
+testing whether the observed covariates have explaining powers on the factor loadings can be formulated as the following null hypothesis : @xmath314 due to the approximate orthogonality of @xmath42 and @xmath39 , we have @xmath315 .
+hence , the null hypothesis is approximately equivalent to @xmath316 this motivates a statistic @xmath317 for a consistent loading estimator @xmath318 .
+normalizing the test statistic by its asymptotic variance leads to the test statistic @xmath319 where the @xmath141 matrix @xmath320 is the weight matrix .
+the null hypothesis is rejected when @xmath321 is large .
+the projected - pca estimator is inappropriate under the null hypothesis as the projection is not genuine .
+we therefore use the least squares estimator @xmath322 , leading to the test statistic @xmath323 here , we take @xmath324 as the traditional pca estimator : the columns of @xmath325 are the first @xmath86 eigenvectors of the @xmath87 data matrix @xmath326 .
+connor , hagmann and linton ( @xcite ) applied the semiparametric factor model to analyzing financial returns , who assumed that @xmath328 , that is , the loading matrix can be fully explained by the observed covariates .
+it is therefore natural to test the following null hypothesis of specification : @xmath329 recall that @xmath330 so that @xmath331 . therefore , essentially the specification testing problem is equivalent to testing @xmath332 that is , we are testing whether the loading matrix in the factor model belongs to the space spanned by the observed covariates .
+a natural test statistic is thus based on the weighted quadratic form @xmath333 for some @xmath334 positive definite weight matrix @xmath335 , where @xmath237 is the projected - pca estimator for factors and @xmath336 . to control the size of the test
+, we take @xmath337 , where @xmath338 is a diagonal covariance matrix of @xmath339 under @xmath340 , assuming that @xmath341 are uncorrelated .
+we replace @xmath342 with its consistent estimator : let @xmath343 .
+define @xmath344 then the operational test statistic is defined to be @xmath345 the null hypothesis is rejected for large values of @xmath346 .      for the testing purpose , we assume @xmath347 to be i.i.d . , and let @xmath348 simultaneously .
+the following assumption regulates the relation between @xmath7 and @xmath6 .
+[ ass5.1 ] suppose ( i ) @xmath349 are independent and identically distributed ;    @xmath350 , and @xmath351 ;    @xmath118 and @xmath309 satisfy : @xmath352 , and @xmath353 .    condition ( ii ) requires a balance of the dimensionality and the sample size . on one hand ,
+a relatively large sample size is desired [ @xmath354 so that the effect of estimating @xmath342 is negligible asymptotically . on the other hand , as is common in high - dimensional factor analysis , a lower bound of the dimensionality is also required [ condition @xmath350 ] to ensure that the factors are estimated accurately enough . such a required balance is common for high - dimensional factor analysis [ e.g. , @xcite , @xcite ] and in the recent literature for pca [ e.g. , @xcite , @xcite ] .
+the i.i.d .
+assumption of covariates @xmath17 in condition ( i ) can be relaxed with further distributional assumptions on @xmath356 ( e.g. , assuming @xmath356 to be gaussian ) .
+the conditions on @xmath118 in condition ( iii ) is consistent with those of the previous sections .
+we focus on the case when @xmath357 is gaussian , and show that under @xmath358 , @xmath359 and under @xmath55 @xmath360 whose conditional distributions ( given @xmath33 ) under the null are @xmath361 with degree of freedom , respectively , @xmath362 and @xmath363 .
+we can derive their standardized limiting distribution as @xmath364 .
+this is given in the following result .
+[ th5.1 ] suppose assumptions [ ass3.3 ] , [ ass3.4 ] , [ ass4.2 ] , [ ass5.1 ] hold .
+then under @xmath358 , @xmath365 where @xmath48 and @xmath49 .
+in addition , suppose assumptions [ ass4.1 ] and  [ ass4.3 ] further hold , @xmath366 is i.i.d .
+@xmath367 with a diagonal covariance matrix @xmath338 whose elements are bounded away from zero and infinity .
+then under @xmath55 , @xmath368    in practice , when a relatively small sieve dimension @xmath118 is used , one can instead use the upper @xmath369-quantile of the @xmath370 distribution for @xmath371 .
+we require @xmath5 be independent across @xmath9 , which ensures that the covariance matrix of the leading term @xmath372 to have a simple form @xmath373 .
+this assumption can be relaxed to allow for weakly dependent @xmath374 , but many autocovariance terms will be involved in the covariance matrix .
+one may regularize standard autocovariance matrix estimators such as @xcite and @xcite to account for the high dimensionality .
+moreover , we assume @xmath338 be diagonal to facilitate estimating @xmath342 , which can also be weakened to allow for a nondiagonal but sparse @xmath338 .
+regularization methods such as thresholding [ @xcite ] can then be employed , though they are expected to be more technically involved .
+we now address the problem of estimating @xmath48 when it is unknown .
+once a consistent estimator of @xmath86 is obtained , all the results achieved carry over to the unknown @xmath86 case using a conditioning argument . , then argue that the results still hold unconditionally as @xmath375 . ] in principle , many consistent estimators of @xmath86 can be employed , for example , @xcite , @xcite , @xcite , @xcite .
+more recently , @xcite and @xcite proposed to select the largest ratio of the adjacent eigenvalues of @xmath326 , based on the fact that the @xmath86 largest eigenvalues of the sample covariance matrix grow as fast as @xmath6 increases , while the remaining eigenvalues either remain bounded or grow slowly .
+we extend ahn and horenstein s ( @xcite ) theory in two ways .
+first , when the loadings depend on the observable characteristics , it is more desirable to work on the projected data @xmath71 . due to the orthogonality condition of @xmath40 and @xmath42 , the projected data matrix is approximately equal to @xmath43 .
+the projected matrix @xmath376 thus allows us to study the eigenvalues of the principal matrix component @xmath377 , which directly connects with the strengths of those factors .
+since the nonvanishing eigenvalues of @xmath376 and @xmath378 are the same , we can work directly with the eigenvalues of the matrix @xmath379 .
+second , we allow @xmath380 . let @xmath381 denote the @xmath116th largest eigenvalue of the projected data matrix @xmath137 .
+we assume @xmath382 , which naturally holds if the sieve dimension @xmath118 slowly grows .
+the estimator is defined as @xmath383 the following assumption is similar to that of @xcite .
+recall that @xmath384 is a @xmath31 matrix of the idiosyncratic components , and @xmath385 denotes the @xmath386 covariance matrix of @xmath339 .
+[ ass6.1 ] the error matrix @xmath40 can be decomposed as @xmath387 where :    the eigenvalues of @xmath338 are bounded away from zero and infinity ,    @xmath388 is a @xmath7 by @xmath7 positive semidefinite nonstochastic matrix , whose eigenvalues are bounded away from zero and infinity ,    @xmath389 is a @xmath31 stochastic matrix , where @xmath390 is independent in both @xmath4 and @xmath9 , and @xmath391 are i.i.d .
+isotropic sub - gaussian vectors , that is , there is @xmath392 , for all @xmath232 , @xmath393    there are @xmath394 , almost surely , @xmath395    this assumption allows the matrix @xmath40 to be both cross - sectionally and serially dependent . the @xmath87 matrix @xmath388 captures the serial dependence across @xmath9 . in the special case of no - serial - dependence ,
+the decomposition ( [ eq5.1 ] ) is satisfied by taking @xmath396 .
+in addition , we require @xmath339 to be sub - gaussian to apply random matrix theories of @xcite .
+for instance , when @xmath339 is @xmath397 , for any @xmath398 , @xmath399 , and thus condition ( iii ) is satisfied .
+finally , the _ almost surely _ condition of ( iv ) seems somewhat strong , but is still satisfied by bounded basis functions ( e.g. , fourier basis ) .
+we show in the supplementary material [ @xcite ] that when @xmath338 is diagonal ( @xmath5 is cross - sectionally independent ) , both the sub - gaussian assumption and condition ( iv ) can be relaxed .
+the following theorem is the main result of this section .
+[ th6.1 ] under assumptions of theorem  [ th4.1 ] and assumption  [ ass6.1 ] , as @xmath400 , if @xmath118 satisfies @xmath401 and @xmath402 ( @xmath118 may either grow or stay constant ) , we have @xmath403
+this section presents numerical results to demonstrate the performance of projected - pca method for estimating loadings and factors using both real data and simulated data .
+we collected stocks in s&p 500 index constituents from crsp which have complete daily closing prices from year 2005 through 2013 , and their corresponding market capitalization and book value from compustat .
+there are @xmath404 stocks in our data set , whose daily excess returns were calculated .
+we considered four characteristics @xmath42 as in @xcite for each stock : size , value , momentum and volatility , which were calculated using the data before a certain data analyzing window so that characteristics are treated known .
+see @xcite for detailed descriptions of these characteristics .
+all four characteristics are standardized to have mean zero and unit variance .
+note that the construction makes their values independent of the current data .
+we fix the time window to be the first quarter of the year 2006 , which contains @xmath405 observations . given the excess returns @xmath406 and characteristics @xmath17 as the input data and setting @xmath407 , we fit loading functions @xmath408 for @xmath409 using the projected - pca method .
+the four additive components @xmath280 are fitted using the cubic spline in the r package `` gam '' with sieve dimension @xmath410 .
+all the four loading functions for each factor are plotted in figure  [ fig : gcurves ] .
+the contribution of each characteristic to each factor is quite nonlinear .
+, @xmath411 from financial returns of 337 stocks in s&p 500 index .
+they are taken as the true functions in the simulation studies . in each panel
+( fixed  @xmath115 ) , the true and estimated curves for @xmath412 are plotted and compared . the solid , dashed and dotted red curves are the true curves corresponding to the first , second and third factors , respectively .
+the blue curves are their estimates from one simulation of the calibrated model with @xmath413 , @xmath414 . ]
+we now treat the estimated functions @xmath280 as the true loading functions , and calibrate a model for simulations .
+the `` true model '' is calibrated as follows :    take the estimated @xmath280 from the real data as the true loading functions .
+for each @xmath6 , generate @xmath366 from @xmath415 where @xmath416 is diagonal and @xmath417 sparse .
+generate the diagonal elements of @xmath416 from gamma(@xmath418 ) with @xmath419 , @xmath420 ( calibrated from the real data ) , and generate the off - diagonal elements of @xmath417 from @xmath421 with @xmath422 , @xmath423 . then truncate @xmath417 by a threshold of correlation @xmath424 to produce a sparse matrix and make it positive definite by r package `` nearpd . ''
+generate @xmath425 from the i.i.d .
+gaussian distribution with mean @xmath426 and standard deviation @xmath427 , calibrated with real data .
+generate @xmath428 from a stationary var model @xmath429 where @xmath430 .
+the model parameters are calibrated with the market data and listed in table  [ table : calibfactor ] .
+finally , generate @xmath431 . here
+@xmath432 is a @xmath433 correlation matrix estimated from the real data .
+@lccd2.4d2.4c@ & + 0.9076 & 0.0049 & 0.0230 & -0.0371 & -0.1226 & @xmath434 + 0.0049 & 0.8737 & 0.0403 & -0.2339 & 0.1060 & @xmath435 + 0.0230 & 0.0403 & 0.9266 & 0.2803 & 0.0755 & @xmath436 +     by projected - pca ( p - pca , red solid ) and traditional pca ( dashed blue ) and @xmath437 , @xmath438 by p - pca over 500 repetitions . left panel : @xmath439 , right panel : @xmath440 . ]     and @xmath441 over 500 repetitions , by projected - pca ( p - pca , solid red ) and traditional pca ( dashed blue ) . ]
+we simulate the data from the calibrated model , and estimate the loadings and factors for @xmath442 and @xmath443 with @xmath6 varying from @xmath444 through @xmath445 .
+the `` true '' and estimated loading curves are plotted in figure  [ fig : gcurves ] to demonstrate the performance of projected - pca .
+note that the `` true '' loading curves in the simulation are taken from the estimates calibrated using the real data .
+the estimates based on simulated data capture the shape of the true curve , though we also notice slight biases at boundaries .
+but in general , projected - pca fits the model well .
+we also compare our method with the traditional pca method [ e.g. , @xcite ] .
+the mean values of @xmath446 , @xmath447 , @xmath448 and @xmath449 are plotted in figures  [ fig : calibg ] and [ fig : calibf ] where @xmath450 [ see section  [ design2 ] for definitions of @xmath451 and @xmath452 .
+the breakdown error for @xmath453 and @xmath39 are also depicted in figure  [ fig : calibg ] . in comparison ,
+projected - pca outperforms pca in estimating both factors and loadings including the nonparametric curves @xmath36 and random noise @xmath39 .
+the estimation errors for @xmath36 of projected - pca decrease as the dimension increases , which is consistent with our asymptotic theory .     and @xmath454 over 500 repetitions .
+p - pca , pca and sls , respectively , represent projected - pca , regular pca and sieve least squares with known factors : design 2 . here ,
+@xmath328 , so @xmath455 .
+upper two panels : @xmath6 grows with fixed @xmath7 ; bottom panels : @xmath7 grows with fixed @xmath6 . ]     and @xmath456 by projected - pca ( solid red ) and pca ( dashed blue ) : design 2 .
+upper two panels : @xmath6 grows with fixed @xmath7 ; bottom panels : @xmath7 grows with fixed @xmath6 . ]      consider a different design with only one observed covariate and three factors .
+the three characteristic functions are @xmath457 with the characteristic @xmath458 being standard normal .
+generate @xmath459 from the stationary var(1 ) model , that is , @xmath460 where @xmath461 .
+we consider @xmath462 .
+we simulate the data for @xmath442 or @xmath443 and various @xmath6 ranging from @xmath444 to @xmath445 . to ensure that the true factor and loading satisfy the identifiability conditions , we calculate a transformation matrix @xmath199 such that @xmath463
+, @xmath464 is diagonal .
+let the final true factors and loadings be @xmath465 , @xmath466 .
+for each @xmath6 , we run the simulation for @xmath445 times .
+we estimate the loadings and factors using both projected - pca and pc . for projected - pca , as in our theorem , we choose @xmath467 , with @xmath468 and @xmath469 . to estimate the loading matrix
+, we also compare with a third method : sieve - least - squares ( sls ) , assuming the factors are observable . in this case , the loading matrix is estimated by @xmath470 , where @xmath471 is the true factor matrix of simulated data .    the estimation error measured in max and standardized frobenius norms for both loadings and factors are reported in figures  [ fig : simpleg ] and [ fig : simplef ] .
+the plots demonstrate the good performance of projected - pca in estimating both loadings and factors .
+in particular , it works well when we encounter small @xmath7 but a large @xmath6 . in this design , @xmath328 , so the accuracy of estimating @xmath472 is significantly improved by using the projected - pca .
+figure  [ fig : simplef ] shows that the factors are also better estimated by projected - pca than the traditional one , particularly when @xmath7 is small .
+it is also clearly seen that when @xmath6 is fixed , the improvement on estimating factors is not significant as @xmath7 grows .
+this matches with our convergence results for the factor estimator .
+it is also interesting to compare projected - pca with sls ( sieve least - squares with observed factors ) in estimating the loadings , which corresponds to the cases of unobserved and observed factors .
+as we see from figure  [ fig : simpleg ] , when @xmath6 is small , the projected - pca is not as good as sls .
+but the two methods behave similarly as @xmath6 increases .
+this further confirms the theory and intuition that as the dimension becomes larger , the effects of estimating the unknown factors are negligible .
+we now demonstrate the effectiveness of estimating @xmath86 by the projected - pc s eigenvalue - ratio method .
+the data are simulated in the same way as in design 2 .
+@xmath442 or @xmath443 and we took the values of @xmath6 ranging from @xmath444 to @xmath445 .
+we compare our projected - pca based on the projected data matrix @xmath137 to the eigenvalue - ratio test ( ah ) of @xcite and @xcite , which works on the original data matrix @xmath326 .    .
+p - pca and ah , respectively , represent the methods of projected - pca and @xcite .
+left panel : mean ; right panel : standard deviation . ]    for each pair of @xmath473 , we repeat the simulation for @xmath443 times and report the mean and standard deviation of the estimated number of factors in figure  [ fig : estimatek ] . the projected - pca outperforms ah after projection , which significantly reduces the impact of idiosyncratic errors .
+when @xmath413 , we can recover the number of factors almost all the time , especially for large dimensions ( @xmath474 ) . on the other hand , even when @xmath475 , projected - pca still obtains a closer estimated number of factors .
+we test the loading specifications on the real data .
+we used the same data set as in section  [ sec7.1 ] , consisting of excess returns from 2005 through 2013 .
+the tests were conducted based on rolling windows , with the length of windows spanning from 10 days , a month , a quarter and half a year . for each fixed window - length ( @xmath7 ) , we computed the standardized test statistic of @xmath321 and @xmath476 , and plotted them along the rolling windows respectively in figure  [ fig : testing ] . in almost all cases ,
+the number of factors is estimated to be one in various combinations of @xmath477 .
+figure  [ fig : testing ] suggests that the semiparametric factor model is strongly supported by the data .
+judging from the upper panel [ testing @xmath478 , we have very strong evidence of the existence of nonvanishing covariate effect , which demonstrates the dependence of the market beta s on the covariates @xmath42 .
+in other words , the market beta s can be explained at least partially by the characteristics of assets .
+the results also provide the theoretical basis for using projected - pca to get more accurate estimation .     from 2006/01/03 to 2012/11/30 .
+the dotted lines are @xmath479 . ]    in the bottom panel of figure  [ fig : testing ] ( testing @xmath480 ) , we see for a majority of periods , the null hypothesis is rejected . in other words ,
+the characteristics of assets can not fully explain the market beta as intuitively expected , and model ( [ eq1.2 ] ) in the literature is inadequate
+. however , fully nonparametric loadings could be possible in certain time range mostly before financial crisis . during 20082010 ,
+the market s behavior had much more complexities , which causes more rejections of the null hypothesis .
+the null hypothesis @xmath328 is accepted more often since 2012 .
+we also notice that larger @xmath7 tends to yield larger statistics in both tests , as the evidence against the null hypothesis is stronger with larger @xmath7 .
+after all , the semiparametric model being considered provides flexible ways of modeling equity markets and understanding the nonparametric loading curves .
+this paper proposes and studies a high - dimensional factor model with nonparametric loading functions that depend on a few observed covariate variables .
+this model is motivated by the fact that observed variables can explain partially the factor loadings .
+we propose a projected - pca to estimate the unknown factors , loadings , and number of factors . after projecting the response variable onto the sieve space spanned by the covariates , the projected - pca yields a significant improvement on the rates of convergence than the regular methods .
+in particular , consistency can be achieved without a diverging sample size , as long as the dimensionality grows .
+this demonstrates that the proposed method is useful in the typical hdlss situations .
+in addition , we propose new specification tests for the orthogonal decomposition of the loadings , which fill the gap of the testing literature for semiparametric factor models .
+our empirical findings show that firm characteristics can explain partially the factor loadings , which provide theoretical basis for employing projected - pca method . on the other hand
+, our empirical study also shows that the firm characteristics can not fully explain the factor loadings so that the proposed generalized factor model is more appropriate .
+throughout the proofs , @xmath45 and @xmath7 may either grow simultaneously with @xmath6 or stay constant . for two matrices @xmath481 with fixed dimensions , and a sequence @xmath482 , by writing @xmath483 , we mean @xmath484 .    in the regular factor model @xmath485 ,
+let @xmath486 denote a @xmath141 diagonal matrix of the first @xmath86 eigenvalues of @xmath487 . then by definition , @xmath488 .
+let @xmath489 .
+then @xmath490 where @xmath491            still by the equality ( [ ea.1add ] ) , @xmath501 .
+hence , this step is achieved by bounding @xmath502 for @xmath503 .
+note that in this step , we shall not apply a simple inequality @xmath504 , which is too crude .
+instead , with the help of the result @xmath505 achieved in step 1 , sharper upper bounds for @xmath502 can be achieved .
+we do so in lemma  b.2 in the supplementary material [ @xcite ] .
+consider the singular value decomposition : @xmath508 , where @xmath509 is a @xmath93 orthogonal matrix , whose columns are the eigenvectors of @xmath98 ; @xmath510 is a @xmath511 matrix whose columns are the eigenvectors of @xmath512 ; @xmath513 is a @xmath31 rectangular diagonal matrix , with diagonal entries as the square roots of the nonzero eigenvalues of @xmath98 .
+in addition , by definition , @xmath253 is a @xmath141 diagonal matrix consisting of the largest @xmath86 eigenvalues of @xmath98 ; @xmath254 is a @xmath37 matrix whose columns are the corresponding eigenvectors .
+the columns of @xmath514 are the eigenvectors of @xmath88 , corresponding to the first @xmath86 eigenvalues .          by assumption  [ ass3.3 ] , @xmath528 , @xmath529 hence , @xmath530 by lemma  b.1 in the supplementary material [ @xcite ] , @xmath531 .
+similarly , @xmath532 using the inequality that for the @xmath116th eigenvalue , @xmath533 , we have @xmath534 , for @xmath260 .
+hence , it suffices to prove that the first @xmath86 eigenvalues of @xmath320 are bounded away from both zero and infinity , which are also the first @xmath535 eigenvalues of @xmath536 .
+this holds under the theorem s assumption ( assumption  [ ass3.1 ] ) .
+thus , @xmath537 , which also implies @xmath523 .
+fan , j. , liao , y. and mincheva , m. ( 2013 ) .
+large covariance estimation by thresholding principal orthogonal complements ( with discussion ) . _ journal of the royal statistical society , series b _ * 75 * 603680 .

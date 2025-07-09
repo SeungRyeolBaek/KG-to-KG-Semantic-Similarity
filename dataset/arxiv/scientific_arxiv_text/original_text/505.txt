@@ -1,0 +1,153 @@
+studying the dynamics of nearly one - dimensional structures has various scientific and industrial applications , for example in biophysics ( cf .
+@xcite and the references therein ) and visual computing ( cf .
+@xcite ) as well as in civil and mechanical engineering ( cf .
+@xcite ) , microelectronics and robotics ( cf .  @xcite ) . in this regard ,
+an appropriate description of the dynamical behavior of flexible one - dimensional structures is provided by the so - called special cosserat theory of elastic rods ( cf .
+@xcite , ch .  8 , and the original work @xcite ) .
+this is a general and geometrically exact dynamical model that takes bending , extension , shear , and torsion into account as well as rod deformations under external forces and torques . in this context , the dynamics of a rod is described by a governing system of twelve first - order nonlinear partial differential equations ( pdes ) with a pair of independent variables @xmath0 where @xmath1 is the arc - length and @xmath2 the time parameter . in this pde system ,
+the two kinematic vector equations ( ( 9a)(9b ) in  @xcite , ch .
+8) are parameter free and represent the compatibility conditions for four vector functions @xmath3 in @xmath0 .
+whereas the first vector equation only contains two vector functions @xmath4 , the second one contains all four vector functions @xmath3 .
+the remaining two vector equations in the governing system are dynamical equations of motion and include two more dependent vector variables @xmath5 and @xmath6
+. moreover , these dynamical equations contain parameters ( or parametric functions of @xmath1 ) to characterize the rod and to include the external forces and torques .    because of its inherent stiffness caused by the different deformation modes of a cosserat rod , a pure numerical treatment of the full cosserat pde system requires the application of specific solvers
+; see e.g.  @xcite . in order to reduce the computational overhead caused by the stiffness
+, we analyzed the lie symmetries of the first kinematic vector equation ( ( 9a ) in  @xcite , ch .
+8) and constructed its general and ( locally ) analytical solution in @xcite which depends on three arbitrary functions in @xmath0 and three arbitrary functions in @xmath2 .    in this contribution
+we perform a computer algebra - based lie symmetry analysis to integrate the full kinematic part of the governing cosserat system based on our previous work in @xcite .
+this allows for the construction of a general analytical solution of this part which depends on six arbitrary functions in @xmath0 .
+we prove its generality and apply the obtained analytical solution in order to solve the dynamical part of the governing system . finally , we prove its practicability by simulating the dynamics of a flagellated microswimmer . to allow for an efficient solution process of the determining equations for the infinitesimal lie symmetry generators , we make use of the maple package sade ( cf .
+@xcite ) in addition to desolv ( cf .  @xcite ) .
+this paper is organized as follows .
+section  [ sec:2 ] describes the governing pde system in the special cosserat theory of rods . in section  [ sec:3 ] , we show that the functional arbitrariness in the analytical solution to the first kinematic vector equation that we constructed in @xcite can be narrowed down to three arbitrary bivariate functions . our main theoretical result is presented in section  [ sec:4 ] , in which we construct a general analytical solution to the kinematic part of the governing equations by integrating the lie equations for a one - parameter subgroup of the lie symmetry group .
+section  [ sec:5 ] illustrates the practicability of this approach by realizing a semi - analytical simulation of a flagellated microswimmer .
+this is based on a combination of the analytical solution of the kinematic part of the cosserat pde and a numerical solution of its dynamical part .
+some concluding remarks are given in section  [ sec:6 ] and limitations are discussed in section  [ sec:7 ] .
+in the context of the special cosserat theory of rods ( cf .
+@xcite ) , the motion of a rod is defined by a vector - valued function @xmath7\times { \mathbb{r}}\ni ( s , t ) \mapsto \left({{\boldsymbol{r}}}(s , t),\,{{\boldsymbol{d}}}_1(s , t),\,{{\boldsymbol{d}}}_2(s , t)\right)\in { \mathbb{e}}^3\ , . \label{rd1d2}\ ] ] here , @xmath2 denotes the time and @xmath1 is the arc - length parameter identifying a _ material cross - section _ of the rod which consists of all material points whose reference positions are on the plane perpendicular to the rod at @xmath1 .
+moreover , @xmath8 and @xmath9 are orthonormal vectors , and @xmath10 denotes the position of the material point on the centerline with arc - length parameter @xmath1 at time @xmath2 .
+the euclidean 3-space is denoted with @xmath11 .
+the vectors @xmath12 , and @xmath13 are called _ directors _ and form a right - handed orthonormal moving frame .
+the use of the triple @xmath14 is natural for the intrinsic description of the rod deformation whereas @xmath15 describes the motion of the rod relative to the fixed frame @xmath16 .
+this is illustrated in figure  [ fig1 ] .    from the orthonormality of the directors
+follows the existence of so - called _ darboux _ and _ twist _ vector functions @xmath17 and @xmath18 determined by the kinematic relations @xmath19 the _ linear strain _ of the rod and the _ velocity of the material cross - section _ are given by vector functions @xmath20 and @xmath21 .
+( d1 ) at ( 609.500 mm , 393.654 mm ) ; ( d2 ) at ( 451.588 mm , 30.955 mm ) ; ( d3 ) at ( 839.662 mm , 92.118 mm ) ; ( o1 ) at ( 631.054 mm , 174.816 mm ) ; ( ax ) at ( 887.632 mm , 543.492 mm ) ; ( ay ) at ( 1369.466 mm , 541.844 mm ) ; ( az ) at ( 1126.066 mm , 941.984 mm ) ; ( o2 ) at ( 1118.542 mm , 639.549 mm ) ; ( r ) at ( 1495.859 mm , 221.154 mm ) ; ( s0 ) at ( 608.083 mm , 533.215 mm ) ; ( sl ) at ( 1832.694 mm , 552.899 mm ) ;    ( 0.3 , 0 ) rectangle ( 0.12 * 0.0352777778 * 1920- 0.3 , 0.12 * 0.0352777778 * 1080 ) ;    at ( 0 , 0 )   forms a right - handed orthonormal basis . the directors @xmath22 and @xmath23 span the local material cross - section , whereas @xmath24 is perpendicular to the cross - section .
+note that in the presence of shear deformations @xmath24 is unequal to the tangent @xmath25 of the centerline of the rod.,title="fig : " ] ;    ( o2 ) 
+( r ) node[black , pos=0.65 , right , inner sep=5pt , xshift=0pt , yshift=0pt ] ;    ( o2 ) circle ( 0.1 ) ;    ( o1 )  ( d1 )
+node[black , anchor = west , inner sep=2pt , xshift=0pt , yshift=0pt ] ; ( o1 )  ( d2 )
+node[black , anchor = south east , inner sep=0pt , xshift=0pt , yshift=0pt ] ; ( o1 ) 
+( d3 ) node[black , anchor = west , inner sep=0pt , xshift=0pt , yshift=0pt ] ;    at ( ax ) ; at ( ay ) ; at ( az ) ;    at ( s0 ) ; at ( sl ) ;    the components of the _ strain variables _ @xmath26 and @xmath27 describe the deformation of the rod : the flexure with respect to the two major axes of the cross - section @xmath28 , torsion @xmath29 , shear @xmath30 , and extension @xmath31 .
+the triples @xmath32 are functions in @xmath0 , that satisfy the _ compatibility conditions _ @xmath33
+the substitution of   into the left equation in   leads to @xmath34 on the other hand one obtains , @xmath35 and @xmath36 with @xmath37 and @xmath38 , and therefore @xmath39 similarly , the second compatibility condition in   is equivalent to @xmath40 with @xmath41 and @xmath42 .    the first - order pde system  ( [ ke1])([ke2 ] ) with independent variables @xmath0 and dependent variables ( [ kv ] ) forms the kinematic part of the governing cosserat equations ( ( 9a)(9b ) in  @xcite , ch .  8) .
+the construction of its general solution is the main theoretical result of this paper .
+the remaining part of the governing equations in the special cosserat theory consists of two vector equations resulting from newton s laws of motion . for a rod density @xmath43 and cross - section @xmath44 ,
+these equations are given by @xmath45 \partial_t{{\boldsymbol{h}}}(s , t)=\partial_s{{\boldsymbol{m}}}(s , t)+{{\boldsymbol{\nu}}}(s , t)\times { { \boldsymbol{n}}}(s , t)+{{\boldsymbol{l}}}(s , t)\ , , \end{array } \label{nl}\end{aligned}\ ] ] where @xmath46 are the _ contact torques _ , @xmath47 are the _ contact forces _
+, @xmath48 are the _ angular momenta _ , and @xmath49 and @xmath50 are the _ external forces _ and _ torque densities_.    the contact torques @xmath51 and contact forces @xmath52 corresponding to the _ internal stresses _ ,
+are related to the extension and shear strains @xmath53 as well as to the flexure and torsion strains @xmath54 by the _ constitutive relations _ @xmath55 under certain reasonable assumptions ( cf .
+@xcite ) on the structure of the right - hand sides of , together with the kinematic relations   and  , it yields to the governing equations ( cf .
+@xcite , ch .
+8 , ( 9.5a)(9.5d ) ) @xmath56 { { \boldsymbol{\nu}}}_t={{\boldsymbol{v}}}_s+{{\boldsymbol{\kappa}}}\times{{\boldsymbol{v}}}-{{\boldsymbol{\omega}}}\times { { \boldsymbol{\nu}}}\,,\\[0.15 cm ] \rho{{\boldsymbol{j}}}\cdot { { \boldsymbol{\omega}}}_t=\hat{{{\boldsymbol{m}}}}_s+{{\boldsymbol{\kappa}}}\times\hat{{{\boldsymbol{m}}}}+{{\boldsymbol{\nu}}}\times \hat{{{\boldsymbol{n}}}}-{{\boldsymbol{\omega}}}\times(\rho{{\boldsymbol{j}}}\cdot{{\boldsymbol{\omega}}})+{{\boldsymbol{l}}}\,,\\[0.15 cm ] \rho a{{\boldsymbol{v}}}_t={{\boldsymbol{n}}}_s+{{\boldsymbol{\kappa}}}\times \hat{{{\boldsymbol{n}}}}-{{\boldsymbol{\omega}}}\times ( \rho a{{\boldsymbol{v}}})+{{\boldsymbol{f}}}\ , , \end{array } \label{sct}\end{aligned}\ ] ] in which @xmath57 is the inertia tensor of the cross - section per unit length .
+the dynamical part of   contains parameters characterizing the rod under consideration of @xmath58 and the external force and torque densities @xmath59 and @xmath60 , whereas the kinematic part is parameter free .
+in @xcite , we constructed a general solution to that is the first equation in the pde system  . in so doing
+, we proved that the constructed solution is ( locally ) analytical and provides the structure of the twist vector function @xmath61 and the darboux vector function @xmath26 : @xmath62 where @xmath63 and @xmath64 are arbitrary vector - valued analytical functions , and @xmath65 .
+it turns out that the functional arbitrariness of @xmath66 and @xmath67 is superfluous , and that with @xmath68 is still a general solution to .
+this fact is formulated in the following proposition .
+[ pro:1 ] the vector functions @xmath69 and @xmath70 expressed by    @xmath71    with an arbitrary analytical vector function @xmath72 , are a general analytical solution to .
+let @xmath73 be a fixed point .
+the right - hand sides of   and   satisfy for an arbitrary vector function @xmath72 analytical in @xmath73 .
+it is an obvious consequence of the fact that   is a solution to   for arbitrary @xmath74 analytical in @xmath75 .
+also , the equalities   and   can be transformed into each other with @xmath76 reflecting the invariance of   under  .
+the equalities   and   are linear with respect to the partial derivatives @xmath77 and @xmath78 , and their corresponding jacobians .
+the determinants of the jacobian matrices @xmath79 and @xmath80 coincide because of the symmetry   and read @xmath81    let @xmath82 and @xmath54 be two arbitrary vector functions analytical in @xmath73 .
+we have to show that there is a vector function @xmath72 analytical in @xmath73 satisfying   and  .
+for that , chose real constants @xmath83 such that @xmath84 and set @xmath85 . then and   are solvable with respect to the partial derivatives of @xmath77 and @xmath78 in a vicinity of @xmath73 , and we obtain the first - order pde system of the form @xmath86 where the vector function @xmath87 is linear in its first argument and analytical in @xmath67 at @xmath88 .
+also , the system   inherits the symmetry under the swap   and is _ passive _ and _ orthonomic _ in the sense of the riquer - janet theory  ( cf .
+@xcite and the references therein ) , since its vector - valued _ passivity ( integrability ) condition _
+@xmath89 holds due to symmetry .
+therefore , by riquier s existence theorems  @xcite that generalize the cauchy - kovalevskaya theorem , there is a _ unique _
+solution @xmath72 of   analytical in @xmath73 and satisfying @xmath90 .
+in this section , we determine a general analytical form of the vector functions @xmath53 and @xmath92 in   describing the linear strain of a cosserat rod and its velocity .
+these functions satisfy the second kinematic equation   of the governing pde system   under the condition that the darboux and the twist functions , @xmath54 and @xmath82 , occurring in the last equation , are given by and which contain the arbitrary analytical vector function @xmath72 .    similarly , as we carried it out in  @xcite for the integration of  , we analyze lie symmetries ( cf .
+@xcite and the references therein ) and consider the _ infinitesimal generator _
+@xmath93 of a lie group of point symmetry transformations for  . the coefficients @xmath94 with @xmath95 in   are functions of the independent and dependent variables .
+the _ infinitesimal criterion of invariance _ of   reads @xmath96 where @xmath97 in addition to those in , the _ prolonged _ infinitesimal symmetry generator @xmath98 contains extra terms caused by the presence of the first - order partial derivatives in and  .    the invariance conditions   lead to an overdetermined system of linear pdes in the coefficients of the infinitesimal generator  .
+this _ determining _ system can be easily computed by any modern computer algebra software ( cf .
+we make use of the maple package desolv ( cf .
+@xcite ) which computes the determining system and outputs 138 pdes .    since the completion of the determining systems to involution is the most universal algorithmic tool of their analysis ( cf .
+@xcite ) , we apply the maple package janet ( cf .
+@xcite ) first and compute a janet involutive basis ( cf .
+@xcite ) of 263 elements for the determining system , which took about 80 minutes of computation time on standard hardware .
+then we detected the functional arbitrariness in the general solution of the determining system by means of the differential hilbert polynomial @xmath99 computable by the corresponding routine of the maple package differentialthomas ( cf .
+it shows that the general solution depends on eight arbitrary functions of @xmath0 .
+however , in contrast to the determining system for   which is quickly and effectively solvable ( cf .
+@xcite ) by the routine _ pdesolv _ built in the package desolv , the solution found by this routine to the involutive determining system for   needs around one hour of computation time and has a form which is unsatisfactory for our purposes , since the solution contains nonlocal ( integral ) dependencies on arbitrary functions . on the other hand , the use of sade ( cf .
+@xcite ) leads to a satisfying result .
+unlike desolv , sade uses some heuristics to solve simpler equations first in order to simplify the remaining system . in so doing
+, sade extends the determining systems with certain integrability conditions for a partial completion to involution . in our case
+the routine _ liesymmetries _ of sade receives components of the vectors in   and outputs the set of nine distinct solutions in just a few seconds .
+the output solution set includes eight arbitrary functions in @xmath0 which is in agreement with  .
+each solution represents an infinitesimal symmetry generator  .    among the generators , there are three that include an arbitrary vector function , which we denoted by @xmath100 , with vanishing coefficients @xmath101 , @xmath102 .
+the sum of these generators is given by @xmath103 it generates a one - parameter lie symmetry group of point transformations ( depending on the arbitrary vector function @xmath104 ) of the vector functions @xmath53 and @xmath92 preserving the equality   for fixed @xmath54 and @xmath82 .    in accordance to lie s first fundamental theorem ( cf .
+@xcite ) , the symmetry transformations @xmath105 generated by  , are solutions to the following differential ( lie ) equations whose vector form reads @xmath106 the equations   can easily be integrated , and without a loss of generality the group parameter can be absorbed into the arbitrary function @xmath107 .
+this gives the following solution if one takes and   into account .
+] to  : @xmath108    the vector functions @xmath82 , @xmath54 , @xmath53 , and @xmath92 expressed by  and   with two arbitrary analytical functions @xmath72 and @xmath104 form a general analytical solution to  .    the fact that   and   form a general analytical solution to   was verified in proposition [ pro:1 ] .
+we have to show that , given analytical vector functions @xmath53 and
+@xmath92 satisfying   with analytical @xmath82 and @xmath54 satisfying  , there exists an analytical vector function @xmath104 satisfying  .
+consider the last equalities as a system of first - order pdes with independent variables @xmath0 and a dependent vector variable @xmath109 . according to the argumentation in the proof of proposition [ pro:1
+] , this leads to the fact , that the equations in are invariant under the transformations @xmath110 this symmetry implies the satisfiability of the integrability condition @xmath111 without any further constraints .
+therefore , the system   is passive ( involutive ) , and by riquier s existence theorem , there is a solution @xmath109 to analytical in a point of analyticity of @xmath112 .
+to demonstrate the practical use of the analytical solution to the kinematic cosserat equations , we combine it with the numerical solution of its dynamical part .
+the resulting analytical solutions  and   for the kinematic part of ( [ sct ] ) contain two parameterization functions @xmath72 and @xmath104 , which can be determined by the numerical integration of the dynamical part of ( [ sct ] ) .
+the substitution of the resulting analytical solutions  and   into the latter two ( dynamical ) equations of ( [ sct ] ) , the replacement of the spatial derivatives with central differences , and the replacement of the temporal derivatives according to the numerical scheme of a forward euler integrator , leads to an explicit expression .
+iterating over this recurrence equation allows for the simulation of the dynamics of a rod .    in order to embed this into a scenario close to reality
+, we consider a flagellated microswimmer .
+in particular , we simulate the dynamics of a swimming sperm cell , which is of interest in the context of simulations in biology and biophysics .
+since such a highly viscous fluid scenario takes place in the low reynolds number domain , the advection and pressure parts of the navier - stokes equations ( cf .
+@xcite ) can be ignored , such that the resulting so - called _ steady stokes equations _
+become linear and can be solved analytically .
+therefore , numerical errors do not significantly influence the fluid simulation part for which reason this scenario is appropriate for evaluating the practicability of the analytical solution to the kinematic cosserat equations .
+the _ steady stokes equations _ are given by @xmath113 in which @xmath114 denotes the fluid viscosity , @xmath115 the pressure , @xmath116 the velocity , and @xmath117 the force . similar to the fundamental work in
+@xcite we use a regularization in order to develop a suitable integration of ( [ eq : stokes1])([eq : stokes2 ] ) . for that
+, we assume@xmath118 in which @xmath119 is a smooth and radially symmetric function with @xmath120 , is spread over a small ball centered at the point @xmath121 .
+let @xmath122 be the corresponding green s function , i.e. , the solution of @xmath123 and let @xmath124 be the solution of @xmath125 , both in the infinite space bounded for small @xmath126 .
+smooth approximations of @xmath122 and @xmath124 are given by @xmath127 for @xmath128 and @xmath129 , the solution of the biharmonic equation @xmath130 .
+the pressure @xmath115 satisfies @xmath131 , which can be shown by applying the divergence operator on ( [ eq : stokes1])([eq : stokes2 ] ) , and is therefore given by @xmath132 . using this ,
+we can rewrite ( [ eq : stokes1 ] ) as @xmath133 with its solution @xmath134 the so - called _ regularized stokeslet_.    for multiple forces @xmath135 centered at points @xmath136 , the pressure @xmath115 and the velocity @xmath116 can be computed by superposition . because @xmath122 and @xmath124 are radially symmetric , we can additionally use @xmath137 and obtain , @xmath122 , and @xmath124 only depend on the norm of their arguments , we change the notation according to this . ]
+@xmath138\,.\nonumber\end{aligned}\ ] ] the flow given by ( [ eq : stokessolution2 ] ) satisfies the incompressibility constraint ( [ eq : stokes2 ] ) . because of @xmath139 the integration of @xmath140 leads to @xmath122
+similarly , @xmath141 leads to the expression @xmath142 to determine @xmath124 .
+we make use of the specific function @xmath143 which is smooth and radially symmetric .    up to now , this regularized stokeslet ( [ eq : stokessolution1])([eq : stokessolution2 ] ) allows for the computation of the velocities for given forces .
+similarly , we can tread the application of a torque by deriving an analogous _ regularized rodlet _ ; see e.g.  @xcite . in the inverse case
+, the velocity expressions can be rewritten in the form of the equations @xmath144 for @xmath145 which can be transformed into an equation system @xmath146 with a @xmath147-matrix @xmath148 . since in general @xmath149 is not regular , an iterative solver have to be applied .
+a flagellated microswimmer can be set up by a rod representing the centerline of the flagellum ; see @xcite .
+additionally , a constant torque perpendicular to the flagellum s base is applied to emulate the rotation of the motor . from forces and torque the velocity field
+is determined . repeating this procedure to update the system state
+iteratively introduces a temporal domain and allows for the dynamical simulation of flagellated microswimmers ; see figures  [ fig : bacteria ] and [ fig : spermcell ] .
+compared to a purely numerical handling of the two - way coupled fluid - rod system , the step size can be increased by four to five orders of magnitude , which leads to an acceleration of four orders of magnitude .
+this allows for real - time simulations of flagellated microswimmers on a standard desktop computer . and
+[ fig : spermcell ] can be carried out in real - time on a machine with an intel(r ) xeon e5 with 3.5 ghz and 32 gb ddr - ram . ]
++    , the flagellum of a sperm cell does not have its motor at its base as simulated here .
+instead several motors are distributed along the flagellum ( cf .
+@xcite ) , for which reason this simulation is not fully biologically accurate , but still illustrates the capabilities of the presented approach.,scaledwidth=100.0% ]
+we constructed a closed form solution to the kinematic equations   of the governing cosserat pde system   and proved its generality .
+the kinematic equations are parameter free whereas the dynamical cosserat pdes contain a number of parameters and parametric functions characterizing the rod under consideration of external forces and torques .
+the solution we found depends on two arbitrary analytical vector functions and is analytical everywhere except at the values of the independent variables @xmath0 for which the right - hand side of vanishes .
+therefore , the hardness of the numerical integration of the cosserat system , in particular its stiffness , is substantially reduced by using the exact solution to the kinematic equations .
+the application of the analytical solution prevents from numerical instabilities and allows for highly accurate and efficient simulations .
+this was demonstrated for the two - way coupled fluid - rod scenario of flagellated microswimmers , which could efficiently be simulated with an acceleration of four orders of magnitude compared to a purely numerical handling .
+this clearly shows the usefulness of the constructed analytical solution of the kinematic equations .
+because of the presence of parameters in the dynamical part of the cosserat pdes , the construction of a general closed form solution to this part is hopeless . even if one specifies all parameters and considers the parametric functions as numerical constants , the exact integration of the dynamical equations is hardly possible .
+we analyzed lie symmetries of the kinematic equations extended with one of the dynamical vector equations including all specifications of all parameters and without parametric functions .
+while the determining equations can be generated in a reasonable time , their completion to involution seems to be practically impossible .
+this work has been partially supported by the max planck center for visual computing and communication funded by the federal ministry of education and research of the federal republic of germany ( fkz-01imc01/fkz-01im10001 ) , the russian foundation for basic research ( 16 - 01 - 00080 ) , and a biox stanford interdisciplinary graduate fellowship . the reviewers valuable comments that improved the manuscript are gratefully acknowledged .
+y.  blinkov , c.  cid , v.  gerdt , w.  plesken , d.  robertz : the maple package janet : ii .
+linear partial differential equations .
+computer algebra in scientific computing , casc 2003 , v.  ganzha , e.  mayr , e.  vorozhtsov ( eds . ) , 4154 , springer , ( 2003 ) .
+j.  butcher , j.  carminati , k.t .  vu . : a comparative study of some computer algebra packages which determine the lie point symmetries of differential equations .
+155 , 92114 ( 2003 ) .
+w.  hereman : review of symbolic software for lie symmetry analysis .
+crs handbook of lie group analysis of differential equations , vol .  3 : new trends in theoretical developments and computational methods , chap
+.  13 , n.  h.  ibragimov ( ed . ) , 367413 , boca raton , fl , crs press ( 1996 ) .
+d.  michels , d.  lyakhov , v.  gerdt , g.  sobottka , a.  weber : lie symmetry analysis for cosserat rods .
+computer algebra in scientific computing , casc 2014 , v.  p.  gerdt , w  .koepf , w  .m .
+seiler , e.  v.  vorozhtsov ( eds . ) , 324334 , springer , ( 2014 ) .
+d.  michels , d.  lyakhov , v.  gerdt , g.  sobottka , a.  weber : on the partial analytical solution to the kirchhoff equation .
+computer algebra in scientific computing , casc 2015 , v.  p.  gerdt , w.  koepf , w.  m.  seiler , e.  v.  vorozhtsov ( eds . ) , 320331 , springer , ( 2015 ) .

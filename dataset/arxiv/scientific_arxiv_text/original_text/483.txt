@@ -1,0 +1,284 @@
+humankind has accrued _ a priori _ knowledge since the onset of _ homo sapiens_. from ancient cave paintings to modern research papers , the species desire toward sedimentation has been displayed as a documentary .
+an encyclopedia , a set of documents that contains a vast collection of information from the entire field of human knowledge , has played a pivotal role in disseminating these legacies  @xcite .
+conventionally , a group of experts devote their expertise to these encyclopedias  @xcite . taking advantage of technological developments , media that publish encyclopedias keep abreast of the times : handwriting , letterpress printing , and optical disks .
+the emergence of information technology has opened a new era of publishing traditional encyclopedias on the world wide web  @xcite , which offers a variety of references and up - to - date information .
+although these new media can reduce the publication price , encyclopedia editing is still costly .
+besides the improvement of traditional encyclopedias , new media enable fresh challengers to participate in the competition .
+wikipedia  @xcite , a representative player among the challengers , has proposed an entirely new manner : editing by volunteers with various backgrounds in a collective fashion .
+this new paradigm of sharing knowledge is one of the most famous examples of `` collective intelligence . ''
+however , due to the nature of open - edit policy , wikipedia does not guarantee that the contents are valid  @xcite , thus it is regarded ambiguous and even inaccurate to utilize in scientific context  @xcite . despite such a long - standing bias against the credibility of wikipedia , many studies suggest that wikipedia is more reliable than our prejudice ; wikipedia itself tends to refer reliable scientific sources  @xcite .
+only 13% of wikipedia articles contain perceptible academic errors  @xcite and the quantity of factual errors , omissions , or ambiguous statements in scientific context of wikipedia is comparable to traditional encyclopedias  @xcite .    gradually , prejudice against the quality of wikipedia s articles has been eroded and the number of citations to wikipedia in peer - reviewed scientific articles has increased over time  @xcite .
+a bizarre gap between such prejudice and the actual situation appeals to the scholars , who have analyzed wikipedia s external characters and internal dynamics .
+for example , researchers have investigated editors of wikipedia and their editing patterns  @xcite , and the occurrence and resolving of conflicts in wikipedia  @xcite . despite the significant contributions of such endeavors , the previous studies mainly focus on the raw number of edits , and often neglect real time and the different editing patterns for articles with different sizes and ages . in this paper , we examine an exhaustive set of english wikipedia articles to understand how the article size and age displays external appearance in this open - editing encyclopedia . in particular , a simple time - rescaling method reveals articles belonging to various types , when we take account of the interrelation between observable parameters : the number of edits , the number of editors , and the article size .
+our analysis consists of both data analysis and modeling based on it .
+first , we use the entire edit history in wikipedia to inspect wikipedia s growth , mainly focusing on the number of edits , the number of editors , and the article size . in this process , we demonstrate that the consideration of real time is essential to understand the underlying dynamics behind the present wikipedia .
+second , to consider the formation of current wikipedia in more detail , we develop an agent - based model that imitates the interplay between an article and the editors in a society . our model shows inherent differences of articles belonging to different types of growth patterns .
+the results are consistent with real data , which suggests that a society s attitudes on wikipedia articles determine the growth pattern .
+we believe that this approach provides valuable insights for the formation of collective knowledge .
+we focus on the long - term formation of collective knowledge , which has significant effects on the progress of humankind over a variety of temporal scales .
+we hope that our work provides insights to solve some of the fundamental questions : why people collaborate , how the collective memory is formed , and how knowledge is spread and descended .
+the rest of the paper is organized as follows . in sec .  [
+sec : data_set ] , we introduce the wikipedia data that we use in our investigation . in sec .
+[ sec : data_analysis ] , we propose a time - rescaling method and show that the articles in wikipedia can be classified into multiple types based on their growth pattern .
+we present our model and results in sec .
+[ sec : model ] , including verification of our model with real - data . finally , we present our conclusions and discussion in sec .  [
+sec : conclusion ] .        ) of editors
+are logged - in and 83.9% ( @xmath1 ) remain anonymous .
+, scaledwidth=50.0% ]
+for the analysis , we use the december 2014 dump of english wikipedia .
+this dump contains the complete copy of wikipedia articles from the very beginning up to december 8 , 2014 , including the raw text source and metadata source in the extensible markup language ( xml ) format  @xcite . in this data set , there are a total of @xmath0 articles across all categories with the full history of edits .
+each article documents either the wikipedia account identification ( i d ) or internet protocol ( ip ) address of the editor for each edit , the article size and timestamp for each edit , etc .
+a single character in english takes 1 byte , so the article size is the direct measure of article length  @xcite .
+there are @xmath2 editing events ( `` edits '' from now on ) for all wikipedia articles in total , where individual articles edit numbers range from @xmath3 to @xmath4 .
+previous studies tend to sample data sets for various reasons , and thus articles with small numbers of edits are necessarily filtered out  @xcite
+. however , fig .
+[ numeditspdf ] suggests a fat - tailed distribution for the number of edits , so the majority of articles are not edited as many times as the articles in the tail part of the distribution and those articles should not be neglected .
+therefore , we consider all entries and use the entire set for analysis
+. additionally , we use the i d and ip address , for logged - in editors and unlogged - in editors , respectively , to identify distinct editors . in total , @xmath5 editors have participated in the establishment of the current wikipedia . among them , 83.9% ( @xmath1 ) of editors are unlogged - in and only 16.1% ( @xmath6 ) of editors are logged - in .
+interestingly , the absolute share of logged - in editors is rather smaller than that of unlogged - in editors ; most of the heavy editors tend to be logged - in ( fig .
+[ numeditslogged ] ) .
+specifically , logged - in editors have modified the articles 455397682 times ( 77.5% ) in total , meanwhile unlogged - in editors have modified the articles only 132475517 times ( 22.5% ) .
+considering the fact that the number of unlogged - in editors exceeds that of logged - in editors , the average influence of a single unlogged - in editor is much smaller than that of logged - in editors ( on average , 69.8 times per logged - in editor and 3.9 times per unlogged - in editor ) .
+there are possible biases for ip addresses when an ip address is shared , e.g. , editors who use a library , public wifi , virtual private network ( vpn ) , etc . , or move the locations . in those cases , there will be under- or overestimation of the number of distinct editors .
+additionally , several home internet connection methods allocate ip addresses dynamically , e.g. , digital subscriber line ( dsl ) and dial - up . for those cases
+, there might be overestimation and misidentification of distinct editors .
+however , it is reported that cable and fiber to the home ( ftth ) dominate the u.s .
+market share  @xcite , which provide quasistatic ip addresses  @xcite .
+considering both the market shares and modest impact of single unlogged - in editors on the current wikipedia , we believe that our analysis is robust .
+in fact , we actually check that even when we exclude unlogged - in editors , our results reported in sec .  [
+sec : data_analysis ] are not affected at all indeed .
+in addition , a small number of edits does not specify the editor , yet we use other information even for such cases based on the article size and timestamp .
+-th year '' corresponds to the edit event occurring between the first and the last day of the @xmath7-th year since the onset of the article .
+the time differences follow fat - tailed distribution , which is a sign of the burstiness , with a daily periodic pattern ( @xmath3 day = @xmath8 s).,scaledwidth=50.0% ]
+previous studies on the wikipedia data set did not use the information about article size changes after the edits  @xcite or real timestamps of the edits  @xcite .
+we combine such information together with conventional measures , such as the number of edits and the number of editors , to display the nature of wikipedia .
+our first analysis of time and size differences between two consecutive edits reveals regularity , regardless of an article age and size .
+the time between the consecutive edits follows a fat - tailed distribution with characteristic periodicity from the human circadian rhythm ( fig .
+[ deltatimeperage ] ) , which suggests that the editing timescale of wikipedia is intermittent or `` bursty , '' meaning that brief but intense activities are followed by much smaller activities for a long time  @xcite .
+these intense activities in wikipedia are reported as `` wikipedia edit war , '' which refers to significantly rapid consecutive editing by various editors with conflicting opinions  @xcite .
+our observation indicates that the `` edit number '' ( or the number of edits ) , which many studies use as the proxy of the real time  @xcite , is not an unbiased proxy of the time .
+counterposed to the assumption that english wikipedia has already become global media , we observe strong periodicity for the time between the consecutive edits in fig .
+[ deltatimeperage ] .
+the peaks are located at every @xmath8 s or a single day , which implies that native english speakers ( mostly people in the united states because of the relative population , we presume ) still dominate english wikipedia even though there is no barrier to global access .
+such a circadian pattern in the frequency of editing events is mainly driven by editors with specific cultural backgrounds for the data until the beginning of 2010s , as reported in ref .
+our observation indeed shows that the circadian rhythm also affects the interediting time in a collective fashion , and this domination still remains in the current wikipedia .    besides the time scale
+, we observe that an article s growth is mainly addition and subtraction with a characteristic size scale , which are rather independent of the current size ( fig .
+[ deltasizepersize ] ) .
+this observation is counterposed to the recent report that the growth of collaborated open - source software and mammalian body masses are proportional to their size  @xcite , and implies that the influence of a single edit becomes smaller as article size is increased .
+most previous research  @xcite does not take into account the degree of the influence for a single edit , and thus considers all of the edits as affecting the article of wikipedia equally .
+however , our observations propose the necessity of combining the time and size difference between the edits with the conventional measures .          in sec .
+[ sec : edit_scale_of_wikipedia ] , we have shown that the time between two consecutive edits is quite heterogeneous ( fig .
+[ deltatimeperage ] ) .
+this global effect of various timescales itself makes it unfair to directly compare the characteristic parameters of articles : the number of editors , edits , and the article size for different articles . to compensate for such an effect
+, we employ rescaled measures for article @xmath9 as @xmath10 , @xmath11 , and @xmath12 , where @xmath13 , the age of article @xmath9 , is measured as the time between the moment of onset and that of the latest edit of article @xmath9 .
+@xmath14 , @xmath15 , and @xmath16 are the number of edits , the number of editors , and the article size for article @xmath9 , respectively
+. the rescaled measures are free from the temporal effects , making it possible to recruit myriad articles into the same ground for analysis in the sense of growth per unit time . for the number of edits , the number of editors , and the article size from the data , we hereafter use their rescaled values unless stated otherwise .
+a natural step forward is to search for any possible interplay between @xmath17 , @xmath18 , and @xmath19 in the formation of current wikipedia .
+one can suppose that the number of edits has varied gradually as a function of the number of editors , because both measures reflect the degree of interest in the article .
+unexpectedly , we discover that the articles show a peculiar bimodality in their number of editors across the entire value of the number of edits [ see fig .
+[ bimodality](a ) ] .
+the bimodality is characterized by the linear relation @xmath20 with two distinct proportionality constants , @xmath21 and @xmath22 , respectively .
+in other words , there are two groups of articles , determined by the proportion between the number of editors involved in the articles and the editors average activity ; one group is dominated by a relatively small number of enthusiasts who edit articles frequently , and the other is composed of a relatively large number of editors who seldom edit articles .
+besides the cases of edits and editors , wikipedia shows a similar division of article size for given numbers of editors [ see fig .
+[ bimodality](b ) ] .
+there are two types of articles determined by the average article size produced by an editor per unit time .
+this relation is also described by the linear dependency @xmath23 , where @xmath24 for the upper mode and @xmath25 for the lower mode . in other words , editors for some articles
+have generated about @xmath26 bytes on average , meanwhile the editors of the rest of the articles have generated only about @xmath27 bytes on average .
+our finding of bimodality in the two relations ( @xmath17 versus @xmath18 and @xmath18 versus @xmath28 ) triggers an interesting question : does each of the modes in one relation correspond to each mode in the other relation [ figs .
+[ bimodality](a ) and [ bimodality](b ) ] ?
+it seems natural to speculate that such modes have the counterparts in the other relation , or at least one is subordinative of the other .
+contrary to this speculation , our observation suggests that there is no visible relationship between the two different types of bimodality [ see figs .
+[ bimodality](c)[bimodality](f ) ] .
+the points in the figures are colored according to the modes to which the corresponding articles belong in the criteria based on @xmath29 or @xmath30 .
+we simply tear off the upper and lower modes by drawing a line [ the dashed lines in figs .
+[ bimodality](a ) and [ bimodality](b ) ] between the two modes and assign purple and blue colors for the points in the upper and the lower modes , respectively .
+those purple and blue points are totally mixed when the criterion is based on the other parameter relation .
+taken together , we conclude that there are at least four different groups of articles , which can be categorized by its growth per unit time .
+the possible mechanism behind the division is suggested based on our modeling study in sec .
+[ sec : model ] .
+to understand the underlying dynamics of the observed patterns , we develop a mechanistic model of editing dynamics by identifying two key factors that drive the evolution of wikipedia articles .
+we assume that there are two fundamental and inherent properties of an article reflecting the society s viewpoint on the article s topic : the preferences for referring wikipedia and the desires to edit ( namely , editability ) . in this section
+, we show that two such key drivers have elicited the wikipedia into its current state as shown in fig .
+[ bimodality ] .
+interestingly , each of those has a decisive effect on the distinct modality structure of @xmath29 and @xmath30 , respectively , and they have almost no impact on each other s modality .
+the preferences for referring wikipedia stems from its relative credibility compared to other conventional media . in other words , people tend to refer wikipedia more than other conventional media or opinion from others for certain topics .
+because of the nature of open - edit policy , there are long - lasting arguments of credibility , especially for the scientific contexts  @xcite . as a result
+, people avoid referring wikipedia to reinforce their contention for scientific topics when they debate .
+nevertheless , several topics are almost free from the trust issue and wikipedia can be considered as a trustworthy source of knowledge .
+the subcultures such as animations , movies , and computer games are good examples , because the editors are not only a fan of the topic but also the creators of such cultures  @xcite . in those cases , therefore , members of a society do not hesitate to utilize wikipedia as their grounds for the arguments .
+in addition , there are different levels of psychological barriers and desires in editing , depending on the topic . people tend to edit the article about which they have enough knowledge  @xcite .
+thus , the average `` editability '' of articles , for members of a society , is diverse by its nature from the casual ones which are easily editable to the formal ones .
+this editability also depends on collective motives , which describe the significance of the topic as the common goal of social movements  @xcite .
+therefore , the intrinsic rate of edit should be taken into account .
+besides these two key factors , editors are also engaged in articles when they have already given more effort to the articles by editing them  @xcite , representing the feeling of attachment . additionally , it is hard to edit an article that already has a massive amount of information  @xcite , so the motivation to edit will be reduced as the article size is increased .
+we describe how we implement the sociopsychological effects into our mathematical model in detail .      by incorporating the aforementioned factors ,
+we create a mechanistic model of the article growth .
+the model comprises @xmath31 agents where the individual agents represent members of a society and all of the agents are connected to a single wikipedia article .
+note that we take a single wikipedia article in our model , as we assume that different degrees of editability and credibility yield different types of articles in real wikipedia . to account for the modality shown in the interplays between three measures , @xmath28 , @xmath18 , and @xmath17 in fig .
+[ bimodality ] , we introduce corresponding model parameters . first , the article has its own length @xmath32 corresponding to @xmath33 in our data analysis . at the beginning , the length is assigned as @xmath34 , where @xmath3 is the minimum length to which agent can reduce the article , so @xmath35 always .
+the number of edits at time @xmath36 , denoted as @xmath37 , is also defined as the total number of article updates until @xmath36 , under the update rules described in sec .
+[ sec : agent_wiki_dynamics ] .
+additionally , @xmath38 corresponds to the number of distinct agents who edited the article at least once .    besides the quantities explicitly measured in data analysis
+, we also adopt internal parameters for the agents and the article .
+the agents are connected to each other with the erds - rny random network  @xcite .
+such connections between agents stand for various relationships in society : friends , co - workers , even enemies .
+every agent @xmath9 has its own opinion @xmath39 $ ] ( real numbers between @xmath40 and @xmath3 ) at time @xmath36 , where @xmath40 and @xmath3 are the two extremes of conflicting opinions , e.g. , conservatism and progressivism
+. one should be aware that this number does not correspond to a certain merit or superiority .
+initially , @xmath41 is assigned as a randomly generated number from the uniform distribution in the interval @xmath42 $ ] .
+the wikipedia article also has its own opinion @xmath43 at time @xmath36 , which is the overall stance of wikipedia on the topic .
+we set @xmath44 , to get the insights of the situation that agents and the wikipedia article adjust their opinions to the most radical one .
+similar to the fact that it is impossible to gauge the `` stance '' of the article and agents to the topic , we do not explicitly display the values and those are used only for stochastic simulation .
+for each time step @xmath36 , the agent - agent interaction described in sec .  [ sec : agent_agent_dynamics ] and the agent - wikipedia dynamics described in sec .
+[ sec : agent_wiki_dynamics ] occur in turn .
+our model colligates resolving of conflicts between agents with the contribution of agents to modify wikipedia . in our model , all members of society are open - minded and they can change their mind . for each timestep @xmath36 ,
+a pair of agents @xmath9 and @xmath45 , which are neighbors in a preassigned network , is chosen and they try to convince each other for the topic of the wikipedia article .
+we assume that agents rely on references to reinforce their opinion . for simplicity
+, we consider only two major types of references : wikipedia and general media .
+general media , denoting the entire set of references other than wikipedia , represent the ordinary viewpoint of the society toward the topic . as we described above , wikipedia is a more reliable source for certain topics .
+hence , we set a probability @xmath46 with which agents choose wikipedia as their reference , and this probability corresponds to the reliability of wikipedia [ see fig .
+[ modeldescription_fig](a ) ] .
+otherwise , agents decide to follow the standards of society by following general media s opinion , which is defined as the average opinion of entire agents in the society .
+in other words , the reference opinion @xmath47    once we choose the reference , an agent whose opinion is closer to the reference always succeeds in convincing the other agent . for the convenience ,
+we call the agent as @xmath9 whoever s opinion is closer to the reference than the other , i.e. , @xmath48 [ see fig .  [ modeldescription_fig](a ) ]
+. agent @xmath45 changes its opinion toward @xmath9 s , while agent @xmath9 keeps its opinion .
+people tend to minimize the amount of changing  @xcite ; thus the agent @xmath45 sets his / her target as @xmath49 or @xmath50 , depending on which one is closer . as a result ,
+the opinions of agents @xmath9 and @xmath45 at the next step @xmath51 are given by @xmath52 and    @xmath53    respectively .
+the parameter @xmath54 $ ] represents the tolerance of agents , which indicates the psychological limit to change the opinion , as discussed in the introductory part of sec .
+[ sec : model ] .
+the value of @xmath55 affects mainly the timescale of simulation , yet does not have a large impact on our model conclusions ; thus we fix this value as @xmath56 to set a moderate time scale
+.      a distinct character of our model , compared to opinion spreading models with external field  @xcite , is that agents can also modify the media , which corresponds to wikipedia in our model .
+one additional key difference from the previous models of wikipedia
+@xcite is that we introduce the _ length _ @xmath32 into our model .
+this length not only has an impact on the edits but also changes by the edits .
+we focus on the length of the article instead of the specific opinion values .    as we described in the introductory part of sec .
+[ sec : model ] , we assume that there are fundamental differences in `` editablity '' among articles , thus we set the base activity of edit @xmath57 as the control parameter . for every timestep , a randomly chosen agent attempts to edit the article in wikipedia .
+suppose that agent @xmath58 is chosen , then it edits the wikipedia article with the probability    @xmath59    where @xmath60 is base activity , and @xmath61 is attachment of agent @xmath58 for the wikipedia article  @xcite , which is assigned as @xmath40 at the beginning and increased by unity every time an agent edits the wikipedia article [ see fig .  [ modeldescription_fig](b ) ] . naturally , the term @xmath62 / [ \sum_{s}{a_s(t ) + 1}]$ ] accounts for the fact that people tend to edit more frequently when they have contributed to establishing the current state of the article more  @xcite .
+the term @xmath63 in eq .   represents the reduced motivation as the article size is increased , due to the amount of information  @xcite .
+a recent report that the growth of wikipedia has slowed down supports this factor  @xcite . if an agent decides to edit an article , wikipedia s opinion changes as @xmath64 / l(t ) \,.\end{gathered}\ ] ] in our model , the amount of change is inversely proportional to @xmath32 .
+figure  [ deltasizepersize ] indicates that the impact of a single edit event should be decreased as the article size is increased , because the absolute amount of change is preserved .
+additionally , @xmath65 represents the physical and psychological limit for editing  @xcite .
+the value of @xmath65 affects also mainly the timescale of simulation similar to @xmath55 .
+we fix this value as @xmath56 to set a moderate time scale , and this value does not have a large impact on our model conclusions .    finally , the length parameter @xmath32 is changed after the update of the article s opinion , as follows : @xmath66 where the random variable @xmath67 is chosen according to the following rule .
+if the agent has modified the article toward an extreme position ( @xmath40 or @xmath3 ) , we suppose that the agent tend to append new contents to the article .
+in contrast , agents are likely to replace the contents to neutralize the article s opinion .
+specifically , we divide the update into the two following cases : ( i ) @xmath68 or @xmath69 ( toward an extreme ) and ( ii ) any other cases ( neutralize ) . for ( i ) , the article size is increased by @xmath67 drawn from the interval @xmath70 $ ] uniformly at random , to reinforce the argument .
+otherwise , @xmath67 is drawn from the interval @xmath71 $ ] uniformly at random , which implies replacement of arguments .
+the fixed parameter @xmath72 is related to the physical limit in fig .
+[ deltasizepersize ] .
+the value of @xmath72 affects mainly the length .
+however , in this study , we use the ratio of the length to other measures rather than the absolute length of the article .
+we display the result with @xmath73 ( fig .
+[ modelresults ] ) , yet we verify that our conclusions are robust for other values of @xmath72 because the parameter governs only the overall length scale [ see fig .
+[ modeldescription_fig](b ) for the illustration on the @xmath67 criterion ] . in sec .
+[ sec : model_results ] , we discuss how the modes in fig .
+[ bimodality ] are formulated during the evolution of wikipedia in our model .     and @xmath46 using the page view statistics of wikipedia ( 2014 ) and google @xmath7-gram data set ( 2008 ) , which are the latest data sets for both .
+( a ) the average value of estimated @xmath57 , which is calculated by dividing the number of edits in 2014 by the page view statistics in 2014  @xcite , as a function of @xmath74 .
+as expected , the estimated @xmath57 decreases for larger @xmath74 values .
+( b ) the average value of estimated @xmath46 : the ratio of the page view statistics in 2014  @xcite to the google 1-gram frequency in 2008  @xcite , as a function of @xmath75 .
+both plots are drawn from the same sampled set of @xmath76 articles , with the conditions described in the text . ]            for both @xmath77 versus @xmath78 and @xmath78 versus @xmath79 relations , our mechanistic model captures the essential features of the observed empirical relations reported in sec .
+[ sec : time_rescaled ] with proper parameter values . as we have shown in sec .
+[ sec : data_analysis ] , the proportionality coefficients between characteristic parameters are classified into two modes : @xmath80 in particular , both @xmath46 for the agent - agent interaction ( in sec .
+[ sec : agent_agent_dynamics ] ) and @xmath57 for the agent - wikipedia interaction ( in sec .
+[ sec : agent_wiki_dynamics ] ) are crucial to generate the splits of modes into different groups : @xmath57 is essential to reproduce a separation of @xmath81 [ see fig .  [ modelresults](a ) ] and @xmath46 is indispensable for the division of @xmath82 [ see fig .
+[ modelresults](b ) ] . in the early stage , @xmath81 is almost unity across the systems with the entire parameter space composed of @xmath46 and @xmath57 , which corresponds to the single ( or unimodal , in contrast to the bimodal pattern shown in real data ) linear relation .
+while this single linear relation is characterized at the early stage , as time goes by , we observe the decreasing trend of @xmath81 .    despite the fact that the @xmath81 decrement over time occurs for the entire parameter space ,
+the pace of decreasing is determined by @xmath57 , the base rate for editing an article .
+@xmath81 drops much slower for smaller @xmath57 values , which leads systems to fall into two different regimes : @xmath83 and @xmath84 [ fig .
+[ modelresults](a ) ] .
+interestingly , this divarication solely depends on the value of @xmath57 . on the other hand
+, @xmath82 also shows unimodality in the early stage , but it is suddenly increased with time only for @xmath85 [ fig .
+[ modelresults](b ) ] .
+analogous to @xmath81 , @xmath82 is also almost solely driven by @xmath46 , but there also exists a small amount of influence by @xmath57 ; small values of @xmath57 do not guarantee the large article size across all @xmath46 values , but low @xmath57 yields large article size at similar values of @xmath46 .      based on our model results , we suggest a possible mechanism that yields the bimodality in fig .
+[ bimodality ] , which encourages us to verify the model results compared to the real data : either parameter @xmath57 or @xmath46 should be a decreasing function of @xmath86 and @xmath87 , respectively .
+however , we can not extract simulation parameters @xmath46 and @xmath57 directly from the data .
+we therefore use a bypass to estimate @xmath57 and @xmath46 . fortunately ,
+wikipedia offers page view statistics of articles that can be used for estimating such parameters  @xcite .
+we assume that this page view in a certain period reflects the degree of interest of wikipedia users in the articles , and the number of edits in the same period naturally displays the editing frequency .
+thus , the ratio of the number of edits to this page view for a certain period can be related to the base edit rate @xmath57 .
+analogous to our presumption , this ratio is a decreasing function of @xmath86 ( see fig .
+[ modelverify ] ) .    to treat the other parameter @xmath46
+, we should employ the proxy that can reflect the general interest of the entire society in the topic .
+we suggest that the google books @xmath7-gram , a vast digitized collection of documents produced in the world is a suitable choice  @xcite .
+google books @xmath7-gram is a database containing about 6% of english books ever published .
+this data set offers a yearly number of occurrences for any phrase less than six words from 1800 to 2008 , and this number of occurrences can be considered as the proxy of interests in society for a certain phrase . in our model
+, @xmath46 is the proportion of degree of interest in wikipedia versus that of the entire society . in other words ,
+wikipedia page view on a certain topic versus its @xmath7-gram frequency can be the estimator of @xmath46 . for fair comparison
+, we also only take the wikipedia articles that satisfy the following conditions .
+first , the title of article should exist in google 1-gram data set in 2008 , the latest year of the data set .
+second , the article should be visited at least once in 2014 . to avoid the effect of inflectional variation of words
+, we use the stem of wikipedia articles title and google 1-gram data set  @xcite , instead of using the word directly . after this filtering process
+, @xmath76 articles are left among the total set of @xmath0 articles .
+this estimator of @xmath46 also decays , as @xmath87 is increased as we expected .    both figs .
+[ modelverify](a ) and [ modelverify](b ) indeed show the behaviors expected from their estimators ( @xmath57 and @xmath46 , respectively ) , which indicates that our model is suitable to describe the real wikipedia .
+note that the estimators of @xmath57 and @xmath46 should not be taken as the exact face values of model parameter values for a real article in wikipedia , and the results should be understood as a proxy of statistical properties of articles .
+first , page view statistics might be affected by the number of hyperlinks pointed to the article .
+such relative importance within the network topology may increase the page view by random visits , yet there is a positive feedback between the page view and the number of hyperlinks .
+an article also tends to have connections to popular articles  @xcite , which eventually yields disproportionally many hyperlinks for popular items ; thus there could be overestimation of page views for the popular articles .
+moreover , there is a recent report that warns of the possible bias of google @xmath7-gram as the proxy of real popularity in our society  @xcite .
+this year - by - year level fluctuation may give unfairness to compare the frequencies many years apart .
+to avoid such fluctuation , we restrict our results for the year 2008 . additionally , word - by - word fluctuation should be canceled during the averaging process , because each data point corresponds to a massive number of articles . as a result
+, we believe that our observation is still valid , in spite of such fluctuations that might cause some degree of bias .
+the heterogeneity for the ratio of the number of editors to that of edits , @xmath86 , leads us to the eventual question : is this heterogeneity from structural inequality ?
+in other words , does the existence of dictatorship or monopoly of small group editors , or super editors  @xcite , make it difficult for others to participate in editing processes ? to find the answer , we use the gini coefficient , which is a common measure for inequality in economics  @xcite ranging from @xmath40 for the minimal inequality ( or the maximal equality ) to @xmath3 as the maximal inequality .
+we consider the number of edits for individual editors as the wealth variable in the gini coefficient .
+the trend of the gini coefficient as a decreasing function of @xmath86 shown in fig .
+[ gini](a ) suggests the modes with slope @xmath88 and @xmath89 in fig .
+[ bimodality](a ) are in equilibrium and non - equilibrium states , respectively .
+additional analysis of the gini coefficient in terms of the @xmath57 estimator ( the ratio of the number of edits in 2014 to the page view statistics in 2014 ) also indicates that the larger @xmath57 induces more severe inequality for editing [ see fig .
+[ gini](b ) ] .
+this is counterintuitive because it actually means that articles inducing larger motivation to edit eventually set a larger barrier to participate in editing .
+it is doubtful that the phenomenon is caused by the amount of information  @xcite , since the gini coefficient does not vary much according to its amount of information [ see fig .
+[ gini](c ) ] .
+similar to the real wikipedia , our model also supports the observed inequality .
+although we use a simplified estimator of @xmath57 in our real data , the ratio of the number of edits in 2014 to the page view statistics , the gini coefficient is an increasing function of @xmath57 in the model as in the real data [ see fig .  [ gini](d ) ] . additionally , since @xmath57 has a limited effect on the article size ( see fig .  [ bimodality ] ) , the model observation of the gini coefficient is compatible to our observation that article size does not have a large effect on the gini coefficients .
+such logical elimination suggests that a few engaged and dominating editors make it indeed hard for laypeople to participate in editing processes .
+there are `` democratic '' articles ( with slope of @xmath88 in fig .  [ bimodality ] ) and `` dictatorial '' articles ( with slope of @xmath89 in fig .
+[ bimodality ] ) . in short
+, inequality exists indeed .
+traditionally , collaboration used to be mainly regional and face - to - face interactions were demanded , which had prevented the world - wide formation of collective intelligence .
+nowadays , improvements of modern information technology bring us a whole new stage of online collaboration . in this study
+, we have examined such a new passion of collective intelligence through long - term data from wikipedia  @xcite .
+people believe that such a new paradigm will eventually yield democratization of knowledge  @xcite . as a representative medium , wikipedia
+is also considered as a spearhead of such pro - democracy movements  @xcite .
+however , our observation suggests that the current status of wikipedia is still apart from the perfect world - wide democracy .
+the observed periodicity for the time between edits alludes that the english wikipedia is still regional for english natives ( see fig .
+[ deltatimeperage ] ) .
+bimodality and its inequality index suggest that there are articles dominated by a small number of super editors ( figs .
+[ bimodality][gini ] ) .
+notwithstanding the fact that there is no explicit ownership for wikipedia articles , some kind of privatization by dedicated editors for given topics is happening in reality .
+the value of such dedicated editors should not be depreciated , of course .
+their dedication has indeed played the main role in keeping the current state - of - the - art accuracy in the current wikipedia  @xcite . however ,
+in the long run , knowledge can not survive without collaboration between experts and society  @xcite . although most advanced knowledge is invented by experts ,
+such experts occupy a rather small proportion in a society ; thus , knowledge without support from other members of the society will lose its dynamic force to sustain . additionally , despite our findings that the amount of contents created by an editor ( @xmath87 ) mainly depends on the degree of referring wikipedia ( namely @xmath46 ) , an equitable opportunity for participation also increases such individual productivity ( see fig .
+[ modelresults ] ) .
+our study not only gives significant insight into the formation and current state of wikipedia , but also offers the future direction of wikipedia .
+our simulation results suggest that such inequality is increased with time , which may result in less productivity and less accuracy as by - product in the future than now [ see figs .  [
+modelresults](a ) and [ gini](e ) ] .
+it is indeed already reported that the growth of wikipedia is slowing down  @xcite and our observation suggests that it will become even slower if we do not take any active action . to sustain collaborating environments ,
+it is worth giving more motivation and incentives to the newbies to reduce the monopolized structure in wikipedia .
+we hope that extending our approach to various collaboration environments such as open - source movement  @xcite might give us the insight for the future investment that brings us a new level of collaborating environments .
+finally , we would like to emphasize that the results and implications of our study are not restricted to the wikipedia or online collaboration systems , but have much wider applications in human or nonhuman interactions in the world .
+we are grateful to beom jun kim (  ) , pan - jun kim (  ) , and hyunggyu park (  ) for insightful comments .
+this work was supported by the national research foundation of korea through grant no .
+2011 - 0028908 ( j.y . and h.j . ) .
+a. kittur , b. suh , and e.h .
+chi , _ can you ever trust a wiki ? : impacting perceived trustworthiness in wikipedia _ , proceedings of the 2008 acm conference on computer supported cooperative work ( cscw 08 ) , p. 477
+( 2008 ) .
+adler , k. chatterjee , l. de alfaro , m. faella , i. pye , and v. raman , _ assigning trust to wikipedia content _
+, proceedings of the 4th international symposium on wikis ( wikisym 08 ) , article no . 26
+( 2008 ) .
+bould , e. s. hladkowicz , a .- a.e .
+pigford , l .- a .
+ufholz , t. postonogova , e. shin , and s. boet , _ references that anyone can edit : review of wikipedia citations in peer reviewed health science literature _ ,
+bmj * 348 * , g1585 ( 2014 ) .
+a. kittur , b. suh , b. a. pendleton , and e.h .
+chi , _ he says , she says : conflict and coordination in wikipedia _ , proceedings of the sigchi conference on human factors in computing systems ( chi07 ) ,
+( 2007 ) .
+bryant , a. forte , and a. bruckman , _ becoming wikipedian : transformation of participation in a collaborative online encyclopedia _ , proceedings of the 2005 international acm siggroup conference on supporting group work ( group 05 ) ( 2005 ) .
+lakhani and r. wolf , why hackers do what they do : understanding motivation and effort in free / open source software projects , _ perspectives on free and open source software _
+( mit press , cambridge , ma , 2005 ) .
+a. capocci , v.d.p .
+servedio , f. colaiori , l.s .
+buriol , d. donato , s. leonardi , and g. caldarelli , _ preferential attachment in the growth of social networks : the internet encyclopedia wikipedia _ , phys .
+e * 74 * , 036116 ( 2006 ) .
+h. hasan and c. pfaff , _ emergent conversational technologies that are democratising information systems in organisations : the case of the corporate wiki _ , proceedings of the information systems foundations ( isf ) : theory , representation and reality conference ( 2006 ) .

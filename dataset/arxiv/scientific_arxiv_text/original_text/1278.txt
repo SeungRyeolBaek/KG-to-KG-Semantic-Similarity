@@ -1,0 +1,358 @@
+a submanifold @xmath0 in some symplectic manifold @xmath1 is called lagrangian if @xmath2 and @xmath3 .
+a simple example is given by the zero section @xmath4 in the cotangent bundle of a smooth manifold @xmath5 , and this is universal in the sense that a neighborhood of any lagrangian embedding of a closed @xmath5 into some symplectic manifold is symplectomorphic to a neighborhood of @xmath6 .
+lagrangian submanifolds play a fundamental role in symplectic geometry and topology , as many constructions and objects can be recast in this form .
+in fact , already in a 1980 lecture ( cf .
+@xcite ) , a. weinstein formulated the `` symplectic creed '' :    _ everything is a lagrangian submanifold .
+_    today , lagrangian submanifolds ( sometimes decorated with additional structures ) are for example studied as objects of the _ fukaya category _ , which plays a fundamental role in kontsevich s formulation of homological mirror symmetry . rather than delving into such general theories ,
+i want to concentrate here on a quite simple , and in fact basic , question :    _ which closed , oriented @xmath7-manifolds admit a lagrangian embedding into the standard symplectic space @xmath8 , with @xmath9 ? _    an excellent introduction to this question , containing a discussion of some of the relevant classical algebraic topology , as well as early results obtained by holomorphic curve methods , is @xcite , which i will quote freely .    for @xmath10
+there is not much to say , since @xmath11 is the only connected closed 1-manifold , and the lagrangian condition @xmath12 is trivial in this case . in general , a necessary condition for an oriented closed manifold @xmath13 to admit a lagrangian embedding into @xmath14 is that its euler characteristic @xmath15 should vanish .
+this is because the self - intersection number of any submanifold of @xmath14 is clearly zero , but it is also equal to the euler characteristic of the normal bundle , which for lagrangian submanifolds is isomorphic to the cotangent bundle .
+so for @xmath16 , the only orientable closed manifold that could have a lagrangian embedding into @xmath17 is @xmath18 , and it embeds e.g. as the product of one circle in each @xmath19-factor . for non - orientable
+closed surfaces @xmath20 , classical algebraic topology implies that a necessary condition for the existence of a lagrangian embedding is that @xmath21 is divisible by 4 , and a beautiful construction by givental  @xcite shows that for strictly negative euler characteristic this is also sufficient .
+the embedding question was only recently completely answered , when shevchishin showed that the klein bottle does not have a lagrangian embedding into @xmath17 ( @xcite , see also @xcite for an alternative argument by nemirovski ) .    already for
+@xmath22 , elementary algebraic topology does not tell us much .
+it was one of the many important results in gromov s landmark paper  @xcite to show that there are no exact lagrangian embeddings into @xmath23 , in the sense that any global primitive @xmath24 of the symplectic form @xmath25 has to restrict to a non - exact closed 1-form on the lagrangian submanifold @xmath26 .
+this in particular rules out @xmath27 , but of course there are plenty of closed orientable 3-manifolds with @xmath28 .    all of this and more is discussed in @xcite .
+the goal of this chapter is to show how knowledge about string topology can be applied to give a far - reaching refinement of gromov s result .
+in particular , i aim to present the overall strategy for proving the following result :    ( fukaya)[thm : fukayamain ] let @xmath5 be a compact , orientable , aspherical spin manifold of dimension @xmath7 which admits an embedding as a lagrangian submanifold of @xmath14 . then a finite covering space @xmath29 of @xmath5 is homotopy equivalent to a product @xmath30 for some closed @xmath31-manifold @xmath32 .
+moreover , @xmath33 is the centralizer of some element @xmath34 which has maslov class equal to 2 and positive symplectic area .
+the assertion about the maslov class is known as _ audin s conjecture _ , and was originally asked for tori in @xmath14 , see @xcite .
+the spin condition is a technical assumption ( it is needed to make the relevant moduli spaces of holomorphic disks orientable ) , and i expect that it can be removed by reformulating the argument somewhat . the asphericity assumption ( meaning that all higher homotopy groups of @xmath5 vanish ) enters the proof in a fairly transparent way , and one can imagine various replacements .    as a corollary , we obtain the following more precise statement in dimension 3 .
+( fukaya)[cor : fukaya1 ] if the closed , orientable , prime 3-manifold @xmath5 admits a lagrangian embedding into @xmath35 , then @xmath5 is diffeomorphic to a product @xmath36 of the circle with a closed , orientable surface .
+the fact that the product @xmath36 does embed as a lagrangian submanifold into @xmath35 follows from an elementary construction , see e.g.  @xcite . basically , one starts from an isotropic embedding of @xmath20 into @xmath35 , e.g. by embedding it into the lagrangian subspace @xmath37 .
+then one uses the fact that a small neighborhood necessarily is symplectomorphic to a neighborhood of the zero section in @xmath38 , the direct sum of the cotangent bundle with a trivial symplectic vector bundle of rank 2 , to embed the product @xmath36 by taking the product of the zero section in @xmath39 with a standard small @xmath40 .
+the above statements are special cases of a more general result discovered by kenji fukaya , and first described in @xcite , see also @xcite . as with most results involving @xmath41-holomorphic curves , the underlying idea can be traced back to misha gromov s foundational paper @xcite .
+his proof of the fact that there are no exact compact lagrangian submanifolds of @xmath14 contains an important seed for fukaya s arguments . therefore , after discussing some aspects of moduli spaces of holomorphic disks in the next section , i begin section  [ sec : main ] by sketching gromov s argument , followed by the discussion of an instructive example and the statement of fukaya s refinement ( theorem  [ thm : blackbox ] ) . in a nutshell , fukaya s important observation was that the compactification of the moduli spaces of holomorphic disks with boundary on a lagrangian submanifold @xmath42 can be expressed in terms of string topology operations , in particular the loop bracket ( and possibly also its higher analogues at the chain level ) .    after an interlude section on basic properties of l@xmath43 algebras ,
+i describe how theorem  [ thm : fukayamain ] is a fairly straightforward consequence of theorem  [ thm : blackbox ] .
+corollary  [ cor : fukaya1 ] will follow by using specific facts from 3-dimensional topology . before finishing with a guide to the literature ,
+i discuss a few further small observations .    at the moment of this writing , full proofs of
+the above theorems are not available yet .
+one would like to construct a chain model @xmath44 for the free loop space of the manifold @xmath5 with the loop bracket operation @xmath45 ( and higher operations as necessary ) , such that @xmath46 is an l@xmath43-algebra .
+moreover when this model is considered with coefficients in a suitable novikov ring , the compactified moduli spaces of holomorphic disks should give rise to an element in this chain complex satisfying the maurer - cartan equation in this l@xmath43-algebra .
+so the principal problem is that the apparent freedom one has in building the chain model is severely constrained by the need to make it fit with the analysis of holomorphic disks , which in particular involves delicate transversality and gluing issues .    in this text
+, i will largely ignore the technical difficulties , by stating the key results as black boxes .
+the main tool in our study of lagrangian embeddings @xmath47 will be moduli spaces of holomorphic disks with boundary on @xmath5 . before introducing the relevant spaces
+, i will briefly review some standard notions .
+the first of these is the _ maslov index _ of a loop of lagrangian subspaces in @xmath14 .
+the lagrangian grassmannian @xmath48 is defined as the space of all lagrangian subspaces of @xmath49 .
+standard symplectic linear algebra shows that a real @xmath7-dimensional subspace @xmath50 is lagrangian if and only if it is orthogonal with respect to the standard euclidean inner product to @xmath51 , its rotation by @xmath52 .
+moreover , any orthonormal basis of a lagrangian subspace is a unitary basis of @xmath14 , and conversely the real linear span of a unitary frame is a lagrangian subspace .
+since @xmath53 acts transitively on the unitary frames generating the same lagrangian subspace , one concludes that @xmath48 can be identified with @xmath54 .
+the map @xmath55 which associates to a unitary matrix the square of its determinant induces a well - defined map @xmath56 , and for any loop @xmath57 we define _ its maslov index _ as @xmath58 clearly @xmath59 so defined is an invariant of the free homotopy class of @xmath60 . moreover , one can check that @xmath61 induces an isomorphism @xmath62 .    now given a lagrangian immersion @xmath63 , any loop @xmath64 determines a loop in @xmath48 , simply by taking the loop of tangent spaces of @xmath5 at the image points of @xmath60 . in this way , we get a maslov index @xmath65 discussions of the maslov index can be found in various texts , see e.g. @xcite , @xcite or @xcite . in particular , it is easy to see that for a lagrangian immersion of an oriented manifold @xmath5 , the maslov index takes values in @xmath66 .
+another useful notion is the _ area _ or _ energy _ of a disk @xmath67 with boundary on a lagrangian submanifold @xmath68 .
+it is defined as @xmath69 and one easily checks that it only depends on the free relative homotopy class of @xmath70 .
+indeed , just observe that given a homotopy @xmath71 \times d , [ 0,1 ] \times { { \partial}}d ) \to ( { { \mathbb{c}}}^n , l)$ ] with @xmath72 and @xmath73 , we have @xmath74 \times { { \partial}}d } h^*\omega = 0\ ] ] by the assumption that @xmath5 is a lagrangian submanifold . in particular , @xmath75 descends to a homomorphism @xmath76 .
+finally , in order to discuss holomorphic curves , we introduce the relevant spaces of almost complex structures .
+generally , an _ almost complex structure _
+@xmath41 on some manifold @xmath77 is an automorphism of the tangent bundle @xmath78 with @xmath79 .
+if @xmath77 carries a symplectic form @xmath80 , then an almost complex structure @xmath41 on @xmath77 is said to be _ tamed by _
+@xmath80 , if @xmath81 for all nonzero tangent vectors @xmath82 .
+in other words , @xmath80 is a positive area form on each 1-dimensional @xmath41-complex subspace of each tangent space .
+it is a standard result that these @xmath80-tamed almost complex structures form a contractible ( in particular non - empty ) space .
+given such a tamed @xmath41 , one can define a riemannian metric on @xmath77 by setting @xmath83 one can also define the notion of a @xmath41-holomorphic map @xmath84 from some riemann surface @xmath85 to @xmath77 , simply by asking that it satisfy the usual cauchy - riemann equations with respect to the given @xmath41 : @xmath86 in local conformal coordinates @xmath87 on the riemann surface this can be written equivalently as @xmath88 in riemannian geometry , the @xmath89-energy of a map @xmath90 is defined as @xmath91 where @xmath61 is any volume form on @xmath20 and @xmath92 denotes the operator norm of @xmath93 with respect to the metric @xmath94 on @xmath20 and the metric @xmath95 on @xmath77 .
+the integrand turns out to be independent of the choice of @xmath61 , as any scaling factor also appears in the operator norm with opposite exponent .
+now the importance of the taming condition stems from the following crucial fact : suppose @xmath96 is @xmath41-holomorphic , and we have chosen local conformal coordinates @xmath97 on @xmath20 . then at @xmath98 we have @xmath99 so that @xmath100 in particular , for @xmath41-holomorphic disks
+@xmath101 , the energy as defined above , which was a purely topological quantity , is the same as the usual @xmath89-energy of the map @xmath70 .
+choose an almost complex structure @xmath41 tamed by the standard symplectic structure @xmath25 on @xmath14 . given a relative homotopy class @xmath102
+, we consider the set @xmath103 = a \in \pi_2({{\mathbb{c}}}^n , l)\}.\ ] ] the real 2-dimensional group @xmath104 of biholomorphisms of the disk fixing @xmath105 acts on @xmath106 by precomposition , and the quotient @xmath107 is called the moduli space of holomorphic disks in the class @xmath108 .    the reader should take note that in the literature moduli spaces of holomorphic curves are almost universally denoted by @xmath109 , usually with some decoration , and the precise meaning of the symbol should very carefully be checked in each case .
+the equation defining @xmath106 is elliptic , and so the linearization is a fredholm operator . the index theorem for holomorphic curves , as discussed for example in ( * ? ? ?
+* appendix c ) , implies that the index of this operator , and hence the expected dimension of the moduli space @xmath106 , is @xmath110 .
+the assignment @xmath111 can be viewed as a section of a suitable banach space bundle . under favourable circumstances this section
+can be arranged to be transverse to the zero section , in which case its zero set @xmath112 is a manifold of the expected dimension . in general
+, this is a serious technical difficulty beyond the scope of the present discussion , and resolving it requires substantial work .
+note that , for @xmath113 , the action of @xmath114 on @xmath106 is free .
+so , assuming that we can arrange transversality , we conclude that @xmath115 is a smooth manifold of dimension @xmath116 as shown by examples in @xcite , one generally needs the spin condition on @xmath5 to be able to orient the moduli spaces @xmath115 .    for several reasons the individual spaces @xmath115 tend to not be very useful for proving anything interesting about @xmath5 ( with the notable exception of theorem  [ thm : gromov - notexact ] ) .
+the first is that these spaces strongly depend on @xmath41 , as simple examples show .
+[ ex : nosol ] consider @xmath117 and the relative homotopy class @xmath118 which has degree 1 in the first factor and degree 0 in the second .
+given any real number @xmath119 , consider the almost complex structure @xmath120 on @xmath17 given by the matrix @xmath121 if @xmath122 ranges in some interval @xmath123 , then all the @xmath120 are tamed by the symplectic form @xmath124 on @xmath125 .    now for the standard split complex structure @xmath126 on @xmath17 , the moduli space @xmath127 is clearly non - empty , since for any @xmath128 the map @xmath129 defines an element in it .    in general
+, given any @xmath120-holomorphic map @xmath70 in the class @xmath108 , note that the projection @xmath130 onto the first @xmath19-factor is holomorphic in the usual sense , and since it has degree 1 it will be a biholomorphism .
+so , precomposing with a suitable element of @xmath114 , we may assume that this projection @xmath130 is just a rotation by @xmath131 .
+a short computation shows that in this case for @xmath70 to be @xmath120-holomorphic , it is necessary and sufficient that @xmath132 now if @xmath133 is a solution of this equation , then @xmath134
+so for @xmath135 the moduli space @xmath136 is empty .
+the phenomenon discussed in this example is a crucial ingredient in the proof below of gromov s theorem  [ thm : gromov - notexact ] .    a second , related complication is the failure of compactness , a simple instance of which is described in example  [ ex : noncompact ] below
+. both of these apparent problems can be overcome by considering the collection of all @xmath137 at once . in the next subsection
+, i briefly discuss the compactness issue .
+gromov s compactness theorem , in its modern formulation , asserts that every sequence of holomorphic curves of fixed topology and uniformly bounded energy , whose images lie within a compact subset of the target , has a subsequence converging in a suitable sense to a limiting `` stable curve '' .
+a proof in text book form for holomorphic spheres was given by mcduff and salamon  @xcite , and an exposition of gromov s proof for the higher genus case was written up by hummel  @xcite .
+the case of curves with boundary is for example discussed by liu as part of her ph.d .
+thesis  @xcite . for holomorphic disks with lagrangian boundary conditions the precise statement and proof
+were worked out in u.  frauenfelder s diploma thesis , published as @xcite .    here
+, i will describe the statement under the simplifying assumption that the target symplectic manifold @xmath1 is exact , i.e. @xmath138 , as in the case of my main example @xmath139 .
+this assumption in particular implies that there are no non - constant holomorphic spheres in @xmath140 , and so the possible limiting configurations are much more restricted than in the general case .
+basically , all the stable curves arising as gromov limits will be stable trees of disks , as explained presently .
+recall that a _ tree _ is a ( finite ) set @xmath141 together with an edge relation @xmath142 satisfying the following conditions :    * ( symmetric ) * if @xmath143 then @xmath144 .    *
+( antireflexive ) * if @xmath143 then @xmath145 .    *
+( connected ) * for all @xmath146 with @xmath147 there exist @xmath148 with @xmath149 , @xmath150 and such that @xmath151 for all @xmath152 .    *
+( no cycles ) * if @xmath153 satisfy @xmath151 and @xmath154 for all @xmath155 then @xmath156 .
+one usually draws trees by drawing the corresponding 1-dimensional cw - complexes , which have one vertex for each @xmath157 and one ( unoriented ) 1-cell connecting @xmath122 and @xmath158 whenever @xmath143 ( and @xmath144 ) .
+it follows from these axioms that the cw - complex corresponding to a tree in this way is connected and contractible .
+moreover , deleting an edge connecting two vertices @xmath146 splits the cw - complex into two connected components , and we denote the subset of vertices in the component of @xmath158 by @xmath159 .
+@xmath122 [ br ] at 32 45 @xmath158 [ l ] at 86 39 @xmath159 [ tl ] at 133 19   and @xmath158 , and the corresponding subtree @xmath159.,title="fig : " ]    a map @xmath160 is called a _ tree homomorphism _
+if for each @xmath161 the preimage @xmath162 is a tree , and moreover @xmath143 implies that either @xmath163 or @xmath164 .
+a bijective tree homomorphism is called _ tree isomorphism_.
+@xmath122 [ l ] at 480 311 @xmath158 [ l ] at 560 284 @xmath60 [ l ] at 639 269 @xmath165 [ l ] at 565 127 @xmath166 [ l ] at 76 347 @xmath167 [ l ] at 297 270 @xmath168 [ l ] at 303 182 @xmath169 [ l ] at 327 82     next we fix an exact symplectic manifold @xmath1 with a compact lagrangian submanifold @xmath170 and an almost complex structure @xmath41 tamed by @xmath80 . given this data ,
+we define a _ stable tree of holomorphic disks with one boundary marked point _ to be a tuple @xmath171 modelled over a tree @xmath172 , consisting of a collection of holomorphic maps @xmath173 indexed by @xmath174 , a collection of nodal points @xmath175 indexed by directed edges @xmath143 , and a marked point @xmath176 labelled by @xmath177 , subject to the following conditions :    1 .   if @xmath143 then @xmath178 .
+2 .   for each @xmath157 ,
+the _ special boundary points associated with the vertex @xmath122 _ , namely the points @xmath179 for different @xmath180 with @xmath143 , together with @xmath181 for @xmath182 , are all pairwise distinct .
+3 .   if @xmath183 is constant , then the cardinality of the set @xmath184 of all special points is at least 3 .    as usual , two such stable trees of disks @xmath185 and @xmath186 modelled on trees @xmath141 and @xmath187 , respectively ,
+are called _ equivalent _ if there exist a tree isomorphism @xmath188 and a collection of mbius transformations @xmath189 such that @xmath190 for all @xmath191 with @xmath143 .
+define the _ energy _ of a stable tree of holomorphic disks as the sum @xmath192    now we can give the relevant notion of convergence .
+let @xmath1 be an exact symplectic manifold , let @xmath170 be a compact lagrangian submanifold , and let @xmath41 be an @xmath80-tame almost complex structure on @xmath140 .
+a sequence @xmath193 of holomorphic disks with one boundary marked point @xmath194 is said to _ gromov converge _ to a stable tree of disks @xmath195 with one boundary marked point if there exist sequences of elements @xmath196 indexed by @xmath157 such that the following statements hold :    1 .
+the sequence @xmath197 converges to @xmath181 .
+2 .   for every @xmath157 , the sequence of maps @xmath198 converges to @xmath183 uniformly on compact subsets of @xmath199 .
+if @xmath143 then @xmath200 converges to @xmath179 uniformly on compact subsets of @xmath201 .
+4 .   if @xmath143 then @xmath202    intuitively , one can imagine the mbius transformations @xmath203 as microscopes , focusing on subregions in the domain to detect some piece of the limiting map . item ( 3 ) in the definition then says that different microscopes really capture different phenomena
+. item ( 4 ) is a way of phrasing that the limit captures all the essential pieces . in particular , together with ( 2 )
+it implies that @xmath204 now gromov s compactness theorem for disks can be stated as follows .
+let @xmath1 be an exact symplectic manifold , let @xmath170 be a compact lagrangian submanifold , and let @xmath41 be an @xmath80-tame almost complex structure on @xmath140 .
+suppose @xmath193 is a sequence of holomorphic disks with bounded energy such that all images are contained in some compact subset of @xmath140 .
+then @xmath205 has a gromov convergent subsequence .
+moreover , for a convergent sequence @xmath205 the limit is unique up to equivalence .
+a careful exposition of the proof of this theorem , without the simplifying assumption that @xmath140 is exact , can be found in @xcite . rather than going into details here
+, i will illustrate the phenomenon by considering a specific example .
+[ ex : noncompact ] the situation is interesting already for holomorphic disks with boundary on @xmath40 with respect to the standard complex structure @xmath126 . by the maximum principle ,
+these are necessarily maps @xmath206 .
+they exist for all non - negative degrees , and the degree @xmath207 of the map equals the degree of its restriction to the boundary circle .
+it turns out that the maslov index of the class @xmath208 is @xmath209 .
+applying the general index formula , one finds that @xmath210 for @xmath211 , this index equals 1 .
+indeed , the group of holomorphic degree 1 maps , i.e. holomorphic automorphisms of @xmath212 is 3-dimensional ( it can be identified with @xmath213 ) . in fact , any element of this group can be written uniquely as a composition @xmath214 , where @xmath215 is a rotation given by @xmath216 and @xmath217 is a map fixing @xmath218 . since we only consider the moduli space of maps up to the equivalence relation of precomposing with an element of @xmath114 , the moduli space can be identified with @xmath11 by recording the image of @xmath105 under any map in the equivalence class . in particular , the moduli space @xmath219 is compact .
+next consider a map of higher degree @xmath220 .
+again any such map can be written as a composition @xmath214 , where @xmath221 is a product ( not composition ! ) of @xmath207 maps of degree @xmath222 , each fixing @xmath223 , and @xmath215 is a rotation .
+the map @xmath221 is characterized completely in terms of its zeros , counted with multiplicities .
+in fact , if these zeros are @xmath224 ,
+ , @xmath225 , then we have @xmath226 by precomposing with an appropriate @xmath227 , we may always arrange that one of the zeros , say @xmath225 , equals 0 .
+the coordinates of the other zeros give @xmath228 free local parameters for @xmath221 , and together with the rotation parameter for @xmath215 we get @xmath229 as predicted by the dimension formula above .
+the moduli space @xmath230 of degree @xmath220 self - maps of the disk @xmath212 is noncompact .
+in fact , consider representative maps @xmath231 of a sequence of points in the moduli space and orderings of the zeros @xmath232 of @xmath231 such that @xmath233 ( as above , this can be arranged by precomposing a given representative with some element of @xmath114 , which does not change the equivalence class ) .
+after passing to a subsequence , we get convergence of the @xmath234 to some limiting @xmath235 for each @xmath236 .
+the formula above still makes sense in the limit , but the `` zeros '' @xmath237 which lie on the circle @xmath11 contribute a trivial factor of @xmath222 to the product .
+so if there are @xmath238 of these `` phantom '' zeros , the naive limiting map @xmath239 will have degree @xmath240 and so it is not an element of @xmath241 .
+notice that in the above discussion , we made two arbitrary choices : a choice of ordering @xmath234 of the zeros of @xmath231 , and the choice to always reparametrize so that @xmath233 .
+suppose for definiteness that with these choices we have @xmath242
+. then there are unique maps @xmath243 such that @xmath244 , and so we get a different sequence of representatives @xmath245 of the same divergent sequence of points in the moduli space @xmath241 . just as above we get a , generally different , limiting map @xmath246 for a suitable subsequence .
+note that in this reparametrization , we will have @xmath247 , and so @xmath246 has degree @xmath248 .
+if we would analyse the situation fully , we would recover , for a suitable subsequence , the existence of finitely many sequences of mbius transformations @xmath249 , such that the reparametrized maps @xmath250 converge to some limiting map @xmath251 of degree @xmath252 in such a way that @xmath253 .
+in addition , these maps fit together and form a disk tree as described in the compactness theorem above .
+very roughly , the compactness theorem asserts that one can compactify a given space @xmath115 by adding pieces built out of moduli spaces @xmath254 with @xmath255 .
+this compactification is often denoted by @xmath256 .
+it admits an obvious stratification , where the stratum of codimension @xmath257 corresponds to stable trees of disks modelled on trees with exactly @xmath257 ( unoriented ) edges .
+indeed , the heuristic dimension count proceeds as follows .
+denote by @xmath258 the number of special points on the disk associated to @xmath157 and by @xmath259 its relative homotopy class .
+note that @xmath260 , where @xmath257 is the number of edges of the tree , since we had one marked point to start with and each edge gives rise to two nodal points .
+the formal dimension of the moduli space of disks associated to the vertex @xmath261 is @xmath262 requiring that the nodal points corresponding to an edge in @xmath141 are mapped to the same point in @xmath5 gives @xmath263 constraints . putting these together , we find that the formal total dimension equals @xmath264 _ if _
+, for a given @xmath41 , all the moduli spaces appearing in the compactification @xmath256 were transversely cut out , one could hope to prove a _ gluing theorem _ , asserting that in fact the compactified moduli space is a manifold with boundary and corners .
+this is generally too much to ask . in @xcite , fukaya , oh
+, ohta and ono describe a procedure to put a so - called _ kuranishi structure _ on the compactified moduli spaces . without going into details , this
+roughly means that these spaces admit fundamental chains _ that make them function as if they were manifolds with corners_. theorem  [ thm : blackbox ] below should be understood in this sense .
+presumably , the ongoing polyfold project of hofer , wysocki and zehnder ( cf .
+@xcite ) will eventually lead to an alternative approach to the problem of putting enough structure on the compactified moduli space to prove a statement like theorem  [ thm : blackbox ] .
+as already mentioned , it is instructive to review the proof for the following well - known theorem of gromov .
+[ thm : gromov - notexact ] if a compact manifold @xmath5 admits a lagrangian embedding into @xmath14 , then @xmath265 .
+( sketch ) i sketch the proof of this theorem given in ( * ? ? ?
+* section 9.2 ) , slightly rephrasing the end of the argument in order to make the relation to the following discussion even more apparent .
+fix a lagrangian embedding @xmath47 , and choose a vector @xmath266 with @xmath267 .
+consider the set @xmath268 \times d \times { { \mathbb{c}}}^n)$ ] of hamiltonian functions such that @xmath269 the idea is to consider , for a fixed @xmath270 , the moduli space @xmath271 of maps @xmath272 satisfying the following conditions :    * @xmath273 for some @xmath274 $ ] , and * the relative homotopy class @xmath275 \in \pi_2({{\mathbb{c}}}^n , l)$ ] vanishes .
+so for @xmath276 , we are considering holomorphic disks with boundary on the lagrangian @xmath5 , and since the relative homotopy class vanishes , these are precisely the constant maps
+. note that we do not divide out any automorphisms here , since for positive @xmath24 these have no reason to preserve the solution space to the equation .
+one can prove that for fixed small @xmath277 , there is still a compact @xmath7-dimensional family of solutions .
+in fact , for generic choice of the hamiltonian @xmath278 , standard transversality techniques show that @xmath271 is a smooth @xmath279-dimensional manifold , whose boundary consists of those elements with @xmath280 .
+on the other hand , a straightforward computation as in example  [ ex : nosol ] shows that , for our choice of @xmath108 , there are no solutions to the equation with @xmath281 .
+so if @xmath271 was compact , it would give a smooth cobordism from @xmath5 to the empty set .
+now consider the evaluation map @xmath282 from what we said above , the boundary of this @xmath283-chain in the free loop space of @xmath5 is the cycle of constant loops
+@xmath284 \in c_n(\lambda l)$ ] .
+since this cycle is nontrivial in homology , @xmath271 can not be compact .
+it follows from elliptic regularity theory ( cf .
+* theorem 4.1.1 ) ) that if compactness fails , there is a sequence @xmath285 such that @xmath286 as @xmath287 .
+appropriately rescaling such a sequence and applying removal of singularities as in @xcite , one finds either a nonconstant holomorphic sphere or a nonconstant holomorphic disk with boundary on @xmath5 .
+since @xmath14 does not contain nonconstant holomorphic spheres ( such spheres would be contractible and have positive energy , contradicting stokes theorem ) , the only possibility is the existence of some nonconstant holomorphic disk @xmath288 .
+now the standard symplectic form @xmath289 is positive on all complex lines in @xmath14 , and hence on all the tangent planes to the image of @xmath82 , so we have @xmath290 moreover , @xmath291 , where e.g. @xmath292 , and so stokes theorem implies that @xmath293 on the other hand , the lagrangian condition states that @xmath294 vanishes pointwise when restricted to @xmath5 . combining these observations , it follows that @xmath295 is a closed 1-form representing a nonzero class in @xmath296 , and this proves the theorem .
+what was the essence of the proof of gromov s theorem ?
+basically , the point is that the space @xmath271 has a single boundary component , corresponding to the space of constant disks , and hence for topological reasons it can not be compact .
+analysing the breakdown of compactness , we found holomorphic disks .
+the elements of @xmath271 do not appear to be holomorphic curves , due to the nonzero right hand side @xmath297 of the equation .
+however , they can in fact be viewed as holomorphic maps into @xmath298 with respect to a family of almost complex structures which have an off - diagonal term built out of this right hand side , projecting holomorphically and with degree 1 to the disk .
+this basic phenomenon was already present in example  [ ex : nosol ] .
+the stable map compactification in this particular case is given by bubble trees of disks with exactly one main component , satisfying the original equation , and all other bubbles being strictly holomorphic ( in the graph picture just mentioned , each of these has constant projection to the disk ) .
+fukaya s insight was to see that the new boundary can be described in terms of string topology operations .
+namely , for each @xmath102 , consider the compactified moduli space @xmath299 of holomorphic disks in the relative homotopy class @xmath108 .
+similarly , denote by @xmath300 the space of solutions @xmath301 to the equation @xmath302\ ] ] in the relative homotopy class @xmath102 .
+pretending as always that transversality holds , this space is a manifold of dimension @xmath303 and we denote its compactification by @xmath304 .    assuming the analysis can be made to work ,
+both @xmath305 and @xmath304 can be thought of as chains on @xmath306 , simply by associating to each map of the disk its restriction to the boundary circle .
+in fact , for @xmath307 there is a slight ambiguity , since its elements are only well - defined up to precomposition by @xmath308 .
+but one can easily get around this point , for example by replacing the actual map by a parametrization proportional to arc length .    to arrive at a clean statement , i will introduce some further notation .
+suppose we are given a suitable model @xmath44 for the chains on the free loop space of @xmath5 with coefficients in @xmath309 , such that for each @xmath310 the compactified spaces @xmath305 and @xmath304 , with their respective evaluation maps to @xmath306 , define elements in it .
+note that @xmath306 is a disjoint union over its connected components @xmath311 , which can be identified with conjugacy classes @xmath60 of elements of @xmath312 .
+it is convenient to introduce a new complex @xmath313 whose underlying vector space is @xmath44 , but with grading shifted according to the maslov index , i.e.  an element in @xmath314 will have degree @xmath315 in @xmath313 .
+the complex @xmath313 comes with a filtration by the symplectic area as follows .
+it is shown in ( * ? ? ?
+4.1.4 ) that the infimum @xmath316 of the symplectic energy is strictly positive .
+since each loop on @xmath5 bounds a disk in @xmath14 , we can view the energy as a map @xmath317 .
+the energy of @xmath318 is now defined as @xmath319 , where @xmath320 is the energy of the free homotopy class of the loops parametrized by the chain @xmath321 ( assumed to have connected domain of definition ) .
+then the filtration @xmath322 on @xmath313 is given by @xmath323    now consider the completion @xmath324 of @xmath313 with respect to this filtration .
+this means that an element in @xmath324 will be a possibly infinite sum @xmath325 of chains @xmath326 , provided that for each @xmath327 there are only a finite number of summands satisfying @xmath328 .    with this definition , gromov compactness and our grading convention
+imply that @xmath329 is a well - defined element of @xmath324 of degree @xmath330 .
+in fact , it is contained in the submodule @xmath331 of chains with strictly positive area .
+similarly , @xmath332 is an element of @xmath324 of degree @xmath279 , as follows by applying the analogue of to the graph of elements of @xmath300 in @xmath333 .
+as explained at the end of section 2 , the compactification of @xmath305 is obtained by adding lower dimensional strata built as fiber products of other such moduli spaces along evaluation maps . in particular , the codimension 1 pieces @xmath334 are build from configurations of two holomorphic disks for which suitable boundary points are mapped to the same point in @xmath5 .
+a more careful analysis reveals that , on the level of boundary values of the holomorphic maps , these configurations correspond to loop brackets @xmath335 with @xmath336 .    [ ex:2torus ]
+the mechanism just described can be seen in example  [ ex : noncompact ] , but maybe it is slightly easier to visualize for the standard lagrangian torus @xmath337 .
+any class @xmath338 is characterized by two integers @xmath339 giving the degrees of the projections to the two coordinate disks . for a moduli space @xmath340 with respect to the standard complex structure @xmath126 on @xmath17 to be nontrivial
+we need @xmath341 . leaving aside the constant maps , the simplest moduli spaces @xmath342 and @xmath343 are compact , and in fact one can identify both with @xmath344 .
+indeed , the equivalence classes of the maps @xmath345 given by @xmath346 for @xmath347 represent all elements in @xmath342 , and similarly the maps @xmath348 represent all elements in @xmath343 . note that because of the symmetries in the problem , in this particularly simple example the evaluation maps at @xmath222 are submersions , so that the geometric definition of the loop bracket @xmath349 can be used .    to illustrate the discussion above , we want to argue that @xmath350.\end{aligned}\ ] ] every element of the space @xmath351 is a map @xmath352 of the form @xmath353 with @xmath354 and @xmath355 .
+the space @xmath356 is obtained as the quotient by the diagonal action of @xmath114 , so the equivalence class of @xmath70 as above is alternatively represented by both @xmath357 or @xmath358 , where @xmath359 is uniquely associated with the equivalence class of @xmath70 .
+now consider a sequence @xmath360 with @xmath224 and @xmath361 fixed but @xmath362 and @xmath363 varying .
+assume that the projection of the sequence to @xmath356 leaves every compact subset , meaning that the corresponding sequence @xmath364 in the above notation does the same .
+elementary considerations now show that for a suitable subsequence @xmath365 there will be a point @xmath366 such that    1 .
+@xmath367 uniformly on compact subsets of @xmath368 and @xmath369 uniformly on compact subsets of @xmath370 , or 2 .
+@xmath371 uniformly on compact subsets of @xmath370 and @xmath372 uniformly on compact subsets of @xmath368 .    in both cases ,
+the corresponding subsequences @xmath373 and @xmath374 converge to elements @xmath375 and @xmath376 , respectively , and the pair @xmath377 represents a boundary point of @xmath378 .
+one checks that as @xmath224 and @xmath361 and the sequence @xmath365 vary , one obtains all boundary points from this construction . in case ( i ) ,
+@xmath379 and @xmath380 , which is the unique intersection point of @xmath381 and @xmath382 , and in case ( ii ) the roles are reversed . in particular , the boundary loops of the two limit disks concatenate to represent points in the loop bracket @xmath383 .
+we now return to the general discussion . similarly to the case of @xmath307 , the codimension 1 stratum for @xmath304 corresponds to stable maps consisting of one component satisfying the perturbed equation and one holomorphic disk , and so it is described by the loop brackets of the form @xmath384 . depending on the precise technical implementation
+, the gluing along lower dimensional boundary strata might actually introduce more terms , corresponding to higher operations .
+the main technical assertions which should come out of such an implementation can be formulated as the following theorem .
+to get a cleaner statement , i have chosen to state it in slightly stronger form than is strictly necessary .
+the concept of a filtered l@xmath43 algebra which appears in the statement is discussed in detail in the following section , where i also give some algebraic perspective on the equations and .
+[ thm : blackbox ] let @xmath47 be a closed , oriented , spin lagrangian submanifold
+.    then on the filtered , degree - shifted chain complex @xmath324 associated to a suitable chain model @xmath44 for the free loop space @xmath306 there exists a filtered l@xmath43-algebra structure @xmath385 of degree @xmath386 , whose bracket on homology coincides with the loop bracket of string topology , and such that    1 .
+the union of moduli spaces @xmath307 gives rise to an element @xmath387 of degree @xmath330 satisfying @xmath388 2 .
+the union of moduli spaces @xmath389 gives rise to an element @xmath390 of degree @xmath279 satisfying @xmath391,\ ] ] where @xmath284\in c_n(\lambda l , { { \mathbb{q}}})$ ] denotes the chain of constant loops .
+i will treat this theorem as a black box , and deduce the main results in the introduction from it by using abstract algebraic arguments and some 3-manifold topology .
+for a graded vector space @xmath392 we denote by @xmath393 $ ] the vector space with grading shifted by @xmath7 , i.e. @xmath393_d = c_{d+n}$ ] . on the @xmath257-fold tensor product @xmath394 , we consider two actions of the permutation group @xmath395 . in the first one ,
+a permutation @xmath396 acts on some tensor product of elements @xmath397 of pure degrees @xmath398 via @xmath399 with @xmath400 .
+the quotient is the @xmath257th symmetric power @xmath401 of @xmath402 , whose decomposable elements we write as @xmath403 .
+the second action is the first one twisted by the sign representation , @xmath404 the quotient is the @xmath257th exterior power @xmath405 of @xmath402 , whose elements are usually denoted by @xmath406 . with these definitions , for an element @xmath407 of odd degree we have @xmath408 , but @xmath409 .
+an l@xmath43 algebra of degree 0 consists of a graded vector space @xmath402 and a sequence of multilinear operations @xmath410 of degree @xmath411 satisfying the sequence of quadratic relations @xmath412 for each @xmath413 .
+( the signs are made explicit below . )
+more generally , an l@xmath43 algebra structure of degree @xmath207 on @xmath402 is defined to be an l@xmath43 structure of degree @xmath414 on @xmath415 $ ] .
+if the vector space @xmath402 of an l@xmath43 algebra of degree 0 is concentrated in degree 0 , then for degree reasons the only possibly nontrivial operation is @xmath45 , and the relation for @xmath416 turns out to be the jacobi identity for @xmath45 , so we recover lie algebras as a special case .    if @xmath417 for @xmath418 , then we recover the definition of a dg lie algebra .
+indeed , the first relation reads @xmath419 .
+the second relation shows that @xmath420 is a derivation of @xmath45 , and the third relation is again the jacobi identity . in general ,
+the jacobi identity holds `` up to homotopy '' given by @xmath421 , so it always holds for the induced bracket on @xmath422 .    to make the signs in the quadratic relations as well as other signs below explicit , it is useful to give an alternative description .
+first observe the graded linear isomorphism @xmath423 & \to s^k(c[-1])\\            c_1 \wedge \dots \wedge c_k & \mapsto ( -1)^{\sum ( k - i)|c_i| }            c_1 \cdots c_k,\end{aligned}\ ] ] where @xmath398 denotes the degree in @xmath402 .
+next introduce operations @xmath424)\to c[-1]$ ] as @xmath425 and note that with this degree shift these are all of degree @xmath426 .
+set @xmath427):= \oplus_{k\geq 1 } s^k(c[-1])$ ] and observe that each of these operations can be extended to a map @xmath428 ) \to s(c[-1])$ ] defined as @xmath429 where @xmath430 is the sign introduced above    finally , one defines @xmath431 ) \to s(c[-1])$ ] .
+then the quadratic relations ( with the correct signs ) are equivalent to the single equation @xmath432 the above passage from the operations @xmath433 on @xmath402 to the operation @xmath434 on @xmath427)$ ] is called the _ bar construction_. conceptually , one views @xmath427)$ ] as a coalgebra via the comultiplication @xmath435 ) \to s(c[-1 ] ) \otimes s(c[-1])$ ] given by @xmath436 this map has the coassociativity property @xmath437 and it also turns out to be cocommutative in the sense that @xmath438 , where @xmath439)\otimes s(c[-1 ] ) \to s(c[-1 ] ) \otimes s(c[-1])$ ] is the signed permutation of the two factors . then @xmath440 is the unique way to extend @xmath441 as a coderivation , i.e.  as a map satisfying the co - leibniz rule @xmath442 conversely , one can prove that any coderivation @xmath443 ) \to s(c[-1])$ ] is completely determined by its _ linear part _ @xmath444 ) \to c[-1]$ ] .
+so @xmath434 is the unique coderivation of degree @xmath426 on @xmath427)$ ] such that the restriction of its linear part to @xmath445)$ ] equals @xmath441 .
+it is also easy to see that the commutator @xmath446:= d_1 \circ d_2 - ( -1)^{|d_1||d_2| } d_2 \circ d_1 $ ] of two homogeneous coderivations is a coderivation , and so in our example above @xmath447 $ ] has this property .
+these remarks explain why the relation is equivalent to the sequence of relations , since this sequence is obtained by restricting the linear part of @xmath448 to @xmath445)$ ] for each @xmath449 ( and precomposing with @xmath450 ) .
+so in summary , an l@xmath43 structure on a graded vector space @xmath402 is the same as a coderivation of square zero on the symmetric tensor coalgebra @xmath427)$ ] .
+i have adopted homological conventions here , whereas often in the literature one finds cohomological conventions , where the @xmath433 have degrees @xmath451 , and in the bar construction one shifts degrees by @xmath222 instead of @xmath426 .
+given two l@xmath43 algebras @xmath452 and @xmath453 , a morphism from @xmath313 to @xmath454 consists of a sequence of maps @xmath455 of degrees @xmath456 satisfying the sequence of relations @xmath457 for @xmath413 .    again , to state the signs correctly , it is useful to pass to the associated maps @xmath458 ) \to c'[-1]$ ] of degree @xmath414 given by @xmath459 .
+any such collection of linear maps determines a unique morphism of coalgebras @xmath460 ) \to s(c'[-1])$ ] , given by @xmath461 the fact that @xmath462 is a morphism of l@xmath43 algebras can now be stated equivalently ( including the correct signs ) as @xmath463    the first important result about l@xmath43 algebras asserts that the structure of an l@xmath43 algebra can be transferred from a complex @xmath402 to its homology with respect to @xmath420 , without the loss of any essential information .
+more precisely , it is formulated as follows .
+[ thm : hpt ] suppose @xmath452 is an l@xmath43 algebra over a field of characterstic 0
+. then there exists an l@xmath43 algebra structure @xmath464 on the homology which is homotopy equivalent to @xmath313 .    here
+a _ homotopy equivalence _ between l@xmath43 algebras is the essentially obvious generalization of the classical notion . in particular
+, it is an l@xmath43 morphism which induces an isomorphism in the homology of the underlying complexes .
+it is a theorem that every such map admits a homotopy inverse . for detailed definitions and a proof of these assertions , including the theorem ,
+see e.g. @xcite .
+the construction of the homotopy equivalence starts with a linear homotopy equivalence @xmath465 given by choosing a cycle in each homology class , which has a homotopy inverse @xmath466 given by projection along a complement of the image of @xmath467 .
+one sets @xmath468 and @xmath469 , and constructs the higher maps @xmath470 and operations @xmath471 , @xmath472 simultaneously by induction .
+the fact that the homologies of the two complexes agree is used to prove that all relevant obstructions vanish .
+now let @xmath452 be an l@xmath43 algebra .
+suppose that @xmath402 is the completion of some complex @xmath473 with respect to a doubly infinite filtration @xmath474 with @xmath475 , so that elements of @xmath402 are ( possibly infinite ) sums of elements of @xmath473 of the form @xmath476 denote the induced filtration on @xmath402 by @xmath477 .
+the l@xmath43 structure on @xmath402 is called _ filtered _ if @xmath478    in the following discussion , it is convenient to denote by @xmath479 the image of an element under the identity map @xmath480 $ ] of degree @xmath481 .
+an element @xmath482 of degree @xmath426 satisfying the equation @xmath483\ ] ] is called a _
+maurer - cartan element of @xmath313_. since @xmath484 , the left hand side of this equation is indeed a well - defined element of @xmath313 .
+note that is an instance of this equation . also , this equation is equivalent to @xmath485 moreover , an easy calculation yields    if @xmath486 is a maurer - cartan element of @xmath313 and @xmath487 is arbitrary , then @xmath488 in particular , the map @xmath489 \to c[-1]$ ] given by @xmath490 is a differential .
+finally , we describe what happens to equations and under morphisms .
+[ prop : pushforward ] suppose @xmath491 is a morphism between l@xmath43 algebras @xmath313 and @xmath492 preserving filtrations as above .    1 .
+if @xmath493 is a maurer - cartan element for @xmath313 , then @xmath494 with @xmath495 is a maurer - cartan element for @xmath492 .
+2 .   if @xmath493 is a maurer - cartan element and @xmath496 satisfy @xmath497 then the elements @xmath498 , @xmath499 and @xmath500 with @xmath501 satisfy @xmath502    to prove the first assertion , just observe that for a maurer - cartan element @xmath486 one has @xmath503 where the equality @xmath504 follows directly from the definitions .    to prove the second assertion , one first checks that for any elements @xmath505 $ ] @xmath506 using this , we compute @xmath507 on the other hand , @xmath508
+looking back at theorem  [ thm : blackbox ] , we see that it asserts that the holomorphic disks with boundary on the lagrangian submanifold give rise to a maurer - cartan element @xmath122 in the l@xmath43 structure on @xmath324 such that with respect to the twisted differential the element @xmath284
+\in \widehat{{\mathcal{c}}}$ ] becomes exact . since @xmath284 $ ] is never exact with respect to the ordinary boundary operator @xmath509 , this tells us that both the maurer - cartan element @xmath122 and at least one of the operations @xmath433 with @xmath510 must be nontrivial , since otherwise the twisted differential coincides with the untwisted boundary operator @xmath511 .
+this observation lies at the core of fukaya s proof of theorem  [ thm : fukayamain ] . before i discuss that , i will state two purely topological facts that will turn out to be useful .    [
+lem : top1 ] let @xmath64 be a loop , and denote by @xmath512 the centralizer of @xmath60 , i.e. the set of all elements commuting with @xmath60 .
+let @xmath513 be a connected covering of @xmath5 associated to the subgroup @xmath514 , and let @xmath515 be a lift of @xmath60 .
+then the projection @xmath516 induces a homeomorphism @xmath517 between the components of @xmath518 and @xmath60 in the respective free loop spaces .
+since @xmath513 is a covering , any free homotopy @xmath519 \times s^1 \to l$ ] with @xmath520 admits a ( unique ) lift @xmath521 to @xmath29 with @xmath522 , and so in particular @xmath523 is the image of @xmath524 under the map @xmath525 induced by the projection .
+this proves surjectivity of @xmath525 .    to prove injectivity ,
+assume that @xmath526 .
+note that our two lifts @xmath527 and @xmath528 of @xmath165 are related by a deck transformation , i.e. by the action of some homeomorphism @xmath529 satisfying @xmath530 . if @xmath531 is a free homotopy from @xmath518 to @xmath532 , then @xmath533 is a homotopy from @xmath534 to @xmath528 . since by assumption @xmath535 is also freely homotopic to @xmath518 , we conclude that if @xmath525 is not injective , then @xmath60 has at least two preimages , namely @xmath518 and @xmath536 .
+now suppose @xmath518 and @xmath536 are freely homotopic for some deck transformation @xmath537 , so that they are both preimages of @xmath60 under @xmath525 .
+a free homotopy @xmath521 from @xmath518 to @xmath536 can be reinterpreted as a based homotopy from @xmath518 to @xmath538 , where @xmath539 \times \{1\}}$ ] is the path travelled by the base point under the homotopy .
+note that @xmath540 projects to a closed loop in @xmath5 representing @xmath541 .
+in particular , the projection of the homotopy @xmath521 yields that @xmath542 but @xmath543 was chosen to be the centralizer of @xmath60 in @xmath312 , so @xmath544 .
+in other words , this implies that @xmath540 was a closed loop and so @xmath545 , i.e. any two preimages of @xmath60 coincide . together with the previous observation
+this shows that @xmath525 is injective , completing the proof of the lemma .
+[ lem : top2 ] in the situation of the previous lemma , assume moreover that @xmath5 ( and so @xmath29 as well ) is aspherical
+. then evaluation at the base point @xmath546 is a homotopy equivalence .
+the fiber of the map @xmath547 at @xmath548 is the space @xmath549 of loops which are based at @xmath548 and _ freely _ homotopic to @xmath515 . as in the previous proof , we observe that any free homotopy between @xmath550 and @xmath515 can be reinterpreted as a based homotopy between @xmath165 and @xmath551 . but
+@xmath515 is central in @xmath552 , so that @xmath553 is _ based _ homotopic to @xmath518 .
+so we conclude that in fact @xmath554 is the component of @xmath515 in the based loop space of @xmath29 , which is contractible since @xmath29 is aspherical .
+so @xmath555 is a fibration with contractible fibers , and hence a homotopy equivalence .
+[ cor : top3 ] if @xmath5 is an aspherical manifold , then every component of the free loop space @xmath306 has the homotopy type of a cw complex of dimension at most @xmath556 . @xmath557    after these preliminaries , i come to the proof of the main theorem .
+( of theorem  [ thm : fukayamain ] ) recall that the maurer - cartan element @xmath558 is built from the moduli spaces @xmath559 , which have geometric dimensions @xmath560 and the element @xmath561 is built from the spaces @xmath562 with geometric dimensions @xmath563 denote by @xmath564 the homology with respect to the usual boundary operator of @xmath324 .
+recall that we denote by @xmath565 the image of @xmath566 under the degree shift @xmath567 $ ] . according to theorem  [ thm : hpt ] ,
+the l@xmath43 structure on @xmath324 pushes forward to an l@xmath43 structure on @xmath564 under a homomorphism @xmath568 , and by proposition  [ prop : pushforward ] , this homomorphism maps the elements @xmath122 , @xmath158 and @xmath284 $ ] in @xmath324 to elements @xmath569 , @xmath570 and @xmath284 $ ] in @xmath564 satisfying the equation @xmath571}.\ ] ] writing @xmath572 the part of this equation corresponding to the trivial relative homotopy class can be written more explicitly as @xmath573}.\ ] ] since the homomorphism between the l@xmath43 structures preserves degrees , the geometric degrees of @xmath574 and @xmath575 are @xmath576 and @xmath577 , respectively .    by the assumption that @xmath5 is aspherical , corollary  [ cor : top3 ] implies that the homology @xmath564 is concentrated in geometric degrees @xmath578 . combining this observation with and the fact that the maslov index is even for orientable lagrangian submanifolds @xmath5 , we find that for the term @xmath579 to be nonzero we must have @xmath580 the first equation immediately implies that @xmath61 is not identically zero .
+moreover , if @xmath581 for all @xmath582 , it follows that @xmath583 , again contradicting the first equation .
+thus we conclude that some @xmath584 with @xmath585 must be nonzero , implying that the corresponding moduli space is nonempty .
+so @xmath586 is represented by a holomorphic disk , and hence must have positive symplectic energy .
+set @xmath587 and let @xmath588 denote the centralizer of @xmath60 .
+notice that we have a short exact sequence @xmath589 in which the last map admits an inverse sending @xmath222 to @xmath60 .
+it follows that the map @xmath590 , defined by @xmath591 , is an isomorphism ( @xmath592 is indeed a group homomorphism because @xmath60 commutes with all elements of @xmath402 ) . since @xmath5 is a @xmath593 , the covering space @xmath29 of @xmath5 with @xmath594 is a @xmath595 , so it is homotopy equivalent to @xmath30 for a @xmath596 space @xmath32 .    to complete the proof of the theorem , it remains to show that @xmath32 is closed or , equivalently , that @xmath597 is a finite covering space .
+note that the class @xmath586 with @xmath598 had the property that @xmath585 , and moreover @xmath574 is a nonzero element of geometric degree @xmath7 in @xmath564 .
+so the homology in degree @xmath7 of @xmath599 must be nonzero . but combining lemma  [ lem : top1 ] and lemma  [ lem : top2 ] , we see that @xmath311 is homotopy equivalent to the @xmath7-manifold @xmath600 .
+the nonvanishing of its top - dimensional homology now implies that @xmath29 is closed , which in turns means that @xmath597 is a finite covering space .
+the more precise statement in dimension 3 can be proven with some specific results from 3-dimensional topology .
+i wish to thank k.  fukaya , k.  honda and s.  maillot for helpful correspondence , which lead to the following proof of corollary  [ cor : fukaya1 ] .
+( of corollary  [ cor : fukaya1 ] ) let @xmath5 be a compact , orientable , prime 3-manifold .
+it is well - known ( see e.g. @xcite ) that either @xmath601 or @xmath5 is irreducible , meaning that every embedded two - sphere in @xmath5 bounds a ball in @xmath5 .
+if an irreducible 3-manifold @xmath5 admits a lagrangian embedding into @xmath35 , then by gromov s theorem  [ thm : gromov - notexact ] it has infinite first homology , and hence infinite fundamental group , and so its universal cover @xmath29 is non - compact .
+moreover , by the sphere theorem ( see @xcite ) , an irreducible 3-manifold has trivial second homotopy group .
+it follows that @xmath602 for @xmath413 , and so by hurewicz s theorem @xmath603 for @xmath449 , implying that @xmath5 itself is aspherical .
+now by theorem  [ thm : fukayamain ] , a finite cover of @xmath5 is homotopy equivalent to @xmath36 for some closed oriented surface @xmath20 , and a result of waldhausen  ( * ? ? ?
+* corollary 6.5 ) implies that this homotopy equivalence can be improved to a homeomorphism .
+recall from the proof above that the fundamental group @xmath402 of the cover arises as the centralizer of an element @xmath604 with @xmath605 .
+now i will argue that in fact @xmath60 is central in @xmath312 , so that the covering projection is actually a homeomorphism .
+indeed , consider the exact sequence @xmath606 where @xmath607 .
+since the centralizer @xmath402 of @xmath60 is of finite index , @xmath608 is of finite index in @xmath609 . from the above proof of the theorem
+, we see that @xmath610 is finitely generated ( it is the fundamental group of @xmath20 ) , so @xmath609 is also finitely generated .
+then by stallings fibration theorem ( @xcite , see also ( * ? ? ?
+* theorem  11.6 ) ) , we deduce that @xmath609 is the fundamental group of a compact surface @xmath611 , which under our current assumptions must be closed of genus at least 1 .
+now the proof concludes with the following observation :    any automorphism @xmath612 of the fundamental group @xmath609 of a closed oriented surface which is trivial on some finite index subgroup @xmath610 is trivial .
+if the surface is a sphere there is nothing to prove , so we consider the case that the genus of the surface is at least 1 .
+one knows that the fundamental group @xmath609 of a closed surface has no torsion .
+let @xmath613 be given and consider the infinite cyclic subgroup @xmath614 generated by @xmath537 .
+the subgroup @xmath615 contains the finite index subgroup @xmath616 , on which @xmath612 acts trivially . but any automorphism of an infinite cyclic group fixing some nontrivial subgroup must be the identity , so @xmath617 .
+since this applies to any @xmath613 , the lemma is proven .
+applying the lemma to the action of @xmath60 on @xmath609 by conjugation , which clearly fixes all elements of @xmath618 , we finally conclude that @xmath60 is central in @xmath312 , so that @xmath619 , which finishes the proof of the theorem .
+above , i have presented fukaya s elegant arguments leading to some substantial new results about lagrangian submanifolds in @xmath14 . at first glance
+, it seems that string topology is really essential to the approach .
+however , on further inspection , one discovers that there may be a way to avoid it almost entirely .
+the basic idea is the following . by viterbo s theorem ( see @xcite and chapter chap : viterbo ) , the homology of the free loop space can be described in symplectic terms as the symplectic homology of the cotangent bundle .
+this theory can be defined in more general situations , for example for exact symplectic manifolds with contact - type boundary . moreover , for _ exact _ codimension 0 embeddings @xmath620 one has restriction maps @xmath621 .
+it seems reasonable to expect ( and is the subject of current work ) that every algebraic structure that exists on the homology of the free loop space can also be defined on symplectic homology in general , even if the underlying domain is not a cotangent bundle . in the exact case
+, the restriction homomorphism should respect all these structures .
+but even more should be true . in the case of a non - exact embedding @xmath620
+, there will be a maurer - cartan element in @xmath622 such that after twisting all the structures by this maurer - cartan element we get a morphism from @xmath623 to the twisted version @xmath624 .
+this expectation is consistent with ( and gives one of several possible conceptual explanations for ) the results of fukaya for lagrangians in @xmath14 .
+indeed , with @xmath625 being a small neighborhood of the zero section in the cotangent bundle of @xmath5 and @xmath626 , we are exactly in the situation just described .
+what i have argued in earlier sections is that , after twisting by a maurer - cartan element coming from the embedding , the unit @xmath284 \in h_*(\lambda l)$ ] with respect to the loop product has become exact , which by a standard argument will force the twisted homology to vanish completely .
+this is good news , because only in this case can we even expect to have a morphism from @xmath627 to this ring .
+the prediction is that this morphism can indeed be defined in a suitable chain version of the theory .
+once the above argument has been made to work , it extends the applicability of fukaya s approach in several directions .
+notice that string topology only enters indirectly , via viterbo s isomorphism .
+as long as the algebraic operations can be defined and the morphism associated to a codimension zero embedding respects them , one does not even need to know that the operations on symplectic homology are the same as those in string topology ( although this is of course expected to be true ) .
+moreover , one can study non - exact codimension 0 embeddings of general exact symplectic manifolds with contact boundary by this method .
+the basic source for this chapter are of course fukaya s papers @xcite
+. versions of theorem  [ thm : fukayamain ] under additional assumptions , like monotonicity of the lagrangian submanifold , are much easier to achieve , see e.g. @xcite and the references therein .    for an introduction to symplectic topology
+the book @xcite is recommended .
+it covers a lot more than is necessary to understand the problem discussed here , and it gives some hints why lagrangian submanifolds are so central in symplectic topology . to learn something more specific about lagrangian embeddings and immersions , the excellent survey @xcite is still the best place to start .
+recently , new results have appeared which suggest that the problem in higher dimensions is more flexible than previously expected  @xcite .
+a chain complex @xmath628 for the free loop space on which the loop bracket is fully defined , and which therefore might serve in the implementation of theorem  [ thm : blackbox ] , has recently been proposed by irie  @xcite .
+finally , the reader who really wants to appreciate the discussion in this chapter needs to know quite a bit about holomorphic curves .
+one good source which thoroughly covers a lot of the basics , including a version of gromov compactness and a complete proof of gromov s theorem [ thm : gromov - notexact ] , is @xcite .
+many aspects of the theory are also covered in the earlier book  @xcite . with these as a guide , the monumental @xcite will hopefully look less daunting .
+k.  fukaya , _ application of floer homology of langrangian submanifolds to symplectic topology _ , in : paul biran et al .
+( eds . ) , morse theoretic methods in nonlinear analysis and in symplectic topology , springer , 2006 , 231-276 .                    c .- c .
+m.  liu , _ moduli of @xmath41-holomorphic curves with lagrangian boundary conditions and open gromov - witten invariants for an @xmath11-equivariant pair _ , ph.d .
+thesis , harvard 2002 , arxiv : math.sg/0210257        d.  mcduff and d.  salamon , _ @xmath41-holomorphic curves and symplectic topology _ , american mathematical society colloquium publications , 52 .
+american mathematical society , providence , ri , 2004 .
+xii+669 pp .
+isbn : 0 - 8218 - 3485 - 1    s.  yu .  nemirovski , _ homology class of a lagrangian klein bottle _ , isvestiya math .
+73 , 2009 , no .  4 , 689698 .
+v.  v.  shevchishin , _ lagrangian embeddings of the klein bottle and combinatorial properties of mapping class groups _ , isvestiya math .
+73 , 2009 , no .  4 , 797859

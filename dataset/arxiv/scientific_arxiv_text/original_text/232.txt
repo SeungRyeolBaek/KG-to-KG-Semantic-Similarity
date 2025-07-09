@@ -1,0 +1,229 @@
+the problem of boundary lubrication is very interesting from the physical point of view and important for practical applications , but it is not fully understood yet @xcite .
+conventional lubricants belong to the type of liquid ( `` soft '' ) lubricants , where the amplitude of molecular interactions within the lubricant , @xmath0 , is smaller than the lubricant - substrate interaction , @xmath1 . due to strong coupling with the substrates ,
+lubricant monolayers cover the surfaces , and protect them from wear .
+a thin lubricant film , when its thickness is lower than about six molecular layers , typically solidifies even if the conditions ( temperature and pressure ) are those corresponding to the bulk liquid state . as a result , the static friction force is nonzero , @xmath2 , and the system exhibits stick - slip motion , when the top substrate is driven through an attached spring ( which also may model the slider elasticity ) . in detail , at the beginning of motion the spring elongates , the driving force increases till it reaches the static threshold @xmath3 .
+then a fast sliding event takes place , the spring relaxes , the surfaces stick again , and the whole process repeats itself .
+this stick - slip regime occurs at low driving velocities , while at high velocities it turns into smooth sliding .
+since the pioneering work by thompson and robbins @xcite , who studied the lubricated system by molecular dynamics ( md ) , the stick - slip is associated with the melting - freezing mechanism : the lubricant film melts during slip and solidifies again at stick .
+such a sliding may be named the `` liquid sliding '' ( ls ) regime . however , at low velocities the `` layer over layer sliding '' ( lols ) regime sometimes occurs , where the lubricant keeps well ordered layered structure , and the sliding occurs between these layers @xcite .    in real systems the substrates
+are often made of the same material and may even slide along the same crystallographic face , but can hardly be assumed to be perfectly aligned , especially if the substrates have polycrystalline structure . in the majority of md simulations , however , both substrates are modelled identically , i.e. , they have the same structure and are perfectly aligned .
+this fact may affect strongly the simulation results , as became clear after predicting the so - called superlubricity , or structural lubricity @xcite .
+for example , the `` dry '' contact ( no lubricant ) of two incommensurate rigid infinite surfaces , produces null static friction , @xmath4 @xcite .
+if the surfaces are deformable , an analog of the aubry transition should occur with the change of stiffness of the substrates ( or the change of load @xcite ) : the surfaces are locked together for a weak stiffness , and slide freely over each other for sufficiently high stiffness ( this effect was observed in simulation @xcite ) .    in a real - world 3d contact
+, incommensurability can occur even for two identical surfaces , if the 2d surfaces are rotated with respect to each other .
+simulations @xcite do show a large variation of friction with relative orientation of the two bare substrates . similarly to the 1d frenkel - kontorova system , where the amplitude of the peierls  nabarro barrier is a nonanalytic function of the misfit parameter , in the 2d system the static frictional force should be a nonanalytic function of the misfit angle between the two substrates .
+this was pointed out by gyalog and thomas in their study of the 2d fk  tomlinson model @xcite .
+however , surface irregularities as well as fluctuations of atomic positions at nonzero temperature makes this dependence smooth and less pronounced .
+for example , md simulations @xcite of the ni(100)/ni(100 ) interface at @xmath5  k showed that for the case of perfectly smooth surfaces , a @xmath6 rotation leads to a decrease in static friction by a factor of @xmath7 .
+however , if one of the surfaces is roughened with an amplitude 0.8   , this factor reduces to @xmath8 only , which is close to values observed experimentally .
+mser and robbins @xcite noted that for a contact of atomically smooth and chemically passivated surfaces , realistic values of the stiffness usually exceed the aubry threshold , thus one should expect @xmath4 for such a contact .
+an approximately null static frictional force was indeed observed experimentally in the contact of tungsten and silicon crystals @xcite .
+more recently the friction - force microscopy experiment made by dienwiebel _ et al . _
+@xcite demonstrated a strong dependence of the friction force on the rotation angle for a tungsten tip with an attached graphene flake sliding over a graphite surface , where sliding occurs between the graphene layers as relative rotation makes them incommensurate .
+the case of lubricated friction was investigated by he and robbins @xcite for a very thin lubricant film ( one monolayer or less ) .
+the dependences of the static @xcite and kinetic @xcite friction on the rotation angle were calculated .
+the authors considered the rigid substrates of fcc crystal with the ( 111 ) surface and rotated the top substrate from @xmath9 to @xmath10 .
+it was found that static friction exhibits a peak at the commensurate angle ( @xmath9 ) and then is approximately constant ; the peak / plateau ratio is about 7 ( for the monolayer lubricant film , where the variation is the strongest ) .
+the kinetic friction varies slowly with a minimum at the commensurate angle and a smooth maximum at @xmath11 , changing by a factor near two .
+also , the kinetic friction decreases with velocity at @xmath9 , while it increases at the other angles .    _
+the goal of our work is a detailed md study of stick - slip and smooth sliding for lubricated system with rotated surfaces . _
+compared to the work by he and robbins @xcite , we study thicker lubricant films , up to five atomic layers thick .
+we explore a fairly basic model ( see sec .  [ model ] and ref .
+interactions are of simple lennard - jones type , typically each substrate consists of two layers with 12@xmath1211 atoms , arranged as a square lattice , and the lubricant has 80 atoms per layer ) which allows us a rather detailed study of the system dynamics for long simulation times .
+this model attempts to address the effects of relative crystal rotations in generic lubricated sliding , without focusing on a specific system .
+while the microscopic interactions are treated at a minimal level of sophistication , we describe energy dissipation by means of a `` realistic '' damping scheme , with a damping coefficient in langevin equation , which mimics the energy exchange between the lubricant atoms and the substrate .
+this is certainly important for smooth sliding , the kinetics of melting and freezing processes and the ensuing metastable configurations which emerge at stick during stick - slip regime
+.    section  [ simulation ] presents typical simulation results .
+the model exhibits stick - slip at a low driving speed , which changes to smooth sliding with increasing speed . in the smooth sliding regime , as well as during slips in the stick - slip regime , the system indeed exhibits either the ls or lols regime , depending on the simulation parameters , and in particular the rotation angle . a new important result of
+the present study is that the lols regime should be observed much more often than the ls regime .
+section  [ discussion ] discusses and summarizes the obtained results .
+\(a ) ( b ) ( c )    as we address rather general properties of lubricated friction , we explore a relatively simple model in simulation .
+this allows us to span a wider range of sliding velocities and longer simulation times as well as to analyze the atomic trajectories in greater detail than by simulating fully realistic force fields appropriate to a specific system .
+the md model was introduced and described in previous work @xcite ; therefore , we only discuss here its main features briefly .
+we study a film composed by few atomic layers and confined between two substrates , `` bottom '' and `` top '' . as illustrated in fig .
+[ b06 ] , each substrate consists of two layers . the external one is rigid , while the dynamics of the atoms belonging to the inner layer , the one directly in contact with the lubricant , is fully included in the model .
+the rigid part of the bottom substrate is held fixed , while the top substrate is mobile in the three space directions @xmath13 .
+all atoms interact with pairwise lennard - jones potentials @xmath14 , \label{m0}\ ] ] where @xmath15 or @xmath16 for the substrate or lubricant atoms respectively , so that the interaction parameters @xmath17 and @xmath18 depend on the type of atoms . between two substrate atoms we use @xmath19 and an equilibrium distance @xmath20 .
+the interaction between the substrate and the lubricant is much weaker , @xmath21 . for the `` soft '' lubricant itself , we consider @xmath22 and an equilibrium spacing @xmath23 , which is poorly commensurate with @xmath24 .
+the equilibrium distance between the substrate and the lubricant is @xmath25 . for the long - range tail of all potentials
+we adopt a standard truncation to @xmath26 .
+the atomic masses are @xmath27 .
+the two substrates are pressed together by a loading force @xmath28 per substrate atom ( typically we used the value @xmath29 ) .
+all parameters are given in dimensionless units defined in ref .
+@xcite , for example the model units for force is @xmath30 .
+the chosen parameters correspond roughly to a typical system where energy is measured in electronvolts and distances in ngstrms , so that forces are in the nanonewton range .
+the main difference between our technique and other simulations of confined systems lies in the dissipative coupling with the heat bath , representing the bulk of the substrates .
+we use langevin dynamics with a position- and velocity - dependent damping coefficient @xmath31 , which is designed to mimic realistic dissipation , as discussed in refs .  @xcite . in a driven system
+the energy pumped into the system must be removed from it . in reality energy losses occurs through the excitation of degrees of freedom not included in the calculation , namely energy transfer into the bulk of the substrates . to model this fact ,
+damping should occur primarily when a moving atom comes at a small distance @xmath32 from either substrate . moreover , the efficiency of the energy transfer depends on the velocity @xmath33 of the atom because @xmath33 affects the frequencies of the motions that it excites within the substrates .
+the damping is written as @xmath34 with @xmath35 $ ] , where @xmath36 is a characteristic distance of the order of one lattice spacing .
+the expression of @xmath37 is deduced from the results known for the damping of vibrations of an atom adsorbed on a crystal surface ( see ref .
+@xcite and references therein ) .    in simulations we explore the `` spring ''
+algorithm , where a spring is attached to the rigid top layer , and the spring end is driven at a constant velocity .
+we apply periodic boundary conditions ( pbc ) in the @xmath38 and @xmath39 directions .
+the geometric construction of the rotated substrate is explained in the appendix  [ appendix ] . in simulation , it is simpler to rotate the bottom substrate only .
+the initial configuration of the lubricant is prepared as a set of @xmath40 ( @xmath41 , 2 , 3 , and 5 ) closely packed atomic layers .
+most simulations include @xmath42 atoms in each lubricant layer , although we increased the system size by up to 16 times to check for size effects .
+the system is then annealed , i.e. , the temperature is raised adiabatically to @xmath43 , which exceeds the melting temperature @xmath44 ( @xmath45 for our lubricant @xcite ) and then decreased back to the desired value .
+after preparation of the annealed configuration , we perform a standard protocol of runs : starting from the high - speed @xmath46 ls regime , corresponding to a sliding speed comparable to the sound velocity of the lubricant in its solid state , we reduce the driving velocity @xmath47 in steps down to the value @xmath48 ( which produces stick - slip motion for most employed simulation parameters ) , and then increase @xmath47 , up to @xmath49 .
+typical md snapshots are shown in fig .
+[ b06 ] .    to estimate @xmath3 in the stick - slip regime we select the @xmath50 runs and take an average of the peak spring force immediately prior to slip
+. a lower sliding speed would lead to slightly larger friction , due to longer aging of pinning contacts , but would require longer simulation times to record the same number of stick - slip events .
+the moderate speed @xmath50 realizes a fair compromise , which in practical simulation times produces a @xmath51 underestimate of @xmath3 with respect to its value at adiabatically slow sliding . to find the kinetic friction force @xmath52 in the smooth sliding regime
+, we average the spring force over the whole run .
+the simulation results are summarized in fig .  [ c17all ] .
+qualitatively , the results agree with those of he and robbins @xcite , with stick - slip motion at low driving velocities and smooth sliding for @xmath53 . at zero substrate temperature ,
+the static friction can vary with the misfit angle @xmath54 by two orders of magnitude , and the kinetic friction for smooth sliding at low velocity ( e.g. as shown for @xmath55 in fig .
+[ c17all]b ) by more than one order of magnitude . for the thin lubricant films , @xmath56 , the static friction peaks for perfectly aligned substrates , @xmath57 .
+this does not occur any more for thicker films .
+the friction achieves sharp minima at the angles @xmath58 , @xmath59 and @xmath60 as will be discussed below . at large driving velocities , @xmath61 ( which is in fact huge , comparable to the solid - lubricant sound velocity )
+the lubricant film is completely molten , and friction becomes almost independent of @xmath54 .
+the variation of friction with @xmath54 is the most pronounced for the one - layer lubricant film .
+the simulation results for this thinnest film are presented in fig .
+the static and low - speed ( @xmath62 ) kinetic friction force displays sharp minima for the angles @xmath58 , @xmath59 and @xmath60 . for these `` special '' angles ,
+the lubricant film remains ordered and slides together either with the top or the bottom substrate both during slips and in smooth sliding ( we call this regime as the `` solid sliding '' , or ss ) .
+of course the motion is not rigid but corresponds to a `` solitonic '' sliding mechanism @xcite . for the other angles studied , at stick configurations the film orders locally , with a structure
+adjusted partly to the bottom and partly to the top substrates , while during slips , as well as at smooth sliding , the film is 2d - melted ( ls regime ) .
+the dependence of the kinetic friction force on temperature is shown in fig .
+[ fw1kt ] . for all `` non - special '' angles ,
+when the static friction is relatively high , the kinetic friction decreases with temperature ( e.g. , see the dependence for @xmath63 in fig .
+[ fw1kt ] ) , reflecting the standard thermolubric effect @xcite due to temperature - assisted barrier overcoming . however , for all special angles producing the ss regime , the behavior is different : thermal fluctuations perturb a rather delicate solitonic motion , leading to an initial increase of friction with @xmath64 .
+such a behavior occurs also for thicker films . for the misfit angle @xmath65
+we observe that at @xmath66 the one - layer film reaches an exceptional sliding state characterized by very low friction due to ss ; this type of superlubricity is not typical , and it is quickly destroyed with the increase of either temperature ( fig .
+[ fw1kt ] ) or velocity ( fig .
+[ c17c ] ) .
+note also that the superlubric ss regime is recovered significantly after it is abandoned as temperature is lowered ( dotted line , open symbols ) , thus opening a nontrivial hysteretic loop in the thermal cycle .
+consider now a thicker lubricant film with @xmath67 ( see fig .
+[ c17b ] ) .
+for @xmath68 we observe the ls regime , where the lubricant is 3d molten ( except the `` special '' angles @xmath69 and @xmath60 at @xmath46 , where we have lols between the two attached lubricant layers ) . at lower velocities , @xmath70 ,
+the behavior is as follows . for @xmath57 at stick , the two ordered lubricant layers are ordered and attached to the corresponding substrates , but are 3d melted at slips . for all other angles , the lols regime operates during slips : for @xmath71 the attached layers are 2d molten , while for @xmath72 the attached layers remain ordered . finally , for the angles @xmath58 , @xmath59 and @xmath60 the friction forces exhibit deep minima produced by the ss solitonic mechanism .
+we come now to describe the results for the @xmath73 system as a prototypical lubricant of mesoscale thickness . the static friction , as well as the kinetic friction in the lols regime , can change by more than one order in magnitude when the misfit angle varies , as illustrated in fig .
+@xmath9 produces the highest friction like for thinner lubricants .
+the smooth sliding , as well as slips during stick - slip , correspond to either the lols or the ls regime . for all other angles
+@xmath74 , _ sliding always corresponds to the lols regime _ at low driving velocities @xmath70 .
+contrary to the @xmath9 case , now sliding is typically asymmetric and takes place at one interface only , between the middle layer and one of the attached layers , so that the middle lubricant layer sticks with either the top or the bottom substrate .
+the middle layer may remain ordered during sliding or , for some values of @xmath54 , it is 2d - melted ; in the latter case , the friction force is higher .
+for the special misfit angles @xmath58 , @xmath59 and @xmath60 identified by stars in fig .
+[ c15 ] , we again observe the `` superlubricity '' characterized by the very low friction . in these cases ,
+the lubricant film remains solid and ordered during sliding , and moves as a whole with the top or bottom substrate , in a ss sliding .
+however , the lubricant is not rigid during motion , thus enhancing the `` solitonic '' mechanism .
+the results described above , remain qualitatively the same at nonzero temperatures @xmath75 .
+for example , fig .
+[ c15]b shows the dependence of friction force on @xmath54 for the `` room '' temperature @xmath76 .
+both the static and kinetic ( for the lols regime ) friction forces decrease when @xmath64 increases .
+however , for the ss regime , the behavior is different  fluctuations due to temperature perturb the solitonic motion , leading to an increase of friction .
+the thicker lubricant film , @xmath77 , behaves similarly to @xmath73 , as illustrated in fig .
+the main difference is the lack of a maximum in @xmath78 at @xmath9 .
+again , for the misfit angles @xmath58 and @xmath59 we observe `` superlubric '' sliding . for smooth sliding with @xmath70 as well for slips during stick - slip motion ,
+we observe either the lols regime , where the three central layers are 2d melted and sliding occurs between the middle layers ( e.g. , between layers 1 - 2 or 2 - 3 ) , or the ls regime , where all three middle layers are 3d - molten .
+the lols regime marks the dips in @xmath52 , while ls generates larger @xmath52 , as occurs in the angular intervals @xmath79 and @xmath80 . for larger velocities , @xmath68 ,
+all five lubricant layers are melted and the ls regime operates in full .
+figure  [ load1 ] reports the friction force for 4 values of the applied load .
+these calculations demonstrate that the dependency of friction on the substrate rotation is very similar for different loads , with a general increase of friction with load .
+we obtain very similar results for @xmath67 and 3 .
+however , for thicker films , @xmath81 , the situation changes dramatically at high load ( @xmath82 ) : the film rearranges into a closely packed four - layer configuration which remains solid under sliding . as a consequence , the peak structure of friction as a function of @xmath54 changes as well , because the lubricant structure acquires more atoms per layer and changes symmetry .
+because the static friction varies over such a large interval , its specific value for a given misfit angle @xmath54 has little importance .
+indeed one could hardly control the misfit angle in a real system , except in especially favorable situations @xcite .
+moreover , a system where the sliding surfaces have an ideal crystalline structure oriented with a controllable @xmath54 is exceptional .
+real surfaces usually have areas ( domains ) with different orientation . for polycrystalline substrates , it is reasonable to assume that all angles are presented with equal likeliness .
+it may then be more interesting to examine the probability distribution of @xmath3 values , regardless of @xmath54 .
+the insets of fig .
+[ static1235 ] report the histograms of forces as resulting from our simulations of different thicknesses .    besides , if we also assume that the lubricant film is not uniform but has different thickness at different places ( it is certainly so if the surfaces have some roughness ) , then we can average over different thicknesses ; the resulting distribution @xmath83 is shown fig .
+[ static1235 ] .
+it is precisely this distribution which represents the main output of our md simulations , as it then allows us to predict tribological behavior of the system with the help of a master - equation approach @xcite .
+the calculation summarized in fig .
+[ static1235 ] are carried out at @xmath84 .
+the effect of a load increase would be mainly to scale the @xmath83 distribution , so that it would peak at larger friction .
+the resulting distribution displays several spikes which are likely due to the fixed size of the simulated contact
+. we will investigate the role of contact size on the @xmath83 distribution using a simplified model , in a separate publication @xcite .
+the main results of the present work can be summarized as follows : ( _ i _ ) the relative rotation of sliding contacts in a lubricated context promotes lols more frequently then the standard ls .
+( _ ii _ ) for a few special angles lols leads to superlubric sliding completely analogous of the unlubricated sliding of misaligned perfect crystalline substrates .
+this superlubric regime is however delicate and can be suppressed by small relative rotations of the substrates , by temperature , or by velocity - induced local heating .
+( _ iii _ ) in a regime of boundary lubrication , friction forces do vary quite significantly with the relative substrate relative orientation @xmath54 , even when the lubricant film becomes several atomic layers thick .
+( _ iv _ ) to describe macroscopic friction in a context of multiasperity contact , where relative orientation is not really under control , the most important information to be extracted from md simulations is a probability distribution @xmath83 rather than specific values of the static friction force @xmath3 .
+the present calculation is consistent with a rapidly ( approximately exponentially ) decaying distribution @xmath83 , up to a cutoff force related to the average contact size .
+when temperature can promote rotations , beside the standard reduction of friction at low speed due to thermal crossing of barriers , thermal fluctuations could affect the barrier distribution itself by suppressing small barriers in favor of higher ones @xcite .
+we wish to express our gratitude to b.n.j .
+persson for helpful discussions .
+this research was supported in part by a grant from the cariplo foundation managed by the landau network 
+centro volta , and by the italian national research council ( cnr , contract esf / eurocores / fanas / afri ) , whose contributions are gratefully acknowledged .
+in this appendix we report the construction of the substrate rotated by a given misfit angle @xmath54 .
+the main problem here is to obtain numerous misfit angles @xmath54 which satisfy pbc in @xmath38 and @xmath39 directions simultaneously , while maintaining a constant simulation size , and rectangular pbc ( for the square shape of the simulation cell the construction is much simpler , e.g. , see ref .
+the idea of the construction is demonstrated in fig .
+the substrate is arranged according to a square lattice with lattice constant @xmath85 , and the simulation cell area is @xmath86 .
+the rotated bottom lattice is constructed as a set of parallelograms , so that the elementary cell of the new lattice has size @xmath87 with a base angle @xmath88 .
+in the perfect case we would have @xmath89 and @xmath90 .
+however , to satisfy the pbc , the rotated lattice has to be distorted from the ideal square shape , and the idea is to reduce this distortion to a minimum .
+the rotated lattice is defined by two integers @xmath91 and @xmath92 ( see fig .  [ c16 ] ) which determine the rotation angle @xmath93 .
+for example , the choice @xmath94 and @xmath95 or @xmath96 and @xmath97 gives the original square lattice , while the sets @xmath94 and @xmath98 or @xmath99 and @xmath97 lead to the minimally allowed misfit angle for the given size of the simulation cell .
+let us draw two lines ( see fig .
+[ c16 ] ) , the first line starts at the point o@xmath100 and has the length @xmath101 , while the second line starts at the point o@xmath102 and has the length @xmath103 .
+these lines intersect at point o@xmath104 forming an angle @xmath105 .
+the rotated substrate atoms are placed along these lines , and then periodic shifts by multiples of @xmath106 and @xmath107 in the directions defined by these two lines will generate the rotated oblique lattice .      the oblique lattice constants @xmath106 and @xmath107 are determined by two constrains .
+first , we must preserve the area of the elementary cell : @xmath108 second , from the triangle o@xmath109o@xmath110o@xmath104 we have @xmath111 from eqs .
+( [ axay ] ) and ( [ lx2 ] ) we obtain @xmath112 where @xmath113 and @xmath114 . the signs @xmath115 in eq .
+( [ axfin ] ) yield two possible solutions which we call as `` left '' and `` right '' ; typically we use the `` right '' variant when @xmath116 and the `` left '' one for @xmath117 . finally , the actual misfit angle @xmath54 is given by @xmath118 , where @xmath119    the construction described above guarantees the perfect pbc in the @xmath38 direction , but not in the @xmath39 one . therefore
+, a next step in construction is to characterize this distortion .
+considering the triangle o@xmath120o@xmath110o@xmath121 in fig .
+[ c16 ] ( the line o@xmath120o@xmath121 is parallel to o@xmath109o@xmath104 ) , the lengths of its short sides are @xmath122 and @xmath123 , where @xmath124 .
+the distortion of pbc is determined by two parameters @xmath125 ^ 2 $ ] and @xmath126 ^ 2 $ ] . in the ideal case
+, it should be @xmath127 .
+a `` quality '' of the rotated lattice can be characterized by two parameters : the first parameter @xmath128 describes the distortion of periodic boundary conditions , while the second parameter @xmath129 indicates how close @xmath106 and @xmath107 are to the original square - lattice constant @xmath85 .
+perfect rotations are realized for @xmath130 and @xmath131 simultaneously at @xmath90 .
+thus , for given integers @xmath91 and @xmath92 , we plot @xmath132 and @xmath133 as functions of @xmath134 , to choose an appropriate minimum of @xmath135 close to the point @xmath90 , and to check that @xmath133 is not too large at that point .    note that in the non - ideal case , some atoms within the @xmath136 simulation cell may be missing or , for other sets of parameters , some atoms may overlap with their `` image '' atoms generated by pbc . to overcome this problem
+, we shifted slightly the bottom boundary of the selected area . as a result , in the rotated lattice the number of substrate atoms may differ from the original one by a value @xmath137 .    finally , because different sets of parameters may provide approximately the same misfit angle
+, we can choose the best set , the one which minimizes @xmath138 and @xmath134 .
+two typical examples of the construction described above are shown in fig .
+[ c17 ] .    99 b.n.j
+.  persson , _
+`` sliding friction : physical principles and applications '' _ ( springer - verlag , berlin , 1998 ) .
+o.m .  braun and a.g .
+naumovets , surf .
+reports * 60 * , 79 ( 2006 ) .
+thompson and m.o .
+robbins , , 6830 ( 1990 ) .
+thompson and m.o .
+robbins , science * 250 * , 792 ( 1990 ) ; m.o .
+robbins and p.a .
+thompson , science * 253 * , 916 ( 1991 ) .
+m.  hirano and k.  shinjo , , 11837 ( 1990 ) .
+mser and m.o .
+robbins , , 2335 ( 2000 ) .
+g.  he , m.h .
+mser , and m.o .
+robbins , science * 284 * , 1650 ( 1999 ) .
+mser , l.  wenning , and m.o .
+robbins , , 1295 ( 2001 ) .
+f.  lancon , europhys .
+lett .  * 57 * , 74 ( 2002 ) .
+m.  hirano and k.  shinjo , wear * 168 * , 121 ( 1993 ) .
+robbins and e.d .
+smith , langmuir * 12 * , 4543 ( 1996 ) .
+verhoeven , m.  dienwiebel , and j.w.m .
+frenken , * 70 * , 165418 ( 2004 ) .
+f.  bonelli , n.  manini , e.  cadelano , and l.  colombo , eur .
+j.  b * 70 * , 449 ( 2009 ) .
+de wijn , c.  fusco , and a.  fasolino , , 046105 ( 2010 ) . t.  gyalog and h.  thomas , europhys .  lett .
+* 37 * , 195 ( 1997 ) .
+y.  qi , y .- t .
+cheng , t.  cagin , and w.a .
+goddard iii , , 085420 ( 2002 ) .
+m.  hirano , k.  shinjo , r.  kaneko , and y.  murata , , 1448 ( 1997 ) .
+m.  dienwiebel , g.s .
+verhoeven , n.  pradeep , j.w.m .
+frenken , j.a .
+heimberg , and h.w .
+zandbergen , , 126101 ( 2004 ) .
+g.  he and m.o .
+robbins , , 035413 ( 2001 ) .
+g.  he and m.o .
+robbins , tribology letters * 10 * , 7 ( 2001 ) .
+braun and m.  peyrard , , 046110 ( 2001 ) .
+braun and r.  ferrando , , 061107 ( 2002 ) .
+braun and m.  peyrard , , 011506 ( 2003 ) .
+o.m .  braun and yu.s .
+kivshar , _ `` the frenkel - kontorova model : concepts , methods , and applications '' _ ( springer - verlag , berlin , 2004 ) .
+a.  vanossi , n.  manini , g.  divitini , g.e .
+santoro , and e.  tosatti , , 056101 ( 2006 ) .
+a.  vanossi , n.  manini , f.  caruso , g.e .
+santoro , and e.  tosatti , , 206101 ( 2007 ) .

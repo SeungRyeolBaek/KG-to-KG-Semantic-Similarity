@@ -1,0 +1,117 @@
+here we present the method we used to calculate the fano factor for the tunnel exclusion process in the sierpiski lattice and in the random - resistor network .
+we follow the master equation approach of refs .
+the two - dimensionality of our networks requires a more elaborate bookkeeping , which we manage by means of the hamiltonian formalism of ref .
+@xcite .
+we consider a network of @xmath53 sites , each of which is either empty or singly occupied .
+two sites are called adjacent if they are directly connected by at least one bond .
+a subset @xmath54 of the @xmath53 sites is connected to the source and a subset @xmath55 is connected to the drain .
+each of the @xmath56 possible states of the network is reached with a certain probability at time @xmath10 .
+we store these probabilities in the @xmath56-dimensional vector @xmath57 .
+its time evolution in the tunnel exclusion process is given by the master equation @xmath58 where the matrix @xmath59 contains the tunnel rates .
+the normalization condition can be written as @xmath60 , in terms of a vector @xmath61 that has all @xmath62 components equal to 1 .
+this vector is a left eigenstate of @xmath59 with zero eigenvalue @xmath63 because every column of @xmath59 must sum to zero in order to conserve probability .
+the right eigenstate with zero eigenvalue is the stationary distribution @xmath64 .
+all other eigenvalues of @xmath59 have a real part @xmath65 .
+we store in the vector @xmath66 the conditional probabilities that a state is reached at time @xmath10 after precisely @xmath67 charges have entered the network from the source . because the source remains occupied , a charge which has entered the network can not return back to the source but must eventually leave through the drain .
+one can therefore use @xmath67 to represent the number of transfered charges .
+the time evolution of @xmath66 reads @xmath68 where @xmath69 has been decomposed into a matrix @xmath70 containing all transitions by which @xmath67 does not change and a matrix @xmath71 containing all transitions that increase @xmath67 by 1 .
+the probability @xmath72 that @xmath67 charges have been transferred through the network at time @xmath10 represents the counting statistics .
+it describes the entire statistics of current fluctuations .
+the cumulants @xmath73 are obtained from the cumulant generating function @xmath74.\ ] ] the average current and fano factor are given by @xmath75    the cumulant generating function can be expressed in terms of a laplace transformed probability vector @xmath76 as @xmath77 transformation of eq .
+gives @xmath78 where we have introduced the counting matrix @xmath79 the cumulant generating function follows from @xmath80    the long - time limit of interest for the fano factor can be implemented as follows @xcite .
+let @xmath81 be the eigenvalue of @xmath82 with the largest real part , and let @xmath83 be the corresponding ( normalized ) right eigenstate , @xmath84 since the largest eigenvalue of @xmath85 is zero , we have @xmath86 ( note that @xmath87 is the stationary distribution @xmath88 introduced earlier . )
+in the limit @xmath89 only the largest eigenvalue contributes to the cumulant generating function , @xmath90 = \mu(\chi).\ ] ]      the construction of the counting matrix @xmath82 is simplified by expressing it in terms of raising and lowering operators , so that it resembles a hamiltonian of quantum mechanical spins @xcite .
+first , consider a single site with the basis states @xmath91 ( vacant ) and @xmath92 ( occupied ) .
+we define , respectively , raising and lowering operators @xmath93 we also define the electron number operator @xmath94 and the hole number operator @xmath95 ( with @xmath96 the @xmath97 unit matrix ) .
+each site @xmath98 has such operators , denoted by @xmath99 , @xmath100 , @xmath101 , and @xmath102 .
+the matrix @xmath82 can be written in terms of these operators as @xmath103 where all tunnel rates have been set equal to unity .
+the first sum runs over all ordered pairs @xmath104 of adjacent sites .
+these are hermitian contributions to the counting matrix .
+the second sum runs over sites in @xmath105 connected to the source , and the third sum runs over sites in @xmath106 connected to the drain .
+these are non - hermitian contributions .
+it is easy to convince oneself that @xmath85 is indeed @xmath59 of eq .
+, since every possible tunneling event corresponds to two terms in eq .
+: one positive non - diagonal term responsible for probability gain for the new state and one negative diagonal term responsible for probability loss for the old state . in accordance with eq .
+, the full @xmath82 differs from @xmath59 by a factor @xmath107 at the terms associated with charges entering the network .      in view of eq .
+, the entire counting statistics in the long - time limit is determined by the largest eigenvalue @xmath81 of the operator . however , direct calculation of that eigenvalue is feasible only for very small networks .
+our approach , following ref .
+@xcite , is to derive the first two cumulants by solving a hierarchy of linear equations .
+we will now express @xmath81 in terms of @xmath112 .
+we start from the definition .
+if we act with @xmath61 on the left - hand - side of eq .
+we obtain @xmath113 in the second equality we have used eq .
+[ which holds since @xmath114 .
+acting with @xmath61 on the the right - hand - side of eq .
+we obtain just @xmath81 , in view of eq .. hence we arrive at @xmath115        to obtain @xmath116 we set up a system of linear equations starting from @xmath120 commuting @xmath101 to the right , using the commutation relations @xmath121
+= s_i^+$ ] and @xmath122 = - s_i^-$ ] , we find @xmath123 the notation @xmath124 means that the sum runs over all sites @xmath125 adjacent to @xmath98 .
+the number @xmath126 is the total number of bonds connected to site @xmath98 ; @xmath127 of these bonds connect site @xmath98 to the source .    in order to compute @xmath109 we set @xmath128 in eq .  ,
+use eq .   to set the left - hand - side to zero , and solve the resulting symmetric sparse linear system of equations ,
+@xmath129 this is the first level of the hierarchy .
+substitution of the solution into eq . gives the average current @xmath5 .      to calculate the fano factor via eq .
+we also need @xmath130 .
+we take eq .
+, substitute eq .   for @xmath81 ,
+differentiate and set @xmath128 to arrive at @xmath131 to find @xmath110 we note that @xmath132 and commute @xmath101 to the right . setting @xmath128
+provides the second level of the hierarchy of linear equations , @xmath133 the number @xmath134 is the number of bonds connecting sites @xmath98 and @xmath125 if they are adjacent , while @xmath135 if they are not adjacent .
+99 i. webman , phys .
+. lett . * 47 * , 1496 ( 1981 ) .
+s. alexander and r. orbach , j. phys .
+( paris ) * 43 * , l625 ( 1982 ) .
+d. ben - avraham and s. havlin , j. phys . a * 15 * , l691 ( 1982 ) .
+y. gefen , a. aharony , and s. alexander , phys .
+lett . * 50 * , 77 ( 1983 ) .
+r. rammal and g. toulouse , j. phys .
+( paris ) * 44 * , l13 ( 1983 ) .
+s. havlin and d. ben - avraham , adv .
+phys . * 36 * , 695 ( 1987 ) .
+m. b. isichenko , rev .
+* 64 * , 961 ( 1992 ) .
+d. stauffer and a. aharony , _ introduction to percolation theory _
+( taylor and francis , 1994 ) . s. redner , arxiv:0710.1105 . b. i. shklovskii and a. l. efros , _ electronic properties of doped semiconductors _
+( springer , 1984 ) .
+a. bunde and s. havlin , editors , _ fractals and disordered systems _ ( springer , 1996 ) .
+s. a. trugman , phys .
+b 27 , 7539 ( 1983 ) . v. v. cheianov , v. i. falko , b. l. altshuler , and i. l. aleiner , arxiv:0706.2968 .
+j. martin , n. akerman , g. ulbricht , t. lohmann , j. h. smet , k. von klitzing , and a. yacoby , nature phys .
+* 4 * , 144 ( 2008 ) .
+e. h. hwang , s. adam , and s. dassarma , phys .
+98 * , 186806 ( 2007 ) .
+graphene is a single layer of carbon atoms , forming a two - dimensional honeycomb lattice .
+electrical conduction is provided by overlapping @xmath136-orbitals , with on average one electron per @xmath136-orbital in undoped graphene .
+electron puddles have a little more than one electron per @xmath136-orbital ( _ n_-type doping ) , while hole puddles have a little less than one electron per @xmath136-orbital ( _ p_-type doping ) .
+an electron gas is called `` degenerate '' if the average occupation number of a quantum state is either close to unity or close to zero .
+it is called `` nondegenerate '' if the average occupation number is much smaller than unity for all states .
+m. blanter and m. bttiker , phys .
+rep . * 336 * , 1 ( 2000 ) . c. w. j. beenakker and c. schnenberger , physics today , may 2003 , p. 37 .
+l. dicarlo , j. r. williams , y. zhang , d. t. mcclure , and c. m. marcus , arxiv:0711.3206 .
+r. danneau , f. wu , m. f. craciun , s. russo , m. y. tomi , j. salmilehto , a. f. morpurgo , and p. j. hakonen , arxiv:0711.4306 .
+j. tworzydo , b. trauzettel , m. titov , a. rycerz , and c. w. j. beenakker , phys .
+* 96 * , 246802 ( 2006 ) .
+p. san - jose , e. prada , and d. s. golubev , phys .
+b * 76 * , 195445 ( 2007 ) . c. h. lewenkopf , e. r. mucciolo , and a. h. castro neto , arxiv:0711.3202 . c. w. j. beenakker and m. bttiker , phys . rev .
+b * 46 * , 1889 ( 1992 ) .
+k. e. nagaev , phys . lett . a * 169 * , 103 ( 1992 ) .
+r. rammal , j. phys .
+( paris ) * 45 * , l1007 ( 1984 ) .
+a. hansen and m. nelkin , phys .
+b * 33 * , 649 ( 1986 )
+. b. fourcade and a .- m .
+s. tremblay , phys .
+b * 34 * , 7802 ( 1986 ) . v. v. kuznetsov , e. e. mendez , x. zuo , g. l. snider , and e. t. croke , phys . rev .
+lett . * 85 * , 397 ( 2000 ) .
+f. e. camino , v. v. kuznetsov , e. e. mendez , m. e. gershenson , d. reuter , p. schafmeister , and a. d. wieck , phys .
+b * 68 * , 073313 ( 2003 ) .
+y. a. kinkhabwala , v. a. sverdlov , a. n. korotkov , and k. k. likharev , j. phys .
+matter * 18 * , 1999 ( 2006 ) .
+v. nazarov , phys .
+lett . * 73 * , 134 ( 1994 ) .
+e. v. sukhorukov and d. loss , phys .
+lett . * 80 * , 4959 ( 1998 ) .
+w. sierpiski , c. r. acad .
+paris * 160 * , 302 ( 1915 ) .
+r. c. liu , p. eastman , and y. yamamoto , solid state comm . * 102 * , 785 ( 1997 ) .
+roche , b. derrida , and b. douot , eur .
+j. b * 43 * , 1434 ( 2005 ) .
+d. a. bagrets and yu .  v. nazarov , phys .
+b * 67 * , 085316 ( 2003 ) .
+g. m. schtz , in _ phase transitions and critical phenomena _ , edited by c. domb and j. l. lebowitz ( academic , 2001 ) .

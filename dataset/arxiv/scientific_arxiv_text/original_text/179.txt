@@ -1,0 +1,278 @@
+turbulence is a key element of the dynamics of astrophysical fluids , including those of interstellar medium ( ism ) , clusters of galaxies and circumstellar regions .
+the realization of the importance of turbulence induces sweeping changes , for instance , in the paradigm of ism .
+it became clear , for instance , that turbulence affects substantially star formation , mixing of gas , transfer of heat .
+observationally it is known that the ism is turbulent on scales ranging from aus to kpc ( see armstrong et al 1995 , elmegreen & scalo 2004 ) , with an embedded magnetic field that influences almost all of its properties .
+the issue of quantitative descriptors that can characterize turbulence is not a trivial one ( see discussion in lazarian 1999 and ref . therein ) .
+one of the most widely used measures is the turbulence spectrum , which describes the distribution of turbulent fluctuations over scales .
+for instance , the famous kolmogorov model of incompressible turbulence predicts that the difference in velocities at different points in turbulent fluid increases on average with the separation between points as a cubic root of the separation , i.e. @xmath0 . in terms of direction - averaged energy spectrum
+this gives the famous kolmogorov scaling @xmath1 , where @xmath2 is a _
+3d _ energy spectrum defined as the fourier transform of the correlation function of velocity fluctuations @xmath3 .
+note that in this paper we use @xmath4 to denote averaging procedure .
+quantitative measures of turbulence , in particular , turbulence spectrum , became important recently also due to advances in the theory of mhd turbulence .
+as we know , astrophysical fluids are magnetized , which makes one believe that the correspondence should exist between astrophysical turbulence and mhd models of the phenomenon ( see vazquez - semadeni et al . 2000 , mac low & klessen 2004 , bellesteros - paredes et al .
+2007 , mckee & ostriker 2007 and ref . therein ) .    in fact , without observational testing
+, the application of theory of mhd turbulence to astrophysics could always be suspect .
+indeed , from the point of view of fluid mechanics astrophysical turbulence is characterized by huge reynolds numbers , @xmath5 , which is the inverse ratio of the eddy turnover time of a parcel of gas to the time required for viscous forces to slow it appreciably .
+for @xmath6 we expect gas to be turbulent and this is exactly what we observe in hi ( for hi @xmath7 ) .
+in fact , very high astrophysical @xmath5 and its magnetic counterpart magnetic reynolds number @xmath8 ( that can be as high as @xmath9 ) present a big problem for numerical simulations that can not possibly get even close to the astrophysically - motivated numbers .
+the currently available 3d simulations can have @xmath5 and @xmath8 up to @xmath10 . both scale as the size of the box to the first power , while the computational effort increases as the fourth power ( 3 coordinates + time ) , so the brute force approach can not begin to resolve the controversies related , for example , to ism turbulence .
+we expect that observational studies of turbulence velocity spectra will provide important insights into ism physics . even in the case of
+much more simple oceanic ( essentially incompressible ) turbulence , studies of spectra allowed to identify meaningful energy injection scales . in interstellar , intra - cluster medium , in addition to that , we expect to see variations of the spectral index arising from the variations of the degree of compressibility , magnetization , interaction of different interstellar phases etc .
+how to get the turbulence spectra from observations is a problem of a long standing . while density fluctuations are readily available through both interstellar scincillations and studies of column density maps , the more coveted velocity spectra have been difficult to obtain reliably until very recently .
+turbulence is associated with fluctuating velocities that cause fluctuations in the doppler shifts of emission and absorption lines .
+observations provide integrals of either emissivities or opacities , both proportional to the local densities , at each velocity along the line of sight .
+it is far from trivial to determine the properties of the underlying turbulence from the observed spectral line .
+centroids of velocity ( munch 1958 ) have been an accepted way of studying turbulence , although it was not clear to when and to what extend the measure really represents the velocity .
+recent studies ( lazarian & esquivel 2003 , henceforth le03 , esquivel & lazarian 2005 , ossenkopf et al 2006 , esquivel et al .
+2007 ) have showed that the centroids are not a good measure for supersonic turbulence , which means that while the results obtained for hii regions ( odell & castaneda 1987 ) are probably ok , those for molecular clouds are unreliable .
+an important progress in analytical description of the relation between the spectra of turbulent velocities and the observable spectra of fluctuations of spectral intensity was obtained in lazarian & pogosyan ( 2000 , henceforth lp00 ) .
+this description paved way to two new techniques , which were later termed velocity channel analysis ( vca ) and velocity coordinate spectrum ( vcs ) .
+the techniques provide different ways of treating observational data in position - position - velocity ( ppv ) data cubes . while vca is based on the analysis of channel maps , which are the velocity slices of ppv cubes , the vcs analyses fluctuations along the velocity direction . if the slices have been used earlier for turbulence studies , although the relation between the spectrum of intensity fluctuations in the channel maps and the underlying turbulence spectrum was unknown , the analysis of the fluctuations along the velocity coordinate was initiated by the advent of the vcs theory .    with the vca and the vcs one can relate both observations and simulations to _ turbulence theory_. for instance , the aforementioned turbulence indexes are very informative
+, e.g. velocity indexes steeper than the kolmogorov value of @xmath11 are likely to reflect formation of shocks , while shallower indexes may reflect scale - dependent suppression of cascading ( see beresnyak & lazarian 2006 and ref . therein ) . by associating the variations of the index with different regions of ism , e.g. with high or low star formation
+, one can get an important insight in the fundamental properties of ism turbulence , its origin , evolution and dissipation .
+the absorption of the emitted radiation was a concern of the observational studies of turbulence from the very start of the work in the field ( see discussion in munch 1999 ) .
+a quantitative study of the effects of the absorption was performed for the vca in lazarian & pogosyan ( 2004 , henceforth lp04 ) and for the vcs in lazarian & pogosyan ( 2006 , henceforth lp06 ) . in lp06
+it was stressed that absorption lines themselves can be used to study turbulence .
+indeed , the vcs is a unique technique that does not require a spatial coverage to study fluctuations .
+therefore individual point sources sampling turbulent absorbing medium can be used to get the underlying turbulent spectra .
+however , lp06 discusses only the linear regime of absorption , i.e. when the absorption lines are not saturated .
+this substantially limits the applicability of the technique .
+for instance , for many optical and uv absorption lines , e.g. mg ii , sii , siii the measured spectra show saturation .
+this means that a part of the wealth of the unique data obtained e.g. by hst and other instruments can not be handled with the lp06 technique .
+the goal of this paper is to improve this situation .
+in particular , in what follows , we develop a theoretical description that allows to relate the fluctuations of the absorption line profiles and the underlying velocity spectra in the saturated regime .
+below , in  2 we describe the setting of the problem we address , while our main derivations are in  3 .
+the discussion of the new technique of turbulence study is provided in  4 , while the summary is in  5 .
+while in our earlier publications ( lp00 , lp04 , lp06 ) concentrated on emission line , in particular radio emission lines , e.g. hi and co , absorption lines present the researchers with well defined advantages .
+for instance , they allow to test turbulence with a pencil beam , suffer less from uncertainties in path length .
+in fact , studies of absorption features in the spectra of stars have proven useful in outlining the gross features of gas kinematics in milky way .
+recent advances in sensitivity and spectral resolution of spectrographs allow studies of turbulent motions .    among the available techniques , vcs is the leading candidate to be used with absorption lines .
+indeed , it is only with extended sources that the either centroid or vca studies are possible . at the same time , vcs makes use not of the spatial , but frequency resolution .
+thus , potentially , turbulence studies are possible if absorption along a single line is available . in reality
+, information along a few lines of sight , as it shown in fig  1 is required to improve the statistical accuracy of the measured spectrum . using the simulated data sets chepurnov & lazarian ( 2006ab ) experimentally established that the acceptable number of lines ranges from 5 to 10 .    for weak absorption
+, the absorption and emission lines can be analyzed in the same way , namely , the way suggested in lp06 .
+for this case , the statistics to analyse is the squared fourier transform of the doppler - shifted spectral line , irrespectively of the fact whether this is an emission or an absorption spectral line .
+such a `` spectrum of spectrum '' is not applicable for saturated spectral lines , which width is still determined by the doppler broadening .
+it is known ( see spitzer 1978 ) that this regime corresponds to the optical depth @xmath12 ranging from 10 to @xmath13 . the present paper will concentrate on this regime larger than @xmath14 the line width is determined by atomic constants and therefore it does not carry information about turbulence . ] .
+consider the problem in a more formal way .
+intensity of the absorption line at frequency @xmath15 is given as @xmath16 where @xmath17 is the optical depth .
+in the limit of vanishing intrinsic width of the line @xmath18 , the frequency spread of @xmath19 is determined solely by the doppler shift of the absorption frequency from moving atoms .
+the number density of atoms along the line of sight moving at required velocity @xmath20 is @xmath21 where @xmath22 is the thermal distribution centered at every point @xmath23 at the local mean velocity that is determined by the sum of turbulent and regular flow at that point .
+this is the density in ppv coordinate that we introduced in lp00 , so @xmath24 .
+the intrinsic line width is accounted for by the convolution @xmath25 or , in more detail , @xmath26 with intrinsic profile given by the lorenz form @xmath27 , the inner integral gives the shifted voigt profile @xmath28 so we have another representation @xmath29    we clearly see from eq .
+( [ eq : tau_h ] ) that the line is affected both by doppler shifts and atomic constants .
+the optical depth as a function of frequency contains fluctuating component arising from turbulent motions and associated density inhomogeneities of the absorbers .
+statistics of optical depth fluctuations along the line of sight therefore carries information about turbulence in ism .
+the optical depth is determined by the density of the absorbers in the ppv space , @xmath30 . in our previous work
+we have studied statistical properties of @xmath30 in the context of emission lines , using both structure function and power spectrum formalisms .
+absorption lines demonstrate several important differences that warrant separate study .
+firstly , our ability to recover the optical depth from the observed intensity @xmath31 depends on the magnitude of the absorption as well as sensitivity of the instrument and the level of measurement noise @xmath32 .    for lines with low optical depth
+@xmath33 we can in principle measure the optical depth throughout the whole line . at higher optical depths ,
+the central part of the line is saturated below the noise level and the useful information is restricted to the wings of the line .
+this is the new regime that is the subject of this paper
+.    in this regime the data is available over a window of frequencies limited to velocities high enough so that @xmath34 but not as high as to have lorentz tail define the line .
+higher the overall optical depth , narrower are the wings ( following spitzer , at @xmath35 the wings are totally dominated by lorentz factor ) .
+we shall denote this window by @xmath36 where @xmath37 is the velocity that the window is centered upon ( describing frequency position of the wing ) and @xmath38 is the wing width .
+it acts as a mask on the `` underlying '' data @xmath39    secondly , fluctuations in the wings of a line are superimposed on the frequency dependent wing profile . in other words , the statistical properties of the optical depth are inhomogeneous in this frequency range , with frequency dependent statistical mean value . while _ fluctuations _ of the optical depth @xmath40 that have origin in the turbulence can still be assumed to be statistically homogeneous , the mean profile of a wing must be accounted for .
+what statistical descriptors one should chose in case of line of sight velocity data given over limited window ?
+primary descriptors of a random field , here @xmath41 , are the ensemble average product of the values of the field at separated points  the two point correlation function @xmath42 and , reciprocally , the average square of the amplitudes of its ( fourier ) harmonics decomposition  the power spectrum @xmath43 in practice these quantities are measurable if one can replace ensemble average by averaging over different positions which relies on some homogeneity properties of stochastic process .
+we assume that underlying turbulence is homogeneous and isotropic .
+this does not make the optical depth to be statistically homogeneous in the wings of the line , but allows to introduce the fluctuations of @xmath12 on the background of the mean profile @xmath44 , @xmath45 , which are ( lp04 ) @xmath46 homogeneous correlation function depends only on a point separation and amplitudes of distinct fourier harmonics are independent .
+the obvious relations are @xmath47    although mathematically the power spectrum is just a fourier transform of the correlation function @xmath48 which of them is best estimated from data depends on the properties of the signal and the data .
+the power spectrum carries information which is localized to a particular scale and as such is insensitive to processes that contribute outside the range of scales of interest , in particular to long - range smooth variations . on the other hand , determination of fourier harmonics
+is non - local in configuration space and is sensitive to specifics of data sampling  the finite window , discretization , that all lead to aliasing of power from one scales to another .
+the issue is severe if the aliased power is large .
+conversely , the correlation function is localized in configuration space and can be measured for non - uniformly sampled data . however
+, at each separation it contains contribution from all scales and may mix together the physical effects from different scales . in particular , @xmath49 is not even defined for power law
+spectra @xmath50 with index @xmath51 ( for one dimensional data ) .. ] this limitation is relieved if one uses the structure function @xmath52 instead , which is well defined for @xmath53
+. the structure function can be thought of as regularized version of the correlation function @xmath54 that is related to the power spectrum in the same way as the correlation function , if one excludes the @xmath55 mode .
+velocity coordinate spectrum studies of lp06 demonstrated that the expected one dimensional spectrum of ppv density fluctuations along velocity coordinate that arise from turbulent motions is @xmath56 where @xmath57 is the index of line - of - sight component of the velocity structure function . for kolmogorov turbulence @xmath58 and for turbulent motions dominated by shocks @xmath59 .
+these spectra are steep @xmath60 which makes the direct measurement of the structure functions impractical ( although for @xmath61 the structure function can be defined ) . at the same time , in our present studies we deal with a limited range of data in the wings of the absorption lines , which complicates the direct measurements of the power spectrum .
+below we first describe the properties of the power spectrum @xmath62 in this case , and next develop the formalism of higher order structure functions .
+let us derive the power spectrum of the optical depth fluctuations , @xmath63 here @xmath64 is wave number reciprocal to the velocity ( frequency ) separation between two points on the line - of - sight and angular brackets denote an ensemble averaging .. here we restrict ourselves to diagonal terms only . ]
+fourier transform of the eq .
+( [ eq : tau_h ] ) with respect to velocity is @xmath65 and the power spectrum @xmath66 } w(k_v - k_v^\prime ) w^*(k_v - k_v^{\prime\prime } ) \right\rangle \nonumber\end{aligned}\ ] ] which is useful to express using average velocity @xmath67 and velocity difference @xmath68 , as well as correspondent variables for the wave numbers @xmath69 and @xmath70 , as @xmath71 the fluctuating , random quantities , over which the averaging is performed are the density @xmath72 and the line - of - sight component of the velocity of the absorbers @xmath73 , varying along the line of sight . in our earlier papers ( see lp00 , lp04 ) we argued that in many important cases they can be considered as uncorrelated between themselves , so that @xmath74 } ~ ~ , \label{eq : maxprof_average}\ ] ] where @xmath75 is the correlation function of the density of the absorbers and @xmath76 is the structure function of their line - of - sight velocity due to turbulent motions . @xmath77
+is expected to saturate at the value @xmath78 for separations of the size of the absorbing cloud @xmath79 .
+the dependence of @xmath80 and @xmath81 only on spatial separation between a pair of absorbers reflects the assumed statistical homogeneity of the turbulence model .
+introducing @xmath82 and performing integration over @xmath83 one obtains @xmath84 where @xmath85 , @xmath86 and symmetrized window @xmath87 is defined in the appendix .
+if one has the whole line available for analysis , the masking window will be flat with @xmath88-function like fourier transform .
+the combination of the windows in the power spectrum will translate to @xmath89 and @xmath90 masking the data has the effect of aliasing modes of the large scales that exceed the available data range , to shorter wavelength .
+this is represented by the convolution with fourier image of the mask .
+secondary effect is the contribution of the modes with different wave numbers @xmath91 to the diagonal part of the power spectrum .
+this again reflects the situation that different fourier components are correlated in the presence of the mask .    to illustrate the effects of the mask ,
+let us assume that we select the line wing with the help of a gaussian mask centered in the middle of the wing at @xmath92 @xmath93 that gives @xmath94 all integrals can then be carried out to obtain @xmath95 } { \sqrt{(d^+ + 2 \delta^2)(d^- + 2 \delta^2 ) } } \exp\left[-\frac{\delta^2 d^-}{d^- + 2 \delta^2 } k_v^2\right ]   \\ & & \times \exp\left[\frac{2 a^2}{d^-+2 \delta^2}\right ] \left\ { \exp\left[\frac{-4 a \delta^2 k_v}{d^- + 2\delta^2}\right ]    \mathrm{erfc } \left[\frac{\sqrt{2}(a-\delta^2 k_v)}{\sqrt{d^-+2\delta^2 } } \right ] + ( k_v \to -k_v ) \right\ } \nonumber\end{aligned}\ ] ] the following limits ( taking @xmath96 ) are notable : @xmath97 \nonumber \\ a \to 0 & : & \\ p(k_v ) & \propto & \alpha(\nu_0)^2 s   \int_0^s dz ( s - z ) \xi(z ) \frac{\delta^2 \exp\left[-\frac{1}{4}\frac{v_1 ^ 2}{d^+ + \delta^2}\right ] } { \sqrt{(d^+ + 2 \delta^2)(d^- + 2 \delta^2 ) } } \exp\left[-\frac{\delta^2 d^-}{d^- + 2 \delta^2 } k_v^2\right ] \nonumber\end{aligned}\ ] ] the last expression particularly clearly demonstrates the effect of the window , which width in case of the line wing is necessarily necessarily limited by @xmath98 .
+the power spectrum is corrupted at scales @xmath99 , but still maintains information about turbulence statistics for @xmath100 .
+indeed , in our integral representation the power spectrum at @xmath64 is determined by the linear scales such that @xmath101 which translates into @xmath102 .
+thus , if @xmath103 over all scales defining power at @xmath64 one has @xmath104 and there is no significant power aliasing . varies little , @xmath105 in the interval @xmath106 . ] for intermediate scales there is a power aliasing as numerical results demonstrate in figure  [ fig : spectrum ] .
+, @xmath38 , @xmath107 , @xmath92 are dimensionless , in the units of @xmath108 , the variance of the turbulent velocity at the scale of the cloud .
+intrinsic line broadening is neglected .
+only the effect of the turbulent motions and not spatial inhomogeneity of the absorbers is taken into account .
+the underlying scaling of the turbulent velocities is kolmogorov , @xmath58 .
+the left panel illustrates the power aliasing due to finite width of the window .
+the power spectrum is plotted , from top to bottom , for @xmath109 , i.e the widths of the wing ranges from the complete line to one - tenth of the line width .
+the straight line shows the power law @xmath110 expected under ideal observational circumstances .
+one finds that for the ideal gaussian mask the underlying spectrum is recovered for @xmath111 .
+the right panel shows the modification of the spectrum due to thermal broadening , which is taken at the level @xmath112 .
+thermal effects must be accounted for for @xmath113.,title="fig : " ] , @xmath38 , @xmath107 , @xmath92 are dimensionless , in the units of @xmath108 , the variance of the turbulent velocity at the scale of the cloud .
+intrinsic line broadening is neglected .
+only the effect of the turbulent motions and not spatial inhomogeneity of the absorbers is taken into account .
+the underlying scaling of the turbulent velocities is kolmogorov , @xmath58 .
+the left panel illustrates the power aliasing due to finite width of the window .
+the power spectrum is plotted , from top to bottom , for @xmath109 , i.e the widths of the wing ranges from the complete line to one - tenth of the line width .
+the straight line shows the power law @xmath110 expected under ideal observational circumstances .
+one finds that for the ideal gaussian mask the underlying spectrum is recovered for @xmath111 .
+the right panel shows the modification of the spectrum due to thermal broadening , which is taken at the level @xmath112 .
+thermal effects must be accounted for for @xmath113.,title="fig : " ]    doppler broadening described by @xmath114 incorporates both turbulent and thermal effects .
+thermal effects are especially important in case of narrow line wings , since the range of the wavenumbers relatively unaffected by both thermal motions and the mask is limited @xmath115 and exists only for relatively wide wings @xmath116 . for narrower wings
+the combined turbulent and thermal profile must be fitted to the data , possibly determining the temperature of the absorbers at the same time .
+this recipe is limited by the assumption that the temperature of the gas is relatively constant for the absorbers of a given type .
+we should note that the gaussian window provides one of the ideal cases , limiting the extend of power aliasing since the window fourier image falls off quickly .
+one of the worst scenarios is represented by sharp top hat mask , which fourier image falls off only as @xmath117 spreading the power from large scales further into short scales . for steep spectra that we have in vcs studies all scales may experience some aliasing .
+this argues for extra care while treating the line wings through power spectrum or for use of alternative approaches .
+second order structure function provides an alternative to power spectrum measurement in case of steep spectra with the data limited to the section of the lines .
+the second order structure function of the fluctuations of the optical depth can be defined as @xmath118 it represents additional regularization of the correlation function beyond the ordinary structure function @xmath119    @xmath120 is proportional to three dimensional velocity space density structure function at zero angular separations @xmath121 , discussed in lp06 . using the results of lp06 for @xmath121 we obtain @xmath122 \nonumber \\ & \propto & \frac{{\bar \rho}^2 s^2 } { d_z(s ) } \frac{1}{m } \left(\frac{r_0}{s}\right)^\gamma   \left [ \hat v^{2p } \gamma(-p ) \left(2^{p-1}-2^{1-p}\right ) + \frac{2^{4 p-6}}{p-2 } \hat v^4 + o ( \hat v^6 ) \right ] \label{eq : d_vv}\end{aligned}\ ] ] where @xmath123 and @xmath124 is the correlation index that describes spatial inhomogeneities of the absorbers .
+to shorten intermediate formulas , the dimensionless quantities @xmath125 , @xmath126 , @xmath127 are introduced .
+the first term in the expansion contains information about the underlying field , while the power law series represent the effect of boundary conditions at the cloud scale .
+in contrast to ordinary correlation function they are not dominant until @xmath128 , i.e for @xmath129 the second order structure function is well defined .
+when turbulent motions provide the dominant contribution to optical depth fluctuations , @xmath130 , we see that measuring the @xmath131 one can recover the turbulence scaling index if @xmath132 , which includes both interesting cases of kolmogorov turbulence and shock - dominated motions .
+this condition is replaced by @xmath133 if the density fluctuations , described by correlation index @xmath124 , are dominant .    at sufficiently small scales
+the second order structure function has the same scaling as the first order one @xmath134    a practical issue of measuring the structure functions directly in the wing of the line is to take into account the line profile .
+the directly accessible @xmath135 is related to the structure function of the fluctuations as @xmath136 where the mean profile of the optical depth @xmath137 is related to the mean profile of ppv density @xmath138 given in the appendix b of lp06 . at small separations
+@xmath139 , the correction to the structure function due to mean profile behaves as @xmath140 and is subdominant .
+the price one pays when utilizing higher - level structure function is their higher sensitivity to the noise in the data . while correlation function itself is not biased by the noise except at at zero separations ( assuming noise is uncorrelated @xmath141[\tau(v_1+v)+n(v_1+v)]\right\rangle =   \xi_\tau(v ) + \langle n^2 \rangle \delta(v)\ ] ] already the structure function is biased by the noise which contributes to all separations @xmath142 ^ 2\right\rangle =   d_\tau(v ) + 2   \langle n^2 \rangle\ ] ] this effect is further amplified for the second order structure function @xmath143 ^ 2
+\right\rangle = dd_\tau(v ) + 3 \langle n^2 \rangle\ ] ] the error in the determination of the structures function of higher order due to noise also increases .
+structure functions and power spectra are used interchangeably in the theory of turbulence ( see monin & yaglom 1975 ) .
+however , complications arise when spectra are `` extremely steep '' , i.e. the corresponding structure function of fluctuation grows as @xmath144 , @xmath145 . for such random fields , one can not use ordinary structure functions , while the one dimensional fourier transforms that is employed in vcs corresponds to the power spectrum of @xmath146 is well defined .    as a rule , one does not have to deal with so steep spectra in theory of turbulence ( see , however , cho et al . 2002 and cho & lazarian 2004 ) . within the vcs ,
+such `` extremely steep '' spectra emerge naturally , even when the turbulence is close to being kolmogorov .
+this was noted in lp06 , where the spectral approach was presented as the correct one to studying turbulence using fluctuations of intensity along v - coordinate .
+the disadvantage of the spectral approach is when the data is being limited by a non - gaussian window function .
+then the contributions from the scales determined by the window function may interfere in the obtained spectrum at large @xmath64 .
+an introduction of an additional more narrow gaussian window function may mitigate the effect , but limits the range of @xmath64 for which turbulence can be studied .
+thus , higher order structure functions ( see the subsection above ) , is advantageous for the practical data handling .    in terms of the vca theory , we used mostly spectral description in lp00 , while in lp04 , dealing with absorption , we found advantageous to deal with real rather than fourier space . in doing so
+, however , we faced the steepness of the spectrum along the v - coordinate and provided a transition to the fourier description to avoid the problems with the `` extremely steep '' spectrum . naturally , our approach of higher order structure functions is applicable to dealing with the absorption within the vca technique .
+in the paper above we have discussed the application of vcs to strong absorption lines .
+the following assumption were used .
+first of all , considering the radiative transfer we neglected the effects of stimulated emission .
+this assumption is well satisfied for optical or uv absorption lines ( see spitzer 1979 ) .
+then , we assumed that the radiation is coming from a point source , which is an excellent approximation for the absorption of light of a star or a quasar .
+moreover , we disregarded the variations of temperature in the medium
+.    within our approach the last assumption may be most questionable .
+indeed , it is known that the variations of temperature do affect absorption lines .
+nevertheless , our present study , as well as our earlier studies , prove that the effects of the variations of density are limited .
+it is easy to see that the temperature variations can be combined together with the density ones to get effective renormalized `` density '' which effects we have already quantified .
+our formalism can also be generalized to include a more sophisticated radiative transfer and the spatial extend of the radiation source . in the latter case
+we shall have to consider both the case of a narrow and a broad telescope beam , the way it has been done in lp06 .
+naturally , the expressions in lp06 for a broad beam observations can be straightforwardly applied to the absorption lines , substituting the optical depth variations instead of intensities .
+the advantage of the extended source is that not only vcs , but also vca can be used ( see deshpande et al .
+2000 ) . as a disadvantage of an extended source is the steepening of the observed v - coordinate spectrum for studies of unresolved turbulence .
+this , for instance , may require employing even higher order structure functions , if one has to deal with windows arising from saturation of the absorption line .    in lp06
+we have studied the vcs technique in the presence of absorption and formulated the criterion for the fluctuations of intensity to reliably reflect the fluctuations in turbulent velocities . in this paper , however , we used the logarithms of intensities and showed that this allows turbulence studies beyond the regime , at which fluctuations of intensity would be useful .
+the difficulty of such an approach is the uncertainty of the base level of the signal .
+taking logarithm is a non - linear operation that may distort the result , if the base level of signal is not accounted for properly .
+however , the advantage of the approach that potentially it allows studies of velocity turbulence , when the traditional vca and vcs fail .
+further research should clarify the utility of this approach .
+the study of turbulence using the modified vcs technique above should be reliable for optical depth @xmath12 up to @xmath13 .
+for this range of optical depth , the line width is determined by doppler shifts rather than the atomic constants .
+while formally the entire line profile provides information about the turbulence , in reality , the flat saturated part of the profile will contain only noise and will not be useful for any statistical study .
+thus , the wings of the lines will contain signal .
+as several absorption lines can be available along the same line of sight , this allows to extend the reliability of measurements combining them together .
+we believe that piecewise analyses of the wings belonging to different absorption lines is advantageous .
+the actual data analysis may employ fitting the data with models , that , apart from the spectral index , specify the turbulence injection scale and velocity dispersion , as this is done in chepurnov et al .
+( 2006 ) .
+note , that measurements of turbulence in the same volume using different absorption lines can provide complementary information .
+formally , if lines with weak absorption , i.e. @xmath148 are available , there is no need for other measurements .
+however , in the presence of inevitable noise , the situation may be far from trivial .
+naturally , noise of a constant level , e.g. instrumental noise , will affect more weak absorption lines .
+the strong absorption lines , in terms of vcs sample turbulence only for sufficiently large @xmath64 .
+this limits the range of turbulent scales that can be sampled with the technique .
+however , the contrast that is obtained with the strong absorption lines is higher , which provides an opportunity of increasing signal to noise ratio for the range of @xmath64 that is sampled by the absorption lines .
+if , however , a single strong absorption line is used , an analogy with a two dish radio interferometer is appropriate .
+every dish of the radio interferometer samples spatial frequencies in the range approximately @xmath149 $ ] , where @xmath150 is the operational wavelength , @xmath151 is the diameter of the dish .
+in addition , the radio interferometer samples the spatial frequency @xmath152 , where @xmath153 is the distance between the dishes . similarly , a strong absorption line provides with the information on turbulent velocity at the largest spatial scale of the emitting objects , as well as the fluctuation corresponding to the scales @xmath154 .    in lp06 we concentrated on obtaining asymptotic regimes for studying turbulence .
+at the same time in chepurnov et al .
+( 2006 ) fitting models of turbulence to the data was attempted . in the latter approach non - power law observed spectra
+can be used , which is advantageous for actual data , for which the range of scales in @xmath64 is rather limited .
+indeed , for hi with the injection velocities of 10 km / s and the thermal velocities of 1 km / s provides an order of magnitude of effective `` inertial range '' . correcting for thermal velocities one can increase this range by a factor , which depends on the signal to noise ratio of the data .
+using heavier species rather than hydrogen one can increase the range by a factor @xmath155 .
+this may or may not be enough for observing good asymptotics .
+we have seen in [ ] that for absorption lines the introduction of windows determined by the width of the line wings introduces additional distortions of the power spectrum .
+however , this is not a problem if , instead of asymptotics , fitting of the model is used .
+compared to the models used in chepurnov et al .
+( 2006 ) the models for absorption lines should also have to model the window induced by the absorption .
+the advantage is , however , that absorption lines provide a pure pencil beam observations .
+formally , there exists an extensive list of different tools to study turbulence that predated our studies ( see lazarian 1999 and ref . therein ) .
+however , a closer examination shows that this list is not as impressive as it looks .
+moreover , our research showed that some techniques may provide confusing , if not erroneous , output , unless theoretical understanding of what they measure is achieved .
+for instance , we mentioned in the introduction an example of the erroneous application of velocity centroids to supersonic molecular cloud data .
+note , that clumps and shell finding algorithms would find a hierarchy of clumps / shells for synthetic observations obtained with _
+incompressible _ simulations .
+this calls for a more cautious approach to the interpretation of the results of some of the accepted techniques .    for instance , the use of different wavelets for the analysis of data is frequently treated in the literature as different statistical techniques of turbulence studies ( gill & henriksen 1990 , stutzki et al .
+1998 , cambresy 1999 , khalil et al . 2006 ) , which creates an illusion of an excessive wealth of tools and approaches . in reality
+, while fourier transforms use harmonics of @xmath156 , wavelets use more sophisticated basis functions , which may be more appropriate for problems at hand . in our studies
+we also use wavelets both to analyze the results of computations ( see kowal & lazarian 2006a ) and synthetic maps ( ossenkopf et al . 2006 , esquivel et al .
+2007 ) , along with or instead of fourier transforms or correlation functions .
+wavelets may reduce the noise arising from inhomogeneity of data , but we found in the situations when correlation functions of centroids that we studied were failing as the mach number was increasing , a popular wavelet ( @xmath38-variance ) was also failing ( cp .
+esquivel & lazarian 2005 , ossenkopf et al .
+2006 , esquivel et al .
+2007 ) .    while in wavelets
+the basis functions are fixed , a more sophisticated technique , principal component analysis ( pca ) , chooses basis functions that are , in some sense , the most descriptive . nevertheless , the empirical relations obtained with pca for extracting velocity statistics provide , according to padoan et al .
+( 2006 ) , an uncertainty of the velocity spectral index of the order @xmath157 ( see also brunt et al .
+2003 ) , which is too large for testing most of the turbulence theories .
+in addition , while our research in lp00 shows that for density spectra @xmath158 , for @xmath159 both velocity and density fluctuations influence the statistics of ppv cubes , no dependencies of ppv statistics on density have been reported so far in pca studies .
+this also may reflect the problem of finding the underlying relations empirically with data cubes of limited resolution .
+the latter provides a special kind of shot noise , which is discussed in a number of papers ( lazarian et al .
+2001 , esquivel et al .
+2003 , chepurnov & lazarian 2006a ) .
+_ spectral correlation function ( scf ) _
+( see rosolowsky et al .
+1999 for its original form ) is another way to study turbulence .
+further development of the scf technique in padoan et al .
+( 2001 ) removed the adjustable parameters from the original expression for the scf and made the technique rather similar to vca in terms of the observational data analysis .
+indeed , both scf and vca measure correlations of intensity in ppv `` slices '' ( channel maps with a given velocity window @xmath160 ) , but if scf treats the outcome empirically , the analytical relations in lazarian & pogosyan ( 2000 ) relate the vca measures to the underlying velocity and density statistics .
+mathematically , scf contains additional square roots and normalizations compared to the vca expressions .
+those make the analytical treatment , which is possible for simpler vca expressions , prohibitive .
+one might speculate that , similar to the case of conventional centroids and not normalized centroids introduced in lazarian & esquivel ( 2003 ) , the actual difference between the statistics measured by the vca and scf is not significant .
+in fact , we predicted several physically - motivated regimes for vca studies .
+for instance , slices are `` thick '' for eddies with velocity ranges less than @xmath160 and `` thin '' otherwise .
+vca relates the spectral index of intensity fluctuations within channel maps to the thickness of the velocity channel and to the underlying velocity and density in the emitting turbulent volume . in the vca
+these variations of indexes with the thickness of ppv `` slice '' are used to disentangle velocity and density contributions .
+we suspect that similar  thick " and  thin " slice regimes should be present in the scf analysis of data , but they have not been reported yet . while the vca can be used for all the purposes the scf is used ( e.g. for an empirical comparisons of simulations and observations ) ,
+the opposite is not true . in fact , padoan et al .
+( 2004 ) stressed that vca eliminates errors inevitable for empirical attempts to calibrate ppv fluctuations in terms of the underlying 3d velocity spectrum .
+_ vcs _ is a statistical tool that uses the information of fluctuations along the velocity axis of the ppv . among all the tools that use spectral data , including the vca , it is unique , as it _ does not _ require spatial resolution .
+this is why , dealing with the absorption lines , where good spatial coverage is problematic , we employed the vcs . potentially , having many sources sampling the object one can create ppv cubes and also apply the vca technique .
+however , this requires very extended data sets , while for the vcs sampling with 5 or 10 sources can be sufficient for obtaining good statistics ( chepurnov & lazarian 2006a ) .
+we feel that dealing with the ism turbulence , it is synergetic to combine different approaches .
+for the wavelets used their relation with the underlying fourier spectrum is usually well defined .
+therefore the formulation of the theory ( presented in this work , as well as , in our earlier papers in terms of the fourier transforms ) in terms of wavelets is straightforward . at the same time
+, the analysis of data with the wavelets may be advantageous , especially , in the situations when one has to deal with window functions .
+in the paper above we have shown that    * studies of turbulence with absorption lines are possible with the vcs technique if , instead of intensity @xmath161 , one uses the logarithm of the absorbed intensity @xmath162 , which is equivalent to the optical depth @xmath163 .
+* in the weak absorption regime , i.e. when the optical depth at the middle of the absorption line is less than unity , the analysis of the @xmath17 coincides with the analysis of intensities of emission for ideal resolution that we discussed in lp06 . * in the intermediate absorption retime , i.e. when the optical depth at the middle of the absorption line is larger than unity , but less than @xmath13 , the wings of the absorption line can be used for the analysis .
+the saturated part of the line is expected to be noise dominated . *
+the higher the absorption , the less the portion of the spectrum corresponds to the wings available for the analysis . in terms of the mathematical setting
+this introduces and additional window in the expressions for the vcs analysis .
+however , the contrast of the small scale fluctuations increases with the decrease of the window . * for strong absorption regime ,
+the broadening is determined by lorentzian wings of the line and therefore no information on turbulence is available .
+following eqns .
+( [ eq : ptau_gen],[eq : maxprof_average ] ) the power spectrum of the optical depth is @xmath165 where @xmath85 and @xmath86 while @xmath69 and @xmath166 . since the mask is real , @xmath167 .    to deal with absolute values in the lorentz transform ,
+we split integration regions in quadrants i  @xmath168 , ii  @xmath169 , iii  @xmath170 and iv  @xmath171 .
+integration over quadrants iii and iv can be folded into integration over regions i and ii respectively by substitution @xmath172 .
+writing out only integration over @xmath64 @xmath173 \nonumber \\ ii+iv & : & \int_0^{\infty } d k_v^\prime   \int_{-\infty}^0 \!\ !
+d k_v^{\prime\prime }    e^{-\frac{1}{2}{k_v^+}^2 d^- }   e^{-\frac{1}{4}{k_v^-}^2 d^+ } e^ { -a k_v^- }   \\   & & \times \left [ w\left(k_v - k_v^+-\frac{k_v^-}{2}\right ) w\left(k_v^+ -k_v -\frac{k_v^-}{2}\right ) + w\left(k_v^+ + k_v + \frac{k_v^-}{2}\right ) w\left(-k_v - k_v^+ + \frac{k_v^-}{2}\right ) \right ] \nonumber\end{aligned}\ ] ] changing variables of integration to @xmath174 and @xmath175 @xmath176 \nonumber \\ ii+iv & : & \int_{-\infty}^\infty d k_v^+ e^{-\frac{1}{2}{k_v^+}^2 d^- }   \int_{|2 k_v^+|}^\infty \!\ ! d k_v^-     e^{-\frac{1}{4}{k_v^-}^2 d^+ } e^ { -a k_v^- }   \\   & & \times \left [ w\left(k_v - k_v^+-\frac{k_v^-}{2}\right ) w\left(k_v^+ -k_v -\frac{k_v^-}{2}\right ) + w\left(k_v + k_v^+ + \frac{k_v^-}{2}\right ) w\left(-k_v - k_v^+ + \frac{k_v^-}{2}\right ) \right ] \nonumber\end{aligned}\ ] ] at the end , the integrals can be combined into the main contribution and the correction that manifests itself only when lorentz broadening is significant .
+@xmath177 where symmetrized window is @xmath178 the final expression for @xmath179 is then @xmath180    armstrong , j.  w. , rickett , b.  j. , & spangler , s.  r. 1995 , apj , 443 , 209 ballesteros - paredes , j. , klessen , r. , mac low , m. & vasquez - semadeni , e. 2006 , in `` protostars and planets v '' , reipurth , d. jewitt , and k. keil ( eds . ) , university of arizona press , tucson , 951 pp .
+, 2007 . , p.63 - 80              cho , j. , & lazarian , a. 2003 , , 345 , 325 cho , j. , & lazarian , a. 2004 , , 615 , l41 cho , j. , & lazarian , a. 2005 , theoretical and computational fluid dynamics , 19 , 127 cho , j. , lazarian , a. , honein , a. , knaepen , b. , kassinos , s. , & moin , p. 2003 , apj , 589 , l77              esquivel , a. , lazarian , a. , pogosyan , d. , & cho , j. 2003 , mnras , 342 , 325 falgarone , e. 1999 , in _ interstellar turbulence _ , ed .
+by j. franco , a. carraminana , cup , ( henceforth _ interstellar turbulence _ ) p.132                  lazarian , a. , pogosyan , d. , & esquivel , a. 2002 , in asp conf .
+276 , seeing through the dust , ed .
+r. taylor , t. l. landecker , & a. g. willis ( san francisco : asp),182 lazarian , a. , pogosyan , d. , vzquez - semadeni , e. , & pichardo , b. 2001 , , 555 , 130 lazarian , a. , vishanic , e. , cho , j. 2004 , , 603 , 180 lazarian , a. & yan , h. 2004 , in `` astrophysical dust '' eds .
+a. witt & b. draine , aps , v. 309 , p.479 maron , j. & goldreich , p. 2001 , apj , 554 , 1175          monin , a.s . & yaglom , a. m. 1975 , statistical fluid mechanics : mechanics of turbulence , vol . 2 ( cambridge : mit press ) munch , g. 1999 , in `` interstellar turbulence '' , eds .
+j. franco and a. carraminana , cup , p. 1
+munch , g. 1958 , rev .
+, 30 , 1035 narayan , r. , & goodman , j. 1989 , mnras , 238 , 963            pudritz , r. e. 2001 , from darkness to light : origin and evolution of young stellar clusters , asp , vol . 243 .
+eds t. montmerle and p. andre .
+san francisco , p.3 spangler , s.r . , & gwinn , c.r . 1990 ,
+apj , 353 , l29      stanimirovi , s. , & lazarian , a. , 2001 , , 551 , 53 stutzki , j. 2001 , astrophysics and space science supplement , 277 , 39 sunyaev , r.a . ,
+norman , m.l . , & bryan , g.l .
+2003 , astronomy letters , 29 , 783 von hoerner , s. 1951 , zeitschrift fr astrophysics , 30 , 17 wilson , o.c . ,
+munch , g. , flather , e.m .
+, & coffeen , m.f .
+1959 , apjs , 4 , 199

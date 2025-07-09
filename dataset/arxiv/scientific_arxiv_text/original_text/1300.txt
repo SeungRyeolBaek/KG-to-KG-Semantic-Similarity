@@ -1,0 +1,104 @@
+in distributed storage systems , repair cost metrics include repair locality @xcite , repair bandwidth @xcite and disk - i / o @xcite . recently , locally repairable codes ( lrcs ) introduced by gopalan _
+_ @xcite have attracted a lot of interest .
+the @xmath7th symbol @xmath17 of an @xmath3 $ ] linear code @xmath4 over the finite field @xmath18 is said to have _ locality _
+@xmath0 if this symbol can be recovered by accessing at most @xmath0 other symbols of @xmath4 .
+coding techniques are then introduced in distributed storage systems to reduce the storage overhead , while maintaining high data reliability .
+maximum distance separable ( mds ) codes can be used as erasure codes in distributed storage systems and any symbol can be recovered by accessing any @xmath19 other symbols . in order to reduce the repair costs in distributed storage systems
+, the locality parameter @xmath20 is often demanded , which implies that only a small number of storage nodes are involved in repairing a failed node .
+the code is called a @xmath2-ary @xmath21 lrc with all symbol locality @xmath0 or a @xmath0-local lrc for brevity if all the @xmath22 symbols have locality @xmath0 .
+the singleton - like bound of the minimum distance @xmath23 for an @xmath24 lrc @xcite said that @xmath25 where @xmath26 denotes the ceiling function .
+the codes meeting the above bound ( [ singleton ] ) are called optimal @xmath0-local lrcs .
+various constructions of optimal @xmath0-local lrcs were obtained recently , e.g. , @xcite , @xcite-@xcite , @xcite . to the best of our knowledge ,
+for a given finite field with size @xmath2 , the code length @xmath22 was not larger than @xmath2 in all the known constructions except the ones in @xcite where the minimum distance @xmath27 or @xmath28 .
+cyclic lrcs were studied very recently .
+goparaju and calderbank @xcite constructed new families of binary cyclic codes that have an optimal dimension for given minimum distance @xmath23 and locality @xmath0 , including @xmath29 and @xmath30 .
+@xcite analyzed the locality of many traditional cyclic codes , e.g. , hamming code , simplex codes , and bch codes .
+constructions of optimal cyclic codes in terms of the dimension for given distance and length over small field were discussed in @xcite .
+tamo , barg , goparaju and calderbank @xcite focused on the cyclic lrcs in terms of their zeros . a class of optimal @xmath2-ary cyclic lrcs with length @xmath12 were then constructed by analyzing the structure of zeros of reed - solomon codes and cyclic lrcs .
+they also studied the upper bound of the locality parameter @xmath0 for the subfield subcodes of cyclic lrcs , which was equivalent to estimate the dual distance @xmath31 .
+when some of the @xmath0 repairing symbols are also erased , the @xmath0-local lrc can not accomplish the local repair , which leads to the concept of @xmath1-locality .
+@xcite addressed the situation of multiple device failures and gave a kind of generalization of @xmath0-local lrcs . according to @xcite , the @xmath7th symbol @xmath17 of a @xmath2-ary
+@xmath3 $ ] linear code @xmath4 is said to have @xmath5-locality ( @xmath32 ) if there exists a punctured subcode of @xmath4 with support containing @xmath7 , whose length is at most @xmath8 , and whose minimum distance is at least @xmath9 , i.e. , there exists a subset @xmath33\triangleq\{1,2,\ldots , n\}$ ] such that @xmath34 , @xmath35 and @xmath36 . the code @xmath4 is said to have @xmath5 locality or be a @xmath1-lrc if all the symbols have @xmath1 localities . a generalized singleton - like
+bound was also obtained in @xcite , which said that the minimum distance @xmath23 of a @xmath5-lrc is upper bounded by @xmath37 the codes meeting the above bound ( [ eq_generalizedsingleton ] ) are called optimal @xmath1-lrcs .
+note that when @xmath11 , the notion of locality in @xcite reduces to the notion of locality in @xcite . in @xcite ,
+a class of optimal @xmath5-lrcs with length @xmath38 were obtained for @xmath39 , and there exist optimal @xmath5-lrcs when @xmath40 and @xmath41 .
+an algebraic construction of optimal @xmath5-lrcs with @xmath42 was proposed in @xcite based on polynomial evaluations . by studying the structure of matroid represented by the optimal lrc s generator matrix
+, optimal @xmath5-lrcs were obtained in @xcite with @xmath43 .
+the existence conditions and deterministic construction algorithms for optimal @xmath5-lrcs with @xmath44 were given in @xcite .
+based on a known optimal @xmath5-lrc , @xcite obtained more optimal @xmath5-lrcs by lengthening or shortening . to the best of our knowledge , the existing results on cyclic @xmath5 lrcs are limited to the special case of @xmath11 or the cyclic @xmath0-local lrcs stated in the last paragraph .
+there are also other generalizations of @xmath0-local lrcs , e.g. , the vector codes with locality @xcite-@xcite , and the @xmath45-available-@xmath0-local or @xmath46 lrcs @xcite-@xcite .
+however , this paper will be limited to the @xmath1-lrcs .
+there has been a famous problem for a long time related to the mds conjecture @xcite : for the given finite field size @xmath2 and dimension @xmath19 , find the largest value of @xmath22 for which there exists a non - trivial @xmath2-ary mds code with length @xmath22 .
+although there is no answer to it up to now , the evidence seems to suggest that the largest value of @xmath22 is actually @xmath15 @xcite .
+cyclic mds codes , especially the cyclic reed - solomon codes with length @xmath47 and the berlekamp - justesen codes with length @xmath15 @xcite , are among the most important mds codes .
+the similar situation seems to lie in the area of optimal lrcs . as stated above ,
+tamo , barg , goparaju and calderbank @xcite constructed a class of @xmath2-ary cyclic @xmath0-local lrcs with length @xmath12 based on the cyclic reed - solomon codes . in this paper , this elegant result is firstly generalized to the cases of @xmath1 lrcs . in fact
+, we obtain a class of optimal cyclic @xmath1-lrcs ( @xmath6 ) with length @xmath12 .
+moreover , we obtain a class of new optimal cyclic @xmath1-lrcs ( @xmath6 ) with longer length @xmath13 based on the berlekamp - justesen codes , while the case of @xmath11 indicates the @xmath0-local lrcs with length @xmath13 . comparing with the corresponding mds codes
+, it seems difficult to obtain optimal cyclic lrcs with length larger than @xmath15 . to the best of our knowledge , in all the known optimal constructions of lrcs ,
+the length @xmath22 is not greater than the given size @xmath2 of finite field @xmath18 when the minimum distance is larger than @xmath16 .
+therefore , the proposed optimal constructions address the problem of constructing longer optimal lrcs restricted by the size of the alphabet , and could provide optimal lrcs with length @xmath14 greater than @xmath2 for any given finite field with size @xmath2 .
+the rest of paper is organized as follows .
+section ii gives some preliminaries on cyclic codes , mds codes and some results of cyclic @xmath0-local lrcs in @xcite . in section [ q-1 ] , by generalizing the construction of optimal cyclic @xmath0-local lrcs in @xcite , we construct a class of optimal cyclic @xmath5-lrcs with length @xmath47 and its factors . in section [ q+1 ] ,
+we firstly give constructions of optimal cyclic @xmath0-local lrcs with length @xmath13 for even and odd @xmath2 , respectively , then further generalize them to construct a class of optimal cyclic @xmath5-lrcs with length @xmath13 .
+finally , section [ conclusion ] concludes the paper .
+let @xmath18 be a finite field with size @xmath2 , where @xmath2 is a prime power .
+a cyclic code is an ideal of the ring @xmath48/(x^n-1)$ ] , where @xmath49 @xcite .
+let @xmath50 be the order of @xmath2 modulo @xmath22 , that is , the least number of @xmath7 such that @xmath51 .
+let @xmath52 be the splitting field of @xmath53 .
+let @xmath54 be a primitive element of @xmath52 and @xmath55 be a primitive @xmath22-th root of unity .
+let @xmath4 be a @xmath2-ary @xmath56 $ ] cyclic code with generator polynomial @xmath57 , where @xmath58 .
+it is well known that every cyclic shift of any codeword of @xmath4 is still in @xmath4 and @xmath59 .
+the zeros set @xmath60 of @xmath57 is called the _ complete defining set _ of @xmath4 . the next result is the well - known generalized bch bound of cyclic codes @xcite .
+[ bchbound ] let @xmath4 be a @xmath2-ary cyclic code with generator polynomial @xmath57 , and @xmath61 be a primitive @xmath22-th root of unity . if @xmath57 has @xmath62 among its zeros , where @xmath63 and @xmath22 are relatively prime and @xmath64
+. then the minimum distance of @xmath4 is at least @xmath9 .
+the well known examples of cyclic mds codes over @xmath18 are the reed - solomon codes of length @xmath47 or its factors . based on reed - solomon codes , tamo _ et al . _
+@xcite constructed optimal cyclic @xmath0-local lrcs with length @xmath12 .
+roth and seroussi @xcite showed that nontrivial cyclic mds codes of length @xmath2 over @xmath18 exist if and only if @xmath2 is prime .
+berlekamp and justesen @xcite introduced a class of cyclic mds codes of length @xmath15 ( @xmath65 ) , which can also be found in @xcite .
+but there is a small mistake in @xcite which says that a similar construction exists for odd @xmath2 and arbitrary @xmath19 .
+actually , due to the results in @xcite , when @xmath2 is odd and @xmath22 is a factor of @xmath15 , nontrivial cyclic @xmath3 $ ] mds codes over @xmath18 do not exist if both @xmath22 and @xmath19 are even .
+these cyclic mds codes with length @xmath15 were the known nontrivial constructions with largest length for a given @xmath2 . although cyclic mds codes with length @xmath13 over @xmath18 can be regarded as subfield subcodes of a reed - solomon code with length @xmath66 over @xmath67 , the structure of zeros of the cyclic mds code with length @xmath13 over @xmath18 is of much interest and should be carefully divided into several cases , which is listed in detail as follows .
+let @xmath68 be the extension field of @xmath18 and @xmath54 be a primitive element of @xmath68 .
+let @xmath13 and @xmath69 be a primitive @xmath22-th root of unity . then for any positive integer @xmath7 ,
+it is easy to see that @xmath70 .
+note that @xmath71 , and for a @xmath2-ary cyclic code with length @xmath22 , @xmath72 is its zero if and only if @xmath73 is also its zero .
+when @xmath2 is even , @xmath22 has to be odd and the roots of @xmath74 can be formulated as @xmath75 , @xmath76 , @xmath77 .
+furthermore , @xmath78 where @xmath79 are irreducible quadratics over @xmath18 . for any @xmath80 ,
+the consecutive zeros of @xmath57 can be seen in table i to obtain @xmath56 $ ] cyclic mds codes .
+when @xmath2 is odd and @xmath22 is odd , for any @xmath80 , the consecutive zeros of @xmath57 can be taken as the previous case .
+when @xmath2 is odd , @xmath22 is even , and @xmath19 is odd , the zeros of @xmath74 can be formulated as @xmath81 .
+furthermore , @xmath82 the consecutive zeros of @xmath57 can also be seen in table i to obtain @xmath3 $ ] cyclic mds codes .
+these structures of zeros of cyclic mds codes are crucial for the constructions of optimal @xmath2-ary cyclic lrcs in the following sections .
+[ table1 ]    .*cyclic mds codes over @xmath18 with length @xmath13 * [ cols="^,^",options="header " , ]
+in this paper , we have studied the constructions of optimal cyclic @xmath1-lrcs which meet the generalized singleton - like bound ( [ eq_generalizedsingleton ] ) . inspired by works of tamo , barg , goparaju and calderbank @xcite
+, we firstly generalize their cyclic reed - solomon - like @xmath0-local lrcs to the cases of @xmath1-lrcs ( @xmath6 ) , and obtain a class of optimal @xmath2-ary cyclic @xmath1-lrcs ( @xmath6 ) with lengths @xmath12 .
+then , based on the berlekamp - justesen codes , we construct a new class of optimal @xmath2-ary cyclic @xmath0-local lrcs with lengths @xmath13 and a new class of optimal @xmath2-ary cyclic @xmath1-lrcs ( @xmath6 ) with lengths @xmath13 .
+the proposed optimal cyclic lrcs with lengths @xmath13 exist only for certain parameters ( see table ii and table iii ) , it is interesting to study whether the constructions for other parameters exist or not .
+related to the famous mds conjecture @xcite , one could also consider the following problem : for given @xmath2 , @xmath19 , @xmath0 and @xmath9 , find the largest value of @xmath22 for which there exist @xmath2-ary optimal cyclic @xmath5-lrcs with length @xmath22 .
+the results of this paper give a step forward .
+future works might also include finding more optimal cyclic lrcs with respect to other bounds , e.g. , ones given in @xcite .
+i.  tamo , d.  s. papailiopoulos , and a.  g. dimakis , `` optimal locally repairable codes and connections to matroid theory , '' in _ proc .
+inf . theory ( isit ) _ , istanbul , turkey , jul .
+2013 , pp .
+18141818 .
+n.  prakash , g.  m. kamath , v.  lalitha , and p.  v. kumar , `` optimal linear codes with a local - error - correction property , '' in _ proc .
+theory ( isit ) _ , cambridge , ma , u.s.a . , jul .
+2012 , pp .
+27762780 .
+w.  song , s.  day , c.  yuen , and t.  li , `` optimal locally repairable linear codes , '' _
+ieee j. selected areas comm .
+_ , vol .
+32 , pp . 69256934 , 2014 .
+d. s. papailiopoulos and a. g. dimakis , `` locally repairable codes , '' _ ieee trans .
+inf . theory _ ,
+10 , pp . 58435855 , oct . 2014 .
+a. s. rawat , o.o .
+koyluoglu , n. silberstein , and s. vishwanath , `` optimal locally repairable and secure codes for distributed storage systems , '' _ ieee trans .
+inf . theory _
+1 , pp . 212236 , jan .
+2014 .
+a. s. rawat and d. s. papailiopoulos , a.g .
+dimakis , and s. vishwanath , `` locality and availability in distributed storage , '' in _ proc .
+inf . theory ( isit ) _ , honolulu , hi , usa , jul .
+2014 , pp . 681685 .

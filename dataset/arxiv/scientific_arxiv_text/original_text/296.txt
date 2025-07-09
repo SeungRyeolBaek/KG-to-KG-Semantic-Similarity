@@ -1,0 +1,220 @@
+the quantum algorithms work much more efficiently than their classicalcounter parts due to quantum superposition and quantum interference .
+for example , consider the search of an item in an unsorted database containing @xmath0 elements .
+classical computation requires @xmath1 steps to carry out the search .
+however , grover showed that search can be carried out with only @xmath2 steps @xcite .
+thus , grover s algorithm represents a quadratic advantage over its classical counterpart .
+grover s algorithm has been realized using many physical systems like nmr @xcite , superconducting qubits @xcite and atom cavity qed systems @xcite .
+superconducting qubit cavity qed is an attractive approach for quantum information processing due to their strong coupling limit in microwave cavity as compared to atoms in cavity qed @xcite .
+squids have attracted much attention among the superconducting qubits , due to their design flexibility , large - scale integration , and compatibility to conventional electronics * hanx , ich , mooj*. recently , dicarlo et al . demonstrated the implementation of two - qubit grover and deutsch - jozsa algorithms @xcite and preparation and measurement of three - qubit entanglement @xcite using superconducting qubits .
+the goal of this work is to implement three - qubit grover s algorithm using four - level squids in cavity - qed .
+we consider a three - qubit phase gate , that reduces the number of quantum gates typically required for the realization of grover s algorithm .
+three - qubit grover s algorithm is probabilistic wlyang , as compared to two - qubit grover s algorithm .
+therefore , to achieve high success probability , we have to implement basic searching iteration several times .
+implementation of three - qubit grover search is much more complex as compared to two - qubit case . in our scheme , two lowest energy levels @xmath3 and
+@xmath4 of each squid represent logical states .
+the scheme is based on resonant , off - resonant interaction of cavity field with @xmath5 transition of squid and application of resonant microwave pulses .
+our scheme does not require adjustment of squid level spacing during the implementation of grover s search iteration , thus , decoherence caused by the adjustment of level spacing is suppressed .
+we do not require identical coupling constants of each squid with the resonator and direct coupling between the levels @xmath4 and @xmath6 @xcite .
+grover s iteration time becomes faster due to resonant and off - resonant interactions as compared to second order detuning or adiabatic passage .
+grover s iterations based on three - qubit quantum phase gate employed here , considerably simplify the implementation as compared to conventional gate decomposition method @xcite .
+more importantly , it reduces the possibility of error in comparison with a series of two - qubit gates .
+we also consider the effect of spontaneous decay rate from intermediate level @xmath7 and decay of cavity field during the implementation of grover s iterations .
+the basic idea of grover s algorithm is as follows ; we prepare input basis states in superposition state @xmath8 by applying walsh - hadamard transformation .
+first we , invert phase of the desired basis state through unitary operator ( called oracle ) and then invert all the basis states about the average .
+we consider the implementation of grover s algorithm in terms of quantum logic networks as shown in fig
+. 1 . any quantum logical network can be constructed using quantum phase gates and single - qubit quantum gates .
+the single - qubit quantum gate for @xmath9 qubit can be written in dirac notation as @xmath10for @xmath11 and @xmath12 , we have @xmath13 . here
+@xmath14 is the pauli rotation matrix whose function is to flip the state of qubit such that @xmath15 and @xmath16 for @xmath17 and @xmath18 , we have @xmath19  which transforms each qubit into superposition state i.e. , @xmath20 and @xmath21 @xmath22    the transformation for three - qubit quantum controlled phase gate can be expressed by @xmath23where @xmath24 , @xmath25 , and @xmath26 stand for basis @xmath6 or @xmath4 of the qubit and @xmath27 , @xmath28 , and @xmath29 are the kroneker delta functions .
+thus , three - qubit quantum phase gate induces a phase @xmath30 only when all three input qubit are in state @xmath31 .
+three - qubit quantum phase gate operator for @xmath32 can be written in dirac notation as    @xmath33       the three - qubit controlled phase gate can be used instead of involving series of two - qubit gates .
+this method not only simplifies the implementation but also reduces the probability of error . figure .
+[ fig1 ] shows the circuit diagram of three - qubit grover s algorithm based on three - qubit phase gate and two - qubit gates @xcite .
+consider that the initial state of three qubits is @xmath34 .
+grover s algorithm can be carried out using the following three steps :        _ _ part 1 _ _ * *  ( w ) * * : apply walsh - hadamard transformation @xmath35 on each qubit .
+the resultant state is therefore given by @xmath36    _ part 2 _ ( * c * ) : in this step , consider the unitary operator @xmath37 ( called oracle ) which changes the sign of target state @xmath38 .
+the operator @xmath39 performs the unitary transformation which can be implemented using three - qubit phase gate @xmath40 and single - qubit gate @xmath41 @xmath42 as shown in fig .
+the sign change operators for eight possible target states are given by @xmath43now oracle applies one of @xmath44 operators on state given in eq .
+( [ eq4 ] ) and changes the sign of target state .
+for example , our target state is @xmath45 , then by applying @xmath46 on state ( [ eq4 ] ) , we obtain the change of phase on target state @xmath47 i.e. , @xmath48    _ part 3 _ ( * n * ) : in this step , our goal is to find out the marked state @xmath45 .
+this can be accomplished through inversion about mean using the operator @xmath49 .
+it is clear from fig . fig1
+that the operator @xmath50 can be written in terms of single - qubit gate and three qubit quantum phase gate @xmath51the combined operator @xmath52 is called grover s operator .  when @xmath53 is applied to initial state @xmath54 @xmath55 @xmath56 times ,
+then the probability of searching target state becomes maximum @xcite .
+here , we consider rf - squids as qubits that consist of a single josephson junction enclosed by superconducting loop .
+the corresponding hamiltonian is given by @xcite @xmath57where @xmath58 and @xmath59 are junction capacitance and loop inductance , respectively .
+the conjugate variables of the system are magnetic flux @xmath60 threading the ring and total charge @xmath61 on capacitor .
+the static external flux applied to the ring is @xmath62 and @xmath63 is the josephson coupling energy . here , @xmath64 is critical current of josephson junction and @xmath65 is the flux quantum .
+the squids are biased properly to achieve desired four - level structure as shown in fig .
+[ fig2 ] by varying the external flux @xcite .
+the single - mode of the cavity field is resonant with @xmath66 transition of squids 1 and 2 .
+the evolution of initial state @xmath67 and @xmath68 under the effect of hamiltonian ( [ eq8 ] ) can be written as @xcite @xmath69where @xmath70 ( @xmath71 ) is vacuum ( single photon ) state of the cavity field and @xmath72 ( @xmath73 ) is the coupling constant between the cavity field and @xmath74 transition of the squid @xmath75 and @xmath76 .
+the cavity field interacts off - resonantly with @xmath66 transition of squid 3 ( i.e. , @xmath77 as shown in fig .
+[ fig2 ] . here , @xmath78 is the detuning between @xmath66 transition frequency @xmath79 of squid 3 , @xmath80 is the frequency of resonator and @xmath81 is coupling constant between resonator mode and @xmath66 transition . in the presence of single photon inside the cavity ,
+the evolution of initial state @xmath82 and @xmath83 are given by @xcite @xmath84it is clear that phase shifts @xmath85 and @xmath86 are induced to states @xmath87 and @xmath88 of squid 3 , respectively .
+however , states @xmath89 and @xmath90 remain unchanged .
+a classical microwave pulse resonant with @xmath91 ( @xmath92 ) is applied to each squid .
+the evolution of states can be written as @xcite @xmath93where @xmath94 is the rabi frequency between two levels @xmath95 and @xmath96 and @xmath97 is the phase associated with classical field .
+it may be mentioned that resonant interaction between pulse and squid can be carried out in a very short time by increasing the rabi frequency of pulse .
+three squids shown in fig . [ fig2 ]
+are initially prepared in state @xmath98 .  for notation convenience ,
+we denote ground level as @xmath4 and first excited state as @xmath6 for squid @xmath99 as shown in fig .
+[ fig2 ] .    _ _ part 1 _ _ * *  ( w ) * * : _ _  _ _ to accomplish _ _ part 1__of grover s algorithm , we apply single - qubit gate @xmath100 to each squid as shown in fig .
+the single - qubit gate @xmath101 is carried out through two - step process that involves an auxiliary level @xmath102 via method described in ref @xcite .
+we need two microwave pulses of different frequencies resonant to @xmath103 and @xmath104 transitions .
+the desired arbitrary single - qubit gate ( see eq . ( 1 ) ) can be achieved by choosing a proper interaction time ( i.e. , @xmath105 ) and phase @xmath97 of classical microwave pulse resonance to @xmath104 transition .
+we achieve @xmath101 by choosing @xmath106 and @xmath107 as a result we obtain state given by eq .
+( [ eq4 ] ) .    _
+part 2 _ ( * c * ) * : * in order to implement @xmath108 apply single - qubit gate @xmath41 @xmath109 by choosing @xmath110 and @xmath12 as shown in fig .
+[ fig1 ] . then apply three - qubit quantum controlled phase gate .
+the procedure for realizing the three - qubit controlled phase gate is described as follows :    initially , cavity is in a vacuum state @xmath70 and levels @xmath111 and @xmath88 of each squid are not occupied .
+_ step 1 . _
+apply microwave pulse ( with @xmath112 and phase @xmath113 , where @xmath114 is pulse duration ) resonant to @xmath115 transition of the squid @xmath75 to occupy level @xmath116 cavity field interacts resonantly to the @xmath117 transition of squid @xmath75 for time interval @xmath118 such that the transformation @xmath119 is obtained .
+the overall step can be written as @xmath120 .
+however , the state @xmath121 remains unchanged .
+_ apply microwave pulse ( with @xmath122 and phase @xmath123 ) to the squid 1 while a microwave pulse ( with @xmath124 and phase @xmath18 ) to the squid 2 . as a result transformations @xmath125 for squid 1 while @xmath126 for squid 2 are obtained .
+_ after the above operation , when cavity is in a single photon state @xmath127 , only the level @xmath87 of squid 2 is populated .
+the cavity field interacts resonantly to @xmath128 transition of squid 2 for time @xmath129 we then obtain transformation @xmath130 while states @xmath131 , @xmath132 and , @xmath133 remain unchanged
+. then apply microwave pulse ( with @xmath134 and phase @xmath113 ) to squid 2 to transform state @xmath135 to @xmath136 .
+the overall step can be written as @xmath137 .
+however , states @xmath138 , @xmath139 and @xmath140 remain unchanged .
+the evolution of the system after above three steps is given by    @xmath141    it must be noted here that we have shown the evolution of only four initial possible states out of eight states ( see eq .
+( 4 ) ) since the evolution of other four states i.e. , @xmath142 and @xmath143 is trivial .
+_ step 4 . _
+apply microwave pulse with @xmath144 and phase @xmath18 to squid 3 to obtain transformation @xmath145 @xmath146 . after the above operation
+only level @xmath111 of squid ( 3 ) is populated , when cavity is in a single photon state .
+now the cavity field interacts off - resonantly to @xmath147 transition of squid 3 .
+it is clear from eq .
+( [ eq10 ] ) that for @xmath148 , state @xmath149 changes to @xmath150 .
+however , states @xmath151 , @xmath152 and @xmath153 remain unchanged .
+_ step 5 . _
+apply microwave pulse ( with @xmath144 and phase @xmath123 ) to squid 3 , as a result state transformation @xmath154 is obtained .
+_ perform reverse of the operations mentioned in step 3 .
+apply microwave pulse ( with @xmath134 and phase @xmath155 ) to squid 2 .
+wait for time @xmath156 given in step 3 , during which cavity field interacts resonantly to @xmath157 transition of the squid 2 .
+over all transformation can easily be written as @xmath158 .
+however , states @xmath159 , @xmath139 and @xmath140 remain unchanged .
+the evolution of the system after applying steps 4 - 6 is given by    @xmath160    _ step 7 .
+_ apply microwave pulse ( with @xmath122 and phase @xmath123 ) to squid 2 while a microwave pulse ( with @xmath161 and phase @xmath18 ) to squid 1 .
+the transformations @xmath162 for squid 2 while @xmath163 for squid 1 are obtained .
+_ now perform reverse operation of step 1 .
+first wait for time interval @xmath118 during which resonator interacts resonantly to the @xmath164 transition of squid 1 .
+then apply microwave pulse ( with @xmath165 and phase @xmath113 ) to squid 1 .
+the overall step can easily be written as @xmath166 .
+however , state @xmath167 remains unchanged .
+after applying steps 7 - 8 , the system evolves as    @xmath168    after the application of three - qubit phase gate , the state given by eq .
+( eq4 ) evolves to    @xmath169    next apply single - qubit gate i.e. , @xmath41 @xmath170 which completes the part 2 ( c ) of the implementation scheme .
+_ part 3 _ ( * n * ) : in order to implement operator @xmath50 , apply single - qubit gate @xmath171 , then apply three - qubit quantum controlled phase gate by repeating the above mentioned 8 steps . finally , apply single - qubit hadamard gate @xmath172 .
+it is clear that grover s operator @xmath173 for eight objects ( @xmath174 ) can be implemented using four - level squids coupled to superconducting resonator .
+it may be pointed out that in order to implement a three - qubit phase gate using conventional decomposition method , it requires twenty five basic gates , i.e. , six two - qubit phase gates , twelve single - qubit hadamard gates , and seven single - qubit phase shift gates @xcite .
+if we assume that the realization of each basic gate requires a one - step operation only , then twenty five steps are required for a three - qubit phase gate .
+whereas in our scheme total number of eight steps are needed to implement three - qubit phase gate . as a result
+our proposed implementation scheme for grover s search algorithm which is based on three - qubit phase gate is faster than one based on two - qubit phase gate .    after performing the required gate operations for grover s algorithm
+, we need to readout the computational results .
+this can be done by jointly detecting the states of the three qubits @xcite .
+the readout for flux qubit can be done by measuring the josephson inductance of a squid that is inductively coupled to the qubit @xcite .
+there are some interesting schemes to perform joint dispersive readouts for superconducting qubits @xcite .
+the implementation of our scheme also requires such joint dispersive readout for three squids .
+here , we discuss different types of imperfections which can arise during the implementation of grover s algorithm . the relevant parameters during the implementation are coupling constant @xmath175 decay rate @xmath176 of level @xmath88 and cavity decay rate @xmath177 we consider spontaneous decay from the intermediate level @xmath102 , during resonant interaction of cavity field with @xmath178 transition of squids 1 and 2 .
+here , we assume that under the condition that no photon from spontaneous emission is detected , the conditional hamiltonian for the evolution of system is given by @xcite    @xmath179    the hamiltonian given by eq .
+( [ eq13 ] ) is valid as long as the decay rate of level @xmath111 is much smaller than @xmath180 the decay rate @xmath176 of squid 1 and 2 can affect the performance of three - qubit phase gate .
+suppose each squid is initially prepare in generic state @xmath181 now the state of three qubits becomes @xmath182 where the coefficients @xmath183 @xmath184 @xmath185 and @xmath186 , satisfy the normalization condition .
+if we consider @xmath187 , then the state of the system after phase gate operation becomes @xmath188 however , if the decay of level @xmath102 is included during phase gate then the expression for @xmath189 becomes rather complex , therefore it is not reproduced here .
+the fidelity of three - qubit phase gate is given by    @xmath190    here , @xmath191 with @xmath192 , @xmath193 , and @xmath194 in order to realize the effects of decay on the performance of three - qubit phase gate , average fidelity over all possible three - qubit initial states is calculated using the following :    @xmath195    after carrying out integration , we obtain    @xmath196    next , we show the plots of average fidelity as a function of @xmath197 in fig .
+it can easily be verified that for @xmath198 one has @xmath199 which leads to @xmath200 it is clear from fig .
+[ fig3 ] that average fidelity decreases due to the increase in the cavity decay rate .
+we also calculate the success probability of three - qubit phase gate which is given by    @xmath201    if we consider @xmath202 then corresponding success probability of three - qubit phase gate reduces to @xmath203    of three - qubit controlled phase gate as a function of coupling constant @xmath204 , width=3 ]    we take into account success rate of three - qubit phase gate ( eq . [ eq14 ] ) and grover search itself .
+we consider @xmath205 without loss of generality and perform simulation for finding the target state for @xmath206 ( ideal case ) , @xmath207 , and @xmath208 here , we consider the success probability for target state @xmath209 as shown in fig .
+[ fig4](a ) .
+it is clear from fig .
+fig4(a ) that success rate becomes closer to the ideal case when decay rate is sufficiently smaller than coupling constant i.e. , @xmath210 typical decoherence rate for squid is of the order @xmath211 while coupling constant can be achieved upto @xmath212 @xcite .
+this shows that for these parameters , three - qubit controlled phase gate and grover s iterations can be performed with high fidelity .
+probability of success is highest at @xmath213 iteration for ideal case .
+however , we should prefer @xmath214 iteration in the presence of dissipation because it has the highest value of fidelity .
+the effect of level decay on the fidelity of search state during iteration is shown in fig . [ fig4](b ) .
+it is clear from fig .
+[ fig4](b ) that the fidelity of state to be searched decreases much rapidly for the case of larger decay rate as compared to smaller decay rate as the number of iterations increase .    from intermediate level @xmath215 ( a ) probability of finding the target state @xmath216  in case of @xmath217 , @xmath207 , and @xmath208 ( b ) fidelity of the state searched for @xmath218 and @xmath208,width=3 ]    next we consider the effects of cavity decay during the implementation of grover s algorithm . during the implementation of three - qubit phase gate ( sec .
+iv ) , transition of squid 1 from level @xmath88 to @xmath219 would result in the emission of one photon ( see step @xmath75 in sec .
+then transition of squid 2 from level @xmath87 to @xmath88 would absorb this photon with unit probability in step @xmath99 and vice versa for step @xmath220 and @xmath221 in the absence of cavity decay the occupation probability of level @xmath87 and @xmath88 of squid 1 and 2 should be exactly one .
+however , if cavity relaxation is taken into account , then the occupation probabilities are expected to decay exponentially . under the assumption that no photon actually leaks out during implementation time , we can write the conditional hamiltonian as @xcite    @xmath222    where , @xmath223 is the cavity decay rate and @xmath72 is the coupling constant .
+for @xmath224 we only need to focus on time evolution of the system governed by conditional hamiltonian ( eq .
+( [ ch ] ) ) under the assumption of strong coupling limit .
+the fidelity and corresponding success probabilities for three - qubit phase gate can easily be obtained , which are given by    @xmath225    and    @xmath226    for @xmath227 , we have @xmath228 the success probability of target state @xmath229 for ideal case and in the presence of cavity decay is shown in fig . [ fig5](a ) .
+it can be seen that the probability of finding target state decreases in the presence of cavity decay rate .
+the effects of cavity decay rate on fidelity of grover s search iteration is also shown in fig . [ fig5](b ) .
+it is clear from fig .
+fig5(b ) that the fidelity of grover s search decreases as a function of iterations much rapidly for higher cavity decay rate .     (
+a ) probability of finding the target state @xmath216  in case of @xmath230 , @xmath231 and @xmath232 ( b ) fidelity of the state searched for @xmath233 and @xmath232,width=3 ]    we have separately discussed the effects on fidelity from spontaneous decay and cavity decay , however , in a general case the system involves both these decays .
+thus we also consider the effect of these decays simultaneously .
+the results of our numerical simulation for corresponding average fidelity are shown in fig .
+it is clear from figs .
+[ fig4]-[fig6 ] that our proposed grover s iterations can be performed with high success probability and fidelity as long as cavity decay rate and decay rate of the intermediate level @xmath88 is small enough .
+the typical values of cavity decay rate is @xmath234 ( @xmath235 ) @xcite .
+it may be mentioned that more rigorous analysis is required for the case of very low @xmath236 resonators .    of three - qubit controlled phase gate as a function of cavity and level decay , width=3 ]
+we have discussed the implementation of 3-qubit grover s algorithm using 4-level squids subjected to quantized and classical microwave fields .
+grover s algorithm involves three - qubit phase gates and single - qubit gates . here
+, we briefly estimate the total operational time for three - qubit controlled phase gate .
+the total implementation time is the sum of all interaction times involved in three - qubit controlled phase gate operation i.e. , @xmath237 on substituting the values of interaction times given in sec .
+@xmath238 we obtain @xmath239here , we consider without loss of generality @xmath240 which is the same as given in ref han .
+choosing @xmath241 , @xmath242 , the operational time for three - qubit phase gate comes out to be @xmath243 .
+the operation time for single - qubit gate is about @xmath244 @xcite which can be applied to each qubit , simultaneously .
+therefore , the estimated time for the implementation of three - qubit grover algorithm performing two iterations is approximately @xmath245 .
+we have considered the effect of decay for level @xmath246 under the assumption that the decay rate of level @xmath247 is much smaller then level @xmath246 .
+the typical values of the decay time for levels @xmath246 and @xmath248 are @xmath249 and @xmath250 0.16 ms as discussed in ref .
+@xcite . during the steps 1,2 , and 3 in phase gate operations
+level @xmath247 of squids 1 and 2 is occupied through the application of squid - pulse resonant interaction and squid - resonator resonant interaction as discussed in sec .
+operation time @xmath251 for squid 1 and @xmath252 for squid 2 , in these steps is equal to @xmath253 and @xmath254 , respectively , which can be shortened by increasing the rabi frequency @xmath255 and coupling constants @xmath256 and @xmath257 . for the typical choice of parameters as given in ref @xcite , we have @xmath258 , which is much shorter than @xmath259 .
+the squids can also be designed to have long relaxation time for level @xmath247 .
+thus decoherence due to relaxation of level @xmath111 can be negligibly small .
+as far as the decay of level @xmath260 is concerned , it may be pointed out that in our scheme direct coupling between levels @xmath261 and @xmath262 is not needed . the potential barrier between levels @xmath260 and @xmath262 can also be adjusted such that decay of level @xmath260 is negligibly small @xcite .
+therefore , storage time of each qubit can be made much longer .
+when levels @xmath111 and @xmath88 are manipulated by microwave pulses , resonant interaction between cavity field mode and @xmath263 transition of each control squid is unwanted .
+this effect can be minimized by setting the condition @xmath264 for squids 1 and 2 .    during the application of microwave pulse , off - resonant interaction of cavity field with @xmath263 transition , in the presence of single photon inside
+the cavity is unwanted .
+it induces an unwanted phase which can effect the performance of the desired gate .
+this effect can be negligible under the condition @xmath265 for squid @xmath99 .
+however , if this effect is included during the steps @xmath266 and @xmath267 for three - qubit phase gate , then the corresponding fidelity can easily be obtained . here , we do not present the expression for @xmath268 owing to its complexity , however the fidelity is given by          if off - resonant interaction during step @xmath266 and @xmath267 is not considered , then we have @xmath277 @xmath278 and@xmath279 which leads to @xmath280 the plot of the average fidelity as a function of rabi frequency @xmath281 is shown in fig . [ fig7 ] . we choose @xmath282 for this plot .
+it can be seen that the average fidelity increases as a function of rabi frequency @xmath283 applied to target squid .
+@xmath284it is clear from fig .
+[ fig7 ] that for @xmath285 , we have @xmath286      when slowly changing rabi frequencies are applied to satisfy the adiabatic passage , gate times becomes slow
+i.e. , of the order of 1 ms to a few microseconds @xcite . however , in our scheme we do not require slowly changing rabi frequency during the implementation of three - qubit phase gate , thus gate is significantly faster i.e. , of the order of 13ns .
+the fast pulses may introduce new imperfections , for example , accurately designing of the duration of pulses might not be easy .
+it may be mentioned here that adiabatic process is not always slow as an interesting proposal based on controllable stark - chirped rapid adiabatic passage has been proposed in a recent study @xcite .    here
+, we would like to mention that the physical implementation of three - qubit grover s algorithm in cavity quantum electrodynamics ( qed ) has been proposed in a recent study by yang _
+et al _ @xcite .
+the scheme is based upon the resonant interaction of three rydberg atoms initially prepared in a coherent superposition state traversing through a single - mode microwave cavity . as compared to the flying qubits , here we have considered stationary qubits defined through two lowest level of four level squids .
+our scheme is based on the generation and absorption of single photon in high q cavity using squids .
+the generation of single microwave photon in superconducting qubit have been reported , experimentally in some recent studies _
+et al_. @xcite .    in conclusion ,
+we have proposed a scheme for the realization of three - qubit grover s algorithm based on three - qubit phase gate using four - level squids coupled to a single - mode superconducting resonator . in this proposal ,
+adjustment of level spacing during the operation , slowly changing rabi frequencies ( to satisfy adiabatic passage ) , and the use of second - order detuning ( to achieve off - resonance raman coupling between two relevant levels ) are not required .
+thus , implementation time is significantly faster and has operation time of the order of nanoseconds .
+the coupling constants of each squid with the resonator are different .
+thus , an unavoidable non - uniformity in device parameters can be accommodated .
+we consider the effect of imperfections in the system which include the decay of the cavity field and the relevant level .
+we also incorporate the influence of unwanted off - resonant interaction during the gate implementation .
+our results show that the marked state can be searched with high fidelity even in the presence of imperfections in the system which is quite interesting .
+yang , c. p. , chu , shih - i .
+, han , s. : quantum information transfer and entanglement with squid qubits in cavity qed : a dark - state scheme with tolerance for nonuniform device parameter . phys .
+lett . * 92*(11 ) , 117902 ( 2004 ) ;    leek , p. j. , filipp , s. , maurer , p. , baur , m. , bianchetti , r. , fink , j. m. , gppl , m. , steffen , l. , wallraff , a. : using sideband transitions for two - qubit operations in superconducting circuits .
+b * 79*(18 ) , 180511(r ) ( 2009 ) .
+wallraff , a. , schuster , d. i. , blais , a. , frunzio , l. , huang , r .- s . , majer , j. , kumar , s. , girvin , s. m. , schoelkopf , r. j.:strong coupling of a single photon to a superconducting qubit using circuit quantum electrodynamics .
+nature ( london ) * 431 * , 162 - 167 ( 2004 ) .
+dicarlo , l. , chow , j. m. , gambetta , j. m. , bishop , l. s. , johnson , b. r. , schuster , d. i. , majer , j. , blais , a. , frunzio , l. , girvin , s. m. , schoelkopf , r. j. : demonstration of two - qubit algorithms with a superconducting quantum processor .
+nature , * 460 * , 240 - 244 ( 2009 ) .
+dicarlo , l. , reed , m. d. , sun , l. , johnson , b. r. , chow , j. m. , gambetta , j. m. , frunzio , l. , girvin , s. m. , devoret , m. h. , and schoelkopf , r. j. : preparation and measurement of three - qubit entanglement in a superconducting circuit .
+nature * 467 * , 574 - 578 ( 2010 ) .
+he , xiao - ling . , yang , c.p .
+, li , s. , luo , j. y. , han , s. : quantum logical gates with four - level superconducting quantum interference devices coupled to a superconducting resonator .
+rev . a * 82*(2),024301 ( 2010 ) .
+yang , c. p. , chu , shih - i .
+, han , s. : possible realization of entanglement , logical gates , and quantum - information transfer with superconducting - quantum - interference - device qubits in cavity qed . phys .
+a * 67*(4 ) , 042311 ( 2003 ) .
+blais , a. , huang , r. -s .
+, wallraff , a. , girvin , s. m. , schoelkopf , r. j. : cavity quantum electrodynamics for superconducting electrical circuits : an architecture for quantum computation .
+a * 69*(6 ) , 062320 ( 2004 ) .
+filipp , s. , maurer , p. , leek , p. j. , baur , m. , bianchetti , r. , fink , j. m. , gppl , m. , steffen , l. , gambetta , j. m. , blais , a. , wallraff , a. : two - qubit state tomography using a joint dispersive readout .
+lett . * 102*(20 ) , 200402 ( 2009 ) .
+zhang , p. , wang , z. d. , sun , j. d. , sun , c. p. : holonomic quantum computation using rf superconducting quantum interference devices coupled through a microwave cavity .
+a * 71*(4 ) , 042301 ( 2005 ) .
+wang , h. , hofheinz , m. , ansmann , m. , bialczak , r. c. , lucero , e. , neeley , m. , oconnell , a. d. , sank , d. , wenner , j. , cleland , a. n. , martinis , j. m. : measurement of the decay of fock states in a superconducting quantum circuit .
+lett . * 101*(24 ) , 240401 ( 2008 ) .

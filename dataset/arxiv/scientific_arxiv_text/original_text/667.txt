@@ -1,0 +1,715 @@
+because neptune s atmosphere has a relatively low burden of aerosols , its reflected spectrum is strongly influenced by both rayleigh scattering and raman scattering by molecular hydrogen .
+rayleigh scattering induces polarization that can significantly modify the reflected intensity ( mishchenko 1994 ) , accurate computation of which presents the very large burden of solving the vector radiation transfer equation .
+sromovsky ( 2004 ) discusses that problem and a new approximation method applicable to low phase angles .
+accurate treatment of raman scattering is also a computational burden because photons incident at one wavelength lose some energy to rotating and/or vibrating the hydrogen molecule and reappear at longer wavelengths .
+computation of reflectivity at one wavelength thus requires accounting for contributions from raman scattering at shorter wavelengths .
+in addition , because the raman source function varies continuously with optical depth , otherwise homogeneous layers become inhomogeneous , requiring many more layers to achieve an accurate characterization of the atmosphere .    to avoid the computational burden of rigorous raman scattering calculations ,
+several different approximations have been employed .
+baines and smith ( 1994 ) used an approximation suggested by wallace ( 1972 ) , in which the raman cross sections for rotational transitions are treated as conservative scattering because the wavelength shifts are relatively small , while the cross section for the vibrational transition , which involves a much larger wavelength shift , is treated as an absorption .
+this approximation does not produce the sharp spectral features characteristic of raman scattering and is of uncertain accuracy .
+pollack ( 1986 ) used an alternate approximation in which the rayleigh scattering cross section at a given wavelength is scaled by the solar irradiance ratio at the shifted and unshifted wavelengths .
+this approximation does produce raman spectral features , but the accuracy is not well known , and can create conservation problems by allowing single - scattering albedo values exceeding unity .
+karkoschka ( 1994 ) presented a method for correcting observations to remove raman scattering and for converting calculations that ignored raman scattering to spectra that approximately matched spectra that included raman scattering .
+that method can add or remove raman spectral features and was applied to observations of saturn , jupiter , uranus , and neptune , but was never tested for accuracy or generality .
+a number of calculations of neptune s geometric albedo have been made that do account for the basic physics of raman scattering .
+cochran and trafton ( 1978 ) implemented an iterative algorithm in which raman scattering is first treated as an absorption . after solving the scalar radiation transfer equation at each frequency grid point ,
+the photon loss is computed from the radiation field . on the next iteration
+the lost photons are added back as source terms at the shifted wavelengths appropriate to each raman transition .
+they achieved convergence after three iterations .
+their mainly low resolution results are of limited utility however , because the atmospheric structure they assumed is so different from our current understanding .
+their claim that the residual intensity in the cores of the strong methane bands could be entirely explained by raman scattering will be shown to be invalid because of their assumed ch@xmath4 mixing ratio profile .
+the first model calculations displaying extensively detailed raman spectral features in neptune s atmosphere are those of courtin ( 1999 ) , who made use of the two - stream code of toon ( 1989 ) to speed the solution of the radiative transfer equation . but this method can deviate from exact solutions by 10 - 15% , does not account for polarization , and is not usable for studying center - to - limb variations .
+a more rigorous method was used by btremieux and yelle ( 1999 ) , based on the disort radiative transfer code ( stamnes 1988 ) .
+but they presented only results for jupiter and omitted polarization effects .
+this paper presents a new method for accurate computation of raman scattering that includes polarization in the context of neptune s atmosphere and makes preliminary applications of that method to resolve several significant issues .
+the next section reviews the basic physics of raman scattering .
+that is followed by a discussion of methods for accurate computation of raman scattering .
+sample computations are then presented to characterize the basic features of raman scattering on neptune .
+comparisons are made with various prior calculations , and with hst and groundbased observations , to assess the degree of haze absorption required in neptune s atmosphere .
+the final section evaluates past approximations , discusses how they can be generalized and improved , and presents the new approximation and its performance .
+the hydrogen molecule can exist in two nuclear spin states .
+ortho states have parallel nuclear spins and odd total angular momentum quantum numbers ( @xmath5 ... ) with a degeneracy of @xmath6 .
+the para states have antiparallel nuclear spins and even angular momentum quantum numbers ( @xmath7 .. ) with a degeneracy of @xmath8 .
+the equilibrium population of these states follows the boltzmann distribution , so that the fraction of molecules with angular momentum @xmath9 is given by @xmath10 where @xmath11 is the degeneracy , @xmath12 is the energy above the ground state , @xmath13 is the boltzmann constant , and @xmath14 is absolute temperature . using published expressions for the energy levels ( farkas 1935 ; massie and hunten 1982 ) we obtain the fractional populations given in table 1 , where @xmath15 is the total fraction of molecules with even @xmath9 and @xmath16 is the total fraction of molecules with odd @xmath9 .
+this assumes that ortho and para states can exchange energy .
+however , the time scale for equilibration by means of bimolecular collisions is of the order of years ( massie and hunten 1982 ) and radiative energy exchange is forbidden by selection rules .
+thus it is also meaningful to consider a different kind of equilibrium condition in which ortho states equilibrate separately from para states .
+this is relevant when hydrogen equilibrates at high temperature , then is lifted by convection to higher altitude where the fraction of para and ortho molecules remain fixed ( over short time scales ) but equilibration of energy levels within each sub - population does take place . for `` normal '' h@xmath0 , which is defined by the high temperature equilibrium value of @xmath17 ,
+the sub - population distributions are given by @xmath18 where the partition functions @xmath19 and @xmath20 are summations of @xmath21 carried out over even @xmath9 and odd @xmath9 respectively .
+this distribution is given in table  2 as a function of temperature .
+c c c c c c c c    ' '' ''    t(k ) & j=0 & j=1 & j=2 & j=3 & j=4 & f@xmath22 & f@xmath23 +    ' '' ''    50 & 0.7704 & 0.2294 & 0.0001 & 0.0000 & 0.0000 & 0.771 & 0.229 + 75 & 0.5173 & 0.4798 & 0.0029 & 0.0000 & 0.0000 & 0.520 & 0.480 + 100 & 0.3747 & 0.6135 & 0.0115 & 0.0003 & 0.0000 & 0.386 & 0.614 + 125 & 0.2947 & 0.6784 & 0.0250 & 0.0018 & 0.0000 & 0.320 & 0.680 + 150 & 0.2450 & 0.7080 & 0.0410 & 0.0059 & 0.0000 & 0.286 & 0.714 + 175 & 0.2112 & 0.7178 & 0.0574 & 0.0135 & 0.0001 & 0.269 & 0.731 + 200 & 0.1865 & 0.7157 & 0.0729 & 0.0245 & 0.0004 & 0.260 & 0.740 + 225 & 0.1673 & 0.7061 & 0.0869 & 0.0387 & 0.0009 & 0.255 & 0.745 + 250 & 0.1520 & 0.6919 & 0.0990 & 0.0552 & 0.0017 & 0.253 & 0.747 + 275 & 0.1394 & 0.6749 & 0.1092 & 0.0732 & 0.0028 & 0.251 & 0.749 + 300 & 0.1287 & 0.6564 & 0.1177 & 0.0919 & 0.0043 & 0.251 & 0.749 +    note : f@xmath24 and f@xmath25 denote f@xmath26 and @xmath16 respectively .
+[ tbl : eqpop ]    c c c c c c c c    ' '' ''    t(k ) & j=0 & j=1 & j=2 & j=3 & j=4 & f@xmath22 & f@xmath23 +    ' '' ''    50 & 0.2500 & 0.7500 & 0.0000 & 0.0000 & 0.0000 & 0.25 & 0.75 + 75 & 0.2486 & 0.7500 & 0.0014 & 0.0000 & 0.0000 & 0.25 & 0.75 + 100 & 0.2426 & 0.7496 & 0.0074 & 0.0004 & 0.0000 & 0.25 & 0.75 + 125 & 0.2305 & 0.7480 & 0.0195 & 0.0020 & 0.0000 & 0.25 & 0.75 + 150 & 0.2142 & 0.7438 & 0.0358 & 0.0062 & 0.0000 & 0.25 & 0.75 + 175 & 0.1965 & 0.7362 & 0.0534 & 0.0138 & 0.0001 & 0.25 & 0.75 + 200 & 0.1795 & 0.7251 & 0.0702 & 0.0249 & 0.0004 & 0.25 & 0.75 + 225 & 0.1640 & 0.7109 & 0.0851 & 0.0390 & 0.0008 & 0.25 & 0.75 + 250 & 0.1504 & 0.6944 & 0.0979 & 0.0554 & 0.0016 & 0.25 & 0.75 + 275 & 0.1386 & 0.6762 & 0.1086 & 0.0733 & 0.0028 & 0.25 & 0.75 + 300 & 0.1283 & 0.6570 & 0.1174 & 0.0920 & 0.0043 & 0.25 & 0.75 +    note : f@xmath24 and f@xmath25 denote f@xmath26 and @xmath16 respectively .
+[ tbl : normpop ]    the populations for both equilibrium and normal hydrogen are plotted in fig .
+[ fig : parapop ] , both as a function of temperature and as a function of pressure in neptune s atmosphere . at t @xmath27 300
+k , @xmath15 approaches 0.25 and the ortho / para ratio approaches the 3/1 ratio expected from the nuclear spin degeneracy .
+but at the low temperatures in the upper troposphere and stratosphere of neptune @xmath15 can be much larger , and for pressures less than a few bars , only @xmath28 and @xmath29 ground states need to be considered .
+( thick lines ) and for normal h@xmath0 ( thin lines ) .
+bottom : population fractions vs pressure in neptune s atmosphere.,width=355 ]    radiative transitions must satisfy selection rules @xmath30 ( hollas 1992 ) ; the corresponding transitions are named @xmath31 , @xmath32 , and @xmath33 , where @xmath9 is the angular momentum quantum number of the initial state .
+the @xmath34 and @xmath35 branches can involve changes in rotational energy and vibrational energy , while the @xmath36 branch involves changes in only vibrational energy .
+for the @xmath34 branch interactions the scattered photons have more energy than the incident photons .
+but for the @xmath34 branch to play a significant role , there needs to be a significant population in rotational states with @xmath37 , which is not the case for the upper troposphere of neptune .
+thus , we here ignore the @xmath34 branch .      the wavelength - dependent raman and rayleigh cross sections per molecule ( fig .
+[ fig : xcvswlen ] ) are computed using fits given by ford and browne ( 1973 ) .
+cross sections at 0.4 @xmath2 m are given in table  3 , along with transition energy energies expressed as corresponding wavenumber shifts .
+these cross sections for the @xmath35 and @xmath36 raman transitions are 46 - 68% larger than those given by cochran and trafton ( 1978 ) .
+ground states ( thick lines ) and for @xmath29 ground states ( thin lines ) , where @xmath38 refers to the @xmath39 , @xmath40 vibrational transition .
+bottom : ratio of raman to rayleigh cross sections.,width=355 ]    c c c c c    ' '' ''    & & & & 0.4-@xmath2 m cross + transition(@xmath9 ) & @xmath41 & @xmath42 & @xmath43 , @xmath44 & section , @xmath45 + @xmath46 & 0&0 & 354.69 & 3.575@xmath4710@xmath48 + @xmath49 & 0&0 & 587.07 & 3.635@xmath4710@xmath48 + @xmath50 & + 2&0 & 354.69 & 1.104@xmath4710@xmath51 + @xmath52 & + 2&0 & 587.07 & 0.642@xmath4710@xmath51 + @xmath53 & 0&1 & 4162.06 & 0.344@xmath4710@xmath51 +
+@xmath54 & 0&1 & 4156.15 & 0.369@xmath4710@xmath51 + @xmath55 & + 2&1 & 4498.75 & 0.070@xmath4710@xmath51 + @xmath56 & + 2&1 & 4713.83 & 0.041@xmath4710@xmath51 + @xmath36 & & & 4161.00 & 0.412@xmath4710@xmath51 +    [ tbl : xctable ]    note in table  3 that the @xmath57 cross section sum is only 1% larger than @xmath58 sum at 0.4 @xmath2 m .
+fig.[fig : xcvswlen ] shows that this close match holds true at all wavelengths of interest .
+these transitions also all have similar wavenumber shifts .
+in fact , the shifts of @xmath53 and @xmath54 , which have the largest cross sections , differ by only 6 wavenumbers , which is several times smaller than the spectral resolution that we need to model existing observations . for these transitions we can thus follow courtin ( 1999 ) by ignoring @xmath15 and simply taking the effective cross section as the average of @xmath28 and @xmath29 transitions and using a single wavenumber shift of @xmath59 @xmath44 .
+the inclusion of the @xmath38 terms correctly accounts for the absorption of photons at the incident wavelength , but does not transfer the scattered photons to exactly the correct longer wavelength .
+however , this results in a negligible error .
+the effective scattering cross section per molecule for each transition depends on the fractional population of the initial state as well as the transition cross section . for neptune
+s the upper troposphere we can make the approximation that there are only two ground states : @xmath28 and @xmath29 .
+this means that @xmath15 can be taken as the fraction of @xmath28 molecules , and @xmath16 as the fraction of @xmath29 molecules .
+we can then write the total raman scattering cross section as @xmath60 \label{eq : sigtot}\end{aligned}\ ] ] where we will hereafter refer to the last term as the @xmath36 cross section , as if it were due to a single transition , and its four individual contributions will be assigned the same wavenumber shift of 4161 @xmath61 .
+the generalized scalar phase function for scattering of unpolarized incident radiation by anisotropic molecules for all types of molecular scattering ( including raman and rayleigh scattering ) can be written as ( placzek 1959 ; soris and evans 1999 ) : @xmath62\label{eq : phase1 } , \ ] ] where @xmath63 is the depolarization ratio , which is the ratio of perpendicular to parallel intensities scattered at 90 .
+the depolarization ratio is zero for isotropic particles ( the pure rayleigh case ) and unity for isotropic scatterers . for pure rotational raman scattering , @xmath64 ( soris and evans 1999 ) , yielding
+@xmath65 $ ] , which has a peak deviation of only 7.7% from isotropy .
+depolarization ratios for vibrational transitions for gases seem to be generally below about 0.38 ( bhagavantam 1942 ) . for the 4156 @xmath44 @xmath36-branch transition , measured values range from 0.045 ( cabannes and rousset 1936 ) to 0.13 ( bhagavantam 1931 ) .
+either value implies a phase function that is closer to pure rayleigh than to isotropic .
+however , the deviation from isotropic is greatest for the first scattering , for which the direct beam plays the largest role .
+backscattered @xmath36-branch light from the first scattering would be reduced by 30 - 33% using the assumption of isotropic scattering .
+but in sample calculations the reflected flux of raman scattered photons attributable to this transition is only 17% of the total ( see fig .  [
+fig : ramline1plus2 ] ) and about half of that comes from incident light that already been diffusely scattered .
+thus , the net effect of assuming isotropic scattering for the vibrational transition will probably never exceed 15% of the @xmath36-branch contribution to single scattering , and will generally be insignificant .
+thus we will assume isotropic scattering for both rotational and vibrational transitions to benefit from the simplifications that it permits .
+we follow evans and stephens ( 1991 ) and others in defining downward as positive , so that the direction of light propagation is defined by the vector ( @xmath66 , @xmath67 ) or ( @xmath2,@xmath67 ) , where @xmath66 is the angle from the inward normal at the top of the atmosphere and @xmath68 .
+the angle @xmath67 is the azimuth angle measured clockwise looking upward .
+we assume an unpolarized collimated incident solar beam in the direction ( @xmath69 , @xmath70 ) .
+light that is scattered backward toward the source then has the direction ( @xmath71 , @xmath72 ) .
+the stokes vector @xmath73 is defined as a 4-element column vector given by @xmath74\label{eq : stokesvec}\ ] ] where @xmath75 is the total intensity and @xmath76 is the intensity of polarized light .
+separate definitions for @xmath36 , @xmath77 , and @xmath78 are given by hansen and travis ( 1974 ) .
+with these definitions , the vector radiation transfer equation can be written as @xmath79 where @xmath80 denotes distance downward into the atmosphere , @xmath81 and @xmath82 are linear extinction and scattering coefficients , and where @xmath83 is the source vector due to raman scattering .
+equation  [ eq : rtez ] is often written in terms of optical depth @xmath84 , where @xmath85 , and single - scattering albedo @xmath86 . however , because raman scattering transfers photons from one wavelength to another at a specific physical location in the atmosphere , the wavelength - independent distance @xmath80 is a more convenient vertical coordinate than @xmath84 . in eq.[eq : rtez ] the scattering matrix @xmath87 is a rotated form of the scattering phase matrix @xmath88 , given by @xmath89 where @xmath90 is the scattering angle , @xmath91 is the angle between the scattering plane and the meridional plane of the incoming ray , and @xmath92 is the angle between the scattering plane and the meridional plane of the outgoing ray .
+formulas for the scattering and rotation angles , and the form of the rotation matrix , are given by hansen and travis ( 1974 ) .
+in this formulation , the stokes vector @xmath73 includes direct beam as well as diffuse components of the radiation field , and thus there is no solar pseudo source as used by evans and stephens ( 1991 ) .
+there is an implicit wavelength dependence in eq .
+[ eq : rtez ] , but the wavelength dependence must be made explicit in the equation for the source vector:@xmath93 where we use wavenumber @xmath94 instead of wavelength because each raman transition is associated with a fixed shift in wavenumber but a variable shift in wavelength . here
+the quantity @xmath95 is the volume number density of h@xmath0 molecules , and @xmath96 is the cross section for photons at wavenumber @xmath97 to excite transition @xmath98 and exit at wavenumber @xmath99 , where @xmath100 is the energy change associated with the transition .
+the associated scattering matrix is @xmath101 .
+note that the vector intensity @xmath102 in the integrand is evaluated at the wavenumber of the incident photon , as are the cross section and scattering matrix in eq .
+[ eq : source ] . if @xmath73 is measured in photons , then the factor @xmath103 .
+if @xmath73 is measured in energy units , then @xmath104 . although the radiation transfer equation we use will retain polarization in general , we will ultimately not include polarization in computation of raman source contributions .
+there is also an extinction contribution from raman scattering , which is given by @xmath105 this is the sum over @xmath106 transitions of extinctions involving photons of incident wavenumber @xmath99 that experience raman scattering and emerge as photons of wavenumber @xmath107 .
+the actual energy loss at wavenumber @xmath99 due to extinction is proportional to the incident energy at wavenumber @xmath99 , but the source contribution at wavenumber @xmath99 depends on the incident energy at other higher wavenumbers .      to solve the vector transfer equation we make use of fortran vector radiation code developed and documented by evans and stephens ( 1991 ) and further validated by sromovsky ( 2004 ) by comparisons with independent solutions of sweigart ( 1970 ) , dlugach and yanovitskij ( 1974 ) , and kattawar and adams ( 1971 ) . using an order-@xmath108 fourier expansion of the intensity and phase matrix , eq .
+[ eq : rtez ] is separated into @xmath109 uncoupled equations that can be solved independently .
+the azimuthal components are separately solved and then combined to obtain intensity fields .
+this separation is valid for randomly oriented particles with a plane of symmetry , so that the 16-element phase matrix has only six unique components ( hovenier 1969 ) .
+we also assume that the incident radiation is symmetric in @xmath67 and unpolarized .
+the zenith angle variation is discretized using a double - gauss numerical quadrature .
+the radiance at any location in the atmosphere is thus represented as a vector involving three components : stokes parameters , quadrature zenith angles , and azimuthal expansion mode . the intensity and source radiance vectors thus become vectors of @xmath110 elements , where @xmath111 is the number of zenith angle quadrature points:@xmath112 , \qquad \qquad \mathsf{j}= \left [ \begin{array}{c }   \vec{\mathsf{j}}(\mu_1)\\ \vec{\mathsf{j}}(\mu_2 ) \\ \cdot
+\\ \cdot   \\ \vec{\mathsf{j}}(\mu_{n_\mu } ) \end{array}\right ] , \label{eq : intvector}\ ] ] where each element @xmath113 or @xmath114 is a vector of the form given in eq.[eq : stokesvec ] .
+the radiance field is separated into upward and downward hemispheres : @xmath115 represents downward radiance ( @xmath116 ) and @xmath117 representing upward radiance ( @xmath118 ) .
+a model atmosphere is constructed by dividing the atmosphere into uniform sublayers , each of which is characterized by an optical depth , a single scattering albedo , and scattering phase function .
+the code uses differential generators derived from eq .
+[ eq : rtez ] and makes use of doubling to compute reflection and transmission matrices for homogeneous layers , which are then combined using standard adding equations .
+the key equations are those of the interaction principle ( goody and yung 1989 ) : @xmath119 where subscripts refer to the top ( @xmath120 ) and bottom ( @xmath121 ) boundaries of a layer , @xmath122 and @xmath123 are the reflection and transmission matrices , and @xmath124 is the source vector for a layer , which equals @xmath125 for a differential layer .
+using eq.[eq : interact ] , it is straightforward to derive the properties of a combined layer ( @xmath126 ) from the individual properties of the top ( @xmath14 ) and bottom ( @xmath127 ) layers ( evans and stephens 1991 ) : @xmath128^{-1}}\\ \mathbf{\gamma^- = [ 1-r_b^-r_t^+]^{-1}}\\ \end{array}\label{eq : adding}\ ] ] here the source adding equations refer to vector sources .
+the same equations can be shown to apply to the matrix sources that will be defined in a subsequent section .
+these can be converted to doubling equations by making the top and bottom properties equal .
+the first step in the solution is to convert eq .
+[ eq : rtez ] into a form that allows computation of the reflection and transmission matrices and the source vector .
+after azimuthal expansion and zenith angle discretization , the vector transfer equation for azimuthal order @xmath108 can be written in the form@xmath129 where the matrices and source vector here refer to a differential layer of thickness @xmath130 .
+the single - scattering approximation for the generator equations for reflection and transmission matrices are then@xmath131 where @xmath132 refers to stokes vector index , @xmath133 to zenith angle quadrature index , @xmath134 to the gaussian quadrature weight value , and where @xmath130 is is usually chosen so that @xmath135 , which evans and stephens ( 1991 ) have found to yield about 5 digits accuracy when using double precision .
+these expressions are different in form but equivalent to those given by evans and stephens .
+the differential generator for raman source terms can be derived from the single - scattering form of eq .
+[ eq : rtez ] and discretization of eq .
+[ eq : source ] , which results in the expression@xmath136 \label{eq : diffram},\ ] ] in which the individual matrix elements are given by @xmath137 where the first @xmath138 superscript indicates the sign of @xmath139 and the second indicates the sign of @xmath140 , and where the raman scattering coefficient per unit distance for transition @xmath98 is given by @xmath141 note that the source expressions depend on the wavenumbers of the incident photons ( @xmath142 ) that are shifted to the current wavenumber , while everything else in eq .
+[ eq : azeq ] depends on the current wavenumber @xmath99 .
+this is not a convenient form to work with because once the source vector is computed it applies to one specific incident irradiance direction , meaning that a center - to - limb scan would require many repetitions of the solution algorithm .
+it is also unnecessarily complex because it retains the full generality of the phase function , which is not needed to accurately approximate the effect of raman scattering .
+a simpler and more useful matrix formulation is developed in section[sec : smatrix ] .
+the solution is expressed in terms of reflection and source matrices for the entire atmosphere , from which intensities at desired irradiance and view angles are computed as described in section[sec : compint ] .
+a uniformly spaced wavenumber grid is used so that the number of photons that are raman scattered out of one bin will be transferred to exactly one other bin .
+this requires that the wavenumber shift for each transition to be close to an integral multiple of the grid spacing , as illustrated in table  4 .
+phase functions are introduced as lagrange function expansions of an order that depends on the number of quadrature angles . for sharply peaked forward scattering phase functions we avoid impractically large expansion orders , otherwise needed to avoid angular oscillations in the reflected intensity , by employing the @xmath63-fit method of hu ( 2000 ) .
+r c c c c c transitions : & @xmath50 & @xmath52 & @xmath143 + @xmath43 : & 354.39 @xmath44 & 587.07 @xmath44 & 4161.00 @xmath44 +    ' '' ''    grid spacing @xmath144 & & rms error & step sum +    ' '' ''    12.240 @xmath44 & 28.953 ( 29 ) & 47.963 ( 48 ) & 339.951 ( 340 ) & 0.044 steps & 417 + 13.640 @xmath44 & 25.982 ( 26 ) & 43.040 ( 43 ) & 305.059 ( 305 ) & 0.042 steps & 374 + 17.780 @xmath44 & 19.932 ( 20 ) & 33.019 ( 33 ) & 234.027 ( 234 ) & 0.044 steps & 287 + 39.260 @xmath44 & 9.027 ( 9 ) & 14.953 ( 15 ) & 105.986 ( 106 ) & 0.032 steps & 130 + 58.620 @xmath44 & 6.046 ( 6 ) & 10.015 ( 10 ) & 70.983 ( 71 ) & 0.029 steps & 87 + 118.860 @xmath44 & 2.982 ( 3 ) & 4.939 ( 5 ) & 35.008 ( 35 ) & 0.037 steps & 43 + [ tbl : wngrid ]    while the full polarization machinery of the evans and stephens ( 1991 ) code is retained in our modification , the raman scattering , as we represent it , does not itself introduce any polarization .
+further , because in most cases rayleigh scattering is the dominant process in creating polarization effects , we usually make use of an approximation that attributes all of the polarized intensity , given by @xmath76 , to the rayleigh scattering , and then use the algorithm described by sromovsky ( 2004 ) to correct the scalar calculation for polarization , rather than carry out the full vector calculation . the approximation has been shown to be accurate to generally better than 1% , and entails no significant additional computational burden , which otherwise would take about 40 times longer .
+a matrix formulation of the source function is used to facilitate the computation of center - to - limb variations in reflectivity . making the reasonable approximation that raman scattering is isotropic ( see sec .  [
+sec : ramphase ] ) , only the @xmath145 azimuthal component needs to include a raman contribution and we can write @xmath146 and simplify eq .  [ eq : diffram ] to the form @xmath147 where the matrix @xmath148 produces the sum of the upward and downward intensities at @xmath80 by multiplication by the incident intensity at the top of the atmosphere ( @xmath149 ) at wavenumber @xmath142 .
+there is an @xmath98 subscript on this matrix because it depends on transmission , reflection , and source matrices at the shifted raman source wavenumber @xmath142 .
+expressing the source in terms of the top - of - atmosphere incident irradiance vector allows us the computational convenience of expressing the source term as a matrix multiplier that has the same structure as the reflection matrix , which will be demonstrated in what follows .
+the @xmath150 matrix can be derived from the interaction principle ( eq . [ eq : interact ] ) .
+the radiance at a given level in the atmosphere is proportional to the incident irradiance and can be expressed in terms of the properties of the entire atmosphere above that level ( the top layer ) and the properties below that level ( the bottom layer ) .
+we assume here that the transmission out of the bottom layer is zero , i.e. if the atmosphere is thin , the bottom layer includes any surface reflection and/or absorption .
+the relevant source vector for the top layer @xmath151 has multiple terms contributing from different raman transitions that are each linearly related to the irradiance at any single wavelength ( the source direction is the same at all wavelengths ) .
+this can be shown by using the source addition equations given in eq .
+[ eq : adding ] . if the sources for each layer to be combined are separately proportional to the top of atmosphere irradiance @xmath152 ( @xmath153 ) , then the source for the combined layer will also be proportional to @xmath152 .
+thus we can define source matrices @xmath154 and @xmath155 that satisfy @xmath156 using these definitions , it is easy to show that @xmath157 + \mathbf{s_b^-}\label{eq : gdef},\ ] ] which defines the matrix @xmath150 at level @xmath80 in terms of reflection , transmission , and source matrices for the entire atmosphere above @xmath80 ( subscript t for top layer ) and that below @xmath80 ( subscript b for bottom layer ) , all at wavenumber @xmath142 . the source vector at @xmath80 for the unshifted wavenumber @xmath99 can then be written as @xmath158 in which the final two forms define a new matrix @xmath159 and express the source contribution to the current wavenumber @xmath99 in terms of the solar irradiance at @xmath99 , using a scaling that is the ratio of solar spectral functions @xmath160 and @xmath161 , such that @xmath162\mathsf{i_0^+}(\nu)$ ] .
+if the radiance field is measured in terms of energy per unit wavenumber , then @xmath160 is the solar energy spectrum .
+if the radiance field is measured in photons per unit wavenumber , then @xmath160 is the solar photon spectrum . substituting the expression given by eq .
+[ eq : sl ] yields the computationally useful form @xmath163 \big[\frac{\nu}{\mu_j f_\odot(\nu)}\big ] \label{eq : srcmult}\end{aligned}\ ] ] in which we have here made a specific choice that @xmath160 is a solar spectrum in energy per unit wavenumber , and where @xmath164 is the only relevant value of the third index for the assumed unpolarized incident irradiance , and @xmath165 is the only relevant value of the first index for the assumed isotropic and raman scattering phase function , according to eq .
+[ eq : sl ] .
+the @xmath138 superscript on @xmath124 was dropped , and never used on @xmath159 , because both values are the same for a differential layer ( see eq .
+[ eq : simplesrc ] ) .
+note that the first bracketed factor depends on @xmath142 while the second bracketed factor depends only on wavenumber @xmath99 and @xmath80 , and is independent of @xmath98 .
+this form suggests the computational procedure described below .
+atmospheric layers that have uniform extinction coefficients and phase functions become nonuniform due to the vertical variation of the raman source contribution .
+this requires us to use a much larger number of layers than would be necessary were raman scattering not considered .
+we typically use 30 - 80 logarithmically spaced pressure levels between 0.0003 and 100 bars , with 80 levels required for accuracy of a few tenths of 1% .
+the accuracy achieved in any particular problem needs to be assessed by running test calculations using a larger number of levels .
+each raman solution requires a spectral calculation . following btremieux and yelle ( 1999 ) ,
+we start at the highest wavenumber and work downward so that multiple raman scattering is automatically included in a single pass . at the highest wavenumber ,
+the radiation transfer problem is solved with no source contribution , but with raman extinction included . at each wavenumber including the first , the @xmath166 matrix is computed at each layer bottom boundary @xmath167 , using eq.[eq : gdef ] .
+the algorithm then computes for each transition @xmath98 , each layer @xmath167 , and each possible incident quadrature index @xmath168 , the function @xmath169 which is essentially the same as the left bracketed factor in eq.[eq : srcmult ] divided by @xmath130 .
+this is essentially the photon loss term per unit distance for each layer and each transition . here
+everything is evaluated at the same wavelength and thus the @xmath166 matrix needs no @xmath98 dependence .
+this form uses the average of @xmath166 at the top and bottom of each layer to represent the radiation field everywhere within the layer .
+as the computation proceeds to longer wavelengths , the source contributions at the current wavenumber are then obtained by reading the stored values of @xmath170 and computing the source matrix as follows:@xmath171 \frac{\nu}{4\mu_j f_\odot(\nu ) } \delta z \label{eq : finalsrc}.\ ] ] for each wavenumber at which values of @xmath170 are read , the values for transition @xmath98 will have been stored during calculations made at wavenumber @xmath172 . once @xmath170 is read from storage and the matrix @xmath173 is computed , the computation of the radiation field proceeds with the assumption that the source is uniformly distributed over the layer @xmath167 .
+this is necessary to make use of the doubling equations for a uniform source , but is only a good approximation for layers that are relatively optically thin at the wavenumber of the incident photons . while the input source is assumed to be uniform throughout each layer , and is input as the differential source after dividing by the physical thickness of each layer , the doubling process does modify the source function in accord with the absorption and scattering processes that take place at the wavelength of the scattered raman photon .      after computing the source matrix for the entire atmosphere using the same adding equation that is given for the source vector in eq.[eq : adding ]
+, we then compute the outward intensity at the top of the atmosphere . for arbitrary directions of incidence and reflection
+this is formally expressed as @xmath174 \nonumber \\ & & \times \left[\begin{array}{c } \mu_0 f_0/\pi \\ 0 \\ 0 \\ 0\end{array}\right ] = \mathbf{\bar{r}^-}\left[\begin{array}{c } \mu_0 f_0/\pi \\ 0 \\ 0 \\ 0\end{array}\right ]
+\label{eq : toaint}\end{aligned}\ ] ] where the incident flux is @xmath175 in direction ( @xmath176 ) and the combined matrix @xmath177 uses the minus superscript because direction does make a difference for the inhomogeneous layer consisting of the entire atmosphere . by converting the source function into a matrix
+we have thus put the raman contributions in the same form as the reflection contributions , allowing us to compute a pseudo reflection matrix @xmath178 and use the same mathematical machinery to compute spatially resolved intensity profiles .    the azimuthal expansion of @xmath178 is given by @xmath179 where sine components of the expansion are zero by the assumed symmetry of the incident radiation field .
+since our solution only provides @xmath178 at quadrature points , we carry out a legendre polynomial interpolation to obtain intensities at other angles
+.      how do we know that our computations are correct ?
+the basic radiation transfer algorithm without raman scattering has been compared with independent calculations for selected cases and shown to be in excellent agreement .
+this was done by evans and stevens ( 1991 ) for their original code and by sromovsky ( 2004 ) for the modification used here ( as noted in sec .
+[ sec : solmeth ] ) , but neither of these sets of comparisons deals with the raman scattering additions , which are harder to validate .
+a few comparisons with past calculations can be made , but most of these lack the resolution , relevance , or rigor that are needed to serve as appropriate standards of accuracy .
+they do provide a reasonable sanity check , however , and some useful comparisons are made in section  [ sec : compcal ] .
+another validation is to show by means of test cases that the algorithm satisfies conservation of photons .
+this is done for the case of a monochromatic incident flux in section[sec : monoscat ] .
+conservation is unlikely to be achieved if the raman transfers are improperly computed .
+a last validation , though an indirect one , is to demonstrate that the algorithm can reproduce features in the observed spectra with reasonable atmospheric structure models ( sec .
+[ sec : obscomp ] ) .
+neptune s thermal structure is obtained from voyager radio occultation observations at ingress ( 45s ) and egress at 61n ) .
+we used the hinson and magalhes ( 1993 ) analysis for @xmath180 bar and the lindal ( 1992 ) results for 1 bar @xmath181 bars , with an offset of 1.0 k added to match the the hinson and magalhes profile at 1 bar . for @xmath182 bars , we extrapolated using the nearly adiabatic lapse rate at the 6-bar level ( @xmath183 -0.94 k / km ) .
+the two temperature profiles differ insignificantly except in the stratosphere .
+the lower egress temperatures in the tropopause region reduce the ch@xmath4 mixing ratio and opacity to a small degree that is only noticed near 0.89 @xmath2 m , where a 10% increase in geometric albedo is produced .
+we assume a fixed profile at all latitudes for radiation transfer analysis .
+our altitude scale is computed using gravitational acceleration at 45s ( @xmath184
+m / s@xmath185 ) .
+the hinson and magalhes profile is derived assuming a gas composition of 81% h@xmath0 and 19% he ( conrath 1991 ) .
+it is possible that n@xmath0 may also be present at a mixing ratio as high as 0.3% ( conrath 1993 ) , in which case our altitude scale would be modified somewhat .
+the lindal profile assumed 2% ch@xmath4 in the troposphere , which is close to the currently accepted value of 2.2% ( baines 1995 ) that we use for computing ch@xmath4 opacity .
+the tropospheric mixing ratio is consistent with ch@xmath4 condensation at 1.4 bars , above which we assume the saturated vapor pressure until we reach the stratosphere , at which point the mixing ratio is the smaller of the saturated mixing ratio and the stratospheric limit of 3.5 @xmath186 ( baines and hammel 1994 ) .
+( dashed ) , he ( dotted ) , and ch@xmath4 ( dot dash ) .
+the ch@xmath4 mixing ratio is 3.5 @xmath186 in the stratosphere , 0.022 in the deep troposphere , and otherwise follows the saturation vapor pressure curve .
+the horizontal dotted line at 1.43 bars indicates the point at which methane reaches the saturation vapor pressure in the troposphere.,width=355 ]    the pressure at which the one - way vertical optical depth reaches unity for each opacity contributor , and for the total of all contributors is illustrated in the top panel of fig .
+[ fig : pendepth ] . the levels at which the total optical depth reaches values from 0.3 to 100 are displayed in the bottom panel .
+the penetration depth of sunlight into neptune s atmosphere is limited by rayleigh scattering at short wavelengths and by ch@xmath4 and h@xmath0 collision - induced absorption ( cia ) at long wavelengths .
+the deepest penetration is at 0.935 @xmath2 m , where there is a relatively clean ch@xmath4 window , a window in the cia spectrum , and a low rayleigh cross section .
+we used ch@xmath4 absorption coefficients derived by karkoschka ( 1994 ) from planetary geometric albedo observations using a technique described by karkoschka and tomasko ( 1992 ) .
+karkoschka estimates a 5% uncertainty in his 1994 absorption coefficients , plus an additional uncertainty in the continuum baseline : 0.0003 km - am@xmath187 at 400 nm and 0.02 km - am@xmath187 at 1000 nm ( a factor of 2 every 100 nm ) .
+this continuum uncertainty leads to uncertainties in the ch@xmath4 window regions that are important to determination of the scattering properties and pressure levels of clouds in the several bar range .
+there is also a likely bias error for weak ch@xmath4 bands superimposed on raman scattering effects due to the nonlinear relationship between i / f and single - scattering albedo ( this is discussed in sec .
+[ sec : kcorrect ] ) .
+the cia values are obtained by interpolating tables of pressure and temperature dependencies provided by alexandra borysow , and available at the atmospheres node of nasa s planetary data system .
+the average rayleigh scattering cross section per molecule was computed using the equation @xmath188 from hansen and travis ( 1974 ) , where @xmath189 is the volume mixing ratio of the @xmath132th gas , @xmath190 is its refractive index , and @xmath191 is its depolarization factor .
+we used depolarization ratios of 0.0221 for h@xmath0 and 0.025 for he ( penndorf 1957 ; parthasarathy 1951 ) and refractive index values from allen ( 1964 ) . because no depolarization values were give for ch@xmath4 , we used co@xmath0 values .
+we also used the wavelength dependence of ammonia s refractive index to approximate that of ch@xmath4 .
+the error in these latter approximations is not significant because of the small ch@xmath4 mixing ratio .
+absorption ( triple dot - dash ) , h@xmath0 cia ( dot - dash ) , and the sum of all opacities ( solid ) accumulate a one - way vertical optical depth of unity , plotted versus wavelength .
+bottom : pressure at which one - way total vertical optical depth reaches 0.3 , 1 , 3 , 10 , 30 , and 100 , plotted versus wavelength.,width=355 ]      two model structures with aerosols were chosen to illustrate the effects of stratospheric haze and lower altitude cloud aerosols on raman scattering features and to test approximations under more realistic conditions than provided by a clear atmosphere .
+both models contain a high - altitude absorbing haze of mie - scattering spherical particles with a hansen ( 1971 ) gamma size distribution of effective radius @xmath192 = 0.2 @xmath2 m and variance @xmath121 = 0.02 , where the relative number per unit radius interval at radius @xmath193 is proportional to @xmath194 .
+the particle size is from pryor ( 1992 ) .
+the refractive index of the haze is assumed to have a real value of 1.44 and @xmath195-dependent imaginary values given in fig.[fig : nimag ] , which differ from the variation inferred by courtin ( 1999 ) .
+other index variations could also have been used , with compensating changes in other aerosol components . finding a tightly constrained fit
+is left for future work . while courtin s
+@xmath84 = 0.1 haze extends downward only to 20 mb , our haze has twice the optical depth and extends much more deeply ; it has a uniform mixing ratio between 100 and 800 mb , which is more similar to the distribution inferred by moses ( 1995 ) .
+both of our haze models also contain a 3.8-bar cloud of isotropic scatterers , with a single - scattering albedo 0.99 .
+this cloud is at the level that is often considered to be the top of a semi - infinite cloud ( baines 1995 ) .
+haze model i has this deep cloud set to optical depth 0.5 . for haze model ii this cloud is set to unit optical depth and a second cloud is placed at 1.3 bars , the approximate level expected for the base of a ch@xmath4 ice cloud assuming a ch@xmath4 mixing ratio of 2.2% . for this cloud we assumed @xmath84 = 2 , a single - scattering albedo of 0.99 , and a double henyey - greenstein phase function of the form @xmath196 = @xmath197 , with @xmath198 , @xmath199 , and @xmath200 , where @xmath201 .
+the phase function parameters are due to pryor ( 1992 ) , based on high - phase angle voyager images .
+our haze and cloud structures are not meant to be optimum fits to neptune s geometric albedo spectrum , but rather a sampling of possible structures that might be encountered . nevertheless , the part of the spectrum below 0.5 @xmath2 m is a fairly good match to the observed geometric albedo spectrum , as demonstrated in sec .
+[ sec : obscomp ] .
+the haze ii model mainly serves as a test case for approximations .
+a key input to modeling of raman scattering is an accurate solar spectrum of the appropriate spectral resolution . for @xmath202 @xmath2 m we used a model spectrum ( kurucz 1993 ) normalized to the 0.41 to 0.87 @xmath2 m results of neckel and labs ( 1984 ) and for 0.12 @xmath2 m @xmath203 0.41 @xmath2 m we used measurements by the upper atmospheric research satellite using the solstice instrument ( woods 1993 ) .
+the uars spectrum was obtained from the uars web site ( ftp://rescha.colorado.edu/pub/solstice/sol_hires_200.dat ) .
+it has a nominal resolution of 0.2 nm , but is actually closer to a resolution of 0.5 nm , based on comparisons with convolutions of the very high resolution kurucz model spectrum .
+we created our standard solar reference spectrum ( fig .
+[ fig : solarspec ] ) by convolving the combined spectrum with a triangular sampling function to obtain a nominal fwhm resolution of 0.35 @xmath44 sampled at 0.1725 @xmath44 .
+the nominal wavelength resolution varies from 0.14 nm at 0.2 @xmath2 m to 3.5 nm at 1 @xmath2 m ( the resolution is 1 nm at 534 nm ) .
+although this has nominally a uniform wavenumber resolution , it is actually limited by the uars observations to about 0.5 nm at the shortest wavelength , where it is oversampled by a factor of 2 or more .
+the spectrum does nt actually reach the nominal resolution until the transition to the kurucz spectrum at 0.41 @xmath2 m .
+the solar spectrum matches the karkoschka ground based observing resolution of 1 nm at 0.534 @xmath2 m , but is 3.5 times worse near 1 @xmath2 m .
+thus careful comparisons between observation and model calculations need to adapt to differing resolutions .    following courtin ( 1999 ) , we selected a uars spectrum from 29 march 1992 to provide optimum compatibility with the fos observations from 19 august 1992 .
+courtin found a peak - to - peak difference of only 2% between two low - resolution uars daily spectra obtained on 2 june 1992 and 19 august 1992 .
+thus , solar variability is unlikely to be a major error source in comparing calculations with fos observations .
+most of the solar variability is restricted to @xmath1 0.26 @xmath2 m , so that comparison with the groundbased observations made in 1993 ( karkoschka , 1994 ) are even less influenced by solar variability .
+the behavior of monochromatic incident photons provides useful insight into the workings of raman scattering in neptune s atmosphere and a useful validation of our basic computational algorithm . for this example
+we use the three raman transitions given in table  4 , a wavenumber spacing of 58.62 @xmath44 , an atmosphere with ch@xmath4 absorption and h@xmath0 cia , an equilibrium distribution of h@xmath0 , but no aerosols .
+the propagation of photons from the injection wavelength of 0.228247 @xmath2 m ( 43812.2 @xmath44 ) is illustrated in the bottom panel of fig.[fig : ramline1plus2 ] .
+the vertical scale in this plot is the ratio of the total reflected flux at normal incidence to the incident photon flux .
+the first peak shows that 54.6% of the incident photons are reflected by the atmosphere at the incident wavelength .
+the remaining 45.4% of the photons are shifted to longer wavelengths by raman scattering .
+the second peak , containing about 8.1% of the photons is due to the @xmath50 transition .
+this second peak is the fraction of single - scattered @xmath50 photons that exit the atmosphere ; but many @xmath50 photons are further shifted to even longer wavelengths .
+the third peak , containing 2.2% of the incident photons , is due to the @xmath52 transition .
+many additional peaks are due to multiple raman scattering with various combinations of @xmath52 and @xmath50 .
+the relatively large peak near 0.252 @xmath2 m , containing 8.1% of the incident photons , is the first due to the @xmath36 transition .
+this is the same size as the @xmath50 peak and thus seems surprisingly large given that the @xmath36 transition has about half cross section of the @xmath50 transition ( the ratio is 0.541 at 0.228 @xmath2 m ) .
+however , the @xmath50 contribution is multiplied by @xmath15 , which is below 0.75 in the pressure range likely to contribute most at this wavelength ( fig.[fig : parapop ] ) .
+one might thus expect the @xmath36 contribution to be at least 72% , of the @xmath50 contribution on this basis alone . however , there are other factors also at work , such as multiple scattering and the vertical distribution of raman photons .
+in fact , if the rayleigh scattering cross section is made wavelength - independent , then the @xmath36 peak becomes only about 57% of the @xmath50 peak , which is less than expected from cross section and @xmath15 considerations .
+apparently , in the real atmosphere the decreasing opacity of the atmosphere with increasing wavelength allows more of the raman photons to make it out of the atmosphere than would otherwise be the case . because the @xmath36 photons undergo the largest wavelength shift , they exhibit the largest effect .
+the conservation of photons illustrated in the top panel of fig .
+[ fig : ramline1plus2 ] is computed as follows . for an incident unpolarized flux
+@xmath204 at zenith cosine @xmath205 , the quadrature value closest to unity , the total reflected flux at @xmath99 is given by by the discrete summation @xmath206\mu_n f_0(\nu ) , & \label{eq : reftot}\end{aligned}\ ] ] where , for a monochromatic incident flux at @xmath207 , only the reflection term contributes at @xmath207 and only the source term contributes at @xmath208 . because of the matrix formulation of the source term that is used here , we must introduce a pseudo - monochromatic flux that has a negligibly small constant offset for @xmath209 , to avoid dividing by zero in eq.[eq : finalsrc ] . using discretization of wavelength as well , in which the incident wavenumber is @xmath210 and @xmath211 ,
+we can write the pseudo - monochromatic incident flux as @xmath212 implying a photon line flux ( flux at wavenumber @xmath210 ) of @xmath213 . the cumulative fractional photon flux can then be written as @xmath214 where @xmath215 and where we ignored @xmath216 compared to unity in the first term and made use of the fact that the source term is zero at @xmath207 .
+although the second term has an explicit multiplication by @xmath216 , it is not negligibly small because the source term itself contains a division by @xmath216 . for a conservative atmosphere that is either semi - infinite or bounded by a unit - albedo surface
+, @xmath217 should evaluate to unity if the sum is extended to the last wavenumber . the cumulative flux shown in fig .
+[ fig : ramline1plus2 ] falls somewhat short of unity because of ch@xmath218 absorption and h@xmath0 cia .    the middle panel of fig .
+[ fig : ramline1plus2 ] shows that raman photons can undergo a surprisingly large number of scatterings before they leak out at the top of the atmosphere .
+in fact , as shown by the plot of cumulative flux in the upper panel , even by 0.45 @xmath2 m , 1.6% of the incident photons are still inside the atmosphere .
+this occurs because the atmosphere is conservative at short wavelengths and because photons scattered deep within the atmosphere are more easily lost to another raman scattering than lost to transmission out of the atmosphere ( to space ) . after each additional raman scattering , the optical depth to space
+gets smaller , as does the cross section for further raman scattering ( fig .
+[ fig : xcvswlen ] ) , so that photons are more easily lost to space at longer wavelengths .    the vertical distribution of raman scattered photons is illustrated in fig .
+[ fig : linesrcperkm ] for the @xmath36 transition , which produces peaks spaced by 4161 @xmath44 ( fig .
+[ fig : ramline1plus2 ] ) .
+the curve of highest magnitude is due to one scattering , the second due to two scatterings , and the last is due to eight successive scatterings involving the @xmath36 transition . because of the large wavenumber shift of this transition , these peaks decline more slowly than those related to the @xmath50 and @xmath52 transitions .
+the peak at the shortest wavelength is at a location where the incident radiation field times atmospheric density is at a local maximum , which occurs near 300 mb .
+after each additional scattering , the raman photons diffuse both upward , where they leak out of the atmosphere , and downward , where they provide a reservoir for later contributions .
+it is worth noting that some of the raman scattered photons that are transferred to a longer wavelength can leave the atmosphere directly without any further scattering ( those at high altitude and directed upward ) .
+the result is a movement of the peak source intensity further downward after each successive scattering .     per km versus geometric mean pressure of the layer boundaries , for selected wavelengths ( labeled by nanometers ) , for a clear neptune atmosphere.,width=355 ]    because of vertical variation in the source function ,
+it was necessary to use 72 logarithmically spaced gas layers to avoid cumulative photon fluxes exceeding unity . when cross sections were made wavelength independent , but evaluated at 0.4 @xmath2 m , the accuracy for a given number of levels was much higher .
+monochromatic calculations were run with three different choices for the number of logarithmically spaced atmospheric levels between 0.0003 and 100 bars : 18 , 36 , and 72 . the ratios to the 72-level fluxes , were 0.991 - 0.998 for the 18-level result , and 0.998 - 0.9996 for the 36-level result .
+thus it seems likely that errors for 72 levels probably do not exceed 0.1% , and 36 levels are probably within 0.2% .
+the ratios to the 72-level cumulative flux at 1 @xmath2 m were 0.9976 for 18-levels and 0.9995 for 36 levels .
+for an irradiance spectrum with a @xmath195-independent photon flux , one might expect the apparent geometric albedo with raman scattering to be the same as without it .
+one could argue that for every photon lost from a given wavenumber , there is one gained from a higher wavenumber .
+this argument works well if atmospheric properties are also independent of wavelength .
+but in a real atmosphere , raman and rayleigh scattering cross sections vary with wavelength , so that the vertical distribution and fraction of photons lost will be somewhat different from the vertical distribution and fraction of photons gained , even with a @xmath195-independent incident photon flux . in spite of this complication ,
+the results shown in fig.[fig : flatphotabs ] are roughly consistent with this argument .
+the calculation shown here is for a clear neptune atmosphere with ch@xmath4 absorption and cia turned off , and exposed to an irradiance spectrum that has a constant photon flux except for a pseudo - solar absorption feature at 0.311641 @xmath2 m ( 32088 @xmath44 ) , where the photon flux was dropped to 20% of its value elsewere .
+the irradiance plotted here is the spectrum of energy per unit wavenumber , normalized to unity at 0.2 @xmath2 m , which corresponds to a flat photon spectrum .
+note the considerable distance from the starting wavelength to the wavelength at which the geometric albedo approaches the raman - free semi - infinite h@xmath0 rayleigh value of 0.7908 ( sromovsky 2004 ) .
+that is not surprising because of the importance of multiple raman scattering evident from fig.[fig : ramline1plus2 ] .
+calculation were run with surface albedos of 0 and 1 , to show that for @xmath219 0.6 @xmath2 m even 100 bars of atmosphere is not enough to obscure the lower boundary when only rayleigh and raman scattering are considered . with
+ch@xmath4 absorption turned on , the effects of the bottom boundary are no longer apparent .    among the sharp spectral features present in the reflection spectrum , the largest peak is at exactly the wavelength of the absorption spike in the irradiance spectrum .
+this peak arises because in addition to photons reflected at the same wavelength , there are also photons raman shifted from shorter wavelengths . because more are shifted in than shifted out , sharp absorption features like this get partially filled in the reflected flux .
+when the reflected flux is then divided by the irradiance to obtain the albedo , the feature stands out as a positive spike .
+solar absorption features like this are the most prominent features in the raman spectra of the outer planets . the other ,
+much smaller downward spikes are ghosts of the irradiance spectrum , displaced by the wavenumber shift of the raman transition . in the detailed view shown in the lower part of fig .
+[ fig : flatphotabs ] the ghost features are labeled by the transitions that produced them . note the relatively small size of the ghost features .
+the @xmath50 ghost feature has an amplitude of about 5.8% of the geometric albedo , while the corresponding absorption feature in the irradiance spectrum has an amplitude of 80% ; the @xmath52 and @xmath36 features have amplitudes of about 2.7% and 4.8% respectively .
+the near equality of @xmath36 to @xmath50 ghost amplitudes in spite of their very different cross sections has the same explanation as the relatively large @xmath36 contribution peak in the monochromatic spectrum , discussed in the previous section .
+m ( 32088 @xmath44 ) and corresponding geometric albedo spectra of neptune for unit ( dashed ) and zero ( solid ) surface albedos .
+the dotted line indicates the geometric albedo for a raman - free semi - infinite rayleigh atmosphere ( p=0.7908 ) .
+lower : geometric albedo vs wavenumber , showing raman transition assignments for the main ghost features.,width=355 ]      the effect of raman scattering on neptune s aerosol - free geometric albedo is illustrated in fig .
+[ fig : ramanonoff ] , where spectra including polarization are shown for three calculations of increasing complexity , first with only rayleigh scattering , then including also molecular absorption , and finally including raman scattering .
+the calculations were started at 0.2 @xmath2 m , and are accurate to better than 1% at wavelengths beyond 0.22 @xmath2 m .
+experiments with different starting wavelengths show that an accuracy of 1% or better can be achieved at a given short wavelength by starting the calculation at a corresponding wavenumber that is higher by twice the wavenumber shift of the @xmath36-branch transition .
+this relatively small starting offset is effective because of the steep gradient in the solar spectrum at short wavelengths ( see fig .
+[ fig : solarspec ] ) .
+the calculation was carried out with a step size of 17.78 @xmath44 , using a solar spectrum with a nominal resolution of 35 @xmath44 . with only conservative rayleigh scattering ,
+neptune s geometric albedo would be a wavelength - independent 0.791 ( sromovsky 2004 ) . adding methane absorption and collision - induced hydrogen absorption ( cia )
+only reduces the albedo at wavelengths beyond 0.4 @xmath2 m .
+raman scattering produces profound effects throughout the uv and most of the visible spectrum .    besides the introduction of sharp spectral features , raman scattering also reduce neptune s baseline geometric albedo by nearly 25% in a clear atmosphere . in fig.[fig : ramanonoff ] the albedo decreases ( shown as red ) appear mostly at shorter wavelengths , but also appear in the vicinity of most of the local peaks in the near - ir reflectivity .
+the albedo gains ( shown as black ) occur not just at the deep minima in the solar spectrum , but also at the absorption maxima in the ch@xmath4 spectrum , which correspond to minima in the reflectivity spectrum .
+we find that the fill - in of the reflectivity minima in the near ir is only about 4% of the geometric albedo .
+this is in sharp contrast to the cochran and trafton ( 1978 ) conclusion that in the cores of the strong ch@xmath4 bands at 0.86 @xmath2 m , 0.89 @xmath2 m and 1.0 @xmath2 m , nearly all of the photons that leave the atmosphere have been raman scattered .
+however , their conclusion is a result of what we now know to be inappropriate assumptions concerning the amount and vertical distribution of methane .
+their standard model had a constant mixing ratio of 0.005 relative to h@xmath0 throughout the atmosphere .
+this resulted in ch@xmath4 supersaturation for @xmath180 bar , by factors of @xmath3100 at the tropopause and more than 10 in the stratosphere .
+this resulted in a very low single scattering albedo of @xmath220 at 0.89 @xmath2 m , which even for a semi - infinite atmosphere would yield a very low geometric albedo of only 0.00036 , using the single - scattering approximation @xmath221 for @xmath222 ( sromovsky 2004 ) .
+that is about 20 times smaller than the geometric albedo we computed for our assumed ch@xmath4 profile , which never exceeds saturation levels and is limited to 3.5@xmath4710@xmath223 in the stratosphere .
+our distribution leads to much more scattering at the center of the disk and significant limb brightening ( sromovsky 2004 ) , while the uniform mixing ratio of cochran and trafton makes the atmosphere dark at all view angles .
+the geometric albedo spectrum ( green).,width=355 ]      the earliest accurate calculation of a raman spectrum relevant to neptune was by cochran and trafton ( 1978 ) for a pure h@xmath0 atmosphere assuming an equilibrium population of ortho and para states .
+their most relevant case is for 500 km - amagats of h@xmath0 over an opaque cloud layer ( of unspecified but apparently high albedo ) .
+that amount of h@xmath0 corresponds to an atmospheric depth of approximately 6 bars , which is deep enough to approach semi - infinite behavior only for @xmath1 0.34 @xmath2 m . at 0.5 @xmath2 m
+the surface albedo can make a difference of 0.25 in geometric albedo . using 2/3 of the ford and browne ( 1973 ) raman cross sections to approximate the values used by cochran and trafton
+, we computed geometric albedo values for a he - free atmosphere with a unit - albedo lambertian surface placed at the 6-bar level , and ignored polarization .
+this spectrum , smoothed to a resolution of 5-nm , is displayed in fig .
+[ fig : savage ] where it compares well with the even lower resolution spectrum of cochran and trafton .
+the other prior calculation displayed in fig .
+[ fig : savage ] is due to savage ( 1980 ) , who used the same iterative computational scheme first presented by cochran and trafton ( 1978 ) .
+according to savage , they used the ford and browne ( 1973 ) raman cross sections that we used , but ignored polarization and assumed a pure h@xmath0 atmosphere , which was deep but of unspecified depth . in spite of their use of different
+raman cross sections , the savage and cochran and trafton results agree with each other and with our calculations using 2/3 of of the ford and browne cross sections , raising questions about what cross sections were actually used by savage ( 1980 ) .
+our calculation with the ford and browne cross sections , and other conditions being the same , are shown as the thinner dot - dash curve in fig .
+[ fig : savage ] . clearly , this spectrum is not compatible with the savage results .
+all these calculations have a stronger upward slope than we obtained for a truly deep atmosphere ( fig .
+[ fig : ramanonoff ] ) because the surface reflection becomes more visible at longer wavelengths .
+this can be seen from the difference between calculations for zero and unit surface albedos , which are shown in the figure .
+other effects occur when we carry out more realistic calculations .
+the presence of helium dilutes the raman absorption somewhat , producing about a 2% increase in the baseline value ; using the correct raman cross sections causes an albedo decrease of about 0.02 - 0.03 ( a 3 - 5% decrease ) ; and polarization increases the geometric albedo by about 0.04 ( sromovsky 2004 ) ( a 6.7% increase ) .
+the approximate net result is a very small difference between the accurate calculation with polarization and the earlier h@xmath0-only calculations without polarization .
+, without he , excluding polarization , and assuming ford and browne ( 1973 ) raman cross sections ( dot - dash for a@xmath224=1 , dashed for a@xmath224=0 ) and 2/3 ford cross sections ( solid ) , compared to earlier calculations by cochran and trafton ( 1978)(heavy dot - dash ) and by savage ( 1980 ) ( heavy dashed ) .
+our spectra have been smoothed to an effective resolution of 5 nm to facilitate comparisons .
+see text for discussion.,width=364 ]      the international ultraviolet explorer ( iue ) made full - disk observations of neptune during 2 - 5 october 1985 ( days 275 - 277 ) at a phase angle of 1.87and a sub - earth latitude of -19.95planetographic ( -19.325centric ) .
+wagener ( 1986 ) converted these observations to geometric albedo assuming an equatorial radius of 25240 km and an oblateness of 0.021 , which are average stellar occultation results referring to a pressure of 1 microbar ( french 1984 ) . using measurements of 24764 km and 0.01708 ( davies 1992 ) , which refer to the 1-bar level ,
+we obtain a conversion factor of 1.035 for adjusting the wagener albedo values ( this disagrees with the factor of 1.047 used by courtin ( 1999 ) ) .
+we did not make a correction for phase angle , though that might increase their values by as much as 1% if the phase curve at uv wavelengths is similar to that observed at longer wavelengths ( sromovsky 2003 ) .
+the adjusted iue results are compared with our clear - sky and haze i neptune spectra in fig.[fig : iue ] , where error bars indicate the absolute uncertainty estimates due to wagener ( 1986 ) .
+the iue results are 5% to 10% below the theoretical clear - sky calculated spectrum , generally showing the smaller difference at shorter wavelengths ( 0.21 - 0.23 @xmath2 m ) and the best defined and larger differences at longer wavelengths ( 0.29 - 0.33 @xmath2 m ) , which is likely due to an absorbing high altitude haze .
+our haze i model calculations match the iue observations generally well within the iue error bars .
+if we had neglected polarization , the model calculations would drop about 5% , making the clear - atmosphere model the best fit near 0.25 @xmath2 m . in this spectral range
+, polarization makes the difference between needing haze absorption and not needing it .
+the faint object spectrograph ( fos ) observed neptune at a phase angle of 1.22and a sub - earth latitude of -24.78planetographic on 19 august 1992 using apertures of 0.3@xmath225 , covering 21 - 36s , and 1.0@xmath225 , covering 3 - 35s . because these apertures are smaller than neptune s 2.4@xmath225 disk and placed near the middle of neptune s disk , the observed i / f and the relative amplitudes of raman spectral features
+are increased relative to what would be observed for a full - disk average ( shown in sec .
+[ sec : angle ] ) .
+courtin ( 1999 ) obtained uncalibrated geometric albedo spectra by dividing fos flux spectra by a solar flux spectrum measured by the uars solstice instrument ( rottman 1993 ; woods 1993 ) .
+the fos results we use are the 1-arcsec spectra degraded to a resolution of 1 nm to improve the signal / noise ratio ( shown in courtin s fig .
+2 ) . courtin performed a radiometric calibration by matching his 0.22 - 0.33 @xmath2 m fos spectra to full - disk 0.3 - 1.0 @xmath2 m groundbased spectrum of karkoschka ( 1994 ) , obtained during 23 - 26 july 1993 at a phase angle of 0.4 .
+the fos observations thus have the same 4% absolute uncertainty as the karkoschka ( 1994 ) reference spectrum .
+the fos noise level varies from 0.4% at 0.33 @xmath2 m to 1% at 0.26 @xmath2 m .
+courtin s neptune spectrum is compared to our clear - sky and haze i calculations in fig .
+[ fig : fos ] .
+our calculations as a function of view angle were integrated over approximately the same field of view as the fos observations to account for the increased raman effect near normal view angles .
+we then convolved them to a final resolution of 1 nm and scaled this average spectrum to match our calculated geometric albedo spectrum in the wavelength range from 0.31 @xmath2 m to 0.33 @xmath2 m , to simulate the calibration procedure used by courtin .
+note the excellent agreement between the shapes and amplitudes of the calculated spectral features for the haze i model and those measured by the fos .
+the most glaring exceptions ( a and b in the figure ) appear to be artifacts in the fos spectrum .
+these anomalies are not present in the overlapping portion of the karkoschka spectrum , which is in good agreement with the calculated spectrum .
+the spikes c and d in the ratio spectrum are at points where the i / f spectrum has very sharp gradients , and could be removed by a slight wavelength shift .
+the fos / haze i ratio spectrum generally agrees with the iue / haze i ratio shown in fig.[fig : iue ] , indicating that haze absorption may be depressing the reflectivity by about 6%-10% below the theoretical value for a clear neptune atmosphere in the 0.23 - 0.27 @xmath2 m range , with increasing absorption indicated at longer wavelengths .
+figure  [ fig : karkcompto1 ] compares clear - atmosphere and haze i model calculations with the disk - integrated groundbased spectra of karkoschka ( 1994 ) . between 0.35 @xmath2 m and 0.45 @xmath2 m
+the observations are about 13% below the clear - atmosphere calculations , indicating a presence of an absorbing haze that is even more influential than at shorter wavelengths .
+this behavior suggests that the haze extends deep enough into the atmosphere that it becomes more influential as the molecular scattering optical depth above it decreases with increasing wavelength .
+this is qualitatively consistent with microphysical models of moses ( 1995 ) , which suggest that haze opacity increases down to the 870 mb level .
+it is also roughly the character of our haze i model , which is shown to provide good agreement with karkoschka s observations , although the computed amplitudes of the raman spectral features are somewhat larger than the observations in several cases .
+this discrepancy might mean that more aerosol opacity is needed in the 1 - 3 bar level , or that there is a slight difference in the effective spectral resolution of the observations and the calculations . at longer wavelengths ,
+the high observed albedo values in the deep ch@xmath4 bands at 0.8 @xmath2 m and 0.9 @xmath2 m , indicate that there is also particulate scattering at high altitudes , which is not included in either of the haze models .
+much of that contribution probably comes from discrete bright features seen in voyager , hst , and groundbased images .
+effective pressure estimates for such features range from 23 mb to 60 mb at 30 - 40n , 100 - 230 mb at 30 - 50s , and 170 mb to 270 mb near 70s ( sromovsky 2001b ; gibbard 2003 ) .
+the effective fractional coverage of bright high altitude clouds required to explain the albedo in deep ch@xmath4 bands appears to be about 0.5% to 1% for an upper cloud at 150 mb ( sromovsky 2001a ) .
+the effective fractional coverage of a coexisting 1.3-bar cloud is @xmath31% assuming a unit - albedo lambertian reflector .
+the observed albedo in the window regions at 0.825 @xmath2 m and 0.935 @xmath2 m is also significantly above the clear - sky calculation , suggesting a significant aerosol contribution that could be at mid to deep levels , which is largely satisfied by the 1.3-bar and 3.8-bar clouds in the haze i model .
+the excess i / f calculated in the window regions at 0.59 @xmath2 m , 0.63 @xmath2 m , 0.68 @xmath2 m , and 0.75 @xmath2 m , can be substantially reduced by increasing the ch@xmath4 continuum absorption by amounts comparable to karkoschka s stated continuum uncertainty .
+it could also be reduced by decreasing the single - scattering albedo of the cloud aerosols .
+the observations seem to show much less of the collision - induced absorption in the 0.8 - 0.83 @xmath2 m region than is evident in the calculations .
+another way to describe this difference is to say that there is an imbalance in the 0.83 and 0.94 @xmath2 m window regions that is evident in the calculation , but not in the observations .
+that imbalance may be due to an error in the ch@xmath4 absorption coefficients .
+if we add to karkoschka s standard coefficients the continuum absorption uncertainty , we actually obtain very similar albedo values in these two windows .          because the @xmath28 raman cross sections are larger than the @xmath29 cross sections ( fig .
+[ fig : xcvswlen ] ) , the ortho / para ratio will have an effect on the raman features observed in neptune s reflection spectrum .
+the largest difference in ortho / para ratios for equilibrium and normal h@xmath0 occur near 100 mb ( fig .
+[ fig : parapop ] ) , and thus associated spectral variations are more likely at short wavelengths where this region is near the @xmath226 level ( fig.[fig : pendepth ] ) .
+calculations ( fig.[fig : feqcomp ] ) show that the largest difference is for the peaks at 0.280 @xmath2 m and 0.2852 @xmath2 m , which are about 5% larger for equilibrium h@xmath0 .
+the overlay of fos observations suggests better agreement with equilibrium h@xmath0 , as concluded by courtin ( 1999 ) , although the relative size of the smaller peak is very dependent on the effective resolution of the observations and both peaks have amplitudes that depend on view angle . and
+since the fos observations cover only the central disk , it is not strictly valid to compare them to geometric albedo observations .
+uncertainties in the wavelength scale and effective resolution of the fos observations arise from comparisons with overlapping groundbased observations of karkoschka ( 1994 ) , which show significantly less spectral modulation in the 0.3 - 0.33 @xmath2 m overlap region , as noted earlier .
+the presence of an absorbing haze and high - altitude discrete clouds also affects these peaks .
+thus it seems premature to make a strong conclusion based on these observations . however , courtin s ( 1999 ) result that @xmath227=0.88@xmath1380.23 is based on higher resolution observations than those shown in fig .
+[ fig : feqcomp ] , and was derived after special processing to minimize wavelength errors .
+courtin s results are also compatible with independent conclusions by baines and smith ( 1990 ) and conrath ( 1991 ) that the ortho / para ratio for neptune is near thermal equilibrium .
+( solid ) and normal h@xmath0 ( dot - dash ) compared to the observed fos spectrum ( plus signs ) ( courtin 1999 ) scaled by the factor 1.08 .
+the ratio of equilibrium to normal albedos is in the lower panel .
+, width=355 ]
+karkoschka ( 1994 ) presented a method for transforming spectra between raman and non - raman forms based on the assumption that the measured geometric albedo spectrum @xmath228 can be well approximated by a linear combination of terms involving offset versions of the `` physical '' spectrum @xmath229 , which is the reflectivity spectrum without raman scattering .
+the mathematical expression of this method is @xmath230 where @xmath231 is here the solar photon spectrum , @xmath232 is the fraction of photons not raman scattered , @xmath233 is the fraction undergoing transition @xmath43 , and where @xmath234 equation  [ eq : karkcorr ] can be inverted to obtain the raman - free `` physical '' spectrum from the observed spectrum using @xmath235 as a first guess , and then improving the guess using the iterative equation @xmath236   \label{eq : karkinv},\end{aligned}\ ] ] for which four iterations are usually sufficient to converge on @xmath237 for a given set of fractions .
+karkoschka assumed a power law @xmath195-dependence for @xmath238 , then used minimum roughness of the fitted spectrum for 0.31 @xmath2 m @xmath203 0.405 @xmath2 m as the criterion for picking the optimum fractions and exponent .
+c c c c c c c c    ' '' ''    & @xmath195-range & & & & & & rms + spectrum & ( @xmath2 m ) & @xmath239 & @xmath240 & @xmath241 & @xmath242 & @xmath243 & dev +    ' '' ''    clear sky & 0.31-.405 & 0.100@xmath1380.005 & 0.065@xmath1380.007 & 0.050@xmath1380.005 & 0.085@xmath1380.005 & -0.80@xmath1380.05 & 0.93% + clear sky & 0.23-.405 & 0.100@xmath1380.005 & 0.070@xmath1380.005 & 0.030@xmath1380.005 & 0.091@xmath1380.005 & -0.50@xmath1380.07 & 1.47% + haze ii & 0.31-.405 & 0.050@xmath1380.005 & 0.065@xmath1380.005 & 0.030@xmath1380.005 & 0.057@xmath1380.005 & -0.55@xmath1380.05 & 0.44% + haze ii & 0.23-.405 & 0.035@xmath1380.003 & 0.060@xmath1380.004 & 0.030@xmath1380.005 & 0.085@xmath1380.005 & -0.35@xmath1380.06 & 0.90% + haze ii ( inv ) & 0.23-.405 & 0.060@xmath1380.020 & 0.060@xmath1380.004 & 0.030@xmath1380.003 & 0.065@xmath1380.005 & -0.35@xmath1380.05 & 0.58% + k94 coeff . &
+0.31-.405 & 0.035@xmath1380.015 & 0.060@xmath1380.01 & 0.025@xmath1380.015 & 0.050@xmath244 & -1@xmath1381 & +    [ tbl : fracfits ]    we first investigated how well the proposed model could fit raman spectral calculations and how the fitted constants related to raman scattering cross sections .
+we considered both a clear - atmosphere model and a model with haze and cloud contributions .
+we first fit the fractional parameters and wavelength dependence exponent by minimizing the rms deviation between the karkoschka model and the calculated spectrum , first over the 0.31 - 0.405 @xmath2 m range used by karkoschka and also over the wider 0.23 - 0.405 @xmath2 m range .
+the results are summarized in table  5 .
+note that our fit results are comparable to those of karkoschka , especially when applied to a hazy atmosphere .
+although we were able to obtain good fits over the limited spectral ranges ( rms deviations of 0.44% and 0.9% for the haze / cloud model , and 0.93% and 1.47% for clear sky model ) , the fits did not accurately match the observed spectrum at slightly longer wavelengths , especially where ch@xmath4 absorption was present .
+the weak ch@xmath4 bands in the karkoschka conversion of the physical spectrum were much stronger than the corresponding bands in the correct raman calculation .
+this is understandable as a consequence of the nonlinear relationship between i / f and single - scattering albedo .
+a small absorption added to a conservative atmosphere can have a much larger fractional effect than it does when added to an absorbing atmosphere .
+for example , adding @xmath245 to a rayleigh atmosphere with @xmath246 changes @xmath247 from 1.0 to 0.997 , which decreases the i / f from 0.791 to 0.699 , a 9% drop .
+but if the i / f is already at 0.559 due to raman absorption , adding the same ch@xmath4 absorption as before would change @xmath247 from 0.975 to 0.972 , producing only a 2% drop in i / f . confirming karkoschka s fit results , we find that the vibrational coefficient ( @xmath242 ) is about twice the size of the coefficient for the @xmath29 rotational contribution ( @xmath241 ) , even though its raman cross section is somewhat smaller ( table  3 ) .
+since we use these cross sections to compute the spectra , the fit results do not suggest that there is something wrong with the cross sections .
+a large part of this result comes from the fact that the vibrational coefficient represents the average of ortho and para contributions , while the individual @xmath50 and @xmath52 contributions are each multiplied by fractions that decrease their relative contributions by roughly a factor of two ( for @xmath248 , see eq .
+[ eq : sigtot ] and fig .
+[ fig : parapop ] ) .
+additional factors are discussed in sec.[sec : monoscat ] .
+we next consider how well karkoschka s method is able to remove raman scattering effects from a spectrum that includes raman scattering .
+we inverted our model raman calculations using the inversion method based on eq .
+[ eq : karkinv ] .
+the retrieved parameter values for the haze ii test case are given in table  5 .
+as illustrated in fig .
+[ fig : ramremove ] , we found pretty fair agreement between the true raman - free spectrum and inverted spectrum for the haze / cloud case when we used the 0.23 - 0.405 @xmath2 m range for the fitting , although our inverted spectrum is offset about 0.01 albedo units above the true spectrum , and the inverted parameters differ somewhat from the best - fit parameters . using
+the 0.23 - 0.405 @xmath2 m spectral range yielded a smoother inverted spectrum but a larger offset albedo of 0.03 .
+much worse results were obtained with the clear sky model , which has larger raman features that are not as well fit by karkoschka s empirical model .
+as expected , we found that the features due to weak ch@xmath4 bands were much smaller in the transformed spectra than in the true physical spectra .
+thus , estimates of ch@xmath4 absorption coefficients using spectra corrected in this way will be significantly below the true absorption level .
+karkoschka s method has several physical flaws that limit its applicability .
+multiple scattering is one effect that is not accounted for but can be significant ( see sec .
+[ sec : monoscat ] ) .
+another problem with the physics assumed in eq .
+[ eq : karkcorr ] is that the contribution at the present wavenumber is not necessarily proportional to the geometric albedo at the upward shifted wavenumber .
+in fact , the proportionality constant also depends on the vertical distribution of the scattered photons in relation to the vertical distribution of opacity at the scattered wavelength .
+the karkoschka forward method also is not generally applicable to spatially resolved observations because the amplitude of raman effects depends on view angle as well as local aerosol structure .
+the useful spectral range for the karkoschka correction is also rather limited , probably to wavelengths less than about 0.405 @xmath2 m , partly because it does not properly modify weak ch@xmath4 absorption bands .
+the approximation suggested by wallace ( 1972 ) is a modification of the molecular single scattering albedo of the atmosphere by treating rotational transitions as extra sources of scattering and the vibrational transition as a pure absorption .
+this can be expressed in terms of cross sections as follows : @xmath249 where @xmath250 is the rayleigh scattering cross section , @xmath251 is the total cross section for absorption by ch@xmath4 and cia by h@xmath0 , @xmath252 is the combined cross section for rotational raman transitions , @xmath253 is the cross section for vibrational raman transitions , and where @xmath254 for the original wallace approximation . for a clear neptune atmosphere , we find that the original wallace approximation provides a crude match to the low resolution baseline of the spectrum , but is generally 5% to 10% low and of course does not produce characteristic raman spectral features .
+a few detailed calculations by wallace ( 1972 ) at 0.2 @xmath2 m and 0.4 @xmath2 m also indicated that his approximation was about 5% low .
+the wallace approximation error is nearly zero in the near - ir ch@xmath4 windows , but is about 4% low in the ch@xmath4 absorption bands , which is about what would be expected if raman scattering were ignored ( see lower part of fig.[fig : approx3in1 ] ) .
+figure  [ fig : approx3in1 ] displays a modified form of the wallace approximation that boosts the i / f value by setting @xmath255 , which treats the vibrational cross section as 56.7% absorption and 43.3% scattering .
+this improves the overall agreement in the blue to orange part of the spectrum , but has little effect elsewhere .
+the wallace approximation approaches the exact result when high clouds obscure most of the molecular scattering .
+approximation ( red ) .
+lower : ratios of the approximate geometric albedo spectra to the accurate raman calculation.,width=355 ]      pollack ( 1986 ) approximated raman scattering contributions from shorter wavelengths by scaling the raman scattering cross section at the reflected wavelength by the ratio of solar irradiance at the source wavelength to that at the reflected wavelength .
+generalizing this approach to include more than one transition , the molecular single - scattering albedo in this approximation can be written as : @xmath256 where @xmath257 , @xmath258 is a function of @xmath259 that can be empirically adjusted to compensate for some of the complexities that are glossed over by this concept , and the upper bound of 1 is used to avoid energy conservation problems . setting @xmath260 , and omitting the rotational transitions completely , would reduce this to pollack s original suggestion , while setting @xmath261 and @xmath262 would reduce this to the wallace approximation .
+a problem with pollack s original formulation was that it resulted in @xmath263 at some wavelengths , as noted by courtin ( 1999 ) , which leads to instability in the solution of the radiation transfer equation .
+another problem is that it considered only the @xmath264 vibrational transition , which alone would be unable to generate the ghost features arising from the rotational transitions .
+the form given in eq .
+[ eq : pollack ] has the capability to fit all the main ghost features and has the potential , with tuning of the form of @xmath259 , to yield the correct baseline value as well .
+it also has an advantage over karkoschka s correction , in that it is introduced at a more fundamental physical level that is naturally modified by the presence of aerosols .
+however , wherever the geometric albedo exceeds the value for a conservative rayleigh atmosphere of 0.7908 ( sromovsky 2004 ) , even @xmath265 will not be able to reproduce the albedo value
+. this problem can be reduced by working at lower spectral resolutions for which these extreme peak amplitudes become reduced below 0.7908 .
+preliminary calculations with this approximation used the three transitions given in table  4 , with @xmath266 and @xmath267 the same for all transitions . we found that making the constant @xmath267 = 0.875 for all @xmath98 produced a reasonably good match to the baseline level of geometric albedo , but generated spectral modulations that were too large . to limit these modulations , we used an exponential function to limit the effect of the spectral irradiance ratio , i.e. we used @xmath268 , which is @xmath269 for small @xmath259 and approaches @xmath270 for large values of @xmath259 .
+we found that @xmath271 provided a reasonable fit to the raman spectral features and to the baseline level , as shown in fig.[fig : approx3in1 ] . while this is certainly an improvement over the wallace approximation , and does reproduce many of the spectral features associated with raman scattering , it does not do so consistently and accurately enough to use for interpreting those features . like the wallace approximation
+, it also fails to improve geometric albedo accuracy for @xmath219 0.47 @xmath2 m .
+both wallace and pollack modifications to the single - scattering albedo seem to be far less effective in regions where ch@xmath4 absorption is important . since the actual source function depends on the light level in the atmosphere , which may have a spectral shape that is very different from the incident solar spectrum , it is not appropriate to use the solar spectral ratio as a scale factor in spectral regions with strong ch@xmath4 absorption .
+the following method goes part of the way in solving this problem .
+the following describes a new approximation of raman scattering that uses a different kind of modification of the molecular single scattering albedo . instead of using a constant factor or the solar spectral ratio to modify the molecular single - scattering albedo ,
+this approximation uses a @xmath195-dependent multiplier that is tuned to minimize the difference between simulated and exact raman calculations of geometric albedo for an appropriate model atmosphere .
+the fundamental relation used is from sromovsky ( 2004 ) : @xmath272 , \label{eq : pofomega}\ ] ] where @xmath273 is the geometric albedo including polarization contributions and @xmath247 is the single scattering albedo of a semi - infinite rayleigh atmosphere .
+this equation is inverted numerically to provide a function @xmath274 so that a given geometric albedo can be related to an equivalent single - scattering albedo of a semi - infinite rayleigh atmosphere .
+starting with a raman - free calculation producing a spectrum @xmath275 , and a true raman calculation producing a spectrum @xmath276 , we use the inverse transform to compute equivalent single - scattering albedos @xmath277 and @xmath278 . noting that @xmath279
+, we then attribute the difference between the equivalent inverse single scattering albedos as due to a difference in the effective absorption due to raman scattering .
+thus we are led to the approximation for modifying the single scattering albedo of the molecular scatterings that simulate true raman scattering , namely , @xmath280^{-1 } \label{eq : tuneit1}\ ] ] where @xmath281 is the single - scattering albedo simulation of raman scattering on the prior iteration , @xmath282 is the effective semi - infinite single scattering albedo obtained from the spectrum generated using @xmath281 for the molecular scattering . because neptune s atmosphere has a vertically inhomogeneous ch@xmath4 distribution , and
+thus will not satisfy eq .
+[ eq : pofomega ] , it is necessary to iterate a few times to achieve convergence . on the first iteration , we have @xmath283 and @xmath284 .
+the molecular single - scattering albedo spectrum that results is @xmath285 , which reduces to @xmath286 when @xmath287 .    the nearly perfect agreement between the geometric albedo computed with raman scattering and the approximation using a tuned single - scattering albedo is shown in fig .
+[ fig : approx3in1 ] . unlike the previously discussed approximations
+, it does provide useful accuracy for @xmath219 0.45 @xmath2 m .
+like the other approximations , it can not reproduce the peaks that exceed the i / f for a unit geometric albedo .
+while the modified single - scattering albedo can exceed unity , or even go negative , that does not lead to problems as long as the other contributors to the scattering process lead to a combined single - scattering albedo @xmath288 .
+the important question is whether this approximation or any of the others that are similarly constructed , are useful with clouds present , and for center - to - limb scans .
+because all of these approximations that modify single - scattering albedos really lack the essential physics of the raman scattering process , it is doubtful whether they can have much utility in situations for which they have not been tuned .
+a partial test of this utility is the degree to which they can simulate the angular variation of raman scattering , which is described in the next section .
+section  [ sec : aereffects ] compares their performances when haze and cloud aerosols are present .
+raman scattering effects on neptune s i / f spectrum at zero phase angle are strongest near the center of the disk ( zero zenith angle ) and weakest near the limb ( fig .
+[ fig : angfix2in1clr ] ) .
+the errors obtained by ignoring raman scattering ( not shown ) are quite substantial at moderate view angles , especially at short wavelengths and at high spectral resolution , ranging from about 20 to 60% in the 0.25 - 0.3 @xmath2 m range at a zenith angle of 8.1 . at view angles of @xmath360 ,
+the fractional errors are comparable to those seen for the geometric albedo .
+as noted for the geometric albedo , errors @xmath34% are seen in the deep ch@xmath4 bands , with very little error seen in the near - ir window regions . in the longer wavelength bands ,
+the fractional error does not improve much near the limb , unlike the error at shorter wavelengths , which decreases substantially .
+the modified pollack approximation helps considerably in reducing errors at short wavelengths ( fig .
+[ fig : angfix2in1clr ] ) . the extreme error near the central disk drops from 62% to 14% and the rms error from 19% to 4% . at 63the
+rms error drops from 8.8% to 2.2% .
+but at long wavelengths , the pollack approximation actually makes things slightly worse in the middle of strong absorption bands , probably because the vertical location of raman photons becomes more critical to the resulting i / f level .
+overall , the modified pollack approximation has value in modeling a variety of observations .
+it is far better than ignoring raman scattering and is roughly twice as accurate as the modified wallace approximation .
+however , using the modified pollack approximation can lead to substantial errors in limb - darkening profiles , depending on the wavelength that is considered .
+sample profiles are shown in fig.[fig : ctl2in1 ] .    under most conditions , the tuned-@xmath247 approximation is even more accurate than the modified pollack approximation , as evident from comparison of spectra at the three sample angles ( fig.[fig : angfix2in1clr ] ) and from a comparison of center - to - limb scans at sample wavelengths ( fig .
+[ fig : ctl2in1 ] ) .
+the extreme error near the central disk drops to 10.3% and the mean and rms deviations to only -1.1% and 1.2% , with comparable results at 63view angles .
+the worst errors are seen at large view angles . at 85.7 ,
+the extreme error increases to 24% and the mean and rms errors increase to 2.6% and 3.3% .
+but most of these errors occur in the ch@xmath4 bands beyond about 0.53 @xmath2 m .
+if restricted to 70view angles and @xmath1 0.85 @xmath2 m , this approximation is remarkably effective , with errors rarely exceeding a few percent .
+approximation ( red ) , for three observing angles at zero phase .
+the ratios of the two spectral versions are shown at the upper part of each panel ; in the top panel the ratio is offset by 0.4 to prevent overlap .
+the spectra are convolved to a resolution of 36 @xmath44.,width=345 ]     approximation ( red ) .
+the ratios of the two spectral versions are shown in the lower panel .
+the calculations were convolved to a resolution of 36 @xmath44 before sampling the selected wavelengths.,width=336 ]
+calculations for the haze ii atmospheric model containing the cloud and haze aerosols described in sec .
+[ sec : cloudandhaze ] are presented in fig .  [
+fig : approxcomp ] , where the calculation that ignores raman scattering is compared to the raman calculation and to the modified pollack and tuned-@xmath247 approximations . at uv - visible wavelengths we see that the size of the raman features is substantially reduced by the addition of a high altitude absorbing haze , which also depresses the baseline reflectivity as needed to approximately match observations .
+the net effect of raman scattering on the baseline reflectivity is also reduced substantially compared to its effect in a clear atmosphere .
+this is another example of the nonlinear effects of adding absorption ( see discussion in sec .
+[ sec : kcorrect ] ) .
+the effects of the cloud layers are most easily seen at longer wavelengths where the i / f in window regions and regions of intermediate methane absorption are increased substantially compared to that computed for a clear atmosphere .
+the tuned-@xmath247 approximation is seen to perform well for @xmath289 0.6 @xmath2 m , where haze effects dominate , but is biased about 5% too high in the strongly absorbing regions at longer wavelengths , although remaining quite accurate in window regions .
+this is not too surprising , because the tuning in these regions is involves a delicate balance between large molecular absorption and large corrections of that absorption to simulate the raman - scattered contributions . as vertical structure
+is changed from that used for tuning , the tuning can be easily upset .
+the modified pollack approximation performs somewhat worse at uv - visible wavelengths than it did for the clear atmosphere case ( fig .
+[ fig : approx3in1 ] ) . the overall negative bias seen here
+could probably be largely eliminated by adjusting the parameters of the @xmath258 factors in eq .
+[ eq : pollack ] .
+that would do much to reduce the positive errors in the window regions beyond 0.45 @xmath2 m or the negative errors in the absorbing regions .
+these are inherent in the physical model on which the pollack approximation is based .
+overall , this approximation is less upset by the presence of the cloud layers than is the tuned-@xmath247 approximation .
+a comparison of these two approximations at three different view angles is presented in fig .
+[ fig : approxang ] .
+we see that the tuned-@xmath247 approximation is much better near the central disk , and effective at all wavelengths .
+it is also effective at all angles for wavelengths less than 0.47 @xmath2 m .
+but at longer wavelengths , errors in the regions of strong methane absorption grow with increasing view angle , making the modified pollack approximation better for view angles beyond about 50 .    the karkoschka approximation was not included in this particular comparison because is not useful for spatially resolved observations , especially those with variable cloud structure , unless the model coefficients are changed for each view angle and structure . even then
+, the serious problems at @xmath219 0.4 @xmath2 m ( see fig.[fig : ramremove ] ) also reduce its utility , even for disk - average analyses .    ) , computed with raman scattering ignored ( green ) , using the pollack approximation ( blue ) , the tuned-@xmath247 approximation ( red ) , and the exact method of calculation ( black ) .
+the ratios to the true calculation are displayed in the lower panel.,width=355 ]     approximation ( red ) , and the exact method of calculation ( black ) .
+the ratio spectral are also shown in each panel.,width=355 ]
+major results of this investigation can be summarized as follows :    : :    procedures for modifying the evans and stevens ( 1991 ) vector radiation    transfer code to handle raman scattering are described and justified .
+equations are provided for the raman differential generators .
+the use    of a raman source matrix facilitates the computation of the first    spatially resolved raman scattering spectra for neptune .
+validation of    the code is obtained by demonstration of photon conservation ,    comparison with prior low - resolution calculations , and comparison with    hst and groundbased observations .
+: :    raman scattering reduces the baseline geometric albedo of a    semi - infinite conservative rayleigh scattering atmosphere by about 25%    from the value of 0.791 it would otherwise have . in the presence of a    high - altitude absorbing haze ,
+the effect of raman scattering is    reduced by about a factor of two .
+the well known sharp positive    spectral peaks from fill - in of absorption lines in the solar spectrum    can greatly exceed the rayleigh conservative limit .
+for photons    introduced at 228 nm , the @xmath36 transition source function    for the first scattering has a broad peak near 300 mb ; after further    scattering photons move deeper into the atmosphere and leak out the    top , moving the peak of the source function further downward after    each scattering .
+: :    for a clear atmosphere about 4% of the light in the deep methane bands    in the near - ir is due to raman scattering , while the near ir window    regions are almost unaffected by raman scattering . the conclusion of    cochran and trafton ( 1978 ) that the light in the deep methane bands is    almost entirely raman scattered is a result of their assumption of    what are now known to be excessively high methane mixing ratios in the    stratosphere .
+: :    the calculated history of monochromatic incident photons shows that    multiple raman scattering is quite significant in a conservative    rayleigh scattering atmosphere , where the raman absorption process can    compete with the loss to space . in one example calculation , only 40%    of the raman scattered photons exiting the atmosphere experienced only    one raman scattering .
+: :    at low phase angles spatially resolved raman spectra show that raman    spectral features are enhanced at near the center of the planetary    disk and suppressed at the limb .
+we also found that approximations    that work reasonably well in matching accurate disk - integrated    calculations do not do as well in matching observations in specific    directions , especially at large view angles .
+: :    aerosol - free models of neptune s spectrum correlate well with observed    spectral features , but confirm a need for haze absorption to reduce    the baseline geometric albedo and to reduce the amplitude of spectral    modulations induced by raman scattering .
+iue full - disk observations ,    adjusted to account for current knowledge of of neptune s size , have a    baseline offset of @xmath36% in the 0.24 - 0.26    @xmath2 m range , increasing to about 10% in the 0.30 - 0.32    @xmath2 m range , both of which are fit well by our haze i    model , containing 0.2 optical depths ( at 0.5 @xmath2 m ) of a    uv absorbing haze of 0.2-@xmath2 m radius particles uniformly    mixed between 0.1 and 0.8 bars .
+fos observations between 0.22 and 0.29    @xmath2 m , have a similar offset and high - resolution spectral    structure that is also well fit by our haze i model . groundbased    disk - integrated observations between 0.35 and 0.45 @xmath2 m    have a baseline offset that is 13% below the clear - atmosphere    calculation which is well matched by our haze i calculation , although    several of the spectral features are seen to have greater amplitude in    the calculations than in the observations .
+we consider the haze i    model to be a sample calculation , not a tightly constrained fit .
+: :    the karkoschka ( 1994 ) method of applying raman corrections to    calculated spectra and removing raman effects from observed spectra is    shown to be relatively accurate under restricted conditions , but has    practical limitations for problems involving spatially resolved    observations or for @xmath290 @xmath2 m .
+his raman removal algorithm undercorrects the    depths of weak ch@xmath4 absorption bands , and thus    corresponding absorption coefficients derived from such spectra    ( karkoschka 1994 ; 1998 ) will need some revision .
+the relatively large    amplitude of the q - branch contributions found by karkoschka is shown    to be consistent with current estimates of raman cross sections , not    an indication that they are in error .
+: :    we agree with wallace ( 1972 ) that his suggested approximation yields    geometric albedos that are typically @xmath35% lower than    an accurate calculation .
+a generalization of this approximation that    counts part of the vibrational cross section as contributing to    scattering can remove this bias .
+this approximation does not help    reduce errors in the strong ch@xmath4 bands and is mainly    useful at low resolution and for @xmath1 0.45    @xmath2 m .
+: :    the initial form of the approximation suggested by pollack ( 1986 )    generates serious errors .
+but generalizing it to include rotational    and vibrational transitions , enforcing energy conservation , and    limiting the solar spectral ratio enhancement , can produce a    relatively good approximation , except for @xmath219 0.45    @xmath2 m , where ignoring raman scattering is just as    accurate .
+: :    by tuning the absorption attributed to raman scattering it is possible    to make a non - raman calculation match a true raman calculation with    virtually no error .
+if that matching is done with respect to geometric    albedo , it will not match nearly as well for spatially resolved    calculations .
+it is nevertheless the best approximation to use under    cloud - free conditions for zenith angles less than 70and wavelengths    less than 0.85 @xmath2 m .
+it is the only one that provides    improvements for @xmath219 0.45 @xmath2 m ,    although is not very effective for @xmath219 0.47    @xmath2 m when cloud layers of intermediate opacity are    present .
+most of these conclusions apply with equal force to raman scattering in the atmosphere of uranus because of its similarity to neptune in vertical temperature structure , gas composition , and relatively low aerosol loading . conclusion ( 6 ) would need the most revision to accommodate differences in detailed observational results .
+this research was supported by a grant from nasa s planetary atmospheres program and in part by an archive research grant from the space telescope science institute .
+i thank pat fry who helped with the installation of the original evans and stevens code and advised on fortran debugging of modifications to it .
+i also thank evans and stevens for making their well written code available to the community , r. courtin for providing tabular data files of his processed fos observations , and two anonymous reviewers .
+: :    allen , c.  w. 1964 .
+astrophysical quantities , 2nd edition . 291 pages .    athlone press , london . : :    baines , k.  h. , and w. h. smith 1990 . the atmospheric structure and    dynamical properties of neptune derived from ground - based and iue    spectrophotometry . _ icarus * 85 * _ , 65 - 108 . : :    baines , k.  h. , h.  b. hammel , k.  a. rages , p.  n. romani , and r.  e.    samuelson ( 1995 ) clouds and hazes in the atmosphere of neptune .    in  _ neptune and triton _ , d.p
+cruikshank , ed .
+, univ . of arizona press .
+: :    baines , k.  h. , and h.  b. hammel 1994 .
+clouds , hazes , and the    stratospheric methane abundance in neptune .
+_ icarus * 109 * _ , 20 - 39 .
+: :    btremieux , y. , and r.  v. yelle 1999 .
+hst detection of    h@xmath0 raman scattering in the jovian atmosphere .
+_ icarus    * 142 * _ , 324 - 341 . : :    bhagavantam , s. , 1931 .
+raman effect in gases i. some experimental    results _ ind .
+* 6 * _ , 319 - 330 .
+: :    bhagavantam , s. , 1942 .
+_ scattering of light and the raman effect .
+_ ,    333 pages , chemical publishing company inc . , brooklyn ny
+: :    cabbanes , j. and a. rousset 1936 .
+diffusion molculaire : mesure du    facteur de dpolarization des raies raman dans les gaz : azote ,    oxygne , gaz carbonique . _
+comptes rendus * 202 * _ , 1825 - 1828 .
+: :    cochran , w. d. , and l.  m. trafton 1978 .
+raman scattering in the    atmospheres of the major planets . _
+the astrophys .
+j. * 219 * _ , 756 - 762 .
+: :    conrath , b.j .
+owen , and r.e .
+samuelson 1993 .
+constraints on    n@xmath0 in neptune s atmosphere from voyager measurements .
+_ icarus * 101 * _ , 168 - 171 .
+: :    conrath , b.  j. , d. gautier , g.  f. lindal , r.  e. samuelson , and w.  a.    shaffer 1991 . the helium abundance of neptune from voyager    measurements .
+_ j. geophys
+96 * _ , 18907 - 18919 .
+: :    courtin , r. 1999 .
+the raman signature of h@xmath0 in the uv    spectra of uranus and neptune : constraints on the haze optical    properties and on the para - h@xmath0 fraction . _ planet . and    space sci . * 47 * _ , 1077 - 1100 .
+: :    davies , m. , v.  k. abalakin , a. brahic , m. bursa , b.  h. chovitz , jk .
+h.    lieske , p.  k. seidelmann , a.  t. sinclair , and i.  s. tiuflin 1992 .
+report of the iau / iag / cospar working group on cartographic coordinates    and rotational elements of the planets and satellites - 1991 ,    _ celestial mechanics and dynamical astronomy ( issn 0923 - 2958 ) , * 53 * _ ,    no .
+4 , p. 377 - 397 .
+: :    dlugach , e.  g. , and e.  g. yanovitskij 1974 .
+the optical properites of    venus and the jovian planets .
+ii . methods and results of calculations    of the intensity of radiation diffusely reflected from semi - infinite    homogeneous atmospheres .
+_ icarus * 22 * _ , 66 - 81 .
+: :    evans , k.  f. , and g. l. stephens 1991 . a new polarized atmospheric    radiative transfer model . _ j. quant .
+spectr . and rad .
+transfer * 46 * _ ,    413 - 423 .
+: :    farkas , a. , 1935 .
+orthohydrogen , parahydrogen and heavy hydrogen .
+cambridge univ . press ,
+: :    ford , a.  l. , and j.  c. browne 1973 .
+rayleigh and raman cross sections    for the hydrogen molecule . _ atomic data * 5 * _ , 305 - 313 . : :    french , r.  g. 1984 .
+oblatenesses of uranus and neptune . in _
+uranus and    neptune _ , nasa conf . pub .
+2330 , 349 - 355 .
+: :    gibbard , s. g. , i. de pater , h.  g. roe , s. martin , b.  a. macintosh ,    and c.  e. max 2003 .
+the altitude of neptune cloud features from    high - spatial - resolution near - infrared spectra .
+_ icarus * 2 * _ , 359 - 374 .
+: :    goody , r.  m. , y.  l. yung 1989 .
+_ atmospheric radiation _ , oxford    university press , oxford , new york . : :    hansen , j.  e. 1971 .
+multiple scattering of polarized light in    planetary atmospheres .
+sunlight reflected by terrestrial    water clouds .
+_ j. atmos .
+* 28 * _ , 1400 - 1426 .
+: :    hansen , j.  e. , and l.  d. travis 1974 .
+light scattering in planetary    atmospheres . _ space science reviews * 16 * _ , 527 - 610 .
+: :    hinson , d.  p. , and j.  a. magalhes 1993 .
+inertio - gravity waves in the    atmosphere of neptune .
+_ icarus * 99 * _ , 142 - 161 .
+: :    hollas , m. 1992 . _ modern spectroscopy _ , john wiley & sons , new york .
+: :    hovenier , j.  w. 1969 .
+symmetry relationships for scattering of    polarized light in a slab of randomly oriented particles .
+_ j. atmos .
+* 26 * _ , 488 - 494 .
+: :    hu , y .- x . , b. wielicki , b. lin , g. gibson , s.l - c .
+tsay , k. stamnes ,    and t. wong 2000 .
+@xmath63-fit : a fast and accurate    treatment of particle scattering phase functions with weighted    singular - value decomposition least - squares fitting .
+_ j. quant .
+spectr .    and rad .
+transfer * 65 * _ 681 - 690 .
+: :    karkoschka , e. 1994 .
+spectrophotometry of the jovian planets and titan    at 300- to 1000-nm wavelength : the methane spectrum .
+_ icarus * 111 * _ ,    174 - 192 .
+: :    karksochka , e. 1998 . methane , ammonia , and temperature measurements of    the jovian planets and titan from ccd - spectroscopy .
+_ icarus * 133 * _ ,    134 - 146 .
+: :    karkoschka , e. and m. tomasko 1992 .
+saturn s upper troposphere    1986 - 1989 .
+_ icarus * 97 * _ , 161 - 181 .
+: :    kattawar , g.  w. , and c.  n. adams 1971 . flux and polarization reflected    from a rayleigh - scattering planetary atmosphere .
+_ astrophys . j.    * 167 * _ , 183 - 192 .
+: :    kurucz , r.  l.  1993 .
+smithsonian astrophysical obsevatory cd rom no .    13 .
+: :    lindal , g.f .
+the atmosphere of neptune : an analysis of radio    occultation data acquired with voyager 2 .
+j. * 103 * _ ,    967 - 982 .
+: :    massie , s.  t. , and d.  m. hunten 1982 .
+conversion of para and ortho    hydrogen in the jovian planets .
+_ icarus * 49 * _ , 213 - 226 .
+: :    mishchenko th , m.  i. , a.  a. lacis , and l.  d. travis 1994 . errors    induced by the neglect of polarization in radiance calculations for    rayleigh - scattering atmospheres .
+_ j. quant .
+spectr . and rad
+. transfer    * 51 * _ , 491 - 510 .
+: :    moses , j. i. , k. rages , and j. b. pollack 1995 .
+an analysis of    neptune s stratospheric haze using high - phase - angle voyager images .
+_ icarus * 113 * _ , 232 - 266 .
+: :    neckel , h. and d. labs 1984 . the solar radiation between 3300 and    12500  .
+_ solar phys .
+* 90 * _ , 205 - 258 .
+: :    parthasarathy , s. 1951 .
+light scattering in gases .
+_ indian j. phys .
+* 25 * _ , 21 - 24 .
+: :    penndorf , r. 1957 . tables of the refractive index for standard air and    the rayleigh scattering coefficient for the spectral region between    0.2 and 20 @xmath2 m and their application to atmospheric    optics .
+* 47 * _ , 176 - 182 .
+: :    placzek , g. , 1959 . _
+rayleigh and raman scattering _ , pp .
+206 ,    university of california , lawrence radiation laboratory ( livermore ,    ca ) ; [ translated from handbuch der radiologie , ed .
+e. marx , vol .
+6 ,    part ii , end ed .
+, ( akademische verlagsgesellschaft , leipzig , 1934 ) ,    pp .
+205 - 374 ] : :    pollack , j.  b. , k. rages , k.  h. baines , j.  t. bergstralh , d. wenkert ,    and g.  e.  danielson 1986 .
+estimates of the bolometric albedos and    radiation balance of uranus and neptune .
+_ icarus * 65 * _ , 442 - 466 . : :    pryor , w.r .
+west , k.e .
+simmons , and m. delitsky 1992 .
+high - phase    angle observations of neptune at 2650 and 7500 : haze structure and    particle properties .
+_ icarus * 99 * _ , 302 - 316 .
+: :    rottman , g.  j. , t.  n. woods , t.  p. sparn 1993 .
+solar - stellar    irradiance comparison experiment i : 1 .
+instrument design and    operation .
+_ j. geophys
+98 * _ , 10667 - 10677 .
+: :    savage , b.  d. , w. d. cochran , and p. r. wesselius 1980 .
+ultraviolet    albedos of uranus and neptune _ the astrophys
+. j. * 237 * _ , 627 - 632 .
+: :    soris , c.  e. , and f.  j. evans 1999 . filling in of fraunhofer and    gas - absorption lines in sky spectra as caused by rotational raman    scattering .
+_ applied optics * 38 * _ , 2706 - 2713 . : :    sromovsky , l.  a. , 2004 .
+effects of rayleigh - scattering polarization on    reflected intensity : a fast and accurate approximation for atmospheres    with aerosols .
+_ icarus * in press . *
+_ : :    sromovsky , l.  a. , p.  m. fry , s.  s. limaye , and k.  h. baines 2003 .
+the    nature of neptune s increasing brightness : evidence for a seasonal    response .
+_ icarus * 163 * _ , 256 - 261 .
+: :    sromovsky , l.a . , p.m. fry , k.h .
+baines , and t. dowling 2001a .
+coordinated 1996 hst and irtf observations of neptune and triton ii :    implications of disk - integrated photometry , _ icarus * 149 * _ , 435 - 458 . : :    sromovsky , l.a .
+, p.m. fry , t. dowling , k.h .
+baines , and s.s .
+limaye    2001b .
+coordinated 1996 hst and irtf observations of neptune and    triton iii : neptune s atmospheric circulation and cloud structure ,    _ icarus * 149 * _ , 459 - 488 . : :    stamnes , k. , s .- c .
+tsay , w. wiscombe , and k. jayaweera 1988 .
+numerically stable algorithm for discrete - ordinate - method radiative    transfer in multiple scattering and emitting layered media .
+* 27 * _ , 2502 - 2509 .
+: :    sweigart , a.  v. 1970 .
+radiative transfer in atmospheres scattering    according to the rayleigh phase function with absorption .
+_ astrophys .
+j. * 182 * _ , 1 - 80 .
+: :    toon , o.  b. , c.  p. mckay , t.  p. ackerman , k. santhanam 1989 .
+rapid    calculations of radiative transfer heating rates and photodissociation    rates in inhomogeneous multiple scattering atmospheres . _ j. geophys .
+res * 94 * _ , 16287 - 16301 .
+: :    wagener , r. , j. caldwell , and k - h .
+fricke 1986 .
+the geometric albedos    of uranus and neptune between 2100 and 3350  .
+_ icarus * 67 * _ , 281 - 288 .
+: :    wallace , l. , 1972 .
+rayleigh and raman scattering by h@xmath0    in a planetary atmosphere .
+_ astrophys .
+j. * 176 * _ , 249 - 257 .
+: :    woods , t.  n. , g.  j. ucker , g.  j. rottman 1993 .
+solar - stellar    irradiance comparison experiment i : 2 . instrument calibration . _ j.    geophys .
+98 * _ , 10679 - 10694 .

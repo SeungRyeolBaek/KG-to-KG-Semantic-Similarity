@@ -1,0 +1,120 @@
+going hand - in - glove with analytic models of accretion disks , discussed in chapter 2.1 , are direct numerical simulations .
+although analytic theories have been extremely successful at explaining many general observational properties of black hole accretion disks , numerical simulations have become an indispensable tool in advancing this field .
+they allow one to explore the full , non - linear evolution of accretion disks from a first - principles perspective .
+because numerical simulations can be tuned to a variety of parameters , they serve as a sort of `` laboratory '' for astrophysics .
+the last decade has been an exciting time for black hole accretion disk simulations , as the fidelity has become sufficient to make genuine comparisons between them and real observations .
+the prospects are also good that within the next decade , we will be able to include the full physics ( gravity + hydrodynamics + magnetic fields + radiation ) within these simulations , which will yield complete and accurate numerical representations of the accretion process .
+in the rest of this chapter i will review some of the most recent highlights from this field .
+one of the most exciting recent trends has been a concerted effort by various collaborations to make direct connections between very sophisticated simulations and observations . of course
+, observers have been clamoring for this sort of comparison for years !
+perhaps the first serious attempt at this was presented in @xcite .
+schnittman produced a simulation similar to those in @xcite and coupled it with a ray - tracing and radiative transfer code to produce `` images '' of what the simulated disk would look like to a distant observer . by creating images from many time dumps in the simulation
+, schnittman was able to create light curves , which were then analyzed for variability properties much the way real light curves are .
+following that same prescription , a number of groups have now presented results coupling general relativistic mhd ( grmhd ) simulations with radiative modeling and ray - tracing codes ( e.g. * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+more recent models have even included polarization measurements @xcite .
+this approach is most applicable to very low - luminosity systems , such as sgr a * and m87 .
+a sample light curve for sgr a * covering a 16-hour window is shown in figure [ fig : lightcurve ] . in the case of m87
+, modeling has focused on accounting for the prominent jet in that system @xcite .        along with modeling light curves and variability
+, this approach can also be used to create synthetic broadband spectra from simulations ( e.g. * ? ? ?
+* ; * ? ? ?
+* ) , which can be compared with modern multi - wavelength observing campaigns ( see chapter 3.1 ) .
+this is very useful for connecting different components of the spectra to different regions of the simulation domain .
+for example , figure [ fig : spectrum ] shows that the sub - mm bump in sgr a * is well represented by emission from relatively cool , high - density gas orbiting close to the black hole , while the x - ray emission seems to come from comptonization by very hot electrons in the highly magnetized regions of the black hole magnetosphere or base of the jet .
+as important as the radiative modeling of simulations described in section [ sec : matching ] has been , its application is very limited . this is
+because , in most cases , the radiative modeling has been done after the fact ; it was not included in the simulations themselves .
+therefore , the gas in the accretion disk was not allowed to respond thermodynamically to the cooling .
+this calls into question how much the structure obtained from the simulation reflects the true structure of the disk .
+fortunately , various groups are beginning to work on treating the thermodynamics of accretion disks within the numerical simulations with greater fidelity .
+thus far , two approaches have principally been explored : 1 ) _ ad hoc _ cooling prescriptions used to artificially create _ optically thick , geometrically thin _ disks and 2 ) fully self - consistent treatments of radiative cooling for _ optically thin , geometrically thick _ disks .
+we review each of these in the next 2 sections .      for the _ ad hoc _ cooling prescription , cooling is assumed to equal heating ( approximately ) everywhere locally in the disk . since this is the same assumption as is made in the shakura - sunyaev @xcite and novikov - thorne @xcite disk models , this approach has proven quite useful in testing the key assumptions inherent in these models ( e.g * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+in particular , these simulations have been useful for testing the assumption that the stress within the disk goes to zero at the innermost stable circular orbit ( isco ) . a corollary to this
+is that the specific angular momentum of the gas must remain constant at its isco value inside this radius .
+both of these effects have been confirmed in simulations of sufficiently thin disks @xcite , as shown in figure [ fig : isco ] .
+another approach to treating the thermodynamics of accretion disks has been to include _ physical _ radiative cooling processes directly within the simulations .
+so far there has been very limited work done on this for optically thick disks , but an optically - thin treatment was introduced in @xcite .
+similar to the after - the - fact radiative modeling described in section [ sec : matching ] , the optically - thin requirement restricts the applicability of this approach to relatively low luminosity systems , such as the quiescent and low / hard states of black hole x - ray binaries .
+recently this approach has been applied to sgr a * @xcite , which turns out to be right on the boundary between where after - the - fact radiative modeling breaks down and a self - consistent treatment becomes necessary @xcite .
+figure [ fig : sgra ] illustrates that this transition occurs right around an accretion rate of @xmath0 for sgr a*.     ( _ black _ ) , @xmath1 ( _ blue _ ) , and @xmath2 ( _ red _ ) . for each accretion rate ,
+two simulations are shown , one that includes cooling self - consistently ( model names ending in `` c '' ) and one that does not .
+the spectra begin to diverge noticeably at @xmath0 .
+figure from  @xcite.,scaledwidth=70.0% ]
+another area where a lot of interesting new results have come out is in the study of how magnetic field topology and strength affect black hole accretion .
+although there is now convincing evidence that the blandford - znajek mechanism @xcite works as predicted in powering jets ( e.g. * ? ? ?
+* ; * ? ? ?
+* ) , one lingering question is still how the accretion process supplies the required poloidal flux onto the black hole .
+simulations have demonstrated that such field can , in many cases , be generated self - consistently within mri - unstable disks ( e.g. * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ) . however , this is strongly dependent on the initial magnetic field topology , as shown in @xcite .
+figure [ fig : beckwith ] nicely illustrates that when there is no net poloidal magnetic flux threading the inner disk , the magnetically - driven jet can be 2 orders of magnitude less energetic than when there is . at this time it is unclear what the `` natural '' field topology would be , or even if there is one .
+( _ top left _ ) , magnetic field strength @xmath3 ( _ top right _ ) , electromagnetic energy flux @xmath4 ( _ bottom left _ ) , and angular momentum flux @xmath5 ( _ bottom right _ ) . dashed lines show @xmath6 standard deviation from the average . ]
+although strong poloidal magnetic fields are useful for driving powerful jets , they can also create interesting feedback affects on an accretion disk . in the case where a black hole is able to accumulate field with a consistent net flux for an extended period of time , it is possible for the amassed field to eventually `` arrest '' the accretion process @xcite .
+an example of an arrested state is shown in figure [ fig : arrest ] .        in a two - dimensional simulation where plasma with a constant net flux is fed in from the outer boundary ,
+a limit - cycle behavior can set in , where the mass accretion rate varies by many orders of magnitude between the arrested and non - arrested states .
+figure [ fig : arrested_mdot ] provides an example of the resulting mass accretion history .
+it is straightforward to show that the interval , @xmath7 , between each non - arrested phase in this scenario grows with time according to @xmath8 where @xmath9 is the radial infall velocity of the gas , @xmath10 is the strength of the magnetic field , and @xmath11 is the density of the gas .    .
+starting from @xmath12 , a pattern of cyclic accretion develops ( seen as a sequence of spikes ) .
+figure from  @xcite.,scaledwidth=70.0% ]    in three - dimensions , the magnetic fields are no longer able to perfectly arrest the in - falling gas because of a `` magnetic '' rayleigh - taylor effect .
+basically , as low density , highly magnetized gas tries to support higher density gas in a gravitational potential , it becomes unstable to an interchange of the low- and high - density materials .
+indeed , such a magnetic rayleigh - taylor effect has been seen in recent simulations by @xcite .    ) and meridional ( @xmath13 ) snapshots of the gas density of a magnetically arrested flow in 3d .
+black lines show field lines in the image plane .
+( panel e ) : time evolution of the mass accretion rate .
+( panel f ) : time evolution of the large - scale magnetic flux threading the bh horizon . (
+panel g ) : time evolution of the energy outflow efficiency @xmath14 .
+figure from  @xcite . ]
+the results of @xcite are important for another reason .
+these were the first simulations to demonstrate a jet efficiency @xmath15 greater than unity .
+since the efficiency measures the amount of energy extracted by the jet , normalized by the amount of energy made available via accretion , a value @xmath16 indicates more energy is being extracted than is being supplied by accretion .
+this is only possible if some other source of energy is being tapped  in this case the rotational energy of the black hole .
+this was the first demonstration that a blandford - znajek @xcite process _ must _ be at work in driving these simulated jets .
+there is observational evidence that several black - hole x - ray binaries ( bhbs ) , e.g. gro j1655 - 40 @xcite , v4641 sgr @xcite and gx 339 - 4 @xcite , and active galactic nuclei ( agn ) , e.g. ngc 3079 @xcite , ngc 1068 @xcite , and ngc 4258 @xcite , may have accretion disks that are tilted with respect to the symmetry plane of their central black hole spacetimes .
+there are also compelling theoretical arguments that many black hole accretion disks should be tilted @xcite .
+this applies to both stellar mass black holes , which can become tilted through asymmetric supernovae kicks @xcite or binary captures and will remain tilted throughout their accretion histories , and to supermassive black holes in galactic centers , which will likely be tilted for some period of time after every major merger event @xcite .
+close to the black hole , tilted disks may align with the symmetry plane of the black hole , either through the bardeen - petterson effect @xcite in geometrically thin disks or through the magneto - spin alignment effect @xcite in the case of geometrically thick , magnetically - choked accretion @xcite .
+however , for weakly magnetized , moderately thick disks ( @xmath17 ) , no alignment is observed @xcite . in such cases ,
+there are many observational consequences to consider .      chapter 4.3 of this book discusses the two primary methods for estimating the spins of black holes : continuum - fitting and reflection - line modeling . both rely on an assumed monotonic relation between the inner edge of the accretion disk ( assumed to coincide with the radius of the isco ) and black hole spin , @xmath18 .
+this is because what both methods actually measure is the effective inner radius of the accretion disk , @xmath19 .
+one problem with this is that it has been shown @xcite that tilted disks do not follow such a monotonic behavior , at least not for disks that are not exceptionally geometrically thin .
+figure  [ fig : fragile09 ] shows an example of the difference between how @xmath19 depends on @xmath18 for untilted and tilted simulated disks .
+similar behavior has been confirmed using both dynamical @xcite and radiative @xcite measures of @xmath19 .
+the implication is that spin can only be reliably inferred in cases where the inclination of the inner accretion disk can be independently determined , such as by modeling jet kinematics @xcite .     of simulated untilted ( _ circles _ ) and tilted ( _ diamonds _ ) accretion disks as a function of black - hole spin using a surface density measure @xmath20 .
+the _ solid _ line is the isco radius .
+figure from  @xcite.,scaledwidth=70.0% ]      for geometrically thin , shakura - sunyaev type accretion disks , the bardeen - petterson effect @xcite may allow the inner region of the accretion disk to align with the symmetry plane of the black hole , perhaps alleviating concerns about measuring @xmath18 , at least for systems in the proper state ( `` soft '' or `` thermally dominant '' ) and luminosity range @xmath21 , where @xmath22 is the eddington luminosity .
+extremely low luminosity systems , though , such as sgr a * , do not experience bardeen - petterson alignment .
+further , for a system like sgr a * that is presumed to be fed by winds from massive stars orbiting in the galactic center , there is no reason to expect the accretion flow to be aligned with the black hole spin axis .
+therefore , a tilted configuration should be expected . in light of this
+, @xcite presented an initial comparison of the effect of tilt on spectral fitting of sgr a*. figure [ fig : dexter12 ] gives one illustration of how important this effect is ; it shows how the probability density distribution of four observables change if one simply accounts for the two extra degrees of freedom introduced by even a modestly tilted disk .
+the take away point should be clear  ignoring tilt artificially constrains these fit parameters !          one remarkable outcome of considering tilt in fitting the spectral data for sgr a *
+is that tilted simulations seem able to naturally resolve a problem that had plagued earlier studies .
+spectra produced from untilted simulations of sgr a * have always yielded a deficit of flux in the near - infrared compared to what is observed . for untilted simulations ,
+this can only be rectified by invoking additional spectral components beyond those that naturally arise from the simulations .
+tilted simulations , though , produce a sufficient population of hot electrons , _ without any additional assumptions _ , to produce the observed near - infrared flux ( see comparison in figure [ fig : tilted_spectrum ] ) .
+they are able to do this because of another unique feature of tilted disks : the presence of standing shocks near the line - of - nodes at small radii @xcite .
+these shocks are a result of epicyclic driving due to unbalanced pressure gradients in tilted disks leading to a crowding of orbits near their respective apocenters .
+figure [ fig : henisey12 ] shows the orientation of these shocks in relation to the rest of the inner accretion flow .
+orders of magnitude in comparable untilted simulations .
+figure from @xcite.,scaledwidth=80.0% ]          a worthwhile future direction to pursue in this area would be a robust comparison of tilted disk simulations using both grmhd and smoothed - particle hydrodynamics ( sph ) numerical methods .
+the grmhd simulations ( e.g. * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ) enjoy the advantage of being `` first principles '' calculations , since they include all of the relevant physics , whereas the sph simulations ( e.g. * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ) enjoy the advantage of being more computationally efficient , though they make certain assumptions about the form of the `` viscosity '' in the disk .
+thus far , the grmhd and sph communities have proceeded separately in their studies of tilted accretion disks , and it has yet to be demonstrated that the two methods yield equivalent results .
+this would seem to be a relatively straightforward and important thing to check .
+a few years ago , it might have been very ambitious to claim that researchers would soon be able to perform global radiation mhd simulations of black hole accretion disks , yet a lot has happened over that time , so that now it is no longer a prediction but a reality . in the realm of newtonian simulations ,
+a marvelous study was published by @xcite , showing global ( though two - dimensional ) radiation mhd simulations of accretion onto a black hole in three different accretion regimes : @xmath23 , @xmath24 , and @xmath25 .
+the remarkably different behavior of the disk in each of the simulations ( illustrated in figure [ fig : ohsuga11 ] ) is testament to how rich this field promises to be as more groups join this line of research .
+the specifics of this work are discussed more in chapter 5.3 .      the other big thing to happen ( mostly ) within the past year is that a number of groups have now tackled , for the first time , the challenge of developing codes for _ relativistic _ radiation mhd in black hole environments @xcite .
+so far none of these groups have gotten to the point of simulating accretion disks in the way @xcite did ( they are still mostly at the stage of code tests and simple one- and two - dimensional problems ) , but with so many groups joining the chase , one can surely expect rapid progress in the near future .
+one result of some astrophysical interest is the study of bondi - hoyle ( wind ) accretion onto a black hole , including the effects of radiation @xcite ( see figure [ fig : zanotti11 ] ) .
+work presented in this chapter was supported in part by a high - performance computing grant from oak ridge associated universities / oak ridge national laboratory and by the national science foundation under grant no .

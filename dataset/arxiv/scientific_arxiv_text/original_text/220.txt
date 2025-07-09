@@ -1,0 +1,1566 @@
+ltude des groupes de kac - moody sur un corps local a t initie par howard garland @xcite pour certains groupes de lacets .
+dans @xcite on a construit un immeuble `` microaffine '' pour tous les groupes de kac - moody ( minimaux au sens de j. tits ) sur un corps muni dune valuation relle .
+cest un immeuble ( en gnral non discret ) avec les bonnes proprits habituelles des immeubles .
+cependant cet immeuble microaffine nest pas lanalogue des immeubles de f. bruhat et j. tits pour les groupes rductifs .
+il correspond plutt  leur frontire dans la compactification de satake ou compactification polydrique .
+de plus il ne traduit pas les dcompositions de cartan de @xcite .
+une autre construction est envisageable pour un groupe de kac - moody sur un corps rellement valu .
+elle est la gnralisation directe de celle de bruhat - tits ( @xcite et @xcite ) et traduit les dcompositions de cartan de @xcite dans le cas des groupes de lacets .
+cependant , comme ces dcompositions ne sont vrifies quaprs torsion , lespace @xmath0 ainsi construit  la bruhat - tits est tel que deux points quelconques ne sont pas toujours dans un mme appartement .
+il ne mrite donc pas le nom dimmeuble .
+il sest avr cependant utile et a donc t considr sous le nom de masure ( hovel ) .
+la construction de cette masure a t effectue dans @xcite et on a pu lutiliser pour des rsultats en thorie des reprsentations .
+le corps valu intressant dans ce cadre est le corps des sries de laurent complexes @xmath1 . on sest
+donc plac dans le cas dun corps @xmath2 muni dune valuation discrte avec un corps rsiduel contenant @xmath3 .
+cette situation dgale caractristique @xmath4 simplifie les raisonnements et permet , en particulier , dutiliser les rsultats du livre de s. kumar @xcite . on a cependant d
+faire quelques hypothses restrictives sur le groupe de kac - moody ( en particulier la symtrisabilit ) .
+par ailleurs dans @xcite on a labor une dfinition abstraite de masure affine ( inspire de la dfinition abstraite des immeubles affines de @xcite ) et on a montr quelle est satisfaite par la plupart des masures dfinies prcdemment . de cette dfinition dcoulent des proprits intressantes : les rsidus en chaque point sont des immeubles jumels ,  linfini on trouve des immeubles jumels et deux immeubles microaffines , il existe un prordre invariant sur la masure .
+le but du prsent article est de construire la masure affine dun groupe de kac - moody dploy sur un corps muni dune valuation relle non triviale et de montrer quelle satisfait aux axiomes abstraits de masure affine ordonne de @xcite .
+ceci est ralis sans aucune restriction sur le groupe de kac - moody ni sur le corps valu .
+pour cela on a essentiellement remplac dans @xcite les groupes de kac - moody  la kumar par ceux dolivier mathieu @xcite et la reprsentation adjointe dans lalgbre de lie par celle dans lalgbre enveloppante entire , puisquon va considrer aussi de la caractristique ( rsiduelle ) positive .
+il y a en fait beaucoup de choix possibles pour les groupes de kac - moody , @xcite . on considre ici les groupes dploys `` minimaux '' tels que dfinis par jacques tits @xcite ; leurs proprits essentielles sont expliques dans @xcite et aussi @xcite . on a rsum celles - ci et prouv quelques complments ( essentiellement sur les morphismes )
+dans la premire partie de cet article .
+la seconde partie est consacre  lalgbre enveloppante entire introduite par j. tits pour construire ses groupes et  la reprsentation adjointe , dj largement utilise par b. rmy . on y montre un thorme de poincar - birkhoff - witt ( avec des
+puissances divises tordues ) et on y construit des exponentielles tordues .
+ces rsultats tirent leur origine dans un travail de gnralisation du thorme de simplicit de r. moody @xcite , qui est expliqu dans lappendice .
+les relations de commutation dans un groupe de kac - moody minimal @xmath5 sont compliques ( voire inexistantes ) .
+pour mener  bien des calculs on va raisonner dans un groupe maximal qui ici sera celui ( @xmath6 ou @xmath7 ) dfini par o. mathieu . on a cependant besoin dune connaissance plus
+concrte de celui - ci , cest le but de la troisime partie .
+il est en partie accompli grce aux exponentielles tordues de la partie prcdente .
+dans ces trois premires parties on tudie les groupes de kac - moody de manire gnrale sur un anneau quelconque , ou sur un corps si on veut plus de rsultats de structure . on les considre ensuite sur un corps valu ( mais aussi sur son anneau des entiers ) .
+dans la quatrime partie on construit lappartement tmoin et les sous - groupes parahoriques ( ou assimils ) associs aux sous - ensembles ou filtres de cet appartement tmoin .
+cest la partie la plus technique .
+comme dans @xcite , ces sous - groupes parahoriques du groupe de kac - moody @xmath5 sont construits en plusieurs tapes en utilisant les groupes maximaux @xmath6 et @xmath7 contenant @xmath5 . on a cependant
+d apporter des changements substantiels aux raisonnements de @xcite .    on rcolte enfin
+dans la cinquime partie les fruits du travail prcdent .
+par un procd classique utilisant lappartement tmoin et les sous - groupes parahoriques , on y construit la masure affine ( ordonne ) dun groupe dploy sur un corps rellement valu .
+et on montre les mmes rsultats quen @xcite ou @xcite .
+les raisonnements sont sans changement substantiel , mais , grce aux parties prcdentes , il ny a plus dhypothse technique superflue .
+lappendice rassemble des rsultats sur le groupe de kac - moody maximal  la mathieu @xmath6 ( sur un corps @xmath8 quelconque ) qui sont consquences des rsultats des parties [ s2 ] et [ s3 ] . on y
+compare @xmath6 avec dautres groupes de kac - moody maximaux dfinis par m. ronan et b. rmy @xcite ou l. carbone et h. garland @xcite . on y gnralise aussi le thorme de simplicit dun sous - quotient de @xmath6 d  r. moody @xcite en caractristique @xmath4 ; on lobtient ici en caractristique @xmath9 assez grande , pour un corps non algbrique sur @xmath10 .
+je remercie bertrand rmy pour mavoir suggr dtudier larticle @xcite de r. moody et olivier mathieu pour mavoir signal son article @xcite et pour quelques claircissements sur la construction de son groupe de kac - moody ou la simplicit des algbres de kac - moody .
+on introduit ici le groupe de kac - moody objet principal dtude de cet article et on y tudie en particulier sa fonctorialit .
+\1 ) une _ matrice de kac - moody _
+( ou matrice de cartan gnralise ) est une matrice carre @xmath11 ,  coefficients entiers , indexe par un ensemble fini @xmath12 et qui vrifie :    \(i ) @xmath13 ,    \(ii ) @xmath14 ,    \(iii ) @xmath15 .
+\2 ) un _ systme gnrateur de racines _
+( en abrg sgr ) @xcite est un quadruplet @xmath16 form dune matrice de kac - moody @xmath17 indexe par @xmath12 , dun @xmath18module libre @xmath19 de rang fini @xmath20 , dune famille @xmath21 dans son dual @xmath22 et dune famille @xmath23 dans @xmath19 .
+ces donnes sont soumises  la condition de compatibilit suivante : @xmath24 @xmath25 .
+on dit que @xmath26 est le _ rang _ du sgr @xmath27 et @xmath20 sa _
+dimension_.    on dit
+que le sgr @xmath27 est _ libre _ ( ou _ adjoint _ ) ( resp . _ colibre _ ( ou _ coadjoint _ ) ) si @xmath21 ( resp .
+@xmath23 ) est libre dans ( ou engendre ) @xmath28 ( resp .
+@xmath19 ) .    par exemple le sgr _ simplement connexe _ @xmath29 avec @xmath30 de base les @xmath31 est le seul sgr colibre et coadjoint associ  @xmath17 .
+\3 ) on introduit le @xmath32module libre @xmath33 .
+il y a donc un homomorphisme de groupes @xmath34 , @xmath35 tel que @xmath36 . on note @xmath37 et @xmath38 .
+quand @xmath27 est libre on identifie @xmath39  un sous - module de @xmath28 et on ne fait pas de diffrence entre @xmath40 et @xmath41 .
+le sgr _ adjoint minimal _
+@xmath42 est libre et adjoint .    on note @xmath43 .
+on dit que le sgr @xmath27 est _ sans cotorsion _
+si @xmath44 est facteur direct dans @xmath19 @xmath45 est sans torsion .
+cest le cas de @xmath46 pour lequel @xmath47 .
+\4 ) on note @xmath48 et @xmath49 ; pour @xmath50 et @xmath51 , on crit @xmath52 .
+l_algbre de kac - moody complexe _
+@xmath53 associe  @xmath54 est engendre par @xmath55 et des lments @xmath56 avec les relations suivantes ( pour @xmath57 et @xmath58 ) :    ( kmt1 ) @xmath59=0$];@xmath60=\alpha_i(h)e_i$];@xmath61=-\alpha_i(h)f_i$];@xmath62=-\alpha_i^{\vee}$ ] .
+( kmt2 ) @xmath63=0$];@xmath64 .    on a alors
+une graduation de lalgbre de lie @xmath65 par @xmath39 : @xmath66 o @xmath67 est le _ systme de racines _ de @xmath65 . on a @xmath68 ,
+@xmath69 et @xmath70 , de plus @xmath71={\overline\alpha}(x)\;\forall h\in{\mathfrak{h}}\}$ ] est non nul pour @xmath72 .    on sait
+que @xmath73 et les @xmath74 ne dpendent que de @xmath17 et non de @xmath75 . on note
+@xmath76 .
+les racines @xmath77 sont dites _
+simples_. les racines de @xmath78 ( resp .
+@xmath79 ) sont dites _ positives _ ( resp .
+_ ngatives _ ) . on a @xmath80 .
+la sous - algbre _ nilpotente _ ( resp .
+_ de borel _ ) _ positive _ est @xmath81 ( indpendante de @xmath75 et donc note aussi @xmath82 ) ( resp .
+@xmath83 ) . on
+a de mme des sous - algbres ngatives @xmath84 et @xmath85 avec la dcomposition triangulaire @xmath86 .
+\5 ) le _ groupe de weyl ( vectoriel ) _
+@xmath87 associ  @xmath17 est un groupe de coxeter de systme de gnrateurs lensemble @xmath88 des automorphismes de @xmath39 dfinis par @xmath89 .
+il stabilise @xmath73 et agit aussi sur @xmath28 et @xmath19 par des formules semblables .
+on note @xmath90 lensemble des _ racines relles _
+cest  dire des lments de @xmath73 ou @xmath39 de la forme @xmath91 avec @xmath92 et @xmath93 .
+si @xmath94 , alors @xmath95 est bien dtermin par @xmath40 , indpendamment du choix de @xmath96 et de @xmath97 tels que @xmath91 .
+pour @xmath98 on a @xmath99 pour un @xmath100 avec @xmath101 .
+si @xmath102 et @xmath103 , on a @xmath104 .    les racines de
+@xmath105 sont dites _
+si on a deux parties @xmath106 de @xmath107 , on dit que @xmath108 est _ close _ ( resp .
+un _ idal _ de @xmath109 ) si : @xmath110 , ( resp .
+@xmath111 ) , @xmath112 .
+la partie @xmath108 est dite _ prnilpotente _ sil existe @xmath113 tels que @xmath114 et @xmath115 , alors @xmath108 est finie et contenue dans la partie @xmath116 de @xmath117 qui est _ nilpotente _ ( prnilpotente et close ) .
+\6 ) un _ morphisme de sgr _ , @xmath118 est une application linaire
+@xmath119 et une injection @xmath120 , @xmath121 telles que @xmath122 , @xmath123 et @xmath124 @xmath125 . on note
+@xmath126 lapplication duale    cette dfinition de morphisme est duale de celle de @xcite qui est valable dans un cadre plus gnral .
+pour un morphisme de sgr @xmath127 , on dfinit de manire vidente un morphisme @xmath128 entre les algbres de lie correspondantes .
+\7 ) soit @xmath127 un morphisme de sgr .
+on dit que :    @xmath75 est une _ extension centrale torique _
+de @xmath129 si @xmath130 est surjective et @xmath131 ; elle est dite de plus _ scinde _
+si ker@xmath132 a un supplmentaire contenant @xmath44 ,    @xmath75 est une _ extension centrale finie
+_ de @xmath129 si @xmath130 est injective , @xmath131 et les dimensions sont gales ,    plus gnralement @xmath75 est _
+extension centrale _
+de @xmath129 si @xmath133 est injective et @xmath131 ,    @xmath75 est un _ sous - sgr _ de @xmath129 si @xmath130 est injective et @xmath134 est sans torsion ,    @xmath129 est une _ extension semi - directe _ ( torique )
+de @xmath75 si @xmath75 est un sous - sgr de @xmath129 et si @xmath131 .
+elle est dite _ directe _ si , de plus , il existe un supplmentaire de @xmath135 dans @xmath136 contenu dans ker@xmath137 , @xmath138 .    @xmath130 est une _ extension commutative _ si @xmath131 ( alors @xmath139 et @xmath140 ) .
+ un sgr @xmath75 , on associe un @xmath32schma en groupe @xmath141 ( vu comme foncteur en groupe sur la catgorie des anneaux ) dfini par @xmath142 ( pour tout anneau @xmath8 ) ou par @xmath143)$ ] .
+cest un tore ( isomorphe  @xmath144 ) de groupe de cocaractres ( resp .
+caractres ) @xmath19 ( resp .
+@xmath28 ) , voir @xcite .
+un morphisme @xmath127 de sgr donne un homomorphisme @xmath145 de tores .
+le groupe de weyl @xmath87 agit sur @xmath146 via ses actions sur @xmath19 et @xmath28
+.    si @xmath130 est extension centrale , @xmath147 est surjectif ( au sens schmatique ) de noyau le groupe multiplicatif @xmath148 de groupe des caractres @xmath149 .
+si @xmath130 est extension centrale torique , @xmath147 est surjectif ( au sens fonctoriel ) de noyau le tore @xmath150 .
+si @xmath130 est extension centrale finie , alors le thorme des diviseurs lmentaires appliqu  @xmath151 donne une description explicite de @xmath152 comme produit de groupes de racines de lunit et lhomomorphisme @xmath153 nest pas surjectif pour tout anneau @xmath8 .    si @xmath75 est un _ sous - sgr _ de @xmath129 , @xmath147 identifie @xmath146  un sous - tore facteur direct de @xmath154 .
+[ 1.3 ] soit @xmath155 un sgr .
+\a ) il existe une extension centrale finie @xmath156 de @xmath75 qui est sans cotorsion .
+le sgr @xmath75 est extension centrale de @xmath157 qui est adjoint .
+si @xmath75 est libre alors @xmath156 et @xmath158 aussi .
+\b ) le sgr @xmath159 nest en gnral pas libre .
+le sgr @xmath156 ( resp .
+@xmath160 ) en est extension semi - directe ( resp .
+centrale torique ) .
+\c ) il existe une extension centrale torique @xmath161 de @xmath75 qui est sans cotorsion et colibre .
+si @xmath75 est colibre et sans cotorsion , cette extension est scinde .
+si @xmath75 est libre ou si @xmath39 est facteur direct dans @xmath28 , alors cest galement vrai pour @xmath161 .
+\d ) il existe une extension semi - directe @xmath162 de @xmath75 qui est libre ( et avec @xmath163 facteur direct de @xmath164 ) .
+si @xmath75 est libre et @xmath39 facteur direct de @xmath28 , cette extension est directe .
+si @xmath75 est colibre ou si @xmath44 est facteur direct dans @xmath19 , alors cest galement vrai pour @xmath162 .
+\e ) si @xmath75 est libre , colibre et sans cotorsion , alors @xmath75 est extension semi - directe dun sgr @xmath165 libre , colibre , sans cotorsion et de dimension @xmath166 o @xmath167 est le rang de @xmath75 et @xmath168 ( @xmath169 ) le rang de la matrice @xmath17 .
+\1 ) on a @xmath170 et les constructions de c ) et d ) sont fonctorielles en @xmath75 .
+\2 ) dans le cas e ) le sgr @xmath165 vrifie donc les hypothses de ( * ? ? ?
+nest pas toujours extension directe de @xmath165 .
+\3 ) quand la matrice @xmath17 est inversible ( par exemple dans le cas classique dune matrice de cartan ) tout sgr est libre , colibre et extension semi - directe ( ou aussi centrale torique ) dun sgr de dimension gale au rang ( semi - simple dans le cas classique ) .    on considre un supplmentaire @xmath171 de @xmath172 dans @xmath19 et on pose @xmath173 .
+les assertions a ) et b ) sont alors videntes .
+\c ) on dfinit @xmath174 , son dual est donc @xmath175 o les @xmath176 forment une base duale des @xmath177 . on note
+@xmath178 , @xmath179 et @xmath130 est la projection de @xmath180 sur @xmath19 .
+@xcite .
+\d ) on dfinit @xmath181 , son dual est donc @xmath182 o les @xmath183 forment une base duale des @xmath184 . on note
+@xmath185 , @xmath186 et @xmath130 est linjection canonique de @xmath19 dans @xmath187 .
+\e ) soit @xmath188 , @xmath189 .
+comme @xmath75 est libre , @xmath190 est de rang @xmath167 , tandis que @xmath191 est de rang @xmath168 .
+le module @xmath192 a un supplmentaire dans @xmath190 de rang @xmath193 ; on suppose que la base de ce supplmentaire est @xmath194 pour des @xmath195 .
+comme @xmath75 est colibre
+@xmath196 est de rang @xmath166 .
+comme le quotient de @xmath19 par @xmath44 est sans torsion , il en est de mme pour @xmath197 . on note @xmath198 et @xmath199 .
+linjection de @xmath197 dans @xmath19 fait bien de @xmath75 une extension semi - directe de @xmath165 et @xmath165 est colibre , sans cotorsion , de dimension @xmath166 .
+comme @xmath200 est de rang @xmath167 , les @xmath201 sont bien libres dans @xmath202 .
+* et 3.6 )    pour @xmath204 , @xmath205 et @xmath206 sont localement nilpotents dans @xmath207 ou @xmath65 , @xmath208 , @xmath209 sont des automorphismes de @xmath207 ou @xmath65 et lon a @xmath210 @xmath211 , que lon note @xmath212 ou @xmath213 .
+lapplication @xmath214 stend en un homomorphisme surjectif @xmath215 du sous - groupe @xmath216 de @xmath203 engendr par les @xmath212 sur le groupe de weyl @xmath87 .
+le groupe @xmath216 stabilise @xmath217 et permute les @xmath74 pour @xmath218 ; les actions induites sur @xmath217 ou @xmath73 se dduisent des actions de @xmath87 via lhomomorphisme prcdent . en particulier @xmath216 est le mme quil soit
+dfini sur @xmath207 ou @xmath65 .
+pour @xmath219 , lespace @xmath74 est de dimension @xmath220 et on peut choisir les lments de base @xmath221 de faon que @xmath222 , @xmath223=-\alpha^\vee$ ] et @xmath224 pour @xmath219 , @xmath204 et @xmath225 .
+si @xmath226 forment une paire prnilpotente de racines , lensemble @xmath227=\{\,p\alpha+q\beta\in\phi\,\vert\,p , q\in\n\}$ ] est fini .
+si @xmath40 et @xmath228 sont non colinaires , on note @xmath229\alpha,\beta[=[\alpha,\beta]\setminus\{\alpha,\beta\}$ ] , et on lordonne , par exemple de faon que @xmath230 soit croissant ; on a alors la formule suivante pour les commutateurs ( pour @xmath231 ) :    @xmath232    o @xmath233 parcourt @xmath229\alpha,\beta[$ ] et les @xmath234 sont des entiers bien dfinis .
+@xcite    ce foncteur @xmath235 de la catgorie des anneaux dans celle des groupes est engendr par @xmath236 exemplaires du groupe additif @xmath237 .
+plus prcisment , pour @xmath219 , @xmath8 un anneau et @xmath238 , on introduit le symbole @xmath239 et le groupe @xmath240 est engendr par les lments @xmath239 pour @xmath219 , @xmath238 soumis aux relations @xmath241 et aux relations de commutation :    ( kmt3)@xmath242    pour @xmath243 , @xmath244 prnilpotente et @xmath245 , @xmath234 comme ci - dessus en [ 1.4 ] .    si @xmath108 est une partie nilpotente de @xmath117 et
+si on remplace ci - dessus @xmath117 par @xmath108 , on dfinit un foncteur en groupes @xmath246 .
+cest un groupe algbrique unipotent isomorphe comme schma  @xmath247 et qui ne dpend que de @xmath108 et @xmath17 ( donc @xmath117 ) mais pas de @xmath75 .
+si @xmath219 et @xmath248 , @xmath249 est un sous - foncteur en groupes de @xmath235 isomorphe  @xmath237 par @xmath250 .
+en fait @xmath235 est lamalgame des groupes @xmath251 et @xmath252}$ ] pour @xmath219 et @xmath244 prnilpotente .    pour @xmath219 , @xmath8 un anneau et @xmath253 , on dfinit dans @xmath240 , @xmath254 , @xmath255 et @xmath256 . on a @xmath257 . en particulier @xmath258 .
+si jamais le quotient @xmath259 de @xmath207 par son idal gradu maximal dintersection triviale avec @xmath260 est diffrent de @xmath207 , la diffrence naffecte que les espaces radiciels imaginaires .
+le remplacement de @xmath207 par @xmath259 ne change donc pas @xmath235 ( ni @xmath261 dfini ci - dessous ) ; ce nest par contre pas vrai pour le groupe @xmath262 du  3 .
+@xcite , @xcite    pour un anneau @xmath8 , on dfinit le groupe @xmath263 comme le quotient du produit libre @xmath264 par les 4 relations suivantes , pour @xmath40 racine simple , @xmath265 , @xmath238 et @xmath266 :    ( kmt4 ) @xmath267 ,    ( kmt5 ) @xmath268 ,    ( kmt6 ) @xmath269 ,    ( kmt7 ) @xmath270 ,    si @xmath271 et @xmath272 ( avec @xmath273 )
+.    les relations ( kmt5 ) et ( kmt7 ) permettent aussitt
+de gnraliser ( kmt4 ) au cas o @xmath219 nest pas simple .
+proprits    \1 ) daprs ( * ? ? ?
+* b ) il existe des foncteurs en groupes @xmath274 et @xmath275 satisfaisant aux axiomes ( kmg 1  9 ) de . daprs le thorme 1 ( i ) p. 553
+de , il en rsulte que , pour tout anneau @xmath8 , lhomomorphisme canonique de @xmath276 dans @xmath263 est injectif .
+\2 ) pour tout @xmath219 , lhomomorphisme @xmath277 est injectif , voir la dmonstration de @xcite si @xmath278 est sans torsion ( @xmath125 ) ou si @xmath8 na pas dlments nilpotents ; le cas gnral se traite comme dans la partie b ) de la dmonstration du lemme [ 4.11 ] ci - dessous . plus
+gnralement ces mmes raisonnements montrent que , pour toute partie nilpotente @xmath108 de @xmath117 , lhomomorphisme canonique de @xmath279 dans @xmath263 est injectif et aussi que , pour @xmath280 et @xmath167 ou @xmath281 non nul @xmath282 .
+\3 ) on identifie donc @xmath146 , @xmath283 et @xmath246  des sous - foncteurs en groupes de @xmath261 ; si @xmath109 est un idal de @xmath108 , @xmath284 est distingu dans @xmath246
+. de mme on note @xmath285 ( resp .
+@xmath286 ) le sous - foncteur en groupe de @xmath261 tel que , pour un anneau @xmath8 , @xmath287 ( resp .
+@xmath288 ) est le
+sous - groupe engendr par les @xmath289 pour @xmath290 ( resp .
+et par @xmath276 ) .
+\4 ) on note @xmath291 le sous - foncteur de @xmath261 tel que @xmath292 soit le sous - groupe engendr par @xmath276 et les @xmath293 pour @xmath40 racine simple . on a un homomorphisme @xmath294 de @xmath291 sur @xmath87 trivial sur @xmath146 tel que
+@xmath295 et @xmath292 agit sur @xmath146 et @xmath117 via @xmath294 , ( kmt4 ) , ( kmt5 ) , ( kmt7 ) et 2 ) ci - dessus .
+@xcite les @xmath296 satisfont aux relations de tresse , daprs ( kmt6 ) @xmath297 , le noyau de @xmath294 est donc gal  @xmath276 .
+si @xmath8 est un corps avec au moins quatre lments , @xmath292 est le normalisateur de @xmath276 dans @xmath263 @xcite .
+si @xmath8 est un corps infini , on sait de plus que tous les sous - tores @xmath298dploys maximaux de @xmath261 sont conjugus  @xmath146 par @xmath263 @xcite .
+\5 ) les thormes 1 et 1 p. 553
+de @xcite montrent que , sur les corps , @xmath261 vrifie les axiomes ( kmg 1  9 ) de : il existe un homomorphisme @xmath299 de foncteurs en groupes @xmath300 qui est un isomorphisme sur les corps et vrifie @xmath301 .
+en particulier ( kmg4 ) dit que , pour une extension de corps @xmath302 , @xmath263 sinjecte dans @xmath303 .
+si @xmath8 est un corps , @xmath304 est une donne radicielle de type @xmath117 , au sens de @xcite , ou donne radicielle jumele entire @xcite ( cest plus prcis que les donnes radicielles jumeles de , les rgd - systems de @xcite ) . en particulier ,
+pour @xmath305 , il existe @xmath306 tels que @xmath307 conjugue @xmath308 en @xmath309 , @xmath310 , donc @xmath311 ; on a @xmath312 .
+on montre que @xmath288 est produit semi - direct de @xmath276 et @xmath287 @xcite .
+pour une partie nilpotente de la forme @xmath313 , on a @xmath314 3.5.4 .
+le centre de @xmath263 est @xmath315 8.4.3 .
+toujours si @xmath8 est un corps , la donne radicielle ci - dessus permet de construire des immeubles combinatoires jumels @xmath316 et @xmath317 , agits par @xmath263 : limmeuble @xmath318 de @xmath261 sur @xmath8 est associ au systme de tits @xmath319 .
+pour un anneau k , on dfinit @xmath320 comme le quotient de @xmath321 par les relations suivantes , pour @xmath322 racines simples , @xmath323 et @xmath243 :    ( @xmath3245 ) @xmath325 ,    ( @xmath3247 ) @xmath326 ,    si @xmath327 et @xmath328 ,    ( @xmath3248 ) a ) @xmath329 est un homomorphisme de groupes ,    \b ) @xmath330 , on note @xmath331 le groupe commutatif engendr par tous ces lments ( pour @xmath322 racines simples et @xmath243 ) ,    \c ) la formule @xmath332 dfinit un homomorphisme de groupes @xmath333 , not @xmath245 .    on note de
+la mme manire les lments et leurs images dans @xmath320 .
+\1 ) dans le cas classique , steinberg considre lui aussi un quotient de @xmath334 un peu analogue : comparer ( @xmath3247 ) et ( @xmath3248 ) respectivement aux conditions ( b ) et ( c ) de @xcite ou @xcite .
+\2 ) on na pas cherch
+ici un systme minimal de relations pour @xmath320 .
+le lecteur trouvera des rductions faciles par lui - mme et dautres moins videntes dans ( * ? ? ?
+* ou 3.8 ) , @xcite ou @xcite .
+\3 ) lendomorphisme @xmath335 du groupe @xmath331 dfini par @xmath336 est une involution , car @xmath337 @xmath338 ( car @xmath339 est llvation au carr ) .
+en fait pour @xmath340 on a @xmath341 ( @xmath342 avec une notation additive pour hom@xmath343 ) .
+en particulier ( @xmath3245 ) et ( kmt5 ) sont semblables .
+\4 ) la relation ( @xmath3244 ) : @xmath267 , pour @xmath219 , @xmath238 et @xmath344 est consquence des relations ci - dessus :    en effet pour @xmath40 , @xmath228 racines simples , @xmath253 , @xmath345 , on a : @xmath346 ( avec @xmath347 et @xmath348 ) .
+cette relation stend au cas @xmath40 non simple daprs ( @xmath3245 ) , ( @xmath3247 ) et ( @xmath3248 ) : si @xmath40 , @xmath228 sont simples et @xmath245 satisfait  ( @xmath3244),on a :    @xmath349    @xmath350    @xmath351    et @xmath352 .
+donc @xmath353 satisfait aussi  ( @xmath3244 ) .
+\5 ) on peut appliquer ( @xmath3247 )  @xmath354 .
+on sait que @xmath355 .
+donc @xmath356 @xmath357 et @xmath358 .
+[ 1.8 ]    \1 ) lhomomorphisme canonique de @xmath235 dans @xmath261 se factorise par @xmath359 , autrement dit les relations ( @xmath3245 ) , ( @xmath3247 ) et ( @xmath3248 ) sont satisfaites dans @xmath261 .
+\2 ) pour un anneau @xmath8 , @xmath263 est le quotient du produit libre @xmath360 par les 2 relations suivantes ( pour @xmath40 racine simple , @xmath265 , @xmath238 et @xmath266 ) :    ( kmt4 ) @xmath361 ,    ( @xmath3246 ) @xmath362 si @xmath253 .
+\3 ) la relation ( @xmath3246 ) induit un homomorphisme de foncteurs en groupes @xmath363 do nt le noyau @xmath364 est central dans @xmath235 .
+le foncteur @xmath261 est le quotient ( comme foncteur en groupes ) du produit semi - direct @xmath365 par @xmath366 antidiagonal . en particulier le quotient ( comme foncteur en groupes ) @xmath367 sinjecte dans @xmath261 .
+par dfinition de @xmath368 et ( kmt6 ) , la relation ( @xmath3246 ) est bien satisfaite dans @xmath263 . on en dduit aussitt la relation ( @xmath3248 )
+et que limage de @xmath369 est dans @xmath276 .
+dautre part les deux involutions @xmath335 et @xmath370 concident sur cette image daprs les calculs de [ 1.7].3 ; ainsi ( @xmath3245 ) est une consquence de ( kmt5 ) .
+enfin @xmath371 , do ( @xmath3247 ) .    on a ainsi montr 1 )
+et que les relations ( kmt4 ) , ( @xmath3246 ) sont vrifies dans @xmath263 .
+inversement il faut montrer que ( kmt5 ) , ( kmt6 ) et ( kmt7 ) sont des consquences de ( kmt4 ) , ( @xmath3245 ) , ( @xmath3246 ) , ( @xmath3247 ) et ( @xmath3248 ) .
+la relation ( kmt7 ) est un cas particulier de ( @xmath3247 ) , ( kmt6 ) dcoule de ( @xmath3246 ) et de la dfinition de @xmath372 .
+pour @xmath40 simple et @xmath266 , on a : @xmath373 ; en effet pour @xmath374 avec @xmath375 et @xmath253 on a : @xmath376 .
+ainsi ( kmt5 ) est satisfaite .
+\3 ) on a vu en [ 1.6].1 que @xmath146 sinjecte dans @xmath261 , la relation ( @xmath3246 ) ninduit donc aucun quotient dans @xmath146 .
+par contre , comme @xmath377 est engendr par les @xmath372 , cette relation se traduit par un homomorphisme @xmath363 ; celui - ci est compatible avec les morphismes @xmath378 et @xmath379 ( pour @xmath323 ) , daprs ( @xmath3248c ) et la relation correspondante dans @xmath146 .
+ainsi la relation ( @xmath3244 ) ( [ 1.7].4 ) montre que le noyau @xmath364 est central dans @xmath235 .
+la relation ( kmt4 ) montre que @xmath261 est quotient du produit semi - direct indiqu par des relations induites par ( @xmath3246 ) .
+la relation ( @xmath3244 ) montre que ce quotient se limite  laction antidiagonale de @xmath366 .
+[ 1.9 ]    \1 ) pour le sgr simplement connexe @xmath160 , on a @xmath380 et @xmath381 , que lon notera aussi @xmath382 ou @xmath383 .
+\2 ) si @xmath8 est un corps , lhomomorphisme canonique de @xmath384 dans @xmath385 est un isomorphisme .
+\1 ) comme @xmath386 est produit direct des groupes @xmath387 ( pour @xmath40 racine simple ) et sinjecte dans @xmath388 , la relation ( @xmath3246 ) permet didentifier @xmath369 et @xmath386 .
+alors ( kmt4 ) se rduit  ( @xmath3244 ) do nt on sait quil est vrifi dans @xmath320 ( [ 1.7].4 ) , on a donc bien lidentification propose .
+\2 ) on sait dans @xmath388 que @xmath386 et @xmath384 forment un produit semi - direct ( [ 1.6].5 ) le quotient par @xmath389 naffecte donc pas @xmath384 .
+si @xmath390 est une extension commutative de sgr , la proposition [ 1.8 ] permet de dfinir un morphisme @xmath391 de foncteurs . en effet @xmath75 et @xmath129 correspondent  la mme matrice @xmath17 , donc les mmes @xmath117 , @xmath207 , @xmath321 et @xmath320 .
+la compatibilit de @xmath130 avec les racines et coracines permet de dfinir @xmath392 comme le passage au quotient de @xmath393 .
+pour tout anneau @xmath8 , les homomorphismes @xmath392 et @xmath153 ont mme noyau ; le groupe @xmath394 est engendr par @xmath395 et le sous - groupe ( distingu ) image de @xmath392 ( [ 1.8].3 ) ; on a @xmath396 .
+de plus limage rciproque de @xmath397 ( resp .
+@xmath395 ) dans @xmath398 est gale  @xmath399 ( resp .
+@xmath400 ) .
+le noyau ker@xmath401 est central dans @xmath261 ( mais trivial si @xmath75 est un sous - sgr ) .
+par construction @xmath402 induit un isomorphisme de @xmath403 sur @xmath404 et de @xmath405 sur @xmath406 , pour tout corps @xmath8 ( [ 1.9].2 ) .
+sur un corps @xmath8 , on voit facilement quil est possible didentifier les immeubles combinatoires @xmath407 de @xmath408 et @xmath409 avec leurs facettes et leurs appartements .
+les actions de @xmath398 et @xmath394 sont compatibles ( via @xmath392 ) .
+on va tudier quelques cas particuliers intressants .    [ 1.11 ]
+si le sgr @xmath129 est extension semi - directe ( resp .
+directe ) du sgr @xmath75 , alors @xmath409 est produit semi - direct ( resp .
+direct ) de @xmath408 par un tore @xmath410 o @xmath411 est un supplmentaire de @xmath19 dans @xmath136 et , pour un anneau @xmath8 , laction de @xmath412 sur @xmath398 est donne par les relations @xmath413 et @xmath414pour @xmath415 , @xmath416 , @xmath219 et @xmath238 .    on a @xmath417 , donc @xmath418 .
+dans @xmath419 la relation ( @xmath3246 ) nimplique que @xmath420 et ( kmt4 ) dcrit laction de @xmath410 sur @xmath359 , do le rsultat .    [ 1.12 ]    si le sgr @xmath75 est extension centrale torique du sgr @xmath129 , alors @xmath409 est quotient ( comme foncteur en groupes ) de @xmath408 par un sous - tore facteur direct @xmath421 de @xmath146 , central dans @xmath408 .
+si lextension centrale est scinde , alors @xmath408 est isomorphe au produit direct de @xmath409 et @xmath421 .
+comme @xmath422 est surjective , @xmath423 est facteur direct dans @xmath19 et contenu dans les noyaux ker@xmath228 pour @xmath265 . on pose @xmath424
+et la premire assertion est alors une consquence directe de [ 1.8 ] .
+si lextension est scinde , @xmath411 a un supplmentaire @xmath425 contenant les coracines et @xmath130 induit un isomorphisme de @xmath426 sur @xmath129 , do le rsultat .    [ 1.13 ]    si @xmath390 est une extension centrale finie , alors pour un anneau @xmath8 , @xmath427 a pour noyau le groupe fini @xmath428 contenu dans tous les noyaux de racines de @xmath117 .
+ce groupe @xmath152 est central dans @xmath263 , le quotient @xmath429 est un sous - groupe distingu de @xmath394 et @xmath430 .
+sauf si @xmath8 est un corps algbriquement clos , @xmath394 nest pas forcment gal  @xmath429 , car @xmath153 nest pas forcment surjective , voir [ 1.2 ] .
+l encore ( @xmath3246 ) dans @xmath409 est consquence de la mme relation dans @xmath408 et ( kmt4 ) montre que @xmath395 normalise limage de @xmath398 .
+linjection de @xmath395 dans @xmath394 permet de contrler la situation .
+cette algbre `` enveloppante '' est la base de la construction par j. tits de son groupe de kac - moody tudi ci - dessus . on va prouver
+ci - dessous un thorme de poincar - birkhoff - witt et introduire des `` exponentielles tordues '' dans le complt de cette algbre .
+@xcite , @xcite , @xcite , ( * ? ? ? * viii  12 ) .
+\1 ) dans lalgbre enveloppante @xmath431 de lalgbre de lie complexe @xmath65 , j. tits @xcite a introduit la sous@xmath432algbre @xmath433 engendre par les lments suivants :    @xmath434pour @xmath204 et @xmath435 ,    @xmath436pour @xmath204 et @xmath435 ,    @xmath437 pour @xmath438 et @xmath435 .
+la sous - algbre @xmath439 ( resp .
+@xmath440 , @xmath441 ) est engendre par les lments du premier type ( resp .
+du second type , du troisime type ) .
+on oubliera souvent lindice @xmath75 dans les notations prcdentes , dailleurs @xmath439 et @xmath440 ne dpendent que de @xmath17 et non de @xmath75 .
+on sait que @xmath433 ( resp .
+@xmath439 , @xmath440 , @xmath441 ) est une
+@xmath32forme de lalgbre enveloppante correspondante @xmath431 ( resp @xmath442 , @xmath443 , @xmath444 ) et que lon a la dcomposition unique @xmath445 .
+\2 ) la graduation de lalgbre de lie @xmath65 par @xmath39 induit une graduation de lalgbre associative @xmath433 par @xmath39 ; le sous - espace de poids @xmath50 est not @xmath446 .
+la sous - algbre @xmath439 ( resp .
+@xmath440 ) est gradue par @xmath447 ( resp .
+@xmath448 ) , la sous - algbre @xmath441 est de poids @xmath4 .
+lalgbre @xmath433 est un sous@xmath449module pour la reprsentation adjointe @xmath450 de @xmath431 sur elle - mme . en effet @xmath451 et , pour @xmath438 , @xmath452 agit sur @xmath453 par multiplication par @xmath454 .
+la filtration de @xmath431 induit une filtration sur @xmath433 .
+le niveau @xmath220 de cette filtration est donc somme directe de @xmath455 et de @xmath456 .
+lalgbre de lie @xmath457 est un sous@xmath449module pour laction adjointe , elle a une dcomposition triangulaire @xmath458 ( o @xmath459 et @xmath460 ) et une dcomposition radicielle @xmath461 ( o @xmath462 ) .
+\3 ) lalgbre @xmath433 ( ou @xmath439 , @xmath440 , @xmath441 ) a une structure de @xmath32bigbre cocommutative , co - inversible , elle est non commutative ( sauf @xmath441 ) .
+sa comultiplication @xmath463 , sa co - unit @xmath464 et sa co - inversion ( ou antiautomorphisme principal ) @xmath465 respectent la graduation et la filtration : elles sont donnes sur les gnrateurs par les formules suivantes ( pour @xmath204 , @xmath438 et @xmath435 ) :    @xmath466 , @xmath467 pour @xmath468    et @xmath469    @xmath470 , @xmath471 pour @xmath468 et @xmath472    @xmath473 , @xmath474 pour @xmath468 et @xmath475 .
+\4 ) les automorphismes @xmath212 de [ 1.4 ] stendent  @xmath431 et stabilisent @xmath433 . on a une action de @xmath216 sur @xmath433 .
+ainsi , pour une racine relle @xmath40 et un @xmath476 base ( sur @xmath455 ) de @xmath477 , llment @xmath478 est dans @xmath433 ; cest une base de @xmath479 . on a comme ci - dessus @xmath480 , @xmath481 pour @xmath468 et @xmath482 .
+lautomorphisme @xmath483 de @xmath431 stabilise @xmath433 , puisquon a @xmath484 . on note @xmath485 llment suivant @xmath486 ; cet lment de @xmath216 dpend du choix de @xmath476 comme base de @xmath477 , si on change @xmath476 en @xmath487 , on change @xmath485 en @xmath488 .
+plus gnralement le foncteur en groupe @xmath261 admet une reprsentation adjointe @xmath489 dans les automorphismes de @xmath433 respectant sa filtration et donc aussi dans les automorphismes de @xmath457 @xcite .
+pour @xmath219 et @xmath490 , @xmath239 agit sur @xmath491 comme @xmath492 ; le groupe @xmath146 agit selon la dcomposition de @xmath433 ou @xmath493 selon les poids .
+\5 ) lalgbre @xmath494 est gradue par @xmath447 .
+on peut la graduer par un _
+degr total _
+dans @xmath495 do nt chaque facteur regroupe un nombre fini danciens facteurs .
+ainsi sa compltion positive ( pour le degr total ) est @xmath496 ; cest une algbre pour le prolongement naturel de la multiplication de @xmath494 .
+on peut de mme considrer lalgbre @xmath497 ( en gnral diffrente de @xmath498 ) pour tout anneau @xmath8 .
+on peut considrer la compltion positive @xmath499 de @xmath500 selon le degr total ( dans @xmath455 ) ; cest une algbre contenant @xmath501 .
+on dfinit de mme @xmath502 qui contient @xmath503 .
+lalgbre @xmath502 contient lalgbre de lie @xmath504 .
+laction adjointe @xmath450 de @xmath500 sur @xmath500 respecte la graduation .
+on peut donc la prolonger en une action de @xmath499 ( ou @xmath502 ) sur elle mme .
+lalgbre de lie @xmath505 est un sous@xmath506module .    les rsultats prcdents et suivants sont
+bien sr encore valables si on remplace @xmath507 par @xmath508 ou par un conjugu de @xmath509 par un lment du groupe de weyl @xmath87 .
+on peut en particulier dfinir des compltions ngatives @xmath510 , @xmath511 ou @xmath512 ( selon loppos du degr total ) .    [ 2.2 ] lalgbre de lie @xmath493 ( resp .
+@xmath513 , @xmath514 ) est le @xmath515module ( resp .
+@xmath516module , @xmath517module ) engendr par @xmath518 et les @xmath519 , @xmath520 ( resp .
+par les @xmath519 , par les @xmath520 ) pour @xmath204 ( pour laction adjointe de @xmath500 ) .
+lalgbre de lie @xmath493 contient la sous - algbre de lie @xmath521 engendre par @xmath522 et les @xmath519 , @xmath520 pour @xmath204 .
+comme @xmath493 est une algbre de lie , elle contient @xmath523 ; comme cest un sous@xmath524module de @xmath500 elle contient le @xmath515module @xmath525 engendr par @xmath522 et les @xmath519 , @xmath520 .
+si jamais @xmath526 , il existe un nombre premier @xmath9 tel que limage de @xmath525 dans @xmath527 nest pas tout @xmath527 .
+mais ceci contredit ( * ? ? ?
+le raisonnement pour @xmath528 est analogue .
+[ 2.3 ] a ) soit @xmath2 un corps de caractristique @xmath9 .
+si , pour tout coefficient de la matrice de kac - moody @xmath17 , on a @xmath529 ou si @xmath530 , alors lalgbre @xmath531 ( engendre par @xmath532 et les @xmath519 , @xmath520 pour @xmath204 ) est gale  @xmath533
+. de mme lalgbre de lie @xmath534 ( resp .
+@xmath535 ) est engendre par les @xmath519 ( resp .
+les @xmath520 ) .
+\b ) dans le cas simplement lac si @xmath536 pour @xmath537 , on a @xmath538 .
+le a ) est clair pour @xmath530 ; pour @xmath539 cest ( * ? ? ?
+* p308 ) . on en dduit alors facilement le b )
+comme dans la dmonstration prcdente .
+on peut aussi utiliser la proposition [ 2.2 ] et ( * ? ? ?
+* prop 1 p181 ) pour prouver a ) et b ) .
+voir aussi ( * ? ? ?
+* prop 1 ) .
+[ 2.4 ] soit @xmath540 .
+il existe des lments @xmath541}\in\shu$ ] pour @xmath435 , tels que @xmath542}=1 $ ] , @xmath543}=x$ ] et ( si on note @xmath544 ) llment @xmath541}-x^{(n)}$ ] est de filtration @xmath545 dans @xmath431 .
+si de plus @xmath546 , @xmath50 , on peut supposer @xmath541}\in\shu_{n\alpha}$ ] .
+pour @xmath547 , on peut prendre @xmath541}=\left(\begin{array}{c}h \\ n\end{array}\right)$ ] .
+pour @xmath546 , @xmath219 , on peut prendre @xmath541}=x^{(n)}$ ] .
+le problme se pose pour @xmath546 , @xmath548 .
+des calculs explicites sont faits dans @xcite ; on constate que @xmath541}$ ] nest pas forcment dans @xmath549 .
+pour @xmath550 , @xmath551 , on a @xmath552 modulo filtration @xmath545 .
+on dduit ainsi lexistence des @xmath553}$ ] de celle des @xmath554}$ ] , @xmath555}$ ] .
+la dmonstration se rduit donc au cas o @xmath556 est homogne et lun des gnrateurs du @xmath32module @xmath493 .
+le rsultat signal en remarque pour @xmath557 , @xmath558 ou @xmath559 et la proposition [ 2.2 ] montrent quil suffit de dmontrer le lemme suivant ( le cas ngatif est semblable ) .
+[ 2.5 ] soient @xmath560 et @xmath561 tels quil existe des lments @xmath541}\in\shu_{n\beta}$ ] satisfaisant aux conditions de la proposition prcdente .
+pour @xmath204 , @xmath562 , notons @xmath563 et @xmath564 ( @xmath565 si @xmath566 ) .
+alors il existe des lments @xmath567}\in\shu_{n\gamma}$ ] ( pour @xmath435 ) satisfaisant aux conditions de la proposition prcdente .    on raisonne par rcurrence sur @xmath20 ; cest vrai pour @xmath568 ou @xmath220 .
+si @xmath228 et @xmath77 sont colinaires , on a @xmath569 , donc @xmath570 pour @xmath571 . on peut donc
+supposer @xmath228 et @xmath77 indpendants .
+on travaille dans lalgbre @xmath572 et pour @xmath573 on note @xmath574 .    on a alors
+@xmath575    et aussi @xmath576 pour @xmath577 ,    voir ( * ? ? ?
+6 ex.1 p90 et viii  12 lemme 2 p174 ) .
+identifions les termes de poids @xmath578 dans les 2 membres de la premire relation ci - dessus , en calculant modulo filtration @xmath545 .
+dans le membre de gauche on trouve @xmath579 qui nest diffrent de @xmath580}e_i^{(q)}\in\shu_{n\gamma}$ ] que par le terme de poids @xmath578 de @xmath581 ( pour @xmath582}-x^{(n)}\in\shu_{n\gamma\c}$ ] de filtration @xmath545 ) cest  dire par @xmath583 .
+daprs la seconde relation ci - dessus ce dernier terme est de filtration @xmath545 .
+ainsi le terme de poids @xmath578 du membre de gauche est dans @xmath584 modulo filtration @xmath545 .
+dans le membre de droite les termes de poids dans @xmath585 sont ceux de la somme @xmath586 , gale  @xmath587 modulo des termes de filtration @xmath545 et de mmes poids .
+pour slectionner les termes de poids @xmath578 dans cette dernire somme , on a 2 conditions sur les @xmath588 :
+@xmath589 et @xmath590 .
+ainsi @xmath591 pour @xmath592 , @xmath593 et @xmath594 ; donc si @xmath595 on a @xmath596 .
+ainsi la partie de poids @xmath578 du membre de droite est , modulo filtration @xmath545 , la somme de @xmath597 et de produits @xmath598 avec des @xmath599 .
+par rcurrence le @xmath600-ime terme de lun de ces produits est dans @xmath500 modulo filtration @xmath601 , donc chacun de ces produits est dans @xmath584 modulo filtration @xmath545 .
+par comparaison des membres de gauche et de droite , on obtient que @xmath597 est dans @xmath584 modulo filtration @xmath545 .
+pour @xmath72 , soit @xmath602 une base de @xmath477 sur @xmath455 .
+pour @xmath603 racine simple , on choisit @xmath604 et @xmath605 .
+par conjugaison par @xmath87 , pour @xmath219 , on peut choisir @xmath606 et @xmath607 de faon que @xmath223=-\alpha^\vee$ ] .
+on ordonne la base @xmath608 de @xmath609 de manire quelconque .
+pour @xmath610 on choisit des lments @xmath541}$ ] comme en [ 2.4 ] .
+pour @xmath611 , on dfinit @xmath612=\prod_{x\in\shb}\,x^{[n_x]}$ ] ( ce produit est pris dans lordre choisi et est en fait fini car presque tous les @xmath613 sont nuls ) .
+le poids de @xmath612 $ ] ( et , par dfinition , de @xmath614 ) est la somme pondre @xmath615)=\sum\,n_xpds(x)\in q$ ] des poids des @xmath610 .
+ces lments @xmath612 $ ] forment une base de @xmath500 sur @xmath455 .
+\1 ) lalgbre gradue @xmath616 dfinie par la filtration de @xmath500 est donc une algbre de polynmes diviss  coefficients dans @xmath455 et do nt les indtermines sont les lments de @xmath617 .
+\2 ) bien sr ces rsultats sont encore valables sur un anneau @xmath618 quelconque .
+si @xmath618 contient @xmath619 , on peut remplacer @xmath541}$ ] par @xmath620 pour tout @xmath610 .
+cest une consquence immdiate de [ 2.4 ] daprs ( * ? ? ?
+12 n3 prop .
+1 ) qui se gnralise sans problme  la dimension infinie .
+[ 2.7 ] pour @xmath546 , @xmath72 , on peut modifier les @xmath541}$ ] de la proposition [ 2.4 ] de faon  satisfaire aux relations supplmentaires suivantes :    @xmath621})=\sum_{p+q = n}\,x^{[p]}\otimes x^{[q]}$]et @xmath622})=0 $ ] pour @xmath468 .
+pour @xmath546 , @xmath72 , on dit que @xmath623})_{n\in\n}$ ] est une _ suite exponentielle _
+associe  @xmath556 si elle satisfait aux conditions des propositions [ 2.4 ] ( y compris @xmath541}\in\shu_{n\alpha}$ ] ) et [ 2.7 ] .
+plus gnralement , si @xmath624 pour @xmath8 un anneau , il existe des _ suites exponentielles inhomognes _ associes  @xmath556 ; on peut prendre @xmath625}=\sum_{p+q = n}\,\lambda^p\mu^q y^{[p]}z^{[q]}$ ] .    @xmath626 ( resp .
+@xmath616 ) est donc isomorphe comme cogbre gradue ( resp .
+bigbre gradue )  une algbre de polynmes diviss , plus prcisment  lalgbre symtrique  puissances divises @xmath627 .
+quitte  soustraire @xmath622})$ ] , on peut supposer @xmath622})=0 $ ] , pour @xmath468 . on raisonne par rcurrence sur @xmath20 ; cest clair pour @xmath628 .
+supposons le rsultat vrai pour @xmath629 , alors pour @xmath630 et @xmath631 on a @xmath632})=\sum_{p+q = n}\,{[p]}\otimes { [ q]}$ ] ( avec des @xmath633 ) .
+la proprit des @xmath620 vis  vis de @xmath463 et la relation entre @xmath620 et @xmath541}$ ] montre quil existe des @xmath634 tels que :    @xmath621})=\sum_{p+q = n}\,x^{[p]}\otimes x^{[q]}+\sum_{d^\circ(p+r)<n}\,a^n_{p , r}[p]\otimes[r]$ ] .
+daprs la proprit de la co - unit @xmath464 , @xmath635 si @xmath636 ou @xmath637 .
+par co - commutativit , @xmath638 .
+enfin @xmath463 tant compatible  la graduation , @xmath635 si le poids de @xmath639 ( de @xmath640.[r]$ ] ) est diffrent de @xmath641 .
+daprs la co - associativit et la formule ci - dessus pour @xmath632})$ ] quand @xmath642 on a :    @xmath621})\otimes1+\sum_{p+q+r = n}^{r>0}\,x^{[p]}\otimes x^{[q]}\otimes x^{[r]}+\sum_{d^\circ(p+q+r)<n}\,a^n_{p+q , r}[p]\otimes[q]\otimes[r]$ ]    @xmath643})+\sum_{p+q+r = n}^{p>0}\,x^{[p]}\otimes x^{[q]}\otimes x^{[r]}+\sum_{d^\circ(p+q+r)<n}\,a^n_{p , q+r}[p]\otimes[q]\otimes[r]$ ]    aprs remplacement de @xmath621})$ ] par son expression et simplification , on obtient :    @xmath644\otimes[q]\otimes1+\sum_{d^\circ(p+q+r)<n}\,a^n_{p+q , r}[p]\otimes[q]\otimes[r]$ ]    @xmath645\otimes[r]+\sum_{d^\circ(p+q+r)<n}\,a^n_{p , q+r}[p]\otimes[q]\otimes[r]$ ]    on identifie alors les coefficients de @xmath640\otimes[q]\otimes[r]$ ] dans les 2 membres .
+pour @xmath646 , @xmath647 ou @xmath637 , on retrouve des relations connues .
+pour @xmath648 , on trouve que @xmath649 .
+sachant de plus que @xmath638 , on en dduit que @xmath650 ( pour @xmath651 ) ne dpend que de @xmath639 , on le note donc @xmath652 .
+( on laisse au lecteur cet exercice lmentaire , mais ncessitant lexamen de plusieurs cas . )
+llment @xmath653}-\sum_{d^\circ(s)<n}^{s\not=0}\,b^n_s[s]$ ] est bien gal  @xmath620 modulo filtration @xmath545 et , comme @xmath654 pour @xmath655 , son poids est bien @xmath641 . on a :    @xmath656}\otimes x^{[r]}+\sum_{d^\circ(p+r)<n}\,a^n_{p , r}[p]\otimes[r]$ ]    @xmath657\otimes1 + 1\otimes[s])-\sum\,b^n_{s}[p]\otimes[r]$ ]    o la dernire somme porte sur les @xmath658 tels que @xmath659 , @xmath660 et @xmath651 .
+elle est donc gale  la seconde somme puisque @xmath661 ou @xmath4 selon que @xmath636 et @xmath662 ou non .
+ainsi :    @xmath663}\otimes x^{[r]}$ ]      on raisonne dans @xmath664 pour une racine @xmath665 ( ou @xmath666 pour @xmath667 ) et un anneau @xmath618 .
+si @xmath546 , @xmath665 et @xmath668 , _
+lexponentielle tordue _
+@xmath669\lambda x= \sum_{n\geq{}0}\,\lambda^nx^{[n]}\in{\widehat\shu}^+_r$ ] nest dfinie que modulo le choix de la suite exponentielle @xmath541}$ ] .    ses proprits multiplicatives sont mauvaises : @xmath669(\lambda+\mu)x= \sum_{n\geq{}0}\,(\lambda+\mu)^nx^{[n]}$ ] est en gnral diffrent de @xmath669\lambda x.[exp]\mu x$ ] .
+pour @xmath670 il faudrait poser @xmath669\lambda x=([exp]x)^\lambda$ ] ( voir ci - dessous pour @xmath671 ) , mais lextension pour @xmath668 pose problme .
+pour tous @xmath551 , @xmath672 , @xmath669(\lambda x).[exp](\mu y)$ ] est un choix possible dexponentielle tordue ( inhomogne ) pour @xmath673 .
+par contre @xmath674\lambda x)=1 $ ] et pour le coproduit @xmath675\lambda x=[exp]\lambda x\widehat\otimes[exp]\lambda x$ ] : lexponentielle tordue est un lment de type groupe .
+la co - inversion @xmath465 vrifie @xmath676 .
+donc @xmath677\lambda x).(\tau[exp]\lambda x)=1=(\tau[exp]\lambda x).([exp]\lambda x)$ ] : lexponentielle tordue est inversible dans
+@xmath664 et son inverse vaut @xmath678\lambda x=\sum_{n\geq{}0}\,\lambda^n\tau x^{[n]}$ ] .
+bien sr @xmath679}$ ] est lune des suites exponentielles associes  @xmath680 , comme la suite @xmath681}$ ] , mais elle nest pas clairement lie ( en gnral )  cette dernire .
+pour @xmath618 contenant @xmath619 , ou @xmath219 , on peut considrer les exponentielles classiques @xmath682 qui ont dexcellentes proprits .
+\1 ) pour @xmath546 , cherchons sil existe une suite exponentielle @xmath683 autre que @xmath541}$ ] .
+daprs la dmonstration de [ 2.7 ] , il suffit de se poser la question quand on change @xmath684}$ ] sans changer @xmath685}$ ] pour @xmath686 . on a alors @xmath687}+y$ ] avec @xmath688 de filtration @xmath689 .
+sachant que @xmath690}=\sum_{p+q = n+1}\,x^{[p]}\otimes x^{[q]}$ ] , on a @xmath691 si et seulement si @xmath692 , autrement dit si @xmath693 est primitif dans la cogbre @xmath500 , cest  dire si @xmath694 ( * ? ? ? *
+ii  1 n 5 cor p13 ) .
+ainsi la suite @xmath541}$ ] nest unique qu des lments @xmath695 prs .
+autrement dit un autre choix pour @xmath669x$ ] peut scrire @xmath669'x=[exp]x.[exp]x_2.[exp]x_3.\cdots.[exp]x_m.\cdots$ ] .
+\2 ) pour @xmath40 racine relle , il y a unicit puisque @xmath696 pour @xmath697 , on a donc toujours @xmath541}=x^{(n)}$ ] et @xmath669x = exp\,x$ ] .
+par contre il ny a pas unicit des @xmath541}$ ] pour @xmath698 ou @xmath40 racine imaginaire . on verra en [ 2.12 ] dans des cas affines les bons choix proposs par d. mitzman .
+\3 ) pour @xmath546 mais en raisonnant dans @xmath699 , on obtient quil existe @xmath700 tels que @xmath669x = exp(x).exp(y_2).\cdots.exp(y_m).\cdots$ ] . en particulier @xmath677x)^{-1}=\tau[exp]x=\cdots.exp(-y_m).\cdots.exp(-y_2).exp(-x)$ ] .
+si les espaces @xmath701 commutent , les exponentielles ci - dessus commutent .
+mais lon a naturellement @xmath669\lambda x = exp(\lambda x).exp(\lambda^2y_2).\cdots.exp(\lambda^my_m).\cdots$ ] et non pas @xmath669\lambda x = exp(\lambda x).exp(\lambda y_2).\cdots.exp(\lambda y_m).\cdots$ ] ( qui dailleurs nest en gnral pas dans @xmath699 ) .
+il parat donc difficile de faire de @xmath669 $ ] un sous - groupe  un paramtre pour @xmath702 .
+\4 ) * remarque * : lexpression ci - dessus de @xmath669x$ ] ( pour @xmath546 , @xmath218 ) en terme dexponentielles classiques , montre que , @xmath703 , @xmath541}\in\shu_\q(\oplus_{r\geq{}1}\,{\mathfrak{g}}_{r\alpha\q})\cap\shu_{n\qa}$ ] et @xmath541}.x^{[m]}=\left(\begin{array}{c}n+m \\ n\end{array}\right)x^{[n+m]}$ ] modulo @xmath704 .
+ce ntait pas clair auparavant pour @xmath40 imaginaire .
+ainsi la base de @xmath500 sur @xmath455 construite en [ 2.6 ] , qui est compatible avec la graduation par les poids dans @xmath39 , est aussi compatible avec la dcomposition de @xmath705 ou @xmath706 en produit tensoriel correspondant  la dcomposition en somme directe @xmath707 ,  condition de regrouper une racine imaginaire et ses multiples positifs .
+pour @xmath40 imaginaire , cette base est compatible  la filtration par les @xmath708 .
+on peut essayer de gnraliser [ 2.8 ] et [ 2.9 ] pour @xmath698 @xmath709 .
+on travaille donc dans @xmath710 et , pour simplifier , on se place en rang @xmath220 : @xmath19 est de base @xmath711 et @xmath712 .
+on raisonne dans @xmath713 pour un anneau @xmath618 ; ce nest pas le complt de @xmath714 pour la graduation par @xmath39 ; la multiplication de @xmath714 se prolonge car @xmath715 .
+ainsi @xmath716 est une algbre commutative avec une comultiplication @xmath717 , mais malheureusement sans co - inversion et dpendant du choix de @xmath711 ( au lieu de @xmath718 ) , voir ci - dessous .    on sait que @xmath710 est la bigbre des distributions  lorigine du groupe multiplicatif @xmath719 .
+la bigbre affine de ce groupe est @xmath720=\z[t , t^{-1}]$ ] et la dualit entre ces 2 bigbres est donne par @xmath721 ( en fait @xmath722 est @xmath723 calcul en llment neutre ) ( * ? ? ?
+* ii  4 5.10 ) .
+pour @xmath724 , on peut poser @xmath725=\sum_{i\geq{}0}\,(x-1)^i\left(\begin{array}{c}h \\
+i\end{array}\right)\in{\widehat\shu}^0_r$ ] ( cest moralement @xmath726 ) . on a bien @xmath725t^n = x^n$ ]
+pour @xmath727 ; par contre pour @xmath728 , ceci na un sens que si @xmath729 est nilpotent ( donc @xmath730 ) .    on a @xmath731=[x]\otimes[x]\in{\widehat\shu}^0_r{\widehat\otimes}{\widehat\shu}^0_r$ ] : llment @xmath725 $ ] est de type groupe .
+le prolongement naturel de @xmath465 devrait donner :    @xmath732=\sum_{i\geq{}0}\,(x-1)^i\left(\begin{array}{c}-h \\ i\end{array}\right)=\sum_{p , q}\,(1-x)^{p+q}\left(\begin{array}{c}p+q-1 \\ p\end{array}\right)\left(\begin{array}{c}h \\
+q\end{array}\right)$ ]    @xmath733 .
+mais ce calcul na un sens dans @xmath716 que si @xmath734 est nilpotent , auquel cas @xmath732 $ ] est bien gal  @xmath735=\sum_{q\geq{}0}\,(1-x)^qx^{-q}\left(\begin{array}{c}h \\ q\end{array}\right)$ ] , vu le calcul ci - dessus de @xmath736t^{-q}$ ] .
+les exponentielles tordues en poids nul semblent donc trop imparfaites .
+* p114 - 116 )    on considre des indtermines @xmath737 et @xmath738 .
+le polynme @xmath739 est le coefficient de @xmath740 dans le dveloppement de lexpression formelle @xmath741 .
+cest un polynme en les @xmath742  coefficients positifs dans @xmath619 . son poids total est @xmath168 si @xmath742 est de poids @xmath600 .    on a : @xmath743 , @xmath744 , @xmath745 , @xmath746 , @xmath747    cas particuliers pour certaines spcialisations des indtermines , on a :    si @xmath748 pour @xmath749 , alors @xmath750 ,    si @xmath751 pour @xmath752 , alors @xmath753 ,    si @xmath754 pour @xmath752 et @xmath755 , alors @xmath756 .
+\a ) @xmath757 , si @xmath758 .
+\b ) @xmath759 .
+\c ) @xmath760 est congru  @xmath761 modulo des polynmes de degr total @xmath762 . pour @xmath758 @xmath739 na pas de terme constant .
+la premire assertion rsulte de la troisime ligne de la dmonstration de @xcite p.115 puisque @xmath763 .
+pour la seconde assertion , on a @xmath764.@xmath765 , do le rsultat .
+enfin la dernire assertion est claire .
+dans une @xmath766algbre de lie gradue considrons une suite @xmath767 dlments commutant deux  deux et de poids @xmath768 . dans lalgbre enveloppante on peut donc calculer @xmath769 qui est de poids @xmath770 .
+daprs le lemme la suite des @xmath683 est exponentielle . on peut donc lui associer lexponentielle tordue @xmath771 .
+revenons  la situation de [ 2.9 ] : @xmath218 et @xmath546 .
+supposons que les espaces @xmath772 , @xmath773,@xmath747 , @xmath774,@xmath747 commutent deux  deux .
+cest vrai dans le cas des algbres de kac - moody affines ( ou semi - simples ) ; mais malheureusement ce sont essentiellement les seuls cas o cela soit vrifi .
+pour une suite exponentielle @xmath541}$ ] , il existe des lments @xmath775 pour @xmath749 tels que @xmath669x = exp(x).exp(y_2).\cdots.exp(y_m).\cdots = exp(x+y_2+\cdots+y_m+\cdots)$ ] .
+posons @xmath776 , @xmath777,@xmath747 , @xmath778,@xmath747 . on a alors @xmath669x = exp(\sum_{j\geq{}1}\,x_j / j)$ ] .
+en identifiant les termes de poids @xmath641 , on obtient @xmath541}=\lambda_n(\underline x)\in\shu$ ] .
+grce  [ 2.11].a on en dduit facilement par rcurrence que @xmath779 , @xmath780 ; mais les exemples ci - dessous montrent que @xmath781 nest en gnral pas dans @xmath493 .
+david mitzman a calcul explicitement une base de lalgbre enveloppante entire @xmath433 dans le cas affine ( et pour un certain sgr @xmath75 ) ( * ? ? ?
+* et 4.4.12 ) .
+elle sexprime comme la base de [ 2.6 ] ; avec @xmath782}=\lambda_n(h , h,\cdots)=(-1)^n\left(\begin{array}{c}-h \\ n\end{array}\right)$ ] pour @xmath783 et @xmath541}=\lambda_n(x,0,\cdots)=x^{(n)}$ ] pour @xmath556 base de @xmath74 , @xmath219 .
+si @xmath548 et @xmath784 le choix de @xmath541}$ ] est @xmath541}=\lambda_n(x , x_2,\cdots , x_m,\cdots)$ ] avec des @xmath785 ; donc @xmath669x = exp(x).\prod_{j=2}^\infty\,exp(\frac{1 } { j}x_j)$ ] , par dfinition des @xmath786 . on
+va dcrire ces @xmath787 dans le cas le plus facile , 4.2.5 : @xmath788 est simplement lace ( donc non tordue , de type @xmath789 , @xmath790 ou @xmath791 ) .
+voir aussi le corollaire [ 2.3].b .
+une algbre de lie @xmath788 de lun de ces types peut scrire comme extension centrale ( avec centre de dimension @xmath220 ) dun produit semi - direct ( avec @xmath3 ) dune algbre de lacets @xmath792 $ ] o @xmath793 est une algbre de lie simple complexe de type @xmath17 , @xmath794 ou @xmath795 .
+les racines imaginaires sont les multiples entiers dune racine @xmath796 et , pour @xmath797 , on a @xmath798 o @xmath799 est une sous - algbre de cartan de @xmath793 .
+si @xmath800 est une base de coracines dans @xmath799 , lespace @xmath801 admet pour base @xmath802 .
+le bon choix ( de mitzman ) pour @xmath803}$ ] est @xmath804 , 3.9.1 et 4.2.3 .    on peut remarquer que @xmath803}=\lambda_p(h_{i}\otimes
+t^n , h_{i}\otimes t^{2n},\cdots , h_{i}\otimes t^{jn},\cdots)$ ] a pour image @xmath805}\otimes t^{np}=\left(\begin{array}{c}h+p-1 \\ p\end{array}\right)\otimes t^{np}=\left(\begin{array}{c}-h \\ p\end{array}\right)\otimes ( -t^n)^p$ ] dans le quotient @xmath806 $ ] de @xmath807 ( troisime cas particulier de [ 2.11 ] ) .
+* lexemple de @xmath808 * : pour le type @xmath809 , on peut prciser encore plus . on a @xmath810\subset end_{\c[t , t^{-1}]}(\c[t , t^{-1}]^2)$ ] .
+si @xmath811 , alors , pour @xmath797 , @xmath801 a pour base @xmath812 .
+la reprsentation naturelle de @xmath813 sur @xmath814 ^ 2 $ ] induit un homomorphisme @xmath299 de @xmath807 dans @xmath815}(\c[t , t^{-1}]^2)$ ] ou de @xmath816 dans @xmath817 . on a @xmath818})=(-t^n)^p\left(\begin{array}{c}-h \\ p\end{array}\right)=t^{np}\left(\begin{array}{c}h+p-1 \\ p\end{array}\right)\in end_{\z(\!(t)\!)}(\z(\!(t)\!)^2)$ ] . on en dduit
+que @xmath819}(\z[t , t^{-1}]^2)$ ] et que , pour @xmath820 dans un anneau @xmath8 , @xmath821\lambda h_n)=diag(u , v)\in end_{k(\!(t)\!)}(k(\!(t)\!)^2)$ ] avec @xmath822 et @xmath823 . en particulier @xmath821\lambda h_n)$ ] est bien inversible et mme dans @xmath824 .
+\1 ) pour @xmath218 , @xmath825 est une sous@xmath432algbre de @xmath500 .
+pour @xmath219 , @xmath826 admet pour base sur @xmath455 les @xmath827 , @xmath435 .
+pour @xmath548 et @xmath435 , on choisit une base @xmath828 de @xmath829 et des suites exponentielles @xmath554}$ ] pour @xmath830 . daprs
+[ 2.9].4 ci - dessus , ces @xmath554}$ ] sont dans
+@xmath826 et , daprs [ 2.6 ] , les @xmath612=\prod_{x\in\shb_{(\alpha)}}\,x^{[n_x]}$ ] ( pour @xmath831 , @xmath832 , @xmath833 ) forment une base de @xmath826 . on en dduit , en particulier , que @xmath826 est une sous@xmath432bigbre co - inversible de @xmath500 .
+si @xmath834 est un ensemble clos , @xmath835 est une algbre de lie ; lalgbre @xmath836 engendre par les @xmath826 pour @xmath837 est une sous - bigbre co - inversible de @xmath500 de base les @xmath612 $ ] pour @xmath838 avec @xmath839 .
+lalgbre enveloppante de @xmath840 est @xmath841 et @xmath842 .
+les algbres @xmath836 et @xmath843 sont stables par laction adjointe de @xmath836 .
+pour @xmath844 ( resp @xmath845 ) on a @xmath846 ( resp .
+@xmath847 ) . on a @xmath848 .    pour un anneau @xmath8 , on note @xmath849 et @xmath850 .
+\2 ) si @xmath851 est clos , lalgbre @xmath836 est gradue par @xmath447 . on peut la graduer par le degr total .
+sa compltion positive @xmath852 est une sous@xmath432algbre de @xmath853 .
+on peut de mme considrer lalgbre @xmath854 ( en gnral diffrente de @xmath855 ) pour tout anneau @xmath8 .
+si @xmath834 est clos , on peut considrer la compltion positive @xmath856 de @xmath836 selon le degr total ( dans @xmath455 ) ; cest une sous@xmath432algbre de @xmath857 . on dfinit
+de mme @xmath858 .
+lintersection de @xmath858 avec @xmath859 est @xmath860 .
+bien sr @xmath858 et @xmath861 sont des sous@xmath862modules de @xmath502    si @xmath109 est un idal de @xmath108 , @xmath863 ( resp @xmath864 ) est un idal de @xmath858 ( resp @xmath865 ) .
+\3 ) les rsultats prcdents et suivants sont bien sr encore valables si on remplace @xmath507 par @xmath508 ou par un conjugu de @xmath509 par un lment du groupe de weyl @xmath87 .
+on peut en particulier dfinir des compltions ngatives @xmath866 ( selon loppos du degr total ) .
+soit @xmath820 un poids dominant de @xmath146 , @xmath867 .
+considrons le @xmath868module irrductible @xmath869 de plus haut poids @xmath820 ( * ? ? ?
+* et 10 ) .
+si @xmath870 est un vecteur non nul de poids @xmath820 , @xmath869 est un quotient du module de verma @xmath871 ( dans le cas non symtrisable , on prend plutt pour @xmath869 le quotient intgrable maximal de @xmath872 comme en ( * ? ? ?
+* p28 ) ) .
+le sous@xmath449module @xmath873 est une @xmath32forme de @xmath869 ; on peut dfinir @xmath874 , pour tout anneau @xmath8 .
+ces modules sont intgrables au sens de @xcite et gradus par @xmath448( translation prs ) avec des espaces de poids de dimension finie .
+en particulier on a une reprsentation diagonalisable de @xmath146 dans @xmath875 .
+il est clair que , pour tout anneau @xmath8 , @xmath876 est en fait un @xmath877module .
+on dfinit de mme des modules intgrables  plus bas poids @xmath876 pour @xmath878 ; ce sont des @xmath879modules .
+on va tudier ci - dessous deux groupes de kac - moody `` maximaux '' dits _ positif _ et _ ngatif _ qui contiennent le groupe minimal tudi dans la premire partie .
+ils se dduisent lun de lautre par lchange de @xmath507 et @xmath508 ; on va donc essentiellement se concentrer sur le groupe positif .
+ce groupe sera not @xmath262 , les sous - groupes ou les algbres associes seront en gnral nots avec un exposant @xmath880 ou @xmath881 .
+les analogues pour @xmath508 seront nots avec un exposant @xmath882 ou @xmath883 .
+soit @xmath851 un ensemble clos de racines .
+on considre lalgbre @xmath836 de [ 2.13 ] , qui ne dpend que de @xmath17 et @xmath108 ( et non de @xmath75 ) .
+cest une @xmath32bigbre co - inversible , cocommutative , gradue par @xmath447 : @xmath884 ; tous ses espaces de poids sont libres de dimension finie sur @xmath455 .
+on considre son dual restreint @xmath885=\bigoplus_{\alpha\in\n\psi}\,\shu(\psi)_\alpha^*$ ] .
+cest une @xmath32bigbre commutative et co - inversible ( sa co - inversion est le dual de @xmath465 encore not @xmath465 , qui est un isomorphisme dalgbres ) ; cest  dire lalgbre dun schma en groupe affine @xmath886 que lon verra comme un foncteur en groupes : pour un anneau @xmath618 , @xmath887,r)$ ] . on note @xmath888 .
+pour @xmath889 on note @xmath890 , pour @xmath891 on note @xmath892 ; @xmath886 et @xmath893 sont des sous - schmas en groupe de @xmath894 .
+la dfinition de @xmath895=\z[{\mathfrak{u}}^{ma}_\psi]$ ] dans ( * ? ? ?
+* p 19 - 21 ) est plus complique car elle ne se limite pas  @xmath851 . dans notre cas le lemme 3 de dit bien que @xmath896 $ ] est le @xmath766dual restreint de @xmath897 et alors @xmath895 $ ] ( dfini page 21 de ) est bien le dual restreint de @xmath836 .
+la base de @xmath836 indexe par des @xmath838 explique en [ 2.13].1 fournit par dualit une base @xmath898 de @xmath885 $ ] , indexe par les mmes @xmath614 .
+comme @xmath899=\sum_{p+q = n}\,[p]\otimes[q]$ ] , on a @xmath900 .
+ainsi @xmath885 $ ] est une algbre de polynmes sur @xmath455 do nt les indtermines @xmath901 sont indexes par les @xmath902 .
+on retrouve ainsi un rsultat de olivier mathieu ( * ? ? ? * lemme 2 p41 ) .
+inversement si on admet ce rsultat , @xmath885 $ ] admet comme base des monmes , son dual restreint @xmath836 admet une base gradue qui a de bonnes proprits pour le coproduit @xmath463 .
+un raisonnement analogue au raisonnement dunicit de [ 2.9 ] permet alors de construire des suites exponentielles .
+[ 3.2 ] pour @xmath108 comme ci - dessus et @xmath618 un anneau , @xmath903 sidentifie au sous - groupe multiplicatif de @xmath904 form des produits @xmath905\lambda_xx$ ] , pour des @xmath906 , le produit tant pris dans lordre ( quelconque ) choisi sur @xmath617 .
+lcriture dun lment de @xmath903
+sous la forme dun tel produit est unique .
+\1 ) si @xmath108 est fini et donc form de racines relles , on retrouve le groupe de sommes formelles de @xcite , cest  dire lunique schma en groupe lisse connexe unipotent dalgbre de lie @xmath907 , ( * ? ? ?
+. 1 p547 ) et aussi [ 3.4 ] ci - dessous .
+dans ce cas les exponentielles sont classiques et les produits sont finis .
+\2 ) pour @xmath891 , le choix de llment de base @xmath476 de @xmath477 dtermine un isomorphisme @xmath250 du groupe additif @xmath237 sur @xmath283 donn par @xmath908 .
+\3 ) dans les produits infinis proposs et pour tout @xmath435 , tous les facteurs sauf un nombre fini sont gaux  @xmath220 modulo des termes de degr total @xmath909 .
+ces produits infinis sont donc bien dans @xmath910 .
+le @xmath911dual de @xmath912 $ ] est @xmath910 .
+donc @xmath903 sidentifie  lensemble des lments @xmath913 tels que @xmath914 @xmath915 et @xmath916 pour tous @xmath917 $ ] @xmath918 ou encore @xmath919 .
+ainsi @xmath903 est lensemble des lments de @xmath910 de terme constant @xmath220 et de type groupe .
+parmi ces lments il y a les produits infinis de lnonc .
+mais @xmath912 $ ] est une algbre de polynmes dindtermines @xmath901 , @xmath902 .
+par dfinition @xmath920\lambda_yy)=\lambda_x$ ] .
+ainsi ces produits infinis fournissent une et une seule fois toutes les applications de @xmath921 dans @xmath618 , donc tous les homomorphismes de @xmath912 $ ] dans @xmath618 .    [ 3.3 ] soient @xmath922 des sous - ensembles clos de racines .
+\a ) @xmath923 est un sous - groupe ferm de @xmath924 et @xmath925 $ ] est une algbre de polynmes dindtermines indexes par @xmath926 .
+\b ) si @xmath927 est galement clos , alors on a une dcomposition unique @xmath928 .
+\c ) si @xmath109 est un idal de @xmath108 , alors @xmath923 est un sous - groupe distingu de @xmath924 et on a un produit semi - direct si , de plus , @xmath927 est clos .
+\d ) si @xmath927 est rduit  une racine @xmath40 , alors le quotient @xmath929 est isomorphe au groupe additif @xmath237 pour @xmath40 relle et au groupe unipotent commutatif @xmath930 pour @xmath40 imaginaire .
+\e ) si @xmath931 , @xmath932 implique @xmath933 , alors @xmath929 est commutatif
+. le groupe @xmath934 est isomorphe au groupe additif @xmath935 .
+\f ) si @xmath936 est un autre sous - ensemble clos et si @xmath937 , @xmath938 , @xmath939 implique @xmath940 , alors @xmath941 contient le groupe de commutateurs @xmath942    \a ) @xmath943 est une sous - bigbre co - inversible de @xmath836 , donc @xmath923 est un sous - groupe de @xmath924 .
+ce sous - groupe est ferm , dfini par lannulation des indtermines @xmath901 pour @xmath944 .
+pour la dernire assertion il suffit dans [ 3.2 ] dordonner @xmath617 de faon que @xmath945 soit en dernier (  droite ) .
+lassertion b ) rsulte aussitt de la proposition [ 3.2 ]    \c ) plaons nous dabord sur @xmath3 ( ou un anneau contenant @xmath619 )
+. on peut alors remplacer dans [ 3.2 ] les exponentielles tordues par les exponentielles habituelles .
+des calculs classiques montrent alors que @xmath946 est distingu dans @xmath947 . en fait il est clair que @xmath947
+ou @xmath946 est le groupe introduit dans @xcite presque sous le mme nom et on peut donc faire rfrence  @xcite .
+le normalisateur de @xmath923 dans @xmath924 est ferm dans @xmath924 ( * ? ? ?
+* ii  1 3.6b ) .
+comme @xmath885 $ ] est une algbre de polynmes et que lon vient de voir que ce normalisateur est gal  @xmath886 sur @xmath3 , il en est de mme sur @xmath455 .
+\d ) ordonnons @xmath921 de manire que @xmath602 soit en premier .
+alors , daprs [ 2.6 ] et [ 3.2 ] , un lment de @xmath903 scrit de manire unique sous la forme @xmath948\lambda_xx)z$ ] avec des @xmath906 et @xmath949 . soit @xmath950 ( vide si @xmath40 est relle ) ; il reste  montrer que @xmath951\lambda_xx).(\prod_x\,[exp]\lambda'_xx)=\prod_x\,[exp](\lambda_x+\lambda'_x)x$ ] ( modulo @xmath952 )
+. mais on a vu dans la remarque [ 2.9].4 que , pour @xmath953 , @xmath541},y^{[n]}\in\shu^\alpha$ ] ( ces lments commutent donc modulo @xmath954 ) , et que @xmath541}.x^{[m]}=\left(\begin{array}{c}n+m \\ n\end{array}\right)x^{[n+m]}$ ] modulo @xmath954 .
+le rsultat est alors clair .
+\e ) il est clair que les lments de @xmath955 commutent modulo lidal @xmath956 .
+vus [ 3.2 ] et les bonnes proprits de la base des @xmath612 $ ] ( [ 2.9].4 ) , @xmath957 est commutatif isomorphe au produit direct des groupes @xmath958 pour @xmath959 .
+\f ) comme en c ) on a le rsultat sur @xmath3 .
+le centralisateur de @xmath960 dans @xmath961 est donc gal  @xmath961 sur @xmath3 .
+mais ce centralisateur est ferm
+dans @xmath961 ( * ? ? ?
+* ii  1 3.6c ) .
+comme @xmath962 $ ] est un anneau de polynmes , ce centralisateur est gal  @xmath961 .
+soient @xmath108 un sous - ensemble clos de @xmath507 et @xmath20 le plus petit des degrs totaux ( @xmath963 ) des @xmath964 .
+choisissons @xmath837 de degr total @xmath20 , alors @xmath965 est un idal de @xmath108 .
+ainsi @xmath923 est un sous - groupe distingu de @xmath924 et le quotient @xmath929 est isomorphe au groupe additif @xmath237 ou  @xmath930 .
+si @xmath40 est relle on a un produit semi - direct .
+ce procd fournit une numrotation de @xmath108 par @xmath495 ( ou un intervalle @xmath966 $ ] de @xmath495 ) : @xmath967 .
+pour @xmath435 , on note @xmath968 .
+daprs le lemme [ 3.3 ] le groupe @xmath969 est distingu dans @xmath924 et @xmath970 est isomorphe  @xmath971 .
+la proposition [ 3.2 ] montre que @xmath924 est limite projective des @xmath972 .
+ainsi @xmath924 est un groupe pro - unipotent ( ou mme unipotent si @xmath108 est fini ) .
+pour @xmath973 , notons @xmath974 lensemble des racines de @xmath108 de degr total @xmath975 .
+alors les @xmath976 sont distingus dans @xmath924 et @xmath977 est isomorphe au groupe additif @xmath978 .
+le groupe @xmath979 est limite projective des @xmath980 .
+le _ groupe de borel _ @xmath981 est par dfinition le produit semi - direct @xmath982 pour laction suivante de @xmath146 sur @xmath894 .
+pour un anneau @xmath618 , @xmath983 agit sur @xmath984 par des automorphismes de bigbre : sur @xmath985 , laction @xmath986 de @xmath987 est la multiplication par @xmath988 . on en dduit aussitt
+laction sur @xmath989 : @xmath990\lambda x=[exp]\alpha(t)\lambda x$ ] si @xmath991 .
+il est clair que les groupes @xmath924 de [ 3.3 ] sont stables par laction de @xmath146 .
+si @xmath603 est une racine simple on a @xmath992 .
+on dfinit comme ci - dessus @xmath993 avec @xmath994 $ ] dans le dual de @xmath995 et isomorphe  @xmath237 par @xmath996 , @xmath997 . o. mathieu dfinit un schma en groupe affine _ parabolique minimal _ @xmath998 ( contenant @xmath981 et associ  @xmath999 ) et un sous - groupe ferm @xmath1000 ( associ  @xmath1001 ) ; il montre que @xmath1002 ( * ? ? ?
+* lemme 8 p26 ) .
+le schma en groupe @xmath1003 contient les sous - groupes ferms @xmath146 , @xmath251 et @xmath993 , plus prcisment @xmath1004 $ ] est contenu dans le dual de @xmath1005 et sa restriction  @xmath1006 ( resp .
+@xmath1007 ) est @xmath1008 $ ] ( resp .
+il est clair ( ) que @xmath1003 est le groupe rductif de sgr @xmath1010 il agit sur @xmath493 et est isogne au produit de @xmath1011 par un tore dploy .
+llment @xmath1012 de @xmath1013 normalise @xmath146 , vrifie @xmath1014 et change @xmath1015 , @xmath1016 ; il agit sur @xmath493 comme @xmath212 ( [ 1.4 ] ) .
+enfin la double classe ( grosse cellule ) @xmath1017 de @xmath1018 est un ouvert dense et se dcompose de manire unique sous la forme @xmath1019 .
+mathieu se place dans le cas dun sgr @xmath75 libre , colibre , sans cotorsion et de dimension @xmath1020 .
+bien sr ces hypothses sont inutiles pour la plupart de ses rsultats ( cest particulirement clair pour la dernire ) . on se placera cependant
+dans ce cadre ( depuis lalina prcdent ) jusqu la fin de ce paragraphe o on examinera la gnralisation grce aux rsultats de [ 1.3 ] .    on abandonne en gnral dans la suite ( et jusquen 3.17 ) lindice @xmath75 et on abrge parfois @xmath1021 en @xmath1022 , @xmath1018 en @xmath1023 , @xmath1024 en @xmath1025 , etc .
+* xviii  2 ) , @xcite , ( * ? ? ?
+* i et ii )    on considre des schmas sur @xmath455 , mme si on naura essentiellement
+besoin de raisonner que sur des ( sous - anneaux de ) corps , ventuellement de caractristique positive .
+soient @xmath1026 et @xmath1027 une dcomposition rduite de @xmath96 .
+on considre le schma @xmath1028 et le schma de demazure @xmath1029 .
+le schma @xmath1030 est laffinis de @xmath1031 , cest  dire @xmath1032)$ ] , il ne dpend que de @xmath96 ( * ? ? ?
+* p 40 , l -15  -1 ) . en particulier @xmath1033 .
+si @xmath1034 ( pour lordre de bruhat - chevalley ) , il existe une dcomposition rduite @xmath1035 de @xmath1036 extraite de @xmath1037 .
+si dans lcriture de @xmath1031 , on remplace par @xmath1022 les @xmath1038 correspondant  des @xmath1039 absents de @xmath1035 , on obtient un sous - schma ferm de @xmath1031 clairement isomorphe  @xmath1040 .
+limmersion ferme @xmath1041 induit un morphisme @xmath1042 entre les affiniss ; cest aussi une immersion ferme , indpendante des choix de @xmath1037 et @xmath1035 ( * ? ? ?
+* bas de page 255 ) .    on a donc un systme inductif de schmas @xmath1030 et on note @xmath1043 le ind - schma limite inductive de ce systme ; cest le _ groupe de kac - moody positivement maximal _ associ  @xmath75 .
+chaque morphisme @xmath1044 est une immersion ferme .
+on verra essentiellement @xmath1043 comme un foncteur sur la catgorie des anneaux : @xmath1045 .
+en fait @xmath1043 est un ind - schma en groupe : pour des dcompositions rduites @xmath1027 et @xmath1046 , il existe un morphisme naturel de @xmath1047 dans @xmath1048 pour un certain @xmath1049 ( * ? ? ? *
+p 41 et 45 ) .
+ce morphisme se factorise donc par @xmath1050 .
+ceci permet de dfinir la multiplication dans @xmath1043 .
+la dfinition de linversion est claire .
+pour cette structure de groupe le compos @xmath1051 est simplement la multiplication .
+\1 ) pour @xmath1052 , on a dfini en [ 2.14 ] un @xmath1053module  plus haut poids @xmath875 qui est intgrable , donc un @xmath1054module .
+pour un anneau @xmath8 le module @xmath876 est stable par @xmath1055 donc par @xmath1056 .
+on obtient ainsi une reprsentation de @xmath1021 dans @xmath875 .
+lintgrabilit de @xmath875 @xcite montre en fait que @xmath875 est un @xmath1057module donc aussi un @xmath1058module ( @xmath125 ) .
+ce module est `` localement fini '' , plus prcisment pour tout sous@xmath432module @xmath1059 de rang fini de @xmath875 , il existe un sous@xmath432module facteur direct de rang fini @xmath1060 de @xmath875 contenant @xmath1059 , tel que @xmath1061 soit un @xmath1062module pour tout anneau @xmath8 . on en dduit aussitt
+un morphisme de @xmath1030 dans @xmath1063 , @xmath1064 . on obtient ainsi une reprsentation de @xmath1043 dans @xmath1063 .
+\2 ) soit @xmath1065 le module  plus haut poids prcdent : @xmath1066 .
+pour un anneau @xmath8 , on dfinit le complt ngatif @xmath1067 de @xmath1068 : @xmath1069 .
+il est clair que @xmath1067 est un @xmath1070module gradu ; en particulier cest un @xmath1071module .
+\3 ) pour un anneau @xmath8 , laction adjointe @xmath450 de lalgbre @xmath1072 sur elle mme ( [ 2.1].5 ) induit une action , dite adjointe et note @xmath489 , du groupe @xmath1073 sur @xmath1072 .
+laction de @xmath276 est dfinie par les poids , do la reprsentation adjointe @xmath489 de @xmath1074 sur @xmath1072 .
+cette action stabilise videmment @xmath859 et @xmath1075 .
+pour @xmath219 , @xmath238 et @xmath1076 , @xmath1077 .
+supposons la matrice @xmath17 de cartan @xmath1078 fini et @xmath87 fini .
+soit @xmath1079 le groupe rductif dploy sur @xmath455
+de sgr @xmath75 ; daprs lhypothse de mathieu il est semi - simple simplement connexe .
+le groupe @xmath1080 est le sous - groupe de borel @xmath1022 de @xmath1079 ( [ 3.2].1 ) et @xmath1081 est un sous - groupe parabolique minimal de @xmath1079 .
+pour une dcomposition rduite @xmath1027 dans @xmath87 , le produit dfinit un morphisme @xmath1082 .
+si on restreint @xmath299 aux grosses cellules , on obtient un isomorphisme de @xmath1083 sur son image @xmath1084 .
+@xmath1085 est llment de plus grande longueur de @xmath87 , cette image est un ouvert dense : la grosse cellule @xmath1086 de @xmath1079 . on a donc la suite
+de morphismes : avec @xmath97 et @xmath1087 des immersions ouvertes . de plus limage @xmath1086 de @xmath1087 rencontre toutes les fibres @xmath1088 de @xmath1079 pour @xmath9 premier .    [ 3.9 ] dans ces conditions @xmath299 identifie @xmath1089 $ ]  @xmath1090 $ ] .
+ainsi @xmath1079 sidentifie  @xmath1091 lui mme gal  @xmath1043 .
+si @xmath1092 , on trouve de la mme manire que @xmath1030 est la sous - varit de schubert de @xmath1079 associe  @xmath96 ( au moins sur @xmath3 ) .
+regardons dabord sur @xmath3 .
+comme @xmath1079 est un groupe affine , @xmath299 se factorise par @xmath1093 . on a donc la suite
+de morphismes :    ce compos est une immersion ouverte dimage dense .
+pour les algbres de fonctions , comme @xmath97 est dimage dense @xmath1094 est injectif et @xmath1095 est lidentit par dfinition .
+donc @xmath1096 est injectif et @xmath1097 est dominant .
+ainsi limage de @xmath1097 contient un ouvert dense @xmath1098 de @xmath1099 .
+soit @xmath1100 , @xmath1101 , il existe donc @xmath1102 tels que @xmath1103 , ainsi @xmath1104 .
+mais @xmath1105 est injectif , on en dduit que @xmath1106 , @xmath1107 @xmath1108 est injectif .
+ainsi @xmath1043 est un sous - groupe de @xmath1079 contenant un ouvert dense : on a @xmath1109 .    on a le diagramme :    les flches horizontales sont injectives car @xmath1094 et @xmath1110 le sont .
+le schma @xmath1111 est produit de groupes additifs et multiplicatifs , la flche verticale de gauche est donc injective .
+ainsi toutes les flches sont injectives .
+pour montrer que @xmath1090 = \pi^ * \z[{\mathfrak{g}}]$ ] il suffit donc de montrer que @xmath1112 \cap \c[{\mathfrak{g}}]=\z[{\mathfrak{g}}]$ ] .
+ceci est clairement vrai si on remplace @xmath455 par @xmath619 .
+donc si ce nest pas vrai pour @xmath455 , il existe @xmath1113 et @xmath1114 \cap \q[{\mathfrak{g}}]$ ] tels que @xmath1115 $ ] mais @xmath1116 $ ] .
+soit @xmath9 un diviseur premier de @xmath20 ; quitte  modifier @xmath130 on peut supposer @xmath1117 .
+mais alors @xmath1118 est une fonction non identiquement nulle sur @xmath1088 alors quelle est nulle sur @xmath1119 .
+cest absurde car @xmath1119 est un ouvert dense de @xmath1088 .
+soit @xmath1120 . on note
+@xmath1121 , @xmath1122 , @xmath1123 , @xmath1124 et @xmath1125 .
+daprs [ 3.3 ] on a @xmath1126 .
+supposons @xmath1127 de type fini et notons @xmath1128 le groupe rductif dploy sur @xmath455 de sgr @xmath1129 .
+il est clair que son groupe unipotent maximal positif est @xmath1130 et son sous - groupe de borel positif @xmath1131 .
+enfin , pour @xmath1132 , son parabolique minimal associ  @xmath600 est @xmath1133 , il vrifie @xmath1134 .
+le groupe de weyl ( fini ) @xmath1135 admet un lment de plus grande longueur @xmath1136 .
+@xmath1137 est isomorphe au sous - groupe parabolique @xmath1138 de @xmath1043 .
+si @xmath1127 nest pas forcment de type fini , la dmonstration ci - dessous prouve que le ind - schma en groupe limite inductive des @xmath1030 pour @xmath1139 est le sous - groupe parabolique @xmath1140 produit semi - direct par @xmath1141 du groupe de kac - moody @xmath1142 .    on a @xmath1143 , @xmath1144 et @xmath1145 . on en dduit facilement que @xmath1146 ,
+et , comme laffinis dun produit est le produit des affiniss , @xmath1147 .      on a dfini @xmath283 et @xmath1148
+pour @xmath891 ( en [ 3.2].2 ) ou pour @xmath1149 simple ( en [ 3.5 ] ) .
+pour @xmath204 , @xmath1150 est un lment du normalisateur dans @xmath1043 de @xmath1151 ; il induit sur @xmath1151 la rflexion @xmath1152 . de plus @xmath1153 agit sur @xmath493 comme @xmath212 ( [ 1.4 ] et [ 3.7].3 ) .
+si @xmath219 et @xmath476 est une base de @xmath477 , il existe @xmath1026 tel que @xmath1154 est une racine simple . on considre
+une dcomposition @xmath1155 , @xmath1156 et on a @xmath1157 avec @xmath1158 . on pose alors
+@xmath1159 et @xmath1160 , pour @xmath167 dans un anneau @xmath618 .
+ces dfinitions de @xmath283 et @xmath250 ne dpendent que de @xmath40 et @xmath476 ( et non des autres choix effectus ) .
+pour @xmath891 ( ou @xmath1161 simple ) elles concident avec celles de [ 3.1 ] , [ 3.2 ] ou [ 3.5 ] .
+supposons que @xmath1162 , donc @xmath1163 pour @xmath1164 . on doit montrer que @xmath1165 est conjugu de @xmath1166 par @xmath1167 .
+mais on sait que les @xmath1168 vrifient les relations de tresse ( ( * ? ?
+* ( d ) p551 ) ou calcul classique dans le groupe rductif @xmath1169 quand @xmath1170 est dordre fini ) , que @xmath1171 et on connat les relations de commutation entre les @xmath1153 et les lments du tore .
+ainsi , pour toute expression rduite @xmath1172 de @xmath1173 , on peut rduire lexpression ci - dessus de @xmath1167 sous la forme @xmath1174 avec @xmath1175 .
+il suffit donc de montrer que si @xmath1176 , il existe une dcomposition rduite @xmath1172 de @xmath96 pour laquelle un @xmath1167 comme ci - dessus vrifie la relation @xmath1177 et @xmath1178 .
+daprs @xcite ou , pour un nonc plus prcis ( * ? ? ?
+* p85 ) , on est ramen  lun des deux cas suivants : @xmath1179 de type fini ou @xmath1180 et @xmath1181 de type fini .
+tout se passe alors dans le groupe rductif @xmath1128 et le rsultat est connu .
+si @xmath1161 est simple , la concidence des deux dfinitions de @xmath250 et @xmath283 est claire .
+si @xmath891 , il existe une suite @xmath1182 telle que @xmath1183 est une racine simple et @xmath1184 @xmath1185 .
+pour vrifier la concidence des deux dfinitions de @xmath250 et @xmath283 , on doit vrifier que , si @xmath204 , @xmath891 , @xmath1186 et @xmath1187 , alors @xmath1188 ; cest la dfinition prcise du produit semi - direct @xmath1189 de [ 3.5 ] .      on a dfini en [ 1.6 ] le groupe de kac - moody minimal @xmath1190 .
+on choisit toujours @xmath75 comme  la remarque [ 3.5 ] et on prend les @xmath476 , @xmath1191 de [ 1.4 ] dans la base @xmath617 de [ 2.6 ] .
+pour un anneau @xmath8 , les gnrateurs de @xmath1192 sont les @xmath239 , @xmath219 , @xmath238 et @xmath1193 , on les envoie sur les lments de mme nom dans @xmath1194 .    on obtient ainsi un homomorphisme de foncteurs en groupes @xmath1195 .
+il sagit de vrifier les relations ( kmt3 )  ( kmt7 ) dans @xmath1194 .
+la relation ( kmt3 ) espre entre @xmath239 et @xmath1196 provient de la relation constate entre @xmath1197 et @xmath1198 dans aut@xmath1199 .
+comme @xmath244 est une paire prnilpotente , il existe @xmath108 finie close dans @xmath117 contenant @xmath40 et @xmath228 .
+daprs [ 3.11 ] on peut supposer @xmath1200 .
+daprs la remarque [ 3.2].1 cette relation est en fait constate dans @xmath1201 , do le rsultat .    les relations ( kmt4 )  ( kmt6 ) nimpliquent que des lments du groupe rductif de rang @xmath220 @xmath1003 , elles sont trivialement satisfaites .
+enfin ( kmt7 ) est clair daprs [ 3.11 ] .
+\1 ) lhomomorphisme @xmath97 envoie aussi @xmath1202 sur llment de mme nom de @xmath1203 ( pour @xmath40 racine simple ) .
+limage @xmath1204 de @xmath1205 est donc engendre par @xmath146 et les @xmath1202 pour @xmath40 racine simple .
+par construction @xmath97 est un isomorphisme sur @xmath146 et @xmath1206 si la dcomposition @xmath1207 est rduite ( second alina de [ 3.8 ] ) .
+donc @xmath97 est un isomorphisme de @xmath1205 sur @xmath1204 ( que lon note encore @xmath1205 ) .
+\2 ) en conjuguant par un lment @xmath20 de @xmath1208 tel que @xmath1209 , on trouve dans @xmath1043 un sous - groupe analogue  @xmath894 mais associ  @xmath1210 .
+ainsi @xmath1043 ne dpend pas du choix de @xmath507 dans sa classe de @xmath1211conjugaison .
+par contre lalgbre @xmath1212 dpend a priori de ce choix et si on change @xmath507 en @xmath508 , le groupe obtenu @xmath1213 est diffrent .
+\3 ) lhomomorphisme @xmath97 induit un isomorphisme du groupe @xmath283 sur le sous - groupe de mme nom de @xmath1043 : cest clair par dfinition pour @xmath891 , on sy ramne pour @xmath1214 grce  [ 3.11 ] .
+[ 3.13 ] si @xmath8 est un corps , alors @xmath1215 est injectif .
+si @xmath8 est un corps , on notera souvent avec la lettre romaine correspondante lensemble des points sur @xmath8 dun schma .
+la proposition nous permet donc didentifier @xmath1216  un sous - groupe de @xmath1217 .    daprs ( * ? ? ?
+8.4.1 ) @xmath5 est muni dune donne radicielle jumele entire et donc dun systme de tits @xmath1218 avec @xmath1219 .
+alors @xmath1220 est un sous - groupe parabolique de @xmath5 , mais par construction il ne peut contenir aucun @xmath1221 pour @xmath40 simple , donc @xmath1222 et ker@xmath1223 est contenu dans @xmath1224 et tous ses conjugus
+. daprs ( * ? ? ?
+* et 1.2.3.v ) , lintersection de tous ces conjugus est rduite  @xmath1225 .
+mais par construction @xmath1226 est injectif , do le rsultat .
+\1 ) on a vu en [ 3.7].3 que , pour un anneau @xmath8 , @xmath1072 est un @xmath1227module . daprs
+[ 2.1].4 la restriction  @xmath1228 de cette reprsentation stabilise @xmath1229 ( et @xmath1230 ) et y induit la mme reprsentation que la reprsentation adjointe de @xmath1192 .
+\2 ) pour @xmath1052 , on a construit en [ 3.7].1 le module  plus haut poids @xmath1231 pour @xmath1043 .
+il est clair que la restriction  @xmath1079 ( via @xmath97 ) de cette reprsentation est la reprsentation classique  plus haut poids de @xmath1079 .
+\3 ) en [ 3.7].2 on a construit une reprsentation de @xmath1232 sur le complt ngatif @xmath1067 de @xmath1059 . il est clair que la restriction  @xmath1233 ( via @xmath97 ) de cette reprsentation est le complt de la reprsentation de @xmath1079 ci - dessus ( restreinte  @xmath1233 ) .
+[ 3.15 ] soit @xmath1234 une dcomposition rduite de @xmath1026 et @xmath1235 le morphisme de multiplication .
+si @xmath8 est un corps , alors @xmath1236 est surjectif .
+il faut revenir un peu sur les dfinitions de [ 3.6 ] .
+le groupe @xmath1237 agit sur @xmath1238 par @xmath1239 et @xmath1031 est le quotient schmatique ; on note @xmath299 le morphisme de passage au quotient .
+le schma @xmath1030 est laffinis de @xmath1031 , on note @xmath1240 le morphisme naturel . on a donc @xmath1241 . on se place
+maintenant sur le corps @xmath8 ( sans forcment le noter dans les noms ) .
+soit @xmath1052 un poids
+dominant entier rgulier et @xmath869 la reprsentation intgrable de plus haut poids @xmath820 ( ( * ? ? ?
+* p246 ) ou [ 3.7 ] ci - dessus ) ; les groupes @xmath1021 et @xmath1023 agissent dessus .
+on choisit un vecteur de plus haut poids @xmath1242 ; pour @xmath1026 , @xmath1243 est dfini au signe prs et le sous - espace vectoriel @xmath1244 est de dimension finie .
+de plus @xmath1245 si @xmath1246 pour lordre de bruhat - chevalley , mais si @xmath1247 , @xmath1248 a une composante nulle sur @xmath1249 . on note
+@xmath1250 ladhrence de @xmath1251 dans @xmath1252 ; cest une sous - varit affine ferme de @xmath1252 . on a @xmath1253 il contient donc @xmath1254 si @xmath1246 ( ( * ? ? ?
+* p64 ) formul en caractristique @xmath4 , mais qui se gnralise ) .
+ainsi @xmath1255 , contient louvert de @xmath1250 dfini par la non nullit de la coordonne sur @xmath1256 .    on a un morphisme @xmath738 de @xmath1238 dans @xmath1250 donn par la `` formule nave '' @xmath1257 ,
+il se factorise en un morphisme @xmath1258 de @xmath1031 dans @xmath1250 ( ( * ? ? ?
+* p65 , 66 ) en caractristique @xmath4 ) puis , comme @xmath1250 est affine et @xmath1259 une affinisation , en un morphisme @xmath1260 , simplement donn par laction de @xmath1261 sur @xmath1242 [ 3.7].1 . on a donc le diagramme :    si @xmath1246 , il existe une dcomposition rduite @xmath1262 de @xmath1263 `` extraite '' de @xmath1037 .
+le sous - schma ferm de @xmath1238 form des lments do nt le j - me facteur est @xmath220 si @xmath1039 est omis dans
+@xmath1262 est isomorphe  @xmath1264 .
+on obtient ainsi un diagramme do nt toutes les flches verticales sont injectives :    on note @xmath1265 qui contient @xmath1266 .
+par rcurrence il suffit de montrer que @xmath1267 .    on note
+@xmath1268 ouvert de @xmath1238 satur pour le quotient par @xmath1237 .
+mais @xmath1269 et cette dernire dcomposition est unique .
+donc @xmath1270 est un systme de reprsentants de @xmath1271 et @xmath1237 agit librement sur @xmath1272 .
+ainsi @xmath1273 est un ouvert affine de @xmath1031 .
+dautre part @xmath1274 avec @xmath1275 pour @xmath1276 . en particulier la coordonne de cet lment sur @xmath1256 est non nulle ; il appartient donc  @xmath1277 : on a @xmath1278 ; donc @xmath1279 .    le complmentaire de @xmath1272 est runion de sous - schmas ferms obtenus en remplaant dans @xmath1238 lun des facteurs @xmath1023 par @xmath1021 , ce qui , dans limage par @xmath299 revient  supprimer ce facteur .
+alors le processus de multiplication dcrit dans ( * ? ? ?
+* p45 ) montre que limage par @xmath1280 de ce sous - schma ferm est dans un @xmath1281 pour @xmath1247 .
+ainsi @xmath1282 et finalement @xmath1283 .
+de plus @xmath1284 .
+donc @xmath1285 .
+soit @xmath1286 un ouvert principal de @xmath1030 contenu dans @xmath1287 .
+alors @xmath1288 , ouvert principal donc affine de @xmath1289 . on a donc @xmath1290=k[{\mathfrak{b}}(w)][f^{-1}]$ ] @xmath1291[(f\circ\nu)^{-1}]\subset k[{\mathfrak{e}}^c(\widetilde w)][(f\circ\nu)^{-1}]=k[{\mathfrak{e}}^c(\widetilde w)_{f\circ\nu}]=k[{\mathfrak{e}}(\widetilde w)_{f\circ\nu}]$ ] .
+mais @xmath1031 est runion de @xmath1292 ouverts affines ( dmonstration par rcurrence selon lesquisse des pages 54 , 55 de @xcite ) ; donc @xmath1293\subset k[{\mathfrak{e}}(\widetilde w)][(f\circ\nu)^{-1}]$ ] .
+ainsi @xmath1290=k[{\mathfrak{e}}(\widetilde w)_{f\circ\nu}]$ ] .
+cela prouve que @xmath1259 induit un isomorphisme de @xmath1294 sur @xmath1286 et donc aussi de @xmath1285 sur @xmath1287 . on sait de plus
+que @xmath299 induit un isomorphisme du sous - schma ferm @xmath1295 de @xmath1238 sur @xmath1289 .
+donc @xmath1296 est surjectif .      on note @xmath1298 ( resp .
+@xmath1233 ) le sous - foncteur en groupe de @xmath1043 engendr par les sous - groupes @xmath283 pour @xmath891 ( resp .
+@xmath1214 ) ; il sidentifie via @xmath97 ( au moins sur un corps ) avec le sous - groupe de mme nom de @xmath1079 . on a @xmath1299 . on rappelle
+que @xmath1300 est le systme de gnrateurs de @xmath87 et que @xmath1205 est limage par @xmath97 du groupe de mme nom de @xmath1079 ( remarque [ 3.12].1 ) .
+si @xmath8 est un corps , le sextuplet @xmath1301 est une @xmath1297paire raffine ( refined tits system ) .    on a donc ( @xcite )
+un systme de tits @xmath1302 , une dcomposition de bruhat @xmath1303 , une dcomposition de birkhoff @xmath1304 et @xmath1305 .
+vrifions les axiomes de @xcite , voir aussi @xcite .
+( rt1 ) : le groupe @xmath6 admet bien @xmath614 , @xmath1306 , @xmath1307 et @xmath1225 comme sous - groupes .
+le groupe @xmath1225 normalise les @xmath1308 ( @xmath219 ) donc aussi @xmath1307 et @xmath1306 , il est distingu dans @xmath614 et @xmath1309 est engendr par les lments de @xmath1310 qui sont dordre @xmath1311 .
+par construction @xmath6 est runion des @xmath1312 qui sont engendrs par des sous - groupes @xmath1313 ( daprs [ 3.15 ] ) . on a vu que @xmath1313 est engendr par @xmath1314 et @xmath1315 .
+donc @xmath6 est engendr par @xmath614 et @xmath1306 .
+( rt2 ) pour @xmath1316 , @xmath1317 est dans @xmath5 qui est muni dune donne radicielle jumele @xmath1318 ( * ? ? ?
+* prop 8.4.1 ) et daprs le thorme 1.5.4 de on a @xmath1319 .
+un rsultat classique dans le groupe @xmath1320 donne donc ( rt2a ) ; tandis que ( rt2b ) est clair .
+enfin ( rt2c ) rsulte de [ 3.3 ] ( voir aussi [ 3.5 ] ) .
+( rt3 ) soient @xmath1321 , @xmath1322 et @xmath1323 tels que @xmath1324 .
+alors @xmath20 et @xmath1325sont dans @xmath5 ainsi donc que @xmath1326 . on dduit
+de laxiome ( rt3 ) dans @xmath5 @xcite que @xmath1327 .
+[ 3.17 ] si @xmath8 est un corps , @xmath1328 et @xmath1329 .
+le sextuplet @xmath1330 est aussi une @xmath1297paire raffine ( [ 1.6].5 et @xcite ) .    on a deux
+systmes de tits @xmath1331 et @xmath1332 , [ 1.6].5 .
+donc @xmath1333 et @xmath1334 .
+comme @xmath1335 , on a @xmath1336 .
+mais @xmath1337 et @xmath1338 donc @xmath1339 .
+[ 3.17b ] si @xmath8 est un corps , linjection @xmath97 induit un isomorphisme simplicial @xmath1340quivariant de limmeuble @xmath1341 associ  @xmath1079 sur @xmath8 sur limmeuble @xmath1342 associ au systme de tits @xmath1331 . plus
+prcisment ces deux immeubles ont les mmes facettes et les appartements de @xmath1341 sont des appartements de @xmath1342 , mais , en gnral , @xmath1342 a plus dappartements
+.    les appartements sont isomorphes car associs au mme groupe @xmath614 .
+daprs [ 3.17 ] @xmath1343 sinjecte dans @xmath1344 , do une injection @xmath1345 .
+mais , par construction , si @xmath40 est simple , cest le mme groupe @xmath1308 qui est transitif sur les chambres ( de @xmath1341 ou @xmath1342 ) @xmath1346adjacentes  la chambre fondamentale @xmath1347 ( associe  @xmath1224 ) , ce sont donc les mmes chambres .
+par rcurrence sur la longueur de galeries , on en dduit que @xmath1348 .
+\1 ) on a dcrit ci - dessus le groupe  la mathieu @xmath1349 associ  un sgr @xmath75 libre , colibre , sans cotorsion et vrifiant de plus une certaine condition de dimension ( [ 3.5 ] ) . ll est clair que cette condition nintervient pas dans les constructions de mathieu , on peut donc sen affranchir . on a dailleurs vu en [ 1.3 ]
+que si @xmath75 est libre , colibre , sans cotorsion il est extension semi - directe dun sgr @xmath165 vrifiant de plus cette condition de dimension . on en a dduit en [ 1.11 ]
+que @xmath408 est produit semi - direct de @xmath1350 par un tore @xmath1351 .
+de mme @xmath1349 est produit semi - direct de @xmath1352 par ce tore @xmath1351 .
+ces dcompositions en produit semi - direct proviennent de la mme dcomposition @xmath1353 et sont donc compatibles avec les morphismes de foncteurs @xmath97 de [ 3.12 ] .
+\2 ) soit @xmath75 un sgr quelconque . daprs
+[ 1.3 ] il existe une extension centrale torique @xmath161 de @xmath75 et une extension semi - directe @xmath1354 de @xmath161 qui est libre , colibre et sans cotorsion .
+daprs les corollaires [ 1.11 ] et [ 1.12 ] @xmath408 est quotient de @xmath1355 par un sous - tore central @xmath1356 de @xmath1357 et @xmath1358 est produit semi - direct de @xmath1355 par un sous - tore @xmath1359 de @xmath1360 .
+inversement @xmath1355 est le noyau dun homomorphisme @xmath1361 de @xmath1358 sur @xmath1359 .    lhomomorphisme @xmath1361 stend au groupe @xmath1362 ( construit ci - dessus ) : on prend @xmath1361 trivial sur @xmath1363 , on connat @xmath1361 sur @xmath1360 et les groupes @xmath1025 de [ 3.5 ] , donc @xmath1361 est dfini sur @xmath1364 et les paraboliques @xmath1023 ; son extension  @xmath1362 dcoule alors de la construction de [ 3.6 ] . on dfinit
+donc @xmath1365 comme le noyau de @xmath1361 .
+enfin @xmath1349 est le quotient ( comme foncteur en groupe ) de @xmath1365 par le tore @xmath1356 .    on a ainsi dfini
+@xmath1349 et un morphisme de foncteurs @xmath1366 pour tout sgr @xmath75 .
+si @xmath75 est libre , colibre et sans cotorsion on a ainsi deux dfinitions de @xmath1349 .
+mais alors , daprs [ 1.3 ] , [ 1.11 ] et [ 1.12 ] , @xmath1355 est produit direct de @xmath408 par @xmath1356 et @xmath1358 produit semi - direct de @xmath1355 par @xmath1359 .
+il est clair que @xmath1365 et @xmath1362 comme dfinis en 1 ) scrivent de la mme manire comme produit semi - direct .
+do lidentification avec les groupes dfinis comme ci - dessus .
+\3 ) * fonctorialit .
+* la construction de mathieu est clairement fonctorielle en @xmath75 pour les sgr libres , colibres , sans cotorsion et les extensions commutatives de sgr . on a remarqu en [ 1.3].1 que les constructions @xmath1367 et @xmath1368 sont fonctorielles .
+une extension commutative @xmath1369 dfinit donc un morphisme de foncteurs en groupes @xmath1370 .
+ce morphisme est compatible avec les homomorphismes @xmath1361 sur les tores @xmath1359 correspondants , il induit donc un morphisme @xmath1371 .
+ce dernier morphisme change les tores @xmath1356 correspondants , ce qui donne le morphisme @xmath1372 cherch .
+le groupe @xmath1349 est donc fonctoriel en @xmath75 pour les extensions commutatives de sgr ( de manire compatible avec la fonctorialit des groupes @xmath261 et les morphismes @xmath1373 ) .
+par construction , si @xmath1374 est un tel morphisme , @xmath1375 induit un isomorphisme de @xmath1376 sur @xmath1377 et le morphisme @xmath147 de @xmath146 dans @xmath154 .
+si @xmath8 est un corps , @xmath1378 induit lisomorphisme @xmath1379 de @xmath385 sur @xmath1380 [ 1.10 ] et [ 3.12 ] .
+dans ( * ? ? ?
+* et 1.1.2 ) s. kumar considre un sgr vrifiant les mmes conditions que celles demandes par o. mathieu ( [ 3.5 ] ) .
+on reste donc dans ce cadre et bien sr on se place , comme kumar , sur le corps @xmath3 .
+pour @xmath1381 clos dans @xmath507 , les groupes @xmath1382 , @xmath1225 et @xmath614 dfinis dans 6.1 sidentifient clairement  @xmath1383 , @xmath1225 et @xmath614 dfinis ci - dessus . de mme pour une partie de type fini @xmath1127 de @xmath12 , le groupe parabolique @xmath1384 de kumar sidentifie au groupe @xmath1385 de [ 3.10 ] , en particulier les deux dfinitions des paraboliques minimaux @xmath1313 concident .    on a vu que
+@xmath1302 est un systme de tits . daprs
+[ 5.1.7 ] @xmath6 est le produit amalgam des sous - groupes @xmath614 et @xmath1313 .
+mais cest exactement la dfinition de 6.1.16 du groupe de kac - moody  la kumar .
+donc sur @xmath3 les groupes  la kumar et  la mathieu concident .
+linjection @xmath1386 de [ 3.12 ] permet didentifier @xmath1387 et le groupe minimal  la kumar @xcite .
+on considre dornavant un sgr fixe @xmath75 qui est libre et le groupe de kac - moody @xmath261 associ sur un corps @xmath2 . on a vu en [ 1.3 ] et [ 1.11 ] que si @xmath75 est un sgr non libre , @xmath408 est un sous - groupe dun groupe @xmath1388 avec @xmath1389 libre .
+toute action de @xmath1390 sur une masure induira donc une action de @xmath1391 sur celle - ci .
+on peut noter que lessentialis de la masure de @xmath1390 ne dpend pas du choix de @xmath1389 : les appartements sont des espaces affines sous hom@xmath1392 .
+cest le choix fait par b. rmy pour ses ralisations coniques dimmeubles jumels .    on abrgera frquemment @xmath1391 en @xmath1393 ou mme @xmath5 . on notera
+avec la lettre romaine correspondante les points sur @xmath2 dun foncteur en groupe not avec une lettre gothique ; de mme pour les morphismes de foncteurs .
+ partir de [ 4.2 ] , le corps @xmath2 sera suppos muni dune valuation relle @xmath1394 .
+le quintuplet @xmath1395 de [ 1.1 ] satisfait aux conditions de ( * ? ?
+* et 1.2.1 ) , on est dans le cas kac - moody ( modrment imaginaire ) .
+on peut en particulier dfinir dans @xmath1396 des facettes vectorielles et des cnes de tits positif ou ngatif @xmath1397 @xcite .
+ces notions sont galement introduites dans ( * ? ? ?
+*  1.3 ) o @xmath1398 est not @xmath1399 . on note
+@xmath1400 la chambre vectorielle fondamentale , donc @xmath1401 .
+une facette vectorielle est dite sphrique si son fixateur ( dans @xmath87 ) est fini si elle est contenue dans @xmath1402 ( intrieur du cne de tits ) .
+daprs [ 1.6 ] le groupe de kac - moody @xmath5 contient un sous - groupe @xmath1225 et des sous - groupes radiciels @xmath1308 pour @xmath219 , chacun isomorphe au groupe additif @xmath1403 par un isomorphisme @xmath1404 . le triplet @xmath1318 est une donne radicielle de type @xmath117 au sens de @xcite .
+le groupe @xmath614 dfini dans @xcite concide avec celui de [ 1.6].4 , il est muni dune application surjective @xmath1405 de noyau @xmath1225 .
+on reprend , sauf exception signale , les notations de @xcite . on a
+en particulier un immeuble @xmath1341 do nt les appartements sont isomorphes  @xmath1406 , mais aussi un immeuble @xmath1407 do nt les appartements sont isomorphes  @xmath1408 .
+ces deux immeubles sont jumels @xcite ; comme dans @xcite on ne garde que les facettes sphriques dans @xmath407 . on a dj vu ces immeubles
+de manire combinatoire en [ 1.6].5 , mais on les verra dsormais sous la forme de ces ralisations coniques . en [ 3.17b ] on a vu que @xmath6 ( resp @xmath7 ) agit sur @xmath1341 ( resp .
+@xmath1407 ) .
+\1 ) on suppose dornavant le corps @xmath2 muni dune valuation relle non triviale @xmath1394 , et ainsi @xmath1410 est un sous - groupe non trivial de @xmath1411 . on note
+@xmath1412 lanneau des entiers de @xmath1413 et @xmath1414 son idal maximal .    on note
+@xmath1409 lespace vectoriel @xmath1396 considr comme espace affine ; on note cependant toujours @xmath4 llment neutre de @xmath1396 .
+le groupe @xmath1415 agit sur @xmath1409 par translations : si @xmath1416 , @xmath1417 est llment de @xmath1396 tel que @xmath1418 , @xmath1419 .
+cette action est @xmath1211quivariante .
+daprs le raisonnement de @xcite on a :    \2 ) lemme il existe une action affine @xmath1259 de @xmath614 sur @xmath1409 qui induit la prcdente sur @xmath1225 et telle que , pour @xmath1323 , @xmath1420 est une application affine dapplication linaire associe @xmath1421 .
+\3 ) limage de @xmath614 est @xmath1422 .
+son noyau est @xmath1423ker@xmath1424 .
+\4 ) par construction le point @xmath4 est fix par les lments @xmath1425 et donc ( par conjugaison : ( kmt7 ) ) par tous les @xmath1426 , pour @xmath219 .
+daprs ( kmt6 ) pour @xmath1427 , @xmath1428 et @xmath1429 .
+donc @xmath1430 est la rflexion @xmath1431 par rapport  lhyperplan @xmath1432 , cest  dire lapplication affine dapplication linaire associe @xmath1433 et densemble de points fixes @xmath1434 .
+\5 ) * dfinitions . *
+l_appartement affine tmoin _ @xmath1409
+est lespace affine @xmath1409 ( sous lespace vectoriel @xmath1396 muni de @xmath87 , @xmath117 et @xmath73 ) muni de lensemble @xmath1435 des _ murs ( rels ) _ @xmath1436 pour @xmath219 et @xmath1437 et de lensemble @xmath1438 des _ murs imaginaires _ @xmath1439
+pour @xmath548 et @xmath1437 .
+lespace @xmath1440 , dfini pour @xmath1441 et @xmath1442 est un _ demi - appartement _
+si @xmath219 et @xmath1437 . on note @xmath1443 .
+ainsi @xmath1409 satisfait aux conditions de @xcite (  une variante prs pour @xmath1438 , 1.6.2 ) ; il est semi - discret si et seulement si la valuation @xmath1394 est discrte .
+on choisit @xmath1444 comme point spcial privilgi . on reprend
+les notations de @xcite ( sauf pour @xmath1445 , @xmath44 et @xmath1446 , voir ci - dessous ) .
+on notera les ressemblances et diffrences avec @xcite .
+le cas @xmath1447 est trait dans ( * ? ? ?
+* et 3.1 ) .    on note @xmath1448 et @xmath1449 .
+donc @xmath1450 .
+pour un filtre @xmath1451 de parties de @xmath1409 , on considre comme dans @xcite ou @xcite plusieurs variantes denclos : si @xmath1452 , @xmath1453 est le filtre form des sous - ensembles de @xmath1409 contenant un lment de @xmath1451 de la forme @xmath1454 avec pour chaque @xmath40 , @xmath1455 ( en particulier chaque @xmath1456 contient @xmath1451 ) . on note
+@xmath1457 , @xmath1458 .
+on dfinit aussi ( selon charignon @xcite ) @xmath1459 comme le filtre form des sous - ensembles de @xmath1409 contenant un lment de @xmath1451 de la forme @xmath1460 o @xmath1461 et @xmath1462 . on a @xmath1463 ( enveloppe convexe ferme
+de @xmath1451 ) ; @xmath1464 et @xmath1465 concident avec ceux dfinis dans @xcite .
+un filtre @xmath1451 est dit _ clos _ si @xmath1466 et , quand on ne prcise pas , lenclos de @xmath1451 dsigne @xmath1464 .
+une _ facette - locale _ de @xmath1409 est associe  un point @xmath556 de @xmath1409 et une facette vectorielle @xmath1467 dans @xmath1396 ; cest le filtre @xmath1468 .
+_ facette _
+associe  @xmath1469 est le filtre @xmath1470 form des ensembles contenant une intersection de demi - espaces @xmath1456 ou @xmath1471 ( un seul @xmath1455 pour chaque @xmath218 ) , cette intersection devant contenir @xmath1469 un voisinage de @xmath556 dans @xmath1472 .
+la facette ferme @xmath1473 est ladhrence de @xmath1470 et aussi @xmath1474 .
+les facettes @xmath1469 , @xmath1470 et @xmath1473 sont dites _ sphriques _
+si @xmath1467 lest .
+sil existe @xmath548 avec @xmath1475 , il se pourrait que @xmath1470 soit lgrement plus gros que la facette dfinie dans @xcite , 1.6.2 .
+\6 ) * le groupe de weyl .
+* pour @xmath219 , il est clair que le groupe de weyl ( affine ) @xmath1476 , engendr par les rflexions par rapports aux murs , contient les translations de vecteur dans @xmath1477 .
+ainsi @xmath1478 ( not @xmath44 dans @xcite ) est un groupe de translations de @xmath1396 , contenu dans @xmath1476 et invariant par @xmath87 . on a @xmath1479 .
+le groupe @xmath1480 est not @xmath1445 dans @xcite .
+ainsi @xmath1481 est le plus grand sous - groupe de @xmath1482 stabilisant @xmath1435 ( et @xmath1438 ) .
+comme @xmath614 est engendr par @xmath1225 et les @xmath1202 , il est clair que @xmath1483 . on a : @xmath1484 .
+\7 ) * valuation des groupes radiciels . *
+pour @xmath219 et @xmath1485 , on pose @xmath1486 si @xmath1487 avec @xmath1488 .
+les @xmath1489 forment une valuation de la donne radicielle @xmath1490 @xcite .
+voir aussi @xcite    on considre le monode ordonn @xmath1491 de @xcite form dlments @xmath167 , @xmath1492 ( pour @xmath1493 ) et @xmath1494 vrifiant @xmath1495 si @xmath1496 . on note
+@xmath1497 lensemble des lments de @xmath1491 qui sont borne infrieure dune partie minore de @xmath1498 . on a @xmath1499 si @xmath1498 est discret et @xmath1500 sinon .
+les idaux fractionnaires de @xmath1412 sont indexs par @xmath1497 :  @xmath1501 on associe @xmath1502 .
+pour @xmath1501 et @xmath219 , @xmath1503 est un sous - groupe de @xmath1308 ; on a @xmath1504 .
+soit @xmath1505 un tel filtre .
+\1 ) pour @xmath1441 , soit @xmath1506 . pour @xmath218 ( resp .
+@xmath117 , @xmath28 ) @xmath1507 ne dpend que de @xmath1508 ( resp .
+@xmath1509 ou @xmath1510 , @xmath1511 ) .
+si @xmath1505 est un ensemble , @xmath1512 , @xmath1513 , @xmath1514 .
+cette fonction @xmath1515 est _ concave _ @xcite : @xmath1516 , @xmath1517 et @xmath1518 .    on dit que @xmath1505 est _ presque - ouvert _
+si @xmath1519 , @xmath1520 .
+on dit que @xmath1505 est _ troit _ si aucun mur ne spare @xmath1505 en deux , autrement dit si @xmath1519 , @xmath1521 ou @xmath1522 ou ( dans le cas discret ) @xmath1523 et sil nexiste pas de @xmath1524 avec @xmath1525 et @xmath1526 .
+\2 ) pour @xmath219 , on note @xmath1527 ; @xmath1528 est le groupe engendr par @xmath1529 et @xmath1530 et on note @xmath1531 .
+on dfinit @xmath1532 comme le groupe engendr par les @xmath1529 ( pour @xmath219 ) et @xmath1533 ; on verra ( [ 4.12 ] ) que @xmath1534 ( resp .
+@xmath1535)nest pas forcment gal au groupe @xmath1536 ( resp .
+@xmath1537 ) engendr par les @xmath1529 pour @xmath891 ( resp .
+@xmath1214 ) .    le groupe @xmath1538 ( @xmath1539 ) est engendr par
+tous les @xmath1540 pour @xmath219 .
+tous ces groupes sont normaliss par @xmath1541 et on peut donc dfinir @xmath1542 et @xmath1543 .
+ces groupes ne dpendent que de lenclos @xmath1508 de @xmath1505 et mme que de @xmath1544 .
+si @xmath1545 , on a @xmath1546 , etc .
+\3 ) lemme    soient @xmath219 et @xmath1505 un filtre comme ci - dessus .
+a)@xmath1547 .
+\b ) si @xmath1520 , alors @xmath1548 .
+si @xmath1549 , alors @xmath1550 .
+\c ) @xmath1540 fixe @xmath1505 , @xmath1551 , il existe @xmath1552 fixe point par point par @xmath1420 .
+* lemma 3.3 )    \4 ) le groupe @xmath1553 est engendr par les rflexions @xmath1554 pour @xmath219 et @xmath1437 tels que @xmath1555 .
+il est contenu dans le fixateur @xmath1556 de @xmath1505 dans @xmath1476 .
+il y a bien sr galit si @xmath1505 est rduit  un point spcial , mais aussi si @xmath1505 est une facette sphrique et si @xmath1498 est discret . en
+effet dans ce dernier cas limage de @xmath1556 dans @xmath87 fixe une facette vectorielle sphrique et on est ramen au cas classique o @xmath1476 est produit semi - direct dun groupe de weyl fini par un groupe discret de translations ; ce cas est trait dans @xcite et ne se gnralise pas si @xmath1557 est dense . daprs [ 4.12].4 ci - dessous il ne se gnralise pas non plus au cas non classique ( non sphrique ) .
+\1 ) pour @xmath218 et @xmath1558 , on pose @xmath1559 et @xmath1560 .
+de mme @xmath1561 .
+par concavit de @xmath1515 , il est clair que @xmath1562 est une sous@xmath1563algbre de lie de @xmath533 .
+on peut de mme considrer les compltions positive et ngative : @xmath1564 et @xmath1565 si @xmath1505 est un ensemble , sinon @xmath1566 et @xmath1567 .
+ces algbres ne dpendent que de @xmath1508 .
+par contre @xmath1509 ou @xmath1544 pourraient tre insuffisants pour les dterminer .
+\2 ) lalgbre enveloppante entire @xmath433 est gradue par @xmath1568 . on peut
+donc dfinir @xmath1569 avec @xmath1570 .
+cest une sous@xmath1563bigbre gradue de @xmath1571 .
+le terme de niveau @xmath220 de la filtration induite par celle de @xmath1572 est @xmath1573 .
+on peut avoir @xmath1574 .    on peut considrer la compltion positive @xmath1575 ( resp
+ngative @xmath1576 ) de @xmath1577 pour le degr total ( resp .
+son oppos ) ; cest une sous - algbre de @xmath1578 ( resp .
+@xmath1579 ) .
+\3 ) soit @xmath820 un poids dominant de @xmath146 ( @xmath1052 ) . on a construit en [ 2.14 ]
+une forme entire @xmath875 du module intgrable @xmath869 de plus haut poids @xmath820 .
+tout poids de @xmath1231 est de la forme @xmath1580 avec @xmath1581 .
+pour @xmath1582 et @xmath1583 , on pose @xmath1584 puis @xmath1585 et @xmath1586 ; en particulier @xmath1587 .
+par concavit de @xmath1515 , il est clair que @xmath1588 est un sous@xmath1589module gradu de @xmath1590 . on peut
+avoir @xmath1591 , mais @xmath1588 ne dpend que de @xmath1592 o @xmath1593 est lensemble des poids de @xmath1059 .
+on peut considrer la compltion ngative de @xmath1588 : @xmath1594 si @xmath1505 est un ensemble et @xmath1595 sinon .
+il est clair que @xmath1596 est un sous@xmath1589module gradu de @xmath1597 .
+bien sr on construit aussi @xmath1588 et sa compltion positive @xmath1598 pour un module intgrable @xmath1059  plus bas poids @xmath1599 .
+\1 ) soit @xmath851 un ensemble clos de racines . on lui a associ une @xmath32bigbre @xmath836 ( [ 2.13].2 et [ 3.1 ] ) . on peut donc dfinir @xmath1600 ( avec @xmath1601 ) ; cest une sous@xmath1563bigbre de @xmath1577 et de @xmath1602 ( plus prcisment leur intersection ) .
+\2 ) le plus simple pour associer  @xmath1603 un sous - groupe de @xmath1604 semble tre de procder comme suit :    si @xmath1505 est un ensemble on considre la compltion @xmath1605 ; cest une sous - algbre de @xmath1575 et de @xmath1606 et elle contient @xmath669\lambda x$ ] pour @xmath546 et @xmath1607 .
+le monode @xmath1608 est lintersection de @xmath1609 ou @xmath1575 et de @xmath1604 ( qui est un sous - groupe des lments inversibles de @xmath1606 ) . on sait
+que linverse dun lment de @xmath1604 est son image par la co - inversion @xmath465 et il est clair que @xmath1609 est stable par @xmath465 ( car @xmath465 est gradue et stabilise @xmath836 ) .
+ainsi @xmath1608 est un sous - groupe de @xmath1604 .
+daprs [ 3.2 ] il est clair que @xmath1608 est form des produits @xmath905\lambda_x.x$ ] pour @xmath1610 ( il suffit de raisonner par rcurrence sur le degr total ) .
+si @xmath1505 est un filtre , le groupe @xmath1608 est la runion des @xmath1611 pour @xmath1612 , donc encore lintersection de @xmath1604 et de @xmath1613 .
+\3 ) on sait que @xmath5 et @xmath1604 sinjectent dans @xmath1614 ( [ 3.3]a , [ 3.6 ] et [ 3.13 ] ) . on note donc @xmath1615 . on a aussi @xmath1616 puisque @xmath1617 ( [ 3.17 ] ) .
+pour un filtre on a @xmath1618 .
+bien sr @xmath1619 contient @xmath1620 ( et @xmath1621 ) .
+\4 ) * remarques * : a ) le sous - groupe @xmath1622
+de @xmath1415 stabilise les algbres et modules construits en [ 4.4 ] ou ci - dessus .
+ainsi @xmath1541 normalise @xmath1623 et @xmath1624 .
+\b ) comme @xmath1609 est une sous - algbre de @xmath1575 et de @xmath1606 , il est clair que les groupes @xmath1608 et @xmath1625 stabilisent @xmath1626 et @xmath1627 pour laction adjointe de @xmath1628 sur @xmath1578 , [ 3.7].3 .
+\c ) pour @xmath219 et @xmath248 , @xmath1608 est le sous - groupe @xmath1529 de @xmath1629 isomorphe  @xmath1630 par @xmath1631 ( dfini en [ 4.2].7 ) .
+\d ) si @xmath1545 , on a @xmath1632 et @xmath1633 .
+si @xmath1505 est la runion dune famille @xmath1634 de filtres , alors @xmath1635 est le sup ( pris dans @xmath1497 ) des @xmath1636 et @xmath1637 .
+ainsi @xmath1638 et @xmath1639 .
+\e ) pour @xmath1640 , on a @xmath1641 , @xmath1642 , @xmath1643 .
+\f ) @xmath1608 et @xmath1625 ne dpendent
+que de @xmath1508 ( cela pourrait tre faux pour @xmath1509 ou @xmath1544 ) .
+\5 ) lemme soient @xmath922 des sous - ensembles clos de racines .
+\a ) @xmath1644 ( resp .
+@xmath1645 ) est un sous - groupe de @xmath1646 ( resp .
+@xmath1647 ) .
+\b ) si @xmath927 est galement clos , alors on a des dcompositions uniques @xmath1648 et @xmath1649 .
+\c ) si @xmath109 est un idal de @xmath108 , alors @xmath1644 ( resp .
+@xmath1645 ) est un sous - groupe distingu de @xmath1650 ( resp .
+@xmath1647 ) et on a un produit semi - direct si , de plus , @xmath927 est clos .
+\d ) si @xmath665 est une racine simple , on a @xmath1651 et @xmath1652 .
+les groupes @xmath1653 et @xmath1654 sont normaliss par @xmath1655 .
+le a ) est clair .
+pour le b ) et le c ) on a des dcompositions analogues dans @xmath1628 ( [ 3.3 ] ) et , par exemple , @xmath1656 , do les rsultats par intersection ( puisque @xmath1657 est gradue ) .
+la premire partie de d ) rsulte de c ) .
+on sait donc que @xmath1658 et @xmath1659 sont normaliss par @xmath1541 et @xmath1529 .
+le mme raisonnement avec @xmath507 remplac par @xmath1660 montre quils sont aussi normaliss par @xmath1530 , do la conclusion .
+\6 ) on a vu en [ 3.5 ] que @xmath1661 est normalis par @xmath1662 .
+cela signifie en particulier que @xmath1663 .
+on peut donc ainsi dfinir dans @xmath1043 un groupe @xmath1664 pour tout @xmath1026 .
+\7 ) dans toutes les notations prcdentes un @xmath1665 ( resp .
+un @xmath1666 ) peut remplacer @xmath108 quand @xmath844 ( resp .
+@xmath1667 ) .    on considre aussi le groupe de kac - moody ngativement
+maximal @xmath1213 construit comme @xmath1043 en changeant @xmath507 et @xmath508 . plus gnralement on peut changer @xmath9 en @xmath20 et @xmath1668 en @xmath1669 dans ce qui prcde pour obtenir des groupes similaires ( avec des proprits similaires ) dans le cas ngatif .
+[ 4.6 ] soit @xmath1505 un filtre de parties de @xmath1409 . il y a trois sous - groupes de @xmath5 associs  @xmath1505 et indpendants du choix de @xmath507 dans sa classe de @xmath1211conjugaison .
+\1 ) le groupe @xmath1532 ( engendr par tous les @xmath1529 ) est gal  @xmath1670 .
+\2 ) le groupe @xmath1671 ( engendr par les groupes @xmath1672 et @xmath1532 ) est gal  @xmath1673 .
+\3 ) symtriquement le groupe @xmath1674 ( engendr par les groupes @xmath1675 et @xmath1532 ) est gal  @xmath1676 .
+\4 ) on a : @xmath1677 et symtriquement pour @xmath1674 .    on refait la preuve de (
+3.4 ) en utilisant [ 4.5].5 , [ 4.3].3 et la remarque [ 3.16 ] .
+\a ) le groupe @xmath1541 normalise @xmath1532 , @xmath1678 , @xmath1679 , @xmath1680 , @xmath1672 , @xmath1675 , @xmath1671 et @xmath1674 .
+le groupe @xmath1542 est contenu dans le fixateur @xmath1681 de @xmath1505 . on note
+@xmath1682 , @xmath1683 et @xmath1684 .
+ces trois groupes vrifient les mmes dcompositions que 1 ) , 2 ) et 3 ) ci - dessus en remplaant @xmath1538 par @xmath1685 . on verra en [ 5.11].2 que @xmath1686 quand
+@xmath1505 est un point spcial ou quand @xmath1505 est une facette sphrique et la valuation est discrte .
+\b ) lgalit @xmath1687 est quivalente  @xmath1688 ; on verra en [ 5.7].3 quelle nest pas toujours satisfaite .
+\c ) on montre galement au cours de la preuve de [ 4.6 ] que @xmath1689 ou @xmath1690 ne dpend pas du choix de @xmath507 dans sa classe de @xmath1211conjugaison .
+\d ) dans le cas classique des groupes rductifs , on a @xmath1691 , @xmath1692 et @xmath1693 .
+de plus @xmath1694 ( @xmath1695 ) est le mme que le groupe dfini en ( * ? ? ?
+* et 6.4.9 ) .
+le groupe @xmath1696 est not @xmath1697 par bruhat et tits .
+[ 4.7 ] dcomposition diwasawa    supposons @xmath1505 troit , alors @xmath1698 .
+supposons de plus @xmath1505 presque - ouvert , alors lapplication naturelle de @xmath1699 sur @xmath1700 est bijective    voir la preuve de ( * ? ? ?
+3.6 )    \1 ) on a aussi @xmath1701 et , de la mme faon avec les groupes maximaux @xmath1702 et @xmath1703 .
+\2 ) ainsi quand @xmath1505 est troit , tout sous - groupe @xmath636 de @xmath5 contenant @xmath1532 peut scrire @xmath1704 .
+si de plus @xmath1705 avec @xmath1706 et @xmath1707 on a @xmath1708 et , si @xmath1709 , @xmath1710 [ 4.10 ] .
+\1 ) supposons que @xmath1505 est un ensemble . daprs
+[ 4.5].4b le groupe @xmath1711 stabilise @xmath1575 et @xmath1627 pour laction de @xmath1306 sur @xmath1578 .
+le groupe @xmath1712 stabilise @xmath1713 et @xmath1714 pour laction adjointe de @xmath5 et @xmath1712 [ 2.1].4 .
+les deux actions concident sur @xmath1715 .
+donc @xmath1716 ( [ 4.5].3 ) stabilise @xmath1717 et @xmath1718 pour laction adjointe de @xmath5 .
+de mme @xmath1675 stabilise @xmath1577 et @xmath1719 .
+ainsi @xmath1577 et @xmath1719 sont stables par @xmath1529 pour tout @xmath219 et donc par @xmath1532 .
+finalement on sait que @xmath1577 et @xmath1719 sont stables par les groupes @xmath1532 , @xmath1671 , @xmath1674 et @xmath1541 ( qui normalise les trois autres ) ( [ 4.5].4a et [ 4.6]a ) . ce rsultat est encore vrai si @xmath1505 est un filtre , car alors tous ces objets sont runion filtrante des objets correspondant  @xmath1612 .
+@xmath1065 un @xmath515module  plus haut poids comme en [ 4.4].3 .
+supposons dans un premier temps que @xmath1505 est un ensemble .
+comme @xmath1588 est un @xmath1720module , le groupe @xmath1721 stabilise @xmath1588 pour laction de @xmath6 [ 3.7 ] .
+ce module @xmath1588 est en particulier stable par @xmath1672 et les groupes @xmath1529 pour @xmath891 .
+comme @xmath1722 est un @xmath1723module , le groupe @xmath1724 stabilise @xmath1722 , pour la reprsentation de @xmath1725 sur @xmath1726 ( [ 3.7 ] ) qui induit sur @xmath1307 la mme action que @xmath5 ( [ 3.14].3 ) .
+comme @xmath5 stabilise @xmath1727 , le groupe @xmath1728 stabilise @xmath1729 .
+ainsi le sous - module @xmath1588 de @xmath1727 est stable par laction de @xmath1672 et @xmath1675 .
+ce rsultat est encore vrai quand @xmath1505 est un filtre .
+le groupe @xmath1532 est engendr par les @xmath1529 pour @xmath219 qui sont dans @xmath1672 ou @xmath1675 .
+ainsi @xmath1588 est stable par @xmath1730 , @xmath1731 , @xmath1671 et @xmath1674 .
+on sait aussi quil est stable par @xmath1541 .
+\3 ) ces rsultats sont encore vrais , mutatis mutandis , pour des modules  plus bas poids .
+[ 4.9 ] si @xmath1505 est un ensemble , on considre le sous - groupe @xmath1732 de @xmath5 form des lments stabilisant @xmath1577 et @xmath1588 pour tout module @xmath1059  plus haut ou plus bas poids ( comme en [ 4.4].3 ) . on note @xmath1733 .
+daprs [ 4.8 ] le groupe @xmath1732 contient @xmath1730 , @xmath1731 , @xmath1671 , @xmath1674 et @xmath1541 .
+daprs la remarque [ 4.7].2 il est utile de dterminer @xmath1734 , voir [ 4.11 ] .    on note @xmath1735 la runion de @xmath73 et de tous les ensembles de poids des modules @xmath1059 ci - dessus .
+le groupe @xmath1732 ne dpend que de @xmath1736 ( et non seulement de @xmath1508 ) .
+soit @xmath1323 , on peut crire @xmath1737 avec @xmath1738 dans @xmath1739 ( le groupe engendr par les @xmath1740 qui fixe @xmath4 ) [ 4.2].4 , @xmath1741 et @xmath1416 .
+\1 ) pour @xmath1742 un module  plus haut ou plus bas poids ou @xmath1743 ou @xmath1744 , @xmath1582 et @xmath1745 , on a @xmath1746 .
+considrons galement laction sur @xmath1409 : @xmath1747 .
+donc @xmath1748 et ainsi @xmath1749 .
+finalement @xmath1750 .
+ainsi @xmath1751 ; en particulier le fixateur @xmath1681 de @xmath1505 dans @xmath614 ( pour laction @xmath1259 ) normalise @xmath1732 . on a vu
+en [ 4.3].4 que @xmath1752 .
+\2 ) on a aussi @xmath1753 , donc @xmath1754 , @xmath1755 et @xmath1681 normalise les groupes @xmath1532 , @xmath1697 , @xmath1538 et @xmath1685 .
+\3 ) daprs 1 ) on a @xmath1756 pour @xmath851 .
+pour @xmath1757 ( @xmath40 racine simple ) et @xmath1758 , on peut passer aux complts : @xmath1759 .
+donc @xmath1760 ; plus prcisment pour @xmath1761 , @xmath561 et @xmath1762 , @xmath1763\lambda x.n^{-1}$ ] est une exponentielle tordue associe  @xmath1764 et @xmath1765 et cela passe aux produits infinis .
+daprs 2 ) et [ 4.5].6 on a @xmath1766 si @xmath1767 .
+ce rsultat stend alors au cas gnral pour @xmath96 .
+par intersection avec @xmath5 , on a @xmath1768 .
+daprs [ 4.6 ] , on a @xmath1769 et @xmath1770 . en particulier @xmath1681 normalise @xmath1671 et @xmath1674 .
+[ 4.11 ] si @xmath1505 est un ensemble , @xmath1771 et @xmath1772 .
+de plus @xmath1773 est le stabilisateur ( dans @xmath614 pour laction @xmath1259 sur @xmath1409 ) du @xmath1774enclos @xmath1736 de @xmath1505 , il normalise @xmath1532 , @xmath1672 , @xmath1675,@xmath747    * n.b . * en particulier @xmath1775 .    on refait la preuve de @xcite car il y
+a quelques changements substantiels .
+\a ) soient @xmath1323 et @xmath1776 tels que @xmath1777 et @xmath1778 .
+pour @xmath1779 ou
+@xmath1719 ou @xmath1577 , @xmath1780 et @xmath1781 , on dfinit @xmath1782 comme la restriction de @xmath1783  @xmath1784 suivie de la projection sur @xmath1785 ( paralllement aux autres espaces de poids ) .
+pour tout @xmath1582 , @xmath1786 et @xmath1787 ( en un sens vident ) , donc @xmath1788 .
+ainsi @xmath1789 .
+il reste  dterminer @xmath1773 et @xmath1790 ( ainsi que @xmath1791 ) .
+\b ) on a vu en [ 4.8 ] que @xmath1792 .
+inversement soit @xmath1793 stabilisant @xmath1577 et donc @xmath1575 .
+on peut crire @xmath1794 avec les conventions suivantes : lordre des facteurs @xmath1795 est tel que la hauteur crot de droite  gauche et , pour @xmath665 , @xmath1796t_{\alpha1}e_{\alpha1}.\cdots.[exp]t_{\alpha s}e_{\alpha s}$ ] avec @xmath1797 une base de @xmath477 et les @xmath1798 dans @xmath2 ( si @xmath891 on a @xmath1799 et @xmath669=exp$ ] ) .
+nous allons montrer que @xmath1800 et pour cela que , @xmath1801 , @xmath1802 . par rcurrence on peut supposer que cest vrai pour @xmath1803  droite de @xmath1795 , alors ces @xmath1803 sont dans @xmath1711 et stabilisent @xmath1575 , on peut donc les supposer gaux  @xmath220 .
+donc @xmath1804 et ainsi @xmath1805 .
+choisissons un lment @xmath1806 ( base de @xmath1807 ) tel que @xmath1808 ; quitte  changer @xmath711 en @xmath718 et donc  utiliser une autre base de @xmath1809 , on peut supposer @xmath1810 .
+par ailleurs @xmath1811t_{\alpha i}e_{\alpha i})=\sum^\infty_{p=0}\,t_{\alpha i}^p ad(e_{\alpha i}^{[p]})$ ] et @xmath1812 a pour terme de poids @xmath40 lexpression @xmath1813 et doit tre dans @xmath1814 .
+comme les @xmath1815 pour @xmath1816 et @xmath1817 font partie dune base de @xmath1809 , on doit avoir @xmath1818 pour @xmath1816 et @xmath1819 . pour @xmath1820 et @xmath1821 on obtient le rsultat cherch @xmath1822    \c ) reprenons les notations de [ 4.10 ] : @xmath1746 et @xmath1823 .
+donc @xmath1824 si et seulement si , @xmath1825 , @xmath1826 cest  dire @xmath1827 ; cest quivalent au fait que @xmath20 stabilise lensemble @xmath1736 .
+le groupe @xmath1773 normalise @xmath1532 , @xmath1672 , @xmath1675,@xmath747car ces groupes ne dpendent que de @xmath1736 .
+[ 4.12 ] 1 ) soit @xmath556 un point spcial de @xmath1409 et @xmath1828 , alors @xmath1829 est une partie borne de @xmath1830 , car tout lment de @xmath28 est combinaison linaire  coefficients dans @xmath1831 dlments de @xmath1735 .
+donc @xmath1832 ( car @xmath1833 [ 4.3 ] ) . daprs
+[ 4.7 ] et [ 4.11 ] , on a @xmath1834 .
+\2 ) si de plus @xmath1835 est lorigine de @xmath1409 , on a @xmath1836 et @xmath1837 pour tout module  plus haut ou plus bas poids .
+il est clair que ces modules sont stables par @xmath1838 ( [ 3.7 ] et [ 3.14 ] ) .
+donc @xmath1839 . on a @xmath1840 par construction et aussi @xmath1841 .
+comme @xmath1842 ( [ 3.2 ] et [ 4.5].2 ) , on a @xmath1843 .    on se
+demande si cette dernire intersection est gale  @xmath1844 ( resp .
+@xmath1845 ) ( voir [ 1.6].5 ) .
+cela prouverait que @xmath1846 ( resp
+. peut - tre @xmath1847 ) .
+un rsultat analogue a t prouv dans @xcite quand le corps rsiduel de @xmath2 contient @xmath3 .
+mais il concerne le groupe minimal @xmath1079  la kumar avec sa structure de ind - groupe ( sur @xmath3 mais tendue aux @xmath1848algbres ) .
+il pourrait donc ne pas avoir de rapport avec le rsultat cherch ici , car [ 3.19 ] ne donne une identification que pour les points rationnels sur @xmath3 des groupes
+maximaux ou minimaux .
+le foncteur en groupes minimal @xmath1079 nest pas forcment le meilleur choix sur tous les anneaux , un foncteur @xmath274 , comme en [ 1.6].1 , peut tre plus adapt , voir 3 ) ci - dessous .
+daprs [ 3.17 ] et [ 1.6].1 , [ 1.6].5 ( kmg7 ) , on a toujours @xmath1849 et @xmath1850 mais cela ne permet pas de rpondre aux questions .
+\3 ) cas de @xmath808 : on considre le sgr @xmath1851 .
+lalgbre de kac - moody correspondante est @xmath1852 $ ] , voir [ 2.12 ] .
+si on pose @xmath1853 , on a @xmath1854 , @xmath1855 et les espaces propres sont , pour @xmath1856 , @xmath1857 , @xmath1858 et @xmath1859 .
+comme @xmath75 est non libre on considre la masure essentielle et lappartement @xmath1409 correspondant du dbut de cette section : @xmath1860 et @xmath1861 forment donc une base de lespace vectoriel rel @xmath1862 .
+\a ) la reprsentation naturelle
+@xmath299 de @xmath493 sur @xmath1863}({\z[t , t^{-1}]}^2)$ ] ( [ 2.12 ] ) induit une identification de @xmath1864 et @xmath1865})$ ] qui envoie @xmath1866 sur le groupe des matrices de @xmath1867)$ ] qui sont triangulaires suprieures strictes modulo @xmath1868 .
+le foncteur en groupe @xmath274 de [ 1.6].1 peut tre choisi tel que @xmath1869})$ ] pour tout anneau @xmath8 .
+on sait que le groupe @xmath1712 est produit libre des sous - groupes @xmath1870)=\left(\begin{matrix}1&k[t ] \cr 0&1\cr \end{matrix}\right)=\langle u_{\alpha_1+n\delta}(k)\mid n\in\n\rangle$ ] et @xmath1871)=\left(\begin{matrix}1&0\cr tk[t]&0\cr \end{matrix}\right)=\langle u_{\alpha_0+n\delta}(k)\mid n\in\n\rangle$ ] , @xcite ; et on a :    @xmath1872    o on note @xmath1873 un lment non nul de lidal maximal @xmath1874 de @xmath1412 ( une uniformisante dans le cas discret ) .
+cet lment @xmath1875 est dans @xmath1876 ( daprs lexpression de gauche ) et dans @xmath1712 ( expression du milieu ou de droite ) donc dans @xmath1877 .
+cependant lexpression de droite montre que @xmath1783 nest pas dans @xmath1878 , puisquil y a unicit des dcompositions dans le produit libre @xmath1712 . on a donc une
+inclusion stricte : @xmath1879 .
+\b ) la reprsentation naturelle @xmath299 permet didentifier @xmath1880  @xmath1881 ; voir @xcite pour un rsultat voisin .
+dans cette identification @xmath1882 ( resp .
+@xmath1883 ) devient le groupe des matrices de @xmath1884)$ ] ( resp .
+@xmath1885)$ ] ) qui sont triangulaires suprieures strictes modulo @xmath1868 ( lingrdient essentiel de la dmonstration a t expliqu en [ 2.12 ] ) .
+on sest demand en 2 ) si @xmath1886})$ ] est gal  @xmath1887 ( cest impossible daprs a ) ) ou ventuellement  @xmath1888 .
+ce dernier groupe est form des matrices de @xmath1889)$ ] qui sont triangulaires suprieures strictes modulo @xmath1868 , il est donc bien gal  @xmath1890 .    on a donc :    @xmath1891 .    en particulier @xmath1892 .
+mais en fait @xmath1893 et @xmath1894 , car @xmath1876 est le groupe engendr par les matrices lmentaires de @xmath1895})$ ] et on sait que celui - ci est gal  @xmath1895})= { \mathfrak{g}}_\#(\sho)$ ] ( * ? ? ?
+\c ) on considre @xmath1896 avec @xmath1897 dtermin par @xmath1898 et @xmath1899 .
+alors @xmath1900 est topologiquement engendr par @xmath1901)$ ] et @xmath1902)$ ] dans @xmath1884)$ ] . on en dduit assez facilement que @xmath1900 ( resp .
+@xmath1903 ) est contenu dans ( en fait gal  ) lensemble des matrices @xmath1904)$ ] ( resp . @xmath1889)$ ] ) telles que @xmath1905 , @xmath1906 et @xmath1907 modulo @xmath1908
+. de mme @xmath1909 est topologiquement engendr par @xmath1910)$ ] et @xmath1911)$ ] dans @xmath1912)$ ] ; donc @xmath1909 ( resp .
+@xmath1913 ) est contenu dans ( en fait gal  ) lensemble des matrices @xmath1914)$ ] ( resp . @xmath1889)$ ] ) telles que @xmath1915 modulo @xmath1916 , @xmath1917 modulo @xmath1918 et @xmath1907 modulo @xmath1919 .
+ainsi @xmath1903 et @xmath1913 sont contenus dans le groupe @xmath1920 des matrices @xmath1921)$ ] telles que @xmath1915 et @xmath1907 modulo @xmath1919 .
+dautre part ( si @xmath1922 ) @xmath1923 est form des matrices diagonales avec @xmath1924 pour @xmath1925 et @xmath1856 . on voit facilement que , si @xmath1926 , la
+matrice @xmath1927 est dans @xmath1928 mais pas dans @xmath1929 .
+donc @xmath1930 ne satisfait  aucune des conditions ( gf@xmath1668 ) de [ 5.3 ] ci - dessous ( si @xmath1926 ) .
+\4 ) on considre toujours @xmath808 avec son appartement @xmath1409 despace vectoriel associ @xmath1396 et @xmath1861 , @xmath1931 base du dual @xmath1862 . on
+suppose @xmath1932 .
+les murs ont alors pour quations @xmath1933 avec @xmath1934 et les coracines vrifient @xmath1935 .
+le groupe de weyl ( affine ) associ est @xmath1936 .
+le groupe de weyl vectoriel @xmath87 contient la transvection @xmath1937 donne par @xmath1938 .
+si lon considre la translation @xmath1939 de vecteur @xmath1940 , llment @xmath1941 de @xmath1476 fixe tous les points de lhyperplan affine dquation @xmath1942 .
+cependant le point @xmath693 tel que @xmath1943 et @xmath1944 nest dans aucun mur .
+ainsi @xmath1945 alors que @xmath1946 est infini .
+ce phnomne disparat si on considre un espace vectoriel @xmath1396 o @xmath1947 et @xmath1940 sont indpendants .
+[ 4.13 ] soit @xmath1505 un sous - ensemble de @xmath1409 . on dfinit
+le groupe @xmath1948 comme lintersection des groupes @xmath1949 o @xmath1098 est une partie non vide de @xmath1950 , @xmath1951 une extension value et @xmath1949 est le groupe construit de manire analogue  @xmath1952 dans @xmath1953 .
+( on sait que @xmath1954 sinjecte fonctoriellement dans @xmath1953 [ 1.6 ] . )    si @xmath1505 est un filtre de parties de @xmath1409 , on dfinit @xmath1955 .
+si @xmath1505 est un point ou une facette de @xmath1409 , on dira que @xmath1948 est le `` fixateur '' de @xmath1505 voir ci - dessous [ 5.1 ] et [ 5.7].2 .
+proprits    \1 ) on a une fonctorialit vidente en le corps des diffrents groupes ou algbres dfinis jusquen [ 4.6 ] ( sauf @xmath1732 et @xmath1948 ) . en particulier le sous - groupe @xmath1948
+de @xmath1956 contient les groupes @xmath1957 , @xmath1958 , @xmath1697 et @xmath1681 .
+daprs [ 4.10 ] , pour @xmath1323 on a @xmath1959 . bien sr si @xmath1545 , on a @xmath1960 .
+\2 ) soient @xmath1505 un sous - ensemble de @xmath1409 et @xmath556 un point de @xmath1950 .
+il existe une extension value @xmath1951 telle que @xmath556 soit un point spcial de @xmath1961 ( si @xmath1962 ) . daprs
+[ 4.12].1 on a @xmath1963 , donc @xmath1964 .
+cette relation est encore valable si @xmath1505 est un filtre .
+par contre , mme pour un ensemble , on ne sait pas si linclusion @xmath1965 est toujours une galit .
+\3 ) si @xmath1505 est un ensemble , @xmath1966 , daprs 1 ) , 2 ) ci - dessus , [ 4.11 ] et lunicit dans les dcompositions de [ 3.16 ] .
+donc @xmath1967 , @xmath1968 et ceci est encore valable pour un filtre .
+\4 ) si @xmath1505 est troit on a , daprs [ 4.7 ] , @xmath1969 .
+ainsi @xmath1970 .
+\5 ) on ne va utiliser @xmath1948 que si @xmath1505 est un point ou une facette et , dans ce cas , on ne dfinira que plus tard ( [ 5.11 ] ) le sous - groupe parahorique @xmath1697 ( avec @xmath1971 ) .
+les proprits des groupes @xmath1972 sont rsumes dans la proposition suivante .
+il nest pas exclus que , pour tout @xmath556 dans @xmath1409 , @xmath1973 @xmath1974 et @xmath1975 [ 4.12].3b . en [ 5.7].3 on verra que ceci
+ne peut se gnraliser  tout ensemble @xmath1930  la place de @xmath556 .
+[ 4.14 ] les groupes @xmath1972 associs aux points de @xmath1409 satisfont aux proprits suivantes :    ( p1 ) @xmath1976 ( le fixateur de @xmath556 dans @xmath614 ) .
+( p2 ) @xmath1977 .
+( p3 ) @xmath1978 avec @xmath1979 et @xmath1980 .    on a en fait ( p3 )
+@xmath1981      la gnralisation des rsultats de @xcite ( en particulier le lemme [ 4.11 ] )  la caractristique rsiduelle positive a ncessit , sans surprise , le remplacement de lalgbre de lie @xmath1719 par lalgbre `` enveloppante '' @xmath1577 .
+les raisonnements de ( * ? ? ?
+3.7 ) sont compliqus , entachs dune ou deux erreurs ( do nt je suis responsable ) et utilisent la symtrisabilit .
+ctait sans doute trop ambitieux de dfinir  ce stade les groupes @xmath1697 au lieu des groupes @xmath1948 . on a pu simplifier et gnraliser en restreignant lambition et en utilisant des extensions de corps ( comme suggr par les travaux de cyril charignon @xcite ou @xcite ) .
+dans cette section on ne va utiliser que les proprits ( p1 )  ( p3 ) des groupes @xmath1972 indiques dans la proposition [ 4.14 ] .
+la mention qui sera faite des groupes @xmath1948 plus gnraux nest pas indispensable au raisonnement .
+[ 5.1 ] la _ masure _ @xmath1982 de @xmath1079 sur @xmath2 est le quotient de lensemble @xmath1983 par la relation :    @xmath1984 il existe @xmath1323 tel que @xmath1985 et @xmath1986 .
+il est clair que @xmath1987 est une relation dquivalence @xcite .
+lapplication @xmath1988 , @xmath1989 est injective daprs ( p1 ) .
+elle identifie @xmath1409  son image @xmath1990 , l_appartement _ de @xmath1225 dans @xmath0 .
+laction  gauche de @xmath5 sur @xmath1983 induit une action de @xmath5 sur @xmath0 .
+les appartements de @xmath0 sont les @xmath1991 pour @xmath1875 . laction de @xmath614 sur @xmath1992 se fait via @xmath1259 ; en particulier @xmath1541 fixe ( point par point ) @xmath1992 .
+par construction le fixateur de @xmath1993 est @xmath1994 et , pour @xmath1875 on a @xmath1995 .
+comme @xmath1972 contient @xmath1996 , il est clair que , @xmath1519 , @xmath1997 , @xmath1998 fixe @xmath1999 .
+donc , pour @xmath1442 , le groupe @xmath2000 fixe @xmath2001 .
+pour @xmath1505 une partie de @xmath1409 , on note @xmath2003 et pour @xmath1505 un filtre , @xmath2004 .
+le groupe @xmath2002 est le fixateur de @xmath1505 ( pour laction de @xmath5 sur @xmath0 qui contient @xmath1409 ) .    par construction de @xmath1948 , on a @xmath2005 ( donc @xmath2006 ) et @xmath2007 .
+daprs [ 4.5].4d et ( p3 ) on a @xmath2008 et @xmath2009 .
+le sous - ensemble @xmath2010 de @xmath5 consistant en les @xmath1875 tels que @xmath2011 est @xmath2012 .
+@xmath2013 .
+[ 5.3 ] on considre les conditions suivantes :    ( gf+ ) @xmath2014 .
+( gf@xmath1666 ) @xmath2015 .
+( tf ) @xmath2016 .    on dit que @xmath1505 a un _ fixateur transitif _
+sil satisfait ( tf ) .    on dit que @xmath1505 a un _ assez bon fixateur _
+sil satisfait ( tf ) et ( gf+ ) ou ( gf@xmath1666 ) .    on dit que @xmath1505 a un _ bon fixateur _
+sil satisfait ( tf ) , ( gf+ ) et ( gf@xmath1666 ) .
+daprs la remarque [ 4.6]c , cette dfinition ne dpend pas du choix de @xmath507 dans sa classe de @xmath1211conjugaison .
+la condition ( gf+ ) ou ( gf@xmath1666 ) implique que @xmath2017 ( [ 4.13].1 ) ; le groupe @xmath614 permute les filtres satisfaisant ( gf+ ) , ( gf@xmath1666 ) ou ( tf ) et les fixateurs correspondants ( [ 4.13].1 ) .
+daprs ( p3 ) et [ 5.1 ] un point a toujours un bon fixateur .
+mais il existe des ensembles ne vrifiant ni ( gf+ ) ni ( gf@xmath1666 ) , [ 4.12].3c .
+[ 5.4 ] soit @xmath1505 un filtre de parties de @xmath1409 .
+si @xmath1505 a un fixateur transitif , alors @xmath2002 est transitif sur les appartements contenant @xmath1505 .
+cest classique et dans ( * ? ? ?
+consquence alors @xmath2002 et tous ses sous - groupes normaux ne dpendent pas du choix de lappartement contenant @xmath1505 .
+[ 5.5 ]    \1 ) supposons @xmath2018 .
+si @xmath1505 dans @xmath2019 a un bon ( ou assez bon ) fixateur , alors cest galement vrai pour @xmath1098 et @xmath2020 , @xmath2021 . en particulier
+tout appartement contenant @xmath1505 contient aussi son enclos @xmath1508
+.    inversement si @xmath2022 , le plus petit espace affine contenant @xmath1505 , ( ou si @xmath2023 , donc @xmath2024 ) , @xmath1505 a un assez bon fixateur et @xmath1098 a un bon fixateur , alors @xmath1505 a un bon fixateur .
+\2 ) si un filtre @xmath1505 dans @xmath2019 est engendr par une famille @xmath2025 de filtres ( @xmath2026 ) avec des bons ( ou assez bons ) fixateurs , alors @xmath1505 a un bon ( ou assez bon ) fixateur @xmath2027 .
+\3 ) supposons que le filtre @xmath1505 dans @xmath2019 est la runion dune suite croissante @xmath2028 ( @xmath2029 ) de filtres avec de bons ( ou assez bons ) fixateurs et que , pour un certain @xmath97 , lespace @xmath2030 a un fixateur fini @xmath2031 dans @xmath2032 , alors @xmath1505 a un bon ( ou assez bon ) fixateur @xmath2033 .
+4)soient @xmath1505 et @xmath1098 deux filtres dans @xmath2019 .
+supposons que @xmath1098 satisfait  ( gf+ ) ( resp .
+( gf+ ) et ( tf ) ) et quil existe un nombre fini de chambres vectorielles fermes positives @xmath2034 , @xmath2035 telles que : @xmath2036 .
+alors @xmath2037 satisfait  ( gf+ ) ( resp .
+( gf+ ) et ( tf ) ) et @xmath2038 .
+voir ( * ? ? ?
+4.3 )    [ 5.6 ]    dans 4 ) ci - dessus , les mmes rsultats sont vrais si on change @xmath1665 en @xmath1666 .    si @xmath1098 a un bon fixateur , @xmath2039 et @xmath2040 , alors @xmath2037 a un bon fixateur .
+si @xmath1505 satisfait  ( gf@xmath1666 ) , @xmath1098 satisfait  ( gf+ ) , @xmath1505 ou @xmath1098 satisfait  ( tf ) , @xmath2036 et @xmath2041 , alors @xmath2037 a un bon fixateur .      pour les preuves manquantes ci - dessous , voir ( * ? ? ?
+\1 ) si @xmath2042 ou @xmath2043 dans @xmath1409 si @xmath2044 ( cne de tits ) , alors @xmath2045 , @xmath2046 $ ] et @xmath2047 ont de bons fixateurs ( [ 5.6 ] et ( p3 ) ) .
+si @xmath2048 , @xmath229x , y]=[x , y]\setminus\{x\}$ ] a un bon fixateur et le germe de segment @xmath2049)$ ] ou le germe dintervalle @xmath2050x , y)=germ_x(]x , y])$ ] est dit _ prordonn _ et a un bon fixateur ( [ 5.5].2 ) .
+si @xmath2051 ou @xmath2052 dans @xmath1409 si @xmath2053 ( intrieur du cne de tits ) , la demi - droite @xmath796 dorigine @xmath556 et contenant @xmath693 est dite _ gnrique _ et a un bon fixateur . en effet @xmath796 est runion croissante des segments
+@xmath2054 $ ] pour @xmath435 et , si @xmath468 , ce segment a un fixateur fini dans @xmath1476 ( car @xmath2053 ) ; on peut donc appliquer [ 5.5].3 .
+de mme la droite contenant @xmath556 et @xmath693 a aussi un bon fixateur .
+\2 ) une facette locale @xmath1469 , une facette @xmath1470 ou une facette ferme @xmath1473 a un bon fixateur .
+ici et dans la suite @xmath1467 dsigne une facette vectorielle et @xmath2055 une chambre vectorielle de @xmath1396 .
+\3 ) un quartier @xmath2056 a un bon fixateur .
+on notera que le fixateur du quartier @xmath2057 est @xmath2058 , alors que @xmath2059 , car @xmath2060 et @xmath2061 . on a vu
+en [ 4.12].3 que @xmath2062 peut tre plus petit que @xmath2063 . on peut donc avoir @xmath2064 .
+\4 ) un germe de quartier @xmath2065 a un bon fixateur ( [ 5.5].2 ) .
+le fixateur de @xmath2066 est @xmath2067 car tout lment de @xmath2068 est un produit fini dlments de groupes @xmath1308 pour @xmath2069 .
+par contre @xmath1306 nest pas la runion des @xmath2070 pour @xmath2071 , on na sans doute pas daction de @xmath6 sur @xmath0 .
+\5 ) lappartement @xmath1409 lui - mme a un bon fixateur @xmath2072 .
+par dfinition le stabilisateur de @xmath1409 est donc @xmath2073 .
+comme le corps @xmath2 est infini , il rsulte alors de [ 1.6].4 que les appartements de @xmath0 sont en bijection avec les sous - tores dploys maximaux de @xmath1079 .
+\6 ) un mur @xmath1439 a un bon fixateur : soit @xmath2074 et @xmath2075 dans une cloison vectorielle de ker@xmath40 , alors @xmath1439 est runion croissante des @xmath2076 do nt le support @xmath1439 a un fixateur fini ( @xmath2077 ) dans @xmath2078 , on conclut grce  1 ) ci - dessus et [ 5.5].3 .
+ce rsultat stend au cas du support dune facette sphrique .
+le ( bon ) fixateur de @xmath1439 est @xmath2079 .
+\7 ) un demi - appartement @xmath2001 est lenclos de deux quartiers do nt des cloisons sont dans @xmath1439 et opposes , daprs 3 ) ci - dessus et [ 5.5].1 , [ 5.5].4 , il a un bon fixateur , qui est gal  @xmath2080 .
+\8 ) si @xmath2081 si @xmath2082 , alors @xmath2083 a un bon fixateur pour toutes facettes vectorielles @xmath2084 et @xmath2085 de signes quelconques : daprs 2 ) ci - dessus on peut appliquer la remarque [ 5.6 ] aux facettes locales @xmath2086 et @xmath2087 , on conclut grce  [ 5.5].1 .
+\9 ) lenclos @xmath2088 a un bon fixateur ds que les facettes vectorielles @xmath2084 et @xmath2085 sont de signe opposs ou si lune delles est sphrique . en effet le premier cas est clair par 2 ) ci - dessus et la remarque [ 5.6 ] .
+si la facette vectorielle @xmath2084 est sphrique , elle est contenue dans le cne de tits ouvert @xmath2089 ( ou @xmath2090 ) , il existe donc une chambre @xmath2055 et un @xmath2091 tels que , @xmath2092 , @xmath2093 contient @xmath2094 pour un voisinage @xmath2095 de @xmath4 dans @xmath2085 .
+alors @xmath2096 et @xmath2097 .
+daprs 2 ) ci - dessus et la remarque [ 5.6 ] @xmath2098 a un bon fixateur et on conclut par [ 5.5].1 .
+soient @xmath2099 un appartement de @xmath0 et @xmath2100 , la relation @xmath2101 ( resp .
+@xmath2102 ) dans @xmath1409 ne dpend pas du choix de @xmath1783 daprs [ 5.7].5 , car @xmath614 stabilise le cne de tits et son intrieur ; on note cette relation @xmath2103 ( resp .
+@xmath2104 ) .
+soient @xmath2105 , @xmath2106 deux appartements de @xmath0 et @xmath2107 tels que @xmath2108 .
+alors @xmath2109 ( car @xmath2045 a un bon fixateur ) . on dfinit donc ainsi une relation @xmath2110 ( et aussi @xmath2111 ) sur @xmath2112 ; on verra en [ 5.14 ] que cest un prordre . il rsulte de [ 5.5].1 que @xmath2113 contient @xmath2047 ( calcul dans @xmath2105
+ou @xmath2106 ) et en particulier le segment @xmath2046 $ ] ( qui est le mme dans @xmath2105 et @xmath2106 ) ; on dit quune intersection dappartements est _ convexe pour le prordre _ @xmath2110 .
+contrairement aux conventions depuis 4.0 , on va modifier le sgr .
+soit @xmath1374 un morphisme de sgr libres qui est une extension centrale finie .
+on abrgera @xmath261 en @xmath1079 , @xmath409 en @xmath2114 , @xmath402 en @xmath130 , etc .
+alors @xmath19 est un sous - module de @xmath136 de mme rang , donc @xmath2115 et , comme @xmath131 , on a @xmath2116 , @xmath2117 . le morphisme @xmath2118 est dcrit en [ 1.10 ] et [ 1.13 ] , en particulier @xmath2119 , @xmath2120 et le noyau de @xmath130 est dans @xmath1225 et mme dans @xmath1541 puisquil est fini .    par construction ( [ 4.2 ] )
+les appartements affines @xmath1409 et @xmath2121 sont identiques , les actions @xmath1259 et @xmath2122 de @xmath614 et @xmath2123 sont compatibles et on a les mmes murs puisque pour @xmath219 , @xmath2124 et @xmath2125 . les images @xmath1422 et @xmath2126 sont en gnral diffrentes ( [ 4.2].6 ) , mais on a @xmath2127 et @xmath2128 .    pour @xmath2129 , les algbres de lie @xmath2130 et @xmath2131 ont les mmes composantes de poids non nul , [ 2.2 ] ( ce nest pas vrai en poids nul : si @xmath2 est de caractristique positive lapplication de @xmath2132 dans @xmath2133 peut mme ne pas tre injective ) .
+ainsi lisomorphisme @xmath130 de @xmath1306 sur @xmath2134 ( [ 3.18].3 ) induit un isomorphisme de @xmath2070 sur @xmath2135 et aussi de @xmath2136 sur @xmath2137 , on identifie ces groupes . on a les rsultats
+symtriques pour @xmath2138 et @xmath2139 , etc .
+comme les actions de @xmath614 et @xmath2123 sur @xmath1409 sont compatibles et ker@xmath2140 , on a @xmath2141 . pour @xmath2142 , on a donc @xmath2143 et @xmath2144 car ker@xmath2145
+.    les relations ci - dessus permettent facilement de montrer que lapplication @xmath2146 passe au quotient en une bijection de la masure @xmath0 sur la masure @xmath2147 .
+cette bijection est compatible avec @xmath130 et les actions de @xmath5 et @xmath2148 ; elle change les facettes .
+comme @xmath2149 et @xmath2150 les appartements de @xmath0 et @xmath2147 sont les mmes .
+on identifie ces deux masures .
+[ 5.9 ] soient @xmath1374 une extension centrale finie de sgr libres et @xmath1505 un filtre de parties de @xmath1409 .
+alors @xmath1505 a un bon ( ou assez bon ) fixateur @xmath2002 pour @xmath2151 si et seulement si il en a un @xmath2152 pour @xmath2153 .
+dans ce cas @xmath2154 .
+comme les actions de @xmath5 et @xmath2148 sur @xmath0 sont compatibles , on a @xmath2155 .
+supposons que @xmath2152 est un ( assez ) bon fixateur ( pour le signe @xmath1665 ) . on a @xmath2156 , donc @xmath2157 ,
+do ( gf+ ) pour @xmath1505 et @xmath5 .
+soit @xmath1612 , @xmath2158 .
+donc ( tf ) est satisfait par le filtre @xmath1505 et le groupe @xmath5 .
+supposons que @xmath2002 est un ( assez ) bon fixateur ( pour le signe @xmath1665 ) .
+soit @xmath2159 , quitte  multiplier  gauche @xmath2160 par un lment de @xmath2161 on peut supposer @xmath2162 .
+donc il existe @xmath2163 tel que @xmath2164 .
+do ( tf ) pour @xmath1505 et @xmath2148 .
+pour @xmath2165 , ce calcul montre que @xmath2166 .
+mais @xmath1675 , @xmath1672 sont dans @xmath2152 , donc @xmath2167 .
+do ( gf+ ) pour @xmath1505 et @xmath2148 , plus la dernire assertion de lnonc .
+\1 ) daprs [ 1.3 ] on a une suite dextensions commutatives de sgr @xmath2168 qui sont successivement centrale torique , semi - directe et centrale finie . on note @xmath2169 , @xmath2170 , @xmath2171 , @xmath5 les groupes correspondants et @xmath2172 le compos des morphismes @xmath2173 .
+daprs [ 5.8 ] , @xmath2171 et @xmath5 ont la mme masure @xmath0 .
+par contre @xmath160 et @xmath2174 ne sont en gnral pas libres , on considre les actions de @xmath2169 et @xmath2170 sur @xmath0 via leurs morphismes dans @xmath5 .
+\2 ) on a @xmath2175 ( [ 1.8].3 ) ; on en dduit aussitt que le groupe simplement connexe @xmath2169 permute transitivement les appartements de @xmath0 . le stabilisateur de @xmath1409 dans @xmath2169 est le groupe @xmath2176 ( [ 1.10 ] ) et , daprs la construction de [ 4.2 ] , @xmath2177 .
+ainsi tout appartement de @xmath0 est muni dune unique structure dappartement de type @xmath1409 telle que @xmath2169 induise des isomorphismes dappartements ( au sens de @xcite ) .
+\3 ) dans ( * ? ? ?
+* et 6.2 ) on se place dans le cas @xmath2178 ( libre ) et le groupe @xmath2179 qui y est dfini est gal  @xmath2180 .
+\1 ) on dit quune paire @xmath2181 forme de deux filtres de parties de @xmath0 est _ conviviale _ sil existe un appartement contenant ces deux filtres et si deux appartements @xmath2182 contenant @xmath2183 sont isomorphes par un isomorphisme fixant lenclos de @xmath2184 et @xmath2185 ( calcul dans @xmath17 ou @xmath2186 ) .    on ne considrera
+ici que des paires @xmath2187_conviviales _ , telles que les isomorphismes dappartements soient induits par des lments de @xmath5 .
+une paire @xmath2181 est donc @xmath2187conviviale ds que @xmath2188 est contenu dans un appartement et y a un assez bon fixateur ( car @xmath2189 et @xmath2190 induisent des isomorphismes dappartements ) .
+\2 ) lemme soient
+@xmath2183 deux filtres de parties de @xmath1409 .
+supposons @xmath2191 , alors pour tous @xmath2192 , @xmath2193 et @xmath2194 sont contenus dans un mme appartement .    si @xmath2191
+ou si @xmath2184 ou @xmath2185 a un fixateur transitif , alors @xmath2184 et @xmath2185 sont conjugus par @xmath5 si et seulement si ils le sont par @xmath614 .
+les consquences de @xmath2191 sont classiques , ( * ? ? ?
+* et 3.7 ) .
+la dernire assertion rsulte de [ 5.4 ] et [ 5.7].5 .
+\3 ) il rsulte donc de la dcomposition diwasawa [ 4.7 ] et de [ 5.7].4 quun filtre troit
+dans un appartement
+et un germe de quartier sont toujours dans un mme appartement . daprs
+[ 5.7 ] et [ 5.5].4 une facette ( ou un germe de segment , un germe dintervalle , une facette locale , une facette ferme ) et un germe de quartier forment une paire @xmath2187conviviale .
+\4 ) par convexit ordonne un appartement contenant un point @xmath556 et un germe de quartier @xmath2195 ,
+contient le quartier @xmath2056 et son enclos donc son adhrence @xmath2196 . on en dduit quune facette @xmath1470 et un
+filtre troit @xmath1451 contenant @xmath556 sont toujours dans un mme appartement .
+ainsi , daprs [ 5.7].9 , deux facettes @xmath2197 et @xmath2198 en le mme point forment une paire @xmath2187conviviale ds que @xmath2084 et @xmath2085 sont de signes opposs ou si lune delles est sphrique .
+\5 ) soient
+@xmath2199 une chambre de @xmath1409 et @xmath1439 lun de ses murs ( avec @xmath2200 ) .
+alors @xmath2201 agit transitivement sur les chambres @xmath2202 adjacentes  @xmath2203 le long de @xmath1439 ; en particulier nimporte laquelle de ces chambres @xmath2204 est dans un mme appartement que le demi - appartement @xmath2001 , @xcite .
+de plus @xmath2204 et @xmath2001 forment une paire conviviale : si @xmath2205 , @xmath2206 a un bon fixateur @xmath2207 ( [ 5.7].7 ) .
+\6 ) on a vu en @xcite que deux points de la masure @xmath0 ne sont pas toujours contenus dans un mme appartement .
+cest pour cette raison que lon a abandonn le nom dimmeuble pour @xmath0 ; une dfinition abstraite des masures affines nest pas possible dans des termes approchant ceux de @xcite , do la dfinition de @xcite inspire de @xcite .
+on reproduit ci - dessous cette dfinition dans une formulation utilisant la notion de paire conviviale .
+une paire de points ou une paire de facettes de @xmath0 nest pas toujours conviviale .
+de plus dans lexemple [ 4.12].3c de @xmath808 , on a trouv deux points de @xmath1409 do nt le fixateur nest pas assez bon .
+par contre il est peut - tre possible que le fixateur de deux points de @xmath1409 soit toujours transitif ( donc quune paire de points dun mme appartement soit toujours conviviale ) .
+[ 5.7d ] une _ masure affine _ de type @xmath1409 est un ensemble @xmath2208 muni dun recouvrement par un ensemble @xmath2209 de sous - ensembles appels _ appartements _ tel que :    ( ma1 ) tout @xmath2210 est muni dune structure dappartement de type @xmath1409 ( au sens de @xcite est `` isomorphe ''  @xmath1409 ) .
+( ma2 ) si @xmath1451 est un point , un germe dintervalle prordonn , une demi - droite gnrique ou une chemine solide dun appartement @xmath17 , alors @xmath2211 est une paire conviviale .
+( ma3 + 4 ) si @xmath2212 est un germe de chemine vase , si @xmath1451 est une facette ou un germe de chemine solide , alors @xmath2213 est une paire conviviale .
+( la notion de chemine , utilise ci - dessus , ne sera dfinie quen [ 5.12].1 . )
+la masure affine @xmath2208 est dite _ ordonne _ si elle vrifie laxiome supplmentaire suivant :    ( mao ) soient @xmath2214 deux points de @xmath2208 et @xmath2182 deux appartements les contenant ; si @xmath2215 ( dans @xmath17 ) , alors les segments @xmath2046_a$ ] et @xmath2046_{a'}$ ] dfinis par @xmath556 et @xmath693 dans @xmath17 et @xmath2186 sont gaux .
+la masure affine @xmath2208 est dite _ paisse _ si toute cloison de @xmath2208 est dans ladhrence dau moins trois chambres .
+\1 ) si @xmath2129 a un assez bon fixateur , on a @xmath2216 , puisque @xmath1672 , @xmath1675 , ... ne dpendent pas du sgr  extension commutative prs . en particulier le fixateur @xmath2217 de @xmath1505 dans @xmath2169 agit transitivement sur les appartements de @xmath0 contenant @xmath1505 . on note @xmath2218 .
+ainsi @xmath2219 .
+le groupe @xmath2220 a pour image via @xmath1259 le fixateur @xmath1556 de @xmath1505 dans @xmath1476 . on a aussi @xmath2221 .
+il est clair que les facettes @xmath2222 et @xmath2223 ont le mme fixateur dans @xmath1476 , donc @xmath2224 .
+\2 ) quand @xmath2225 , on note @xmath2226 ( qui est alors aussi gal  @xmath1957 et @xmath1958 ) .
+cela se produit si @xmath1505 est rduit  un point spcial ou si @xmath1505 est une facette sphrique et si la valuation est discrte ( daprs [ 4.3].4 ) ; cest a priori rare en dehors de ces deux cas daprs @xcite et [ 4.12].4 .
+pour gnraliser la dfinition de @xcite , on dfinit un _ sous - groupe parahorique _ comme le groupe @xmath2227 associ  une facette sphrique @xmath1451 ou @xmath2228 .
+on parle de _ sous - groupe diwahori _
+si @xmath1451 ou @xmath2228 est une chambre .
+\3 ) le _ type global affine _
+dun filtre de @xmath0 qui a un assez bon fixateur ( en particulier une facette ) est son orbite sous @xmath2169 .
+dans un appartement @xmath17 de @xmath0 deux filtres ( assez bien fixs ) ont mme type si et seulement si ils sont conjugus par le groupe de weyl @xmath2229 de @xmath17 ( le 1 ) , [ 5.7c].2 et [ 5.10].2 ) .
+pour les facettes ( ou les filtres troits assez bien fixs ) la relation `` avoir le mme type global affine '' est la relation engendre par transitivit  partir des relations prcdentes dans les appartements .
+en effet , tant donnes deux facettes @xmath2183 il existe toujours un quartier @xmath2230 et des appartements @xmath2231 contenant @xmath2230 et respectivement @xmath2183 ( [ 5.7c].3 ) ; de plus @xmath2230 contient forcment un @xmath2232conjugu de @xmath2233 .
+le type global affine dune facette concide donc avec le type habituel dans le cas dun immeuble affine discret .
+mais en valuation dense et si on suppose @xmath1409 essentiel , le type global affine dune facette locale @xmath1469 est la donne de lorbite @xmath2234 de @xmath556 et de lorbite de @xmath1467 sous @xmath2235 ( cest  dire du type ( vectoriel ) de @xmath1467 si @xmath556 est spcial ) .
+\1 ) une _ chemine _ dans @xmath1409 est associe  une facette @xmath2236 ( sa base ) et une facette vectorielle @xmath1467 ( sa direction ) , cest le filtre @xmath2237 .
+la chemine @xmath2238 est dite _ vase _ si @xmath1467 est sphrique , son signe est alors celui de @xmath1467 .
+cette chemine est dite _ solide _ ( resp . _ pleine _ ) si la direction de tout sous - espace affine la contenant a un fixateur fini dans @xmath87 ( resp .
+est @xmath1396 ) .
+une chemine vase est solide .
+lenclos dun quartier est une chemine pleine .
+si @xmath2239 la chemine @xmath2240 est lenclos de la face de quartier @xmath1472 ; cette face est dite sphrique si @xmath1467 est sphrique ..    un raccourci de la chemine @xmath2238 est dfini par un lment @xmath2241 , cest la chemine @xmath2242 .
+le _ germe _ de la chemine @xmath2238 est le filtre @xmath2243 form des parties de @xmath1409 contenant un de ses raccourcis .
+si @xmath1467 est la facette vectorielle minimale , on a @xmath2244 .
+\2 )  la facette vectorielle @xmath1467 est associ un sous - groupe parabolique @xmath2245 de @xmath5 avec une dcomposition de levi @xmath2246 .
+le groupe @xmath2247 est engendr par @xmath1225 et les @xmath1308 pour @xmath219 et @xmath2248 , @xcite ou @xcite .
+si @xmath2249 pour @xmath1120 ( [ 4.1 ] ) , le groupe @xmath2247 est clairement un quotient du groupe de kac - moody minimal @xmath2250 ( notations de [ 3.10 ] ) .
+daprs la remarque [ 3.10 ] et [ 3.13 ] on a en fait galit : @xmath2251 .
+ce groupe @xmath2252 induit sur @xmath1409 une structure dappartement @xmath2253 do nt les murs sont les @xmath1439 pour @xmath2254 et @xmath1437 .
+lenclos correspondant @xmath2255 de la facette @xmath1451 est une facette ferme de @xmath2253 , on note @xmath2256 son fixateur dans @xmath2251 .
+cette construction se ralise aussi si @xmath1467 est une autre facette vectorielle ou si @xmath1451 est rduit  un point @xmath2257 ( ou @xmath2222 ) .
+le sous - groupe `` parahorique '' de @xmath5 associ  @xmath2258 est le produit semi - direct @xmath2259 .
+il ne dpend en fait que du germe @xmath2260 , on le note donc aussi @xmath2261 .
+les rsultats suivants se dmontrent comme dans @xcite .
+\3 ) proposition le groupe @xmath2261 fixe ( point par point ) le germe de chemine @xmath2262 .
+\4 ) proposition soient @xmath2263 et @xmath2264 deux germes de chemines de @xmath1409 avec @xmath2263 vas , alors @xmath2265 .
+\5 ) proposition une chemine solide
+et son germe ont de bons fixateurs .
+il en est de mme pour une face de quartier sphrique @xmath1472 et son germe (  linfini ) ; le fixateur ( point par point ) de @xmath2266 est @xmath2267 .
+\6 ) proposition soient @xmath2263 un germe de chemine vase et @xmath2264 un germe de chemine solide ou une facette dans @xmath1409 , alors @xmath2268 a un assez bon fixateur ( et mme un bon fixateur si @xmath2264 est vas ) .
+\7 ) remarque on obtient donc de nouvelles paires @xmath2187conviviales dans @xmath0 : un germe de chemine vase et un germe de chemine solide ou un germe de chemine vase et une facette .
+cela permet en particulier de dfinir des
+rtractions de @xmath0 sur un appartement @xmath17 avec pour centre un germe de chemine vase pleine de @xmath17 ( par exemple un germe de quartier ) @xcite .
+[ 5.13 ] la masure affine @xmath0 construite en [ 5.1 ] est une masure affine ordonne paisse au sens de @xcite ou [ 5.7d ] .
+elle est semi - discrte si la valuation @xmath1394 de @xmath2 est discrte .
+laxiome ( ma1 ) rsulte de [ 5.10].2 et ( ma2 ) rsulte de ce que lon a vu en [ 5.7 ] ou [ 5.12].5 : les filtres impliqus dans ( ma2 ) ont de bons fixateurs .
+enfin ( ma3 + 4 ) rsulte de [ 5.12].7 .
+les dernires assertions se montrent comme dans @xcite . on notera
+cependant que lpaisseur dune cloison est le cardinal du corps rsiduel de @xmath2 et donc peut tre finie dans notre cas , plus gnral que celui de @xcite .
+[ 5.14 ] 1 ) la masure @xmath0 a donc toutes les proprits dmontres dans @xcite , un certain nombre dentre elles ont dj t prouves ci - dessus . on obtient cependant au moins
+deux proprit intressantes supplmentaires : les relations @xmath2110 et @xmath2269 de [ 5.7b ] sont des prordres ( elles sont transitives ) et les rsidus en chaque point de @xmath0 ont une structure dimmeubles jumels .
+\2 ) on notera les proprits de laction du groupe @xmath5 : il est transitif sur les appartements et tous les isomorphismes entre appartements do nt lexistence est exige par les axiomes de @xcite ou [ 5.7d ] sont induits par des lments de @xmath5 . on peut dire que laction
+de @xmath5 est _ fortement transitive_. dans le cas classique dune action de groupe sur un immeuble affine discret , cette notion de forte transitivit entrane clairement la notion classique ( et lui est sans doute quivalente ) .
+[ 5.15 ] les immeubles jumels  linfini associs  la masure @xmath0 en @xcite sidentifient ( avec leurs appartements et leur action de @xmath5 ) aux immeubles jumels de @xmath5 dfinis par j. tits ( [ 1.6].5 ) .
+limmeuble microaffine positif ( resp
+. ngatif )
+ linfini associ  la masure @xmath0 en @xcite sidentifie ( avec ses appartements et son action de @xmath5 )  limmeuble microaffine de @xcite ( dans sa ralisation de satake ) associ  @xmath5 et  la valuation @xmath1394 de @xmath2 ( resp .
+lanalogue obtenu en changeant le cne de tits en son oppos ) .
+cyril charignon construit directement dans @xcite un objet immobilier contenant @xmath0 , les immeubles microaffines ci - dessus et dautres masures affines associes aux sous - groupes paraboliques non sphriques de @xmath5 .
+cest la gnralisation au cas kac - moody de la compactification de satake ( ou compactification polydrique ) des immeubles de bruhat - tits .
+cette dernire a t construite abstraitement ( sans laide dun groupe ) dans @xcite .    on identifie facilement lappartement canonique ( et son action de @xmath614 ) dun immeuble de @xcite avec celui qui doit lui correspondre , ( * ?
+* et 4.4 ) .
+il reste donc  identifier les fixateurs de points de ces appartements .    le fixateur de la facette vectorielle ( sphrique ) @xmath1467 dans limmeuble de [ 1.6].5 est le
+sous - groupe parabolique @xmath2245 engendr par @xmath1225 et les @xmath1308 pour @xmath2270 .
+il est clair quun lment de chacun de ces groupes transforme une face de quartier de @xmath1409 de direction @xmath1467 en une face parallle ( dans @xmath0 ) .
+ainsi @xmath2245 fixe la classe de paralllisme des faces de quartier correspondant  @xmath1467 .
+un point de lappartement @xmath2271 de limmeuble de @xcite est de la forme @xmath2272 avec @xmath1467 une facette vectorielle sphrique positive de @xmath1396 , @xmath2273 lespace vectoriel engendr et @xmath2274 [ , 4.2 ] . on lui associe le germe (  linfini )
+de la face de quartier @xmath2275 pour @xmath2276 .
+le fixateur de @xmath2277 est engendr par @xmath2278 , le groupe @xmath2279 et le sous - groupe de @xmath1225 induisant dans @xmath1409 des translations de vecteur dans
+@xmath2273 [ , 4.2.3 ] .
+les deux premiers groupes engendrent le fixateur point par point du germe de la face de quartier @xmath2275 ( [ 5.12].5 ) et le troisime groupe stabilise videmment ce germe .
+ces inclusions entre les fixateurs de points permettent de dfinir des applications surjectives et @xmath2187quivariantes des immeubles de [ 1.6].5 ou @xcite vers les immeubles
+correspondants de @xcite .
+mais un point @xmath556 et son transform @xmath2280 sont toujours dans un mme appartement et les applications ci - dessus sont injectives sur les appartements .
+les inclusions entre fixateurs sont donc des galits et on a bien les identifications dimmeubles annonces .
+le groupe @xmath6 nagit pas sur la masure affine @xmath0 .
+par contre , daprs [ 3.17b ] il agit sur limmeuble vectoriel @xmath1341 .
+le groupe @xmath5 agit sur limmeuble microaffine positif @xmath2281 de @xcite ( dans sa ralisation de satake ) qui est runion disjointe dimmeubles indexs par les facettes sphriques positives .
+plus prcisment ,  une telle facette @xmath1467 on associe limmeuble de bruhat - tits ( non tendu ) @xmath2282 du groupe rductif @xmath2247 sur @xmath2 .
+le groupe @xmath2278 agit trivialement sur @xmath2282 et @xmath5 permute les @xmath2282 selon son action sur @xmath1341 : un germe de chemine ou de face de quartier @xmath2283 correspond  une facette ou un point @xmath2284 de @xmath2282 .
+le fixateur ( point par point ) de cette facette ou ce point @xmath2284 pour laction de @xmath5 sur @xmath2281 est @xmath2285 avec les notations de [ 5.12].2 et @xmath2286 le centre de @xmath2247 .
+ce fixateur de @xmath2284 est donc plus grand que @xmath2287 qui est le fixateur ( point par point ) de @xmath2262 ( [ 5.12].3 ) et ( par dfinition ) le _ fixateur strict
+_ de @xmath2284 .
+le fixateur de la facette sphrique positive @xmath1467 pour laction de @xmath6 sur @xmath1341 est @xmath2288 ( [ 3.10 ] et [ 3.17b ] ) .
+on peut donc prolonger laction de @xmath5 sur @xmath2281 en une action de @xmath6 :    @xmath2289 agit sur @xmath2282 via @xmath2247 @xmath2290 agit trivialement .
+le fixateur dans @xmath6 de @xmath2284 comme ci - dessus est @xmath2291 ; il contient le groupe @xmath2292 @xmath2293 que lon appelle encore fixateur strict de @xmath2284 pour laction de @xmath6 ( mme si ce nest pas justifi par une action sur @xmath0 qui contient le filtre @xmath2262 ) .
+pour deux germes de chemines vases positives @xmath2263 et @xmath2264 , la dmonstration dans @xcite de la proposition [ 5.12].4 se gnralise : @xmath2294 .
+dans @xcite on peut modifier le quotient en envoyant @xmath2295 sur @xmath2296 par la seconde projection . on obtient une ralisation gomtrique @xmath2297 , de satake au sens fort , de limmeuble microaffine , sur laquelle @xmath5 et @xmath6 agissent .
+alors le fixateur strict @xmath2298 ( resp .
+@xmath2292 ) est le fixateur de @xmath2299 pour laction de @xmath5 ( resp .
+@xmath6 ) .
+pour la construction des masures nous avons plong le groupe de kac - moody @xmath261 dans le groupe de kac - moody maximal  la mathieu @xmath262 .
+plaons nous sur un corps quelconque @xmath8 et notons @xmath2300 , @xmath2301 , etc
+. alors @xmath6 apparat comme le complt de @xmath5 pour une certaine filtration .
+dautres groupes maximaux ont t dfinis par rmy et ronan @xcite ou carbone et garland @xcite  laide dautres filtrations , on va essayer de les comparer en tirant parti des rsultats des sections [ s2 ] et [ s3 ] .
+par ailleurs moody , dans un preprint non publi @xcite , a dmontr la simplicit dun groupe analogue  @xmath6 en caractristique @xmath4 .
+l encore on va utiliser les sections [ s2 ] et [ s3 ] pour montrer dans certains cas la simplicit dun sous - quotient de @xmath6 ( thorme [ 6.19 ] ) .
+\1 ) ce groupe @xmath2302 est ladhrence de limage de @xmath5 dans le groupe des automorphismes de son immeuble positif @xmath1341 @xcite .
+il contient donc le quotient de @xmath5 par le noyau @xmath2303 de laction de @xmath5 sur cet immeuble .
+ce groupe @xmath2304 est en fait le centre de @xmath5 : @xmath2305 ( [ 1.6].5 et ( * ? ? ?
+* lemma 1b1 ) ) .
+\2 ) pour @xmath2307 , soit @xmath2308 ( resp .
+@xmath2309 ) la runion des chambres fermes
+de limmeuble @xmath1341 ( resp . de son appartement standard @xmath1399 ) qui sont  distance numrique @xmath169 de la chambre fondamentale @xmath2310
+. les fixateurs @xmath2311 et @xmath2312 de @xmath2308 et @xmath2309 dans @xmath2313 forment deux filtrations de @xmath1712 qui sont exhaustives ( @xmath2314 ) et spares ( le systme de tits @xmath1218 est satur le fixateur de @xmath1399 dans @xmath5 est @xmath1225 @xcite et @xmath2315 : [ 1.6].5 ) . de plus @xmath2311 est le plus grand sous - groupe distingu de @xmath1712 contenu dans @xmath2312 .
+\3 ) on dfinit de la mme manire des fixateurs @xmath2319 et @xmath2320 , pour laction de @xmath1306 sur @xmath1341 ( [ 3.17b ] )
+. les filtrations correspondantes de @xmath1306 sont plus diffrentes : lintersection des @xmath2320 contient les groupes @xmath2321 pour @xmath2322 ( le systme de tits @xmath1331 est rarement satur ) et celle des @xmath2319 est souvent triviale ( [ 6.5 ] ) .
+\4 ) le groupe
+@xmath2323 est le complt de @xmath1712 pour sa filtration par les @xmath2324 .
+plus gnralement le groupe @xmath2306 est le complt de @xmath5 pour sa filtration ( non exhaustive ) par les @xmath2324 ; il est muni de la topologie correspondante . en particulier @xmath2323 est ouvert dans @xmath2306 .
+le groupe @xmath2302 est le spar - complt de @xmath5 pour la filtration par les fixateurs @xmath2325 .
+cest un quotient de @xmath2306 par un sous - groupe @xmath2326 contenant @xmath2327 ( 1 ) ) ; il contient @xmath2323 .
+si le corps @xmath8 est fini , @xmath2328 ( * ? ?
+* prop.1 ) .
+soit @xmath2329 un poids dominant rgulier ( @xmath2330 , @xmath125 ) .
+on considre la reprsentation @xmath2331 de @xmath5 ou @xmath6 ( de plus haut poids @xmath2332 ) dans @xmath2333 ( [ 3.7].1 ) .
+le groupe @xmath2334 dfini par carbone et garland @xcite est le spar - complt de @xmath5 pour la filtration dfinie par les fixateurs de parties finies de @xmath2335 , par les fixateurs de sous - espaces vectoriels de dimension finie de @xmath2335 .
+pour @xmath435 soit @xmath2336 la somme des sous - espaces de @xmath2335 de poids @xmath2337 avec @xmath2338 et @xmath2339 .
+ainsi @xmath2334 est le spar - complt de @xmath5 pour la filtration dfinie par les fixateurs @xmath2340 de @xmath2336 .
+cette filtration nest pas spare : @xmath2341 ker@xmath2331 .
+si @xmath2342 est un vecteur de plus haut poids et si @xmath2343 ker@xmath2331 , il fixe @xmath2342 et @xmath2344 @xmath125 , donc est de la forme @xmath2345 avec @xmath1416 , @xmath1776 et @xmath2346 .
+mais @xmath2347 et @xmath2348 , donc @xmath2349 @xmath125 : @xmath2350ker@xmath2351 ( [ 1.6].5 ) .
+inversement @xmath2352ker@xmath2351 agit trivialement sur @xmath2335 , donc ker@xmath2353ker@xmath2354 ker@xmath2355 .
+on verra plus loin que @xmath2356 ker@xmath2357 ( [ 6.3].4 ) .
+si lon veut une filtration spare et donc plonger @xmath5 dans son complt , on modifie la construction en faisant agir @xmath5 sur la somme directe @xmath2358 o @xmath2359 engendrent @xmath28 ; on note alors @xmath2336 la somme des @xmath2336 correspondant aux diffrents facteurs .
+le complt de carbone - garland modifi @xmath2360 ainsi obtenu est donc dfini par une filtration contenue dans @xmath1712 , celle des @xmath2361 .
+pour comparer @xmath2360 et @xmath2306 on va comparer cette filtration sur @xmath1712 avec celle des @xmath2311 . on note
+@xmath2362 le spar complt de @xmath1712 pour la filtration par les @xmath2363 .
+\1 ) daprs [ 3.2 ] , [ 3.3 ] et [ 3.4 ] , @xmath1306 est complet pour la filtration par les sous - groupes distingus @xmath2364 o @xmath2365 . on note
+@xmath2366 ladhrence de @xmath1712 dans @xmath1306 pour la topologie associe ; cest aussi le complt de @xmath1712 pour la filtration par les @xmath2367 .
+\2 ) pour @xmath204 et @xmath2368 , on a @xmath2369 et @xmath2370 , o @xmath1059 est le maximum des valeurs absolues de coefficients non diagonaux de la matrice de kac - moody @xmath17 .
+ainsi @xmath2371 et @xmath1153 est un automorphisme du groupe topologique @xmath2372 .
+\3 ) ds que @xmath2373 , on a @xmath2374 pour toute suite @xmath2375 . on en dduit que ,
+pour @xmath2376 , @xmath2377 est dans le conjugu de @xmath1306 par @xmath2378 et donc @xmath2377 fixe @xmath2379 pour laction de @xmath6 sur @xmath1341 . on a @xmath2380 et mme @xmath2381 , car @xmath2377 est distingu dans @xmath1306 . en particulier @xmath2382 .
+\4 ) vue la forme de laction de @xmath2383 sur @xmath2335 , on a @xmath2384 .
+par ailleurs , pour @xmath2385 et @xmath2375 , le fixateur de @xmath2386 dans @xmath1306 est dans @xmath2387 , cest  dire dans le fixateur ( dans @xmath1306 ) de @xmath2388 .
+comme en 2 ) ci - dessus on montre que le poids de @xmath2389 est @xmath2337 avec @xmath2390 si @xmath2391 .
+donc , si @xmath2392 avec @xmath2393 , @xmath2394 fixe toutes les chambres de la forme @xmath2388 , cest  dire les chambres de @xmath2395 .
+si @xmath8 est un corps fini , @xmath1306 et donc @xmath2366 sont compacts .
+comme @xmath2362 et @xmath2323 sont spars , les homomorphismes @xmath2400 , @xmath2402 et @xmath2403 sont surjectifs , ferms et ouverts .
+ce sont donc des isomorphismes de groupes topologiques si et seulement si ils sont injectifs .
+\6 ) * remarques * a ) la filtration @xmath2404 de @xmath1306 permet de dfinir une mtrique invariante  gauche sur @xmath6 , pour laquelle @xmath6 est complet et do nt les boules ouvertes sont les @xmath2405 .
+daprs la dcomposition de bruhat , le fait que @xmath2406 et la relation de 2 ) impliquant les @xmath1153 , cette mtrique est quivalente  celle , invariante  droite , do nt les boules ouvertes sont les @xmath2407 .
+ainsi @xmath6 est un groupe topologique , dans lequel @xmath1306 est ouvert .
+ladhrence @xmath2408 de @xmath5 dans @xmath6 est le spar - complt de @xmath5 pour la filtration induite .
+\b ) comme @xmath2408 , @xmath2360 et @xmath2306 sont des spars - complts pour les filtrations dans @xmath1712 de 4 ) ci - dessus , les homomorphismes de 5 ) ci - dessus se prolongent en @xmath2400 : .
+par dfinition ker@xmath2409 o @xmath2410 est le noyau de laction de @xmath6 sur limmeuble @xmath1341 .
+\c ) le groupe @xmath2327 senvoie trivialement dans @xmath2302 .
+daprs les calculs de [ 6.2 ] on a donc un homomorphisme continu @xmath2411 .
+celui - ci est surjectif , ferm et ouvert si le corps est fini ( rsultat de u. baumgartner et b. rmy ( * ? ? ?
+2.6 ) ) .
+comme @xmath2327 centralise @xmath1306 il est contenu dans @xmath2412 .
+mais @xmath2417 est gal  son normalisateur ( car il fait partie dun systme de tits ) on a donc @xmath2418 et mme @xmath2419 .
+soit @xmath2420 .
+on crit @xmath2421 avec @xmath1416 et @xmath1793 .
+soit @xmath204 , on peut alors crire @xmath2422 avec @xmath2423 et @xmath2424 .
+soient @xmath2425 et @xmath2426 , alors @xmath2427 avec @xmath2428 .
+un calcul rapide dans @xmath1011 montre alors que @xmath2429 @xmath2430 si et seulement si @xmath2431 et @xmath2432 ; donc @xmath2433 et @xmath2434 .
+on dit que lalgbre de lie @xmath2436 est simple au sens du thorme de gabber - kac ( ou _ gk - simple _ ) si tout sous@xmath2437module gradu non trivial de @xmath1230 contenu dans @xmath2438 est rduit  @xmath2439 .
+de mme on dit que le groupe @xmath6 est _ gk - simple _ si tout sous - groupe distingu de @xmath6 contenu dans @xmath1306 est rduit  @xmath2440 , si @xmath2441 ou si @xmath2442 . on espre
+que @xmath6 est toujours gk - simple ( voir [ 6.9].1 ou [ 6.8 ] ) .
+lassertion correspondante pour @xmath5 est toujours satisfaite ( [ 6.1].1 ) .    en caractristique @xmath4 , @xmath1230 est gk - simple dans le cas symtrisable ( et mme conjecturalement dans tous les cas ) .
+mais , comme me la indiqu o. mathieu , cela nimplique pas la gk - simplicit en caractristique @xmath9 ; voir ci - dessous lexemple des lacets de @xmath2443 ( [ 6.8 ] ) .
+on voit facilement que @xmath1230 est gk - simple si et seulement si @xmath2444 tout @xmath2445 tel que , @xmath2446 , @xmath2447 @xmath2448 est forcment nul .
+lensemble de ces @xmath2445 est dtermin par des quations linaires  coefficients entiers indpendantes de @xmath8 .
+si @xmath2449 est gk - simple , un dterminant dtermin par ces quations est non nul .
+ainsi la condition ci - dessus est vrifie pour @xmath2450 si la caractristique @xmath9 de @xmath8 ne divise pas ce dterminant .
+malheureusement @xmath2451 est vide ou infini , on pourrait donc avoir @xmath1230 non gk - simple quelque soit la caractristique .
+par contre dans le cas affine on na quun nombre fini de dterminants  considrer car il y a priodicit des espaces radiciels imaginaires . en effet ,
+pour le type affine @xmath2452 , @xmath2453 est ralis comme sous - algbre de lie de @xmath2454 $ ] o @xmath2455 est lalgbre simple de type @xmath2456 ; daprs @xcite ( resp . les calculs
+explicites de @xcite ) @xmath2457 ( resp .
+@xmath2458 ) est stable par multiplication par @xmath2459 .          on calcule dans lalgbre @xmath2466 qui est gradue par les poids dans @xmath447 et le degr total dans @xmath495 ( [ 2.13].2 ) et aussi dans @xmath2467 .
+soit @xmath2468 ; sa composante @xmath2469 de degr @xmath20 est dans lalgbre de lie @xmath1230 . soit @xmath2470 de degr @xmath20 tel
+que la composante @xmath2471 de @xmath2469 sur @xmath2450 soit non nulle .
+comme @xmath1230 est gk - simple , il existe @xmath2461 et @xmath2472 tels que @xmath2473 ( sinon @xmath2474 est de plus bas degr @xmath20 ) .
+si @xmath1113 , @xmath2482 et ce groupe est normalis par @xmath2483 ( contenu dans @xmath2484 ) [ 3.3 ] .
+soient @xmath2425 et @xmath2485 , alors @xmath2486 vaut @xmath2487 ( voir la dmonstration de [ 2.5 ] ) ; sa composante de poids @xmath2488 est donc gale  la somme finie @xmath2489 , o @xmath2490 est la composante de poids @xmath2491 de @xmath2394 dans @xmath2492 .
+cette composante de @xmath2493 sexprime comme un polynme en @xmath2332 do nt le terme de degr @xmath2494 est non nul .
+comme @xmath8 est infini , il existe un @xmath2425 tel que ce polynme soit non nul et donc @xmath2495 , puisque sa composante de poids @xmath2488 est non nulle .    [ 6.7 ] supposons
+@xmath1230 gk - simple et @xmath8 infini .
+alors @xmath2400 , @xmath2402 et @xmath2403 sont des homomorphismes .
+ainsi @xmath2408 , @xmath2360 et @xmath2306 sont des groupes topologiques isomorphes ( et de mme pour @xmath2366 , @xmath2362 et @xmath2323 ) .
+soit @xmath2460 avec @xmath758 .
+daprs la proposition [ 6.6 ] il existe @xmath686 , @xmath2497 et @xmath2498 tels que @xmath2499 .
+mais @xmath2417 est le fixateur de la chambre fondamentale @xmath2310 , donc @xmath2394 ne fixe pas la chambre @xmath2500 qui est  distance @xmath2501 de @xmath2310 ( on a une galerie @xmath2502 ) . on a donc montr que @xmath2503
+pour @xmath2307 .
+avec les inclusions inverses prouves en [ 6.3].4 , on voit que les trois filtrations sont quivalentes et donc @xmath2400 , @xmath2402 et @xmath2403 sont des homomorphismes .    [
+6.8 ] on considre la matrice de kac - moody @xmath17 de type @xmath2504 avec @xmath2505 .
+pour un bon choix du sgr @xmath75 , on obtient des algbres et groupes de lacets : @xmath2506 $ ] , @xmath2507)$ ] , @xmath2508 et @xmath2509 .
+si la caractristique @xmath9 de @xmath8 divise @xmath2510 , @xmath1230 contient toutes les matrices scalaires .
+celles - ci sont clairement annules par @xmath2511 et sont contenues dans @xmath2438 si le scalaire est dans @xmath2512 $ ] .
+nest pas gk - simple ds que @xmath9 divise @xmath2510 ; il est facile de voir que la rciproque est vraie .
+notons @xmath2513 et @xmath2514 sa base canonique .
+soit @xmath2515 $ ] , on considre les rseaux @xmath2516 , @xmath2517,@xmath747 , @xmath2518 , @xmath2519 et de manire gnrale @xmath2520 pour @xmath550 .
+alors @xmath2417 est le stabilisateur dans @xmath6 de tous ces rseaux et il est assez facile de voir que @xmath2521 pour @xmath758 .
+galement @xmath2522 est form des matrices
+ coefficients dans @xmath618 congrues  lidentit modulo @xmath2523 et  une matrice triangulaire suprieure modulo @xmath2524 .    le groupe @xmath1306 ne contient pas de matrice scalaire .
+@xmath9 divise @xmath2510 , on peut trouver dans
+@xmath2525 une matrice diagonale @xmath2394 do nt tous les coefficients sont gaux modulo @xmath2526 .
+si @xmath2527 , alors @xmath2528 a les mmes coefficients que @xmath2394 sauf un ( colonne @xmath600 , ligne @xmath2529 ) qui est dans @xmath2530 , donc @xmath2531 .
+la conclusion de la proposition [ 6.6 ] nest pas vrifie .
+les sommets de lappartement standard @xmath1399 sont associs aux rseaux de la forme @xmath2532 .
+ainsi le fixateur dune partie finie de @xmath1399 est form des @xmath2533 stabilisant un nombre fini de tels sous - modules . on en dduit facilement
+que la filtration de @xmath6 par les @xmath2534 est quivalente  la filtration par les @xmath2535 .
+notons @xmath2536=u^{ma+}\cap(\cap_{i=1}^{m-1}\,(exp\,f_i)b^{ma+}(n)(exp - f_i))$ ] .
+on calcule facilement que @xmath2536 $ ] est form des matrices @xmath2537 telles que @xmath2538 et @xmath2539 .
+ainsi @xmath2540 et @xmath2541 .
+si @xmath2542 est la plus grande puissance de @xmath9 divisant @xmath2510 , on en dduit que @xmath2543 ; donc @xmath2536\subset u^{ma+}_{mn / p^e}$ ] .
+comme la filtration par les @xmath2319 est plus fine que celle par les @xmath2536 $ ] , on dduit de linclusion prcdente et de celles prouves en [ 6.3].4 que toutes ces filtrations sont quivalentes .
+la conclusion de la proposition [ 6.7 ] est vrifie mme si @xmath1230 nest pas gk - simple . on a aussi @xmath2442 : @xmath6 est gk - simple .
+[ 6.9 ] 1 ) on a vu au cours de la dmonstration de la proposition [ 6.7 ] que , si @xmath1230 est gk - simple et @xmath8 infini , les filtrations de @xmath1306 par les @xmath2377 , @xmath2544 ou @xmath2545 sont quivalentes .
+en particulier @xmath6 est gk - simple : @xmath2442 ( ( * ? ? ?
+8) en caractristique @xmath4 ) .
+\2 ) si @xmath6 est gk - simple ou plus gnralement si @xmath2546 , lhomomorphisme @xmath2547 est injectif ( [ 6.3].6.b ) .
+si de plus @xmath8 est fini , on en dduit que @xmath2548 et @xmath2549 sont des isomorphismes de groupes topologiques ( [ 6.3].5 ) ; ainsi les groupes topologiques @xmath2408 , @xmath2360 et @xmath2306 sont isomorphes .
+inversement pour @xmath8 fini , lisomorphisme de @xmath2408 et @xmath2306 implique que @xmath2546 ( [ 6.1].4 ) ; si la caractristique de @xmath8 est grande , cela implique que @xmath6 est gk - simple ( [ 6.11 ] ) .
+\4 ) supposons @xmath1230 gk - simple .
+soit @xmath2550 un corps contenant @xmath8 . on considre limmeuble @xmath2551 de @xmath1079 sur @xmath2550 , il contient @xmath1341 . on note
+@xmath2552 la boule de @xmath2551 de centre @xmath2310 et rayon @xmath167 et @xmath2553 son fixateur dans @xmath1306 . les groupes @xmath2377 , @xmath2544 et @xmath2553 sont les intersections avec @xmath1306 des groupes
+analogues  @xmath2377 , @xmath2544 et @xmath2319 dans @xmath2554 .
+si @xmath2550 est infini la dmonstration de [ 6.7 ] prouve que @xmath2555 si @xmath2556 .
+notons @xmath2557 ( resp .
+@xmath2558 ) le complt de @xmath1712 ( resp .
+@xmath5 ) pour la filtration par les @xmath2559 .
+alors les groupes @xmath2408 , @xmath2360 et @xmath2558 sont des groupes topologiques isomorphes ( et de mme pour @xmath2366 , @xmath2362 et @xmath2557 ) . en particulier @xmath2557 et @xmath2558 ne dpendent pas du choix du corps infini @xmath2550 contenant @xmath8 .
+\5 ) supposons @xmath1230 gk - simple .
+sil y a injection continue du groupe @xmath2323 associ  @xmath8 dans celui associ  lextension infinie @xmath2550 ( hypothse raisonnable mais non videmment vrifie ) alors @xmath2400 est un isomorphisme de groupes topologiques et @xmath2560 , @xmath2561 .
+il sagit de savoir si @xmath1712 est dense dans @xmath1306 , cest  dire si @xmath1306 est topologiquement engendr par les sous - groupes radiciels @xmath2562 pour @xmath2317 . on va rpondre par un contre - exemple et une proposition assez gnrale .
+* contre - exemple . * on considre la matrice de kac - moody @xmath2563 avec @xmath2505 et @xmath2564 . on note @xmath2565
+les racines simples , @xmath2566 ( resp .
+@xmath2567 ) une base de @xmath2568 ( resp . de @xmath2569 ) sur @xmath2570 et @xmath2571 ( resp .
+@xmath2572 ) llment non trivial de @xmath2562 ( resp .
+@xmath2573 ) . daprs ( * ? ? ?
+5.25 ) les plus petites racines de @xmath2574 sont @xmath2575 tandis que @xmath2576 sont des racines imaginaires . de plus @xmath2577 ou @xmath2578 nest pas une racine pour @xmath2579 .
+soit @xmath108 lidal de @xmath2580 form des racines positives de la forme @xmath2581 avec @xmath2582 ou @xmath2583 ; il contient toutes les racines relles positives sauf @xmath2584 et @xmath2585 .
+notons @xmath2586 , cest un sous - groupe ouvert de @xmath1306 . daprs
+[ 3.3 ] @xmath2587 est un groupe commutatif isomorphe  @xmath2588 .
+si @xmath1712 est dense dans @xmath1306 ce groupe doit tre engendr par les images de @xmath2589 et @xmath2590 .
+on fait des calculs dans le quotient de @xmath1075 par lidal @xmath2591 . on utilise que @xmath2383 et @xmath2592 . on note @xmath2593 .
+ainsi @xmath2594 , @xmath1075 admet @xmath2595 comme base dun supplmentaire de @xmath2591 et lisomorphisme de @xmath2596 sur @xmath2588 sobtient par la projection vidente .
+dans cette algbre quotient @xmath2597 et @xmath2598 .
+on peut calculer facilement les 17 mots en a et b de longueur @xmath2599 .
+on constate que @xmath2600 et @xmath2601 .
+ainsi ces 17 mots constituent toute limage de @xmath1712 dans cette algbre quotient et il y a au maximum 14 mots diffrents .
+comme @xmath2587 est de cardinal 16 , il nest pas gal au groupe engendr par @xmath2589 et @xmath2590 ( il contient 8 lments et pas @xmath669e^{(2)}*f$ ] ) .
+[ 6.11 ] supposons la caractristique @xmath9 du corps @xmath8 nulle ou strictement plus grande que @xmath1059 ( [ 6.3].2 ) .
+alors le groupe @xmath1712 ( resp .
+@xmath5 ) est dense dans @xmath1306 ( resp .
+@xmath6 ) .      daprs [ 2.3 ] lalgbre de lie @xmath2438 est engendre par les @xmath519 pour @xmath204 .
+montrons par rcurrence sur @xmath20 que tout lment @xmath2602 est congru  un lment de @xmath1712 modulo @xmath2603 , cest clair pour @xmath2464 . daprs
+[ 3.3 ] @xmath2604 est un groupe commutatif isomorphe  @xmath2605 . daprs
+[ 3.2 ] et les bonnes proprits de la base des @xmath612 $ ] ( [ 2.9].4 ) , lisomorphisme @xmath2606 est donn comme suit : on plonge @xmath1306 dans @xmath1075 et llment @xmath2602 est congru  @xmath2607 modulo @xmath2608 .
+il suffit de montrer le rsultat cherch pour des lments @xmath1783 engendrant @xmath2604 , on va considrer ceux tels que @xmath2609 soit de la forme @xmath2610 $ ] avec @xmath204 et @xmath2611 .
+par hypothse il existe @xmath2612 tel que @xmath2613 , donc @xmath711 est congru  @xmath2614 modulo @xmath2615 .
+considrons @xmath2616 .
+on calcule facilement ce produit dans @xmath2617 , il est gal  @xmath2618 $ ] .
+donc @xmath2619 et @xmath2620 @xmath2621 modulo @xmath2603 .            on va maintenant gnraliser le rsultat de simplicit de moody @xcite . on suit son
+schma de dmonstration en reproduisant mme les parties inchanges ,  cause de la disponibilit restreinte de cette rfrence .    on note @xmath2624 ( resp .
+@xmath2625 ) le sous - groupe de @xmath5 ( resp .
+@xmath6 ) engendr par les groupes radiciels @xmath2562 pour @xmath2626 ( resp . et par @xmath1306 ) .
+il est normalis par @xmath1225 et les @xmath2627 donc est distingu dans @xmath5 ( resp .
+@xmath6 ) . daprs
+[ 6.4 ] on a @xmath2628 .
+\2 ) le cas a ) rsulte de 1 ) , de la proposition [ 6.11 ] et de ce que @xmath2635 .
+pour le cas b ) on peut utiliser le lemme [ 6.15 ] ci - dessous .
+par un calcul analogue au prcdent on en dduit que @xmath2377 est parfait modulo @xmath2603 .
+[ 6.15 ] on suppose la matrice de kac - moody @xmath17 sans facteur de type affine et le corps @xmath8 infini , alors @xmath2636 il existe @xmath2637 tel que @xmath2638 .
+si @xmath8 nest pas extension algbrique dun corps fini on peut supposer @xmath2639 indpendant de @xmath2584 .
+on peut supposer @xmath17 indcomposable et mme de type indfini , car le cas de type fini est clair .
+daprs @xcite il existe alors @xmath2640 avec @xmath2641 et @xmath2642 @xmath2643 .
+soient @xmath2644 et @xmath2645 ; comme @xmath2646 , @xmath2647 .
+si @xmath2648 , on a @xmath2649 ; mais les @xmath2650 sont tous de mme signe et non tous nuls , donc @xmath2651 . ainsi @xmath2652
+si @xmath556 est dordre @xmath2653 dans @xmath2654 ou , mieux , sil est dordre infini .
+[ 6.16 ] on suppose @xmath2625 topologiquement parfait et la matrice de kac - moody @xmath17 indcomposable .
+soit @xmath2 un sous - groupe ferm de @xmath6 normalis par @xmath2655 , alors @xmath2656 ou @xmath2657 .      le systme de tits @xmath2659 , les groupes @xmath1306 et @xmath2 satisfont aux conditions du thorme 5 de ( * ? ? ? * iv  2 n7 ) sauf peut - tre ( 2 ) ou ( 3 ) ( avec @xmath2660 , @xmath2661 et @xmath2662 ) . on peut donc suivre la dmonstration
+de ce thorme jusquau point o ( 2 ) et ( 3 ) sont utiliss .
+si @xmath2663 on obtient donc @xmath2664 .
+les sous - groupes @xmath2665 sont ouverts donc ferms ; comme @xmath2625est topologiquement parfait , on a @xmath2666 , @xmath2667 ( [ 3.4 ] ) .
+soit @xmath2668 , crivons @xmath2669 avec @xmath2670 et @xmath2671 .
+la suite @xmath2469 tend vers @xmath220 , donc @xmath2672 tend vers @xmath1783 et comme @xmath2 est ferm @xmath2673 .    [ 6.17 ] on suppose @xmath2625 topologiquement parfait et la matrice de kac - moody @xmath17 indcomposable .
+soient @xmath2 un sous - groupe de @xmath6 normalis par @xmath2625 et @xmath2674 tels que @xmath2663 et @xmath2652 @xmath2675 .
+alors @xmath2676 .
+daprs [ 6.16 ] @xmath2677 contient @xmath2625 .
+soit @xmath2678 une suite dlments de @xmath2 convergeant vers @xmath1868 .
+pour @xmath168 assez grand @xmath2679 . on va montrer que @xmath1868 est conjugu dans @xmath2625  @xmath2680 , donc @xmath2676 .
+supposons @xmath2688 et @xmath2689 dj construits . on sait
+que @xmath2690 est isomorphe au groupe additif somme des @xmath2450 pour @xmath2691 .
+notons @xmath2692 llment correspondant  la classe de @xmath2693 . on dfinit
+@xmath2694 comme un lment de @xmath2695 do nt la classe modulo @xmath2696 correspond  @xmath2697 .
+soit @xmath2698 , sa classe modulo @xmath2696 correspond  llment @xmath2699 .
+donc @xmath2700 .
+posons @xmath2708 et supposons @xmath2709 dj construits .
+la classe de @xmath2710 dans @xmath2690 correspond  un lment @xmath2692 de la somme des @xmath2450 pour @xmath2691 .
+on dfinit @xmath2694 comme un lment de @xmath2695 do nt la classe modulo @xmath2696 correspond  @xmath2697 .
+alors @xmath2711 a la mme image dans @xmath2690 que @xmath2712 ( [ 3.3].f ) qui correspond  @xmath2699 .
+donc , si on pose @xmath2713 , on a bien @xmath2714 .
+[ 6.19 ] on suppose @xmath2625 topologiquement parfait , la matrice de kac - moody @xmath17 indcomposable non de type affine et le corps @xmath8 de caractristique @xmath4 ou de caractristique @xmath9 mais non algbrique sur @xmath10 .
+alors pour tout sous - groupe @xmath2 de @xmath6 normalis par @xmath2625 , soit @xmath2 est contenu dans @xmath2715 , soit il contient @xmath2625 . en particulier @xmath2658 est un groupe simple .
+si @xmath2663 , les hypothses des lemmes [ 6.17 ] et [ 6.18 ] sont vrifies ( grce au lemme [ 6.15 ] ) .
+donc @xmath2703 .
+mais @xmath2625 contient les @xmath2716 ( pour @xmath2626 ) et normalise @xmath2 , donc @xmath2 contient aussi les @xmath2562 pour @xmath2626 , cest  dire @xmath2657 .
+\2 ) la simplicit de @xmath2658 en caractristique @xmath4 est le rsultat essentiel de r. moody dans @xcite .
+il considre en fait un groupe dautomorphismes du complt de lalgbre de kac - moody simple associe  une matrice de kac - moody @xmath17 ( indcomposable non de type affine ) . il ny a donc pas pour lui dhypothse de gk - simplicit de @xmath1230 ( et @xmath2717 pour son choix de groupe ) .
+3 ) pour un corps fini ( de cardinal @xmath2718 ) et une matrice @xmath17 @xmath2719sphrique indcomposable , carbone , ershov et ritter montrent la simplicit de @xmath2720 ( * ? ? ?
+ce groupe est ladhrence de limage de @xmath2624 dans aut@xmath2721 , cest  dire , par compacit , limage de ladhrence @xmath2722 de @xmath2624 dans @xmath6 .
+donc @xmath2723 .
+en grande caractristique , [ 6.11 ] montre que @xmath2724 ; on retrouve alors un nonc analogue  [ 6.19 ] .
+si @xmath8 est fini mais assez grand , on sait aussi que
+@xmath2725 est simple ( * ? ? ?
+20 ) . on en dduit facilement
+le mme rsultat pour @xmath8 extension algbrique dun corps fini .
+\4 ) si @xmath17 est indcomposable
+de type affine non tordu , @xmath2658 est le groupe des points sur @xmath2726 dun groupe algbrique simple dploy , il est donc simple .
+le mme rsultat est sans doute encore vrai si on enlve `` non tordu '' et `` dploy '' .
+victor g. kac & dale h. peterson , defining relations of certain infinite dimensional groups , in _ lie cartan et les mathmatiques daujourdhui , lyon ( 1984 ) _ , astrisque n@xmath2729 hors srie ( 1985 ) , 165 - 208 .
+guy rousseau , euclidean buildings , in `` gomtries  courbure ngative ou nulle , groupes discrets et rigidit , grenoble , 2004 '' , l. bessires , a. parreau & b. rmy , _ sminaires et congrs _ * 18 * ( soc . math .
+2008 ) , 77 - 116 .
+robert steinberg , gnrateurs , relations et revtements de groupes algbriques , in _ colloque sur la thorie des groupes algbriques , bruxelles ( 1962 ) _ , centre belge rech . math .
+, librairie universitaire louvain & gauthier - villars paris ( 1962 ) , 113 - 127 .
+jacques tits , twin buildings and groups of kac - moody type , in _ groups combinatorics and geometry ( durham , 1990 ) _ , m. liebeck & j. saxl , london math .
+lecture note * 165 * , ( cambridge u. press , cambridge , 1992 ) , 249 - 286 .

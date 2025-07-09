@@ -1,0 +1,377 @@
+biometric authentication systems are becoming prevalent in access control and in consumer technology .
+in such systems , the user submits their user name and his / her biometric sample , which is compared to the stored biometric template associated with this user name ( one - to - one matching ) .
+the popularity of biometric - based systems stems from a popular belief that such authentication systems are more secure and user friendly than systems based on passwords . at the same time
+, the use of such systems raises concerns about the security and privacy of the stored biometric data . unlike passwords , replacing a compromised biometric trait is impossible , since biometric traits ( e.g. , face , fingerprint , and iris ) are considered to be unique .
+therefore , the security of biometric templates is an important issue when considering biometric based systems .
+moreover , poor protection of the biometric templates can have serious privacy implications on the user , as discussed in previous work  @xcite .
+various solutions have been proposed for protecting biometric templates ( e.g ,  @xcite ) .
+the most prominent of them are secure sketch  @xcite and fuzzy extractors  @xcite .
+unfortunately , these solutions are not well adopted in practice .
+the first reason for this is the tradeoff between security and usability due to the degradation in recognition rates  @xcite .
+the second reason is related to the use of tokens that are required for storing the helper data , thus affecting usability .
+finally , these mechanisms rely on assumptions which are hard to verify ( e.g. , the privacy guarantees of secure sketch assume that the biometric trait is processed into an almost full entropy string ) .    in this work
+we propose a different approach for protecting biometric templates called _ honeyfaces_. in this approach , we hide the real biometric templates among a very large number of synthetic templates that are indistinguishable from the real ones .
+thus , identifying real users in the system becomes a very difficult ` needle in a haystack ' problem . at the same time , honeyfaces does not require the use of tokens nor does it affect recognition rate ( compared to a system that does not provide any protection mechanism ) .
+furthermore , it can be integrated with other privacy solutions ( e.g. , secure sketch ) , offering additional layers of security and privacy .    for the simplicity of the discussion , let us assume that all biometric templates ( real and synthetic ) are stored in a _
+biometric `` password file''_. our novel approach enables the size of this file to be increased by several orders of magnitudes .
+such inflation offers a 4-tier defense mechanism for protecting the security and privacy of biometric templates with no usability overhead .
+namely , honeyfaces :    * reduces the risk of the biometric password file leaking ; * increases the probability that such a leak is detected online ; * allows for post - priori detection of the ( biometric ) password file leakage ; * protects the privacy of the biometrics in the case of leakage ;    in the following we specify how this mechanism works and its applications in different settings .    the very large size of the `` password file '' improves the * resilience of system against its exfiltration*. we show that one can inflate a system with 270 users ( 180 kb `` password file '' ) into a system with up to @xmath0 users ( 56.6 tb `` password file '' ) .
+obviously , exfiltrating such a huge amount of information is hard .
+moreover , by forcing the adversary to leak a significantly larger amount of data ( due to the inflated file ) he either needs significantly more time , or has much higher chances of being caught by intrusion detection systems .
+thus , the file inflation facilitates in * detecting the leakage * while it happens .
+the advantages of increasing the biometric `` password file '' can be demonstrated in networks whose outgoing bandwidth is very limited , such as air - gap networks ( e.g. , those considered in  @xcite ) . such networks are usually deployed in high - security restricted areas , and thus are expected to employ biometric authentication , possibly in conjunction with other authentication mechanisms .
+once an adversary succeeds in infiltrating the network , he usually has a very limited bandwidth for exfiltration , typically using a physical communication channel of limited capacity ( with a typical bandwidth of less than  1 kbit / sec ) . in such networks , inflating the size of the database increases the resilience against exfiltration of the database .
+namely , exfiltrating 180 kb of information ( the size of a biometric `` password file '' in a system with 270 users ) takes a reasonable time even in low bandwidth channels compared with 56.6 tb ( the size of the inflated biometric `` password file '' ) , which takes more than 5.2 days for exfiltration in 1 gbit / sec , 14.4 years in 1 mbit / sec , or about 14,350 years from an air - gaped network at the speed of 1 kbit / sec .    similarly to honeywords  @xcite ,
+the fake accounts enable * detection of leaked files*. namely , by using two - server authentication settings , each authentication query is first sent to the server that contains the inflated password file .
+once the first server authenticates the user , it sends a query to the second server that contains only the legitimate accounts , thus detecting whether a fake account was invoked with the `` correct '' credentials .
+this is a clear evidence that despite the hardness of exfiltration , the password file ( or a part of it ) was leaked .
+all the above guarantees heavily rely on the inability of the adversary to isolate the real users from the fake ones .
+we show that this task is nearly impossible in various adversarial settings ( when the adversary has obtained access to the password file ) .
+we also show that running membership queries to identify a real user by matching a facial image from an external source to the biometric `` password file '' is computationally infeasible .
+we analyze the robustness of the system in the worst case scenario in which the adversary has the facial images of all users except one and he tries to locate the unknown user among the synthetic faces .
+we show that the system protects the privacy of the users in this case too .
+to conclude , honeyfaces * protects the biometric templates of real users * in all settings that can be protected .
+the addition of a large number of synthetic faces may raise a concern about the degradation of the authentication accuracy .
+however , we show that this is not the case .
+the appearance of faces follows a multivariate gaussian distribution , which we refer to in this article as _ face - space _ , the parameters of which are learned from a set of real faces , including the faces of the system users .
+we sample synthetic faces from the same generative model constraining them to be at a certain distance from real and other synthetic faces .
+we selected this distance to be sufficiently large that new samples of real users would not collide with the synthetic ones .
+even though such a constraint limits the number of faces the system could produce , the number remains very large . using a training set of 500 real faces to build the generative face model
+, we successfully created @xmath0 synthetic faces .
+our honeyfaces system requires a method for generating synthetic faces which satisfies three requirements :    * the system should be able to generate a ( very ) large number of unique synthetic faces .
+* these synthetic faces should be indistinguishable from real faces .
+* the synthetic faces should not affect the authentication accuracy of real users
+.    these requirements ensure that the faces of the real users can hide among the synthetic ones , without affecting recognition accuracy .
+there are two lines of research related to the ideas introduced in this paper .
+one of them is honeyobjects , discussed in section  [ sec : sub : sub : honeyobjects ] .
+the second one , discussed in section  [ sec : sub : sub : biometric_synthesis ] , is the synthesis of biometric traits .
+honeyobjects are widely used in computer security .
+the use of honeypot users ( fake accounts ) is an old trick used by system administrators .
+login attempts to such accounts are a strong indication that the password file has leaked .
+later , the concept of honeypots and honeynets was developed @xcite .
+these tools are used to lure adversaries into attacking decoy systems , thus exposing their tools and strategies .
+honeypots and honeynets became widely used and deployed in the computer security world , and play an important role in the mitigation of cyber risks .
+recently , juels and rivest introduced honeywords  @xcite , a system offering decoy passwords in addition to the correct one . a user first authenticates to the main server using a standard password - based authentication in which the server can keep track of the number of failed attempts .
+once one of the stored passwords is used , the server passes the query to a second server which stores only the correct password .
+identification of the use of a decoy password by the second server , suggests that the password file has leaked .
+obviously , just like in honeypots and honeynets , one needs to make sure that the decoy passwords are sampled from the same space as the real passwords ( or from a space as close as possible ) .
+to this end , there is a need to model passwords correctly , a non - trivial task , which was approached in several works @xcite .
+interestingly , we note that modeling human faces was extensively studied and very good models exist ( see the discussion in section  [ sec : sub : generating ] ) .    in honeywords
+it is a simple matter to change a user s password once if it has been compromised .
+clearly it is not practicable to change an individual s facial appearance .
+thus , when biometric data is employed , the biometric `` password file '' itself should be protected .
+honeyfaces protects the biometric data by inflating the `` password file '' such that it prevents leaks , which is a significant difference between honeywords and honeyfaces .
+another decoy mechanism suggested recently , though not directly related to our work , is honey encryption  @xcite .
+this is an encryption procedure which generates ciphertexts that are decrypted to different ( yet plausible ) plaintexts when decrypted under one of a few wrong keys , thus making ciphertext - only exhaustive search harder .
+artificial biometric data are understood as biologically meaningful data for existing biometric systems  @xcite .
+biometric data synthesis was suggested for different biometric traits , such as faces ( e.g. ,  @xcite ) , fingerprints ( e.g ,  @xcite ) and iris ( e.g. ,  @xcite ) .
+the main application of biometrics synthesis has been augmenting training sets and validation of biometric identification and authentication systems ( see  @xcite for more information on synthesis of biometrics ) .
+synthetic faces are also used in animation , facial composite construction , and experiments in cognitive psychology .
+making realistic synthetic biometric traits has been the main goal of all these methods .
+however , the majority of previous work did not address the question of distinguishing the synthetic samples from the real ones .
+the work in iris synthesis  @xcite analyses the quality of artificial samples by clustering synthetic , real , and non - iris images into two clusters iris / non - iris .
+such a problem definition is obviously sub - optimal for measuring indistinguishability .
+supervised learning using real and synthetic data labels has much better chances of success in separating between real and synthetic samples than unsupervised clustering ( a weaker learning algorithm ) into iris / non - iris groups .
+these methods also used recognition experiments , in which they compare the similarity of the associated parameters derived from real and synthetic inputs .
+again , this is an indirect comparison that shows the suitability of the generation method for evaluating the quality of the recognition algorithm , but it is not enough for testing the indistinguishability between real and synthetic samples .    in fingerprints , it was shown that synthetic samples generated by different methods could be distinguished from the real ones with high accuracy  @xcite .
+subsequent methods for synthesis  @xcite showed better robustness against distinguishing attacks that use statistical tests based on  @xcite .
+several methods for synthetic facial image generation  @xcite provide near photo - realistic representations , but to the best of our knowledge , the question of indistinguishability between real and synthetic faces has not been addressed before .
+section  [ sec : sub : generating ] describes , with justification , the method we use for generating honeyfaces . in section
+[ sec : system ] we present our setup for employing honeyfaces in a secure authentication system
+. the privacy analysis of honeyfaces , discussed in section  [ sec : privacyanalysis ] , shows that the adversary can not obtain private biometric information from the biometric `` password file '' .
+section  [ sec : securityanalysis ] analyses the additional security offered by inflating the `` password file '' .
+we conclude the paper in section  [ sec : summary ] .
+biometric systems take a raw sample ( usually an image ) and process it to extract features or a representation vector , robust ( as much as possible ) to changes in sampling conditions . in the honeyfaces system
+, we have an additional requirement  the feature space should allow sampling of artificial `` outcomes '' ( faces ) in _ large numbers_. these synthetic faces will be used as the passwords of the fake users .
+different models have been proposed for generating and representing faces including , active appearance models  @xcite , 3d deformable models @xcite , and convolutional neural networks  @xcite .
+such models have been used in face recognition , computer animation , facial composite construction ( an application in law enforcement ) , and experiments in cognitive psychology .    among these models
+we choose the active appearance model  @xcite for implementing the honeyfaces concept .
+an active appearance model is a parametric statistical model that encodes facial variation , extracted from images , with respect to a mean face .
+this work has been extended and improved in many subsequent papers ( e.g. ,  @xcite ) . in this context
+the word ` active ' refers to fitting the appearance model ( am ) to an unknown face to subsequently achieve automatic face recognition  @xcite .
+am can also be used with random number generation to create plausible , yet completely synthetic , faces .
+these models achieve near photo - realistic representations that preserve identity , although are less effective at modeling hair and finer details , such as birth marks , scars , or wrinkles which exhibit little or no spatial correspondence between individuals .
+our choice of using the am for honeyfaces is motivated by two reasons : 1 ) the representation of faces within an am is consistent with human visual perception and hence also consistent with the notion of face - space  @xcite .
+in particular , perceptual similarity of faces is correlated with distance in am space  @xcite .
+2 ) am is a well understood model used previously in face synthesis ( e.g.  @xcite ) .
+alternative face models may also be considered , provided a sufficient number of training images ( as the functions of the representation length ) is available to adequately model the facial variation within the population of real faces .
+recent face recognition technology uses deep learning ( dl ) methods as they provide very good representations for verification .
+however , the image reconstruction quality from dl representation is still far from being satisfactory for our application .
+ams describe the variation contained within the training set of faces , used for its construction .
+given that this set spans all variations associated with identity changes , the am provides a good approximation to any desired face .
+this approximation is represented by a point ( or more precisely , localized contiguous region ) within the face - space , defined by the _ am _ _ coefficients_. the distribution of am coefficients of faces belonging to the same ethnicity are well approximated by an independent , multivariate , gaussian probability density function  @xcite ( for example , see figure  [ fig : distr_ex ] that presents the distribution of the first 21 am coefficients for a face - space constructed from 500 faces . )
+new instances of facial appearance , the synthetic faces , can be obtained by randomly sampling from such a distribution . for simplicity , hereafter we assume that faces belong to a single ethnicity . to accommodate faces from different ethnic backgrounds ,
+the same concept could be used with the mixture of gaussians distribution .
+we follow the procedure for am construction , proposed in  @xcite .
+the training set of facial images , taken under the same viewing conditions , is annotated using a point model that delineates the face shape and the internal facial features . in this process
+, 22 landmarks are manually placed on each facial image .
+based on these points , 190 points of the complete model are determined ( see  @xcite for details ) . for each face , landmark coordinates are concatenated to form a shape vector , @xmath1 . the data is then centered by subtracting the mean face shape , @xmath2 , from each observation . the shape principle components @xmath3 are derived from the set of mean subtracted observations ( arranged as columns ) using pca .
+the synthesis of a face shape ( denoted by @xmath4 ) from the _ shape model _ is done as follows , @xmath5 where @xmath6 is a vector in which the first @xmath7 elements are normally distributed parameters that determine the linear combination of shape principal components and the remaining elements are equal to zero .
+we refer to @xmath6 as the _ shape coefficients_.    before deriving the texture component of the am , training images must be put into correspondence using non - rigid shape alignment procedure . each shape normalized and centered rgb image of a training face is then rearranged as a vector @xmath8 .
+such vectors for all training faces form a matrix which is used to compute the texture principle components @xmath9 by applying pca . a face texture ( denoted by @xmath10 )
+is reconstructed from the _ texture model _ as follows , @xmath11 where @xmath12 are the _ texture coefficients _ which are also normally distributed and @xmath13 is the mean texture .    the final model is obtained by a pca on the concatenated shape and texture parameter vectors .
+let @xmath14 denote the principal components of the concatenated space .
+the am coefficients ( @xmath15 ) are obtained from the corresponding shape ( @xmath1 ) and texture ( @xmath8 ) as follows , @xmath16\equiv q^t\left [            \begin{array}{c }               w p_s^t(x-\bar{x})\\               p_g^t(g-\bar{g})\\            \end{array }          \right]\ ] ] where @xmath17 is a scalar that determines the weight of shape relative to texture .
+figure  [ fig_amm_example ] illustrates the shape vector @xmath1 ( center image ) and the shape free texture vector @xmath8 ( on the right ) used to obtain the am coefficients .
+am coefficients of a * real face * are obtained by projecting its shape @xmath1 and texture @xmath8 onto the shape and texture principal components correspondingly and then combining the shape and texture parameters into a single vector and projecting it onto the am principal components . in order to create the * synthetic faces * , we first estimate a @xmath18-dimensional gaussian distribution @xmath19 of the am coefficients using the training set of real faces . then am coefficients of synthetic faces
+are obtained by directly sampling from this distribution , discarding the samples beyond @xmath20 standard deviations .
+such that all training samples are within @xmath20 standard deviations from the mean . ]
+theoretically , the expected distance between the samples from am distribution to its center is about @xmath21 standard deviation units .
+we observed that the distance of real faces from the center is indeed close to @xmath21 standard deviation units .
+in other words , am coefficients are most likely to lie on the surface of an @xmath18-dimensional ellipsoid with radii @xmath22 , where @xmath23 . hence to sample synthetic faces
+, we use the following process : sample @xmath24 from a @xmath18-dimensional gaussian @xmath25 , normalize @xmath24 to the unit length and multiply coordinate - wise by @xmath26 . to minimize the differences between the am representations of real and synthetic faces , we apply the same normalization process to the am coefficients of the real faces as well .
+the biometric `` password file '' of the honeyfaces system is composed of records , containing the am coefficients of either real or synthetic faces .
+the coefficients are sufficient for the authentication process without reconstructing the face .
+however , we use reconstructed faces in our privacy and security analysis , thus in the following , we show how to reconstruct faces from their corresponding am coefficients .    first , the shape and texture coefficients are obtained from the am coefficients as follows , @xmath27 and @xmath28 , where @xmath29^t$ ] is the am basis .
+then the texture and shape of the face are obtained via eq .
+( [ eq : shape_bit ] ) and  ( [ eq : texture_bit ] ) .
+finally , the texture @xmath10 is warped onto the shape @xmath4 , resulting in a facial image . figure  [ fig : face_samples ] shows several examples of reconstructed real faces and synthetic faces , sampled from the estimated distribution of am coefficients .
+to prevent exfiltration and protect privacy of the users , we create a very large number of synthetic faces .
+these faces can be incorporated in the authentication system in different ways .
+for example , the honeywords @xcite method stores a list of passwords ( one of which is correct and the rest are fake ) per account . in our settings , both
+the number of synthetic faces and the ratio of synthetic to real faces should be large .
+thus , the configuration , in which the accounts are created solely for real users , requires a very large number of synthetic faces to be attached to each account .
+hence , in such an implementation , during the authentication process , a user s face needs to be compared to a long list of candidates ( all fake faces stored with the user name ) .
+this would increase the authentication time by a factor equal to the synthetic - to - real ratio , negatively affecting the usability of the system and leading to an undesirable trade off between privacy and usability .
+another alternative is creating many fake accounts with a single face as a password . this does not change the authentication time of the system ( compared to a system with no fake accounts ) .
+since most real systems have very regular user names ( e.g. , the first letter of the given name followed by the family name ) , it is quite easy to generate fake accounts following such a convention . as we show in section  [ sec : sub : blowup ] , this allows inflating the password file to more than 56.6 tb ( when disregarding the storage of user names ) .
+one can also consider a different configuration , aimed to fool an adversary that knows the correct user names , but not the real biometrics .
+specifically , we can store several faces in each account ( instead of only one ) in addition to the fake accounts ( aimed at adversaries without knowledge of user names ) .
+the faces associated with a fake account are all synthetic .
+the faces associated with a real account include one real face of that user and the rest are synthetic one .
+in such a configuration the authentication time does not increase significantly , but the total size of the `` biometric data '' and the ratio of real - to - synthetic faces remains large .
+moreover , the adversary that knows the user name still needs to identify the real face among several synthetic faces .    in this work we implemented and analyzed the configuration in which real and decoy users have an account with a single password
+the majority of the users are fake in order to hide the real ones .
+each user ( both real and fake ) has an account name and a password composed of 80 am coefficients .
+these coefficients are derived from the supplied facial image for real users or artificially generated for decoy ones .
+the number of training subjects for the face - space construction should be larger than the number of system users .
+this provides a better modeling of the facial appearance , allowing a large number of synthetic faces to be created , and protecting the privacy of system s users as discussed in section  [ sec : privacyanalysis ] .
+we used a set of 500 subjects to train the am .
+270 of them were the users of the honeyfaces system .
+all images in the training set were marked with manual landmarks using a tool similar to the one used in  @xcite .
+we computed a 50-dimensional shape model and a 350-dimensional texture model as described in section  [ sec : sub : generating ] and we reduced the dimension of the am parameters to 80 .
+we note that this training phase is done once , and needs to contain the users of the system mainly for optimal authentication rates .
+however , as we later discuss in section  [ sec : sub : facespace ] , extracting biometric information of real users from the face - space is infeasible .
+all representations used in the system were normalized to unit norm and then multiplied by 7 standard deviations .
+this way we forced all samples ( real and synthetic ) to have the same norm , making the distribution of distances of real and synthetic faces very similar to each other ( see figure  [ fig : distr_ex ] ) .
+we used the resulting face - space to generate synthetic faces .
+we discarded synthetic faces that fall closer than a certain distance from the real or previously created synthetic faces .
+the threshold on the distance between faces of different identities was set to 4,800 , thereby minimizing the discrepancy between the distance distributions of real and synthetic faces .
+this minimum separation distance prevents collisions between faces and thus the addition of synthetic faces does not affect the authentication accuracy of the original system ( prior to inflation ) .
+the process of synthetic face generation is very efficient and takes only @xmath30 seconds on average using matlab .
+using 500 training faces we were able to create about @xmath0 synthetic faces , with sufficient distance from each other .
+we strongly believe that more faces can be generated ( especially if the size of the training set is increased ) , but @xmath0 faces that occupy 56.6 tb seems sufficient for proof of concept .
+the authentication process of most biometric systems is composed of the user supplying the user name and her or his facial image .
+this image ( hereafter the test image ) is aligned to conform with the reference image stored for that user .
+after the registration , the distance between the test and reference templates are computed and compared to some predefined threshold .    to find the registration between the test and the reference facial templates in our system , we first reconstruct the facial shape of the corresponding subject in the database from the am coefficients ( as shown in section  [ sec : sub : recon ] ) .
+we then run an automatic landmark detector on the test image ( using face++ landmark detector  @xcite ) and use these landmarks and the corresponding locations in the reference shape to find the scaling , rotation , and translation transformations between them .
+then we apply this transformation to the reference shape to put it into correspondence with the coordinate frame of the test image .    the am coefficients of the test image
+are computed using the transformed reference shape and the test image itself ( as shown in section  [ sec : sub : coefficients ] ) and then compared to the stored am coefficients  the password , using the l2 norm .
+the threshold on the l2 distance was set to 3,578 which corresponds to 0.01% of far .
+note that the threshold is smaller than the distance between the faces ( 4,800 ) used for synthetic face generation . figure  [ fig : lmk_samples ] illustrates the authentication process for the genuine and imposter attempts .
+we ran 270 genuine attempts , comparing the test image with the corresponding reference image , and about 4,200,000 impostor attempts ( due to the access to face++ ) . for a threshold producing an far of 0.01% ,
+our system showed the true acceptance rate ( 100-frr ) of 93.33% .
+figure  [ fig : roc ] shows the corresponding roc curve .
+our tests showed no degradation in frr / far after the inclusion of synthetic faces .
+finding landmarks in a test image , using the face++ landmark detector  @xcite , takes 1.42 seconds per subject on average .
+we note that the implementation of the landmark detector is kept at the face++ server and thus the reported times include network communications .
+running the detector locally will significantly reduce the running time .
+obtaining the am coefficients of a test image and comparing them to those of the target identity in the database takes additional 0.53 seconds on average .
+this brings us to a total of 1.95 seconds ( on average ) for a verification attempt .
+the system was implemented and tested in matlab r2014b 64-bit on windows 7 , in 64-bit os environment with intel s i7 - 4790 3.60ghz cpu and 16 gb ram .
+local implementation that uses c is expected to improve the running times significantly ( though not faster than 1 ms ) .
+our privacy analysis targets an adversary with access to the inflated biometric `` password file '' , and is divided into three cases . the first scenario , discussed in section  [ sec : sub : noprior ] ,
+is an adversary who has no prior knowledge about the users of the system .
+such an adversary tries to identify the real users out of the fake ones .
+the second scenario , discussed in section  [ sec : sub : out_source ] , concerns an adversary that tries to achieve the same goal , but has access to a comprehensive , external source of facial images that adequately represents the world wide variation ( population ) in facial appearance but does not know who the users are .
+the last scenario assumes that the adversary obtained the biometric data of all but one out of the system s users , and wishes to use this to find the biometrics of the remaining user .
+we discuss this case in section  [ sec : sub : facespace ] .
+we first discuss the scenario in which the adversary has the full database ( e.g. , after breaking into the system ) and wishes to identify the real users but has no prior knowledge concerning the real users .
+more explicitly , this assumption means that the adversary does not have a candidate list and their biometrics , to check if they are in the database .
+an inflated password file is a file that contains @xmath31 facial templates , @xmath32 of which correspond to real faces and remaining @xmath33 are synthetic faces sampled from the same face - space as the real faces .
+a simulated password file is a file that contains @xmath31 facial templates , all of which are synthetic faces sampled from the same face - space .
+an adversary that can distinguish between an inflated password file and a simulated password file , can be transformed into an adversary that extracts all the real users .
+similarly , an adversary that can extract real users from a password file can be used for distinguishing between inflated and simulated password files .
+we start with the simpler case  transforming an adversary that can extract the real faces into a distinguisher between the two files .
+the reduction is quite simple .
+if the adversary can extract real faces out of the password file ( and even only a single real face ) , we just give it the password file we have received . if the adversary succeeds in extracting any face out of it , we conclude that we received the inflated password file .
+otherwise , we conclude that we received a simulated password file .
+it is easy to see that the running time of the distinguishing attack and its success rate are exactly the same as that of the original extraction adversary .
+now , assume that we are given an adversary that can distinguish between an inflated password file and a simulated one with probability @xmath34 .
+we start by recalling that the advantage of distinguishing between two simulated ones is necessarily zero .
+hence , one can generate a hybrid argument , of replacing one face at a time in the file .
+when we replace a synthetic face with a different synthetic face , we have not changed the distribution of the file .
+thus , the advantage drops only when we replace a real face with a synthetic face , which suggests that if there are @xmath32 real users in the system , and @xmath31 total users in the system , we can succeed in identifying at least one of the real users of the system with probability greater than or equal to @xmath35 and running time of at most @xmath31 times the running time of the distinguishing adversary .
+[ cor_1 ] if the distributions of the inflated password file and the simulated password file are statistically indistinguishable , an adversary with no prior knowledge ( of either user s biometrics or user names ) can not identify the real users .    theoretically , synthetic and real faces are sampled from the same distribution and thus are indistinguishable according to corollary  [ cor_1 ] . however , in practice , synthetic faces are sampled from a parametric distribution which is estimated from real faces . the larger the set of faces , used to estimate the distribution , the closer these distributions will be . in practice
+, the number of training faces is limited which could introduce some deviations between the distributions .
+our following analysis shows that these deviations are too small to distinguish between the distributions of real and synthetic faces either by statistical tests or by human observers .
+the first part of the analysis performs a statistical test of the am coefficients of the real and the synthetic faces and shows that these distributions are indeed very close to each other .
+the second part studies the distribution of mutual distances among real and synthetic faces and reaches the same conclusion .
+finally , we perform a human experiment on the reconstructed and simulated faces , showing that even humans can not distinguish between them .
+the am coefficients are well approximated by a gaussian distribution in all dimensions  @xcite .
+therefore , sampling am coefficients for synthetic faces from the corresponding distribution is likely to produce representations that can not be distinguished by standard hypothesis testing from real identities .
+the examples of real and synthetic distributions for the first 21 dimensions are depicted in figure  [ fig : distr_ex ] and the following analysis verifies this statement .
+first , we show that coefficients of real and synthetic faces can not be reliably distinguished based on two sample kolmogorov 
+smirnov ( ks ) test . to this end
+, we sampled a subset of 500 synthetic samples from 80-dimensional am and we compare it to the 500 vectors of coefficients of training images .
+we ran the ks test on these two sets for each of the 80 dimensions and recorded the result of the hypothesis test and the corresponding p - value .
+we repeated this test 50 times , varying the set of synthetic faces .
+the ks tests supported the hypothesis that the two samples come from the same distributions in 98.72% of the cases with a mean p - value 0.6 ( over 50 runs and 80 components , i.e. , 4000 tests ) .
+these results show that am coefficients of real and synthetic faces are indistinguishable using a two - sample statistical test .
+we analyzed the distributions of distances between the real faces , synthetic ones , and a mixture of both .
+figure  [ fig : dist_distr ] shows that these distributions , both in the case of euclidean distances and in the case of angular distances , are very close .
+hence , the statistical distance between them is negligible , suggesting that attacks trying to use mutual distances are expected to be ineffective .
+we conducted a human experiment containing two steps .
+in the first step , the participants were shown a real face , not used in the experiment , and its reconstruction . in the second step of the experiment ,
+each participant was presented with the same set of 16 faces ( 11 of which were synthetic and 5 of which were real ) and was asked to classify them as real or fake .
+we also allowed the users to avoid answering in the case of uncertainty or fatigue .
+the 11 synthetic faces were chosen at random from all the @xmath0 synthetic faces we generated , and the 5 real ones were chosen at random from the 500 real faces . for the real faces , we computed the am coefficients for each real image and then used the method described in section  [ sec : sub : recon ] to generate the real faces and synthetic faces from the model .
+examples of real and synthetic faces are provided in the second and third rows , respectively , of figure  [ fig : face_samples ] .    out of 179 answers
+we have received , 97 were correct , showing a success rate of  54.19% .
+the fake faces received 120 answers , of which 66 were correct ( 55% ) .
+the real faces received 59 answers , of which 31 were correct ( 52.5% ) .
+our analysis shows that the answers for each face are distributed very similarly to the outcome of a binomial random variable with a probability of success at each trial of 0.5 .
+next , we analyze the case where an adversary has access to the inflated `` password file '' and to an extensive external source of facial images ( e.g. the internet ) .
+we consider two attack vectors : the first tries to use membership queries with random facial images to match real users of the system , the second attempts to distinguish between real and synthetic faces using a training process on a set of real facial images unrelated to the users of the system .
+an adversary could use a different source of facial images to try and run a membership query against the honeyfaces system to obtain the biometric of the real users . to match a random image from an external source of facial images
+, the adversary must run the authentication attempt with all users of the system ( including the fake ones ) .
+our experiments show that the current implementation takes about 2 seconds per authentication attempt ( mostly due to the landmarking via face++ ) . even under the unrealistic assumption that the authentication time could be reduced to 1 ms
+, it would take about @xmath36 seconds ( slightly more than 2 cpu years ) , to run the matching of a single facial image against @xmath37 fake faces .
+we note that one can not use a technique to speed up this search and comparison ( such as kd - trees ) as the process of comparison of faces requires aligning them ( based on the landmarks ) , which can not be optimized ( to the best of our knowledge ) .
+one can try to identify the membership of a person in the system by projecting his / her image onto the face - space of the system and analyzing the distance from the projection to the image itself .
+if the face - space was constructed from system users only , a small distance could reveal the presence of the person in the face - space .
+such an attack can be easily avoided by building the face - space from a sufficiently large ( external ) source of faces .
+such a face - space approximates many different appearances ( all combinations of people in the training set ) and thus people unrelated to the users of the system will also be close to the face - space . we conclude that a membership attack to obtain the real faces from the data base is impractical .      the task of the adversary who obtained the inflated `` biometric password file '' is to distinguish the real faces from the synthetic ones .
+he can consider using a classifier that was trained to separate real faces from the fake ones . to this end
+the adversary needs to construct a training set of real and synthetic faces .
+synthetic faces can be generated using the system s face - space .
+however , the real faces of the system are unavailable to the adversary .
+one way an adversary might approach this problem is by employing a different set of real faces ( a substitute set ) to construct the face - space .
+he then can create a training set by generating synthetic faces using that space and reconstructing the real faces from the substitute set following the algorithms described in section  [ sec : sub : generating ] . a trained classifier
+could then be used to classify the faces in the biometric `` password file '' .
+the substitute training set is likely to have different characteristics than the original one .
+the adversary could try to combine the system s face - space with the substitute set in attempt to improve the similarity of the training set to the biometric `` password file '' .
+then , the adversary can construct the training set of real faces by projecting the images from the substitute set on the mixed face - space and reconstructing them as described in section  [ sec : sub : recon ] . to create a training set of synthetic faces ,
+the adversary can either use the mixed face - space or the system s face - space .
+deep learning and , in particular , convolutional neural networks ( cnn ) , showed close to human performance in face verification  @xcite . it is a common believe that the success of the cnn in recognition tasks is due to its ability to extract good features .
+moreover , it was shown that cnn features can be successfully transferred to perform recognition tasks in similar domains ( e.g.  @xcite ) .
+such techniques are referred to as fine tuning or transfer learning .
+it proceeds by replacing the upper layers of the fully trained dl network ( that solves a related classification problem ) by layers that fit the new recognition problem ( the new layers are initialized randomly ) .
+the updated network is then trained on the new classification problem with the smaller data set .
+note , that most of the network does not require training , only slight tuning to fit the new classification task , and the last layer can be well trained using good cnn features and a smaller data set .    following this strategy
+, we took the vgg - face deep network @xcite that was trained to recognize 2,622 subjects and applied the transfer learning method to train a dl network to classify between real and synthetic faces . to this end
+, we replaced the last fully connected 2,622 size layer with a fully connected layer of size 2 and trained this new architecture in the following settings .    in all experiments we split the training set for training and validation of the network .
+then we applied the trained network on a subset of system s data set to classify the images into real and synthetic .
+the subset included all real faces and a subset of the synthetic faces ( same size as real set to balance the classification results ) .
+setting 1 : a face - space was constructed from 500 faces belonging to the substitute set .
+the training set included 400 reconstructed real faces and 400 synthetic faces , generated using the substitute face - space .
+the validation set included 100 reconstructed real faces and 100 synthetic faces from the same domain , not included in the training set .
+the results on the substitute validation set showed that the dl network classifies 62.5% of faces correctly .
+the results on the system s set dropped to 53.33% , which is close to random .
+setting 2 : a face - space was constructed by combining the system s face - space with the substitute set .
+the training set included 400 real faces projected and reconstructed using the mixed face - space and 400 synthetic faces , generated using the mixed face - space .
+the validation set included 100 reconstructed real faces and 100 synthetic faces from the same domain , not included in the training set .
+the results on the validation set showed good classification : 75% of synthetic faces were classified as synthetic and 93% of real faces were classified as real .
+however , the same network classified all faces of the system s face set as synthetic .
+this result shows that using a mixed face - space to form a training set is not effective .
+the prime reason for this is the artifacts in synthetic images due to variation in viewing conditions between the sets .
+setting 3 : the real training and validation sets were the same as in setting 2 .
+the synthetic training and validation sets were formed by generating synthetic faces using system s face - space . here
+the classifier was able to perfectly classify the validation set , but it classified all system s faces as synthetic .
+this shows that using real and synthetic faces from different face - spaces introduces even more differences between them , which do not exist in system s biometric `` password file '' .
+to conclude , the state - of - the - art deep learning classifier showed accuracy of 53.33% in distinguishing between real and synthetic faces in the system s biometric `` password file '' .
+this result is close to random guessing .
+an adversary who obtains the facial images of all but one of the real users of the system can try and use it for extracting information about the remaining user from the password file .
+if the training set used for constructing the face - space contains only the users of the system , the following simple attack will work : recall that the authentication procedure requires removing the mean face from the facial image obtained in the authentication process .
+thus , the mean of all faces in the training set is stored in the system .
+the adversary can find the last user by computing the mean of the users he holds and solving a simple linear equation . to mitigate this attack , and to allow better modeling of the facial appearance
+, the training set should contain a significant amount of training faces that are not users of the system .
+note that these additional faces must be discarded after the face - space is constructed .
+assuming that the training set for the face - space construction was not limited to a set of system users ( as is the case in our implementation ) , the adversary could try the following attack .
+create @xmath38 face - spaces by adding each unknown face from the biometric `` password file '' in turn to the @xmath39 real faces that are in the possession of the adversary .
+@xmath40 is equal to the number of synthetic faces in the biometric `` password file '' plus one real face .
+then compare these @xmath40 face - spaces to the one stored in the system ( using statistical distance between the distributions ) .
+such comparison provides a ranking of unknown faces to be the @xmath32th real face .
+if the attack is effective , we expect the face - space including the @xmath32th user to be highly ranked ( i.e. , to appear in a small percentile ) .
+however , if the distribution of the rankings associated with the face - space including the @xmath32th real face over random splits of @xmath39 known and 1 unknown face is ( close to ) uniform , then we can conclude that the adversary does not gain any information about the last user using this attack .    in our implementation of the attack , we assume that the adversary knows 269 faces of real users and he tries to identify the last real user among the synthetic ones .
+running the attack with all synthetic faces is time consuming . to get statistics of rankings we can use a much smaller subset of synthetic faces .
+specifically , we used 100 synthetic faces and ran the experiment over 100 randomized splits into 269 known and 1 unknown faces .
+figure  [ fig : dist_rankings ] shows the histogram of rankings associated with the face - space including the last real user in 100 experiments .
+the histogram confirms that the distribution of rankings is indeed uniform , which renders the attack ineffective .
+an alternative approach , that the adversary may take , is to analyze the effects of a single face on the face - space distribution .
+however , our experiments show that the statistical distances between neighboring distributions ( i.e. , generated from training sets that differ by a single face ) are insignificant . specifically , the average statistical distance between the distribution estimated from the full training set ( of 500 real faces ) and all possible sets of 499 faces ( forming 500 neighboring sets , each composed of a different subset of 499 faces ) is @xmath41 and the maximal distance is @xmath42 .
+these distances are negligible compared to the standard deviations of the face - space gaussians ( the largest std is 6,473.7 and the smallest is 304.1717 ) .
+these small differences suggest that one can use differential privacy mechanisms with no ( or marginal ) usability loss ( for example , by using ideas related to  @xcite ) to mitigate attacks that rely on prior knowledge of the system s users .
+we leave the implementation and evaluation of this mechanism for future research .    to conclude , the honeyfaces system protects the privacy of users even in the extreme case when the adversary learned all users but one , assuming that the training set for constructing the face - space contains a sufficiently large set of additional faces .
+we now discuss the various scenarios in which honeyfaces improve the security of a biometric data .
+we start by discussing the scenario of limited outgoing bandwidth networks ( such as air - gaped networks ) , and showing the affects of the increased file size on the exfiltration times .
+we follow by discussing the effects honeyfaces has on the detection of the exfiltration process .
+we conclude the analysis of the security offered by our solution in the scenario of partial exposure of the database .
+the time needed to exfiltrate a file is easily determined by the size of the file to be exfiltrated and the bandwidth .
+when the exfiltration bandwidth is very slow ( e.g. , in the air - gap networks studied in  @xcite ) , a 640-byte representation of a face ( or 5,120-bit one ) takes between 5 seconds ( at 1,000 bits per second rate ) to 51 seconds ( in the more realistic 100 bits per second rate ) . hence , leaking even a 1 gbyte database takes between 92.6 to 926 days ( assuming full bandwidth , and no need for synchronization or error correction overhead ) .
+the size of the password file can be inflated to contain all the @xmath0 faces we created , resulting in a 56.6 tbytes file size ( whose leakage would take about 14,350 years in the faster speed ) .    a possible way to decrease the file size is to compress the file .
+our experiments show that linux s zip version 3.0 , could squeeze the password file by only 4% .
+it is highly unlikely that one could devise a compression algorithm that succeeds in compressing significantly more . in other words , compressing the face file reduces the number of days to exfiltrate 1 gbyte to 88.9 days ( in the faster speed ) .
+one can consider a lossy compression algorithm , for example by using only the coefficients associated with the principle components ( carrying most information ) .
+we show in section  [ sec : sub : rates ] that this approach requires using many coefficients for identification .
+hence , we conclude that if the bandwidth is limited , exfiltration of the full database in acceptable time limit is infeasible .
+the improved leakage detection stems from two possible defenses : the use of intrusion detection systems ( and data loss prevention products ) and the use of a two - server settings as in honeywords .
+intrusion detection systems , such as snort , monitor the network for suspicious activities .
+for example , a high outgoing rate of dns queries may suggest an exfiltration attempt and raise an alarm  @xcite .
+similar exfiltration attempts can also increase the detection of data leakage ( such as an end machine which changes its http footprint and starts sending a large amount of information to some external server ) . hence , an adversary who does not take these tools into account is very likely to get caught . on the other hand , an adversary who tries to `` lay low ''
+is expected to have a reduced exfiltration rate , preventing quick leakage and returning to the scenario discussed in the previous section .
+the use of honeyfaces also allows for a two - server authentication setting similarly to honeywords  @xcite .
+the first server uses a database composed of the real and the synthetic faces .
+after a successful login attempt is made into this system , a second authentication query is sent to the second server , which holds only the real users of the system . a successful authentication to the first server that uses a fake account , is thus detected at the second server , raising an alarm .
+we showed that exfiltrating the entire password file in acceptable time is infeasible if the bandwidth is limited .
+hence , the adversary can decide to pick one of two approaches ( or combine them ) when trying to exfiltrate the file  either leak only partial database ( possibly with an improved ratio of real to synthetic faces ) , or to leak partial representations such as the first 10 am coefficients out of 80 per user .    as we showed in the privacy analysis ( section  [ sec : privacyanalysis ] ) , statistical tests or machine learning methods fail to identify the real faces among the synthetic ones . using membership queries to find real faces in the database is computationally infeasible without prior knowledge of the real user names .
+we conclude that reducing the size of the data set by identifying the real users or significantly improving the real to synthetic ratio is impossible .    the second option is to leak a smaller number of the coefficients ( a partial representation ) .
+leaking a smaller number of coefficients can be done faster than the entire record , and allow the adversary to run on his system ( possibly with greater computational power ) , any algorithm he wishes for the identification of the real users . in the following ,
+we show that partial representations ( that significantly decrease the size of the data set ) do not provide enough information for successful membership queries .
+we experimented with 10 coefficients ( i.e. , assume that the adversary leaked the first 10 am coefficients of all users ) .
+as the adversary does not know the actual threshold for 10 coefficients , he can try and approximate this value using the database .
+our proposed method for this estimation is based on computing the distance distribution for 30,000 faces from the database , and setting a threshold for authentication corresponding to the 0.01% `` percentile '' of the mutual distances .
+we then take test sets of real users faces and of outsiders faces and for each face from these sets , computed the minimal distance from this face to all the faces in the reduced biometric 
+password file  .
+we assume that if this distance is smaller than the threshold , then the face was in the system , otherwise we conclude that the face was not in it .
+our experiments show that for the 0.01% threshold , 98.90% of the outsider set and 99.26% of the real users were below the threshold .
+in other words , there is almost no difference between the chance of determining that a user of the system is indeed a user vs.  determining that an outsider is a user of the system .
+this supports the claim that 10 coefficients are insufficient to distinguish between real users and outsiders .
+we also used a smaller threshold which tried to maximize the success rate of an outsider to successfully match to a real face .
+for this smaller threshold , 71.08% of the outsiders were below it compared with 74.07% of the real users .    to further illustrate the effects of partial representation on the reconstructed face , we show in figure  [ fig : grad_rec ] the reconstruction of faces from 80 , 30 , and 10 coefficients , compared with the real face .
+as can be seen , faces reconstructed from 30 coefficients are somewhat related to the original face , but faces reconstructed from 10 , bare little resemblance to the original .
+although it is possible to match a degraded face to the corresponding original when a small number of faces are shown ( figure  [ fig : grad_rec ] ) , visual matching is impossible among @xmath0 faces .
+thus , an adversary wishing to leak partial information about an image , needs to leak more than 10 coefficients .    to conclude , exfiltrating even a partial set of faces ( or parts of the records ) does not constitute a plausible attack vector against the honeyfaces system .
+in this paper we explored the use of synthetic faces for increasing the security and privacy of face - based authentication schemes .
+we have proposed a new mechanism for inflating the database of users ( honeyfaces ) which guarantees users privacy with no usability loss .
+furthermore , honeyfaces offers improved resilience against exfiltration ( both the exfiltration itself and its detection ) .
+we also showed that this mechanism does not interfere with the basic authentication role of the system and that the idea allows the introduction of a two - server authentication solution as in honeywords .
+future work can explore the application of the honeyfaces idea to other biometric traits ( such as iris and fingerprints ) .
+we believe that due to the similar nature of iris codes ( that also follow multi - dimensional gaussian distribution ) , the application of the concept is going to be quite straightforward .
+the funds received under the binational uk engineering and physical sciences research council project ep / m013375/1 and israeli ministry of science and technology project 3 - 11858 , `` improving cyber security using realistic synthetic face generation '' allowed this work to be carried out .
+j.  l. araque , m.  baena , b.  e. chalela , d.  navarro , and p.  r. vizcaya .
+synthesis of fingerprint images . in _ pattern recognition , 2002 . proceedings .
+16th international conference on _ , volume  2 , pages 422425 .
+ieee , 2002 .
+v.  blanz and t.  vetter .
+a morphable model for the synthesis of 3d faces . in _ proceedings of the 26th annual conference on computer graphics and interactive techniques _ , pages 187194 .
+acm press / addison - wesley publishing co. , 1999 .
+j.  cui , y.  wang , j.  huang , t.  tan , and z.  sun . an iris image synthesis method based on pca and super - resolution . in _ 17th international conference on pattern recognition , icpr 2004 ,
+cambridge , uk , august 23 - 26 , 2004 .
+_ , pages 471474 , 2004 .
+j.  donahue , y.  jia , o.  vinyals , j.  hoffman , n.  zhang , e.  tzeng , and t.  darrell .
+decaf : a deep convolutional activation feature for generic visual recognition . in _ international conference in machine learning ( icml ) _ , 2014 .
+g.  j. edwards , t.  f. cootes , and c.  j. taylor . .
+in _ computer vision - eccv98 , 5th european conference on computer vision , freiburg , germany , june 2 - 6 , 1998 , proceedings , volume ii _ , pages 581595 , 1998 .            c.  imdahl , s.  huckemann , and c.  gottschlich . towards generating realistic synthetic fingerprint images . in _ 9th international symposium on image and signal processing and analysis , ispa 2015 , zagreb , croatia , september 7 - 9 , 2015 _ , pages 7882 , 2015 .
+a.  juels and m.  wattenberg . .
+in j.  motiwalla and g.  tsudik , editors , _ ccs 99 , proceedings of the 6th acm conference on computer and communications security , singapore , november 1 - 4 , 1999 .
+_ , pages 2836 .
+acm , 1999 .
+m.  weir , s.  aggarwal , b.  de  medeiros , and b.  glodek . .
+in _ 30th ieee symposium on security and privacy ( s&p 2009 ) , 17 - 20 may 2009 , oakland , california , usa _ , pages 391405 .
+ieee computer society , 2009 .
+s.  n. yanushkevich , v.  p. shmerko , a.  stoica , p.  s.  p. wang , and s.  n. srihari .
+introduction to synthesis in biometrics . in _ image pattern recognition - synthesis and analysis in biometrics _ , pages 530 .
+l.  zhang , l.  lin , x.  wu , s.  ding , and l.  zhang .
+end - to - end photo - sketch generation via fully convolutional representation learning . in _ proceedings of the 5th acm on international conference on multimedia retrieval _ , pages 627634 .
+acm , 2015 .

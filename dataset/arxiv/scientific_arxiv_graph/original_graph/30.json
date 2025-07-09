@@ -1,0 +1,292 @@
+{
+  "nodes": [
+    {
+      "id": "Cme",
+      "type": "Event",
+      "properties": {}
+    },
+    {
+      "id": "Euv Images",
+      "type": "Image",
+      "properties": {}
+    },
+    {
+      "id": "Stereo/A",
+      "type": "Spacecraft",
+      "properties": {}
+    },
+    {
+      "id": "Stereo/B",
+      "type": "Spacecraft",
+      "properties": {}
+    },
+    {
+      "id": "Circle",
+      "type": "Shape",
+      "properties": {}
+    },
+    {
+      "id": "Bright Features",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Flank Features",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Envelope",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Difference Flux",
+      "type": "Flux",
+      "properties": {}
+    },
+    {
+      "id": "Curvature Radii",
+      "type": "Parameter",
+      "properties": {}
+    },
+    {
+      "id": "Brightness Profiles",
+      "type": "Profile",
+      "properties": {}
+    },
+    {
+      "id": "Brightness Rims",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Density Compression Region",
+      "type": "Region",
+      "properties": {}
+    },
+    {
+      "id": "Bright Rim",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Postflare Loops",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Flux Rope Model",
+      "type": "Model",
+      "properties": {}
+    },
+    {
+      "id": "Density Distribution",
+      "type": "Distribution",
+      "properties": {}
+    },
+    {
+      "id": "Cme Mass",
+      "type": "Mass",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Cme",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Euv Images",
+        "type": "Image",
+        "properties": {}
+      },
+      "type": "SHOW",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Euv Images",
+        "type": "Image",
+        "properties": {}
+      },
+      "target": {
+        "id": "Stereo/A",
+        "type": "Spacecraft",
+        "properties": {}
+      },
+      "type": "OBSERVED_WITH",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Euv Images",
+        "type": "Image",
+        "properties": {}
+      },
+      "target": {
+        "id": "Stereo/B",
+        "type": "Spacecraft",
+        "properties": {}
+      },
+      "type": "OBSERVED_WITH",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Cme",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Circle",
+        "type": "Shape",
+        "properties": {}
+      },
+      "type": "FIT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Circle",
+        "type": "Shape",
+        "properties": {}
+      },
+      "target": {
+        "id": "Bright Features",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "SELECT_POINTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Circle",
+        "type": "Shape",
+        "properties": {}
+      },
+      "target": {
+        "id": "Flank Features",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "SELECT_POINTS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Circle",
+        "type": "Shape",
+        "properties": {}
+      },
+      "target": {
+        "id": "Envelope",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "TRACE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Envelope",
+        "type": "Feature",
+        "properties": {}
+      },
+      "target": {
+        "id": "Cme",
+        "type": "Event",
+        "properties": {}
+      },
+      "type": "ENCLOSE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Euv Images",
+        "type": "Image",
+        "properties": {}
+      },
+      "target": {
+        "id": "Difference Flux",
+        "type": "Flux",
+        "properties": {}
+      },
+      "type": "DISPLAY_AS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Brightness Profiles",
+        "type": "Profile",
+        "properties": {}
+      },
+      "target": {
+        "id": "Brightness Rims",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "SHOW",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Brightness Rims",
+        "type": "Feature",
+        "properties": {}
+      },
+      "target": {
+        "id": "Density Compression Region",
+        "type": "Region",
+        "properties": {}
+      },
+      "type": "CORRESPOND_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Brightness Rims",
+        "type": "Feature",
+        "properties": {}
+      },
+      "target": {
+        "id": "Postflare Loops",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "VISIBLE_IN",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Flux Rope Model",
+        "type": "Model",
+        "properties": {}
+      },
+      "target": {
+        "id": "Density Distribution",
+        "type": "Distribution",
+        "properties": {}
+      },
+      "type": "INCORPORATE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Cme",
+        "type": "Event",
+        "properties": {}
+      },
+      "target": {
+        "id": "Cme Mass",
+        "type": "Mass",
+        "properties": {}
+      },
+      "type": "ESTIMATE",
+      "properties": {}
+    }
+  ]
+}

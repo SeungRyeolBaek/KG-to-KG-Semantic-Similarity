@@ -1,0 +1,430 @@
+a compact , nonempty set @xmath0 is called `` self - affine '' if it is the attractor of an iterated function system of affine maps .
+self - affine sets represent a natural class of fractal sets . on one hand , they are a natural generalization of self - similar sets . on the other hand , they appear in other areas , like theory of tilings and dynamical systems .
+they also represent a prototype for attractors of general , ( smooth ) non - linear i.f.s . despite these facts ,
+they remain rather mysterious , and the study of their dimensional and topological properties is fraught with difficulties .
+one of the most important results available is falconer s theorem from 1988 @xcite .
+it states that for every collection @xmath1 of linear endomorphisms of @xmath2 such that @xmath3 for all @xmath4 , there exists a number @xmath5 -called the `` falconer dimension '' of @xmath6- such that for almost every @xmath7 ( in the sense of @xmath8 dimensional lebesgue measure ) , the attractor of the i.f.s .
+@xmath9 has hausdorff and box - counting dimensions equal to @xmath10 .
+there is an explicit , albeit difficult to compute , formula for @xmath10 .
+( falconer s original version goes with @xmath11 as the bound for the norms ; later solomyak @xcite pointed out that @xmath12 works too ) .
+the hypothesis on the norms can be somewhat relaxed , but is essential .
+the simplest counterexample comes from the following family of self - affine sets , studied by f.przytycki and m.urbaski @xcite : for @xmath13 , let @xmath14 be the linear map given by @xmath15 let @xmath16 be the attractor of the i.f.s .
+@xmath17 . when @xmath18 these sets are easy to analyze , but the situation becomes much more complicated when @xmath19 . recall that the bernoulli convolution @xmath20 is defined as the distribution measure of the random sum @xmath21 , where the signs are chosen indepently with probabilty @xmath12 ; see @xcite , @xcite for further information on bernoulli convolutions . for us ,
+the main feature of bernoulli convolutions is the following theorem of solomyak @xcite : for almost all @xmath22 , @xmath20 is an abolustely continuous measure with an @xmath23 density .
+the result of przytycki and urbaski is the following : assume that @xmath16 is totally disconnected , and @xmath24 .
+if @xmath20 has hausdorff dimension @xmath25 ( which , by solomyak s theorem , is the case for almost every @xmath26 ) then @xmath27 however , if @xmath28 is a pisot number ( i.e. , an algebraic number greater than @xmath25 all of whose algebraic conjugates have modulus less than @xmath25 ) , then @xmath29 .
+it is well known that the set of pisot number accumulates to @xmath30 ; thus this implies that the norm bound in falconer s theorem is sharp .
+the result of przytycki and urbaski suggests the following question : what can we say about the dimension and topological properties of @xmath16 in general ; i.e. allowing @xmath16 to be connected ?
+we will show that the same formula for the dimension holds for almost every @xmath31 in the natural region .
+more precisely , we have :    [ th : main ] for almost @xmath31 such that @xmath32 , @xmath33 where @xmath34 .    note
+that a direct connection between absolute continuity of @xmath35 and dimension of @xmath16 is lost .
+this is natural since for countably many values of @xmath31 there is an exact coincidence of cylinders which produces a dimension drop . the condition @xmath36 is also a natural one ; for @xmath37 one would expect @xmath16 to have positive lebesgue measure , and even non - empty interior .
+unfortunately , since transversality holds only in a small region inside @xmath38 , our results here are rather limited .
+it is convenient to state the result in terms of measures .
+let @xmath39 be the natural self - affine measure supported on @xmath16 ; it can be defined in several ways , for instance as the distribution of the random sum @xmath40 where signs are chosen independently with probability @xmath12 .
+note the close analogy with bernoulli convolutions ; we think of @xmath39 as _ self - affine _ bernoulli convolutions .
+[ th : mainbis ] there is an open set @xmath41 containing a neighborhood of @xmath42 and of the curve @xmath43 such that    1 .   for almost all @xmath44
+, @xmath39 is absolutely continuous with an @xmath23 density . in particular , @xmath45 ( we will denote @xmath46-dimensional lebesgue measure by @xmath47 ) .
+2 .   for almost all @xmath31 such that @xmath48 for some @xmath49 , @xmath39 is absolutely continuous with a continuous density . in particular
+, @xmath16 has nonempty interior .
+see corollary [ coro : abscontregion ] for the precise definition of @xmath50 .
+we remark that our results apply to more general families of self - affine sets , although the theorems above illustrate our main motivation and example .
+see theorems [ th : generalth ] and [ th : generalthbis ] for the general versions , as well as the extensions and further generalizations presented in section [ sec : extensions ] .
+we stress , however , that we are considering only families of self - affine sets where all the defining maps share the same linear part , which is a diagonalizable map .
+the method used to prove theorems [ th : main ] and [ th : mainbis ] is based on the transversality ideas that were successfully applied to many families of self - similar sets , starting with @xcite ; however , some new ideas are needed as well . in particular , we emphasize that the powerful projection scheme developed in @xcite does not seem to apply in this context , for two reasons .
+first , we have to deal with two different hlder exponents simultaneously ; second , and more important , the standard notion of transversality does not hold in a large enough region . to overcome the second problem we use transversality concurrently with absolute continuity of bernoulli convolutions , rather than transversality alone .
+finally , in section [ sec : extensions ] we consider some additional questions suggested by what is known in the self - similar case .
+we study some families of exceptions to the almost - everywhere results ; most of them are closely related to pisot numbers .
+this is to be expected , since for classical bernoulli convolutions reciprocals of pisot numbers are the only known parameters that yield a singular measure .
+according to theorem [ th : main ] , overlaps do not produce a dimension drop in the region @xmath51 except for a set of zero measure .
+we show that they do produce a measure drop ( i.e. the hausdorff measure in the critical dimension is @xmath52 ) in a big chunk of the overlapping region .
+this phenomenon was first observed for families of self - similar sets .
+it is well known that if a measure is the attractor of a general i.f.s .
+then it is either singular or absolutely continuous with respect to lebesgue measure .
+a more delicate question is whether , when absolutely continuous , it is actually equivalent to lebesgue measure on the attractor set .
+this is known to be true for self - similar sets @xcite , and here we show that the proof in the self - similar case can be adapted to cover many self - affine measures including the natural measures on @xmath16 .
+in this section we obtain our main results on hausdorff and box - counting dimension of certain certain families of self - affine sets , of which the class discussed in the introduction is a particular example .
+let @xmath53 be a set of real numbers which we call `` digits '' .
+we will normalize @xmath54 so that @xmath55 .
+associated to @xmath54 is a family of linear self - similar sets @xmath56 for @xmath57 , where @xmath58 is the attractor of the i.f.s .
+@xmath59 . furthermore ,
+let @xmath20 be the natural self - similar measure supported on @xmath58 ; i.e. the probability measure defined by the relation @xmath60 where @xmath61 .
+now consider a two - dimensional version of this construction , where the i.f.s .
+is @xmath62 let @xmath16 be the attractor set , and @xmath39 the natural self - affine measure supported on it
+. these will be our main object of study in this paper .
+see figure 1 for some examples .        * figure 1*. both figures correspond to the digit set @xmath63 .
+although both pictures look similar , the one on the left actually corresponds to an attractor of dimension strictly less than @xmath30 , while for parameters close to the one on the right we know that the attractor typically has positive lebesgue measure . in general ,
+self - affine sets are harder to visualize than self - similar sets due to the fact that , after some iterations , cylinders sets have a very large excentricity .
+our most important example is the set of digits @xmath64 . in this case ,
+@xmath65 and @xmath66 are the classical and self - affine bernoulli convolutions respectively .
+more precisely , the measure defined by ( [ eq : randomsum ] ) corresponds to the digit set @xmath67 , but the digits @xmath63 yield the same measures up to rescaling and translating . for the sake of simplicity we will use the digits @xmath63 at all places except where we are dealing with the fourier transform , for which the digits
+@xmath67 yield a slightly simpler formula .
+next we define a relevant class of power series .
+let @xmath68 let also @xmath69 be the subset of @xmath70 of power series with non - zero constant term .
+moreover , define @xmath71 as @xmath72 ; in other words , @xmath71 is the set of power series whose first non - zero coefficient is @xmath73
+. we will identify ( subsets of ) @xmath70 with ( subsets of ) the symbolic space @xmath74 .    as a matter of notational convenience we will often write @xmath75 instead of @xmath76 , and @xmath77 instead of @xmath78 .
+when we do so , we will use greek letters such as @xmath79 instead of @xmath80 .
+we will need a notion of transversality for power series .
+our definition is very close to the standard one ; however , we need to consider subsets of the class @xmath69 of power series rather than all of @xmath69 .
+[ def : transv ] let @xmath81 be a subset of @xmath69 .
+we say that @xmath82 is a set of transversality for @xmath81 if there exists a constant @xmath83 such that @xmath84 for every @xmath85 and @xmath86 .
+if a set @xmath87 can be expressed as @xmath88 for some @xmath89 , we say that @xmath90 is a set of transversality for @xmath91 if it is a set of transversality for @xmath81 .
+one easy but important observation is that to prove transversality it is enough to show if @xmath92 then @xmath93 for all @xmath94 and some @xmath95 .
+let @xmath96 be the uniform bernoulli measure on @xmath97 ; i.e. @xmath98 the projection map @xmath99 from @xmath97 to @xmath100 maps @xmath96 onto the bernoulli convolution @xmath20 .
+the measure @xmath96 induces a measure @xmath101 on @xmath102 via the difference map .
+in other words , @xmath101 is the bernoulli measure on @xmath70 where the symbol @xmath103 has weight @xmath104 in particular , @xmath105 .
+let @xmath106 be the shift operator on @xmath70 .
+finally , let us define some relevant sets .
+let @xmath107 throughout the paper we will assume that @xmath108 and @xmath26 have the same signs , although actually all the results and proofs are valid regardless of signs ( the conditions on @xmath108 and @xmath26 have to be replaced by conditions on their absolute values ; for example @xmath109 becomes @xmath110 ) .
+we are now in a position to state a technical proposition that contains our key estimate ; in particular , it is only here that transversality gets used .
+[ prop : main ] let @xmath111 be closed intervals such that @xmath112 .    1 .
+fix @xmath113 .
+suppose that for some @xmath114 there is a constant @xmath115 such that @xmath116 for all @xmath86 .
+assume also that @xmath117 is an interval of transversality for @xmath118 .
+let @xmath119 , and @xmath120 then @xmath121 2 .
+analogously , assume that ( [ eq : corrbound ] ) holds with @xmath122 replaced by @xmath123 for some @xmath124 , and that @xmath125 is an interval of transversality for @xmath118 .
+let @xmath126 and @xmath54 as in ( [ eq : dimformula ] ) .
+then @xmath127    _ proof_. we will prove only the first part of the proposition ; the second is just a restatement with @xmath108 and @xmath26 interchanged .
+let @xmath128 denote the inner integral in ( [ eq : keyestimate ] ) .
+using fubini s theorem and performing the change of variables @xmath129 we get @xmath130 where we used the identity @xmath131 .
+suppose that @xmath132 , and observe that @xmath133 whence @xmath134 therefore we obtain from ( [ eq : tech1 ] ) that @xmath135    write @xmath136 for the integrand in the right hand side of ( [ eq : tech2 ] ) , and define @xmath137    note that the integral in ( [ eq : keyestimate ] ) is equal to @xmath138 so our problem is reduced to estimating the series @xmath139 and @xmath140 .
+recall that @xmath141 . using this ,
+( [ eq : corrbound ] ) and the definition of @xmath101 we see that @xmath142 furthermore , since @xmath101 is a product measure , @xmath143 from here and fubini s theorem we compute @xmath144 where in the last step we used that @xmath145 and @xmath146 .
+therefore @xmath147 .
+it remains to show that @xmath148 . at this point
+we make use of the transversality hypothesis .
+let @xmath132 .
+we use ( [ eq : transv ] ) applied to the map @xmath149
+to estimate @xmath150 using this , fubini s theorem and ( [ eq : tech3 ] ) we obtain @xmath151 where we used that @xmath152 and , for the convergence of the last integral , that @xmath153 .
+this completes the proof .
+@xmath154    in order to apply the previous lemma to obtain information about hausdorff dimension we need to establish transversality .
+the following easy lemma reduces this problem to the estimation of roots of power series .
+[ lemma : transv ] let @xmath155 be closed intervals such that the following holds : if @xmath156 and @xmath157 , then @xmath108 and @xmath26 are not both double roots of @xmath80
+. then @xmath69 can be partitioned into two disjoint subsets @xmath158 such that @xmath159 are sets of transversality for @xmath160 respectively .    _
+proof_. since @xmath69 is a normal family and @xmath111 are closed , the following number is well defined and , by hypothesis , positive : @xmath161 let @xmath162 let also @xmath163 , and note that @xmath164 the lemma is now clear from the definition of transversality . @xmath154    of course , in order to effectively use the previous lemma we need some information on the location of the roots of the power series in @xmath69 .
+this is provided by the following result , which is a simple modification of theorem 2 in @xcite ( or rather the more general version stated after theorem 4 ) .
+[ th : transvest ] let @xmath165 if @xmath166 are roots of @xmath157 , counted with multiplicity , then
+@xmath167 in particular , if @xmath168 then the hypothesis of lemma [ lemma : transv ] holds .    _ proof_. the core of the proof follows closely the proof of theorem 2 in @xcite .
+let @xmath169 , and let @xmath170 ; note that @xmath171 is a monic power series with coefficients bounded by @xmath172 .
+let @xmath173 a straightforward calculation shows that @xmath174 , where @xmath175 denotes @xmath23 norm on the unit circle .
+fix @xmath176 and let @xmath177 . then , using jensen s formula and jensen s inequality we obtain @xmath178 therefore @xmath179 taking @xmath180 yields ( [ eq : transvest1 ] ) , while setting @xmath181 and @xmath182 immediately gives ( [ eq : transvest2 ] ) .
+@xmath154    we will now state the main result of this section .
+theorem [ th : main ] ( in fact a more general version ) will be obtained as a corollary .
+we start by recalling the definition of _ lower correlation dimension _ of a measure @xmath183 on @xmath2 : @xmath184 if the above limit exists , we say that the correlation dimension exists and is given by the limiting value .
+[ th : generalth ] assume that :    1 .
+there is an open interval @xmath185 such that @xmath20 has lower correlation dimension @xmath25 for almost every @xmath186 ; 2 .
+there is an open interval @xmath187 such that if @xmath157 , @xmath80 has no double roots on @xmath90 ; 3 .
+there exists an open region @xmath188 such that if @xmath189 , @xmath157 , then @xmath108 and @xmath26 are not both double roots of @xmath80
+.    let @xmath190    then for almost all @xmath191 , @xmath192    before proving this theorem , some remarks are in order :    1 .
+correlation dimension is known to exist for arbitrary self - similar measures , see @xcite .
+2 .   one can only hope for this theorem to be valid in @xmath193 . outside this region
+falconer s dimension has another expression and one would expect falconer s dimension to coincide with hausdorff dimension for almost every parameter .
+therefore , one would like to make @xmath194 and @xmath188 as large as possible ; we will see that the case were the digits are equally spaced we do have @xmath195 ( note that for this to hold it is necessary that @xmath196 ) .
+it is well known that in the self - similar case , if @xmath90 is as the statement of the theorem , then @xmath20 is absolutely continuous for almost all @xmath197 ( see @xcite , theorem 4.3 for a proof ) ; in particular , @xmath198 . however , in order to obtain non - trivial results , @xmath199 has to be larger than @xmath90 . in the case of bernoulli convolutions , for example
+, solomyak s theorem implies that @xmath200 while @xmath90 is a much smaller interval .
+_ proof of theorem [ th : generalth]_. let us denote the right hand side of ( [ eq : dimform ] ) by @xmath201 .
+the inequality @xmath202 is standard for _ all _ @xmath203 ( this is a particular case of the upper bound in falconer s theorem ) . therefore it is enough to show that for every @xmath204 and for all @xmath205 there are closed ( non - degenerate ) intervals @xmath206 such that @xmath207 for almost all @xmath208 .
+we henceforth fix @xmath204 , @xmath209 and choose @xmath210 such that :    * @xmath211 , @xmath212 .
+* @xmath213 for every @xmath214 .
+* @xmath215 or @xmath216 .
+if @xmath217 , let @xmath218 be the partition of @xmath70 given by lemma [ lemma : transv ] . otherwise , let @xmath219 .
+note that @xmath70 is a set of transversality for @xmath90 ( and so is trivially @xmath220 ) .
+this follows from the observation after definition [ def : transv ] and the fact that @xmath70 is a normal family .
+let @xmath221 if @xmath222 , define @xmath223 analogously ; otherwise , let @xmath224 .
+note that by definition of correlation dimension , @xmath225    therefore it suffices to verify ( [ eq : generalth1 ] ) for almost every @xmath226 and then let @xmath227 .
+we fix @xmath228 for the rest of the proof .
+we recall the well - known frostman s lemma : if there exists a radon measure @xmath183 supported on a compact set @xmath229 such that @xmath230 then @xmath231 . recall that @xmath96 is the uniform bernoulli measure on @xmath97 and @xmath39 the natural self - affine measure on @xmath16 ; it is easy to verify that @xmath232 .
+let @xmath233 by frostman s lemma , it is enough to show that @xmath234 .
+let @xmath235 be the inner double integral in ( [ eq : generalth2 ] ) . passing to the symbolic space and recalling the definition of @xmath101 we obtain @xmath236 where for the last inequality we used condition @xmath237 .
+let @xmath238 .
+use proposition [ prop : main ] to get @xmath239 ( note that in the case @xmath216 , ( [ eq : generalth3b ] ) holds trivially because @xmath240 ) .    integrating ( [ eq : generalth3a ] ) over @xmath223 and ( [ eq : generalth3b ] ) over @xmath241 and applying fubini we get @xmath242 for @xmath243 .
+adding , interchanging the order of integration again and recalling ( [ eq : generalth2 ] ) we conclude @xmath244 this completes the proof .
+@xmath154    if @xmath245 ( @xmath246 ) then @xmath247 for almost all @xmath248 .
+proof_. in the case @xmath249 , @xmath20 is absolutely continuous for almost all @xmath250 .
+this was proved by solomyak @xcite in the case @xmath251 and by simon and tth @xcite in the case @xmath252 .
+therefore we can take @xmath253 in theorem [ th : generalth ] .
+it is an elementary exercise to verify that @xmath254 for all @xmath246 .
+therefore , theorem [ th : transvest ] tells us that @xmath255 is an appropriate region in theorem [ th : generalth ] , and @xmath256 on the other hand , we can take @xmath257 ( if @xmath157 then @xmath80 has no zeros at all in @xmath90 , let alone double zeros ) .
+since @xmath253 we have @xmath258 the corollary is now clear .
+@xmath154    we remark that in the region @xmath259 a more precise result can be obtained using the method of przytycki and urbaski ; this is due to the fact that the i.f.s . verifies the strong separation condition in that region . however , our proof has the advantage of being more elementary .
+it is not difficult to use the method of proof of absolute continuity of bernoulli convolutions to obtain intervals @xmath199 for more general digit sets , although in general it may difficult to show that @xmath253 .
+we remark , however , that theorem [ th : generalth ] actually holds for all sufficiently small perturbations of @xmath260 .
+in the region @xmath261 the falconer dimension of @xmath16 is @xmath30 and we expect @xmath16 to have positive lebesgue measure and even non - empty interior .
+our main objective in this section is to obtain results analogous to theorem [ th : generalth ] in the this region .
+however , it will be convenient to state our results in terms of measures supported on @xmath16 rather than the sets themselves . moreover
+, we will need to allow for more general measures than the uniform ones considered so far .
+let @xmath262 denote the set of borel probability measures on @xmath97 .
+for @xmath263 , let @xmath264 be the length of the longest common initial subsequence of @xmath79 and @xmath265 .
+we define the ( lower ) correlation dimension of @xmath266 as @xmath267 one important class of examples are the bernoulli measures @xmath268 , where @xmath269 is a probability vector .
+an inspection of the definitions shows that @xmath270 let us fix for the moment @xmath266 .
+the projection map @xmath271 induces a family of measures @xmath39 supported on @xmath16 , namely @xmath272 .
+we will also need to redefine @xmath101 to reflect the fact that @xmath96 is now allowed to be a more general measure : @xmath273 we can express the correlation dimension in terms of @xmath101 as follows : @xmath274    we now state a technical proposition which will play an analogous role to that of proposition [ prop : main ] .
+[ prop : mainbis ] assume that @xmath96 is a product measure .
+let @xmath111 be closed intervals such that @xmath275 .    1 .
+assume that @xmath117 is an interval of transversality for @xmath87 .
+then there is a constant @xmath276 such that @xmath277 for all @xmath278 , where @xmath279 if @xmath20 does not have a density in @xmath23 .
+analogously , if @xmath125 is an interval of transversality for @xmath118 then there exists @xmath276 such that @xmath280 for all @xmath281 .    before proving the proposition , we state a simple lemma we will need .
+let @xmath282 be a measure on @xmath100 with an @xmath23 density , which we denote by @xmath80 .
+then @xmath283    _ proof of the lemma_. this is standard but we were not able to find a reference , so a proof is provided for the convenience of the reader .
+let @xmath284 let also @xmath285 , where @xmath286 since @xmath287 is an approximate identity , @xmath288 in @xmath23 .
+therefore @xmath289 the lemma is proved .
+@xmath154    _ proof of proposition [ prop : mainbis]_. we will prove only the first part , since the second is just a restatement with the parameters interchanged .
+let @xmath290 .
+let us write @xmath291 set @xmath292 and @xmath293 .
+we have that @xmath294 for some @xmath95 , since @xmath117 is an interval of transversality . from this and
+the fact that @xmath96 is a product measure we obtain @xmath295 note however that @xmath296 from this , ( [ eq : mainbis1 ] ) and ( [ eq : mainbis2 ] ) we obtain @xmath297 since @xmath298 , we deduce from ( [ eq : corrdim ] ) that @xmath299 this completes the proof .
+we can now state our first result giving regions where @xmath39 is absolutely continuous and , in consequence , @xmath45 . roughly speaking
+, this theorem follows from proposition [ prop : mainbis ] in the same way that theorem [ th : generalth ] follows from proposition [ prop : main ] . however , when @xmath64 and @xmath300 , the theorem gives only a small region where absolute continuity holds .
+we later extend this region somewhat ( in particular , we show it contains a neighborhood of @xmath42 ) , although , as mentioned in the introduction , results are far for complete here .
+[ th : generalthbis ] let @xmath96 be a product measure on @xmath301 , and let @xmath302 .
+assume that :    1 .
+there is an open interval @xmath185 such that @xmath303 whenever @xmath304 is compactly contained in @xmath199 .
+2 .   there is an open interval @xmath305 such that if @xmath157 , @xmath80 has no double roots on @xmath90 ; 3 .
+there exists an open region @xmath188 such that if @xmath189 and @xmath157 , then @xmath108 and @xmath26 are not both double roots of @xmath80
+.    let @xmath306 then for almost all @xmath307 , @xmath39 is absolutely continuous with a density in @xmath23 .
+we make some remarks before the proof .    1
+.   note that @xmath308 when @xmath96 is the uniform bernoulli measure @xmath301 , but in general there is a gap between the regions given by theorems [ th : generalth ] and [ th : generalthbis ] , even when @xmath64 . if the analogy with bernoulli convolutions holds , @xmath309 is the treshold for @xmath23 density when @xmath96 is not uniform , but @xmath39 could still be absolutely continuous even when @xmath310 .
+2 .   of course ,
+if @xmath39 is absolutely continuous then @xmath45 .
+3 .   the hypothesis on @xmath199 may appear too strong , but in practice it does in fact follow from the same proof that shows absolute continuity of @xmath20 for a.e.@xmath186 .    _
+proof of theorem [ th : generalthbis]_. the proof follows the scheme of theorem 4.3 in @xcite .
+however , we need to introduce the variants we have used before in the proof of theorem [ th : generalth ] .
+let @xmath111 be closed intervals such that @xmath217 or @xmath216 . in the first case ,
+let us choose @xmath311 such that @xmath312 is an interval of transversality for @xmath313 ( @xmath243 ) . otherwise , let @xmath314 .
+the first steps mimic the proof @xcite , theorem 4.3 , so we only sketch them .
+let @xmath315 be the lower density of @xmath39 at @xmath316 . if we can show that @xmath317 then the criterion for absolute continuity in @xcite , section 2.12 , will imply that @xmath39 is absolutely continuous for almost all @xmath318 and , moreover , @xmath319 .
+we can proceed like in @xcite , theorem 4.3 to estimate @xmath320 therefore it is enough to show that the integral in the right hand side above is bounded by @xmath321 when restricted to @xmath91 or @xmath322 .
+we consider only the restriction to @xmath91 since the other case is similar .
+using fubini , proposition [ prop : mainbis ] and ( [ eq : condnorm ] ) , we can estimate the integral in ( [ eq : generalthbis1 ] ) restricted to @xmath323 as @xmath324 the proof is now complete .
+we now give a concrete region where we can show that @xmath39 is absolutely continuous in the case @xmath251 .
+other values of @xmath325 can be handled analogously .
+[ coro : abscontregion ] let @xmath326 further , let @xmath327 then @xmath39 is absolutely continuous for almost every @xmath44 .
+furthermore , @xmath39 has a continuous density for almost every @xmath328 .    _
+proof_. it was proved in @xcite that we can take @xmath329 for any @xmath330 and @xmath331 . on the other hand , theorem [ th : transvest ] applied with @xmath332 and @xmath333
+shows that we can take @xmath334 . therefore theorem [ th : mainbis ] shows that @xmath39 is absolutely continuous for almost every @xmath307 .    for the rest of the corollary it suffices to show that if @xmath335 is absolutely continuous with a density in @xmath23 , then @xmath39 is absolutely continuous with a continuous density .
+this is standard but we include a proof for completeness .    by decomposing the measure @xmath39 as an infinite convolution of bernoulli measures we obtain @xmath336 ( recall that we are using the digits @xmath67 rather than @xmath63 .
+therefore , for all @xmath49 , @xmath337 assume @xmath338 has an @xmath23 density ; then so does its fourier transform .
+now ( [ eq : fourierdecomposition ] ) shows that @xmath339 ; on the other hand , @xmath340 is bounded since @xmath39 is a finite measure .
+therefore @xmath341 and , after taking inverse fourier transform , we conclude that @xmath39 is absolutely continuous with a continuous density , as desired @xmath154    the regions @xmath342 are pictured in figure 2 .
+* figure 2*. the region @xmath343 in corollary [ coro : abscontregion ] , and the first @xmath344 pieces or @xmath345 .
+the shaded region is @xmath346 , which is also contained in @xmath345 .
+several remarks are in order .    1 .
+@xmath345 contains a neighborhood of @xmath42 ; more precisely , @xmath347 .
+indeed , one can see that @xmath348 as each interval in the union in the left hand side overlaps with the next .
+2 .   using tricks such as those in @xcite it is possible to extend the region @xmath50 , but not significantly .
+it is also possible to use a computer - assisted rigorous estimation of the region @xmath188 to show that @xmath50 can be enlarged to cover more than @xmath349 of @xmath350 ; details will be discussed in a forthcoming paper .
+in this section we discuss several natural questions . some of them can be easily answered with the current techniques , while others appear to be harder . for the most part
+we restrict ourselves to the case @xmath64 or @xmath245 .
+an exception is subsection [ sec : puretype ] , where we consider more general self - affine sets and measures .
+we introduce some notation we will be using repeatedly .
+recall that @xmath351 if @xmath352 , let @xmath353 $ ] be the associated cylinder set in @xmath97 , let @xmath354 be the cylinder set @xmath355)$ ] and , finally , let @xmath356 note that @xmath357
+. we will often omit the subscripts @xmath31 whenever they are fixed in a context .
+in this subsection we consider the case @xmath64 .
+a natural question is for what values of @xmath31 is @xmath16 connected ; this parameter set is called the `` mandelbrot set '' or `` connectedness locus '' associated to the family ; it will be denoted by @xmath262 .
+b. solomyak @xcite has some interesting results on this topic . without going into details ,
+let us state some of the known basic facts which will be useful later .            _
+3_. assume @xmath365 is disconnected .
+denote by @xmath366 the @xmath367 neighborhood of @xmath368 .
+let @xmath369 be the cylinders of step @xmath25 , and pick @xmath367 such that @xmath370 and @xmath371 are disjoint .
+since @xmath372 because @xmath373 is contractive , we must have @xmath374 hence @xmath375 .
+@xmath154      for bernoulli convolutions , the only values of @xmath26 for which is known that @xmath20 is singular are reciprocals of pisot numbers .
+this is proved by showing that the fourier transform @xmath376 does not go to zero as @xmath377 .
+in fact , it is known that @xmath378 does not converge to @xmath52 at infinity if and only if @xmath28 is pisot ( @xcite , proposition 15.3.2 ) . the problem of determining all @xmath26 such that @xmath20 is singular is currently open and seems to be very hard .
+in @xcite it is proved that for @xmath379 and @xmath26 the reciprocal of a pisot number , it is verified that @xmath380 ( here @xmath16 is the attractor for the digit set @xmath63 ) .
+their proof extends readily to arbitrary @xmath108 such that @xmath16 is totally disconnected .
+although they do not write down the details , they remark that a simpler proof of the same fact can be obtained using the technique of mcmullen @xcite .    here
+we investigate the set of exceptions to the almost everywhere results obtained in the earlier sections .
+in particular , we write down the details of the proof suggested by przytycki and urbaski , which extends to the overlapping case , and in fact it provides examples of @xmath381 such that @xmath382 . throughout the section
+we assume that @xmath251 , although for the most part analogous considerations are valid for @xmath252 as well .
+let @xmath383 be the set of all @xmath384 such that @xmath108 and @xmath26 are roots of a _ polynomial _ with coefficients in @xmath385 . for all @xmath386 , @xmath387 moreover ,
+the set @xmath383 is dense in @xmath388 , where @xmath262 is the connectedness locus for the family @xmath389 . _ _    _ proof_. if @xmath386 we can find two words @xmath390 for some @xmath391 such that @xmath392 and therefore @xmath393 .
+it follows that @xmath394 can be covered by @xmath395 rectangles of size @xmath396 , and more generally , by @xmath397 rectangles of size @xmath398 . by subdividing each of those rectangles into @xmath399 squares of side @xmath400
+we conclude that @xmath16 can be covered by @xmath401 balls of radius @xmath402 .
+therefore @xmath403 and the first assertion follows .
+the fact that @xmath383 is dense in @xmath262 is an immediate consequence of lemma [ lemma : conneclocus ] and rouch s theorem .
+@xmath154    we will say that @xmath404 is a _
+pisot pair _ if @xmath405 and there exists a monic irreducible polynomial @xmath406 $ ] such that @xmath407 and @xmath408 are the only roots of @xmath409 with modulus greater or equal than @xmath25 .
+pisot pairs ( or rather more general `` pisot families '' ) have been studied by several authors ; see for instance @xcite . _ _      _ proof_. we know that the vertical and horizontal projections of @xmath39 are @xmath35 and @xmath415 respectively
+. therefore the restrictions of @xmath340 are @xmath416 and @xmath417 .
+hence whenever one of @xmath416 or @xmath417 does not converge to @xmath52 at infinity , the same happens to @xmath340 .
+in particular , this is the case if either @xmath410 or @xmath411 are pisot .
+if @xmath412 is a pisot pair then we can apply the technique used to prove that @xmath376 does not converge to @xmath52 at infinity .
+an even closer example is the family of complex bernoulli convolutions studied in @xcite .
+we indicate the idea , but refer to the proof of theorem 2.3 in @xcite for the details .
+let @xmath409 be the polynomial in the definition of pisot pair , and let @xmath418 be the roots of @xmath409 ( so @xmath419 ) . since for all integers @xmath46 , @xmath420 we have that @xmath421 for some @xmath422 .
+this fact combined with the expression ( [ eq : fourier ] ) for the fourier transform imply ( after some technical considerations ) that @xmath423 for all positive integers
+@xmath424 and some @xmath367 independent of @xmath424 .
+@xmath154      it is not difficult to obtain many examples of pisot pairs using a computer . for instance , the polynomial @xmath425 has exactly two positive roots @xmath426 and all the other roots are complex and of absolute value less than @xmath25 .
+the approximate values are @xmath427 and @xmath428 .
+note that in this example @xmath37 .
+_ proof_. the proof consists of two parts .
+in the first part we obtain an upper bound for the dimension of @xmath16 using mcmullen s technique ; in the second part we show that this upper bound verifies the inequality in the theorem
+. in the course of the proof , @xmath432 etc will denote constants independent of @xmath433 and @xmath108 ( they may depend on the fixed number @xmath26 ) .    let @xmath434 we recall garsia s lemma @xcite : the distance between any two different elements of @xmath435 is bounded below by @xmath436 .
+on the other hand , since @xmath19 one can easily see , using for instance the greedy algorithm , that the distance between consecutive elements of @xmath435 is at most @xmath437 . since @xmath438 for all @xmath439
+, it follows that @xmath440 let @xmath441 be the elements of @xmath435 ( so that @xmath442 ) , and let @xmath443 note that @xmath444 we will show the following : @xmath445 where @xmath446 .
+in the course of the proof of ( [ eq : mcmullenest ] ) all numbers @xmath26 , @xmath108 and @xmath433 will remain fixed .
+let @xmath447 be the symbolic space @xmath97 , where @xmath448 .
+further let @xmath449 let @xmath450 .
+define the @xmath46-th symbolic approximate square @xmath451 as @xmath452 , where @xmath453 let @xmath454 be the projection map given by @xmath455 ( so in other words @xmath456 , where @xmath265 is the sequence obtained by concatenating all the @xmath457 ) .
+note that @xmath458 is surjective but not necessarily injective . observe that if @xmath459 then @xmath460 represent the first and second coordinates .
+therefore @xmath461 is contained in a ball of center @xmath462 and radius comparable to @xmath463 .
+let @xmath96 be the bernoulli measure on @xmath447 giving weight @xmath464 to all @xmath465 such that @xmath466 ( see @xcite for a motivation for this choice of weights ) .
+our next step is to show that for all @xmath450 , @xmath467 we will do so by using a clever trick due to mcmullen . for @xmath468 write @xmath469 if @xmath470 .
+note from the definition of @xmath471 that @xmath472 therefore @xmath473 write the right hand side above as @xmath474 , where @xmath475 note that @xmath476 is bounded over all positive @xmath407 .
+therefore , by telescoping over the sequence @xmath477 we deduce that @xmath478 is also bounded over all @xmath424 .
+observe that since @xmath479 is bounded , @xmath480 as @xmath481 .
+therefore we must have @xmath482 this together with ( [ eq : estmm1 ] ) and ( [ eq : estmm2 ] ) show that ( [ eq : snest ] ) is verified .
+recall that @xmath483 is contained in a ball @xmath484 .
+it follows from @xmath485 that if @xmath183 is the projection of @xmath96 under @xmath458 then @xmath486 since @xmath458 is surjective , the mass distribution principle ( @xcite , proposition 2.2 ) shows that ( [ eq : mcmullenest ] ) is satisfied .
+this concludes the first part of the proof .    from now on , @xmath26 will remain fixed , but we will consider both @xmath433 and @xmath108 ( or rather @xmath487 ) as variables . let @xmath488 .
+recalling that @xmath446 , write the upper bound in ( [ eq : mcmullenest ] ) as @xmath489 let @xmath490 .
+notice that @xmath491 therefore in order to establish the theorem it is enough to show that the right hand side above defines a continuous function of @xmath487 which is strictly negative on @xmath492 .
+we claim that for fixed @xmath487 the sequence @xmath493 is submultiplicative .
+indeed , @xmath494 on the other hand , each @xmath495 is the sum of one or more numbers of the form @xmath496 , and each pair @xmath497 appears in exactly one of the @xmath495 .
+the submultiplicativity is then consequence of the inequality @xmath498 for a finite collection of positive numbers @xmath499 , which holds since @xmath500 . by taking logarithms and using subadditivity
+we obtain @xmath501 denote the limiting function by @xmath502 . since @xmath503 and @xmath504 , we deduce from ( [ eq : boundnk ] ) and ( [ eq : sumakj ] ) that @xmath505 .
+also , notice that @xmath506 is a convex function . since , because of subadditivity
+, @xmath502 is then a pointwise limit of decreasing convex functions , @xmath502 must itself be convex . in particular
+, @xmath507 is continuous and , since it agrees with the linear function @xmath508 at @xmath52 and @xmath25 , we must have @xmath509 for all @xmath500 . moreover ,
+if we can show that @xmath502 is strictly convex on @xmath510 $ ] , this will imply that @xmath511 for all @xmath500 and , as noted before ( see ( [ eq : dimdiff ] ) and the associated remark ) , this will yield the theorem .
+a straightforward calculation shows that if we let @xmath512 then @xmath513 denote the sum in the numerator above by @xmath514 .
+in the course of the proof that @xmath515 ( which essentially goes back to garsia @xcite ) , it is shown that @xmath516 see @xcite , pp .
+179 - 180 for a proof of this fact .
+we remark that the proof uses both garsia s lemma and the singularity of @xmath20 , but is otherwise elementary .
+recalling that @xmath517 is bounded by a constant multiple of @xmath518 , we deduce from ( [ eq : derivtau ] ) and ( [ eq : entropyineq ] ) that @xmath519 for some sufficiently large @xmath520 .
+since , on the other hand , @xmath521 and @xmath522 for all @xmath523 , we conclude that @xmath524 , where @xmath525 denotes the left derivative .
+this shows that @xmath502 can not agree with @xmath526 on @xmath492 and therefore must be strictly convex , completing the proof @xmath154    we make some remarks about the above proof .
+first , the proof is about the hausdorff dimension of @xmath16 . under strong separation ,
+the box dimension does not drop when @xmath411 is pisot .
+when there are overlaps , it is no longer so clear what happens to the box dimension , but in principle there is no reason to believe it will also drop .
+second , the function @xmath502 that appeared in the course of the proof is actually ( the negative of ) the @xmath527-spectrum of @xmath20 .
+the fact that @xmath502 is strictly convex corresponds , under the multifractal formalism , to the fact that @xmath20 is a multifractal measure ; i.e. it has a range of local dimensions .
+in general , the left and right derivatives of the @xmath527-spectrum at @xmath25 give substantial information about the measure ; see for example @xcite .
+thus the proof is another indication of the delicate relationship between bernoulli convolutions and the sets @xmath16 .
+_ proof_. the first part is clear from theorem [ th : dimdrop ] . for the second part , note that when @xmath533 , we have that @xmath534 ( since @xmath530 ) and the falconer dimension is exactly @xmath30 .
+therefore the second part follows from the continuity of the drop in theorem [ th : dimdrop ] .
+@xmath154    interestingly , there are exactly two pisot numbers whose reciprocals are greater than @xmath535 .
+the smallest pisot number is the real root of @xmath536 , which is about @xmath537 .
+the second smallest pisot number is the positive root of the polynomial @xmath538 ; it is about @xmath539 .
+the next pisot number is the positive root of @xmath540 , which is already greater than @xmath541 .
+see @xcite , theorem 7.2.1 . for a proof of these facts .      in this subsection
+we assume @xmath245 .
+we showed that when the falconer dimension is less than @xmath30 , the hausdorff dimension of @xmath16 is almost everywhere equal to the falconer dimension .
+hence it is natural to ask what is the hausdorff measure in the critical dimension @xmath542 . unlike the self - similar case , this is a non - trivial question even in the strong separation case , provided @xmath543 ( otherwise @xmath16 can be seen to be bi - lipschitz equivalent to the cantor set @xmath58 ) .
+it is in fact very easy to show that @xmath544 for _ all _ @xmath31 , by considering the natural cover .
+the following result was communicated to us by m. rams , but seems to be folklore .
+[ th : hmnooverlaps ] assume the strong separation is verified for @xmath16 , where @xmath545 , and let @xmath546 be the falconer dimension of @xmath16 .
+then @xmath547 if and only if @xmath20 is absolutely continuous with a bounded density .      [ lemma : equivalence ] assume that @xmath543 , @xmath109 and @xmath548 , where @xmath546 is the falconer dimension of @xmath16 . then @xmath549 assigns the same mass to all cylinders of level @xmath433 , where @xmath550 is the measure of hausdorff type obtained by considering covers by open squares only .
+( here we do not assume a separation condition ) .
+_ proof of lemma_. for notational convenience we will omit the subscripts @xmath551 . let @xmath552 .
+we will argue by contradiction . since @xmath553 it follows that some @xmath554 has measure _ larger _
+than @xmath555 ; fix such a @xmath465 and choose @xmath204 such that @xmath556 by decomposing @xmath465 into sub - cylinders and using subadditivity again , it follows that for all sufficiently large @xmath433 there is @xmath352 verifying ( [ eq : lemmaequiv1 ] ) .
+now fix @xmath557 and choose a cover @xmath558 of @xmath394 by squares such that @xmath559 also fix @xmath433 such that @xmath560 and ( [ eq : lemmaequiv1 ] ) holds for some @xmath352 .
+consider a cover @xmath561 of @xmath554 defined as follows : for each @xmath562 , cover the rectangle @xmath563 by @xmath564 squares of side @xmath565 , and take the union of those squares over all @xmath562 .
+therefore we have @xmath566 where we used that @xmath567 . letting @xmath568 and recalling ( [ eq : lemmaequiv2 ] ) we conclude that @xmath569 .
+this contradicts ( [ eq : lemmaequiv1 ] ) , as desired .
+@xmath154    _ proof of theorem [ th : hmnooverlaps]_. we use the same notation as in the lemma .
+for @xmath570 let @xmath571 be the open square centered at @xmath572 and half - side @xmath573 .
+one consequence of strong separation , the self - affine relation and the fact that @xmath183 projects onto the bernoulli convolution @xmath20 is that @xmath574 from this it immediately follows that if @xmath282 has a bounded density then @xmath575 where @xmath576 is independent of @xmath433 .
+hence @xmath183 is an @xmath546-dimensional frostman measure and it follows that @xmath577 .
+now suppose that @xmath578 is not a bounded function ( or @xmath282 is not absolutely continuous at all ) , and fix @xmath83 .
+let @xmath579 if @xmath580 is small enough then @xmath581 has positive measure .
+but in this case , the ergodic theorem implies that for almost every @xmath79 , @xmath582 visits @xmath581 with positive frequency , and therefore we deduce from ( [ eq : hmnooverlaps1 ] ) that @xmath583 under strong separation , @xmath183 assigns the same mass to all cylinders of the same level ; therefore @xmath183 is a constant multiple of @xmath584 by the lemma , and thus equivalent to @xmath585 .
+but by the density theorems ( see @xcite , theorem 6.2 .
+( 1 ) ) , @xmath586 therefore @xmath587 as desired .
+( note that we do need the lemma ; otherwise @xmath588 might be concentrated in the exceptional set of @xmath589 ) .
+@xmath154      we now consider the overlapping case . in the self - similar setting , solomyak @xcite in a particular situation and later peres , simon and solomyak @xcite in greater generality showed that , assuming transversality , self - similar sets with overlap have typically @xmath52 measure .
+it turns out that the proof in @xcite extends to our setting .
+unfortunately , we are not able to check the needed concept of transversality ( which is different from the one used in the first sections ) in all of the relevant region @xmath193 , although it does hold for a large chunk of the overlapping region by results of solomyak @xcite .          _
+proof_. our proof follows the idea of bandt and graf ; details are provided for completeness .
+assume by way of contradiction that @xmath577 .
+we know from lemma [ lemma : equivalence ] that in this case all cylinders of the same level are disjoint in @xmath550-measure .
+let @xmath552 , and choose a cover @xmath598 of @xmath394 by open squares such that @xmath599 where @xmath367 is to be chosen later .
+let @xmath600 be the union of the @xmath601 , and pick @xmath204 such that if @xmath602 for some map @xmath368 then @xmath603 ; this is possible since @xmath600 is open .
+next take @xmath596 such that ( [ eq : epsilonclose ] ) holds with this @xmath330 .
+note that if @xmath330 is small enough then @xmath465 and @xmath604 must have the same length , say @xmath433 ; note also that @xmath433 can be made arbitrarily large by taking @xmath330 small .
+because of the way @xmath330 was chosen , we have @xmath605 .
+now adapt the covering @xmath598 to @xmath597 as in lemma [ lemma : equivalence ] ( mapping the @xmath601 by @xmath606 and then dividing the resulting rectangles into squares ) .
+the union of this covering clearly contains @xmath607 , whence it is also a covering of @xmath608 ; this is a contradiction since @xmath608 and @xmath609 are measure disjoint and this covering is almost optimal .
+more precisely , use ( [ eq : lemmaquiv3 ] ) to get @xmath610 taking @xmath611 and @xmath433 large enough so that @xmath612 yields the desired contradiction .
+@xmath154    in applying the previous lemma we will need to prove that certain sets have zero measure , and following @xcite we will do so by showing that those sets have no lebesgue density points .
+however , we will need a different notion of density points , defined using averages over rectangles of size @xmath613 rather than balls .
+the following lemma shows that this makes no difference to us .
+[ lemma : densityrect ] let @xmath614 be the rectangle centered at @xmath615 having dimensions @xmath616 ( @xmath576 is allowed to depend on @xmath617 but not on @xmath433 ) .
+let @xmath368 be a measurable subset of @xmath618 .
+if for all @xmath619 we have that @xmath620 then @xmath621 .
+the requirement that @xmath108 and @xmath26 are zeros of @xmath80 is natural since we want @xmath16 to have overlaps ( recall lemma [ lemma : conneclocus ] ; also note that @xmath16 is not necessarily connected if @xmath627 ) . note that in the previous definition of transversality one of @xmath108 , @xmath26 was allowed to be a double zero as long as the other parameter was not ; this is not the case here . on the other hand , here we need only the _ existence _ of such an @xmath80 ; it is therefore natural to conjecture that @xmath628 where @xmath629 denote the set of parameters where there is an overlap ( @xmath630 stands for `` intersection parameters '' ; this terminology was introduced in @xcite ) .
+however , we were not able to take advantage of the fact that only existence of an @xmath80 is needed .
+solomyak @xcite has obtained a large region of @xmath624-transversality in the case @xmath251 .
+although it does not cover all of @xmath631 , it does contain a big chunk of it .
+we refer to his paper for details .
+_ proof_. the proof follows closely the proof of theorem 2.1 in @xcite ( in fact , the easier homogeneous case ) . to begin ,
+observe that for @xmath204 small , two cylinders @xmath635 are @xmath330-relatively close if and only if @xmath636 for some large @xmath433 and @xmath637 be the set of all @xmath632 such that ( [ eq : zeromeas1 ] ) holds for some @xmath596 of the same length .
+invoking lemma [ lemma : bandtgraf ] , it is enough to show that @xmath638 has zero lebesgue measure for all @xmath330 sufficiently small . to this end
+, we will show the following : for all @xmath639 , some @xmath640 , @xmath641 , and all sufficiently large @xmath433 ( all depending on @xmath642 , @xmath643 where @xmath644 is as defined in lemma [ lemma : densityrect ] .
+once we have shown this , the same lemma will give that @xmath645 has zero lebesgue measure .
+from now on fix @xmath204 and @xmath646 . since @xmath647 is a region of @xmath624-transversality , there exists @xmath648 such that @xmath649 .
+write @xmath650 , where @xmath651 .
+it follows that @xmath652 for all @xmath653 ( where @xmath654 denotes the initial word of length @xmath433 of @xmath457 ) .
+let @xmath655 be a small open square centered at @xmath656 and compactly contained in @xmath618 such that @xmath657 since the closure of @xmath655 is contained in @xmath618 , @xmath658 also , since @xmath659 , @xmath660 .        for this choice of @xmath664 , the upper bound in ( [ eq : derbounds ] ) implies that @xmath668 whence @xmath669 note however that if @xmath433 is large enough @xmath670 where @xmath667 or @xmath26 .
+a similar argument shows that @xmath671 for @xmath667 or @xmath26 and large enough @xmath433 .
+on the other hand , @xmath673 therefore if we take @xmath674 and @xmath675 , we obtain that @xmath676 together with ( [ eq : t ] ) this implies ( [ eq : conditionzeromeas ] ) , and the proof is complete . @xmath154      it is known that self - similar measures are either singular or mutually absolutely continuous with respect to lebesgue measure on the attractor .
+this was proved , in increasing levels of generality , in @xcite , @xcite and @xcite .
+all of those papers use the lebesgue density theorem and assume that the maps are at least conformal ; however , by using density bases more general than balls it is possible to adapt those proofs to our setting .    recall the a density basis @xmath345 for a borel set @xmath394 is a family of open sets such that the following holds : for all @xmath677 there are arbitrarily small sets
+@xmath678 containing @xmath589 and if @xmath679 is a borel set , then @xmath680 ( here @xmath681 means that @xmath682 ) .
+let @xmath394 be the attractor of an affine i.f.s .
+@xmath683 on @xmath2 , and assume that @xmath684 .
+we will say that @xmath394 is _ differentiation - regular _ if there exists a density basis @xmath345 for @xmath394 and a constant @xmath685 such that the following holds : for every @xmath677 there is a sequence @xmath686 in @xmath345 with @xmath687 , such that if @xmath688 for some @xmath562 , there exists a finite word @xmath689 verifying @xmath690 _ _    very roughly speaking , a self - affine set is differentiation - regular if we can pick a differentiation basis for @xmath394 consisting of open sets which look like some cylinder in the construction of @xmath394 .
+the next proposition shows that some important classes of self - affine sets , including those studied in this paper , are indeed differentiation - regular .
+[ prop : diffregular ] let @xmath691 be contracting affine maps on @xmath2 , and let @xmath692 denote the linear part of @xmath373 .
+let @xmath394 be the attractor of @xmath683 .
+assume that @xmath684 and any one of the following conditions hold :    1 .
+@xmath693 and all the maps @xmath692 are equal .
+2 .   there exists a finite generating system @xmath694 of @xmath2 , such that @xmath695 for all @xmath696 .
+3 .   all the maps @xmath692 are simultaneously diagonalizable .      _
+proof_. assume first that @xmath693 and all the linear parts are equal to @xmath368 .
+let @xmath697 be a ball centered at the origin and containing @xmath394 , and let @xmath698 be the direction of the major axis of the ellipse @xmath699 .
+then we can pick a subsequence @xmath700 which is either constant or lacunary ( a sequence @xmath701 is lacunary if it converges to some @xmath702 and there is @xmath703 such that @xmath704 for all @xmath705 ) . in either case , it is well - known that the family @xmath706 is a density basis of @xmath622 ( this is originally due to r.fromberg , a proof can be found in @xcite ) . now if @xmath465 is a word of length @xmath707 we have that @xmath708 and and @xmath709 where @xmath710 .
+this shows that @xmath394 is differentiation - regular .
+now we consider the second case .
+fix a generating set @xmath694 as in the statement , and let @xmath409 be a convex polyhedra containing @xmath394 and whose sides are parallel to elements of @xmath694 ( since @xmath694 contains a basis , we can take @xmath409 to be a suitable parallelepiped ) .
+the set of all convex polyhedra with sides parallel to some element of @xmath694 is known to be a density basis of @xmath2 ( @xcite , p.137 ) ; let us denote this basis by @xmath345 . by hypothesis , @xmath711 for all @xmath465 , and
+we can conclude that @xmath394 is differentiation - regular as in ( [ eq : diffregular ] ) .
+[ prop : puretype ] let @xmath394 be the attractor of an affine i.f.s .
+@xmath683 on @xmath2 , and assume that @xmath394 is differentiation - regular .
+then for any self - affine measure @xmath183 supported on @xmath394 , @xmath712 is either singular or mutually absolutely continuous with respect to @xmath183 .
+_ proof_. it is well known that @xmath183 is either singular or absolutely continuous with respect to lebesgue measure ( this can be seen for instance by decomposing @xmath183 into absolutely continuous and singular parts , and showing that each of them also verifies the self - affine relation , hence one of them must be trivial ) . therefore it is enough to show that if @xmath183 is the attractor of the weighted i.f.s . @xmath713 and @xmath714 , then @xmath715 .    following @xcite , proposition 3.1 ,
+let @xmath716 since we are assuming that @xmath183 is not singular , @xmath717 ; we want to show that in fact @xmath718 .
+fix a borel subset @xmath719 of @xmath394 such that @xmath720 .
+let @xmath677 and @xmath688 for some @xmath589 .
+pick a word @xmath465 such that ( [ eq : densitybasecondition ] ) holds .
+the borel set @xmath721 is contained in @xmath394 ; moreover it has zero @xmath183-measure since @xmath183 is self - affine ( and thus @xmath722 is dominated by a multiple of @xmath183 ) .
+we finish this section with some remarks .
+first , we did not really use that @xmath183 is self - affine ; just that @xmath727 for all borel sets @xmath368 .
+we may call measures verifying ( [ eq : weaksa ] ) _ weakly self - affine _ . _ _    second , although one can check the differentiation - regular condition in many interesting cases , there are many natural instances where this property appears to fail ( although proving it rigorously looks difficult ) . for instance , let @xmath728 be two closed angular sectors in the open first quadrant , disjoint except at the origin ( for simplicity we consider only the case @xmath693 ) . if the linear part of @xmath373 maps @xmath692 into @xmath692 , then the i.f.s .
+@xmath729 induces another i.f.s . in the circle @xmath730 ,
+whose attractor is a cantor set of directions .
+however , it is known that for many cantor sets @xmath576 , the set of rectangles with sides parallel to @xmath576 is _ not _ a density basis @xcite , while no cantor set is known for which the opposite is true . thus checking out differentiation - regularity appears unlikely .    of course
+, it could be that proposition [ prop : puretype ] is true for arbitrary self - affine sets , using a different method of proof .
+however we were not able to verify this and we believe that there may be a counterexample .
+so far we have only considered self - affine sets where the digits lie all on the line @xmath731 . when @xmath64 this is of course not a restriction , but when @xmath627 it is certainly a strong assumption .
+in fact , almost all the results in this paper can be generalized , in theory , to a more general setting described below ; the problem is that the needed notion of transversality can be very hard to check , or simply false . on the plus side ,
+most of the results can be shown to hold under a perturbation of the digits .
+in particular , transversality ( in all of its various forms ) is an open condition .
+if anything , this shows that collinearity of the digits is not a necessary condition for the type of results obtained in this paper .      for @xmath735 let @xmath736 we say that @xmath737 is a _ region of transversality _ if whenever @xmath189 and @xmath738 , either @xmath108 is not a double root of @xmath739 or @xmath26 is not a double root of @xmath740 .
+_ _    in this framework , suitable versions of theorems [ th : generalth ] and [ th : generalthbis ] apply .
+in general , obtaining regions of transversality looks very difficult unless the digits are almost collinear or have some very special form .
+however , the regions @xmath259 in the aforementioned theorems can still be efficiently estimated , since @xmath199 and @xmath90 are in this case independent from one another . as an example , we have the following result , whose proof works exactly as in theorem [ th : generalth ] .
+let @xmath312 be open intervals such that @xmath741 has no double roots in @xmath742 for all @xmath743 .
+let @xmath742 be open intervals such that @xmath744 has correlation dimension @xmath25 for almost every @xmath745 , @xmath243 ( here @xmath746 is the b.c .
+associated to @xmath747 ) .
+finally , let @xmath188 be a region of transversality .
+let @xmath748 then @xmath749 for almost all @xmath750 .
+@xmath154      note that we are somehow in the reverse situation with respect to falconer s theorem , which holds for _ all _ families of linear maps satisfying certain conditions and for _ almost every _ digit . here
+, the result holds for _ all _ digits in some open set and _ almost every _ parameter .
+another possible variant is to allow the digits to depend on the parameters .
+this is standard in the self - similar setting and present no additional complications here ; most of the results , when stated appropriately , hold also in this case .
+yuval peres , wilhelm schlag , and boris solomyak .
+sixty years of bernoulli convolutions . in _ fractal geometry and stochastics , ii ( greifswald / koserow , 1998 ) _ , volume  46 of _ progr .
+_ , pages 3965 .
+birkhuser , basel , 2000 .

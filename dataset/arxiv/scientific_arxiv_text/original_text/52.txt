@@ -1,0 +1,236 @@
+the entanglement entropy , as a tool to detect and classify quantum phase transitions , has been playing an important role in the last fifteen years ( see @xcite and references therein ) . in one dimension , where most of the critical quantum chains are conformal invariant , the entanglement entropy provides a powerful tool to detect , as well to calculate , the central charge @xmath11 of the underlying cft .
+for example , for quantum chains , the ground - state entanglement entropy of a subsystem formed by contiguous @xmath7 sites of an infinite system , with respect to the complementary subsystem has the leading behavior @xmath12 if the system is critical or @xmath13 , when the system is noncritical with correlation length @xmath14 @xcite .
+although there are plenty of proposals to measure this quantity in the lab @xcite the actual experiments were out of reach so far . strictly speaking
+the central charge of quantum spin chains has never been measured experimentally .
+recently other quantities , that are also dependent of the central charge has been proposed @xcite . among these proposals interesting measures that , from the numerical point of view , are also efficient in detecting the phase transitions as well as the universality class of critical behavior , are the shannon and rnyi mutual informations @xcite ( see also the related works @xcite ) .
+the rnyi mutual information ( the exact definition will be given in the next section ) has a parameter @xmath5 that recovers the shannon mutual information at the value @xmath15 .
+the results derived in @xcite indicate that the shannon and rnyi mutual informations of the ground state of quantum spin chains , when expressed in some special local basis , similarly as happens with the shannon and rnyi entanglement entropy , show a logarithmic behavior with the subsystem s size whose coefficient depends on the central charge .
+recently additional new results concerning the shannon and rnyi mutual information in quantum systems were obtained , see @xcite .
+there are also studies of the mutual information in classical two dimensional spin systems @xcite .
+it is worth mentioning that the shannon and rnyi mutual informations studied in the above papers , as will be defined in the next section , are basis dependent quantities .
+it is important to distinguish them from the more known basis independent quantity , namely , the von neumann mutual information . for recent developments on the calculation of the von neumann mutual information in thermal equilibrium and non - equilibrium systems
+see @xcite .
+most of the results regarding the shannon and the rnyi mutual information , except for the case of harmonic chains , are based on numerical analysis , especially for systems with central charge not equal to one .
+one of the main problems in a possible analytical derivation comes from the presence of a discontinuity at @xmath15 of the rnyi mutual information .
+this discontinuity prevents the use of the replica trick , which is normally a necessary step for the analytical derivation of the shannon mutual information .    in this paper
+we will consider , for many different quantum chains , another version of the mutual information , which is also parametrized by a parameter @xmath5 that reduces at @xmath15 to the shannon mutual information .
+the motivation for our calculations is two fold .
+firstly this definition is more appropriate from the point of view of a measure of shared information among parts of a system , since it has the expected properties .
+this will be discussed in the appendix .
+secondly , this quantity does not show any discontinuity at @xmath15 , so it might be a good starting point for the analytical calculation of the shannon mutual information with some sort of analytical continuation of the parameter @xmath5 .
+from now on we will call this new quantity generalized mutual information .    having the above motivations in mind we firstly calculated numerically ( using exact diagonalization ) the generalized mutual information for several critical quantum spin chains .
+we considered models with @xmath1 symmetries like the @xmath16-state potts modes for @xmath17 and @xmath18 , the z(4 ) ashkin - teller model and the @xmath1 parafermionic models with @xmath19 .
+we then calculated the generalized mutual information for quantum critical harmonic chains ( discrete version of klein - gordon field theory ) and also for quantum spin chains with @xmath4 symmetry like the xxz and the spin-1 fateev - zamolodchikov quantum chains .
+the structure of the paper is as follows : in the next section we will present the essential definitions of the shannon and rnyi mutual informations as well as generalized mutual information . in section three
+we will present the numerical results of the generalized mutual information for many different critical quantum spin chains .
+finally in the last section we present our conclusions .
+consider the normalized ground state eigenfunction of a quantum spin chain hamiltonian @xmath20 , expressed in a particular local basis @xmath21 , where @xmath22 are the eigenvalues of some local operators defined on the lattice sites .
+the rnyi entropy is defined as @xmath23 where @xmath24 is the probability of finding the system in the particular configuration given by @xmath25 .
+the limit @xmath26 gives us the shannon entropy @xmath27 .
+since we are considering only local basis it is always possible to decompose the configurations as a combination of the configurations inside and outside of the subregions as @xmath28 .
+one can define the marginal probabilities as @xmath29 and @xmath30 .    in a previous paper
+@xcite we studied the naive definition of the rnyi mutual information : @xmath31 from now on instead of using @xmath32 we will use just @xmath33 .
+the known results of the rnyi mutual informations of quantum critical chains are obtained by using the definition ( [ renyi2 ] ) . for special basis , usually the ones where part of the hamiltonian is diagonal ( see @xcite ) , the definition ( [ renyi2 ] ) for the rnyi mutual information gives us a logarithmic behavior with the subsystem size , for arbitrary values of @xmath5 . however , as observed numerically for several quantum chains ( see @xcite ) , it shows a discontinuity at @xmath15 , that forbids the use of large-@xmath5 analysis to obtain the most interesting case where @xmath15 , namely the standard shannon mutual information .
+although the definition ( [ renyi2 ] ) has its own uses it is not the one which normally has been considered in information sciences .
+for example @xmath34 for @xmath35 is not necessarily a positive function , a property that we naturally expect to be hold for the mutual informations . in this paper
+we consider a definition that is common in information sciences @xcite .
+the generalized mutual information with the desired properties , as a measure of shared information ( see appendix ) , is defined as @xcite : @xmath36 where @xmath37 and @xmath38 , as before , are the probabilities that the subsystems are independently in the configurations @xmath39 and @xmath40 that forms the configuration @xmath25 that occurs with probability @xmath33 .
+hereafter @xmath6 will represent the size of the whole system and @xmath7 and @xmath8 the sizes of the subsystems . with this new notation
+one can write @xmath41 as @xmath42 .
+this definition of the generalized mutual information comes from the natural extension of the relative entropy to the rnyi case and measures the distance of the full distribution from the product of two independent distributions . in the limit @xmath43
+one easily recovers the shannon mutual information @xmath44 , where @xmath27 is the standard shannon entropy .
+one of the important properties of @xmath0 , that is not shared by @xmath34 , is its nondecreasing behavior as a function of @xmath5 ( see appendix ) .
+our calculations for a set of distinct quantum spin chains will be done numerically , since up to our knowledge an analytical method to consider these quantum chains is still missing .
+in this section we will numerically calculate the ground - state generalized mutual information of two series of critical quantum spin chains with slightly different structure . in the first part we will calculate the generalized mutual information for systems with discrete symmetries such as the @xmath16-state potts models with @xmath17 and @xmath18 , the ashkin - teller model and the parafermionic @xmath1-quantum spin chain @xcite for the values of @xmath45 and @xmath46 .
+in the second part we will calculate the generalized mutual information for systems with @xmath4 symmetry such as the klein - gordon field theory , the xxz model and the fateev - zamolodchikov model with different values of their anisotropy parameters .
+in this subsection we will study the generalized mutual information of the ground state of different critical spin chains with @xmath1 discrete symmetries .
+the results we present were obtained by expressing the ground - state wavefunction in two specific basis where the systems show some universal properties .
+[ htb ] [ fig1 ]   of the @xmath47 sites periodic ising quantum chain , as a function of @xmath48 .
+the ground - state wavefunction is in the basis where the matrices @xmath49 are diagonal ( @xmath50 basis).,title="fig:",scaledwidth=35.0% ]      our results show that the q - state potts model and the ashkin - teller model share a similar behavior .
+for this reason we discuss them together . the critical @xmath16-state potts model in a periodic lattice
+is defined by the hamiltonian @xcite    @xmath51    where @xmath49 and @xmath52 are @xmath53 matrices satisfying the following @xmath1 algebra : @xmath54=[s_i , s_j]=[s_i , r_j]=0 $ ] for @xmath55 and @xmath56 and @xmath57 .
+the model has its critical behavior governed by a cft with central charge @xmath58 where @xmath59 .
+the @xmath60 potts chain is just the standard ising quantum chain .
+[ htb ] [ fig2 ]   of the @xmath47 sites periodic ising quantum chain , as a function of @xmath48 .
+the ground - state wavefunction is in the basis where the matrices @xmath52 are diagonal ( @xmath61 basis).,title="fig:",scaledwidth=35.0% ]    the ashkin - teller model has a @xmath62 symmetry and a hamiltonian given by : @xmath63 where @xmath49 and @xmath52 are the same matrices introduced in the @xmath64 potts model .
+the model is critical and conformal invariant for @xmath65 with the central charge @xmath66 .
+it is worth mentioning that at @xmath67 we recover the @xmath64 potts model and at @xmath68 the model is equivalent to two decoupled ising models .    in the paper
+@xcite we already showed that the shannon and rnyi mutual informations , as defined in ( [ renyi2 ] ) , are basis dependent . in other words
+one can get quite distinct different finite - size scaling behaviors by considering different basis .
+surprisingly in some particular basis , that we called conformal basis , the results shows some universality .
+for example , the results for the @xmath16-state potts model and for the ashkin - teller model in the basis where the matrices @xmath52 or the matrices @xmath49 are diagonal are the same , and follow the asymptotic behavior @xmath69 with @xmath70 we should mention that in @xcite , based on numerical results , it was claimed that for @xmath15 the coefficient @xmath71 might not be exactly equal to the central charge .
+as it was discussed in @xcite it is quite likely that @xmath34 is not a continuous function around @xmath15 and so any attempt to do the replica trick using this definition of rnyi mutual information will be useless .
+this makes the analytical calculation a challenge .
+this is an additional reason to examine the behavior of @xmath0 , besides being the correct extension , from the point of view of a measure of shared information . having this in mind we calculated the @xmath0 for @xmath17 and @xmath64 potts chains and for the ashkin - teller model in the @xmath61 and the @xmath50 basis .
+we found that in some regimes of variation of the parameter @xmath5 one can fit the data nicely to @xmath72 being @xmath10 a monotonically nondecreasing function of @xmath5 , consistent with what we expect for the mutual information , since it is a good measure of shared information ( see the appendix ) .
+[ htb ] [ fig3 ]   of the coefficient of the logarithm in the equation ( [ renyi mi potts ] ) and the central charge @xmath11 for the @xmath16-state potts model with @xmath17 and 4 , and for the ashkin - teller model ( a - t ) with different anisotropies @xmath73 .
+the ashkin - teller model at the isotropic point ( @xmath74 ) is equivalent to the @xmath18-state potts model .
+the ground - state wavefunctions are in the basis where the @xmath49 matrices are diagonal .
+the lattice sizes of the models are shown and the coefficients @xmath10 were estimated by using the subsystem sizes @xmath75$].,title="fig:",scaledwidth=35.0% ]    here we summarize the results for the @xmath16-state potts and ashkin - teller quantum chains :    1 .
+the results in general depend on the basis we choose to express the ground - state wavefunction .
+2 .   the generalized mutual information follows ( [ renyi mi potts ] ) in the @xmath50 and @xmath61 basis but with different coefficients for different basis . to illustrate the logarithmic behavior we show in fig .  1 and fig .  2 the mutual information @xmath0 for the ising model ( @xmath60 ) with @xmath47 sites and ground - state eigenfunctions in the @xmath50 and @xmath61 basis , respectively .
+we see , from these figures , that for subsystem sizes @xmath76 we have the logarithmic behavior given by ( [ renyi mi potts ] ) up to @xmath77 in the @xmath50-basis and @xmath78 in the @xmath61-basis .
+as we can see our results does not exclude the existence of some relevant @xmath7-dependent terms in ( [ renyi mi potts ] ) for large values of @xmath5 .
++ [ htb ] [ fig4 ]   are diagonal .
+the lattice sizes of the models are shown in the figure , as well as the subsystems sizes @xmath7 used to estimate @xmath10.,title="fig:",scaledwidth=35.0% ] 3 .
+the coefficient of the logarithm @xmath10 in ( [ renyi mi potts ] ) is a continuous monotonically non - decreasing function of @xmath5 and it follows the following formula in the @xmath50 basis : @xmath79 where @xmath11 is the central charge and @xmath80 seems to be a continuous universal function independent of the model , as we can see in fig .
+3 . in the case of the ashkin - teller model
+the results start to deviate around @xmath81 from the ones obtained for the potts models . as we can see in fig .  3 ,
+the deviation point is dependent on the anisotropy parameter @xmath73 of the model .
+4 .   in the case of the @xmath61 basis , as one can see in fig .  4 ,
+equation ( [ coefficient ] ) is still valid for values of @xmath5 up to @xmath824 .
+however the function @xmath80 is distinct from the one obtained in the @xmath50 basis . as shown in fig .   4 ,
+up to @xmath83 the form of the function @xmath80 seems to be also independent of the model .
+this figure also shows that the ashkin - teller model has stronger deviations in this basis , as compared with the results obtained in the @xmath50 basis . in order to better see the difference of the coefficients @xmath10 in the @xmath50 and @xmath61 basis , we present in fig .  5 the data of figs .  3 and  4 for the @xmath17 and 4 state potts models .
++ [ htb ] [ fig5 ]   of figs .
+3 and  4 for the @xmath17 and 4-state potts model are shown in the same figure , for comparison.,title="fig:",scaledwidth=35.0% ] 5 .
+the coefficient of the logarithm in the @xmath50 basis always goes to zero as @xmath84 , differently from the @xmath61 basis where it approaches to a non - trivial number .
+this simply means that probably in the continuum limit all the probabilities in the @xmath50 basis are positive but in the @xmath61 basis some of them are zero . for the definition of the @xmath85 case see the appendix .
+our numerical results indicate that @xmath10 is a continuous function of @xmath5 around @xmath15 .
+this means that @xmath0 should be a continuous function with respect to @xmath5 and so it is a better candidate to be used in techniques exploring the analytical continuation of the value @xmath5 , as happens for example in the replica trick .
+however , the appropriate technique that may be used is still unclear to us .
+it is important to mention that the results obtained for the ratio @xmath86 in this section ( fig .
+3 ) and in the subsequent ones ( figs .  8 ,  9 ,  11 and  13 )
+are based on the linear fit with the @xmath87 $ ] dependence .
+these fittings were done by choosing a set of subsystems sizes . in all the presented figures
+we only depict results where a small variation of the number of subsystem sizes gives us estimated values of @xmath10 that differs a few percent . as an example we consider the fittings obtained from the data of figs .  1 and  2 for the ising model with @xmath47 sites and ground - state eigenfunction in the @xmath50 and @xmath61 basis , respectively .
+this is shown in fig .
+as we can see , while for the @xmath50 basis the fitting is reasonable up to @xmath88 in the @xmath61 basis we do not have reliable results for @xmath89 .
+[ htb ] [ fig6 ]   obtained from the data of figs .  1 and  2 for the ising quantum chain with @xmath47 sites and eigenfunction expressed in @xmath50 and @xmath61 basis.,title="fig:",scaledwidth=35.0% ]      [ htb ] [ fig7 ]   of the @xmath90 sites periodic @xmath91-parafermionic quantum chain , as a function of @xmath48 .
+the ground - state wavefunction is in the basis where the @xmath49 matrices are diagonal ( @xmath50 basis).,title="fig:",scaledwidth=35.0% ]    in this subsection we consider the generalized mutual information for some critical spin chains with discrete @xmath1 symmetry and central charge bigger than one .
+the quantum chains we consider are the parafermionic @xmath1-quantum spin chains @xcite with hamiltonian given by @xcite @xmath92 where again @xmath49 and @xmath52 are the @xmath53 matrices that appeared in ( [ potts hamiltonian ] ) .
+this model is critical and conformal invariant with a central charge @xmath93 .
+for the case where @xmath60 and @xmath94 we recover the ising and 3-state potts model , and for the case where @xmath64 we obtain the ashkin - teller model with the anisotropy value @xmath95 .
+we have considered the models with @xmath45 and @xmath46 and the ground - state wavefunctions expressed in the @xmath50 or @xmath61 basis .
+the results for the several values of @xmath16 are shown in figs .  7 ,  8 and  9 .
+to illustrate the logarithmic dependence with the subsystem size @xmath7 we show in fig .  7 @xmath42 , as a function of @xmath96 for the @xmath91 parafermionic quantum chain with @xmath90 sites , with the ground - state wavefunction expressed in the @xmath50 basis . in figs .
+8 and  9 we show the ratio @xmath86 of the logarithmic coefficient of ( [ renyi mi potts ] ) with the central charge @xmath11 for the @xmath1-parafermionic models with ground - state wavefunction in the @xmath50 and @xmath61 basis , respectively .
+the maximum lattice sizes we used for the @xmath1-parafermionic models are @xmath97 and @xmath98 for @xmath45 and 8 , respectively .
+the results we obtained are very similar to the ones we already discussed in the previous case of the @xmath16-state potts models .
+all the five properties that we discussed in that subsection are equally valid also for the @xmath1-parafermionic models . by comparing the results of figs .  8 and  9 with figs .  3 and  4 we observe that the function @xmath80 in ( [ coefficient ] ) are quite similar for the two set of models , at least for values of @xmath5 up to @xmath99 .
+probably the matching of these curves is not perfect due to the small system sizes we consider , specially for @xmath100 .
+[ htb ] [ fig8 ]   of the coefficient of the logarithm in equation ( [ renyi mi potts ] ) and the central charge @xmath11 for the @xmath1-parafermionic models with @xmath45 and 8 .
+the ground - states are in the basis where the @xmath49 matrices are diagonal .
+the lattice sizes of the models are shown in the figure and the coefficients @xmath10 were estimated by using the subsystem sizes @xmath75$].,title="fig:",scaledwidth=35.0% ]      in this section we consider the generalized mutual information of critical chains having a continuous @xmath4 symmetry .
+we studied a set of coupled harmonic oscillators which gives a discrete version of klein - gordon field theory as well as the spin-1/2 xxz and the spin-1 fateev - zamolodchikov quantum chains .
+the last two models are interesting since , like the ashkin - teller model , they have an anisotropy that gives us a critical line of continuously varying critical exponents but with a fixed central charge .    [ htb ] [ fig9 ]
+are diagonal .
+the lattice sizes of the models , as well as the subsystems sizes @xmath7 used to estimate @xmath10 are shown.,title="fig:",scaledwidth=35.0% ]      in this subsection we will first consider the generalized mutual information of the ground state of a system of generic coupled harmonic oscillators . then at the very end
+we will confine ourselves to the simple case where we have only the nonzero couplings at the next - nearest sites , that in the continuum limit gives us the klein - gordon field theory .
+consider the hamiltonian of @xmath6-coupled harmonic oscillators , with coordinates @xmath101 and conjugated momenta @xmath102 :    @xmath103    the ground state of the above hamiltonian has the following form @xmath104 for the general hamiltonian ( [ harmonicosc ] ) , one can calculate the two point correlators @xmath105 and @xmath106 using the @xmath107 matrix defined in ( [ harmonicosc ] ) .
+the squared root of this matrix , as well as its inverse , can be split up up into coordinates of the subsystems @xmath108 ( size @xmath7 ) and @xmath109 ( size @xmath8 ) , i. e. , @xmath110 here we chose the couplings so that we always keep the equalities @xmath111 and @xmath112 .
+the spectra of the matrix @xmath113 , can be used to calculate the rnyi entanglement entropy ( see @xcite and references therein ) as    @xmath114 . \nonumber\end{aligned}\ ] ]    in this formulation we only need the correlators inside the region @xmath108 . note that the above quantity is basis independent and
+is considered as an usual measure of the quantum entanglement . here
+we need to introduce this quantity just for later use . to calculate the generalized mutual information for a system of coupled harmonic oscillators one first needs to fix the basis .
+here we work in the position coordinate basis , however all the results are valid also in the momentum basis .
+one should notice that the same is not true if one works in a generic basis obtained through canonical transformations from the position or momentum basis . in order to calculate @xmath0
+first we find @xmath115 and @xmath116 as    @xmath117    where @xmath118 and @xmath119 . since @xmath120 takes continuum values one needs to consider the integral version of the equation ( [ renyi new ] ) as follows : @xmath121 where @xmath122 .
+plugging eqs .
+( [ groundswave ] ) , ( [ subsystem probabilities1 ] ) ( [ subsystem probabilities2 ] ) in the equation ( [ new renyi continuum ] ) and performing the gaussian integral one can derive the generalized mutual information @xmath123 the following determinant formulas @xmath124 allow us to write @xmath125 where @xmath126 there is an important remark that we should mention : in principle eq .
+( [ renyi mi hoc ] ) makes sense only if @xmath127 is a symmetric positive definite matrix .
+if we start with a symmetric positive definite matrix @xmath128 this is already warrantied for @xmath129 but for @xmath130 one needs to check its validity .
+this will be an important point when we study the short - range coupled harmonic oscillators .
+finally one can write @xmath131 where @xmath132 is the only @xmath5 dependent part .
+we notice here that by changing @xmath5 to @xmath133 we just change the sign of the second term , i. e. , @xmath134 .
+[ htb ] [ fig10 ] ) , @xmath132 , as a function of @xmath135 for periodic quantum harmonic chain with @xmath136 sites.,title="fig:",scaledwidth=35.0% ]    when @xmath26 the second term vanishes and we recover the result of @xcite @xmath137 for massless klein - gordon theory the above result in one dimension gives , as a consequence the well known result for the rnyi entanglement entropy @xcite , @xmath138 where the dots are the subleading terms .
+our numerical analyses indicate that for short - range quantum harmonic oscillators the matrix @xmath127 is symmetric positive definite up to just @xmath139 is not exactly equal to @xmath140 , however , by increasing the lattice size it approaches the value @xmath140 .
+we conjecture that @xmath141 is exact in the thermodynamic limit . ] .
+the numerical results show that for the values @xmath142 the equation ( [ renyi mi potts ] ) is a very good approximation , as we can see for example in fig .
+the coefficient @xmath10 of the logarithmic term in ( [ renyi mi potts ] ) is obtained from the fitting of the model with @xmath136 sites is shown in fig .
+11 and in the range @xmath143 surprisingly it follows the simple formula :    @xmath144    this is the red line in fig .  11 . at @xmath85
+we expect zero mutual information for our system , this means that based on the symmetry @xmath145 the coefficient for @xmath83 should be @xmath146 .
+finally one can conclude that for integer values of @xmath147 the coefficient of the logarithm is @xmath148    [ htb ] [ fig11 ]   in the equation ( [ renyi mi potts ] ) .
+the lattice size @xmath136 and the coefficients @xmath10 were estimated by using the subsystem sizes @xmath75 $ ] .
+the red line is given by eq .
+( [ c for ho]).,title="fig:",scaledwidth=35.0% ]      the hamiltonian of the xxz chain is defined as @xmath149 where @xmath150 , @xmath151 and @xmath152 are spin-@xmath153 pauli matrices and @xmath73 is an anisotropy .
+the model is critical and conformal invariant for @xmath154 with a constant central charge @xmath66 , giving us a good example to test the universality of our results with respect to the change of the anisotropy .
+the long - distance critical fluctuations are ruled by a cft with central charge @xmath66 described by a compactified boson whose action is given by @xmath155 where the compactification radius depends upon the values of @xmath73 , namely : @xmath156 as it is shown in fig .
+12 , in the @xmath152 basis , the generalized mutual information @xmath42 shows the logarithmic behavior given in ( [ renyi mi potts ] ) only for @xmath157 .
+this can be simply understood based on what we observed for the chain of harmonic oscillators .
+one can look to the klein - gordon field theory as a non - compactified version of the action ( [ compactified boson ] ) . since we showed that in that case the generalized mutual information is not defined beyond @xmath83 we expect the same behavior also in the compactified version .
+note that in our numerical calculations one can actually derive spurious big numbers for the generalized mutual information even for @xmath158 , but we expect all of them go to infinity in the thermodynamic limit .
+this behavior seems to be independent of the anisotropy parameter @xmath73 .    the coefficient of the logarithm in ( [ renyi mi potts ] ) for @xmath157 is again given by ( [ coefficient ] ) , as we can see in fig .  13 , with a function @xmath80 which fits to the results of the harmonic chain perfectly .
+we also considered the results in the case where the ground state wavefunction is expressed in the @xmath150 basis and , except around @xmath15 , the equation ( [ renyi mi potts ] ) is not a good approximation .
+[ htb ] [ fig12 ]   of the periodic xxz quantum chain with anisotropy @xmath159 , as a function of @xmath160 .
+the ground - state wavefunction is in the basis where the @xmath161 matrices are diagonal ( @xmath152 basis ) .
+the results are for lattice sizes @xmath47 and @xmath162 and give an idea of the finite - size corrections.,title="fig:",scaledwidth=35.0% ]    the second @xmath4-symmetric model we considered is the spin-1 fateev - zamolodchikov quantum chain whose hamiltonian is given by @xcite @xmath163 where @xmath164 are spin-1 @xmath165 matrices , @xmath166 and @xmath167 .
+the model is antiferromagnetic for @xmath168 and ferromagnetic for @xmath169 .
+it has a line of critical points ( @xmath170 ) with a quite distinct behavior in the antiferromagnetic ( @xmath168 ) and ferromagnetic ( @xmath171 ) cases . the antiferromagnetic version of the model is governed by a cft with central charge @xmath172 @xcite while the ferromagnetic one is ruled by a @xmath66 cft @xcite .
+we calculated @xmath42 in both critical regimes where @xmath66 and @xmath172 , and for different values of the anisotropy .
+we found a very similar pattern as that of the xxz quantum chain , as can be seen in fig .  13
+the equation ( [ renyi mi potts ] ) is valid for values of @xmath157 and the coefficient of the logarithm follows ( [ coefficient ] ) with a function @xmath80 which is quite similar to the one we found for the quantum harmonic oscillators and the xxz chain .
+this shows an interesting universal pattern for critical chains with continuous @xmath4 symmetry .
+[ htb ] [ fig13 ]   of the coefficient of the logarithm in equation ( [ renyi mi potts ] ) with the central charge @xmath11 for the xxz and for the spin-1 fateev - zamolodchikov quantum chains ( f - z ) .
+the xxz ( fateev - zamolodchikov ) ground - state wavefunction are in the @xmath152 ( @xmath173 ) basis .
+the results for the xxz are for the anisotropies @xmath174 and in the case of the fateev - zamolodchikov model their are for the couplings @xmath175 .
+the lattice sizes of the models are shown and the coefficients @xmath10 were estimated by using the subsystem sizes @xmath176.,title="fig:",scaledwidth=35.0% ]
+in this paper we calculated the generalized mutual information @xmath42 , as defined in ( [ renyi new ] ) , for quantum chains describing the dynamics of quantum systems with continuous or discrete degrees of freedom .
+most of our analysis was purely numerical due to the absence , at the moment , of suitable analytical methods to treat this problem .
+we considered several integrable quantum spin chains .
+these quantum chains either have a @xmath1 symmetry ( like the @xmath16-state potts model with @xmath17 and 4 , the ashkin - teller model , and the @xmath1-parafermionic model with @xmath45 and 8) or a @xmath4 symmetry ( xxz quantum chain and the spin-1 fateev - zamolodchikov model ) .
+we also considered the discrete version of the klein - gordon field theory given by a set of coupled harmonic oscillators . in this case
+we have a continuum hilbert space .
+we observed that by expressing the ground - state wavefunctions in general basis the obtained results are distinct .
+however , similarly as happens for the quantity @xmath34 given in ( [ renyi2 ] ) ( see @xcite ) , our results on some special basis reveal some general features .
+these basis are the ones where the @xmath50 or @xmath61 operators are diagonal , for the models with @xmath1 symmetry or the ones where @xmath152 or @xmath173 are diagonal for the models with @xmath4 symmetry . in a continuum field theory description of these quantum chains
+these basis are expected to be associated to the boundaries that do not destroy the conformal invariance of the bulk underlying euclidean conformal field theory , and for this reason we call them conformal basis @xcite .
+our results indicate that in these special basis the mutual information @xmath0 has the same kind of leading behavior with the subsystem size @xmath7 as we have in the rnyi entanglement entropy , namely @xmath177 , with a function @xmath178 , with @xmath179 . differently from the rnyi entanglement entropy where the equivalent function @xmath80 is universal ( for any model and any basis ) in the case of @xmath0 our results
+indicate that the function @xmath80 depends on the special basis chosen to express the ground - state eigenfunction of the particular model . for the set of @xmath1-symmetric models we considered the function @xmath80 , for @xmath180 , although different for the @xmath50 and @xmath61 basis are similar as the ones of the @xmath16-state potts chain ( @xmath2 ) and the parafermionic @xmath1 quantum chains ( @xmath3 ) . in the case of the ashkin - teller model
+our results indicate that @xmath80 , for @xmath158 , also depends on the anisotropy @xmath73 of the model . on the other hand the models with continuum symmetry showed a similar behavior only for @xmath157 .
+for @xmath158 we have strong evidences that most probably the generalized mutual information is not defined .
+it is quite interesting that in these cases one can understand most of the results by just studying simple short - range coupled harmonic oscillators .    in order to conclude we should mention that an analytical approach for the shannon entropy or the shannon mutual information ( @xmath181 or @xmath182 in ( [ renyi2 ] ) and ( [ renyi new ] ) ) is a theoretical challenge .
+the analytical methods to treat this kind of problem normally use some sort of analytical continuation , in the parameter @xmath5 , like the usual replica trick .
+the results we present showing the continuity of @xmath0 around @xmath15 , differently from what happens with @xmath34 , indicate that @xmath0 is probably more appropriate for an analytical treatment .    _
+acknowledgments _ this work was supported in part by fapesp and cnpq ( brazilian agencies ) .
+we thank j. a. hoyos , r. pereira and v. pasquier for useful discussions .
+in this appendix we review the definitions of the relative entropy and its generalization : the rnyi divergence .
+the relative entropy is defined as the expectation of the difference between the logarithm of the two distribution of probabilities @xmath183 and @xmath184 , from the point of view of the distribution @xmath183 , i. e. , @xmath185 it can be considered as a measure of the difference between the two distributions @xmath183 and @xmath184 . although it is not a symmetric quantity it helps us to define the mutual information of the subsets @xmath186 ans @xmath187 of the system as follows @xmath188 in words , the mutual information between two parts of a system is just the relative entropy between the distribution probability for the whole system and the product of the probability distributions of the different parts .
+it tells how much the different parts are correlated .
+the natural generalization of the relative entropy is the rnyi divergence and can be defined ( see @xcite for example ) , as @xmath189 it has the following properties : for @xmath190 we have @xmath191 and if @xmath192 then we have @xmath193 .
+the especial case @xmath26 gives the usual relative entropy .
+we also define the @xmath85 case by : @xmath194 it is worth mentioning that using the above definition @xmath195 is not zero except when for all @xmath196 s for which @xmath197 also @xmath198 holds .      comparing ( [ renyi divergence ] ) with ( [ mutual information from relative entropy ] ) and ( [ relative entropy ] )
+the natural definition of the generalized mutual information is @xmath199
+the above definition is different from @xmath200 , as given by ( [ renyi2 ] ) , and has been frequently used in different areas of information science .    99 l. amico , r .
+fazio , a. osterloh , and v. vedral , rev .
+phys . * 80 * , 517 ( 2008 ) ; k. modi , a. brodutch , h. cable , t. paterek , and v. vedral , rev .
+* 84 * , 1655 ( 2012 ) ; u. schollwck , rev .
+phys . * 77 * , 259 ( 2005 )    p. calabrese , j. cardy , j. phys .
+a 42:504005 ( 2009 ) j. cardy , phys .
+lett . * 106 * , 150404 ( 2011 ) .
+d. a. abanin and e. demler , phys .
+. lett . * 109 * , 020504 ( 2012 ) . a. j. daley , h. pichler , j. schachenmayer , and p. zoller , phys . rev
+. lett . * 109*,020505 ( 2012 ) .
+f. c. alcaraz , m. a. rajabpour , phys .
+* 111 * , 017201 ( 2013 ) j - m stphan , j. stat .
+( 2014 ) p05010 j - m stphan , phys .
+b * 90 * , 045424 ( 2014 ) f. c. alcaraz , m. a. rajabpour , phys .
+b * 90 * , 075132 ( 2014 )    m. m. wolf , f. verstraete , m. b. hastings , j. i. cirac , phys .
+lett . * 100 * , 070502 ( 2008 ) .
+j - m stphan , s. furukawa , g. misguich , and v. pasquier , phys . rev .
+b , * 80 * , 184421 ( 2009 ) .
+j - m stphan , g. misguich , and v. pasquier , phys . rev .
+b , * 82 * , 125455 ( 2010 ) ; m. oshikawa [ arxiv:1007.3739 ] j - m stphan , g. misguich , and v. pasquier , phys . rev .
+b * 84 * , 195128 ( 2011 ) . j. um , h. park and h. hinrichsen , j. stat
+( 2012 ) p10026 h. w. lau and p. grassberger , phys .
+e * 87 * , 022128 ( 2013 ) .
+d. j. luitz , f. alet , n. laflorencie , phys .
+rev . lett . * 112 * , 057203 ( 2014 ) d. j. luitz , f. alet , n. laflorencie , phys .
+b * 89 * , 165106 ( 2014 ) d. j. luitz , n. laflorencie , f. alet , j. stat
+( 2014 ) p08007 d. j. luitz , x. plat , n. laflorencie , f. alet , phys .
+b * 90 * , 125105 ( 2014 )    j. wilms , m. troyer , f. verstraete , j. stat .
+( 2011 ) p10011 and j. wilms , j. vidal , f. verstraete , s. dusuel , j. stat .
+( 2012 ) p01023 j. iaconis , s. inglis , a. b. kallin , r. g. melko , phys . rev .
+b * 87 * , 195134 ( 2013 ) j - m stphan , s. inglis , p. fendley , r. g. melko , phys . rev . lett . *
+112 * , 127204 ( 2014 ) a. rahmani , g - w chern , phys .
+b * 88 * , 054426 ( 2013 ) o. cohen , v. rittenberg , t. sadhu , [ arxiv:1409.5520 ] h. bernigau , m. j. kastoryano and j. eisert , j. stat .
+( 2015 ) p02008 v. eisler , z. zimboras , phys . rev .
+a * 89 * , 032321 ( 2014 ) jos . c. principe , _ information theoretic learning _ , springer , berlin ( 2010 )    f. y. wu , rev .
+phys , * 54 * , 235 ( 1982 ) .
+v. a. fateev and a. b. zamolodchikov , phys . lett.a
+* 92 * , 37 ( 1982 ) f.c .
+alcaraz and a. lima santos , nucl .
+b , * 275 * , 436 ( 1986 ) f. c. alcaraz , j. phys . a , * 20 * , 2511 ( 1987 ) m. cramer , j. eisert , m. b. plenio , j. dreissig , phys . rev .
+a * 73 * , 012309 ( 2006 ) h. casini and m. huerta , j. phys .
+a , * 42 * , 504007 ( 2009 ) a. b. zamolodchikov and v. a. fateev , yad .
+fiz . * 32 * , 581 ( 1980 ) [ sov .
+. phys . * 32 * , 298 ( 1980 ) ] .

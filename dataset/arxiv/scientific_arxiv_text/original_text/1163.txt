@@ -1,0 +1,140 @@
+the @xmath8-state potts model can be represented as the correlated site - bond percolation in terms of fortuin - kasteleyn clusters  @xcite . at the critical point of the second order phase transition ,
+the infinite cluster is formed .
+this cluster crosses the system connecting the opposite sides of the square lattice . in the last decade
+the study of the shape of the crossing probability was performed by conformal methods  @xcite as well as numerically  @xcite .    according to refs .
+@xcite the distribution function of the percolation thresholds is gaussian function . following the number of works  @xcite
+the tails of the distribution function are not gaussian ones .
+the authors of the recent work  ref .
+@xcite are still uncertain to distinguish a stretched exponential behavior from a gaussian .
+the aim of this paper is to investigate the shape of the probability of a system to percolate only in horizontal direction @xmath0 .
+we perform numerical simulation of correlated site - bond percolation model for @xmath1 ( the percolation model @xmath9 , the ising model @xmath10 and the potts model @xmath11 ) for lattice sizes @xmath12 .
+the scaling formulas for a body of the crossing probability at criticality and for tails of the crossing probability were obtained . the final result for the representative case @xmath10 , @xmath13 is immediately presented in fig .
+[ fig1]a ) .
+details of fitting procedure are described in section  [ secapp2 ] .    in this figure
+we plot ( by crosses ) the numerical data for the absolute value of the logarithm of crossing probability @xmath0 for the ising model ( @xmath10 ) on the lattice @xmath13 as a function of the absolute value of the scaling variable @xmath14 .
+here @xmath5 is a probability of a bond to be closed , @xmath15 is the inverse temperature , @xmath4 is the correlation length scaling index . the critical point in the @xmath16 scale for the @xmath8-state potts model
+is @xmath17 see ref .
+@xcite and we get @xmath18 .
+we can see from fig .
+[ fig1]a ) that the function @xmath19 consists of two parts : the body @xmath20 and the tails @xmath21 .
+the negative logarithm of the body of the crossing probability as a function of @xmath22 is well described by function @xmath23 ( solid line on the fig .
+[ fig1]a ) ) . here
+@xmath7 is some scaling index
+. the value of the crossing probability at the critical point @xmath24 may be computed ( at least for percolation ) by conformal field methods  @xcite .
+the negative logarithm of the tails of the crossing probability have shape @xmath25 ( dashed line in the fig .
+[ fig1]a ) ) .
+this line is tangent to the body at the point @xmath26 .
+this point is marked by the horizontal line .
+let us note that in fig .
+[ fig1]a ) we plot two branches of the crossing probability ( for @xmath27 and @xmath28 ) .
+the coincidence of this two branches indicate the remarkable symmetry of the crossing probability with respect to the variable @xmath22 .    in fig .
+[ fig1]b ) we plot the crossing probability by crosses ( bottom ) and the magnetic susceptibility by triangles ( top ) as a functions of the inverse temperature @xmath15 with logarithm scale for the ordinate axis . in fig .
+[ fig1]b ) we indicate the position of crossover region of @xmath0 by horizontal solid line on a level @xmath29 . for the magnetic susceptibility we mark the region with critical behavior @xmath30 by horizontal dashed lines .
+we see from fig .
+[ fig1]b ) that tails of the crossing probability directly correspond to the critical region of the magnetic susceptibility . in this critical region
+the correlation length @xmath31 is smaller than the sample size @xmath32 .
+as the temperature approaches to the critical point , the correlation length reaches the sample size . at that point the magnetic susceptibility on the finite lattice deviates from the critical behavior eq .
+( [ eq1 ] ) and becomes smooth 
+see the region over the top dashed horizontal line in the fig .
+[ fig1]b ) . at the same point
+the crossing probability crosses over from tails to body 
+the region over the solid horizontal line in fig .
+[ fig1]b ) ( and the region _ under _ the horizontal line in fig .  [ fig1]a ) ) . at the critical point
+@xmath33 both the magnetic susceptibility and the crossing probability reach a maximum .    the detailed description of the fitting procedure as well as numerical data for @xmath1 are presented below .
+the main numerical result of this paper is the proving of the formula @xmath34l^{{\nu}})$ ] for the tails of the crossing probability .
+therefore , we pay special attention to fitting procedures .
+the paper is organized as follows : in the second section , we describe details of the numerical simulation . in the third section , the method for determining the pseudocritical point @xmath35 on the finite lattice is described .
+we use @xmath35 to perform the approximation of the tails . in section  [ secapp1 ]
+we approximate the double logarithm of the crossing probability @xmath36 tails as a function of the logarithm of deviation from the critical point @xmath37 by the linear function @xmath38 .
+we get @xmath39 for this approximation procedure . in section  [ secapp2 ]
+we describe new fitting procedure using the scaling variable @xmath14 .
+results of approximation are discussed in section  [ secres ] .
+we perform the massive monte - carlo simulation on the square lattice of size @xmath40 to obtain the high - precision data for @xmath0 .
+we use the dual lattice shown in fig .
+[ fig2 ] . on such lattice
+the critical point of the bond percolation ( @xmath9 ) is exactly equal @xmath41 and is not dependent on the lattice size  @xcite . to produce the pseudorandom numbers we use the r9689 random number generator with four taps  @xcite .
+we close each bond with a probability @xmath16 and leave it open with a probability @xmath42 .
+then we split the lattice into clusters of connected sites by using the hoshen - kopelman algorithm  @xcite .
+after that we check the percolation through this configuration .
+we average the crossing probability over @xmath43 random bond configurations .    to investigate the potts model @xmath44 we use the wolff  @xcite cluster algorithm to generate a sequence of thermally equilibrated spin configurations .
+for each particular inverse temperature @xmath45 we flip 20000 wolff clusters to equilibrate the system . for the spin model on the finite lattice
+the deviation of the pseudocritical point from the position of the critical point on the infinite lattice is smaller for periodic boundary condition ( pbc ) rather than the open boundary condition ( obc )  @xcite .
+for this reason we use the pbc for the wolff algorithm .
+the monte - carlo algorithm generates spin configurations on a torus . for a generated spin configuration
+we create a configuration of bonds .
+each bond between sites with equal spin variable @xmath46 is closed with the probability @xmath5 and is open with probability @xmath47 .
+bonds between sites with different values of @xmath46 are always open in accordance with fortuin - kasteleyn rule  @xcite .
+then we split the particular spin and bond configurations into different clusters .
+here we use obc .
+it means that for each generated configuration we cut the torus and check the crossing on the square with open boundary conditions .
+we fix the obc for crossing only in horizontal direction @xmath0 because it implies the vertical crossing is absent and the top and bottom rows must be disjointed .
+but we take into consideration the additional raw and column of bonds , as shown in fig .
+we check the percolation through an obtained cluster configuration , generate new spin configuration and so on .
+we average the crossing probability over @xmath43 configurations for each value of the inverse temperature @xmath15 .
+so the resolution of our computations is about @xmath48 . by this way we perform numerical simulation and get a set of data for @xmath49 for the lattice sizes @xmath12 and @xmath44 .
+the formal definition of @xmath49 as a sum over different cluster configurations is described in  @xcite .    for the potts model
+we use the dual lattice as we do for the percolation .
+it means , that we take into account additional bonds attached to the bottom row of spins . in the same way we take into account additional bonds attached to the right column of the spins . on the lattice with pbc
+these bonds have to connect the right and the left columns .
+we cut the torus ( because we use obc for crossing probability ) but we keep these additional bonds and take into account the checking of the crossing . in fig .
+[ fig2 ] contact points are shown by arrows .
+the left contact points are attached to the left column of sites .
+the right contact points are attached to additional bonds . in fig .
+[ fig2 ] the bond configuration with the horizontally spanning cluster is shown .
+then we check the percolation through the obtained cluster configuration . after
+that we flip three wolff clusters , check spanning for a new spin configuration and so on .
+we investigate the crossing probability as a function of deviation from the critical point .
+therefore , we perform the preliminary approximations to obtain the critical points for the finite samples . namely , we :    * obtain the pseudocritical point and the shape of the central part of the crossing probability , * determine the shape of the tails of the crossing probability * combine together the information for body and tails , and reconstruct the total shape of the crossing probability .
+we need to recall that we consider the crossing probability as a function of the variable @xmath5 ( probability of a bond to be closed ) .
+it is easy to understand that we must take the pseudocritical point on the finite lattice @xmath35 as the reference point .
+the crossing probability is a symmetric function of the variable @xmath50 .
+this fact implies that the high temperature tail @xmath51 ( @xmath52 ) and the low temperature tail @xmath53 coincide @xmath54 . for the bond percolation on the dual lattice
+the position of the percolation point does not depend on the lattice size @xmath55  @xcite .    for the determination of @xmath35 for the ising and the potts model we use the following procedure .
+we can assume  @xcite that in the the fitting formula is true @xmath56^{\zeta(l , q)}).\ ] ] therefore we fit the logarithm of the crossing probability @xmath57 by the function @xmath58 namely @xmath59^{\zeta(l , q)},\ ] ] where @xmath60 .
+we plot the data for @xmath61 as a function of @xmath16 in fig .
+[ fig3]a ) , fig .
+[ fig3]b ) , fig .
+[ fig3]c ) , fig .
+[ fig3]d ) for @xmath1 respectively .
+the errorbars in these figures are about the symbol size .
+it seems , that behavior of @xmath61 near @xmath2 is parabolic .
+results of the approximation are plotted in the same figures by lines .
+we shall see that there is a good agreement between the numerical data and the results of the approximation .
+but we see deviation at the point @xmath2 especially for @xmath11 . in the vicinity of @xmath2 real graphs
+are more smooth than fitting functions . finally for each pair of numbers
+@xmath62 we obtain four fitting parameters @xmath63 . here
+@xmath64 defines the crossing probability in the critical point , @xmath65 is a scaling variable , @xmath35 is the position of the pseudocritical point on the lattice @xmath40 , and @xmath66 is a scaling index .    in table
+[ tab1 ] we collect data for the logarithm of critical amplitude @xmath60 .
+the fitting parameter @xmath67 defines a vertical shift of graphs in fig .
+[ fig3]a)-[fig3]d ) from the zero level .
+.results of the approximation for the fitting parameter @xmath60 . [
+cols="^,^,^,^,^",options="header " , ]     [ tab11 ]
+using the dual lattice ( see  fig .  [ fig2 ] ) allows us to avoid finite size shift of the critical point for the bond percolation and to diminish it for spin models .
+the accuracy of definition of the critical point on the finite lattice play the principal role for the investigation of the tails scaling .
+the high quality of our approximation is proved by remarkable symmetry of the crossing probability with respect to the critical point @xmath2 . in fig .
+[ fig5 ] and fig .
+[ fig7 ] we can observe that the two branches @xmath68 and @xmath69 practically coincide .
+the two different scaling region of the crossing probability clearly seen in fig .
+[ fig1]a ) can explain the long time uncertainty about its shape . in ref.@xcite the scaling index for the percolation threshold for @xmath70 percolation model
+was found @xmath71 .
+this result coincides with our approximation of the body of the crossing probability for percolation @xmath72 . in more recent works  @xcite the tails region for percolation
+was investigated which is described by the scaling formula @xmath73 . the crossover form to gaussian - like behavior to slope @xmath74
+is observed in figures of ref.@xcite .
+it seems , near the critical point the behavior of the crossing probability is parabolic .
+the rounding happens in the interval @xmath75 .
+this interval is relatively small in comparison with regions of the body @xmath76 and tails @xmath77 as it can be seen in fig .
+[ fig7 ] .
+we have five fitting parameters @xmath78 , @xmath79 , @xmath80 , @xmath81 , @xmath82 in expressions  ( [ eq10 ] ) and  ( [ eq11 ] ) . in fig .
+[ fig7]a)-fig .
+[ fig7]d ) we see the crossover region between the body and the tails of the crossing probability . in this region
+the function @xmath83 touched the line @xmath84 .
+it means , that in some point @xmath26 the values of the functions are equal , therefore @xmath85 and first derivatives of this functions are equal too @xmath86 substituting @xmath81 from  eq .
+( [ eq16 ] ) in  eq .
+( [ eq15 ] ) we obtain expression for @xmath79 @xmath87 if the crossing probabilities at the critical points @xmath88 ( and logarithms @xmath78 ) can be calculated analytically by conformal field methods ( at least for the percolation it is possible )  @xcite then only four independent parameters @xmath79 , @xmath89 and @xmath80 , @xmath78 remain for the crossing probability .      * in accordance with scaling theory the finite size scaling of the crossing probabilities may be eliminated by introducing the scaling variable @xmath90 .
+the crossing probability as a function of @xmath22 does not depend on the lattice size @xmath40 . *
+the body of the crossing probability scales @xmath91 . *
+the tails of the crossing probabilities scales @xmath92 .
+the value of parameter @xmath93 is about 1 . *
+the finite size scaling for @xmath94 does not describe by the analytical value of the correlation length index @xmath95 .
+we obtain some scaling index @xmath96 .
+this index @xmath97 for the tails of the crossing probability ( see table  [ tab5 ] ) or @xmath98 for the body of the crossing probability ( see table  [ tab2 ] ) .

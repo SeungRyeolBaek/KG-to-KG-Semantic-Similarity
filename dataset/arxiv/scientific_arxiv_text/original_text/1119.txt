@@ -1,0 +1,167 @@
+a central open question in classical fluid dynamics is whether the incompressible three - dimensional euler equations with smooth initial conditions develop a singularity after a finite time .
+a key result was established in the late eighties by beale , kato and majda ( bkm ) .
+the bkm theorem @xcite states that blowup ( if it takes place ) requires the time - integral of the supremum of the vorticity to become infinite ( see the review by bardos and titi @xcite ) . many studies have been performed using the bkm result to monitor the growth of the vorticity supremum in numerical simulations in order to conclude yes or no regarding the question of whether a finite - time singularity might develop .
+the answer is somewhat mixed , see _
+e.g. _ references @xcite and the recent review by gibbon @xcite .
+other conditional theoretical results , going beyond the bkm theorem , were obtained in a pioneering paper by constantin , fefferman and majda @xcite .
+they showed that the evolution of the direction of vorticity posed geometric constraints on potentially singular solutions for the 3d euler equation @xcite .
+this point of view was further developed by deng , hou and yu in references @xcite and @xcite .
+an alternative way to extract insights on the singularity problem from numerical simulations is the so - called analyticity strip method @xcite . in this method the time is considered as a real variable and the space - coordinates
+are considered as complex variables .
+the so - called `` width of the analyticity strip '' @xmath5 is defined as the imaginary part of the complex - space singularity of the velocity field nearest to the real space .
+the idea is to monitor @xmath1 as a function of time @xmath6 .
+this method uses the rigorous result @xcite that a real - space singularity of the euler equations occurring at time @xmath7 must be preceded by a non - zero @xmath1 that vanishes at @xmath7 . using spectral methods @xcite , @xmath1
+is obtained directly from the high - wavenumber exponential fall off of the spatial fourier transform of the solution @xcite .
+this method effectively provides a `` distance to the singularity '' given by @xmath1 @xcite , which can not be obtained from the general bkm theorem .
+note that the bkm theorem is more robust than the analyticity - strip method in the sense that it applies to velocity fields that do not need to be analytic .
+however , in the present paper we will concentrate on initial conditions that are analytic . in this case
+, there is a well - known result that states : _ in three dimensions with periodic boundary conditions and analytic initial conditions , analyticity is preserved as long as the velocity is continuously differentiable _ ( @xmath8 ) _ in the real domain _ @xcite .
+the bkm theorem allows for a strengthening of this result : analyticity is actually preserved as long as the vorticity is finite @xcite .
+the analyticity - strip method has been applied to probe the euler singularity problem using a standard periodic ( and analytical ) initial data : the so - called taylor - green ( tg ) vortex @xcite .
+we now give a short review of what is already known about the tg dynamics .
+numerical simulations of the tg flow were performed with resolution increasing over the years , as more computing power became available .
+it was found that except for very short times and for as long as @xmath1 can be reliably measured , it displays almost perfect exponential decrease .
+simulations performed in @xmath9 on a grid of @xmath10 points obtained @xmath11 ( for @xmath6 up to @xmath12 ) @xcite .
+this behavior was confirmed in @xmath13 at resolution @xmath14 @xcite .
+more than @xmath15 years after the first study , simulations performed on a grid of @xmath16 points yielded @xmath17 ( for @xmath6 up to @xmath18 ) @xcite .
+if these results could be safely extrapolated to later times then the taylor - green vortex would never develop a real singularity @xcite .
+the present paper has two main goals .
+one is to report on and analyze new simulations of the tg vortex that are performed at resolution @xmath0 .
+these new simulations show , for the first time , a well - resolved change of regime , leading to a faster decay of @xmath1 happening at a time where preliminary @xmath3 visualizations show the collision of vortex sheets .
+that was reported in mhd for the so - called imtg initial data at resolution @xmath16 in reference @xcite . ]
+the second goal of this paper is to answer the following question , motivated by the new behavior of the tg vortex : how fast does the analyticity - strip width have to decrease to zero in order to sustain a finite - time singularity , consistent with the bkm theorem ?
+to the best of our knowledge , this question has not been formulated previously .    to answer this question
+we introduce a new bound of the supremum norm of vorticity in terms of the energy spectrum .
+we then use this bound to combine the bkm theorem with the analyticity - strip method .
+this new bound is sharper than usual bounds .
+we show that a finite - time blowup exists only if the analyticity - strip width goes to zero sufficiently fast at the singularity time .
+if a power - law behavior is assumed for @xmath1 then its exponent must be greater than some critical value .
+in other words , we provide a powerful test that can potentially rule out the existence of a finite - time singularity in a given numerical solution of euler equations .
+we apply this test to the data from the latest @xmath0 taylor - green numerical simulation in order to see if the change of behavior in @xmath1 can be consistent with a singularity .
+the paper is organized as follows : section [ sec : theo ] is devoted to the basic definitions , symmetries and numerical method related to the inviscid taylor - green vortex .    in sec .
+[ sec : numerics_classical ] , the new high - resolution taylor - green results are presented and are analyzed classically in terms of analyticity - strip method and bkm .    in sec .
+[ sec : as_bkm ] , the analyticity - strip method and bkm theorem are bridged together .
+the section starts with heuristic arguments that are next formalized in a mathematical framework of definitions , hypotheses and theorems .    in sec .
+[ sec : newanal ] , our new theoretical results are used to analyze the behavior of the decrement .
+section [ sec : conclusion ] is our conclusion .
+the generalization to non tg - symmetric periodic flows of the results presented in sec .
+[ sec : as_bkm ] are described in an appendix .
+let us consider the 3d incompressible euler equations for the velocity field @xmath19 defined for @xmath20 and in a time interval @xmath21 : @xmath22    the taylor - green ( tg ) flow @xcite is defined by the @xmath23-periodic initial data @xmath24 , where @xmath25    the periodicity of @xmath26 allows us to define the ( standard ) fourier representation @xmath27    the kinetic energy spectrum @xmath28 is defined as the sum over spherical shells @xmath29 and the total energy @xmath30 is independent of time because @xmath26 satisfies the 3d euler equations ( [ eq : euler ] ) .
+a number of the symmetries of @xmath31 are compatible with the equation of motions .
+they are , first , rotational symmetries of angle @xmath32 around the axis @xmath33 and @xmath33 ; and of angle @xmath34 around the axis @xmath35 .
+a second set of symmetries corresponds to planes of mirror symmetry : @xmath36 , @xmath37 and @xmath38 . on the symmetry planes , the velocity @xmath31 and
+the vorticity @xmath39 are ( respectively ) parallel and perpendicular to these planes that form the sides of the so - called impermeable box which confines the flow .
+it is demonstrated in reference @xcite that these symmetries imply that the fourier expansions coefficients of the velocity field in eq . @xmath40
+vanishes unless @xmath41 are either all even or all odd integers .
+this fact can be used in a standard way @xcite to reduce memory storage and speed up computations .
+the euler equations are solved numerically using standard @xcite pseudo - spectral methods with resolution @xmath42 .
+time marching is done with a second - order runge - kutta finite - difference scheme .
+the solutions are dealiased by suppressing , at each time step , the modes for which at least one wave - vector component exceeds two - thirds of the maximum wave - number @xmath43 ( thus a @xmath0 run is truncated at @xmath44 ) .
+the simulations reported in this paper were performed using a special purpose symmetric parallel code developed from that described in @xcite .
+the workload for a timestep is ( roughly ) twice that of a general periodic code running at a quarter of the resolution .
+specifically , at a given computational cost , the ratio of the largest to the smallest scale available to a computation with enforced taylor - green symmetries is enhanced by a factor of @xmath45 in linear resolution .
+this leads to a factor of @xmath46 savings in total computational time and memory usage .
+the code is based on fftw and a hybrid mpi - openmp scheme derived from that described in @xcite .
+the runs were performed on the idris bluegene / p machine . at resolution @xmath0 we used @xmath47 mpi processes , each process spawning @xmath45 openmp threads .
+( see eq . ) at @xmath48 and b ) maximum of vorticity @xmath49 .
+results from runs performed at different resolutions are displayed together : @xmath50 ( brown triangles ) , @xmath51 ( blue squares ) , @xmath16 ( green diamonds ) and @xmath0 ( red circles).,height=377 ]      runs were performed at resolutions @xmath50 , @xmath51 , @xmath16 and @xmath52 .
+the behavior of the energy spectra and the spatial maximum of the norm of the vorticity @xmath53 are presented in fig .
+[ fig : energy_spectra_maxvort ] .     visualization of tg vorticity @xmath54 at resolution @xmath0 : a ) full impermeable box @xmath55 , @xmath56 and @xmath57 at @xmath58 .
+zooms over the subbox marked near @xmath59 , @xmath60 are displayed in b ) at @xmath61 , in c ) at @xmath58 and in d ) at @xmath62.,height=359 ]    it is apparent in fig .
+[ fig : energy_spectra_maxvort](a ) that resolution - dependent even - odd oscillations are present , at certain times , on the tg energy spectrum .
+note that this behavior is produced when the tail of the spectrum rises above the round - off error @xmath63 .
+this phenomenon can be explained in terms of a _ resonance _
+@xcite , along the lines developed in reference @xcite . in practice
+we will deal with this problem by averaging the spectrum over shells of width @xmath64 .
+apart from this it can be seen that spectra computed using different resolutions are in good agreement for all times .
+in contrast , it is visible in fig .
+[ fig : energy_spectra_maxvort](b ) that the maximum of vorticity @xmath49 computed at different resolutions are in agreement only up to some resolution - dependent time ( see the inset ) . the fact that @xmath49 at a given time @xmath65 decreases if one truncates the higher wavenumbers of the velocity field ( see fig .
+[ fig : energy_spectra_maxvort](b ) ) strongly suggests that @xmath49 has significant contributions coming from high - wavenumbers modes .
+this forms the basis of the heuristic argument presented below in sec .
+[ subsec : heur ] .
+figure [ fig : vort_3d_viz ] shows @xmath3 visualizations ( using the vapor software ) of the high vorticity regions in the impermeable box , corresponding to the @xmath0 run at late times .
+a thin vortex sheet is apparent in fig.[fig : vort_3d_viz](a ) on the vertical faces @xmath66 , @xmath32 and @xmath67 , @xmath32 of the impermeable box .    the emergence of this thin vortex sheet is well understood by simple dynamical arguments about the flow on the faces of the impermeable box that were first given in reference @xcite .
+we now briefly review these arguments .
+the initial vortex on the bottom face is first forced by centrifugal action to spiral outwards toward the edges and then up the side faces .
+a corresponding outflow on the top face and downflow from the top edges onto the side faces leads to a convergence of fluid near the horizontal centreline of each side face , from where it is forced back into the centre of the box and subsequently back to the top and bottom faces .
+the vorticity on the side faces is efficiently produced in the zone of convergence , and builds up rapidly into a vortex sheet ( see figs . 1 and 2 of reference @xcite and fig
+. 8 of reference @xcite ) .
+while these considerations explain the presence of the thin vortex sheet in fig.[fig : vort_3d_viz](a ) , the dynamics presented in fig.[fig : vort_3d_viz](b - d ) also involves the collision of vortex sheets happening near the edge @xmath59 , close to @xmath60 .
+note that , as stated above in sec .
+[ subsec : symm ] , the vortex lines are perpendicular to the faces of the impermeable box .
+thus , because the collision takes place near an edge , the corresponding vortex lines must be highly curved , with strong variations of the direction of vorticity .
+the geometric constraints on potential singularities posed by the evolution of the direction of vorticity developed in references @xcite could be applied to the situation described in fig .
+[ fig : vort_3d_viz ] .
+however , such an analysis goes beyond the bkm theorem and involves extensive post - processing of very large datasets .
+this task is thus left for further work and we concentrate here on simple bkm diagnostics for the vorticity supremum and analyticity strip analysis of energy spectra .
+the analyticity - strip method @xcite is based on the fact that when the velocity field is analytic in space the energy spectrum satisfies @xmath68 in the asymptotic ` ultraviolet region ' @xmath69 with a proportionality factor that may contain an algebraic decay in @xmath70 a multiplicative function of time and , depending on the complexity of the physical flow , even an oscillatory ( in @xmath71 ) modulation @xcite .
+( red markers ) ; times and fit intervals are indicated in the legend . ]
+the basic idea is thus to assume that @xmath28 can be well approximated by a function of the form @xmath72 in some wave numbers interval between @xmath73 and @xmath74 ( the maximum wavenumber permitted by the numerical resolution @xmath42 ) . the common procedure to determine @xmath75 is to perform a least - square fit at each time @xmath6 on the logarithm of the energy spectrum @xmath28 , using the functional form @xmath76 the error on the fit interval @xmath77 ,
+@xmath78 is minimized by solving the equations @xmath79 , @xmath80 and @xmath81 .
+note that these equations are linear in the parameters @xmath82 , @xmath83 and @xmath84    the transient oscillations of the energy spectrum observed at the highest wavenumbers ( see above fig .
+[ fig : energy_spectra_maxvort](a ) are eliminated by averaging the tg spectrum on shells of width @xmath64 before performing the fit @xcite .
+we present in fig .
+[ fig : fit_comp ] , examples of tg energy spectra fitted in such a way on the intervals @xmath85 , where @xmath86 denotes the beginning of round off noise .
+it is apparent that the fits are globally of a good quality .
+the time evolution of the fit parameters @xmath87 , @xmath88 and @xmath89 computed at different resolutions are displayed in fig .
+[ fig : fit_evolution ] .
+the measure of the fit parameters is reliable as long as @xmath1 remains larger than a few mesh sizes , a condition required for the smallest scales to be accurately resolved and spectral convergence ensured .
+thus the dimensionless quantity @xmath90 is a measure of spectral convergence .
+it is conventional @xcite to define a ` reliability time ' @xmath91 by the condition @xmath92 and to say that the numerical simulation is reliable for times @xmath93 .
+this reliability time can be extended only by increasing the spatial resolution available for the simulation , so the more computer power is available the larger is the reliability time .
+the resolution - dependent reliability condition is marked by the horizontal lines in fig .
+[ fig : fit_evolution](c ) . the exponential law @xmath94 that was previously reported at resolution @xmath16 in reference @xcite is also indicated in fig .
+[ fig : fit_evolution](c ) by a dashed black line .
+it is thus apparent that our lower - resolution results well reproduce the previous computations that were discussed above in sec .
+[ sec : intro ] ( see text preceding references @xcite ) . in table [ tab : table_rel ] , the reliability time obtained from the fit parameter @xmath88 of fig .
+[ fig : fit_evolution ] is compared with the reliability time stemming from the exponential behavior .
+.reliability time deduced from the exponential behavior compared with the reliability time obtained from the fit parameter @xmath88 of fig .
+[ fig : fit_evolution ] . [ cols="^,^,^",options="header " , ]     the results for exponent and predicted singular time of table [ tab : table_dels ] have to be read carefully . because of the local @xmath95-point method used to derive them from the data in table [ tab : table_int ] , they use the values of @xmath88 at @xmath96 , the last one being marginally reliable ( see sec.[sec : numefits ] ) . in fact , they amount to linear @xmath97-point extrapolation of the data in fig .
+[ fig : delta1 ] ( see the inset ) : @xmath7 is the intersection of the straight line extrapolation with the time axis and @xmath98 is the inverse of the slope .
+one can guess that there is room for a power - law type of behavior , with exponent @xmath99 if we consider the data at @xmath100 and @xmath101 if we include the data at @xmath102 .
+we now use corollary 11 ( see sec . [
+sec : as_bkm ] ) to test if these estimates of power - law are consistent with the hypothesis of finite - time singularity .
+there , the product @xmath103 must be greater than or equal to one if finite - time singularity is to be expected . with the conservative estimate @xmath104 obtained by inspection of fig .
+[ fig : fit_evolution](b ) ( or equivalently using the values of @xmath89 in table [ tab : table_int ] ) , we obtain that @xmath105 for the data at @xmath106 and @xmath58 , but @xmath107 for the data at @xmath102 .
+these results are insensitive to the fit interval , see table [ tab : table_dels ] .
+therefore , if the latest data is considered , corollary 11 can not be used to negate the validity of the hypothesis of finite - time singularity .
+however , there is no sign that the data values of @xmath98 and @xmath7 in table [ tab : table_dels ] are settling down into constants , corresponding to a simple power - law behavior .
+another piece of analysis consists of comparing the singular time predicted from the data for the decrement @xmath1 with the singular time predicted from the direct data for the vorticity supremum norm .
+they seem both to be close to @xmath108 ( compare table [ tab : table_dels ] to table [ tab : table_omegasup ] ) .    in this context
+, we should perhaps mention feynman s rule : `` never trust the data point furthest to the right '' , a comment attributed to richard feynman , saying basically that he would never trust the last points on an experimental graph , because if the people taking data could have gone beyond that , they would have .
+higher - resolution simulations are clearly needed to investigate whether the new regime is genuinely a power law and not simply a crossover to a faster exponential decay .
+our conclusion for this section is thus similar to that of sec .
+[ subsec : fit_methods_omegas ] : although our late - time reliable data for @xmath1 shows @xmath109 and is therefore not inconsistent with our corollary 11 , clear power - law behavior of @xmath1 is not achieved .
+in summary , we presented simulations of the taylor - green vortex with resolutions up to @xmath0 .
+we used the analyticity strip method to analyze the energy spectrum .
+we found that , around @xmath110 , a ( well - resolved up to @xmath111 ) change of regime is taking place , leading to a faster decay of the width of the analyticity strip @xmath1 . in the same time - interval
+, preliminary @xmath3 visualizations displayed a collision of vortex sheets . applying the bkm criterium to the growth of the maximum of the vorticity on the time - interval @xmath2 we found that the occurrence of a singularity around @xmath112 was not ruled out but that higher - resolution simulations were needed to confirm a clear power - law behavior for @xmath113 .
+we introduced a new sharp bound for the supremum norm of the vorticity in terms of the energy spectrum .
+this bound allowed us to combine the bkm theorem with the analyticity - strip method and to show that a finite - time blowup can exist only if @xmath1 vanishes sufficiently fast .
+applying this new test to our highest - resolution numerical simulation we found that the behavior of @xmath1 is not inconsistent with a singularity .
+however , due to the rather short time interval on which @xmath1 is both well - resolved and behaving as a power - law , higher - resolution studies are needed to investigate whether the new regime is genuinely a power law and not simply a crossover to a faster exponential decay .
+let us finally remark that our formal assumptions of section [ subsec : main_results ] are motivated and to some extent justified by the fact that , in systems that are known to lead to finite - time singularity , the analogous of the working hypothesis ( [ eq : fit_bound ] ) is verified .
+for the analogy to apply , a version of the bkm theorem must be available .
+this is the case of the @xmath73-d inviscid burgers equation for a real scalar field @xmath114 defined on the torus : @xmath115 , \,\forall \ , t \in [ 0,t_*),\ ] ] which admits a bkm - type of theorem @xcite , with singularity time @xmath7 defined by @xmath116 .    in the 1-d case ,
+the analogous of our bound is @xmath117    using the simple trigonometric initial data @xmath118 , the energy spectrum can be expressed in terms of bessel functions that admit simple asymptotic expansions .
+it is straightforward to show ( see @xcite for details ) that , for @xmath119 , one has the large-@xmath71 asymptotic expansion @xmath120 with @xmath121 while , at @xmath122 , @xmath123 in fact , the @xmath124 power law appears already before @xmath7 ( see the remark following eq .
+( 3 - 10 ) of reference @xcite ) .
+it is easy to check that the analytical solution admits , for all @xmath71 and for all @xmath6 sufficiently close to @xmath7 , a working hypothesis ( [ eq : fit_bound ] ) of the form @xmath125 with analytically - obtainable functions @xmath126 and @xmath127 with @xmath128 .
+the analogous of corollary [ cor : beta ] gives the inequality @xmath129 which is saturated by the analytically - obtained exponents @xmath130 , @xmath128 .
+we acknowledge useful scientific discussions with annick pouquet , uriel frisch and giorgio krstulovic who also helped us with the visualizations of fig . [
+fig : vort_3d_viz ] .
+the computations were carried out at idris ( cnrs ) .
+support for this work was provided by ucd seed funding projects sf304 and sf564 , and ircset ulysses project `` singularities in three - dimensional euler equations : simulations and geometry '' .
+here we provide the generalization to non tg - symmetric periodic flows of the results presented in section [ subsec : main_results ] . definition [ defn : spectrum ] and the working hypothesis ( hypothesis [ hypo : working ] ) are modified slightly in the general case .
+accordingly , the new bounds leading to lemma [ lem : main ] and theorem [ thm : main ] need to be modified slightly to accommodate the general case .
+the crucial derived relations between @xmath131 and @xmath132 in lemma [ lem : strong ] and corollaries [ cor : finite - time - sing ] and [ cor : beta ] will apply directly to the general periodic case and will not be discussed .
+the main technical difference is that the new bounds presented in section [ subsec : main_results ] apply for a flow with tg symmetries ( see section [ subsec : symm ] ) which imply that only modes with even - even - even and odd - odd - odd wavenumber components are populated .
+the general periodic case does not follow this restriction , which slightly modifies the bounds .
+we will assume , to simplify matters , that the so - called zero - mode of the velocity field is identically zero : @xmath133 + notice that all remaining wave numbers are populated .
+this means that all sums involving the scalar @xmath71 in equations ( [ eq : ineq_1 ] ) and ( [ eq : ineq_2_tyg ] ) will start effectively from @xmath134    also , because modes with mixed even - odd wavenumber components are allowed , the definitions of @xmath135 in lemma 2 and constant @xmath136 in equation ( [ eq : ineq_2_tyg ] ) must be replaced by more appropriate quantities .
+therefore , the corresponding general periodic versions of lemma [ lem : main ] ( equation ( [ eq : ineq_1 ] ) ) and practical bound ( equation ( [ eq : ineq_2_tyg ] ) ) are : + * lemma [ lem : main] ( general periodic version of lemma [ lem : main ] ) . *
+_ let @xmath137 be a velocity field with energy spectrum defined by equation ( [ eq : spectrum ] ) and let @xmath138 be its vorticity , defined on the periodicity domain @xmath139 ^ 3.$ ] then the following inequality is verified for all times @xmath21 when the sum in the rhs is defined , and independently of any evolution equation that @xmath140 might satisfy : _
+@xmath141 _ where @xmath142 is the number of lattice points in a spherical shell of width 1 and radius @xmath143 . _ + * practical bound , general case . *
+@xmath144 where @xmath145 .
+we can easily check that the bounds for taylor - green , equations ( [ eq : ineq_1 ] ) and ( [ eq : ineq_2_tyg ] ) , are sharper ( by a factor close to 2 ) to their respective general bounds , equations ( [ eq : ineq_1_gp ] ) and ( [ eq : ineq_2_gp ] ) .    finally , theorem [ thm : main ] is replaced by + * theorem [ thm : main]. * _ let a solution of the 3d euler equations satisfy the working hypothesis ( [ eq : fit_bound ] ) with @xmath146 included .
+then the maximal regularity time @xmath7 of the solution must satisfy _ @xmath147

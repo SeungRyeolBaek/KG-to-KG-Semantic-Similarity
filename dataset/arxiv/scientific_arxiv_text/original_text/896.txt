@@ -1,0 +1,622 @@
+a shift of finite type ( sft ) is a dynamical system defined by finitely many local transition rules .
+these systems have been studied for their own sake @xcite , and they have also served as important tools for understanding other dynamical systems @xcite .
+each sft can be described as the set of bi - infinite sequences on a finite alphabet that avoid a finite list of words over the alphabet .
+thus , there are only countably many sfts up to the naming of letters in an alphabet .    for the sake of simplicity , we state our results in terms of sfts in the , even though we prove more general results in terms of sequences of directed graphs in the subsequent sections .
+let @xmath0 be a nonempty sft ( for definitions , see section [ sftpresentations ] ) .
+let @xmath1 be the set of words of length @xmath2 that appear in @xmath0 . for @xmath4 in @xmath8 $ ] , let @xmath9 be the probability measure on the power set of @xmath1 given by choosing each word in @xmath1 independently with probability @xmath4 .
+the case @xmath10 puts uniform measure on the subsets of @xmath1 . for notation ,
+let @xmath11 be the power set of @xmath1 .
+to each subset @xmath3 of @xmath1 , we associate the sft @xmath5 consisting of all points @xmath12 in @xmath0 such that each word of length @xmath2 in @xmath12 is contained in @xmath3 . with this association
+, we view @xmath9 as a probability measure on the sfts @xmath5 that can be built out of the subsets of @xmath1 . briefly ,
+if @xmath0 has entropy @xmath13 and @xmath2 is large , then a typical random sft @xmath5 is built from about @xmath14 words , an @xmath4 fraction of all the words in @xmath1 , but not all of these words will occur in any point in @xmath5 .
+our main results can be stated as follows .
+let @xmath15 denote the artin 
+mazur zeta function of @xmath0 ( see definition [ zetadefn ] ) .
+the first theorem deals with the likelihood that a randomly chosen sft is empty .
+[ emptythmintro ] let @xmath0 be a nonempty sft with entropy @xmath16 .
+let @xmath17 be the event that @xmath5 is empty .
+then for @xmath4 in @xmath8 $ ] , @xmath18$.}\ ] ]    thus , when @xmath4 is in @xmath19 , there is an asymptotically positive probability of emptiness .
+the next theorem gives more information about what happens when @xmath4 lies in @xmath20 .
+[ subcritthmintro ] let @xmath0 be a nonempty sft with entropy @xmath16 .
+let @xmath21 be the event that @xmath5 has zero entropy , and let @xmath22 be the random variable on @xmath11 which is the number of irreducible components of @xmath5 .
+then for @xmath23 ,    @xmath24 ;    the sequence @xmath25 converges in distribution to the random variable @xmath26 such that @xmath27 and for @xmath28 , @xmath29 where @xmath30 is an enumeration of the periodic orbits in @xmath0 ;    the random variable @xmath26 has exponentially decreasing tail and therefore finite moments of all orders .
+our next result describes the entropy of the typical random sft when @xmath4 lies in @xmath31 $ ] .
+[ entropythmintro ] let @xmath0 be an sft with positive entropy @xmath16 .
+then for @xmath32 and @xmath33 , @xmath34 and the convergence to this limit is exponential in @xmath2 .
+finally , we have a result concerning the likelihood that a random sft will have a unique irreducible component of positive entropy when @xmath4 is near  @xmath7 .    [ msftthmintro ]
+let @xmath0 be an irreducible sft with positive entropy@xmath35 .
+let @xmath36 be the event that @xmath5 has a unique irreducible component  @xmath37 of positive entropy and  @xmath37 has the same period as @xmath0 .
+then there exists @xmath38 such that for @xmath39 , @xmath40 furthermore , the convergence to this limit is exponential in @xmath2 .
+there have been studies of other objects called random subshifts of finite type in the literature @xcite , but the objects studied here are rather different in nature .
+the present work is more closely related to perturbations of sfts , which have already appeared in works by lind @xcite in dimension  @xmath7 and by pavlov @xcite in higher dimensions . in those works ,
+the main results establish good uniform bounds for the entropy of an sft obtained by removing any single word of length @xmath2 from a sufficiently mixing sft as @xmath2 tends to infinity .
+random sfts may also be interpreted as dynamical systems with holes @xcite , in which case the words of length  @xmath2 in @xmath0 that are forbidden in the random sft @xmath5 are viewed as ( random ) holes in the original system @xmath0 .
+the question of whether an sft defined by a  set of forbidden words is empty has been studied in formal language theory and automata theory , and in that context it amounts to asking whether the set of forbidden words is _ unavoidable _ @xcite .
+also , the random sfts considered here can be viewed as specific instances of random matrices ( see  @xcite ) or random graphs ( see @xcite ) , and the concept of directed percolation on finite graphs has appeared in the physics literature in the context of directed networks @xcite . to the best of our knowledge , the specific considerations that arise for our random sfts seem not to have appeared in any of this wider literature .
+the paper is organized as follows .
+section [ preliminaries ] contains the necessary background and notation , as well as some preliminary lemmas .
+the reader familiar with sfts and directed graphs may prefer to skip sections [ sftpresentations ] and  [ seqsgraphs ] , referring back as necessary . in section [ emptiness ]
+we discuss the likelihood that a  random sft is empty , and , in particular , we prove theorem [ emptythmintro ] .
+the remainder of the main results are split into two sections according to two cases : @xmath41 and @xmath42 $ ] .
+the case @xmath41 is treated in section [ subcriticalphase ] , and the case @xmath43 $ ] is addressed in section [ supercriticalphase ] .
+section [ remarks ] discusses some corollaries of the main results .
+for a detailed treatment of sfts and their presentations , see @xcite . in this section
+we describe three ways to present an sft : with a finite list of forbidden words over a finite alphabet , with a finite , directed graph , or with a square , nonnegative integer matrix .
+let @xmath44 be a finite set , which we will call the _ alphabet_. an element @xmath45 is called a _ word _ of length @xmath2 .
+let @xmath46 , endowed with the product topology induced by the discrete topology on @xmath44 .
+then @xmath47 is a compact metrizable space , which is called the _ full shift _ on @xmath48 .
+let @xmath49 be the left shift , that is , for @xmath50 in  @xmath47 , let @xmath51
+. with this definition @xmath52 is a  homeomorphism of @xmath47 .
+a subset @xmath0 of @xmath47 is called shift - invariant if @xmath53 . a closed , shift - invariant subset of @xmath47
+is called a _
+subshift_. for any subshift @xmath0 , the _ language _
+@xmath54 of @xmath0 is the collection of all finite words ( blocks ) that appear in some sequence @xmath12 in @xmath0 .
+note that @xmath55 , where @xmath1 is the set of all words of length @xmath2 that appear in some sequence @xmath12 in @xmath0 .
+[ by convention we set @xmath56 , where @xmath57 denotes the empty word . ]
+given a set @xmath58 of words on @xmath48 , we may define a subshift @xmath59 as the set of sequences @xmath12 in  @xmath47 such that no word in @xmath60 appears in @xmath12 .
+one may check that this procedure indeed defines a subshift . if @xmath0 is a subshift and there exists a _
+finite _ set of words @xmath61 such that @xmath62 , then @xmath0 is called a _ subshift of finite type _ ( sft ) .    the natural notion of isomorphism for sfts
+is called conjugacy .
+two sfts @xmath0 and @xmath63 are _ conjugate _ , written @xmath64 , if there exists a homeomorphism @xmath65 such that @xmath66 .
+an sft @xmath0 is _ irreducible _ if for every two nonempty open sets @xmath67 and @xmath68 and every @xmath69 in @xmath70 , there exists @xmath71 such that @xmath72 .
+an sft @xmath0 is _ mixing _ if for every two nonempty open sets @xmath67 and @xmath68 in @xmath0 , there exists @xmath73 in @xmath70 such that for all @xmath74 , we have @xmath72 . mixing and irreducibility are conjugacy - invariant .
+we now define the higher block presentations of an sft .
+[ higherblockdef ] let @xmath0 be an sft .
+the @xmath2-_block presentation _ of @xmath0 , denoted @xmath75}$ ] , is defined as follows .
+the alphabet for @xmath75}$ ] is @xmath1 .
+we define the code @xmath76 by the equation @xmath77\ ] ] for all @xmath12 in @xmath0 . then @xmath75 } = \phi_n(x)$ ] . for all @xmath78
+, we have that @xmath75 } \cong x$ ] , where the conjugacy is given by @xmath79 .
+the _ entropy _ of an sft @xmath0 is defined as @xmath80 .
+alternatively , one may define sfts in terms of finite directed graphs . a  directed graph @xmath81 consists of a set of vertices @xmath68 and a set of  edges  @xmath82 such that
+for each edge @xmath83 , there is a unique initial vertex , , and a unique terminal vertex , @xmath84 .
+we view the edge @xmath85 as going from  @xmath86 to  @xmath87 .
+we allow self - loops , but for the sake of convenience we assume ( without loss of generality for our considerations ) that there are no multiple edges . in this paper
+we make the standing convention that `` graph '' means directed graph .
+we will collect our standing assumptions in standing assumptions  [ stassump ] .
+[ edgeshiftdefn ] given a directed graph @xmath88 , we define the _ edge shift _
+@xmath89 to be the set of all bi - infinite ( oriented ) walks on @xmath88 , _ that is _ , @xmath90 .
+any edge shift is an sft ( trivially ) .
+let us show that any sft is conjugate to an edge shift .
+if @xmath91 is an sft and @xmath92 is a finite set of forbidden words , then @xmath93 , where @xmath81 is defined as follows .
+let @xmath94 .
+then let @xmath95 and @xmath96 .
+further , for any edge @xmath97 , we let @xmath98 $ ] and @xmath99 $ ] . the same construction works with @xmath2 in place of @xmath73 for any @xmath74 .    if @xmath88 is a graph such that @xmath93 , we say that @xmath89 is an edge presentation of @xmath0 , or sometimes just a presentation of @xmath0 . the _ adjacency matrix _
+@xmath100 of a  directed graph @xmath88 may be defined as follows .
+fix an enumeration of the vertices in @xmath88 .
+then let @xmath101 be the number of distinct edges @xmath85 in @xmath88 such that @xmath102 and @xmath103 .
+a square , nonnegative integral matrix @xmath100 is _ irreducible _ if for each pair @xmath104 and each @xmath69 , there exists @xmath105 such that @xmath106 .
+a  matrix @xmath100 is _ nondegenerate _ if it has no zero row and no zero column . if @xmath100 is nondegenerate , then the edge shift @xmath107 is irreducible if and only if @xmath100 is irreducible
+also , if @xmath100 is nondegenerate , then the edge shift  @xmath89 is mixing if and only if there exists @xmath73 such that for all @xmath74 and all pairs @xmath104 , it holds that @xmath108 .
+a matrix is _ primitive _ if it satisfies the latter property .
+a  path in @xmath88 is a finite sequence @xmath109 of edges such that @xmath110 for @xmath111 .
+if @xmath112 is a path in @xmath88 , we say that @xmath113 goes from vertex  @xmath114 to vertex @xmath115 .
+we denote by @xmath116 the set of paths of length @xmath117 in @xmath88 . by convention , we set @xmath118 .    for a path @xmath113 in @xmath88 ,
+let @xmath119 and @xmath120 be the set of vertices and the set of edges traversed by @xmath113 , respectively .
+let @xmath0 be an sft .
+an _ irreducible component _
+@xmath63 of @xmath0 is a nonempty , maximal sft contained in @xmath0 such that @xmath63 is irreducible .
+let  @xmath88 be a graph .
+an _ irreducible component _
+@xmath37 of @xmath88 is a nonempty , maximal subgraph of @xmath88 such that the adjacency matrix of @xmath37 is irreducible .
+the reader should be advised that in some papers the definition of irreducible component includes trivial components ( a single vertex with no edges adjacent to it ) , but the definition given here does not include trivial components .
+[ nblockgraphdefn ] let @xmath88 be a finite , directed graph . for @xmath78 , define @xmath121 } = ( v^{[n]},e^{[n]})$ ] , the @xmath2-_block graph _ of @xmath88 , as follows .
+let @xmath122 } = b_{n-1}(g)$ ] and @xmath123 } = b_{n}(g)$ ] , such that if @xmath124}$ ] , then @xmath125 $ ] and @xmath126 $ ] .
+note that @xmath127 } = g$ ] .
+if @xmath128 for some graph @xmath88 , then it follows immediately from the definitions that @xmath75 } = x_{g^{[n]}}$ ] .
+[ pthpowerdefn ] let @xmath81 be a graph .
+for @xmath129 in @xmath70 , we define the @xmath129th power graph , @xmath130 , as follows .
+let @xmath131 and @xmath132 .
+if @xmath133 is an edge in @xmath134 , then we let @xmath135 and @xmath136 .
+[ transposedefn ] let @xmath81 be a graph .
+define the transpose graph , @xmath137 , as follows .
+let @xmath138 and @xmath139 , where an edge @xmath85 in @xmath140 goes from @xmath87 to @xmath86 .
+in other words , the transpose graph is just the graph formed by reversing the direction of all the edges in @xmath88 .    given a square , nonnegative , integral matrix @xmath100
+, one may also define an sft @xmath141 as follows .
+let @xmath88 be a directed graph whose adjacency matrix is exactly @xmath100 ( such a graph always exists ) .
+then let @xmath141 be the edge shift defined by @xmath88 .
+recall the following basic facts ( which may be found in @xcite ) . for an sft @xmath0
+, we have @xmath142 . if @xmath0 is a nonempty sft and @xmath143 for a square , nonnegative integral matrix @xmath100 , then @xmath16 , where @xmath144 is the spectral radius of @xmath100 . by the perron  frobenius theorem ,
+if @xmath100 is nonnegative and irreducible , then there exists a strictly positive ( column ) vector @xmath145 such that @xmath146 , and there exists a strictly positive ( row ) vector  @xmath147 such that @xmath148 .
+furthermore , @xmath145 and @xmath147 are each unique up to a positive scalar .
+[ nonzerospec ] for any nonnegative integer matrix @xmath100 ,
+let @xmath149 be the spectral radius of @xmath100 , and let @xmath150 be the characteristic polynomial of @xmath100 .
+then let @xmath151 be the _ nonzero spectrum _ of the matrix @xmath100 , which is defined as the multiset of nonzero roots of @xmath150 listed according to their multiplicity .
+if  @xmath100 is the adjacency matrix of the graph @xmath88 , we define @xmath152 and @xmath153 .    if @xmath154 for two nonnegative integral matrices @xmath100 and @xmath155 , then @xmath156 . also , if @xmath100 is primitive , then @xmath157
+. finally , if @xmath100 is irreducible , then there exists a unique @xmath52-invariant borel probability measure @xmath158 on @xmath159 of maximal entropy .
+let us describe some basic properties of @xmath160 .
+we associate a word @xmath161 in @xmath0 to the cylinder set @xmath162 = b\}$ ] . in this way we interpret the measure of words in
+@xmath163 as the measure of the corresponding cylinder set .
+let @xmath145 be a positive right eigenvector of @xmath100 and @xmath147 a positive left eigenvector of @xmath100 , and suppose they are normalized so that @xmath164 . our standing assumption that there are
+no multiple edges means that @xmath165 for all @xmath104 .
+then for a vertex @xmath166 in  @xmath68 , we have @xmath167 , and for @xmath168 , we have that @xmath169    now we define two objects , the period and the zeta function , which contain combinatorial information about the cycles in a graph @xmath88 ( alternatively , one may refer to the periodic points in an sft @xmath0 ) .    [ perioddefn ] for an sft @xmath0 , let @xmath170 be the greatest common divisor of the sizes of all periodic orbits in @xmath0 . for a graph @xmath88 ,
+let @xmath171 be the greatest common divisor of the lengths of all cycles in @xmath88 .
+[ zetadefn ] let @xmath0 be an sft and @xmath172 .
+then the artin 
+mazur zeta function of @xmath0 ( see @xcite ) is , by definition , @xmath173 for a graph @xmath88 , let @xmath174 .    for a graph @xmath88 ,
+note that @xmath175 is the number of cycles of ( not necessarily least ) period @xmath129 in @xmath88 , and @xmath176 also , @xmath177 has radius of convergence @xmath178 and @xmath179 .      in this work
+we consider sequences of graphs @xmath180 that grow in some way .
+a particular example of such a sequence is the sequence of @xmath2-block graphs of an sft @xmath0 . indeed , by taking @xmath180 to be such a sequence in theorems [ emptythm ] , [ subcritthm ] , [ entropythm ] and [ msftthm ]
+, we obtain the theorems stated in the .
+generalizing to the graph setting also allows one to consider sequences of graphs presenting sfts which are conjugate to a fixed sft @xmath0 , where the sequences need not be the @xmath2-block sequence for @xmath0 . to indicate the generality of the arguments further , though , we formulate and prove the results for sequences of graphs that do not necessarily present conjugate sfts .
+before we move on to these results , we need to define several notions regarding the manner of growth of the sequence @xmath180 .
+let @xmath88 be a finite , directed graph with adjacency matrix @xmath100 .
+we will have use for the following notation .
+[ perdefn ] let @xmath181 for @xmath113 in @xmath182 , let @xmath183 be the set of all paths @xmath184 in @xmath182 such that there exists a natural number @xmath185 such that @xmath186 , where @xmath187 is the permutation of @xmath188 defined in cycle notation by @xmath189 .    for each vertex @xmath166 in @xmath88
+, let @xmath190 and @xmath191 .
+then let @xmath192    in order to measure the separation of periodic orbits in @xmath88 , we make the following definition .    [ defnofz ] let @xmath193 where @xmath119 is the set of vertices traversed by the path @xmath113 .    as a measure of the size of @xmath88 , we consider the following quantity .
+if @xmath100 has spectral radius @xmath194 , then let @xmath195    to measure a range for uniqueness of paths in @xmath88 , we make the following definitions .
+[ udefn ] let @xmath196    we use the transition length as a type of diameter of @xmath88 .
+let @xmath197    here we briefly recall the notion of the weighted cheeger constant of an irreducible , directed graph @xmath88 .
+the weighted cheeger constant was defined and studied in @xcite .
+let @xmath160 be the measure of maximal entropy of @xmath89 , and let @xmath198 $ ] be given by @xmath199 . for any vertex @xmath145 in @xmath68 , let @xmath200 . then for any subset of vertices @xmath201 , let @xmath202 , and for any two subsets @xmath203 , let @xmath204 in general , @xmath205 is not symmetric in @xmath206 and @xmath207 since @xmath88 is directed .
+let  @xmath208 be the set of edges @xmath85 in @xmath88 such that @xmath209 and @xmath210 .
+let @xmath211 .
+[ cheegerdefn ] the weighted cheeger constant of @xmath88 is defined as @xmath212 and the unweighted cheeger constant of @xmath88 is defined as @xmath213    [ uniformexpseqdef ] we say that @xmath88 is a directed @xmath113-expander graph if @xmath214 . also , a sequence of directed graphs @xmath180 is a _ uniform expander sequence _
+, if there exists a @xmath215 such that @xmath216 is a directed @xmath113-expander for each @xmath2 .
+we will also have use for the following quantity related to the spectral gap of  @xmath88 .
+[ spgapdefn ] let @xmath217 .
+we make the following standing assumptions , even though some of the statements we make may hold when these restrictions are relaxed . in particular , theorems [ emptythm ] and [ subcritthm ]
+do not require that @xmath218 is irreducible , nor do they require that @xmath194 ( see remark [ relaxrmk ] ) .
+[ stassump ] recall that `` graph '' means directedgraph . let @xmath180 be a sequence of graphs with an associated sequence of adjacency matrices @xmath219 .
+unless otherwise stated , we will make the following assumptions :    * for each @xmath2 , each entry of @xmath218 is contained in @xmath220 ; * each @xmath218 is irreducible ; * for each @xmath2 , @xmath221 ; * @xmath222 ; * @xmath223 .
+note that @xmath224 , which depends only on @xmath225 and @xmath129 .
+therefore , the standing assumptions imply that @xmath226 does not depend on @xmath2 , and , therefore , @xmath227 and @xmath228 do not depend on @xmath2 .
+additional conditions that we place on sequences of graphs will come from the following list .
+[ different theorems will require different assumptions , but the sequence of @xmath2-block graphs of an irreducible graph with spectral radius greater than @xmath7 will satisfy conditions ( c1)(c8 ) below by proposition [ highergraphseqlemma ] . ]    [ conditions ] we define the following conditions on a sequence of graphs @xmath180 with a sequence of adjacency matrices @xmath219 :    there exists @xmath229 such that @xmath230 for all @xmath2 ( bounded degree ) ;    @xmath231 tends to infinity as @xmath2 tends to infinity ( separation of periodic points ) ;    there exists @xmath232 such that @xmath233 for all @xmath2 ( fast separation of periodic points ) ;    there exists @xmath232 such that @xmath234 for all @xmath2 ( local uniqueness of paths ) ;    there exists @xmath235 such that @xmath236 for all @xmath2 ( small diameter ) ;    there exists @xmath237 such that @xmath238 for all  @xmath2 ( bounded distortion of vertices ) and @xmath239 for all @xmath2 ( bounded distortion of edges ) ;    there exists @xmath237 such that @xmath240 and @xmath241 for all @xmath2 , where @xmath242 is a positive left eigenvector of @xmath218 and @xmath243 is a positive right eigenvector of @xmath218 ( bounded distortion of weights ) ;    @xmath180 is a uniform expander sequence , and @xmath244 is a uniform expander sequence ( forward / backward expansion ) .
+now we establish some lemmas , which will be used in the subsequent sections .
+[ c7impliesc1c6 ] let @xmath180 be a sequence of graphs satisfying the standing assumptions [ stassump ] .
+then implies and for both @xmath180 and  @xmath244 .    first note that if ( c7 ) holds for  @xmath180 , then it also holds for  @xmath244 since a positive left eigenvector for @xmath245 is given by @xmath246 and a positive right eigenvector for @xmath245 is given by @xmath247 .
+therefore , we only need to show that  ( c7 ) for @xmath180 implies ( c1 ) and ( c6 ) for @xmath180 [ since the same argument will apply to @xmath244 ] .
+let @xmath242 and @xmath243 be positive left and right eigenvectors for @xmath218 , respectively , and assume that @xmath249 .
+recall with this normalization , if @xmath166 is a vertex in  @xmath250 , then @xmath251 .
+then condition ( c7 ) implies that there exists @xmath252 such that for all @xmath2 , @xmath253 similarly , ( c7 ) implies that there exists @xmath254 such that for all @xmath2 , we have that @xmath255 [ recall that @xmath256 .
+thus ,  ( c7 ) implies ( c6 ) .
+note that for @xmath85 in @xmath257 , we have that @xmath258 then condition ( c7 ) implies that there exists a uniform constant @xmath252 such that @xmath259 for all @xmath2 and all @xmath85 in @xmath257 .
+we also have that @xmath260 since @xmath216 is irreducible ( by standing assumptions [ stassump ] ) , we know that @xmath261 , and , therefore , we have that for any @xmath2 , and any @xmath166 in @xmath250 , @xmath262 which implies that @xmath263 is uniformly bounded in @xmath2 .
+a similar argument shows that @xmath264 is uniformly bounded in @xmath2 , which shows that @xmath265 is uniformly bounded in @xmath2 and gives ( c1 ) .
+recall that for a graph @xmath88 , the quantities @xmath266 and @xmath267 were defined in definitions [ spgapdefn ] and [ cheegerdefn ] , respectively .
+[ mixexplemma ] let @xmath88 be a graph with primitive adjacency matrix @xmath100 .
+then it holds that @xmath268 .
+this lemma is a consequence of @xcite , theorems 4.3 and 5.1 , as we now explain .
+since @xmath100 is primitive , there exists a strictly positive vector  @xmath145 and @xmath269 such that @xmath146 .
+let @xmath270 be the stochastic matrix defined by @xmath271 .
+then @xmath270 is the transition probability matrix corresponding to the random walk defined by the measure of maximal entropy @xmath160 on @xmath89 .
+we have that @xmath272 .
+given such a transition probability matrix , chung defines a laplacian @xmath273 and proves  ( @xcite , theorem 4.3 ) , that the smallest nonzero eigenvalue of @xmath273 , denoted  @xmath274 , satisfies the following inequality : @xmath275 we remark that the left - hand side of the inequality in @xcite , theorem 4.3 , is equal to the left - hand side of ( [ chung4.3 ] ) since @xmath100 is primitive ( not just irreducible ) .
+note that the left - hand side of ( [ chung4.3 ] ) equals @xmath266 , as defined in definition  [ spgapdefn ] . after defining the weighted cheeger constant ( as in definition [ cheegerdefn ] ) , chung proves ( @xcite ,  theorem  5.1 ) , that @xmath276 combining the inequalities in ( [ chung4.3 ] ) and ( [ chung5.1 ] ) , we obtain the desired inequality .
+recall that the @xmath129th power graph was defined in definition [ pthpowerdefn ] .
+[ irrexplemma ] let @xmath88 be a graph with an irreducible adjacency matrix .
+let @xmath277 .
+let @xmath278 be an irreducible component of @xmath134 , the @xmath129th power graph of @xmath88 .
+let @xmath279 ( which does not depend on the choice of irreducible component in @xmath134 ) .
+then there exists @xmath280 , depending only on @xmath281 and @xmath129 , such that @xmath282 .
+let @xmath88 , @xmath129 and @xmath281 be as in the statement of the lemma . if @xmath283 , then lemma [ mixexplemma ] immediately gives the result .
+now we assume @xmath284 .
+the fact that @xmath88 is irreducible and @xmath285 implies that there is a partition of the vertices into @xmath129 nonempty subsets , @xmath286 , such that for each edge @xmath85 with @xmath287 , it holds that @xmath288 , where the superscripts are taken modulo @xmath129 .
+let @xmath289 ( definition [ edgeshiftdefn ] ) , and for each @xmath290 , let @xmath291 .
+for any set @xmath292 with @xmath293 and @xmath290 , define @xmath294 recall that we denote by @xmath160 the measure of maximal entropy on @xmath0 , and we may write @xmath267 as follows : @xmath295 we also use the following notation : @xmath296    let us establish a useful inequality . for @xmath297 and @xmath298 , note that each point @xmath12 in @xmath299 also lies in @xmath300 for @xmath301 .
+thus , @xmath302    to complete the proof , we will find @xmath215 in terms of @xmath281 and @xmath129 so that for @xmath292 with @xmath293 , we have that @xmath303 the bound @xmath113 will be the minimum of four bounds , each coming from a  particular type of set @xmath292 .
+consider the following conditions on the set @xmath206 , which we will use to break our proof into cases :    there exists @xmath304 such that @xmath305 ;    @xmath306 for each @xmath307 , or @xmath308 for each @xmath307 ;    @xmath309 for each @xmath307 .
+now we consider cases .
+_ case _ : ( i ) holds , _ that is _ , there exists @xmath304 such that @xmath310 .
+assume first that @xmath311 , which implies that @xmath312 .
+choose @xmath313 such that @xmath314 , and finally choose @xmath315 such that @xmath316 ( @xmath317 ) .
+then by inequality ( [ csestimate ] ) and the shift - invariance of  @xmath160 , we have that @xmath318 now assume @xmath319 .
+choose @xmath313 such that @xmath320 , and finally choose @xmath298 such that @xmath321 ( @xmath322 ) . then by ( [ csestimate ] ) and the shift - invariance of @xmath160 , @xmath323 let @xmath324 , and note that if condition ( i ) holds , then the inequality in  ( [ sboundeqn ] ) holds with @xmath325 in place of @xmath113 .
+_ case _ : ( i ) does not hold , but ( ii ) holds , _ that is _ , @xmath326 for all @xmath307 , or @xmath327 for all @xmath307 .
+assume first that @xmath328 for all @xmath307 .
+since @xmath329 and @xmath330 for all @xmath307 , there exists @xmath313 such that @xmath331 .
+then by ( [ csestimate ] ) and the definition of @xmath332 in ( [ r_idefn ] ) , @xmath333 let @xmath334 be the irreducible component of @xmath134 with vertex set @xmath335 . then @xmath334 has primitive adjacency matrix , and @xmath336 .
+lemma [ mixexplemma ] gives that @xmath337 .
+since @xmath338 and @xmath339 , we have that @xmath340 , and , thus , @xmath341 let @xmath342 .
+we have shown that for @xmath206 such that @xmath343 for each  @xmath307 , the inequality in ( [ sboundeqn ] ) holds with @xmath344 in place of @xmath113 .
+for @xmath206 such that @xmath345 for each @xmath307 , choose @xmath313 such that @xmath346 .
+then an analogous argument gives that the inequality in ( [ sboundeqn ] ) holds with @xmath344 in place of @xmath113 .
+_ case _ : ( iii ) holds , _ that is _ , @xmath347 for all @xmath307 .
+a simple calculation yields that @xmath348 and @xmath349 for each @xmath307 . using ( [ csestimate ] ) , we see that for each  @xmath313 , @xmath350\\[-8pt ] & \geq & \frac{1}{3p } \cdot\frac { \mu(c_s^j \cap\sigma^{-p } { \hspace*{1pt}\overline}{c}{}^j_s ) } { \mu(c_s^j ) } \nonumber\end{aligned}\ ] ] and @xmath351\\[-8pt ] & \geq&\frac{1}{3p } \cdot \frac { \mu(c_s^j \cap\sigma^{-p } { \hspace*{1pt}\overline}{c}{}^j_s ) } { \mu(\overline { c}_s^j ) } .\nonumber\end{aligned}\ ] ] then since @xmath334 has a primitive adjacency matrix , lemma [ mixexplemma ] and inequalities ( [ caseiiiestimatei ] ) and ( [ caseiiiestimateii ] ) give that the inequality in ( [ sboundeqn ] ) holds with @xmath352 in place of  @xmath113 .
+_ case _ : each of ( i ) , ( ii ) and ( iii ) does not hold , _ that is _ , we assume that @xmath206 is such that @xmath353 for each @xmath307 , there exists @xmath354 and @xmath355 such that @xmath356 and @xmath357 , and there exists @xmath358 such that either @xmath359 or @xmath360 .
+suppose first that @xmath359 .
+choose @xmath313 such that @xmath361 , and choose @xmath315 such that @xmath362 ( @xmath322 ) .
+calculation gives that @xmath363 .
+then by ( [ csestimate ] ) and the shift - invariance of @xmath160 , @xmath364 now assume @xmath360 .
+choose @xmath313 such that @xmath365 and choose @xmath315 such that @xmath366 ( @xmath322 ) .
+calculation reveals that @xmath367
+. then by ( [ csestimate ] ) and the shift - invariance of @xmath160 , @xmath368 let @xmath369 .
+we have shown that for @xmath206 in this case , the inequality in ( [ sboundeqn ] ) holds with @xmath370 in place of @xmath113 .
+now let @xmath371 , which depends only on @xmath281 and @xmath129 .
+we have shown that @xmath372 .
+recall that the transpose graph @xmath140 of a graph @xmath88 was defined in definition  [ transposedefn ] .
+[ unifexplemma ] let @xmath180 be a sequence of graphs satisfying the standing assumptions [ stassump ] and such that both @xmath180 and @xmath244 have bounded degrees and bounded distortion of edges and vertices [ conditions and in definition  [ conditions ] ] .
+then @xmath180 and @xmath244 are both uniform expander sequences [ condition in definition [ conditions ] ] .
+we check that conditions ( c1 ) and ( c6 ) for @xmath180 together imply that @xmath180 is a uniform expander sequence , and then the same argument will apply to @xmath244 since ( c1 ) and ( c6 ) also hold for @xmath244 .
+recall the following notation .
+let @xmath373 $ ] be given by @xmath199 , where @xmath160 is the measure of maximal entropy on @xmath374 .
+also , @xmath375 denotes the weighted cheeger constant of @xmath216 ( definition [ cheegerdefn ] ) . by the standing assumptions  [ stassump ] , @xmath376 for each @xmath2 .
+therefore , @xmath227 does not depend on @xmath2 , and we let @xmath377 .
+let @xmath378 be an irreducible component of the @xmath129th power graph of @xmath216 , and let @xmath379 .
+since @xmath380 only depends on the nonzero spectrum of @xmath216 , which is constant in @xmath2 by the standing assumptions [ stassump ] , we have the @xmath380 is constant in @xmath2 .
+let @xmath381 .
+by lemma [ irrexplemma ] , there exists @xmath382 , depending only @xmath380 and @xmath227 , such that @xmath383 .
+since we have that @xmath384 and @xmath385 for all @xmath2 , we may choose @xmath386 , and we obtain that @xmath387 for all @xmath2 .
+now we relate @xmath375 to @xmath388 ( definition [ cheegerdefn ] ) using properties ( c1 ) and  ( c6 ) . for notation ,
+let @xmath389 .
+since @xmath180 satisfies conditions ( c1 ) and  ( c6 ) , there exists @xmath390 such that for every @xmath2 and every subset @xmath391 , @xmath392 and @xmath393 , which implies that for every @xmath206 such that @xmath394 , @xmath395 now assume @xmath396 . if @xmath397 , then @xmath398 , @xmath399 . if @xmath398 , @xmath400 , then we have@xmath398 , @xmath401 .
+combining these estimates gives that for all @xmath206 such that @xmath402 , we obtain that @xmath403 which shows that @xmath180 is a uniform @xmath404-expander sequence .
+[ implicationslemma ]
+let @xmath180 be a sequence of graphs satisfying the standing assumptions [ stassump ] and bounded distortion of weights [ condition in definition  [ conditions ] ] .
+then :    there exists @xmath237 such that for all @xmath2 , @xmath117 and @xmath405 , @xmath406    there exists a @xmath237 such that for all @xmath2 , @xmath117 , @xmath407 , and @xmath405 , @xmath408 where @xmath409 ;    there exists @xmath237 such that for all @xmath2 , @xmath117 , and @xmath410 , it holds that @xmath411 , where @xmath412 ;    there exists @xmath237 such that for all @xmath2 , @xmath413 , and @xmath414 , it holds that @xmath415 , where @xmath416 and @xmath417 was defined in definition [ udefn ] .    for notation ,
+let @xmath389 and @xmath418 .
+_ proof of _ ( 1 ) .
+we have that @xmath419 then condition ( c7 ) implies that there exists @xmath420 such that for each @xmath2 and @xmath166 in  @xmath250 , @xmath421 by the definition of @xmath422 , there exists @xmath423 such that @xmath424 such that for each @xmath2 and @xmath166 in  @xmath250 , @xmath425 then ( c7 ) implies that there exists @xmath426 such that for any @xmath2 and any three vertices @xmath166 , @xmath427 and @xmath428 in @xmath250 , @xmath429 finally , we conclude that there exists @xmath430 such that for each @xmath2 , @xmath117 and @xmath113 in @xmath431 , we have that @xmath432 the statement in ( 1 ) follows .    _ proof of _ ( 2 ) .
+the statement in ( 2 ) follows from the statement in ( 1 ) and the fact that @xmath433
+.    _ proof of _ ( 3 ) .
+note that from ( 1 ) we have that there exists @xmath252 such that @xmath434 since @xmath225 does not depend on @xmath2 by our standing assumptions [ stassump ] , we have that @xmath435 does not depend on @xmath2 .
+clearly , @xmath436 is bounded as @xmath437 tends to infinity .
+therefore , there exists @xmath438 such that @xmath439 as desired .
+_ proof of _ ( 4 ) . by ( 2 )
+, we have that there exists @xmath420 such that for all @xmath2 , @xmath440 , and @xmath166 in @xmath250 , @xmath441 by ( 2 ) , there exists @xmath423 such that for all @xmath2 , @xmath442 , and @xmath166 in @xmath250 , @xmath443 by definition of the uniqueness parameter @xmath67 , each path in @xmath444 can be continued in at most one way to form a path in @xmath445 .
+therefore , with @xmath446 , we have that for all @xmath2 , @xmath447 , and @xmath166 in @xmath250 , @xmath448    [ highergraphseqlemma ] let @xmath449 be a graph with irreducible adjacency matrix  @xmath450 having entries in @xmath220 and spectral radius @xmath451 .
+let @xmath452}$ ] for @xmath453 .
+then the sequence @xmath180 satisfies the standing assumptions [ stassump ] and conditions .
+moreover ,    @xmath454 for all @xmath2 ;    there exists @xmath235 such that @xmath455 for all @xmath2 ;    @xmath456 for all @xmath2 ;    @xmath457 for all @xmath2 ;    @xmath458 for all @xmath2 .
+one may easily check from the definitions that each @xmath218 has entries in @xmath220 , each @xmath218 is irreducible , and @xmath376 .
+we show below that @xmath459 tends to infinity as @xmath2 tends to infinity , which gives that  @xmath180 satisfies the standing assumptions [ stassump ] .
+the set of in - degrees that appear in @xmath216 is constant in @xmath2 , and so is the set of out - degrees that appear in @xmath216 .
+therefore , @xmath460 , which implies condition ( c1 ) .    by definition ,
+since @xmath462}$ ] , we have that @xmath463 . by the standard perron  frobenius theory , there exist constants  @xmath464 and @xmath465 such that @xmath466 .
+it follows that there exists a  constant @xmath235 such that @xmath467 , and , in particular , @xmath459 tends to infinity .
+recall the higher - block coding map @xmath468 ( see definition [ higherblockdef ] ) .
+if @xmath12 is a point in @xmath469 , then let @xmath470 be the set of vertices in @xmath216 traversed by @xmath471 .
+let us show that @xmath472 .
+recall fine and wilf s theorem  @xcite , which can be stated as follows .
+let @xmath12 be a periodic sequence with period @xmath129 , and @xmath473 be a periodic sequence with period @xmath474 .
+if @xmath475 = y[i+1,i+n]$ ] for @xmath476 and @xmath307 in @xmath477 , then @xmath478 .
+it follows from this theorem that if @xmath12 and @xmath473 lie in distinct periodic orbits of  @xmath469 and have periods less than or equal to @xmath479 , then @xmath480 .
+thus , @xmath472 , and , in particular , @xmath180 satisfies conditions ( c2 ) and ( c3 ) .
+note that the map @xmath79 gives a bijection between @xmath431 and @xmath481 for all @xmath482 . using this map
+, we check that @xmath457 as follows . for any two paths @xmath483 ,
+there is at most one path of length @xmath484 in @xmath449 of the form @xmath485 ( since every edge in such a path is specified by either  @xmath113 or @xmath184 ) .
+this fact implies that @xmath486 .
+now if @xmath113 is in @xmath487 and @xmath488 are given , then there is at most one path @xmath184 in @xmath489 such that @xmath490=b$ ] and @xmath491 = c[t , t+n-2]$ ] ; indeed , if @xmath184 is such a path , then @xmath490 $ ] is determined by @xmath113 , and @xmath492 $ ] is determined by the periodicity condition @xmath491=c[t , t+n-2]$ ] .
+this fact implies that @xmath493 , and , thus , we have that @xmath457 , which , in particular , gives condition ( c4 ) .
+let us check that @xmath458 , which will imply that @xmath180 satisfies condition ( c5 ) .
+the statement that @xmath494 is equivalent to the statement that for any two paths @xmath495 , there exists a path @xmath496 in @xmath449 of length less than or equal to @xmath497 such that @xmath498 is a path in @xmath449 . in this formulation ,
+the statement is clearly true , since , by the definition of  @xmath497 , there is a path @xmath496 from @xmath499 to @xmath500 of length less than or equal to  @xmath497 , and then the concatenation @xmath498 gives a path in @xmath449 .
+let @xmath501 be a positive left ( row ) eigenvector for @xmath450 ( corresponding to the eigenvalue @xmath144 ) , and let @xmath502 be a positive right ( column ) eigenvector for  @xmath450 ( corresponding to the eigenvalue @xmath503 ) .
+let @xmath504 .
+then let @xmath505 and @xmath506 .
+then @xmath242 is a positive left eigenvector for @xmath218 and @xmath243 is a positive right eigenvector for @xmath218 .
+it follows that @xmath180  conditions  ( c6 ) and ( c7 ) .
+in fact , to satisfy ( c7 ) , we may choose @xmath507 , where @xmath508 and @xmath509 .
+condition ( c8 ) follows from the fact that @xmath180 satisfies condition ( c7 ) ( by applying lemmas [ c7impliesc1c6 ] and [ unifexplemma ] in succession ) .
+let @xmath510 be the probability space consisting of the set @xmath511 and the probability measure @xmath9 , where @xmath9 is the product of the bernoulli measures on each coordinate with parameter @xmath512 $ ] .
+there is a natural partial order on @xmath510 , given by the relation @xmath513 if and only if @xmath514 for @xmath515 .
+we say that a random variable @xmath516 on @xmath510 is _ monotone increasing _ if @xmath517 whenever @xmath513 .
+an event @xmath100 is monotone increasing if its characteristic function is monotone increasing .
+monotone decreasing is defined analogously .
+monotone random variables and events have been studied extensively @xcite ; however , we require only a small portion of that theory .
+in particular , we will make use of the following proposition , a proof of which may be found in @xcite .
+[ fkg ] if @xmath0 and @xmath63 are monotone increasing random variables on @xmath511 , then @xmath518 .
+it follows easily from the fkg inequality that if @xmath519 is a finite intersection of monotone decreasing events , then @xmath520 ( use induction and note that if @xmath521 is the characteristic function of the monotone decreasing event  @xmath522 , then @xmath523 is monotone increasing ) .
+in fact , we only use this corollary , but we nonetheless refer to it as the fkg inequality .    for a finite , directed graph @xmath88 , we consider the discrete probability space on the set @xmath524 , where @xmath9 is the product of the bernoulli(@xmath4 ) measures on each coordinate
+. the set @xmath525 corresponds to the power set of @xmath82 in the usual way : @xmath3 in @xmath525 corresponds to the set @xmath522 in @xmath526 such that @xmath85 is in @xmath522 if and only if @xmath527 .
+furthermore , @xmath525 corresponds to the space of subgraphs of @xmath88 : for @xmath3 in @xmath525 , define the subgraph @xmath528 to have vertex set  @xmath68 and edge set @xmath529 , where an edge @xmath85 in @xmath82 is included in @xmath530 if and only if @xmath531 .
+in the percolation literature , the edges @xmath85 such that @xmath531 are often called `` open , '' and the remaining edges are called `` closed . ''
+since we are interested in studying edge shifts defined by graphs , we will refer to an edge  @xmath85 as `` allowed '' when @xmath531 and `` forbidden '' when @xmath532 .
+finally , each  @xmath3 in @xmath525 can be associated to the sft @xmath5 defined as the set of all bi - infinite , directed walks on @xmath88 that traverse only _ allowed _ edges ( with respect to @xmath3 ) .
+the probability measure @xmath9 corresponds to allowing each edge of @xmath88 with probability @xmath4 , independently of all other edges . for the sake of notation
+, we suppress the dependence of @xmath9 on the graph @xmath88 .    in this work
+we consider the following conjugacy invariants of sfts .
+let  @xmath533 be the property containing only the empty shift .
+let  @xmath534 be the property containing all sfts with zero entropy . by convention
+, we let @xmath535 . for any sft @xmath0 ,
+let @xmath536 be the topological entropy , and let @xmath537 be the number of irreducible components of @xmath0 .
+if @xmath0 is nonempty , let @xmath538 be defined by the equation @xmath539 .
+if @xmath0 is empty , let @xmath540 .
+if @xmath541 is a property of sfts and @xmath88 is a finite directed graph , then let @xmath542 be the set of @xmath3 in @xmath525 such that @xmath5 has property @xmath541 . if @xmath543 is a  function from sfts to the real numbers and @xmath88 is a finite directed graph , then let @xmath544 be the function @xmath545 .
+recall that @xmath546 , @xmath177 and @xmath547 were defined in definitions [ nonzerospec ] , [ zetadefn ] and [ defnofz ] , respectively .
+[ emptythm ] let @xmath180 be a sequence of graphs such that @xmath376 for all @xmath2 and either @xmath548 or @xmath549 and @xmath231 tends to infinity as @xmath2 tends to infinity .
+. then @xmath551$.}\ ] ]    [ emptyrmk ] theorem  [ emptythmintro ] can be obtained as a corollary of theorem  [ emptythm ] by taking @xmath180 to be the sequence of @xmath2-block graphs of @xmath0 . indeed , if the sft @xmath0 in theorem [ emptythmintro ] has zero entropy , then @xmath552 , and the conclusion of theorem [ emptythmintro ] follows from case ( i ) in theorem  [ emptythm ] .
+if the sft @xmath0 in theorem  [ emptythmintro ] has positive entropy , then @xmath194 and @xmath231 tends to infinity by the exact same argument in the proof of proposition [ highergraphseqlemma](iii ) , and , therefore , the conclusion of theorem [ emptythmintro ] follows from case ( ii ) in theorem [ emptythm ] .    in this section
+we provide a proof of theorem [ emptythm ] . before proceeding with the proof , we state a fact that will be useful in the investigations that follow .
+recall that for a path @xmath113 , we denote by @xmath119 the set of vertices traversed by  @xmath113 .
+[ perlemma ] suppose @xmath88 is a directed graph .
+suppose @xmath113 is in @xmath553 such that @xmath554 .
+then there exists a path @xmath184 in @xmath553 such that @xmath555 and @xmath556 .
+let @xmath145 be in @xmath119
+. then there exists a return path to @xmath145 following  @xmath113 , and we may choose a shortest return path @xmath184 to @xmath145 using only vertices in  @xmath119 .
+then @xmath184 is in @xmath553 and @xmath555 , as desired .
+proof of theorem [ emptythm ] recall that an sft is nonempty if and only if it contains a periodic point ( see @xcite ) .
+first , assume that case ( i ) holds , which means that @xmath552 .
+in this case , each @xmath374 contains finitely many orbits .
+further , the number of periodic orbits of each period in @xmath374 is constant , and the probability of each periodic orbit being allowed in @xmath5 is constant .
+therefore , the conclusion follows immediately , since the sequence @xmath557 is constant .
+now assume that case ( ii ) holds .
+for the moment , consider a fixed natural number @xmath2 .
+let @xmath558 be an enumeration of the periodic orbits of @xmath374 such that if @xmath559 , then @xmath560 .
+let @xmath561 .
+let @xmath562 be the vertices in @xmath216 traversed in the orbit @xmath563 and let @xmath564 be the edges in  @xmath216 traversed in the orbit @xmath563 .
+now for each @xmath313 , let @xmath565 be the event that @xmath563 is allowed , which is the event that all of the edges in @xmath564 are allowed .
+let @xmath566 be the event that @xmath563 is forbidden , which is @xmath567 , the complement of @xmath565 .
+notice that @xmath565 is a monotone increasing event ( if @xmath3 is in @xmath565 and @xmath568 , then @xmath569 is in @xmath565 ) , and @xmath566 is a  monotone decreasing event . the fact that an sft is nonempty if and only if it contains a periodic point implies that @xmath570 .    combining the definition of @xmath231 and lemma [ perlemma ]
+, we obtain that if @xmath571 , then @xmath572 .
+it follows that @xmath573 for each  @xmath307 such that @xmath574 .
+furthermore , the definition of @xmath231 implies that the events @xmath575 such that @xmath574 are all jointly independent .
+these observations give that @xmath576    using lemma [ perlemma ] , we see that there is great redundancy in the intersection  @xmath519 . eliminating some of this redundancy ,
+we obtain the following : @xmath577 then using lemma [ perlemma ] again and the fact that @xmath578 , we see that the intersection on the right in ( [ infinitecaptofinite ] ) is actually a finite intersection . applying the fkg inequality
+, we obtain that @xmath579    combining the inequalities in ( [ emptyupperbd ] ) , ( [ emptyupperbd2 ] ) , ( [ emptylowerbd1 ] ) and ( [ emptylowerbd2 ] ) gives that for each @xmath2 , @xmath580    by the standing assumptions that @xmath581 , we have that @xmath582 is independent of @xmath2 .
+since @xmath231 and @xmath583 tend to infinity as  @xmath2 tends to infinity , equation ( [ emptycombinedbds ] ) gives that @xmath584 then theorem [ emptythm ] follows from the well - known product formula for @xmath585 ( see  @xcite ) , which may be stated as @xmath586 along with the fact that @xmath587 converges for @xmath588 and diverges to @xmath589 for @xmath590 .
+in this section we study random sfts in the subcritical phase : @xmath591 .
+the main result of this section is theorem  [ subcritthm ] .
+let us fix some notation for this section .
+we consider a sequence of graphs  @xmath180 such that @xmath581 and @xmath231 tends to infinity as @xmath2 tends to infinity , with @xmath592 and @xmath550 .
+since @xmath376 , there exist shift - commuting bijections @xmath593 .
+in other words , there exist bijections @xmath79 from the set of cyclic paths in @xmath449 to the set of cyclic paths in @xmath216 such that if @xmath113 is in @xmath594 , then @xmath595 is @xmath596 .
+if @xmath113 is in @xmath553 , then we refer to @xmath183 ( recall definition [ perdefn ] ) as a cycle . using the fixed bijections @xmath79
+, we may refer to a cycle @xmath597 as being in @xmath216 for any @xmath2 .
+we fix an enumeration of the cycles in @xmath449 , @xmath598 , and then since the bijections  @xmath79 are fixed , this choice simultaneously gives enumerations of all the cycles in each @xmath216 . for any @xmath599 in @xmath70 , let @xmath600 .
+let us begin with a lemma .
+[ finiteirrcomplemma ] let @xmath180 be a sequence of graphs such that @xmath376 and @xmath231 tends to infinity as @xmath2 tends to infinity , with @xmath592 and @xmath601 .
+given a nonempty , finite set @xmath206 in @xmath70 , let @xmath602 be the event that the set of allowed cycles is @xmath603 .
+then @xmath604$.}\ ] ]    the proof of lemma [ finiteirrcomplemma ] is an easy adaptation of the proof of theorem  [ emptythm ] , and we omit it for the sake of brevity .
+recall that @xmath537 denotes the number of irreducible components in the sft @xmath0 , and for any graph @xmath88 , the random variable @xmath605 is defined by the equation @xmath606 .
+[ subcritthm ] let @xmath180 be a sequence of graphs such that @xmath376 and either @xmath607 or @xmath549 and @xmath231 tends to infinity as @xmath2 tends to infinity .
+let @xmath550 .
+then for @xmath608 ,    @xmath609 ;    the sequence @xmath610 converges in distribution to the random variable  @xmath26 such that @xmath611 and for @xmath28 , @xmath612 where @xmath30 is an enumeration of the cycles in @xmath449 ;    the random variable @xmath26 has exponentially decreasing tail and therefore finite moments of all orders .    one obtains theorem  [ subcritthmintro ] as a consequence of theorem  [ subcritthm ] by taking @xmath180 to be the sequence of @xmath2-block graphs of a nonempty sft @xmath0 . indeed , if the sft @xmath0 in theorem [ subcritthmintro ] has zero entropy , then @xmath552 , and the conclusions of theorem [ subcritthmintro ] follow from the case ( i ) in theorem [ subcritthm ] .
+if the sft @xmath0 in theorem  [ subcritthmintro ] has positive entropy , then @xmath194 and @xmath231 tends to infinity by the exact same argument in the proof of proposition  [ highergraphseqlemma](iii ) , and , therefore , the conclusions of theorem [ subcritthmintro ] follow from case ( ii ) in theorem  [ subcritthm ] .
+proof of theorem [ subcritthm ] let @xmath180 be as above .
+let @xmath613 .
+first , assume that case ( i ) holds , which means that @xmath552 .
+conclusion ( 1 ) follows immediately , since for each @xmath2 , we have that @xmath614 [ the random sft @xmath5 satisfies @xmath615 . also , the fact that @xmath552 is equivalent to the fact that @xmath449 ( and therefore @xmath216 ) contains only finitely many cycles . then conclusions ( 2 ) and
+( 3 ) also follow immediately , since the sequence @xmath616 is constant .
+now assume that case ( ii ) holds . recall that we have an enumeration @xmath617 of the cycles in @xmath449 , which we refer to as an enumeration of the cycles in @xmath216 , for any  @xmath2 , using the bijections @xmath79 . also recall that for any nonempty , finite set @xmath618 , we denote by @xmath602 the event in @xmath619 consisting of all @xmath3 such that the set of cycles in @xmath620 is exactly @xmath621 .
+_ proof of _ ( 1 ) . recall that an sft has zero entropy if and only if it has at most finitely many periodic points @xcite .
+then we have that @xmath622 also note that by the definition of @xmath602 , the union in ( [ zeroentunion ] ) is a disjoint union .
+thus , we have that @xmath623 be distinct , nonempty , finite subsets of @xmath70 .
+then by theorem  [ emptythm ] and lemma [ finiteirrcomplemma ] , we have that @xmath624 since @xmath625 and @xmath626 were arbitrary , we conclude that @xmath627 using the facts that @xmath628 and @xmath629 ( which implies that the relevant infinite products and series converge uniformly ) , one may easily check that @xmath630 thus , we have shown that @xmath631 . since @xmath632 , we conclude that @xmath633 .
+_ proof of _ ( 2 ) .
+since @xmath616 takes values in @xmath634 , the sequence @xmath610 converges in distribution to @xmath26 if and only if @xmath635 converges to @xmath636 for each @xmath117 in @xmath634 .
+note that @xmath637 if and only if @xmath3 is in @xmath638 , which implies that @xmath639 .
+thus , for @xmath629 , theorem [ emptythm ] implies that@xmath640 converges to @xmath641 as @xmath2 tends to infinity .
+now let @xmath117 be in @xmath70 . recall that @xmath642 is an enumeration of the cycles in @xmath449 , and we have fixed bijections between these cycles and the cycles in each @xmath216 . by theorem [ subcritthm](1 ) , we have that @xmath643 , and , therefore , @xmath644 , where @xmath645 tends to @xmath646 as @xmath2 tends to infinity .
+thus , we need only focus on events of the form @xmath647 for some @xmath117 . now if @xmath3 is in  @xmath648 , then @xmath649 is the number of periodic orbits in  @xmath650 .
+thus , @xmath651    for any @xmath2 in @xmath70 , let @xmath652 .
+for @xmath117 in @xmath70 and @xmath2 in @xmath70 , let @xmath653 we have that @xmath654 , and , therefore , @xmath655 by theorem [ subcritthm](1 ) . also , using lemma [ finiteirrcomplemma ] , we have that @xmath656 , where @xmath657 and for @xmath117 in @xmath70 , @xmath658 further , we have that @xmath659 .
+it follows from these facts that @xmath660 .
+thus , we have shown that for @xmath117 in @xmath70 , @xmath661 as desired .
+_ proof of _ ( 3 ) . for @xmath117 in @xmath70 ,
+let @xmath662 we show that there for any real number @xmath663 , there exists @xmath664 such that @xmath665 for all @xmath666 .
+let @xmath667 .
+since @xmath629 , we have that @xmath668 now choose @xmath664 such that @xmath669 in the following sums , we will use that any set @xmath618 with @xmath670 can be written as @xmath671 , where @xmath672 . note that in this case @xmath673 .
+then for @xmath666 we have @xmath674 since @xmath629 , we have that @xmath675 , and we conclude that @xmath665 for all @xmath666 .
+we recognize the distribution of @xmath26 as the sum of countably many independent bernoulli trials , where the probability of success of trial @xmath676 is given by @xmath677 for some enumeration @xmath678 of the cycles in @xmath449 ( or any @xmath216 ) .
+we record some facts about this distribution in the following corollary .    with the same hypotheses as in theorem [ subcritthm ] ,
+the characteristic function of @xmath26 is given by @xmath679 where the product is over all periodic orbits in @xmath0 .
+it follows that the moment generating function of @xmath26 is given by @xmath680    in theorems [ emptythm ] and [ subcritthm ] , we assert the existence of various limits to certain values . beyond the bounds given in our proofs
+, we do not know at which rates these sequences converge to their limits .
+in this section we study random sfts in the supercritical phase .
+the main results are theorems [ entropythm ] and [ msftthm ] . on a  first reading
+, the reader may prefer to skip section [ itsection ] and refer back to it as necessary .
+our proof of theorem [ entropythm ] relies , in part , on showing that with large probability the number of allowed words of length @xmath117 in a random sft is close to @xmath681 , for a particular choice of @xmath117 . in our proof , we choose  @xmath117 to be polynomial in @xmath389 for two reasons .
+first , we need @xmath117 to dominate  @xmath422 , so that the @xmath117th root of the number of words of length @xmath117 gives a  good upper bound on the perron eigenvalue of the random sft .
+second ,  @xmath117 should be subexponential in @xmath422 , essentially because most paths in @xmath216 with length subexponential in @xmath422 are self - avoiding , and we need good bounds on the probability of paths of length @xmath117 that exhibit `` too - soon - recurrence . '' for context , we recall a result of ornstein and weiss @xcite .
+in fact , their result is quite general , but we only recall it in a very specific case .
+let @xmath0 be an irreducible sft with measure of maximal entropy @xmath160 .
+for @xmath12 in @xmath0 , let @xmath682 be the first return time ( greater than 0 ) of @xmath12 to the cylinder set @xmath683 $ ] under  @xmath52 .
+then the result of ornstein and weiss implies that for @xmath160-a.e .
+@xmath12 in @xmath0 , @xmath684 .
+it follows from this result that for @xmath117 polynomial in @xmath2 , the @xmath160-measure of the set of words of length @xmath117 with a repeated @xmath2-word tends to @xmath646 . in the following lemmas ,
+we give some quantitative bounds on the @xmath160-measure of the set of paths of length @xmath117 in @xmath216 with @xmath685 repeated edges , where the important point for our purposes is that the bounds improve exponentially as @xmath313 decreases .
+to get these bounds , we employ some of the language and tools of information theory . after getting a handle on the @xmath160-measure of paths in @xmath216 with certain self - intersection properties , our assumption that @xmath180 satisfies condition ( c7 ) in definition [ conditions ] implies that the @xmath160-measure on paths is the same as the counting measure up to uniform constants .      in keeping with the convention of information theory , @xmath686 denotes the base @xmath687 logarithm of @xmath12 .
+a binary @xmath2-_code _ on an alphabet @xmath48 is a mapping @xmath688 , where @xmath689 is the set of all finite words on the alphabet @xmath220 .
+we may refer to such mappings simply as codes .
+a code is _ faithful _ if it is injective .
+the function that assigns to each @xmath147 in @xmath690 the length of the word  @xmath691 is called the _ length function _ of the code , and it will be denoted by @xmath692 when the code is understood . a  code is a _ prefix code _ if whenever  @xmath691 is a prefix of @xmath693 .
+a _ shannon code _ with respect to a  measure  @xmath694 on  @xmath695 is a  code such that @xmath696 .
+we note that for a measure @xmath694 on @xmath695 , there is a prefix shannon code on  @xmath695 with respect to @xmath694 @xcite
+. we will also require the following two lemmas from information theory .
+[ maininfotheorylemma ] let @xmath48 be an alphabet .
+let @xmath697 be a prefix - code on @xmath695 , and let @xmath160 be a shift - invariant borel probability measure on @xmath698 .
+then @xmath699    let @xmath700 .
+then for any @xmath147 in @xmath155 , we have that @xmath701 . the kraft inequality for prefix codes
+( @xcite , page 73 ) states that since @xmath692 is a prefix code , @xmath702 .
+hence , @xmath703    [ eliaslemma ] there is a prefix code @xmath704 such that @xmath705 , where @xmath706 is the length of @xmath707 .
+a prefix code satisfying the conclusion of lemma [ eliaslemma ] is called an _
+elias code_.    recall that if @xmath113 is a path in the graph @xmath81 , then we denote by @xmath120 the set of edges traversed by @xmath113 .
+let @xmath180 be a sequence of graphs satisfying our standing assumptions [ stassump ] .
+[ ndef ] for each @xmath2 , @xmath117 , and @xmath708 , let @xmath709    [ ddef ] for each @xmath2 , @xmath117 , and @xmath710 , let @xmath711    [ qdef ] for each @xmath2 , @xmath117 , and @xmath708 , let @xmath712    [ sdef ] for each @xmath2 , @xmath117 , and @xmath710 , let @xmath713    for any of the sets defined in definitions [ ndef][sdef ] , we use a `` hat '' to denote the set with `` @xmath714 '' replaced by `` @xmath715 '' in the definition .
+for example , @xmath716 the `` hat '' notation will only appear in the proof of theorem [ entropythm ] .
+the following four lemmas find bounds on @xmath717 , @xmath718 , @xmath719 and @xmath720 .
+the following lemma bounds the @xmath160-measure ( and therefore the cardinality ) of the set of paths of length @xmath117 in @xmath216 that traverse at most @xmath721 edges .
+the proof relies on a general principle in information theory ( made precise by lemma [ maininfotheorylemma ] ) : a set of words that can be encoded `` too efficiently '' must have small measure . in order to use this principle , we find an efficient encoding of the paths of length @xmath117 in @xmath216 that traverse at most @xmath313 edges .
+the basic observation behind the coding is trivial : a path of length @xmath117 that only traverses @xmath722 edges must have @xmath685 repeated edges .
+therefore , instead of encoding each of the @xmath685 repeated edges explicitly , we simply encode some combinatorial data that specifies when `` repeats '' happen and when the corresponding edges are first traversed .
+[ manyrepeatslemma ] let @xmath180 be a sequence of graphs satisfying the standing assumptions [ stassump ] and such that @xmath180 has local uniqueness of paths and bounded distortion of weights [ conditions and in definition [ conditions ] ] . then there exists a polynomial @xmath723 and @xmath73 such that for each @xmath74 , @xmath413 and @xmath708 , @xmath724 and @xmath725    consider @xmath180 , @xmath2 , @xmath117 and @xmath313 as in the hypotheses
+. let @xmath726 and @xmath418 .
+a path @xmath113 in @xmath727 from vertex @xmath599 to vertex @xmath728 contributes @xmath729 to @xmath730 .
+the condition ( c7 ) gives a uniform constant @xmath731 such that @xmath732 is bounded below by @xmath733 .
+therefore , the bound on @xmath717 follows from the bound on @xmath734 , since @xmath735 [ as in lemma  [ implicationslemma](1 ) ] .
+we now proceed to show the bound on @xmath730 .
+let @xmath736 .
+consider @xmath113 in @xmath727 .
+then there exists @xmath737 such that @xmath738 for some @xmath739 , for each @xmath740 , where @xmath741 .
+now we define a set @xmath742 by induction .
+let @xmath743 and @xmath744 .
+assuming by induction that @xmath745 and @xmath746 have been defined and that @xmath747 , we define @xmath748 and @xmath749 as follows :    * if @xmath750 , let @xmath751 ; * otherwise , if @xmath752 , then let @xmath753    let @xmath754 .
+this induction procedure terminates when @xmath755 for some @xmath756 , and we denote this terminal @xmath313 by @xmath757 .
+let @xmath758 .
+note that for each @xmath759 , we have that @xmath760 it follows that @xmath761 .
+having defined the set @xmath762 , we now decompose the integer interval @xmath763 into subintervals .
+first , let @xmath764 let @xmath765 be the maximal disjoint subintervals ( with singletons allowed ) of @xmath188 such that @xmath766 and @xmath767 .
+note that @xmath768 be the maximal disjoint subintervals of @xmath188 such that :    * @xmath769 for each @xmath770 ; * @xmath771 ; * and for each @xmath772 , we have that @xmath773 is nonempty and @xmath774 .    in summary , we have that @xmath775 , and only @xmath776 may be empty .
+for any @xmath777 , let @xmath778 .
+by lemma [ implicationslemma](3 ) , there exists a uniform constant @xmath464 such that @xmath779    for notation , if @xmath780 is a subset of @xmath781 , then @xmath782 is @xmath113 restricted to @xmath780 .
+since @xmath160 is a @xmath7-step markov on @xmath374 , we have that @xmath783\\[-10pt ] & & { } \times\prod_{\ell= 2}^{n+1 } \mu ( b_{i_{\ell } } | a_{s_1,t_1 } \cap b_{i_1 { \cdots}j_{\ell-1 } } ) \nonumber\\[-2pt ] \label{decompofmu2 } & = & \mu ( b_{i_1 } | a_{s_1,t_1 } ) \prod_{\ell= 1}^{n } \mu ( b_{j_{\ell } }    b_{i_1 { \cdots}j_{\ell-1}}).\end{aligned}\ ] ]    given @xmath113 , we may form @xmath784 , @xmath785 , @xmath773 and @xmath786 as above , and then we encode @xmath113 as follows :    encode @xmath787 and @xmath788 using an elias code ;    encode @xmath789 using a prefix shannon code with respect to @xmath790 ;    assuming @xmath791 has been encoded , we encode @xmath792 by encoding @xmath784 and  @xmath785 for each @xmath307 in @xmath762 such that @xmath793 , using an elias code ( and note that this  information completely determines @xmath792 by definition of @xmath67 and construction of  @xmath625 ) ;    assuming @xmath794 has been encoded , we encode @xmath795 using a prefix shannon code with respect to latexmath:[$\mu ( \cdot     now we analyze the performance of the code . since the code is a concatenation of prefix codes , it is a prefix code .
+since @xmath67 tends to infinity as @xmath2 tends to infinity [ by ( c4 ) ] and @xmath442 , there exists @xmath73 such that for @xmath74 and @xmath797 , the length of the codeword in the elias encoding of @xmath599 is less than or equal to @xmath798 .
+then we have , neglecting bits needed to round up , @xmath799 combining ( [ decompofmu1 ] ) , ( [ decompofmu2 ] ) and ( [ lengthofcode ] ) , we have that @xmath800 now by lemma [ implicationslemma](2 ) and ( 3 ) , there exist uniform constants @xmath465 and @xmath801 such that @xmath802 by construction , @xmath803 , @xmath804 and @xmath805
+. then by lemma [ maininfotheorylemma ] , there exists a uniform constant @xmath806 such that @xmath807 letting @xmath808 , for some uniform constant @xmath809 , we obtain that @xmath810 which completes the proof .
+the following lemma bounds the @xmath811-measure ( and therefore the cardinality ) of the set of pairs paths of length @xmath117 in @xmath216 that share at least one edge and together traverse at most @xmath812 edges .
+the general strategy of encoding pairs of paths using combinatorial data and appealing to information theory is similar to that of lemma [ manyrepeatslemma ] .
+lemma [ masterdoublelemma ] involves the additional hypothesis that there exists a uniform bound @xmath813 such that for any pair of paths @xmath814 in @xmath216 , there exists a path @xmath815 in @xmath216 with @xmath816 . using this hypothesis
+, one observes that pairs of paths can essentially be concatenated in @xmath216 and then treated as single paths as in lemma  [ manyrepeatslemma ] .
+[ masterdoublelemma ] let @xmath180 be a sequence of graphs satisfying the standing assumptions [ stassump ] and such that @xmath180 has local uniqueness of paths , small diameter and bounded distortion of weights [ conditions , and in definition [ conditions ] ] .
+then there exists a polynomial @xmath817 and @xmath818 such that for @xmath819 , @xmath820 and @xmath710 , @xmath821 and @xmath822    consider @xmath180 , @xmath2 , @xmath117 and @xmath313 as in the hypotheses .
+let @xmath726 , @xmath823 and @xmath824 .
+note that the bound on @xmath718 follows from the bound on @xmath825 , since condition ( c7 ) implies that there exists a  uniform constant @xmath731 such that @xmath826 [ as in lemma  [ implicationslemma](1 ) ] .
+we now proceed to show the bound on @xmath825 .    by the definition of @xmath813 , for every pair @xmath827
+, there exists a path @xmath828 in @xmath216 such that @xmath829 and @xmath498 is in @xmath830 .
+we choose a single such @xmath828 for each pair @xmath831 , and we choose a ( possibly empty ) path @xmath832 such that @xmath833 is in @xmath834 ( whose existence is guaranteed by the fact that @xmath216 is irreducible ) .
+if @xmath835 , then @xmath836 is in @xmath837 . using condition ( c5 )
+, we have that @xmath838 for a uniform constant @xmath37 .
+then we have that there exist uniform constants @xmath464 , @xmath465 and @xmath801 such that for each @xmath2 , each @xmath117 and each pair @xmath831 in @xmath839 , @xmath840 thus , lemma [ manyrepeatslemma ] implies that there exists a polynomial @xmath723 and @xmath73 such that for @xmath74 , @xmath841 with @xmath842 and @xmath843 for a uniform constant @xmath844 , we have @xmath845 which completes the proof .    the following two lemmas ( lemmas [ doubleperrepeatslemma ] and [ manydoubleperrepeatslemma ] ) give bounds on the measure ( and therefore the cardinality ) of the set of pairs of periodic paths in @xmath216 with certain overlap properties .
+the general ideas are similar to those in lemmas [ manyrepeatslemma ] and [ masterdoublelemma ] , but in order to get precise bounds on the relevant sets , we exploit the fact that these sets consist of pairs of periodic paths . in other words ,
+when we encode paths using their pattern of `` repeats , '' we also take into account their assumed periodicity .
+[ doubleperrepeatslemma ] let @xmath180 be a sequence of graphs satisfying the standing assumptions [ stassump ] and bounded distortion of weights [ condition in definition  [ conditions ] ] .
+then there exists a polynomial @xmath846 and @xmath847 such that for each @xmath848 and @xmath849 , @xmath850 and @xmath851    consider @xmath180 , @xmath2 and @xmath117 as in the hypotheses .
+let @xmath389 and @xmath418 .
+note that the bound on @xmath719 follows from the bound on @xmath852 , since condition ( c7 ) implies that there exists a uniform constant @xmath731 such that @xmath853 [ as in lemma [ implicationslemma](1 ) ] .
+we now proceed to show the bound on @xmath852 .
+let @xmath113 be in @xmath854 .
+let @xmath85 be in @xmath855 .
+for @xmath856 , let @xmath857 be the set of paths @xmath184 of length @xmath117 in @xmath216 such that @xmath858 .
+then lemma [ implicationslemma ] [ parts ( 1 ) and ( 4 ) ] implies that there exist uniform constants @xmath464 and @xmath465 such that @xmath859 let @xmath37 be the set of paths @xmath184 of length @xmath117 in @xmath216 such that @xmath860
+. then @xmath861 , and by shift - invariance of @xmath160 , @xmath862 since @xmath863 was arbitrary , it follows from inequality ( [ aboveinequality1 ] ) that @xmath864 since @xmath865 was arbitrary , we conclude that there exists a uniform constant @xmath801 such that @xmath866 where the last inequality follows from lemma [ implicationslemma](4 ) .
+this inequality completes the proof .
+[ manydoubleperrepeatslemma ] let @xmath180 be a sequence of graphs satisfying the standing assumptions [ stassump ] and such that @xmath180 has local uniqueness of paths , small diameter and bounded distortion of weights [ conditions , and in definition [ conditions ] ] .
+then there exists a polynomial @xmath867 and @xmath868 such that for @xmath869 , @xmath413 and @xmath710 , @xmath870 and @xmath871    consider @xmath180 , @xmath2 , @xmath117 and @xmath313 as in the hypotheses .
+let @xmath872 , @xmath418 and @xmath824 .
+note that the bound on @xmath720 follows from the bound on @xmath873 , since condition ( c7 ) implies that there exists a  uniform constant @xmath731 such that @xmath874 [ as in lemma  [ implicationslemma](1 ) ] .
+we now proceed to show the bound on @xmath873 .
+let @xmath85 be in @xmath257 and let @xmath875 be the set of paths @xmath113 of length @xmath117 in @xmath216 such that @xmath876 .
+then it follows from lemma [ implicationslemma](4 ) that there exists a uniform constant @xmath464 such that @xmath877 to each pair @xmath831 in @xmath878 , let us associate a particular path of length @xmath879 in @xmath216 , which we construct as follows .
+let @xmath831 be in @xmath878 . by definition of @xmath878
+, there is at least one edge @xmath85 in @xmath880 .
+let @xmath187 be the cyclic permutation of @xmath188 of order @xmath117 given by @xmath881 .
+let @xmath187 act on periodic paths of length @xmath117 in @xmath216 by permuting the indices : @xmath882 .
+then let @xmath883 be in @xmath884 .
+similarly , let @xmath885 be in @xmath886 .
+now choose a path @xmath828 in @xmath216 such that @xmath887 and @xmath888 is a path in @xmath216 ( the existence of such a path @xmath828 is guaranteed by the definition of @xmath813 ) .
+by irreducibility of @xmath216 , we also choose a ( possibly empty ) path @xmath832 in @xmath216 such that @xmath889 is in @xmath890 .
+we associate the path @xmath889 to the pair @xmath831 , and note that there exist uniform constants @xmath465 , @xmath801 and @xmath844 [ by lemma [ implicationslemma](1 ) and condition ( c5 ) ] such that @xmath891    now we use the same construction as in the proof of lemma [ manyrepeatslemma ] with only slight modification .
+we encode the words @xmath889 as follows :    construct @xmath762 , @xmath625 and the partition of @xmath892 as in the proof of lemma  [ manyrepeatslemma ] , with the additional condition that @xmath893 .
+( in other words , we ignore any `` repeats '' introduced by @xmath496 . )
+encode @xmath883 as in the proof of lemma [ manyrepeatslemma ] .    to encode the path @xmath828
+, we first encode the fact that @xmath894 ( by encoding @xmath117 and @xmath895 using an elias code ) , and then encode @xmath828 using a  prefix shannon code with respect to @xmath896 .
+encode @xmath885 as in the proof of lemma [ manyrepeatslemma ] .
+encode @xmath832 using a prefix shannon code with respect to @xmath897 .    for large @xmath2 , encoding the fact that @xmath898 adds less than @xmath899 to @xmath900 . on the other hand
+, we have that there is a uniform constant @xmath430 such that @xmath901 , by lemma [ implicationslemma](4 ) .
+thus , there exists @xmath868 and a uniform constant @xmath902 such that for @xmath903 , we have @xmath904\\[-8pt ] & & \qquad\leq(|{\mathcal{i}}|+1)\bigl(4 \log ( 2k+r)\bigr ) + n k_6 - ( m+u+|j|)\log\lambda\nonumber\end{aligned}\ ] ] with @xmath905 , @xmath804 and @xmath906 . then by lemma [ maininfotheorylemma ] , there is a polynomial @xmath907 such that for @xmath869 , @xmath908 note that the number of pairs @xmath831 associated to the path @xmath889 is at most @xmath909 , and , hence , @xmath910 now let @xmath911 , and the proof is complete .      recall that if @xmath88 is a graph , then @xmath912 is the random variable such that @xmath913 is the spectral radius of the adjacency matrix of @xmath528 .
+[ entropythm ] let @xmath180 be a sequence of graphs that satisfies the standing assumptions [ stassump ] and such that @xmath180 has local uniqueness of paths , small diameter and bounded distortion of weights [ conditions , and   in definition  [ conditions ] ] .
+then for @xmath32 and @xmath33 , @xmath914 and the convergence to the limit is exponential in @xmath459 .
+if we assume that @xmath0 is irreducible in the statement of theorem [ entropythmintro ] , then theorem [ entropythmintro ] is a direct corollary of theorem [ entropythm ] , obtained by choosing @xmath180 to be the sequence of @xmath2-block graphs of an irreducible sft with positive entropy ( and using the fact that such a sequence satisfies the hypotheses of theorem [ entropythm ] by proposition [ highergraphseqlemma ] ) . in the case
+when @xmath0 is reducible , @xmath0 has a finite number of irreducible components of positive entropy , @xmath915 , and there exists @xmath307 such that @xmath916 .
+for all large @xmath2 , we have that @xmath917 for @xmath918 , which means that the entropies of the random subshifts appearing inside each of these components are mutually independent .
+applying theorem [ entropythm ] to each of these components , we obtain theorem [ entropythmintro ] for reducible @xmath0 .    proof of theorem [ entropythm ] let @xmath4 be in @xmath31 $ ] .
+let @xmath389 and @xmath418 .
+let @xmath113 be a path in @xmath919 .
+let @xmath920 be the random variable defined by @xmath921 now let @xmath922 for each @xmath2 and @xmath117 , we have that @xmath923 .
+indeed , @xmath924 is the average number of loops of length @xmath117 based at a vertex in @xmath216 .
+thus , there is at least one vertex @xmath145 with at least @xmath924 loops of length @xmath117 based at @xmath145 , and it follows that @xmath925 since these loops may be concatenated freely .
+also , it follows from subadditivity that @xmath926 , which implies that @xmath927 for all @xmath2 and @xmath117 .
+fix @xmath928 , and let @xmath929 , where @xmath307 is chosen such that @xmath930 and @xmath931 divides @xmath117 .
+recall that if @xmath180 is the sequence of @xmath2-block graphs of a fixed graph @xmath88 , then by proposition [ highergraphseqlemma ] we have that  @xmath422 and @xmath2 differ by at most a uniform constant , and , thus , @xmath932 .
+we will show below that as @xmath2 tends to infinity ,    @xmath933 tends to @xmath934 ;    @xmath935 tends to @xmath934 ;    there exists @xmath420 and @xmath936 such that @xmath937 ;    there exists @xmath938 and @xmath939 such that @xmath940 .
+recall definitions [ ndef][sdef ] , as well as the modification of these definitions using `` hats . ''
+notice that @xmath941 also , @xmath942 regarding variances , we have @xmath943    for the remainder of this proof , we use the following notation : if @xmath944 and  @xmath945 are two sequences , then @xmath946 means that the limit of the ratio of @xmath947 and @xmath948 tends to @xmath7 as @xmath2 tends to infinity .
+_ proof of _
+( i ) . by lemma [ implicationslemma](1 )
+, there exists a uniform constant @xmath420 such that @xmath949 taking @xmath117th roots , letting @xmath2 tend to infinity , and using that @xmath950 tends to @xmath646 , we obtain that @xmath951 .    by lemmas [ implicationslemma](1 ) and
+[ manyrepeatslemma ] , we have that there exists @xmath73 , a polynomial  @xmath723 , and a uniform constant @xmath423 such that for @xmath74 , @xmath952 by condition ( c4 ) and the fact that @xmath953 , we have that :    * @xmath422 tends to infinity as @xmath2 tends to infinity by the standing assumptions  [ stassump ] ; * @xmath954 , which tends to zero as @xmath2 tends to infinity ; * @xmath955 , which tends to infinity as @xmath2 tends to infinity .    thus , taking @xmath117th roots and letting @xmath2 tend to infinity , we have that @xmath956 which concludes the proof of ( i )
+.    _ proof of _ ( ii ) .
+let @xmath957 .
+note that since @xmath129 divides @xmath117 , there exists a uniform constant @xmath958 such that @xmath959 for large enough @xmath117 .
+we choose @xmath2 large enough so that this inequality is satisfied .
+then we have that @xmath960 taking @xmath117th roots , letting @xmath2 tend to infinity , and using that @xmath950 tends to @xmath646 , we get that @xmath961 .
+recall that @xmath962 .
+therefore , it follows from ( i ) that @xmath963 .
+thus , we have shown ( ii ) .
+_ proof of _ ( iii ) . for @xmath964 ,
+lemma [ masterdoublelemma ] implies that there is @xmath818 and a  polynomial @xmath965 such that @xmath966 and @xmath967 for @xmath968 . now using that @xmath969 [ see ( [ inequalityin(i ) ] ) ]
+, we obtain that there exists a uniform constant @xmath809 such that @xmath970 using the facts that @xmath971 and @xmath953 , we have that @xmath972 is asymptotically bounded above by @xmath973 .
+since @xmath974 , it holds that  @xmath975 tends to  @xmath7 .
+thus , we obtain that for any @xmath976 , there exists @xmath977 and @xmath847 such that for @xmath848 , it holds that @xmath978 , which proves ( iii ) .
+_ proof of _ ( iv ) . for @xmath964 , lemma [ manydoubleperrepeatslemma ] together with ( c4 )
+implies that there is @xmath868 and a polynomial @xmath979 such that @xmath980 for @xmath869 .
+also , lemma  [ doubleperrepeatslemma ] implies that there is @xmath981 and a polynomial @xmath982 such that @xmath983 for @xmath984 . now using that
+@xmath985 , we obtain that there exists @xmath986 such that , with @xmath987 , @xmath988 using the facts that @xmath971 and @xmath953 , we have that @xmath989 is asymptotically bounded above by @xmath973 . since @xmath974 , it holds that @xmath990 tends to  @xmath7 .
+thus , we obtain that for any @xmath991 , there exists @xmath992 and @xmath993 such that for @xmath994 , @xmath995 which proves ( iv ) .    _ proof of theorem _ [ entropythm ] _ using _ ( i)(iv ) .
+recall that @xmath996 .
+let @xmath33 .
+since @xmath997 , we may assume without loss of generality that .
+then @xmath998\\[-8pt ] & & \qquad = { \mathbb{p}_{\alpha } } ( \beta_n \geq{\alpha}\lambda+ \varepsilon ) + { \mathbb{p}_{\alpha}}(\beta_n \leq{\alpha}\lambda- \varepsilon)\nonumber \\ \label{entropyineq2 } & & \qquad = { \mathbb{p}_{\alpha}}\bigl ( \beta_n^k \geq({\alpha}\lambda+ \varepsilon)^k \bigr ) + { \mathbb{p}_{\alpha}}\bigl ( \beta _ n^k \leq({\alpha}\lambda- \varepsilon)^k\bigr ) \\
+\label{entropyineq3 } & & \qquad \leq { \mathbb{p}_{\alpha}}\bigl ( \phi_{n , k } \geq({\alpha}\lambda+ \varepsilon)^k\bigr ) + { \mathbb{p}_{\alpha}}\bigl(\psi _ { n , k } \leq({\alpha}\lambda- \varepsilon)^k \bigr).\end{aligned}\ ] ] we will bound each of the two terms in ( [ entropyineq3 ] ) . notice that @xmath999 let @xmath1000 . then by chebyshev s inequality , @xmath1001 the denominator in the right - hand side of ( [ chebbound2 ] ) might be @xmath646 for finitely many @xmath2 , but by properties ( i ) and ( iii ) , there exists @xmath1002 such that for large enough @xmath2 , @xmath1003    similarly , we let @xmath1004 , and then chebyshev s inequality gives that @xmath1005 again , the denominator in the right - hand side might be @xmath646 for finitely many  @xmath2 , but by properties ( ii ) and ( iv ) , there exists @xmath1006 such that for large enough @xmath2 , @xmath1007 in conclusion , we obtain that there exists @xmath1008 such that for large enough  @xmath2 , @xmath1009      [ msftthm ] let @xmath180 be a sequence of graphs that satisfies the standing assumptions [ stassump ] , with @xmath957 , and such that :    * @xmath180 has bounded degrees [ condition in definition [ conditions ] ] , * @xmath180 has fast separation of periodic points [ condition in definition  [ conditions ] ] , * and @xmath180 has uniform forward and backward expansion [ condition in definition [ conditions ] ] .
+let @xmath1010 be the event in @xmath619 that @xmath1011 contains a unique irreducible component @xmath37 of positive entropy . also , let @xmath1012 be the event ( contained in @xmath1013 ) that the induced edge shift on @xmath37 has period @xmath129
+. then there exists @xmath38 such that for @xmath1014 , @xmath1015 and the convergence to these limits is exponential in @xmath459 .
+theorem [ msftthmintro ] is a corollary of theorem [ msftthm ] : if @xmath0 is an irreducible sft of positive entropy , then the sequence of @xmath2-block graphs for  @xmath0 satisfies the hypotheses of theorem [ msftthm ] by proposition [ highergraphseqlemma ] .
+in fact , if  @xmath0 is a reducible sft , we may apply theorem [ msftthmintro ] to each irreducible component independently , which allows us to conclude the following .
+let  @xmath0 be a reducible sft with irreducible components @xmath1016 such that @xmath1017 for each @xmath307 .
+let @xmath1018 be the event in @xmath11 that @xmath5 has exactly @xmath1019 irreducible components with periods @xmath1020 .
+then there exists @xmath38 such that for @xmath1021 $ ] , we have that @xmath1022 , with exponential ( in  @xmath2 ) convergence to the limit .    [ followerdefs ] let @xmath88 be a directed graph . for each vertex @xmath145 in @xmath88 , and for each @xmath3 in @xmath1023 , let @xmath1024 be the union of @xmath1025 and the set of vertices  @xmath166 in @xmath88 such that there is an allowed path from @xmath145 to @xmath166 in @xmath528 .
+similarly , for each vertex @xmath145 in @xmath88 and each @xmath3 in @xmath1023 , let @xmath1026 be the union of @xmath1027 and the set of vertices @xmath166 in @xmath88 such that there is an allowed path from @xmath166 to @xmath145 in @xmath528 .
+also , let @xmath1028 , which is the vertex set of the irreducible component containing @xmath145 in @xmath528 .
+the proof of the following proposition is an adaptation of the proof of lemma  2.2 in @xcite .
+[ posentimpliesbig ] let @xmath180 be a sequence of graphs satisfying the standing assumptions [ stassump ] and such that @xmath180 has bounded degrees and uniform forward and backward expansion [ conditions and in definition [ conditions ] ] .
+let @xmath1029 be a sequence of integers such that @xmath1030 , for some @xmath1031 , for all large @xmath2 .
+let @xmath1032 be the event in @xmath619 consisting of all @xmath3 such that there exists a vertex @xmath145 in @xmath216 with @xmath1033 .
+then there exists @xmath1034 such that for @xmath1035 , @xmath1036 and the convergence of this limit is exponential in @xmath459 .
+furthermore , the same statement holds with @xmath1037 replaced by @xmath1038 .
+let @xmath389 .
+let @xmath280 be such that both @xmath180 and @xmath244 are @xmath113-expander sequences [ where the existence of such a @xmath113 is guaranteed by condition  ( c8 ) ] .
+we use the notation in definition [ followerdefs ] . for any @xmath145 in @xmath250 and any  @xmath3 in @xmath1039 , the set @xmath1024 has the property that all edges in @xmath1040 are forbidden ( by @xmath3 ) .
+then the fact that @xmath216 is a @xmath113-expander implies that for a particular subset @xmath206 of @xmath250 , the probability that @xmath1041 for some @xmath145 is bounded above by @xmath1042 that could appear as @xmath1024 for some @xmath145 is bounded above by @xmath1043 , where @xmath85 is the base of the natural logarithm  ( @xcite , lemma 2.2 ) ( see also @xcite , lemma  2.1 , or @xcite , page 396 , exercise  11 ) .
+then for @xmath4 such that @xmath1044 , we have that for any @xmath1045 , @xmath1046 thus , there is a @xmath38 ( depending only on @xmath1047 , @xmath113 , @xmath144 and @xmath1048 ) such that if @xmath1035 , then the right - hand side of the inequality in ( [ rhsgoestozero ] ) tends to zero exponentially in @xmath459 as @xmath2 tends to infinity . in particular , we may take @xmath1049    since @xmath244 is also a uniform @xmath113-expander , the same estimates hold with  @xmath1050 in place of @xmath1032 .
+proof of theorem [ msftthm ] let @xmath180 be as in the statement of theorem  [ msftthm ] .
+let @xmath726 , @xmath1051 , and @xmath1052 .
+we use the notation in definition [ followerdefs ] . consider the following events : @xmath1053 recall that condition ( c3 ) gives @xmath1054 such that @xmath1055 .
+note that proposition [ posentimpliesbig ] gives @xmath1034 such that for @xmath1014 , there exists @xmath1056 and @xmath1057 such that for large @xmath2 , @xmath1058 fix such an @xmath4 , and note that for all large enough @xmath2 , we have the following estimate : @xmath1059 .
+consider @xmath3 in @xmath1060 .
+suppose that there exists @xmath1061 and @xmath1062 in @xmath250 such that @xmath1063 and @xmath1064 . then by definition of @xmath1060
+, we must have that @xmath1065 and @xmath1066 .
+it follows that there is a path from @xmath1061 to @xmath1062 in @xmath620 , and there is a path from @xmath1062 to @xmath1061 in @xmath620 .
+thus , @xmath1067 . we have shown that for @xmath3 in @xmath1060 , there is at most one irreducible component of cardinality greater than @xmath1068 .
+note that this argument implies that for @xmath3 in @xmath1060 , all allowed periodic orbits @xmath597 such that @xmath1069 must lie in the same irreducible component .    by definition of @xmath1070 ,
+if @xmath1071 is an irreducible component of @xmath620 with positive entropy , then @xmath1072 ( since it must contain at least two periodic orbits with overlapping vertex sets ) . we deduce that for @xmath3 in @xmath1060 , there is at most one irreducible component of @xmath620 with positive entropy .
+we now show that there exists an irreducible component of positive entropy with probability tending exponentially to @xmath7 .
+let @xmath1073 , where @xmath307 is chosen ( for each @xmath2 ) such that @xmath1074 and @xmath129 divides @xmath1075 .
+then let @xmath1076 .
+consider the following sequences of random variables : @xmath1077 note that by the definition of @xmath1070 and lemma [ perlemma ] , we have that @xmath1078 for any periodic path @xmath113 with period less than or equal to @xmath1070 .
+furthermore , any two such paths are disjoint .
+therefore , the random variables @xmath1079 are jointly independent , and the random variables @xmath1080 are also jointly independent .
+thus , @xmath1081 as @xmath2 tends to infinity , @xmath1070 tends to infinity since @xmath1055 and @xmath422 tends to infinity .
+then by the standing assumptions [ stassump ] [ in particular , we use that @xmath376 ] and the fact that @xmath129 divides @xmath1075 and @xmath1083 , we have that each of the sequences @xmath1084 and @xmath1085 tends to a finite , nonzero limit as @xmath2 tends to infinity ( and in fact the limit is @xmath129 ) . for two sequences @xmath947 and @xmath948 of positive real numbers , let @xmath946 denote the statement that their ratio tends to a finite , nonzero limit as @xmath2 tends to infinity
+. then we have that @xmath1086 and @xmath1087 .
+note that @xmath1088 and @xmath1089 . a  simple application of chebyshev s inequality implies that @xmath1090 and @xmath1091 we have shown that the probability that there is no periodic orbit of period  @xmath1075 tends to @xmath646 exponentially in @xmath422 as @xmath2 tends to infinity , and the probability that there exists no periodic orbit of period @xmath1083 tends to @xmath646 exponentially in  @xmath422 as @xmath2 tends to infinity .    in summary
+, we have shown that the following events occur with probability tending to @xmath7 exponentially in @xmath422 as @xmath2 tends to infinity :    * there exists a periodic point of period @xmath1092 ; * there exists a periodic point of period @xmath1093 ; * any two periodic points of period greater than @xmath1094 lie in the same irreducible component ( of necessarily positive entropy ) ; * there is at most one irreducible component of positive entropy .
+we conclude that with probability tending to @xmath7 exponentially in @xmath422 as @xmath2 tends to infinity , there exists a unique irreducible component of positive entropy , and the induced edge shift on that component has period @xmath129 .
+[ relaxrmk ] the proofs of theorems [ emptythm ] and [ subcritthm ] do not require all of the standing assumptions [ stassump ] . in fact , these proofs only use that @xmath376 for each @xmath2 and that @xmath231 tends to infinity as @xmath2 tends to infinity .
+theorem [ emptythm ] states that at the critical threshold @xmath1095 , the probability of emptiness tends to zero .
+using the fact that entropy is a  monotone increasing random variable ( as defined in section [ probframework ] ) , one may deduce from theorem [ entropythm ] that for @xmath1096 , the probability that the random sft has zero entropy tends to @xmath7 .
+it might be interesting to know more about the behavior of typical random sfts at the critical threshold .
+we have considered only random @xmath477-sfts , but one may also consider random @xmath1097-sfts for any @xmath496 in @xmath70 by adapting the construction of  @xmath11 and @xmath9 in the obvious way .
+it appears that most of the proofs presented above may not be immediately adapted for @xmath1098 , but there is one exception , which we state below .
+let @xmath0 be a nonempty @xmath1097-sft . for @xmath1099
+, there are various zeta functions for @xmath0 ( for a definition distinct from ours , see @xcite ) ; we consider @xmath1100 where @xmath1101 is the number of periodic points @xmath12 in @xmath0 such that the number of points in the orbit of @xmath12 divides @xmath129 .
+the function @xmath1102 has radius of convergence @xmath1103 , where @xmath1104 .
+for example , for a full @xmath1097 shift on @xmath1047 symbols , , regardless of @xmath496 . using exactly the same proof as presented in section [ emptiness ]
+, we obtain that @xmath1105$.}\ ] ] for @xmath1106 , this bound implies that the limiting probability of emptiness is @xmath646 . in this context
+, we note that there is no algorithm , which , given a @xmath1097-sft @xmath0 defined by a finite list of finite forbidden configurations , will decide whether @xmath0 is empty  @xcite .
+nonetheless , we may be able to compute the limiting probability of emptiness .
+for example , if @xmath0 is a full shift on @xmath1047 symbols , then for @xmath1107 , we have that the limiting probability of emptiness is @xmath646
+.    one may also consider more general random subshifts .
+recall that a set @xmath1108 is a subshift if it is closed and shift - invariant . for a nonempty subshift @xmath0 and a natural number @xmath2
+, we may consider the ( finite ) set of subshifts obtained by forbidding words of length @xmath2 from @xmath0 .
+after defining a probability measure @xmath9 on this space as in section [ preliminaries ] , we obtain random subshifts of @xmath0 .
+now we may investigate the asymptotic probability of properties of these random subshifts . recall that any subshift @xmath0 can be written as @xmath1109 , where @xmath1110 is a sequence of sfts ( called the markov approximations of @xmath0 ) and @xmath1111 .
+a subshift @xmath0 is called _ almost sofic _
+@xcite if there exists a sequence @xmath1110 of irreducible sfts such that and @xmath1112 . using this inner and outer approximation by sfts ,
+the conclusion of theorem [ entropythmintro ] still holds if the system @xmath0 is only assumed to be an almost sofic subshift .
+theorem [ msftthm ] asserts the existence of a constant , but we are left with several questions about this constant . fix a sequence @xmath180 satisfying the hypotheses of theorem [ msftthm ] .
+let @xmath1113 .
+what is  @xmath1114 ? what is @xmath1114 in the case that @xmath180 is the sequence of @xmath2-block graphs of a mixing sft of positive entropy ( or even a  full shift ) ?
+the author expresses great thanks to his advisor , mike boyle , for his guidance and encouragement in general , and also for many helpful conversations and comments regarding this work in particular .
+further , the author thanks the anonymous referee for reading the paper carefully and making helpful suggestions .

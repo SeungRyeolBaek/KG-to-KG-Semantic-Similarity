@@ -1,0 +1,107 @@
+the introduction of reflective optical elements revolutionized the design and imaging capabilities of telescopes @xcite . while the possibility of creating large diameter objectives was one of the primary aims ,
+a significant advantage is that reflective optical elements provide a means of reducing or eliminating the spherical and chromatic aberrations that are inherent in lens  based systems .    here
+we explore the opposite extreme of microfabricated optics .
+microfabricated optical elements are key components for the development and integration of optics into a range of research and commercial areas @xcite . to date , the majority of the work in microphotonics has been in refractive elements , i.e. microlenses .
+however , in this regime microlenses typically have significant numerical apertures and surface curvatures , which introduce large aberrations .
+a number of groups have in recent years discussed the design and fabrication of concave micromirrors @xcite .
+these examinations are largely driven by two purposes ; for optical tweezing , and for integration into atom optics .
+spherical mirrors have been demonstrated to collect light from single ions @xcite .
+parabolic mirrors , similar to those described here but with larger length scales , have been also been used as highly efficient collectors of light from single ions @xcite , atoms @xcite , and point sources @xcite . in a similar manner
+they may be used to tightly focus light onto atomic samples , which has to date been shown with refractive optics @xcite .    in this work
+we consider the use of reflective micro  optical components for focusing light .
+we present the construction and optical characterization of parabolic reflectors with an open aperture of radius 10  @xmath0 m and measured focal lengths that range from 24  @xmath0 m to 36  @xmath0 m .
+detailed mapping of the focused intensity field is made possible by the development of a previously  unreported adaptation of a confocal microscope that allows the illumination of the reflector with collimated light , while still maintaining the highly - desirable large - numerical - aperture confocal collection . using this device
+we obtain 3d data about the focal plane demonstrating diffraction limited focussing .
+we also discuss the application of the parabolic mirror for use in atomic physics and tweezing experiments .
+the details of the fabrication of concave paraboloid structures through ion - beam milling are covered in @xcite . briefly , a focused ion - beam ( gallium ions with typical currents of 50 - 300  pa and accelerating voltages of 30  kv ) is used to precisely sculpt a silicon substrate with the required mirror profile , which is subsequently coated with gold to provide a highly - reflective coating . in focused ion - beam milling , controlling the dose of ions to which an area is exposed allows a region of the surface to be sputtered to a known depth , due to a linear relationship between depth and dose in silicon . the applied dose is a function of the beam current , the dwell time , and number of passes the beam makes over an area . by tracing a number of concentric discs of increasing radius , whilst linearly increasing the dose , a parabolic depression can be milled into the substrate . in principle
+this would create a stepped contour , however due to edge - effects of the milling process , as well as redistribution of etched material , a larger number of passes creates a smooth contour of the parabolic dish .
+further details of the construction and characterization can be found in @xcite , where an rms roughness of 4.0  nm was measured by afm over the range of the concave parabolic surface . due to the identical manufacturing process
+similar values are expected in this work .
+the propagation of light using microscopic optical elements is a well represented topic in the literature . here
+we restrict our discussion to the behavior of light fields after wavelength 
+scale apertures and curved surfaces . in their work , goldwin and
+hinds @xcite derive analytic results for spherical mirrors , which they further compare with numerical integration of maxwell s equations .
+meanwhile , bandi _ et .
+_ consider the propagation of light after a wavelength - scale aperture using a fresnel representation of the fields @xcite , which offers the possibility of adding focusing to the formalism .        here
+, however , the reflected field was modeled using the angular spectrum method @xcite , which provides a mapping of an electric field from a particular plane into a secondary plane ; @xmath2 where @xmath3 are the cartesian spatial directions , @xmath4 is the wavevector in the @xmath5-direction , @xmath6 is the electric field , and @xmath7 is the 2d fourier spectrum of the electric field in the plane @xmath8 . the result of this compact equation can be understood by first noting that the spatial spectrum of an electric field , @xmath9 can be translated from a plane @xmath10 to another plane @xmath8 using the helmholtz propagator , @xmath11 where the helmholtz propagator in reciprocal space is @xmath12 , @xcite .
+we then note that the electric field can be calculated from its spatial spectrum in a plane are by the inverse fourier transform , @xmath13 , @xmath14 these relations , eq .
+( 2 ) and eq .
+( 3 ) then clearly show the result of eq .
+( 1 ) , and can be used to calculate the electric field in an arbitrary plane , given that is is known in one plane .
+the essential details of calculating the final intensity profile using the angular spectrum method can be clearly seen in fig .
+[ fig : theory_schematic](c ) ; the initial electric field is fourier transformed , the helmholtz propagator is then applied , before the inverse fourier spectrum is taken . finally , the resulting intensity field is found from the modulus - squared of the electric field .
+example codes are available on request from the corresponding author .    for this work , in the plane of @xmath10
+a curvature is numerically added to the phase - fronts within the area of the aperture of the mirror .
+the curvature is expressed as @xmath15 , where @xmath16 is the total wavevector , @xmath17 , @xmath18 is the radial distance from the center of the mirror , @xmath19 is the mirror aperture radius , and @xmath20 is the focal length .
+this modification of the optical wavefront represents the position dependent optical path - length difference , due to the spatially varying propagation distance to the metal surface , fig .
+[ fig : theory_schematic ] .
+care must be taken to include all modes of the field , including the evanescent ones , in order to return the full field simulation .
+all simulations were performed in matlab with the focal length , @xmath20 and the position of the surface as free parameters for fitting to the measured data .
+although transmission confocal imaging provides a powerful means of examining microlenses @xcite , reflection images of focusing elements require post analysis to interpret the data . in traditional reflection
+confocal microscopy the illuminating laser is focused onto the imaging plane at a point that is confocal with a pinhole in the imaging axis of the microscope .
+while this allows accurate probing of the surface it precludes imaging the focal plane of our concave mirrors directly .
+instead one may directly image about the center of curvature of the mirror and then infer the transfer function of the mirror assuming the point spread functions of the other optical elements are known . in this work
+we devise a scheme that allows interrogation of the focus while illuminating a mirror with a collimated laser beam , fig .
+[ fig : confocal_schematic ] .
+this arrangement means that the intensity distribution that would be formed in an optical tweezing experiment @xcite , for example , can be faithfully interrogated .
+probing the focal plane of the parabolic mirrors requires illumination with collimated light co  axial with the mirror axis ( orthogonal to the substrate surface ) .
+the working distance of the objective lens used ( olympus uplansapo 40x/0.9@xmath21 ) is only 180  @xmath0 m , which severely limits introducing further optical elements before the object . to circumvent these restrictions a non - polarizing beam splitter ( npbs )
+was introduced between the objective lens and the scanning column of a commercial confocal microscope ( olympus fv1000 scan head with olympus ix81 inverted microscope ) .
+this enabled an external probe beam to be introduced through the back aperture of the objective lens using the npbs to combine the beam into the imaging axis , see fig .
+[ fig : confocal_schematic ] .
+the probe , a commercial solid - state 589  nm laser ( based on sum - frequency generation using two lasing lines of an nd : yag laser ) , was focused , after fiber - coupling to clean up the spatial mode , at the back - focal plane of the objective lens .
+the specific probe wavelength was chosen for convenience ( good detector efficiency and high optical power in a single transverse mode ) - the numerical simulations were also conducted for this wavelength to account for wavelength - dependent diffraction effects .
+the collimation of the beam emitted was optimized by varying the axial position of the coupling lens .
+the npbs , optical fiber , and coupling lens were mounted in a holder with three  axis adjustment , which allowed for overlapping of the optical axes .
+the emitted beam had a diameter of 1  mm , justifying the assumption of a spatially uniform intensity profile across the micromirror aperture ( 20  @xmath0 m diameter ) .
+the magnification of the combined optical system was calibrated by measuring the aperture diameter of the mirrors .    in order to visually verify the surface quality of the mirrors , as well as to measure the aperture diameter of the mirrors the surface of the mirrors
+was also probed using conventional confocal microscopy @xcite , without removal of the additional optical elements .
+no aberrations were observed to have been introduced .
+m parabolic micromirror .
+a ) shows data collected from the surface of the mirror substrate ; b ) taken 25  @xmath0 m before the focus ( @xmath22 m in fig  [ fig : data_vs_simulation ] ) , c ) taken at the position of the focus , and d ) taken 25  @xmath0 m after the focus ( @xmath23 m in fig  [ fig : data_vs_simulation ] ) .
+the black scale bars in a ) , b ) , d ) indicate a length of 10  @xmath0 m , which is the width of image c ) .
+the linear colormap for each image is normalized from white to black for minimum to maximum value respectively.,width=321 ]    optical measurements were taken for four mirrors with different focal lengths , all with 10  @xmath0 m radii apertures .
+two dimensional scans were taken , with 77  nm pixel size , of the reflected intensity field in defined planes parallel to the surface of the substrate , fig .  [
+fig : raw_data ] . a series of such scans , separated by 1  @xmath0 m , then return a high - resolution , 3d map of the intensity field .
+the raw data were then radially averaged about the optical axis of the beam .
+the optical axis was independently found by fitting a 2d gaussian to individual scans near the focal plane and then linearly extrapolating the center  of  mass fits to regions where a simple 2d - gaussian fit was not valid , _
+e.g. _ , such as in fig .
+[ fig : raw_data](b ) .
+( note , however , that about the focus , fig .
+[ fig : raw_data](c ) , a 2d - gaussian gives an excellent fit to the data . )
+this step was taken to ensure any residual tilts in the optical system were accounted for .
+the averaged data were then combined , as shown in fig .
+[ fig : data_vs_simulation](a ) , to visualize the cylindrically symmetric intensity field .
+the focal length was extracted from the distance between the surface and the peak of the intensity , as well as by the best fit of the numerical model , fig .
+[ fig : data_vs_simulation](b ) .
+these data show excellent qualitative agreement as the detailed structure of the field away from the focus , which is emphasized by the logarithmic scale on the color axis . to further illustrate the agreement between experiment and theory the on - axis intensity profile of the data and the simulation
+are shown in fig .
+[ fig : data_vs_simulation](c ) .
+m mirror , using a log - scale to highlight the detail in the intensity field away from the focus .
+the data in each figure are each normalized , with the same color - axis for both .
+the color - axis , [ -4 0 ] , corresponds to a range of four orders of magnitude in intensity .
+the measured ( solid blue line ) and simulated ( dashed line ) on - axis intensity profiles , c ) , and radial intensity profiles at the focus , d ) , show agreement between experiment and model . also included in d ) , as a red dotted line , is a gaussian fit to the simulated data.,width=453 ]    quantitative results from the measurements are in table  [ table ] , below .
+the measured waists given are the minimum e@xmath24 radii returned from gaussian fits about the waist .
+the waists in the orthogonal directions were found to be equal and to occur in the same place , within measurement error .
+it can be seen in fig .
+[ fig : data_vs_simulation](d ) that a gaussian is an excellent fit to both simulation and experimental data near the focus .
+the diffraction limit was calculated as @xmath25 , where @xmath26 is the numerical aperture , @xmath27 which was derived using the measured focal length @xcite .
+it is clear that there is good agreement between the measured minimum beam waists and the prediction from diffraction theory .    .measured beam waists ( e@xmath24 radius ) and focal lengths for a range of parabolic mirrors with 10  @xmath0 m radius aperture .
+errors , where quoted , are one standard deviation . [ cols="^,^,^,^,^ " , ]
+the intensity patterns observed in these data suggest that the these mirrors would be favorable for trapping of small clouds of ultra - cold atoms , or even single atoms @xcite . for a total power of 1  w in the illuminating beam
+we estimate a peak intensity at the focus of @xmath28  w / m@xmath29 ; with a dipole trapping wavelength of @xmath30  nm this corresponds to a trap depth of 370  @xmath0k for rubidium atoms @xcite .
+the trap depth would scale at least with the square of the aperture of the mirrors ( the power captured scales as the aperture diameter squared , while the peak intensity increases with the numerical aperture ) meaning that deeper traps could readily be designed .
+two dimensional arrays of single trapped atoms could be formed from one laser beam illuminating a congruent 2d array of mirrors .
+a feature of this array is that the illumination of individual mirrors would then provide single atom addressability , but on the length scale of the mirror aperture , which is inherently larger than the single atom focus .
+m. the blue dotted line corresponds to the position of peak intensity , the spot of arago , after an open aperture of diameter equal to that of the simulated mirror.,width=377 ]    although we have shown , in fig .
+[ fig : data_vs_simulation ] , that the angular spectrum method yields agreement with the measured data in the regime probed here , further simulations show that focusing power of parabolic micro - mirrors is limited at longer focal lengths . in fig .
+[ fig : focal_vs_simulation ] the position of peak intensity as a function of mirror design focal length shows that diffraction from the aperture edge begins to dominate at focal lengths significantly longer than the aperture radius . in the limit of large focal length the location of the peak intensity tends towards that predicted for diffraction from the edges ; this is shown in fig .
+[ fig : focal_vs_simulation ] by the dotted line which is found from simulating diffraction from an aperture of radius equal the that of the mirrors .    for the shortest focal length measured in this work , @xmath31 m
+, we derive a numerical aperture of @xmath32 for operation in water . as shown in @xcite by merenda _
+, stable 3d trapping is to be expected in this regime .
+further work will be conducted to demonstrate optical tweezing using these mirrors .
+construction and diffraction limited focusing from parabolic micromirrors with radii of @xmath33 m ( @xmath34 ) has been demonstrated .
+simulations performed using the angular spectrum method show clear agreement with data and reproduce detailed features evident in the measured 3d intensity field .
+the results offer promise for use of these micromirrors for experiments in optical trapping in both biological and atomic - physics experiments .
+the authors are extremely grateful to alastair sinclair for initial project design and for discussions , to jonathan pritchard for help with simulations , and to john harris for assistance .
+pfg acknowledges the generous support of the royal society of edinburgh .

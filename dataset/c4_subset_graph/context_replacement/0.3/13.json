@@ -1,0 +1,304 @@
+{
+  "nodes": [
+    {
+      "id": "Diarrhea",
+      "type": "Symptom",
+      "properties": {}
+    },
+    {
+      "id": "Nausea",
+      "type": "Symptom",
+      "properties": {}
+    },
+    {
+      "id": "Foods",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Person",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Doctor",
+      "type": "Person",
+      "properties": {}
+    },
+    {
+      "id": "Bodily Movement",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Water",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Soft Foods",
+      "type": "Concept",
+      "properties": {}
+    },
+    {
+      "id": "Bread",
+      "type": "Food",
+      "properties": {}
+    },
+    {
+      "id": "Chronic Digestive Conditions",
+      "type": "Condition",
+      "properties": {}
+    },
+    {
+      "id": "Irritable Stomach Syndrome ( Ibs )",
+      "type": "Condition",
+      "properties": {}
+    },
+    {
+      "id": "Crohn ' S Disease",
+      "type": "Condition",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Diarrhea",
+        "type": "Symptom",
+        "properties": {}
+      },
+      "target": {
+        "id": "Foods",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "TREATS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Nausea",
+        "type": "Symptom",
+        "properties": {}
+      },
+      "target": {
+        "id": "Foods",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "TREATS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Nausea",
+        "type": "Symptom",
+        "properties": {}
+      },
+      "target": {
+        "id": "Person",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "REQUIRES_MEDICAL_ATTENTION",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Nausea",
+        "type": "Symptom",
+        "properties": {}
+      },
+      "target": {
+        "id": "Bodily Movement",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "HAS_CHARACTERISTIC",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Nausea",
+        "type": "Symptom",
+        "properties": {}
+      },
+      "target": {
+        "id": "Water",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "EASES_SYMPTOMS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Nausea",
+        "type": "Symptom",
+        "properties": {}
+      },
+      "target": {
+        "id": "Soft Foods",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "EASES_SYMPTOMS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Soft Foods",
+        "type": "Concept",
+        "properties": {}
+      },
+      "target": {
+        "id": "Water",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "PROVIDES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Soft Foods",
+        "type": "Concept",
+        "properties": {}
+      },
+      "target": {
+        "id": "Bread",
+        "type": "Food",
+        "properties": {}
+      },
+      "type": "INCLUDES",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Person",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Doctor",
+        "type": "Person",
+        "properties": {}
+      },
+      "type": "SHOULD_SEE_FOR_NAUSEA",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Person",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Nausea",
+        "type": "Symptom",
+        "properties": {}
+      },
+      "type": "REQUIRES_MEDICAL_ATTENTION",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Person",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Diarrhea",
+        "type": "Symptom",
+        "properties": {}
+      },
+      "type": "REQUIRES_DIETARY_ADJUSTMENT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Person",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Diet",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "RECOMMENDED_FOR_NAUSEA",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Person",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Foods",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "MAY_RELIEVE_DIARRHEA",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Person",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Foods",
+        "type": "Concept",
+        "properties": {}
+      },
+      "type": "MAY_WORSEN_DIARRHEA",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Person",
+        "type": "Person",
+        "properties": {}
+      },
+      "target": {
+        "id": "Chronic Digestive Conditions",
+        "type": "Condition",
+        "properties": {}
+      },
+      "type": "MAY_CAUSE_MORE_NAUSEA",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Chronic Digestive Conditions",
+        "type": "Condition",
+        "properties": {}
+      },
+      "target": {
+        "id": "Irritable Stomach Syndrome ( Ibs )",
+        "type": "Condition",
+        "properties": {}
+      },
+      "type": "RELATED_TO",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Chronic Digestive Conditions",
+        "type": "Condition",
+        "properties": {}
+      },
+      "target": {
+        "id": "Crohn ' S Disease",
+        "type": "Condition",
+        "properties": {}
+      },
+      "type": "RELATED_TO",
+      "properties": {}
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+smoothed particle hydrodynamics ( sph ) is a particle - based numerical method , pioneered by @xcite and @xcite , for solving the equations of hydrodynamics ( recent reviews include @xcite ; @xcite ; @xcite ; @xcite ) . in sph ,
+the particles trace the flow and serve as interpolation points for their neighbours .
+this lagrangian nature of sph makes the method particularly useful for astrophysics , where typically open boundaries apply , though it becomes increasingly popular also in engineering ( e.g. * ? ? ?
+the core of sph is the density estimator : the fluid density is _ estimated _ from the masses @xmath3 and positions @xmath4 of the particles via ( the symbol @xmath5 denotes an sph _ estimate _ ) @xmath6 where @xmath7 is the _ smoothing kernel _ and @xmath8 the _ smoothing scale _ , which is adapted for each particle such that @xmath9constant ( with @xmath10 the number of spatial dimensions ) .
+similar estimates for the value of any field can be obtained , enabling discretisation of the fluid equations . instead , in _ conservative _ sph , the equations of motion for the particles are derived , following @xcite , via a variational principle from the discretised lagrangian @xmath11\ ] ] @xcite . here
+, @xmath12 ) is the internal energy as function of density and entropy @xmath13 ( and possibly other gas properties ) , the precise functional form of which depends on the assumed equation of state .
+the euler - lagrange equations then yield @xmath14,\ ] ] where @xmath15 and @xmath16 , while the factors @xmath17 ( @xcite ; @xcite ) arise from the adaption of @xmath8 ( @xcite ) such that @xmath18constant .
+equation ( [ eq : hydro ] ) is a discretisation of @xmath19 , and , because of its derivation from a variational principle , conserves mass , linear and angular momentum , energy , entropy , and ( approximately ) circularity .
+however , its derivation from the lagrangian is only valid if all fluid variables are smoothly variable . to ensure this , in particular for velocity and entropy
+, artificial dissipation terms have to be added to @xmath20 and @xmath21 .
+recent progress in restricting such dissipation to regions of compressive flow @xcite have greatly improved the ability to model contact discontinuities and their instabilities as well as near - inviscid flows .
+sph is _ not _ a monte - carlo method , since the particles are not randomly distributed , but typically follow a semi - regular glass - like distribution .
+therefore , the density ( and pressure ) error is much smaller than the @xmath22 expected from poisson noise for @xmath23 neighbours and sph obtains @xmath24 convergence .
+however , some level of particle disorder can not be prevented , in particular in shearing flows ( as in turbulence ) , where the particles are constantly re - arranged ( even in the absence of any forces ) , but also after a shock , where an initially isotropic particle distribution is squashed along one direction to become anisotropic . in such situations ,
+the sph force ( [ eq : hydro ] ) in addition to the pressure gradient contains a random ` e@xmath25 error ' @xcite error ' term of @xcite is only the dominant contribution to the force errors induced by particle discreteness .
+] , and sph converges more slowly than @xmath24 . since shocks and shear flows are common in star- and galaxy - formation , the ` e@xmath25 errors ' may easily dominate the overall performance of astrophysical simulations .
+one can dodge the ` e@xmath25 error ' by using other discretisations of @xmath26 @xcite .
+however , such approaches unavoidably abandon momentum conservation and hence fail in practice , in particular , for strong shocks @xcite . furthermore , with such modifications sph no longer maintains particle order , which it otherwise automatically achieves .
+thus , the ` e@xmath25 error ' is sph s attempt to resurrect particle order @xcite and prevent shot noise from affecting the density and pressure estimates .
+another possibility to reduce the ` e@xmath25 error ' is to subtract an average pressure from each particle s @xmath27 in equation ( [ eq : hydro ] ) .
+effectively , this amounts to adding a negative pressure term , which can cause the tensile instability ( see  [ sec : stable : cont ] ) .
+moreover , this trick is only useful in situations with little pressure variations , perhaps  in simulations of near - incompressible flows ( e.g. * ? ? ?
+the only remaining option for reducing the ` e@xmath25 error ' appears an increase of the number @xmath0 of particles contributing to the density and force estimates ( contrary to naive expectation , the computational costs grow sub - linear with @xmath0 ) .
+the traditional way to try to do this is by switching to a smoother and more extended kernel , enabling larger @xmath0 at the same smoothing scale @xmath28 ( e.g. * ? ? ? * ) . however , the degree to which this approach can reduce the ` e@xmath25 errors ' is limited and often insufficient , even with an infinitely extended kernel , such as the gaussian . therefore , one must also consider ` stretching ' the smoothing kernel by increasing @xmath28 .
+this inevitably reduces the resolution , but that is still much better than obtaining erroneous results .
+of course , the best balance between reducing the ` e@xmath25 error ' and resolution should be guided by results for relevant test problems and by convergence studies .
+unfortunately , at large @xmath0 the standard sph smoothing kernels become unstable to the pairing ( or clumping ) instability ( a cousin of the tensile instability ) , when particles form close pairs reducing the effective neighbour number .
+the pairing instability ( first mentioned by @xcite ) has traditionally been attributed to the diminution of the repulsive force between close neighbours approaching each other ( @xcite , @xcite , @xcite , @xcite , @xcite , @xcite ) .
+such a diminishing near - neighbour force occurs for all kernels with an inflection point , a necessary property of continuously differentiable kernels .
+kernels without that property have been proposed and shown to be more stable ( e.g.  @xcite ) .
+however , we provide demonstrably stable kernels with inflection point , disproving these ideas .    instead , our linear stability analysis in section  [ sec : linear ] shows that non - negativity of the kernel fourier transform is a necessary condition for stability against pairing . based on this insight
+we propose in section  [ sec : smooth ] kernel functions , which we demonstrate in section  [ sec : test ] to be indeed stable against pairing for all neighbour numbers @xmath0 , and which possess all other desirable properties .
+we also present some further test simulations in section  [ sec : test ] , before we discuss and summarise our findings in sections  [ sec : disc ] and [ sec : conc ] , respectively .
+ll@@xmath29lc@c@cc@c@cc@c@c & & & & + & @xmath30 & @xmath31 & @xmath32 & @xmath30 & @xmath31 & @xmath32 & @xmath30 & @xmath31 & @xmath32 + cubic spline & @xmath33 & @xmath34 & @xmath35 & @xmath36 & @xmath37 & @xmath38 & @xmath39 & @xmath40 & 1.732051 & 1.778002 & 1.825742 + quartic spline & @xmath41 & @xmath42 & @xmath43 & @xmath44 & @xmath45 & @xmath46 & @xmath47 & @xmath48 & 1.936492 & 1.977173 & 2.018932 + quintic spline & @xmath49 & @xmath50 & @xmath51 & @xmath52 & @xmath53 & @xmath54 & @xmath55 & @xmath56 & 2.121321 & 2.158131 & 2.195775 +   + wendland @xmath57 , @xmath30 & @xmath58 & @xmath59 & @xmath60 &  &  & @xmath61 &  &  & 1.620185 &  &  + wendland @xmath62 , @xmath30 & @xmath63 & @xmath64 & @xmath65 &  &  & @xmath46 &  &  & 1.936492 &  &  + wendland @xmath66 , @xmath30 & @xmath67 & @xmath68 & @xmath69 &  &  & @xmath70 &  &  & 2.207940 &  &  +   + wendland @xmath57 , @xmath71 & @xmath72 & @xmath73 &  & @xmath74 & @xmath75 &  & @xmath76 & @xmath46 &  & 1.897367 & 1.936492 + wendland @xmath62 , @xmath71 & @xmath77 & @xmath78 &  & @xmath79 & @xmath80 &  & @xmath81 & @xmath70 &  & 2.171239 & 2.207940 + wendland @xmath66 , @xmath71 & @xmath82 & @xmath83 &  & @xmath84 & @xmath85 &  & @xmath86 & @xmath87 &  & 2.415230 & 2.449490
+sph smoothing kernels are usually isotropic and can be written as @xmath88 with a dimensionless function @xmath89 , which specifies the functional form and satisfies the normalisation @xmath90 . the re - scaling @xmath91 and @xmath92 with @xmath93 leaves the functional form of @xmath94 unchanged but alters the meaning of @xmath28 . in order to avoid this ambiguity , a definition of the smoothing scale in terms of the kernel , i.e.  via a functional @xmath95 $ ] , must be specified .
+in this study we use two scales , the smoothing scale @xmath28 , defined below , and the _ kernel - support radius _ @xmath96 , the largest @xmath97 for which @xmath98 . for computational efficiency ,
+smoothing kernels used in practice have compact support and hence finite @xmath96 . for such kernels @xmath99 where @xmath100 for @xmath101 and @xmath102 for @xmath103 .
+@xmath96 is related to the average number @xmath0 of neighbours within the smoothing sphere by @xmath104 with @xmath105 the volume of the unit sphere . @xmath96 and @xmath0 are useful quantities in terms of kernel computation and neighbour search , but not good measures for the smoothing scale @xmath28 . unfortunately , there is some confusion in the sph literature between @xmath96 and @xmath28 , either being denoted by ` @xmath28 ' and referred to as ` smoothing length ' . moreover , an appropriate definition of @xmath28 in terms of the smoothing kernel is lacking .
+possible definitions include the kernel standard deviation @xmath106 the radius of the inflection point ( maximum of @xmath107 ) , or the ratio @xmath108 at the inflection point . for the gaussian kernel @xmath109
+all these give the same result independent of dimensionality , but not for other kernels ( ` triangular ' kernels have no inflection point ) . because the standard deviation ( [ eq : sigma ] ) is directly related to the numerical resolution of sound waves (  [ sec : stable : long ] ) , we set @xmath110    in practice ( and in the remainder of our paper ) , the neighbour number @xmath0 is often used as a convenient parameter , even though it holds little meaning by itself .
+a more meaningful quantity in terms of resolution is the average number @xmath111 of particles within distance @xmath28 , given by @xmath112 for kernels with compact support , or the ratio @xmath113 between @xmath28 and the average particle separation .
+after these definitions , let us list the desirable properties of the smoothing kernel ( cf . * ? ? ?
+* ; * ? ? ?
+a.   [ enum:1 ] equation ( [ eq : rho ] ) obtains an accurate density estimate ; b.   [ enum:2 ] @xmath7 is twice continuously differentiable ; c.   [ enum:4 ] sph is stable against pairing at the desired @xmath0 ; d.   [ enum:5 ] @xmath7 and @xmath114 are computationally inexpensive .    here , condition ( [ enum:1 ] ) implies that @xmath115 as @xmath116 but also that @xmath117 is monotonically declining with @xmath97 ; condition ( [ enum:2 ] ) guarantees smooth forces , but also implies @xmath118 .
+the most used sph kernel functions are the @xcite b - spline functions , generated as 1d fourier transforms - fold convolution ( in one dimension ) of @xmath119 with itself ( modulo a scaling ) , and hence are identical to the @xcite-@xcite probability density for the sum @xmath120 of @xmath121 independent random variables , each uniformly distributed between @xmath122 and @xmath123.[foot : irwin : hall ] ] @xcite @xmath124 with normalisation constant @xmath125 .
+these kernels consist of @xmath126 piece - wise polynomials of degree @xmath127 ( see table  [ tab : kernel ] ) and are @xmath128 times continuously differentiable .
+thus , the cubic spline ( @xmath129 ) is the first useful , but the quartic and quintic have also been used . for large @xmath121 , the b - splines approach the gaussian : @xmath130 ( this follows from footnote  [ foot : irwin : hall ] and the central limit theorem ) .
+following @xcite , @xmath131 is conventionally used as smoothing scale for the b - splines independent of @xmath10 .
+this is motivated by their original purpose to interpolate equidistant one - dimensional data with spacing @xmath132 , but can not be expressed via a functional @xmath133 $ ] . moreover , the resulting ratios between @xmath132 for the @xmath134 do not match any of the definitions discussed above .
+however , this is just a coincidence for @xmath135 ( quintic spline ) since @xmath136 for the b - splines in 1d . ] .
+instead , we use the more appropriate @xmath137 also for the b - spline kernels , giving @xmath138 for the cubic spline in 3d , close to the conventional @xmath139 ( see table  [ tab : kernel ] ) .      at low order @xmath121
+the b - splines are only stable against pairing for modest values of @xmath0 ( we will be more precise in section  [ sec : linear ] ) , while at higher @xmath121 they are computationally increasingly complex .    therefore , alternative kernel functions which are stable for large @xmath0 are desirable . as the pairing instability has traditionally been associated with the presence of an inflection point ( minimum of @xmath140 ) , functions @xmath141 without inflection point
+have been proposed .
+these have a triangular shape at @xmath142 and necessarily violate point ( ii ) of our list , but avoid the pairing instability ) , but to keep a smooth kernel for the density estimate .
+however , such an approach can not be derived from a lagrangian and hence necessarily violates energy and/or entropy conservation @xcite . ] .
+for comparison we consider one of them , the ` hoct4 ' kernel of @xcite .
+the linear stability analysis of the sph algorithm , presented in the next section , shows that a necessary condition for stability against pairing is the non - negativity of the multi - dimensional fourier transform of the kernel .
+the gaussian has non - negative fourier transform for any dimensionality and hence would give an ideal kernel were it not for its infinite support and computational costs .
+therefore , we look for kernel functions of compact support which have non - negative fourier transform in @xmath10 dimensions and are low - order polynomials would avoid the computation of a square root .
+however , it appears that such functions can not possibly have non - negative fourier transform ( h.  wendland , private communication ) .
+] in @xmath120 .
+this is precisely the defining property of the @xcite functions , which are given by @xmath143 with @xmath144 and the linear operator @xmath145(r ) \equiv \int_r^\infty sf(s)\,\mathrm{d}s.\ ] ] in @xmath10 spatial dimensions , the functions @xmath146 with @xmath147 have positive fourier transform and are @xmath148 times continuously differentiable
+. in fact , they are the unique polynomials in @xmath97 of minimal degree with these properties @xcite . for large @xmath149 , they approach the gaussian , which is the only non - trivial eigenfunction of the operator @xmath150 .
+we list the first few wendland functions for one , two , and three dimensions in table  [ tab : kernel ] , and plot them for @xmath32 in fig .
+[ fig : kernel ] .      fig .
+[ fig : kernel ] plots the kernel functions @xmath141 of table  [ tab : kernel ] , the gaussian , and the hoct4 kernel , all scaled to the same @xmath137 for @xmath32 . amongst the various scalings ( ratios for @xmath151 )
+discussed in 
+[ sec : smooth : scale ] above , this gives by far the best match between the kernels .
+the b - splines and wendland functions approach the gaussian with increasing order .
+the most obvious difference between them in this scaling is their central value .
+the b - splines , in particular of lower order , put less emphasis on small @xmath120 than the wendland functions or the gaussian .
+obviously , the hoct4 kernel , which has no inflection point , differs significantly from all the others and puts even more emphasis on the centre than the gaussian ( for this kernel @xmath152 ) .      for spherical kernels of the form ( [ eq : w ] ) , their fourier transform only depends on the product @xmath153 , i.e.  @xmath154 . in 3d
+( @xmath155 denotes the fourier transform in @xmath10 dimensions ) @xmath156(\kappa ) =    4\pi \kappa^{-1 } \int_0^\infty \sin(\kappa r)\,w(r)\,r\,\mathrm{d}r\ ] ] which is an even function and ( up to a normalisation constant ) equals @xmath157/\mathrm{d}\kappa$ ] . for the b - splines , which are defined via their 1d fourier transform in equation ( [ eq : b - spline ] ) , this gives immediately @xmath158(\kappa ) = 3 \left(\frac{\textstyle      n}{\textstyle\kappa}\right)^{n+2 }    \sin^n\!\frac{\textstyle\kappa}{\textstyle n } \left(1-    \frac{\textstyle\kappa}{\textstyle n}\cot\frac{\textstyle\kappa}{\textstyle      n}\right)\ ] ] ( which includes the normalisation constant ) , while for the 3d wendland kernels @xmath159(\kappa ) =     \left(-\frac{1}{\kappa}\frac{\mathrm{d}}{\mathrm{d}\kappa}\right)^{k+1 }    \mathcal{f}_1\left[(1-r)^\ell_+\right](\kappa)\ ] ] ( we abstain from giving individual functional forms ) .
+all these are plotted in fig .
+[ fig : fk ] after scaling them to a common @xmath137 .
+notably , all the b - spline kernels obtain @xmath160 and oscillate about zero for large @xmath161 ( which can also be verified directly from equation  [ eq : w : kappa : b ] ) , whereas the wendland kernels have @xmath162 at all @xmath161 , as does the hoct4 kernel .
+as non - negativity of the fourier transform is necessary ( but not sufficient ) for stability against pairing at large @xmath0 ( see  [ sec : stable : cont ] ) , in 3d the b - splines ( of any order ) fall prey to this instability for sufficiently large @xmath0 , while , based solely on their fourier transforms , the wendland and hoct4 kernels may well be stable for all neighbour numbers .    at large @xmath163 ( small scales ) , the hoct kernel has most power , caused by its central spike , while the other kernels have ever less small - scale power with increasing order , becoming ever smoother and approaching the gaussian , which has least small - scale power .    the scaling to a common @xmath137 in fig .
+[ fig : fk ] has the effect that the @xmath164 all overlap at small wave numbers , since their taylor series @xmath165      the sph force ( [ eq : hydro ] ) is inseparably related , owing to its derivation via a variational principle , to the _ derivative _ of the density estimate .
+another important role of the sph density estimator is to obtain accurate values for @xmath27 in equation ( [ eq : hydro ] ) , and we will now assess the performance of the various kernels in this latter respect .    in fig .
+[ fig : rho ] , we plot the estimated density ( [ eq : rho ] ) vs.  neighbour number @xmath0 for the kernels of table  [ tab : kernel ] and particles distributed in three - dimensional densest - sphere packing ( solid curves ) or a glass ( squares ) . while the standard cubic spline kernel under - estimates the density ( only values @xmath166 are accessible for this kernel owing to the pairing instability ) , the wendland kernels ( and gaussian , not shown ) tend to over - estimate it .
+it is worthwhile to ponder about the origin of this density over - estimation .
+if the particles were randomly rather than semi - regularly distributed , @xmath167 obtained for an unoccupied position would be unbiased ( e.g. * ? ? ?
+* ) , while at a particle position the self contribution @xmath168 to @xmath169 results in an over - estimate . of course , in sph and in fig .
+[ fig : rho ] particles are not randomly distributed , but at small @xmath0 the self - contribution still induces some bias , as evident from the over - estimation for _ all _ kernels at very small @xmath0 .    the hoct4 kernel of read et al .
+( 2010 , _ orange _ ) with its central spike ( cf .
+[ fig : kernel ] ) shows by far the worst performance .
+however , this is not a peculiarity of the hoct4 kernel , but a generic property of all kernels without inflection point .
+these considerations suggest the _ corrected _ density estimate @xmath170 which is simply the original estimate ( [ eq : rho ] ) with a fraction @xmath171 of the self - contribution subtracted .
+the equations of motion obtained by replacing @xmath169 in the lagrangian ( [ eq : l ] ) with @xmath172 are otherwise identical to equations ( [ eq : hydro ] ) and ( [ eq : omega ] ) ( note that @xmath173 , since @xmath174 and @xmath175 differ only by a constant ) , in particular the conservation properties are unaffected . from the data of fig .
+[ fig : rho ] , we find that good results are obtained by a simple power - law @xmath176 with constants @xmath177 and @xmath178 depending on the kernel .
+we use @xmath179 = ( 0.0294,0.977 ) , ( 0.01342,1.579 ) , and ( 0.0116,2.236 ) , respectively , for the wendland @xmath57 , @xmath62 , and @xmath66 kernels in @xmath32 dimensions .    the dashed curves and triangles in fig .
+[ fig : rho ] demonstrate that this approach obtains accurate density and hence pressure estimates .
+the sph linear stability analysis considers a plane - wave perturbation to an equilibrium configuration , i.e.  the positions are perturbed according to @xmath180\big)\ ] ] with displacement amplitude @xmath181 , wave vector @xmath161 , and angular frequency @xmath182 .
+equating the forces generated by the perturbation to linear order in @xmath181 to the acceleration of the perturbation yields a dispersion relation of the form @xmath183 this is an eigenvalue problem for the matrix @xmath184 with eigenvector @xmath181 and eigenvalue @xmath185 .
+the exact ( non - sph ) dispersion relation ( with @xmath186 , @xmath187 at constant entropy ) @xmath188 has only one non - zero eigenvalue @xmath189 with eigenvector @xmath190 , corresponding to longitudinal sound waves propagating at speed @xmath191 .
+the actual matrix @xmath184 in equation ( [ eq : dispersion ] ) depends on the details of the sph algorithm . for conservative sph with equation of motion ( [ eq : hydro ] )
+, @xcite gives it for @xmath192 in one spatial dimension .
+we derive it in appendix  [ app : linear ] for a general equation of state and any number @xmath10 of spatial dimensions : @xmath193 where @xmath194 is the outer product of a vector with itself , bars denote sph estimates for the unperturbed equilibrium , @xmath195 , and    [ eq : uupi ] @xmath196    here and in the remainder of this section , curly brackets indicate terms not present in the case of a constant @xmath197 , when our results reduce to relations given by @xcite and @xcite .
+since @xmath184 is real and symmetric , its eigenvalues are real and its eigenvectors mutually orthogonal ) one omits the factors @xmath198 but still adapts @xmath8 to obtain @xmath18constant , as some practitioners do , then the resulting dispersion relation has an asymmetric matrix @xmath184 with potentially complex eigenvalues . ] . the sph dispersion relation ( [ eq : dispersion ] )
+can deviate from the true relation ( [ eq : p : exact ] ) in mainly two ways .
+first , the longitudinal eigenvalue @xmath199 ( with eigenvector @xmath200 ) may deviate from @xmath201 ( wrong sound speed ) or even be negative ( pairing instability ; @xcite ) .
+second , the other two eigenvalues @xmath202 may be significantly non - zero ( transverse instability for @xmath203 or transverse sound waves for @xmath204 ) .
+the matrix @xmath184 in equation ( [ eq : p ] ) is not accessible to simple interpretation .
+we will compute its eigenvalues for the various sph kernels in   [ sec : stable : kern]-3 and figs .
+[ fig : stable : s3]-[fig : disprel ] , but first consider the limiting cases of the dispersion relation , allowing some analytic insight .
++   +      there are three spatial scales : the wavelength @xmath205 , the smoothing scale @xmath28 , and the nearest neighbour distance @xmath206 .
+we will separately consider the limit @xmath207 of well resolved waves , the continuum limit @xmath208 of large neighbour numbers , and finally the combined limit @xmath209 .
+if @xmath210 , the argument of the trigonometric functions in equations ( [ eq : uupi]a , b ) is always small and we can taylor expand them regardless of @xmath28 . ] .
+if we also assume a locally isotropic particle distribution , this gives to lowest order in @xmath163 ( @xmath211 is the unit matrix ; see also  [ app : limit ] ) @xmath212\ ] ] with the eigenvalues    @xmath213    the error of these relations is mostly dictated by the quality of the density estimate , either directly via @xmath214 , @xmath215 , and @xmath216 , or indirectly via @xmath217 .
+the density correction method of equation ( [ eq : rho : corr ] ) can only help with the former , but not the latter .
+the difference between constant and adapted @xmath28 is a factor 4/9 ( for 3d ) in favour of the latter .      for large neighbour numbers
+@xmath0 , @xmath218 , @xmath219 , @xmath220 and the sums in equations  ( [ eq : uupi]a , b ) can be approximated by integrals , is to assume some _ radial distribution function _
+@xmath221 ( as in statistical mechanics of glasses ) for the probability of any two particles having distance @xmath120 .
+such a treatment may well be useful in the context of sph , but it is beyond the scope of our study . ] @xmath222 with @xmath164 the fourier transform of @xmath7 . since @xmath223 , we have @xmath224 and thus from equation ( [ eq : p ] ) @xmath225.\ ] ] @xmath226 , but towards larger @xmath163 the fourier transform decays , @xmath227 , and in the limit @xmath228 or @xmath229 , @xmath230 : short sound waves are not resolved .
+negative eigenvalues of @xmath184 in equation ( [ eq : p : fourier ] ) , and hence linear instability , occur only if @xmath231 itself or the expression within square brackets are negative . since @xmath232 , the latter can only happen if @xmath233 , which does usually not arise in fluid simulations ( unless , possibly , one subtracts an average pressure ) , but possibly in elasticity simulations of solids @xcite , when it causes the _ tensile _ instability ( an equivalent effect is present in smoothed - particle mhd , see @xcite ) .
+@xcite proposed an artificial repulsive short - range force , effectuating an additional pressure , to suppress the tensile instability .    the pairing instability , on the other hand
+, is caused by @xmath160 for some @xmath234 .
+this instability can be avoided by choosing the neighbour number @xmath0 small enough for the critical wave number @xmath235 to remain unsampled , i.e.  @xmath236 or @xmath237 ( though such small @xmath96 is no longer consistent with the continuum limit ) .
+however , if the fourier transform of the kernel is non - negative everywhere , the pairing instability can not occur for large @xmath0 . as pairing is typically a problem for large @xmath0
+, this suggests that kernels with @xmath162 for every @xmath161 are stable against pairing for _ all _ values of @xmath0 , which is indeed supported by our results in  [ sec : test : noise ] .
+the combined limit of @xmath209 is obtained by inserting the taylor expansion ( [ eq : w : taylor ] ) of @xmath231 into equation ( [ eq : p : fourier ] ) , giving @xmath238    + \mathcal{o}(h^4|{\boldsymbol{k}}|^4 )    \right).\ ] ] @xcite gave an equivalent relation for @xmath30 when the expression in square brackets becomes @xmath239 or @xmath240 ( for adapted or constant @xmath28 , respectively ) , which , he argues , bracket all physically reasonable values . however , in 3d the value for adaptive sph becomes @xmath241 , i.e.  _ vanishes _ for the most commonly used adiabatic index .
+in general , however , the relative error in the frequency is @xmath242 .
+this shows that @xmath137 is indeed directly proportional to the resolution scale , at least concerning sound waves .
+we have evaluated the eigenvalues @xmath199 and @xmath243 of the matrix @xmath184 in equation ( [ eq : p ] ) for all kernels of table  [ tab : kernel ] , as well as the hoct4 and gaussian kernels , for unperturbed positions from densest - sphere packing ( face - centred cubic grid ) simply because the configuration itself was unstable , not the numerical scheme . ] . in figs .
+[ fig : stable : s3]&[fig : stable : kernel ] , we plot the resulting contours of @xmath244 over wave number @xmath163 and smoothing scale @xmath28 ( both normalised by the nearest - neighbour distance @xmath206 ) or @xmath0 on the right axes ( except for the gaussian kernel when @xmath0 is ill - defined and we give @xmath111 instead ) for two wave directions , one being a nearest - neighbour direction .
+the top sub - panels of figs .
+[ fig : stable : s3]&[fig : stable : kernel ] refer to the longitudinal eigenvalue @xmath199 , when green and red contours are for , respectively , @xmath245 and @xmath246 , the latter indicative of the pairing instability . for the gaussian kernel ( truncated at @xmath247 ; fig .
+[ fig : stable : s3 ] ) @xmath248 everywhere , proving its stability at values for @xmath28 larger than plotted . in agreement with our analysis in 
+[ sec : stable : cont ] , this is caused by truncating the gaussian , which ( like any other modification to avoid infinite neighbour numbers ) invalidates the non - negativity of its fourier transform .
+these theoretical results are confirmed by numerical findings of d.  price ( referee report ) , who reports pairing at large @xmath249 for the truncated gaussian . ] , similar to the hoct4 and , in particular the higher - degree , wendland kernels .
+in contrast , all the b - spline kernels obtain @xmath246 at sufficiently large @xmath0 .
+the quintic spline , wendland @xmath57 , and hoct4 kernel each have a region of @xmath246 for @xmath163 close to the nyquist frequency and @xmath250 , @xmath251 , and @xmath252 , respectively . in numerical experiments similar to those described in 
+[ sec : test : noise ] , the corresponding instability for the quintic spline and wendland @xmath57 kernels can be triggered by very small random perturbations to the grid equilibrium .
+however , such modes are absent in glass - like configurations , which naturally emerge by ` cooling ' initially random distributions .
+this strongly suggests , that these kernel-@xmath0 combinations can be safely used in practice . whether this also applies to the hoct4 kernel at @xmath252 we can not say , as we have not run test simulations for this kernel .
+note , that these islands of linear instability at small @xmath0 are not in contradiction to the relation between kernel fourier transform and stability and are quite different from the situation for the b - splines , which are only stable for sufficiently small @xmath0 .
+the bottom sub - panels of figs .
+[ fig : stable : s3]&[fig : stable : kernel ] show @xmath253 , when both families of kernels have @xmath254 with either sign occurring .
+@xmath255 implies growing transverse modes with a ` banding instability ' which appeared near a contact discontinuity in some of their simulations .
+however , they fail to provide convincing arguments for this connection , as their stability analysis is compromised by the use of the unstable cubic lattice . ] , which we indeed found in simulations starting from a slightly perturbed densest - sphere packing
+. however , such modes are not present in glass - like configurations , which strongly suggests , that transverse modes are not a problem in practice .      the dashed lines in figs .
+[ fig : stable : s3]&[fig : stable : kernel ] indicate sound with wavelength @xmath256 . for @xmath257 ,
+such sound waves are well resolved in the sense that the sound speed is accurate to @xmath258 .
+this is similar to grid methods , which typically require about eight cells to resolve a wavelength .
+the effective sph sound speed can be defined as @xmath259 . in fig .
+[ fig : disprel ] we plot the ratio between @xmath260 and the correct sound speed as function of wave number for three different wave directions and the ten kernel-@xmath0 combinations of table  [ tab : nh : kern ] ( which also gives their formal resolutions ) .
+the transition from @xmath261 for long waves to @xmath262 for short waves occurs at @xmath263 , but towards longer waves for larger @xmath249 , as expected .    for resolved waves ( @xmath264 : left of the thin vertical lines in fig .
+[ fig : disprel ] ) , @xmath260 obtains a value close to @xmath191 , but with clear differences between the various kernel-@xmath0 combinations .
+surprisingly , the standard cubic spline kernel , which is used almost exclusively in astrophysics , performs very poorly with errors of few percent , for both @xmath265 and 55 .
+this is in stark contrast to the quartic spline with similar @xmath266 but @xmath260 accurate to @xmath267 .
+moreover , the quartic spline with @xmath266 resolves shorter waves better than the cubic spline with a smaller @xmath268 , in agreement with table  [ tab : nh : kern ] .    we should note that these results for the numerical sound speed assume a perfectly smooth simulated flow . in practice
+, particle disorder degrades the performance , in particular for smaller @xmath0 , and the resolution of sph is limited by the need to suppress this degradation via increasing @xmath28 ( and @xmath0 ) .
+.some quantities ( defined in  [ sec : smooth : scale ] ) for kernel-@xmath0 combinations used in fig .
+[ fig : disprel ] and the test simulations of  [ sec : test ] .
+@xmath206 is the nearest - neighbour distance for densest - sphere packing , which has number density @xmath269 .
+the cubic spline with @xmath270 is the most common choice in astrophysical simulations , the other @xmath0 values for the b - spline are near the pairing - stability boundary , hence obtaining close to the greatest possible reduction of the ` e@xmath25 errors ' . for @xmath271 , 200 , 400
+, we picked the wendland kernel which gave best results for the vortex test of  [ sec : test : vortex ] .
+[ tab : nh : kern ] [ cols= " < , > , > , > , < " , ]
+in order to assess the wendland kernels and compare them to the standard b - spline kernels in practice , we present some test simulations which emphasise the pairing , strong shear , and shocks .
+all these simulations are done in 3d using periodic boundary conditions , @xmath272 , conservative sph ( equation  [ eq : hydro ] ) , and the @xcite artificial viscosity treatment , which invokes dissipation only for compressive flows , and an artificial conductivity similar to that of @xcite . for some tests we used various values of @xmath0 per kernel , but mostly those listed in table  [ tab : nh : kern ] .      in order to test our theoretical predictions regarding the pairing instability ,
+we evolve noisy initial conditions with 32000 particles until equilibrium is reached .
+initially , @xmath273 , while the initial @xmath4 are generated from densest - sphere packing by adding normally distributed offsets with ( 1d ) standard deviation of one unperturbed nearest - neighbour distance @xmath206 . to enable a uniform - density equilibrium ( a glass ) , we suppress viscous heating .
+the typical outcome of these simulations is either a glass - like configuration ( right panel of fig .
+[ fig : noise : xy ] ) or a distribution with particle pairs ( left panel of fig .
+[ fig : noise : xy ] ) . in order to quantify these outcomes ,
+we compute for each particle the ratio @xmath274 between its actual nearest - neighbour distance and kernel - support radius .
+the maximum possible value for @xmath275 occurs for densest - sphere packing , when @xmath276 with @xmath121 the number density . replacing @xmath169 in equation ( [ eq : nh ] ) with @xmath277
+, we obtain @xmath278 thus , the ratio @xmath279 is an indicator for the regularity of the particle distribution around particle @xmath280 .
+it obtains a value very close to one for perfect densest - sphere packing and near zero for pairing , while a glass typically gives @xmath281 .
+[ fig : noise : qmin ] plots the final value for the overall minimum of @xmath282 for each of a set of simulations . for all values tested for @xmath0 ( up to 700 ) ,
+the wendland kernels show no indication of a single particle pair .
+this is in stark contrast to the b - spline kernels , all of which suffer from particle pairing .
+the pairing occurs at @xmath283 and 190 for the quartic , and quintic spline , respectively , whereas for the cubic spline @xmath284 approaches zero more gradually , with @xmath285 at @xmath286 .
+these thresholds match quite well the suggestions of the linear stability analysis in figs .
+[ fig : stable : s3]&[fig : stable : kernel ] ( except that the indications of instability of the quintic spline at @xmath250 and the wendland @xmath57 kernel at @xmath251 are not reflected in our tests here ) .
+the quintic ( and higher - order ) splines are the only option amongst the b - spline kernels for @xmath0 appreciably larger than @xmath287 .
+we also note that @xmath284 grows substantially faster , in particularly early on , for the wendland kernels than for the b - splines , especially when operating close to the stability boundary .
+as discussed in the introduction , particle disorder is unavoidably generated in shearing flows , inducing ` e@xmath25 errors ' in the forces and causing modelling errors .
+a critical test of this situation consists of a differentially rotating fluid of uniform density in centrifugal balance ( @xcite , see also @xcite , @xcite , and @xcite ) .
+the pressure and azimuthal velocity are    [ eqs : gresho ] @xmath288    with @xmath289 and @xmath290 the cylindrical radius .
+we start our simulations from densest - sphere packing with effective one - dimensional particle numbers @xmath291 , 102 , 203 , or 406 .
+the initial velocities and pressure are set as in equations ( [ eqs : gresho ] ) .
+there are three different causes for errors in this test .
+first , an overly viscous method reduces the differential rotation , as shown by @xcite ; this effect is absent from our simulations owing to the usage of the @xcite dissipation switch .
+second , the ` e@xmath25 error ' generates noise in the velocities which in turn triggers some viscosity .
+finally , finite resolution implies that the sharp velocity kinks at @xmath292 and 0.4 can not be fully resolved ( in fact , the initial conditions are not in sph equilibrium because the pressure gradient at these points is smoothed such that the sph acceleration is not exactly balanced with the centrifugal force ) .    in fig .
+[ fig : gresho : dv ] we plot the azimuthal velocity at time @xmath293 for a subset of all particles at our lowest resolution of @xmath291 for four different kernel-@xmath0 combinations .
+the leftmost is the standard cubic spline with @xmath268 , which considerably suffers from particle disorder and hence 
+e@xmath25 errors ( but also obtains too low @xmath294 at @xmath295 ) .
+the second is the wendland @xmath57 kernel with @xmath271 , which still suffers from the ` e@xmath25 error ' .
+the last two are for the wendland @xmath66 kernel with @xmath296 and the wendland @xmath57 kernel with @xmath271 but with @xmath297 in equation ( [ eq : gresho : p ] ) . in both cases ,
+the ` e@xmath25 error ' is much reduced ( and the accuracy limited by resolution ) either because of large neighbour number or because of a reduced pressure .    in fig .
+[ fig : gresho ] , we plot the convergence of the @xmath298 velocity error with increasing numerical resolution for all the kernels of table  [ tab : kernel ] , but with another @xmath0 for each , see also table  [ tab : nh : kern ] . for the b - splines ,
+we pick a large @xmath0 which still gives sufficient stability against pairing , while for @xmath271 , 200 , and 400 we show the wendland kernel that gave best results . for the cubic spline
+, the results agree with the no - viscosity case in fig .
+6 of @xcite , demonstrating that our dissipation switch effectively yields inviscid sph .
+we also see that the rate of convergence ( the slope of the various curves ) is lower for the cubic spline than any other kernel .
+this is caused by systematically too low @xmath294 in the rigidly rotating part at @xmath295 ( see leftmost panel if fig .
+[ fig : gresho : dv ] ) at all resolutions .
+the good performance of the quartic spline is quite surprising , in particular given the rather low @xmath0 .
+the quintic spline at @xmath299 and the wendland @xmath62 kernel at @xmath300 obtain very similar convergence , but are clearly topped by the wendland @xmath66 kernel at @xmath296 , demonstrating that high neighbour number is really helpful in strong shear flows .
+our final test is the classical @xcite shock tube , a 1d riemann problem , corresponding to an initial discontinuity in density and pressure . unlike most published applications of this test
+, we perform 3d simulations with glass - like initial conditions .
+our objective here is ( 1 ) to verify the ` e@xmath25-error ' reductions at larger @xmath0 and ( 2 ) the resulting trade - off with the resolution across the shock and contact discontinuities . other than for the vortex tests of  [ sec : test : vortex ] , we only consider one value for the number @xmath2 of particles but the same six kernel-@xmath0 combinations as in fig .
+[ fig : gresho ] .
+the resulting profiles of velocity , density , and thermal energy are plotted in fig .
+[ fig : sod ] together with the exact solutions .
+note that the usual over - shooting of the thermal energy near the contact discontinuity ( at @xmath301 ) is prevented by our artificial conductivity treatment .
+this is not optimised and likely over - smoothes the thermal energy ( and with it the density ) .
+however , here we concentrate on the velocity .    for the cubic spline with @xmath268 ,
+there is significant velocity noise in the post - shock region .
+this is caused by the re - ordering of the particle positions after the particle distribution becomes anisotropically compressed in the shock .
+this type of noise is a well - known issue with multi - dimensional sph simulations of shocks ( e.g. * ? ? ?
+* ) . with increasing @xmath0
+the velocity noise is reduced , but because of the smoothing of the velocity jump at the shock ( at @xmath302 ) the @xmath298 velocity error does not approach zero for large @xmath0 .    instead , for sufficiently large @xmath0
+( @xmath303 in this test ) , the @xmath298 velocity error saturates : any ` e@xmath25-error ' reduction for larger @xmath0 is balanced by a loss of resolution .
+the only disadvantage of larger @xmath0 is an increased computational cost ( by a factor @xmath304 when moving from the quintic spline with @xmath299 to the wendland kernel @xmath66 with @xmath296 , see fig .
+[ fig : time ] ) .
+the wendland kernels have an inflection point and yet show no signs of the pairing instability .
+this clearly demonstrates that the traditional ideas for the origin of this instability (  la @xcite , see the introduction ) were incorrect .
+instead , our linear stability analysis shows that in the limit of large @xmath0 pairing is caused by a negative kernel fourier transform @xmath231 , whereas the related tensile instability with the same symptoms is caused by an ( effective ) negative pressure .
+while it is intuitively clear that negative pressure causes pairing , the effect of @xmath160 is less obvious
+. therefore , we now provide another explanation , not restricted to large @xmath0 .      by their derivation from the lagrangian ( [ eq : l ] ) , the sph forces @xmath305 tend to reduce the estimated total thermal energy @xmath306 at fixed entropy is constant , but not the entropy @xmath13 , so that @xmath307 . ] .
+thus , hydrostatic equilibrium corresponds to an extremum of @xmath308 , and stable equilibrium to a minimum when small positional changes meet opposing forces .
+minimal @xmath308 is obtained for uniform @xmath169 , since a re - distribution of the particles in the same volume but with a spread of @xmath169 gives larger @xmath308 ( assuming uniform @xmath309 ) .
+an equilibrium is meta - stable , if @xmath308 is only a local ( but not the global ) minimum .
+several extrema can occur if different particle distributions , each obtaining ( near)uniform @xmath169 , have different average @xmath167 .
+consider , for example , particles in densest - sphere packing , replace each by a pair and increase the spacing by @xmath310 , so that the average density @xmath311 ( but not @xmath167 ) remains unchanged .
+this fully paired distribution is in equilibrium with uniform @xmath169 , but the _ effective _ neighbour number is reduced by a factor 2 ( for the same smoothing scale ) . now
+if @xmath312 , the paired distribution has lower @xmath308 than the original and is favoured .    in practice ( and in our simulations in  [ sec : test : noise ] ) , the pairing instability appears gradually : for @xmath0 just beyond the stability boundary , only few particle pairs form and the effective reduction of @xmath0 is by a factor @xmath313 .
+we conclude , therefore , that    * pairing occurs if @xmath314 for some @xmath315 . *    from fig .
+[ fig : rho ] we see that for the b - spline kernels @xmath316 always has a minimum and hence satisfies our condition , while this never occurs for the wendland or hoct4 kernels does not affect these arguments , because during a simulation @xmath171 in equation ( [ eq : rho : corr ] ) is _ fixed _ and in terms of our considerations here the solid curves in fig .
+[ fig : rho ] are simply lowered by a constant . ] . the stability boundary ( between squares and crosses in fig .
+[ fig : rho ] ) is towards slightly larger @xmath0 than the minimum of @xmath316 , indicating @xmath317 ( but also note that the curves are based on a regular grid instead of a glass as the squares ) .
+a disordered particle distribution is typically not in equilibrium , but has non - uniform @xmath169 and hence non - minimal @xmath308 .
+the sph forces , in particular their ` e@xmath25 errors ' ( which occur even for constant pressure ) , then drive the evolution towards smaller @xmath308 and hence equilibrium with either a glass - like order or pairing ( see also * ? ? ?
+thus , the minimisation of @xmath318 is the underlying driver for both the particle re - ordering capability of sph and the pairing instability .
+this also means that when operating near the stability boundary , for example using @xmath268 for the cubic spline , this re - ordering is much reduced . this is why in fig .
+[ fig : noise : qmin ] the transition between glass and pairing is not abrupt : for @xmath0 just below the stability boundary the glass - formation , which relies on the re - ordering mechanism , is very slow and not finished by the end of our test simulations
+.    an immediate corollary of these considerations is that any sph - like method without ` e@xmath25 errors ' does not have an automatic re - ordering mechanism .
+this applies to modifications of the force equation that avoid the ` e@xmath25 error ' , but also to the method of @xcite , which employs a voronoi tessellation to obtain the density estimates @xmath169 used in the particle lagrangian ( [ eq : l ] ) .
+the tessellation constructs a partition of unity , such that different particle distributions with uniform @xmath169 have _ exactly _ the same average @xmath167 , i.e.  the global minimum of @xmath308 is highly degenerate .
+this method has neither a pairing instability , nor ` e@xmath25 errors ' , nor the re - ordering capacity of sph , but requires additional terms for that latter purpose .
+neither the b - splines nor the wendland functions have been designed with sph or the task of density estimation in mind , but derive from interpolation of function values @xmath319 for given points @xmath4 .    the b - splines were constructed to exactly interpolate polynomials on a regular 1d grid . however , this for itself is not a desirable property in the context of sph , in particular for 2d and 3d .
+the wendland functions were designed for interpolation of scattered multi - dimensional data , viz @xmath320 the coefficients @xmath321 are determined by matching the interpolant @xmath322 to the function values , resulting in the linear equations @xmath323 if the matrix @xmath324 is positive definite for _ any _ choice of @xmath121 points @xmath4 , then this equation can always be solved . moreover , if the function @xmath141 has compact support , then @xmath325 is sparse , which greatly reduces the complexity of the problem .
+the wendland functions were designed to fit this bill . as a side effect
+they have non - negative fourier transform ( according to * ? ? ?
+* ) , which together with their compact support , smoothness , and computational simplicity makes them ideal for sph with large @xmath0 .
+so far , the wendland functions are the only kernels which are stable against pairing for all @xmath0 and satisfy all other desirable properties from the list on page  .      in smooth flows , i.e.  in the absence of particle disorder , the only error of the sph estimates is the bias induced by the smoothing operation .
+for example , assuming a smooth density field @xmath326 ( e.g. * ? ? ?
+* ; * ? ? ?
+* ) with @xmath327 defined in equation ( [ eq : sigma ] ) .
+since @xmath327 also sets the resolution of sound waves (  [ sec : stable : long ] ) , our definition ( [ eq : h ] ) , @xmath137 , of the sph resolution scale is appropriate for smooth flows .
+the result ( [ eq : rho : bias ] ) is the basis for the traditional claim of @xmath24 convergence for smooth flows .
+true flow discontinuities are smeared out over a length scale comparable to @xmath28 ( though we have not made a detailed investigation of this ) .    in practice
+, however , particle disorder affects the performance and , as our test simulations demonstrated , the actual resolution of sph can be much worse than the smooth - flow limit suggests .
+there is no consensus about the best neighbour number in sph : traditionally the cubic spline kernel is used with @xmath270 , while @xcite favours @xmath328 ( at or even beyond the pairing - instability limit ) and @xcite use their hoct4 kernel with even @xmath329 ( corresponding to a @xmath330 times larger @xmath28 ) . from a pragmatic point of view , the number @xmath2 of particles , the neighbour number @xmath0 , and the smoothing kernel ( and between them the numerical resolution ) are _ numerical parameters _ which can be chosen to optimise the efficiency of the simulation .
+the critical question therefore is :    * which combination of @xmath2 and @xmath0 ( and kernel ) most efficiently models a given problem at a desired fidelity ? *    clearly , this will depend on the problem at hand as well as the desired fidelity
+. however , if the problem contains any chaotic or turbulent flows , as is common in star- and galaxy formation , then the situation exemplified in the gresho - chan vortex test of  [ sec : test : vortex ] is not atypical and large @xmath0 may be required for sufficient accuracy .    but are high neighbour numbers affordable ? in fig .
+[ fig : time ] , we plot the computational cost versus @xmath0 for different kernels . at @xmath331
+the costs rise sub - linearly with @xmath0 ( because at low @xmath0 sph is data- rather than computation - dominated ) and high @xmath0 are well affordable . in the case of the vortex test , they are absolutely necessary as fig .  [
+fig : gresho : c ] demonstrates : for a given numerical accuracy , our highest @xmath0 makes optimal use of the computational resources ( in our code memory usage does not significantly depend on @xmath0 , so cpu time is the only relevant resource ) .
+particle disorder is unavoidable in strong shear ( ubiquitous in astrophysical flows ) and causes random errors of the sph force estimator .
+the good news is that particle disorder is less severe than poissonian shot noise and the resulting force errors ( which are dominated by the  e@xmath25  term of * ? ? ?
+* ) are not catastrophic .
+the bad news , however , is that these errors are still significant enough to spoil the convergence of sph .    in this study we investigated the option to reduce the ` e@xmath25 errors ' by increasing the neighbour number in conjunction with a change of the smoothing kernel .
+switching from the cubic to the quintic spline at fixed resolution @xmath28 increases the neighbour number @xmath0 only by a factor ) for the smoothing scale @xmath28 .
+the conventional factor is 3.375 , almost twice 1.74 , but formally effects to a loss of resolution , since the conventional value for @xmath28 of the b - spline kernels is inappropriate . ]
+1.74 , hardly enough to combat ` e@xmath25 errors ' . for a significant reduction of the these errors one has to trade resolution and
+significantly increase @xmath0 beyond conventional values .
+the main obstacle with this approach is the pairing instability , which occurs for large @xmath0 with the traditional sph smoothing kernels . in 
+[ sec : linear ] and appendix  [ app : linear ] , we have performed ( it appears for the first time ) a complete linear stability analysis for conservative sph in any number of spatial dimensions .
+this analysis shows that sph smoothing kernels whose fourier transform is negative for some wave vector @xmath161 will inevitably trigger the sph pairing instability at sufficiently large neighbour number @xmath0 .
+such kernels therefore require @xmath0 to not exceed a certain threshold in order to avoid the pairing instability ( not to be confused with the tensile instability , which has the same symptoms but is caused by a negative effective pressure independent of the kernel properties ) .    intuitively , the pairing instability can be understood in terms of the sph density estimator : if a paired particle distribution obtains a lower average estimated density , its estimated total thermal energy @xmath308 is smaller and hence favourable .
+otherwise , the smallest @xmath308 occurs for a regular distribution , driving the automatic maintenance of particle order , a fundamental ingredient of sph .
+the @xcite functions , presented in  [ sec : kern : wend ] , have been constructed , albeit for different reasons , to possess a non - negative fourier transform , and be of compact support with simple functional form .
+the first property and the findings from our tests in  [ sec : test : noise ] demonstrate the remarkable fact that these kernels are stable against pairing for _ all _ neighbour numbers ( this disproves the long - cultivated myth that the pairing instability was caused by a maximum in the kernel gradient ) .
+our 3d test simulations show that the cubic , quartic , and quintic spline kernels become unstable to pairing for @xmath332 , 67 , and 190 , respectively ( see fig .
+[ fig : noise : qmin ] ) , but operating close to these thresholds can not be recommended .
+a drawback of the wendland kernels is a comparably large density error at low @xmath0 . as we argue in  [ sec : pairing : alt ] , this error is directly related to the stability against pairing .
+however , in 
+[ sec : kern : dens ] we present a simple method to correct for this error without affecting the stability properties and without any other adverse effects .
+we conclude , therefore , that the wendland functions are ideal candidates for sph smoothing kernels , in particular when large @xmath0 are desired , since they are computationally superior to the high - order b - splines .
+all other alternative kernels proposed in the literature are computationally more demanding and are either centrally spiked , like the hoct4 kernel of @xcite , or susceptible to pairing like the b - splines ( e.g. * ? ? ?
+our tests of section  [ sec : test ] show that simulations of both strong shear flows and shocks benefit from large @xmath0 .
+these tests suggest that for @xmath333 and 400 , respectively , the wendland @xmath62 and @xmath66 kernels are most suitable .
+compared to @xmath268 with the standard cubic spline kernel , these kernel-@xmath0 combinations have lower resolution ( @xmath28 increased by factors 1.27 and 1.44 , respectively ) , but obtain much better convergence in our tests .    for small neighbour numbers
+, however , these tests and our linear stability analysis unexpectedly show that the quartic b - spline kernel with @xmath266 is clearly superior to the traditional cubic spline and can compete with the wendland @xmath57 kernel with @xmath271 .
+the reason for this astonishing performance of the quartic spline is unclear , perhaps the fact that near @xmath334 this spline is more than three times continuously differentiable plays a role .
+we note that , while the higher - degree wendland functions are new to sph , the wendland @xmath57 kernel has already been used ( @xcite , for example , employs it for 2d simulations ) .
+however , while its immunity to the pairing instability has been noted ( e.g. * ? ? ?
+* ) kernels in the context of 2d sph simulations .
+robinson refutes experimentally the traditional explanation (  la @xcite ) for the pairing instability and notices the empirical connection between the pairing instability and the non - negativity of the kernel fourier transform , both in excellent agreement with our results . ] , we are not aware of any explanation ( previous to ours ) nor of any other systematic investigation of the suitability of the wendland functions for sph .
+research in theoretical astrophysics at leicester is supported by an stfc rolling grant .
+we thank chris nixon and justin read for many stimulating discussions and the referee daniel price for useful comments and prompt reviewing .
+this research used the alice high performance computing facility at the university of leicester .
+some resources on alice form part of the dirac facility jointly funded by stfc and the large facilities capital fund of bis .
+we start from an equilibrium with particles of equal mass @xmath335 on a regular grid and impose a plane - wave perturbation to the unperturbed positions @xmath336 ( a bar denotes a quantity obtained for the unperturbed equilibrium ) : @xmath337 as in equation ( [ eq : x : pert : ] ) .
+we derive the dispersion relation @xmath338 by equating the sph force imposed by the perturbation ( to linear order ) to its acceleration @xmath339 to obtain the perturbed sph forces to linear order , we develop the internal energy of the system , and hence the sph density estimate , to second order in @xmath340 . if @xmath341 with @xmath342 and @xmath343 the first and second - order density corrections , respectively , then @xmath344      let us first consider the simple case of constant @xmath197 which remains unchanged during the perturbation .
+then , @xmath345 inserting @xmath346 into ( [ eq : varrho ] ) gives @xmath347 where ( assuming a symmetric particle distribution ) @xmath348 we can then derive @xmath349 with @xmath350 inserting these results into ( [ eq : hydro : p ] ) , we get @xmath351      if the @xmath8 are adapted such that @xmath352 remains a global constant @xmath353 , the estimated density is simply @xmath354 .
+we start by expanding @xmath355 to second order in both @xmath181 and @xmath356 . using a prime to denote differentiation w.r.t .
+@xmath357 , we have              inserting these expressions into equation ( [ eq : hydro : p ] ) we find with relations ( [ eqs : derive:1 ] ) and ( [ eqs : derive:2 ] ) @xmath366 & & \label{eq : ddxi : ad }    -    \left ( \bar{c}^2-\frac{2\bar{p}}{\bar{\rho } } \right )    \frac{{\boldsymbol{a}}{\cdot}{\boldsymbol{t}}\,{\boldsymbol{t}}}{\bar{\rho}^2\bar{\omega}^2}\,\phi_i    .\end{aligned}\ ] ] where @xmath367

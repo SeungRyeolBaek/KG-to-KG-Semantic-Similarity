@@ -1,0 +1,363 @@
+suppose that at @xmath9 a gas of diffusing particles of constant density @xmath10 is brought in contact with a spherical absorber of radius @xmath0 in @xmath3 dimensions .
+the particles are absorbed upon hitting the absorber .
+remarkably , this simple setting captures the essence of many diffusion - controlled chemical kinetic processes @xcite .
+the evolution of the _ average _ coarse - grained particle density of the gas is described by the diffusion equation @xmath11 , \label{difeq}\ ] ] where @xmath12 is the gas diffusivity . here
+we will be interested in large fluctuations rather than in the average behavior .
+one important fluctuating quantity is the number of particles @xmath13 that is absorbed during a long time @xmath2 .
+we will focus on two questions : ( i ) what is the probability that @xmath14 , that is no particle hit the absorber until time @xmath2 ?
+( ii ) what is the most likely history of the particle density of the gas conditional on the non - hitting until time @xmath2 ?
+these questions also appear in the context of a search for an immobile target by a swarm of diffusing searchers , see e.g. ref . @xcite and references therein . this process has been studied extensively in the simplest case when the searchers are non - interacting random walkers ( rws ) . in this case @xmath15 , and the probability that the target survives until time @xmath2 , @xmath16 was found to exhibit the following long - time behavior @xcite :     - , & @xmath17 , [ survivaldecay1 ] + , & @xmath18 , [ survivaldecay2 ] + ( d-2 ) _
+dr^d-2 d_0 t , & @xmath7 , [ survivaldecay3 ]    where @xmath19 is the surface area of the @xmath3-dimensional unit sphere , and @xmath20 is the gamma function .
+equations  ( [ survivaldecay2 ] ) and ( [ survivaldecay3 ] ) give the leading terms of the corresponding asymptotics at long times , when @xmath21 , i.e. , the characteristic diffusion length @xmath22 is very large compared to the target radius @xmath0 .
+equation  ( [ survivaldecay1 ] ) is independent of @xmath0 , and the parameter @xmath6 is irrelevant . as a result , eq .
+( [ survivaldecay1 ] ) becomes valid as soon as @xmath2 is much larger than the inverse microscopic hopping rate .
+the target survival problem is a particular case of a more general problem of finding the complete statistics of particle absorption by the absorber . for the rws
+, this problem has been recently studied in ref .
+@xcite .    here
+we extend the target problem in several directions .
+first , we consider a lattice gas of _ interacting _ searchers . throughout
+most of the paper , we assume that the searchers interact via exclusion .
+this can be a good simplistic model for studying diffusion - controlled chemical reactions in crowded environments such as a living cell @xcite .
+specifically , we will consider a lattice gas described by the symmetric simple exclusion process ( ssep ) . in this process
+each particle can hop to a neighboring lattice site if that site is unoccupied by another particle .
+if it is occupied , the move is disallowed .
+the average behavior of this gas is still described by the diffusion equation ( [ difeq ] ) with @xmath23 @xcite , so the ssep and the rws are indistinguishable at the level of averages . however , as we show here , the long - time asymptotic of the target survival probability @xmath1 for the ssep behaves differently from that for the rws : @xmath24 this expression has the same structure as eq .
+( [ survivaldecay3 ] ) , but it increases much faster with the gas density @xmath10 @xcite ; see fig .
+[ arcsinsquared ] .
+we note that previous results for the ssep only included bounds on @xmath25 @xcite .
+second , we show that , for @xmath17 , the survival probability @xmath1 depends strongly on the initial condition
+. this effect does not require inter - particle interaction , and it also occurs for the rws , as we show below . in particular , the asymptotic  ( [ survivaldecay1 ] ) is only valid after averaging over random initial distributions of particles , that is , for the annealed setting @xcite .
+we find a different result for a deterministic initial condition , also called a quenched setting @xcite .
+for the rws , the two results for @xmath8 differ by a numerical factor . for the ssep
+, even their @xmath10-dependence is different for @xmath17 .
+third , we demonstrate that the two basic one - dimensional solutions , annealed and quenched , play a central role in higher dimensions when one is interested in _ intermediate _ asymptotics of @xmath1 for @xmath26 , that is when the diffusion length @xmath22 is much longer than the lattice constant , but much shorter than the absorber radius @xmath0 .
+fourth , in addition to evaluating @xmath1 in different regimes , we also find the most likely history of the gas density conditional on the target survival until time @xmath2 .
+we achieve this result , and most of the others , by employing the macroscopic fluctuation theory ( mft ) @xcite .
+this coarse - grained large - deviation formalism was unavailable when most of the studies of the target survival probability were performed .
+the mft is well suited for the analysis of large deviations in lattice gases , including the ( unlikely ) target survival at long times that we are dealing with here .
+one of our central findings for the ssep is that , in the long - time regime , @xmath27 , the most likely gas density profile for @xmath7 is , for most of the time , almost stationary : @xmath28 , \ ] ] where the radial coordinate is rescaled by the diffusion length @xmath22 .
+it is this density profile that determines the leading term ( [ actresultd ] ) of the survival probability .
+last but not least , we extend our approach to a whole class of additional interacting diffusive gases .    in the next section we present the mft formulation of the target survival problem .
+section [ steady ] deals with @xmath29 for @xmath27 . here
+@xmath8 is mostly contributed to by a _
+stationary _ solution of the mft equations , independently of whether the setting is annealed or quenched .
+we derive these solutions , evaluate @xmath30 and verify the results for @xmath31 by solving the mft problem numerically . in sec .
+[ nonstat ] we study analytically and numerically the survival probability in non - stationary settings , deterministic and random , in all dimensions and at different densities . in sec .
+[ extension ] we extend our results for @xmath29 to a broad class of interacting lattice gases .
+our main results are summarized in sec .
+[ discussion ] . in appendix
+we present , for non - interacting rws , exact microscopic derivations of @xmath1 for the annealed and quenched settings and for @xmath17 , @xmath32 and @xmath33 . both the microscopic derivation and
+the mft calculations show that , for @xmath34 , the leading contribution to @xmath8 is sensitive to the initial condition only in one dimension .
+the macroscopic fluctuation theory ( mft ) was developed for the analysis of non - equilibrium steady states of diffusive lattice gases  @xcite .
+subsequently it was extended to a host of non - stationary settings  @xcite .
+the mft , and its extensions to reacting particle systems  @xcite , have proven to be highly efficient and versatile . here
+we outline the mft formulation , referring the reader to the above references for further details .
+the starting point for the derivation of the mft can be a langevin equation that provides a faithful large - scale description to a broad family of diffusive gases : @xmath35 + \nabla \cdot \left[\sqrt{\sigma(n ) } \,\text{\boldmath$\eta$ } ( \mathbf{x},t)\right],\ ] ] where @xmath36 is a zero - average gaussian noise , delta - correlated both in space and in time @xcite . as one can see , a fluctuating diffusive gas is fully characterized by @xmath12 and another coefficient , @xmath37 , that comes from the shot noise and is equal to twice the mobility of the gas @xcite .
+essentially , the mft formalism is a wkb theory ( after wentzel , kramers and brillouin ) of the functional fokker - planck equation following from the langevin equation ( [ lang ] ) .
+the wkb theory employs , in a smart way , the typical number of particles in the relevant region of space as a large parameter @xcite . in the mft formalism , the particle number density field @xmath38 and the canonically conjugate 
+momentum " density field @xmath39 obey the hamilton equations @xmath40 , \label{d1 } \\
+\partial_t p & = & - d(q ) \nabla^2 p-\frac{1}{2 } \,\sigma^{\prime}(q ) ( \nabla p)^2 , \label{d2}\end{aligned}\ ] ] where the prime denotes the derivative with respect to the argument .
+equations   and can be written in terms of variational derivatives : @xmath41 here @xmath42= \int d\mathbf{x}\,\mathcal{h}\ ] ] is the hamiltonian , and @xmath43 is the hamiltonian density . the spatial integration in eq .
+( [ hamiltonian ] ) , and everywhere in the following , is performed over the whole space outside the target .
+because of the rotational symmetry of the problem , we assume that the solution only depends on the radial coordinate and time .
+we will consider the target survival problem in an arbitrary dimension @xmath3 .
+the boundary conditions on the target are @xmath44 @xcite , where the condition on @xmath45 just fixes an arbitrary constant . far away from the target
+the gas is unperturbed , so @xmath46 .
+the boundary conditions in time are the following .
+at @xmath9 we prescribe @xmath47 where , for the ssep , @xmath48 .
+this is a deterministic , or quenched , initial condition , see refs .
+a random initial condition ( that is , an annealed setting ) is considered in sec .
+[ app : annealed ] . before focusing on the target survival problem ,
+let us consider for a moment a slightly different setting where @xmath13 , the specified number of absorbed particles by time @xmath49 , is arbitrary .
+this condition , @xmath50 = n,\ ] ] imposes an integral constraint on the solution .
+this constraint is identical to the one arising in the problem of statistics of integrated current during a specified time @xcite . a similar derivation yields the following boundary condition for @xmath51 at @xmath49 : @xmath52 where @xmath53 is the heaviside step function , and @xmath54 is an a priori unknown lagrange multiplier that is ultimately set by eq .  ( [ number ] )
+accordingly , we demand @xmath55 .
+the particular case of @xmath14 in which we are interested here corresponds to @xmath56 @xcite . in this case
+the total particle flux to the target vanishes at all times @xmath57 .    the solution of the mft equations for @xmath58 yields the optimal trajectory : the most likely density history of the system conditional on the number of absorbed particles @xmath13 .
+once @xmath58 and @xmath59 are found , we can calculate the mechanical action @xmath60 which yields @xmath61 up to a pre - exponential factor : @xmath62 for the ssep @xmath63 and @xmath64 @xcite , and eq .  ( [ actionmain ] ) becomes @xmath65 upon rescaling @xmath66 by @xmath2 and @xmath67 by @xmath22 @xcite , we can effectively put @xmath68 in eqs .
+( [ number ] ) and ( [ pt ] ) and replace @xmath0 by @xmath69 and @xmath13 by @xmath70 everywhere .
+equation  ( [ actionmainssep ] ) for the ssep becomes @xmath71 where @xmath72 we are interested in the limit of @xmath73 as @xmath74 . in one spatial dimension ,
+@xmath17 , the parameter @xmath0 ( and hence @xmath75 ) is irrelevant because of the translational symmetry of the ensuing mft problem .
+we will consider this case in sec .
+[ 1d ] . for @xmath29
+there are two natural limiting cases : of small and large @xmath6 .
+a small @xmath6 in the _ deterministic _ theory , described by eq .
+( [ difeq ] ) , means that @xmath2 is much longer than the characteristic diffusion time @xmath76 needed for the gas density to approach a steady state around the target . as a result
+, the average particle flux to the target can be determined by using the _ stationary _ solution of the diffusion equation . for @xmath15
+this reduces to solving the laplace equation @xmath77 with the boundary conditions @xmath78 and @xmath79 , leading to @xmath80 we argue that same logic holds for _ fluctuations _ , including those responsible for the survival probability .
+hence , when @xmath27 , the leading order contribution to the action @xmath60 from eq .
+( [ actionmain ] ) comes from the _ stationary _ solution of the mft equations that obeys the boundary conditions in space , but not the boundary conditions in time . for such solutions eqs .
+( [ d1 ] ) and ( [ d2 ] ) become @xmath81= j= \text{const } , \label{zeroflux}\\    & & \frac{d(q)}{r^{d-1 } } \,\frac{d}{dr}\left(r^{d-1 }   v\right)+\frac{1}{2}\,\sigma^{\prime}(q ) v^2= 0 , \label{steadyv}\end{aligned}\ ] ] where @xmath82 .
+the target survival implies that the particle flux at @xmath83 vanishes at all times @xmath57 .
+therefore @xmath84 , and from eq .  ( [ zeroflux ] )
+@xmath85 . plugging this into eq .
+( [ steadyv ] ) we obtain @xmath86 where @xmath87 is the spherically symmetric laplace operator in @xmath3 dimensions . for the ssep eq .
+( [ steadyeqgen ] ) reads @xmath88 remarkably , the substitution @xmath89 reduces the nonlinear ordinary differential equation ( [ steadyssep ] ) to the spherically symmetric laplace equation in @xmath3 dimensions : @xmath90 the boundary conditions @xmath91 and @xmath92 become @xmath93 and @xmath94 . solving this problem and returning to @xmath95 , we obtain eq .
+( [ qd ] ) .
+this is the most likely density profile conditional on survival of the target until time @xmath2 .
+now we can calculate @xmath96 : @xmath97}.\end{aligned}\ ] ] in particular , for @xmath31 @xmath98 , \label{q3}\\    v(r ) & = & \frac{2\ell \arcsin\sqrt{n_0}}{r^2 \sin\left[2 \left(1-\frac{\ell}{r}\right)\,\arcsin \sqrt{n_0}\right]}.    \label{v3}\end{aligned}\ ] ] the asymptotic of @xmath99 near the target , @xmath100 is quadratic in @xmath101 .
+also notable is a diverging asymptotic of @xmath102 near the target : @xmath103 which is independent of @xmath10 .
+the asymptotic behaviors near the target assure that the particle flux to the target vanishes .
+furthermore , each of the two terms in the flux , see eq .
+( [ zeroflux ] ) , vanish separately . as it turns out , these features , including the one over the distance asymptotic ( [ vdiverge ] ) ,
+are quite universal : they are observed , for @xmath104 , in the quenched and annealed settings and in all dimensions ( including @xmath17 where the mft solution is _
+non_-stationary ) for all lattice gases that behave as non - interacting rws at low densities .
+an example of the stationary gas density profile for @xmath31 is shown in fig .
+[ 3dthnum ] .    in spite of the singularity of @xmath96 at @xmath83 , the action  ( [ actionscaled2 ] ) is bounded , and we obtain @xmath105 and arrive at eq .
+( [ actresultd ] ) .
+in particular , for @xmath31 @xmath106 and @xmath107 notice that as @xmath10 approaches @xmath108 , the asymptotic survival probability goes down rapidly but remains non - zero .    as the solution ( [ qd ] ) and ( [ vd ] )
+is stationary , the survival probability is independent , in the leading order , of whether the particles are distributed randomly or deterministically at @xmath9 . here for very long times , @xmath109 , the optimal fluctuation becomes unconstrained by the process duration , and details of the initial condition become irrelevant . as we will see in sec .
+[ nonstat ] , the situation changes for @xmath17 , and for any @xmath3 when @xmath34 .    for @xmath110 , eq .
+( [ s3d ] ) reduces to eq .
+( [ survivaldecay3 ] ) for the rws .
+further , eqs .
+( [ qd ] ) and ( [ vd ] ) become @xmath111^{-1}. \label{vdrw}\end{aligned}\ ] ] these low - density asymptotics for the ssep represent exact solutions for the rws , where @xmath63 and @xmath112 @xcite .    the stationary solution
+( [ qd ] ) and ( [ vd ] ) , or ( [ qdrw ] ) and ( [ vdrw ] ) , does not satisfy the boundary conditions in time . to accommodate these boundary conditions , the full time - dependent solutions of the mft problem must develop narrow boundary layers in time at @xmath9 and @xmath113 , cf .
+the boundary layers only give a subleading contribution to @xmath114 .
+we verified this scenario numerically for the ssep .
+figure [ 3dthnum ] shows the density history obtained by solving the full non - stationary mft problem numerically for a sufficiently small @xmath6 and @xmath31 .
+the numerical algorithm is described in sec .
+[ numeric1d ] .
+one can see that @xmath115 stays almost constant for most of the time and , at these times , agrees very well with the theoretical prediction ( [ q3 ] ) .
+the rescaled action , found numerically from eq .
+( [ actionscaled2 ] ) , is also close to the theoretical prediction , eq .
+( [ s3d ] ) .      in the marginal case of @xmath18 logarithmic corrections appear . for @xmath18 all non - constant solutions of the circularly - symmetric laplace s equation ( [ laplace ] )
+diverge logarithmically with @xmath67 . as a result , a reasonable stationary solution of eq .
+( [ steadyssep ] ) can only be obtained if we introduce a cutoff distance @xmath116 ( to remind the reader , all lengths are rescaled by @xmath22 ) : @xmath117 correspondingly , @xmath118 although there is a derivative jump in @xmath99 at @xmath119 , and divergence of @xmath96 at @xmath83 and @xmath119 , the flux is continuous ( and equal to zero ) everywhere .
+the cutoff @xmath116 in these formulas should be chosen @xmath120 : in the original variables it is of the order of the characteristic diffusion length @xmath22 where the stationary solution crosses over to a time - dependent one .
+the uncertainty the cutoff introduces only affects the argument of the logarithm . as a result , eqs .
+( [ q2 ] ) and ( [ v2 ] ) are correct with logarithmic accuracy .
+the same happens @xcite if one circumvents the tedious exact time - dependent solution of the two - dimensional ( @xmath121 ) diffusion equation ( [ difeq ] ) and solves instead the laplace equation @xmath77 for the purpose of computing the average particle flux onto the absorber .
+the rescaled action is @xmath122^{-1}\arcsin^2\ !
+\sqrt{n_0}$ ] with the same logarithmic accuracy .
+thus @xmath123 for @xmath110 , eq .  ( [ action2 ] ) reduces to eq .
+( [ survivaldecay2 ] ) as expected .
+in the short - time limit , @xmath26 , the deterministic theory of diffusion - controlled absorption is non - stationary .
+for @xmath17 the non - stationarity holds , in the deterministic theory , for any @xmath6 .
+again , we argue that the same features hold in the context of survival probability .      for the ssep in one dimension eqs .
+( [ d1 ] ) and ( [ d2 ] ) can be written as @xmath124 , \label{qt } \\
+\partial_t p & = & - \partial_{x}^2 p+(2 q-1)(\partial_x p)^2 , \label{pt}\end{aligned}\ ] ] whereas the hamiltonian density  ( [ ham ] ) becomes @xmath125 here , and in most of the following exposition on the ssep and rw , we put @xmath126 .
+we will consider a one - sided problem and put the absorbing wall at @xmath127 , so that @xmath128 .
+we assume a deterministic initial condition , @xmath129 and demand @xmath130 . upon rescaling @xmath66 by @xmath2 and @xmath131 by @xmath132 eq .
+( [ pt ] ) becomes @xmath133 and we also have @xmath134 .
+we remind the reader that @xmath54 is ultimately set by the number of absorbed particles : when this number goes to zero , @xmath135 @xcite .
+once @xmath115 and @xmath136 are found , we obtain @xmath137 where the subscript in @xmath138 refers to @xmath17 .    we have been unable to solve this problem exactly for arbitrary @xmath10 . in the following
+we solve it in the limit of @xmath110 , when the ssep reduces to rws .
+based on these results , we then compute the next - order correction in @xmath10 perturbatively . at the end of this subsection
+we solve the problem numerically for a range of values of @xmath10 .      in the limit of @xmath110 we can drop @xmath139 in the hamiltonian density ( [ w ] ) , and the corresponding terms in the mft equations , arriving at the rw model . as in other examples @xcite , the mft problem for the rw is solvable by the hopf - cole transformation @xmath140 and @xmath141 .
+this is because , in the new variables , the hamilton equations are decoupled : @xmath142 we can solve the anti - diffusion equation ( [ pt ] ) backward in time , with the initial condition @xmath143 and the boundary conditions @xmath144 and @xmath145 .
+the solution is @xmath146 where @xmath147 , and @xmath148 is the error function . at @xmath9
+we obtain @xmath149 this expression is the initial condition for the diffusion equation  ( [ qt ] ) forward in time .
+the boundary conditions are @xmath150 and @xmath151 .
+the solution is @xmath152 transforming back to @xmath95 and @xmath51 , and taking the limit of @xmath135 @xcite , we obtain @xmath153 figure [ rwquenchedq ] depicts the density history of the system as described by eq .
+( [ qrw ] ) .
+the lower panel shows a density  void " that forms immediately . also noteworthy
+is a density peak that accompanies the void formation .
+to the right of the density peak @xmath154 is very small , and the dynamics is essentially governed by the deterministic equation  ( [ difeq ] ) and corresponds to a diffusive outflow of the gas .
+at @xmath113 we obtain @xmath155 as one can see , @xmath156 behaves linearly in @xmath131 at small @xmath131 . at @xmath157 , however , @xmath156 is quadratic at small @xmath131 , as in the stationary solution derived above .
+now , @xmath158 , as described by eq .
+( [ vrw ] ) , again exhibits the universal one over the distance asymptotic . indeed , at @xmath159 , @xmath160 independent of time .
+this asymptotic already holds at @xmath9 .
+the character of singularity at @xmath127 only changes at @xmath113 , as @xmath161 is equal to @xmath162 with an infinite prefactor @xmath135 .    to compute the rescaled action @xmath163 we write @xmath164 which follows from eq .
+( [ actionscaled1d ] ) at @xmath165 .
+it is more convenient , however , to use the formula ( derived in @xcite ) which only includes spatial integration . for @xmath14
+this formula simplifies to @xmath166.\ ] ]    after cancelations we obtain @xmath167 where @xmath168 . as a result , @xmath169 has the same scaling with @xmath10 and @xmath2 as in eq .
+( [ survivaldecay1 ] ) .
+the coefficient @xmath170 , however , is different from the coefficient @xmath171 obtained for the random initial condition ( see ref .
+@xcite , sec .
+[ app : annealed ] and appendix ) .
+equation  ( [ 1dquenched ] ) can also be deduced from an exact microscopic derivation when the particles are initially distributed periodically in space , see ref .
+@xcite and appendix .
+the final density distribution  ( [ qt1 ] ) can also be obtained from microscopic arguments .
+now let us go back to the ssep and consider a small but finite @xmath10 .
+we can calculate a small correction @xmath172 to the action ( [ actionrw2 ] ) by treating the term @xmath173 of the ssep hamiltonian ( [ w ] ) perturbatively . in the first order of perturbation theory we have @xmath174 \nonumber \\    & = & \int_0 ^ 1 dt \int_0^{\infty } dx\,q_0 ^ 2(x , t ) v_0 ^ 2(x , t ) , \label{s1a}\end{aligned}\ ] ] where @xmath175 and @xmath176 are the _ unperturbed _ solutions , given by the rw formulas ( [ qrw ] ) and ( [ vrw ] ) .
+plugging eqs .
+( [ qrw ] ) and ( [ vrw ] ) into eq .
+( [ s1c ] ) we obtain @xmath177 ^ 2 ,   \label{s1c}\end{aligned}\ ] ] where @xmath147 . to evaluate the above integral
+, we first replace the square of the integral over @xmath178 by a product of two identical integrals over @xmath179 and @xmath180 .
+the integration over @xmath181 reduces to calculating gaussian integrals : @xmath182 \nonumber \\     & \times & \!\!\!\left[e^{-\frac{\left(x-\mu_2\right){}^2}{t}}-e^{-\frac{\left(x+\mu_2\right){}^2}{t}}\right ] \nonumber \\     & = & \!\!\!\sqrt{\frac{\pi\ , t(1-t ) } { 2}}\,e^{-\frac{\left(\mu_1+\mu_2\right){}^2 ( t+1)}{2 t}}\left(e^{\frac{2 \mu_1 \mu_2}{t}}-e^{2 \mu_1 \mu_2}\right ) .
+\label{intx}\end{aligned}\ ] ] now we perform integration over @xmath66 in eq .
+( [ s1c ] ) : @xmath183 \equiv i(\mu_1 , \mu_2 ) , \label{intt}\end{aligned}\ ] ] where @xmath184 .
+the remaining double integral over @xmath179 and @xmath180 is evaluated numerically to yield @xmath185 where @xmath186 .
+therefore , @xmath187      we solved the mft equations using a modification of the iteration algorithm , originally developed by chernykh and stepanov @xcite for evaluating the probability density of large negative velocity gradients in the burgers turbulence .
+variants of this algorithm have been used in the context of mft of lattice gases , with and without on - site reactions @xcite .
+the algorithm iterates the diffusion - type equation  ( [ d1 ] ) forward in time from @xmath9 to @xmath113 , and the anti - diffusion - type equation  ( [ d2 ] ) backward in time from @xmath113 to @xmath9 . as in ref .
+@xcite , our implementation of this algorithm involved an implicit finite difference scheme , which is beneficial for iteration convergence . at fixed @xmath10 and @xmath54
+we continued iterations until local convergence of the solutions was achieved with a high accuracy .
+then we increased @xmath54 and repeated the solution until the action ( [ actionscaled2 ] ) converged to 1 per cent .
+we also verified that , for large @xmath54 that we achieved , the mass loss to the absorber was negligible .
+figure  [ ssepnum ] shows an example of our numerical solution for the deterministic initial condition and @xmath17 . at small and moderately large @xmath10 ,
+the density history of the system is similar to that for rws , with a rapidly forming density void accompanied by a density peak .
+the density peak is lower than for the rws , and it becomes progressively lower and broader as @xmath10 approaches @xmath108 .
+the numerically found @xmath188 exhibits , at small @xmath131 , the universal asymptotic ( [ sing1d ] ) .
+figure  [ snumeric ] shows the numerically found @xmath189 for the deterministic initial condition and @xmath17 . for small @xmath10
+, there is an excellent agreement with the rw asymptotic ( [ actionrw2 ] ) . for moderate @xmath10 ,
+the results agree with the weakly - nonlinear asymptotic ( [ actionweak ] ) .
+as @xmath10 continues to grow , @xmath138 grows more rapidly .
+it must diverge at @xmath190 , because in this case @xmath191 scales with time as @xmath2 rather than @xmath132 , as follows from simple microscopic arguments .
+our numerical solution becomes prohibitive at @xmath10 very close to 1 .
+the available data indicate the @xmath192 divergence of @xmath138 as @xmath193 .
+a spherically symmetric three - dimensional version of the iteration algorithm was used for the verification of the stationary solution for @xmath31 , presented in sec .
+[ larged ] .      when @xmath26 , eq .
+( [ actionscaled2 ] ) simplifies to @xmath195 the remaining double integral is equal to the rescaled action @xmath189 in the ( rescaled ) _ one - dimensional _ problem , @xmath196 , with an absorber at @xmath197 . because of the translational invariance , @xmath198 is independent of @xmath6 .    as a result ,
+@xmath199 here @xmath200 is proportional to @xmath132 , rather than @xmath2 . in particular , for @xmath31 @xmath201 the case of @xmath18 is not special here , and eq .  ( [ sfast ] )
+holds : @xmath202      in the annealed setting , that we consider here , one allows equilibrium fluctuations in the initial condition and averages over them . in a stochastic realization of the process
+, the initial density profile is chosen from the equilibrium probability distribution corresponding to density @xmath10 . as a consequence , the most likely initial density profile , conditional on the target survival until time @xmath2 , is different from the flat profile @xmath203 .
+the  cost " of optimal fluctuation now includes the cost of creating the optimal initial density profile .
+still , the total cost is less than the cost for the quenched ( deterministic ) initial condition , so the survival probability for the annealed setting is higher than for the quenched setting .    in the mft formalism
+, the annealed setting is described , in one dimension , by the initial condition that involves a combination of @xmath204 and @xmath205 @xcite : @xmath206 for the ssep , @xmath207 and @xmath208 , this becomes @xmath209 } = \lambda \,\theta(x).\ ] ] for the rws , @xmath207 and @xmath210 , we have @xmath211 equation  ( [ inannrw ] ) replaces eq .
+( [ t01 ] ) in sec .
+when @xmath115 and @xmath136 are found , one can evaluate @xmath212 here @xmath138 is the action given by eq .
+( [ actionscaled1d ] ) [ but with a different @xmath115 , see below ] , whereas @xmath213 is the cost of creating the optimal initial condition @xmath214 .
+this cost is given by the boltzmann - gibbs formula @xcite .
+for the ssep @xmath215 } \right\},\ ] ] whereas for the rws @xmath216.\ ] ]      for the rws , the annealed problem can be solved via the hopf - cole transformation . in the new variables @xmath217 and @xmath218 , the initial condition ( [ inannrw ] ) yields : @xmath219 solving the diffusion equation ( [ qt ] ) with this initial condition and the boundary conditions @xmath220 and @xmath221 , we obtain @xmath222 where @xmath147 as before .
+now , @xmath223 is still described by eq .
+( [ stepp ] ) .
+therefore , we can calculate @xmath224 .
+sending @xmath54 to infinity , we arrive at @xmath225 a symmetric function of @xmath226 .
+there is no density peak in the annealed setting : the density is monotonically increasing with @xmath131 at all times .
+interestingly , at @xmath113 and @xmath9 the optimal density @xmath227 is the same as predicted by the deterministic theory , eq .
+( [ difeq ] ) , at @xmath113 . at times
+@xmath157 , the optimal density profile @xmath115 is a quadratic function of @xmath131 at small @xmath131 as before .
+the action @xmath138 is given by eq .
+( [ actionrw1 ] ) with the same @xmath158 as in the quenched case , eq .
+( [ vrw ] ) , and with @xmath115 given by eq .
+( [ qann ] ) . as in the quenched setting , it is more convenient to calculate @xmath138 using eq .
+( [ s ] ) that is equally valid in the annealed case .
+the cost of the initial condition @xmath213 can be evaluated from eq .
+( [ freeenergy ] ) .
+adding up @xmath213 and @xmath138 , we obtain after cancelations @xmath228 so @xmath229 with @xmath230 , in agreement with previous results @xcite , see also appendix . to our knowledge , the optimal density history ( [ qann ] ) that contributes most to this survival probability , has been previously unknown .
+now we return to the ssep .
+assuming @xmath110 , we can calculate a small correction @xmath231 to the expression @xmath232 from eq .
+( [ s0s1 ] ) .
+the correction to @xmath138 is again calculated from eq .
+( [ s1a ] ) , where @xmath176 is still given by eq .
+( [ vrw ] ) , but @xmath175 is now given by the annealed history , eq .
+( [ qann ] ) .
+we obtain @xmath233 the integral over @xmath131 can be evaluated using the formula @xmath234 the remaining integral over @xmath66 is elementary , @xmath235 and we obtain @xmath236 there is also a small correction to @xmath213 that comes from the difference of free energies of the ssep and the rws .
+we calculate this correction by expanding the integrand of eq .
+( [ freeenssep ] ) in small @xmath10 and @xmath214 up to , and including , the quadratic terms .
+the resulting correction is @xmath237 ^ 2= \frac{(2-\sqrt{2 } ) n_0 ^ 2}{\sqrt{\pi}},\ ] ] where we used the zero - order result ( [ q0ann ] ) for @xmath214 . adding up @xmath238 and @xmath239
+, we finally obtain , for the annealed setting , @xmath240 .
+\label{actionweakan}\end{aligned}\ ] ] the @xmath241 correction agrees with the results of santos and schtz @xcite .
+they solved a different problem for the ssep , which involved particle injection from the boundary into a semi - infinite line .
+remarkably , that problem can be mapped , already at the exact microscopic level , into the target survival problem we are dealing with here . as a result , the @xmath241 correction in the annealed setting , described by eq .
+( [ actionweakan ] ) , corresponds to the second cumulant of the statistics of the total number of injected particles at time @xmath49 , when the system is empty at @xmath9 @xcite .
+overall , eqs .
+( [ actionweak ] ) and ( [ actionweakan ] ) show that , in one dimension , the survival probability exhibits different @xmath10-dependences in the quenched and annealed settings .
+when @xmath26 , the @xmath242 results for the annealed setting represent an essential  building block " in all dimensions @xmath194 .
+here one obtains @xmath243 these equations resemble eqs .
+( [ sfast ] ) and ( [ sfast ] ) , except that the rescaled one - dimensional action for the annealed setting @xmath244 is different from the corresponding quantity @xmath189 for the quenched setting . for very small densities @xmath244
+is described by eq .
+( [ annrw1 ] ) . for small but finite densities
+it is given by eq .
+( [ actionweakan ] ) . for arbitrary @xmath10
+, it can be found numerically .
+importantly , the steady - state equation  ( [ steadyeqgen ] ) can be solved analytically for general @xmath245 and @xmath246 , thus extending our long - time results for @xmath29 to a whole family of diffusive gases of interacting particles . indeed , by denoting @xmath247}{\sqrt{\sigma[q(r)]}}\ ] ] we can recast eq .
+( [ steadyeqgen ] ) into a linear first order ordinary differential equation ( ode ) , @xmath248 whose general solution is @xmath249,\ ] ] where @xmath250 . using eq .
+( [ uf ] ) , we obtain one more first - order ode that can be easily integrated . using the boundary conditions @xmath91 and @xmath92 to determine the two integration constants , we obtain the solution for @xmath99 in implicit form : @xmath251 this solution exists for all lattice gases for which the integrals in eq .
+( [ qgeneral ] ) are bounded .
+this puts a limitation on the behaviors of @xmath245 and @xmath246 at @xmath252 .
+for example , let @xmath253 and @xmath254 .
+then the integrals converge at @xmath255 if and only if @xmath256 for the ssep and rws one has @xmath257 and @xmath258 .
+therefore , the condition ( [ crit ] ) is satisfied , and the solution ( [ qgeneral ] ) exists .
+the condition ( [ crit ] ) is also satisfied for a family of repulsion processes @xcite .    when the solution ( [ qgeneral ] ) exists , the action is bounded leading to a nonzero target survival probability .
+the rescaled action is the following : @xmath259^{2 } ,    \label{scaledgeneral}\end{aligned}\ ] ] where eq .
+( [ u(r ) ] ) and the steady - state relation @xmath85 have been used in the last step . as a result ,
+@xmath260^{2}.\ ] ] this closed - form result solves the target survival problem for a broad class of diffusive lattice gases .
+it has the same structure as eq .
+( [ survivaldecay3 ] ) except the @xmath10-dependence which is model - specific . when specialized to the rw and ssep , eq .
+( [ pgeneral ] ) yields eqs .
+( [ survivaldecay3 ] ) and ( [ actresultd ] ) , respectively .    for @xmath18
+we obtain , with logarithmic accuracy , the long - time asymptotic @xmath261^{2}.\ ] ]    as an additional illustration of the general results ( [ qgeneral ] ) and ( [ pgeneral ] ) , we consider a family of zero range processes ( zrp ) .
+a zrp describes interacting ( but not excluding ) random walkers on a lattice : a particle at site @xmath262 can hop to a neighboring site with a rate @xmath263 that only depends on the number of particles @xmath264 on the departure site @xmath262 .
+naturally , @xmath265 .
+if @xmath266 , the zrp is described at the macroscopic level by @xmath267 and @xmath268 , see e.g. ref .
+therefore , @xmath269 .
+evaluating the integrals in eq .
+( [ qgeneral ] ) , we obtain for the stationary density profile : @xmath270 ^ 2.\ ] ] in its turn , eq .  ( [ pgeneral ] ) yields the long - time asymptotic of the target survival probability for the zrp : @xmath271
+in this work we evaluated the survival probability @xmath1 of a spherical target of radius @xmath0 in a gas of unbiased diffusive particles (  searchers " ) , with density @xmath10 , that interact with each other via exclusion as described by the ssep .
+we also determined the most likely particle density history conditional on the target survival until time @xmath2 .
+the results depend on the dimension of space @xmath3 and on the basic rescaled parameter @xmath4 .
+when @xmath6 is small and @xmath7 , @xmath1 is mostly contributed to by an exact _ stationary _ solution of the macroscopic fluctuation theory ( mft ) that we obtained . for large @xmath6 , and for any @xmath6 in one dimension , the relevant mft solutions are non - stationary . in this case
+@xmath8 scales differently with @xmath2 , @xmath0 , @xmath3 and @xmath10 , and it also depends on whether the initial condition is deterministic or random .
+these effects ( for large @xmath6 , and for any @xmath6 in one dimension ) are also observed in the absence of exclusion : for non - interacting random walkers . in the special case of @xmath34 and @xmath18
+logarithmic corrections to @xmath1 appear . table [ table1 ] can serve as a quick guide to our main results for the survival probability for the ssep in different limits .
+the long - time asymptotics of the survival probability for a whole class of interacting lattice gases for @xmath7 and @xmath18 are given by eqs .
+( [ pgeneral ] ) and ( [ pgeneral2d ] ) , respectively .
+.@xmath1 for the ssep in different limits [ cols="<,<,<",options="header " , ]     the mft provides a simple interpretation to the fact that , at @xmath7 , @xmath272 scales as @xmath2 at very long times , whereas at @xmath17 it scales as @xmath132 .
+the difference in behavior is related to the existence or non - existence of a proper stationary solution of the mft equations . in summary ,
+the macroscopic fluctuation theory opens new directions in the classical problem of target survival probability .
+we are grateful to davide gabrielli for a helpful comment and to gunter schtz for a useful discussion of ref .
+@xcite and its connection to the target survival probability of the ssep in one dimension .
+two of us ( bm and plk ) thank the galileo galilei institute for theoretical physics for the hospitality and the infn for partial support during the completion of this work .
+this research was supported by grant no .
+2012145 from the united states 
+israel binational science foundation ( bsf ) .
+here we present microscopic derivations of the target survival probability @xmath1 for the non - interacting rws in one , two and three dimensions .
+we verify that , for @xmath17 , @xmath1 depends on the initial conditions ( random or deterministic ) . we also show that , for @xmath18 and @xmath33 , the leading term of the asymptotic of @xmath1 is independent of the initial conditions .
+for @xmath31 we reproduce , both in microscopic calculations and in the mft framework , an exact result @xcite for @xmath1 in the random setting . finally , we derive , for @xmath31 , a more accurate asymptotic of @xmath1 for the deterministic setting . in all these calculations we set @xmath126 .
+we start with random initial conditions and first consider rws on a large but finite interval @xmath273 .
+a rw starts in the interval @xmath274 , where @xmath275 , with probability @xmath276 .
+the probability that this rw does not hit the target ( which is at the origin ) until time @xmath2 is @xmath277 . averaging over random particle locations at @xmath9 we obtain the average single - particle non - hitting probability @xmath278 for sufficiently large @xmath279 we can assume that the number of rws on the interval is equal to @xmath280 . since all the @xmath281 particles are independent , the probability that none of them hits the target is @xmath282^{n_0l},\ ] ] which in the @xmath283 limit becomes @xmath284 \nonumber \\ & = & \exp\!\left(-\frac{2   n_0 \sqrt{t}}{\sqrt{\pi}}\right ) , \label{anmicro}\end{aligned}\ ] ] in agreement with eq .   and ref
+. @xcite .
+now let the initial positions of our rws be deterministic .
+one example of deterministic setting is a periodic one , with exactly one particle on each site @xmath285 of a lattice with lattice constant @xmath286 .
+the probability that the particles that is initially located at site @xmath287s does not hit the target until time @xmath2 is @xmath288 $ ] .
+the probability that neither of the particles hit the target is @xmath289 taking the logarithm we obtain @xmath290 we are interested in the regime of @xmath291 , when the characteristic diffusion length is much larger than the lattice constant .
+the leading - order result can be obtained by replacing the summation in eq .
+( [ summation ] ) by integration . here
+we present a more accurate result that also includes a pre - exponential factor .
+we use the asymptotic @xcite : @xmath292 here @xmath293 , see eq .
+( [ actionrw2 ] ) . as a result ,
+@xmath294 the exponential factor is independent of details of the deterministic initial condition .
+it coincides with our mft result ( [ 1dquenched ] ) and differs from the annealed result , eqs .
+( [ anmicro ] ) and and ref .
+@xcite .
+the pre - exponential factor is non - universal : it depends on details of the initial condition .
+this dependence is quite sensitive , as can be seen if we change the periodic arrangement of rws at @xmath9 by putting exactly 2 particles on each _ even _ lattice cite @xmath295 , @xmath296 of the same lattice as before , leaving all odd sites empty . repeating the calculations , we arrive at @xmath297 with the same exponent as in eq .
+( [ rw : periodic ] ) but a much larger pre - exponent .      in two dimensions , the probability @xmath298 that a rw starting at the radial coordinate @xmath299 does not hit the target by the time @xmath2 has a cumbersome exact expression . in the long time limit ,
+@xmath27 , it suffices to use the following asymptotic that is valid with logarithmic accuracy ( see e.g. @xcite ) : @xmath300 here @xmath301 is the incomplete gamma function .
+we now employ the same line of reasoning as in one dimension . for the random initial condition we average the probability ( [ prob:2d ] ) over the random locations of the particles in the annulus @xmath302 and obtain the average single - particle non - hitting probability @xmath303 when @xmath304
+, the number of rws in the annulus is approximately equal to @xmath305 .
+therefore , the probability that no rw hit the target is @xmath306^{\pi n_0(l^2-r^2)}\\ & & \to\exp\!\left[- \frac{4\pi
+n_0 t}{\ln\frac{4}{\ell^2}}\,\int_0^\infty dz\,\gamma(0,z)\right],\end{aligned}\ ] ] where we have simplified the limits of integration by recalling that @xmath34 and taking the limit of @xmath283 . computing the integral @xmath307 , we recover eq .
+( [ survivaldecay2 ] ) .    in the deterministic setting the probability is @xmath308\ ] ] the product is taken over initial positions @xmath309 which are deterministic .
+we assume that , at @xmath9 , there is exactly one particle on each site of a square grid with lattice spacing @xmath310 outside of the circular target of radius @xmath0 .
+we take the logarithm of and , ignoring pre - exponential factors in the final result , expand the logarithm to the leading order and replace the summation by integration by virtue of @xmath34 .
+we obtain @xmath311 again arriving at eq .
+( [ survivaldecay2 ] ) .
+that is , in contrast to @xmath17 , here the leading - order results for @xmath312 for random and deterministic initial conditions coincide in the limit of @xmath27 .      in three dimensions , the probability @xmath298 that a rw starting at the radial coordinate @xmath299 does not hit the target until time @xmath2 can be found by solving the backward diffusion equation ( which is mathematically identical to the forward diffusion equation ) @xmath313 subject to @xmath314 in contrast to two dimensions
+, the solution now has a simple form : @xmath315 when the initial locations are random , we start with a spherical annulus @xmath302 and average over initial locations to yield the average single - particle non - hitting probability @xmath316 the probability @xmath312 that no rw hit the target is given by @xmath317\nonumber\\ & & \!\!\!\!\!\!\to- 4\pi n_0 r \sqrt{4t}\int_r^\infty dr\ , r\,\text{erfc}\!\left(\frac{r - r}{\sqrt{4t}}\right)\nonumber\\ & & \!\!\!\!\!\!=- 4\pi n_0 r\ , \sqrt{4t}\int_0^\infty dx\ , ( x \sqrt{4t}+r)\,\text{erfc}\ , x \nonumber \\ & & \!\!\!\!\!\!= - 4\pi n_0 r\,t-8\sqrt{\pi}\ , n_0 r^2 \sqrt{t},\end{aligned}\ ] ] in agreement with previous results @xcite . equation  ( [ twoterms ] ) is valid for any @xmath6 . when @xmath318 , the first term is the leading one and yields eq .   with @xmath31 . in the opposite case of @xmath319
+it is the second term that is the leading one , and it yields eq .
+( [ sfastan ] ) with @xmath31 .    even in the long - time limit ,
+@xmath318 , eq .  ( [ twoterms ] ) is more accurate then the leading - order asymptotic   that stems from the steady - state mft solution .
+importantly , the final result  ( [ twoterms ] ) can also be obtained from the mft formalism if one solves the full time - dependent problem .
+the problem formulation is almost identical to that for @xmath17 , see sec .
+[ app : annealed ] , except that eq .
+( [ inann ] ) is replaced by @xmath320 and all integrations over @xmath131 from @xmath321 to @xmath322 are replaced by integrations over the whole space outside the target .
+the calculations proceed along the lines of sec .
+[ app : annealed ] .
+the most likely gas density history , in the original ( not rescaled ) variables , is @xmath323 \nonumber \\    & \times & \left\{1-\frac{r}{r}\,\text{erfc } \left[\frac{r - r}{\sqrt{4 ( t - t)}}\right]\right\}. \label{qann3d}\end{aligned}\ ] ] the calculation of the target survival probability ultimately reduces to evaluating the same integral as in eq .
+( [ twoterms ] ) , giving the same result . in the long - time limit , @xmath27 , this integral
+is mostly contributed by the region @xmath324 . in this region
+( [ qann3d ] ) can be approximated , up to small corrections , by @xmath325 , which coincides with the steady solution  ( [ qdrw ] ) for @xmath31 .
+the deviations from the steady - state solution are responsible for the second term on the right - hand side of eq .
+( [ twoterms ] ) , which is a subleading term in this limit .    in the deterministic case
+the microscopic calculation , similar to that in @xmath121 , boils down to evaluating the integral @xmath326.\ ] ] exactly the same expression follows from the mft . for @xmath27 , we expand the logarithm to the second order and arrive at @xmath327 the leading term coincides with that for the annealed setting , eq .
+( [ twoterms ] ) .
+the subleading term is different .    for @xmath319
+, we can replace @xmath67 by @xmath0 everywhere in the integrand of eq .
+( [ deter3d ] ) except under the @xmath328 , thus arriving at eq .
+( [ sfast ] ) ( but for the rws ) with @xmath329 . here
+the initial conditions affect the leading - order result .
+s. f. burlatsky , m. moreau , g. oshanin , and a. blumen , phys .
+lett . * 75 * , 585 ( 1995 ) ; d. p. bhatia , m. a. prasad , and d. arora , phys . rev . lett . *
+75 * , 586 ( 1995 ) ; k. seki and m. tachiya , phys .
+e * 80 * , 041120 ( 2009 ) ; k. seki , m. wojcik , and m. tachiya , j. chem .
+134 * , 094506 ( 2011 ) .
+l. bertini , a. de sole , d. gabrielli , g. jona - lasinio , and c. landim , phys .
+* * 8**7 , 040601 ( 2001 ) ; j. stat .
+* 107 * , 635 ( 2002 ) ; phys .
+lett . * 94 * , 030601 ( 2005 ) ; j. stat .
+* 1**23 , 237 ( 2006 ) .

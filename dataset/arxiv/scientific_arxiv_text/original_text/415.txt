@@ -1,0 +1,128 @@
+within the framework of continuum mechanics there are surface and bulk material failure models .
+surface failure models are known by name of cohesive zone models ( czms ) . in the latter case ,
+continuum is enriched with discontinuities along surfaces - cohesive zones - with additional traction - displacement - separation constitutive laws .
+these laws are built qualitatively as follows : traction increases up to a maximum and then goes down to zero via increasing separation ( barenblatt , 1959 ; needleman , 1987 ; rice and wang , 1989 , tvergaard and hutchinson , 1992 ; camacho and ortiz , 1996 ; de borst , 2001 ; xu and needleman , 1994 ; roe and siegmund , 2003 ; moes et al , 1999 ; park et al , 2009 ; gong et al , 2012 ) .
+if the location of the separation surface is known in advance ( e.g. fracture along weak interfaces ) then the use of czm is natural .
+otherwise , the insertion of cracks in the bulk in the form of the separation surfaces remains an open problem , which includes definition of the criteria for crack nucleation , orientation , branching and arrest .
+besides , the czm approach presumes the simultaneous use of two different constitutive models , one for the cohesive zone and another for the bulk , for the same real material .
+certainly , a correspondence between these two constitutive theories is desirable yet not promptly accessible .
+the issues concerning the czm approach have been discussed by needleman ( 2014 ) , the pioneer of the field .
+bulk failure models are known by name of continuum damage mechanics ( cdm ) . in the latter case , material failure or damage
+is described by constitutive laws including softening in the form of the falling stress - strain curves ( kachanov , 1958 ; gurson , 1977 ; simo , 1987 ; voyiadjis and kattan , 1992 ; gao and klein , 1998 ; klein and gao , 1998 ; menzel and steinmann , 2001 ; dorfmann and ogden , 2004 ; lemaitre and desmorat , 2005 ; volokh , 2004 , 2007 ; benzerga et al , 2016 ) .
+remarkably , damage nucleation , propagation , branching and arrest naturally come out of the constitutive laws .
+unfortunately , numerical simulations based on the the bulk failure laws show the so - called pathological mesh - sensitivity , which means that the finer meshes lead to the narrower damage localization areas . in the limit case ,
+the energy dissipation in failure tends to zero with the diminishing size of the computational mesh .
+this physically unacceptable mesh - sensitivity is caused by the lack of a characteristic length in the traditional formulation of continuum mechanics .
+to surmount the latter pitfall gradient- or integral- type nonlocal continuum formulations are used where a characteristic length is incorporated to limit the size of the spatial failure localization ( pijaudier - cabot and bazant , 1987 ; lasry and belytschko , 1988 ; peerlings et al , 1996 ; de borst and van der giessen , 1998 ; francfort and marigo , 1998 ; silling , 2000 ; hofacker and miehe , 2012 ; borden et al , 2012 ) .
+the regularization strategy rooted in the nonlocal continua formulations is attractive because it is lucid mathematically .
+unluckily , the generalized nonlocal continua theories are based ( often tacitly ) on the physical assumption of long - range particle interactions while the actual particle interactions are short - range - on nanometer or angstrom scale
+. therefore , the physical basis for the nonlocal models appears disputable .
+a more physically - based treatment of the pathological mesh - sensitivity of the bulk failure simulations should likely include multi - physics coupling .
+such an attempt to couple mass flow ( sink ) and finite elastic deformation within the framework of brittle fracture is considered in the present work .
+cracks are often thought of as material discontinuities of zero thickness .
+such idealized point of view is probably applicable to nano - structures with perfect crystal organization . in the latter case fracture
+appears as a result of a separation - unzipping - of two adjacent atomic or molecular layers - fig .
+[ fig : schematic - cracks - of ] ( left ) .    ]    in the case of the bulk material with a sophisticated heterogeneous organization the crack appears as a result of the development of multiple micro - cracks triggered by the massive breakage of molecular or atomic bonds - fig .
+[ fig : schematic - cracks - of ] ( right ) .
+the bond breakage is not confined to two adjacent molecular layers and the process involves thousands layers within an area or volume with the representative characteristic size @xmath0 .
+it is in interesting that material failure does not require the breakage of all molecular or atomic bonds within a representative volume .
+only fraction of these bonds should be broken for the material disintegration .
+for example , in the case of natural rubber , roughly speaking , every third bond should be broken within a representative volume to create crack ( volokh , 2013a ) .
+the local bond failure leads to the highly localized loss of material .
+the latter , in our opinion , is the reason why even closed cracks are visible by a naked eye .
+thus , material flows out of the system during the fracture process .
+the system becomes open from the thermodynamic standpoint .
+however , cracks usually have very small thickness and the amount of the lost material is negligible as compared to the whole bulk .
+the latter observation prompts considering the system as the classical closed one .
+such approximation allows ignoring the additional supply of momenta and energy in the formulation of the initial boundary value problem described in the next sections .
+following the approach of continuum mechanics we replace the discrete molecular structure of materials by a continuously distributed set of material points which undergo mappings from the initial ( reference ) , @xmath1 , to current , @xmath2 , configuration : @xmath3 .
+the deformation in the vicinity of the material points is described by the deformation gradient @xmath4 .    in what follows we use the lagrangean description with respect to the initial or reference configuration and define the local mass balance in the form @xmath5 where @xmath6 is the referential ( lagrangean ) mass density
+; @xmath7 is the referential mass flux ; @xmath8 is the referential mass source ( sink ) ; and @xmath9 in cartesian coordinates .
+_ we further assume that failure and , consequently , mass flow are highly localized and the momenta and energy balance equations can be written in the standard form without adding momenta and energy due to the mass alterations . _    in view of the assumption above , we write momenta and energy balance equations in the following forms accordingly @xmath10 and @xmath11 where @xmath12 is the velocity of a material point ; @xmath13 is the body force per unit mass ; @xmath14 is the first piola - kirchhoff stress and @xmath15 ; @xmath16 is the specific internal energy per unit mass ; @xmath17 is the specific heat source per unit mass ; and @xmath18 is the referential heat flux .
+entropy inequality reads @xmath19 where @xmath20 is the absolute temperature .
+substitution of @xmath21 from ( [ eq : energy balance ] ) to ( [ eq : entropy inequality ] ) yields @xmath22 or , written in terms of the internal dissipation , @xmath23    we introduce the specific helmholtz free energy per unit mass @xmath24 and , consequently , we have @xmath25    substituting ( [ eq : specific internal energy ] ) in ( [ eq : dissipation 1 ] ) we get @xmath26    then , we calculate the helmholtz free energy increment @xmath27 and substitute it in ( [ eq : dissipation 2 ] ) as follows @xmath28    the coleman - noll procedure suggests the following choice of the constitutive laws @xmath29 and , consequently , the dissipation inequality reduces to @xmath30    _ we further note that the process of the bond breakage is very fast as compared to the dynamic deformation process and the mass density changes in time as a step function .
+so , strictly speaking , the density rate should be presented by the dirac delta in time .
+we will not consider the super fast transition to failure , which is of no interest on its own , and assume that the densities before and after failure are constants and , consequently , _
+@xmath31    then , the dissipation inequality reduces to @xmath32 which is obeyed because the heat flows in the direction of the lower temperature .
+it remains to settle the boundary and initial conditions .
+natural boundary conditions for zero mass flux represent the mass balance on the boundary @xmath33 @xmath34 or @xmath35 where @xmath36 is the unit outward normal to the boundary in the reference configuration .
+natural boundary conditions for given traction @xmath37 represent the linear momentum balance on the boundary @xmath33 @xmath38 or , alternatively , the essential boundary conditions for placements can be prescribed on @xmath33 @xmath39    initial conditions in @xmath1 complete the formulation of the coupled mass - flow - elastic initial boundary value problem @xmath40
+constitutive law for the lagrangean mass flux can be written by analogy with the fourier law for heat conduction @xmath41 where @xmath42 is a mass conductivity constant for the isotropic case .
+constitutive law for the mass source is the very heart of the successful formulation of the theory and the reader is welcome to make a proposal .
+we choose , for example , the following constitutive law , whose motivation is clarified below , @xmath43-\rho),\label{eq : mass source}\ ] ] where @xmath44 is a constant initial density ; @xmath45 is a material constant ; @xmath46 is the specific energy limiter per unit mass , which is calibrated in macroscopic experiments ; @xmath47 is a dimensionless material parameter , which controls the sharpness of the transition to material failure on the stress - strain curve ; and @xmath48 is a unit step function , i.e. @xmath49 if @xmath50 and @xmath51 otherwise .
+the switch parameter @xmath52 , which is necessary to prevent from material healing , will be explained below .
+substitution of ( [ eq : mass source ] ) and ( [ eq : mass flux ] ) in ( [ eq : mass flow ] ) yields @xmath53-\frac{\rho}{j\rho_{0}}=0,\label{eq : mass balance}\ ] ] where @xmath54 is the characteristic length .
+_ it is remarkable that we , actually , do not need to know @xmath55 and @xmath56 separately and the knowledge of the characteristic length is enough_. for example , the estimate of the characteristic length for rubber is @xmath57 ( volokh , 2011 ) and for concrete it is @xmath58 ( volokh , 2013b ) .    to justify the choice of the constitutive equation ( [ eq : mass source ] ) for the mass source / sink we note that in the case of the homogeneous deformation and mass flow the first term on the left hand side of ( [ eq : mass balance ] ) vanishes and we obtain @xmath59.\ ] ]    substituting this mass density in the hyperelastic constitutive law we have @xmath60\frac{\partial w}{\partial\mathbf{f}}=h(\zeta)\exp[-(w/\varphi)^{m}]\frac{\partial w}{\partial\mathbf{f}},\label{eq : stress - strain}\ ] ] where @xmath61 are the helmholtz free energy and energy limiter per unit referential volume accordingly .
+constitutive law ( [ eq : stress - strain ] ) presents the hyperelasticity with the energy limiters - see volokh ( 2007 , 2013a , 2016 ) for the general background . integrating ( [ eq : stress - strain ] ) with respect to the deformation gradient we introduce the following form of the strain energy function @xmath62 where @xmath63    here @xmath64 and @xmath65 designate the constant bulk failure energy and the elastic energy respectively ; @xmath66 is the upper incomplete gamma function .
+the switch parameter @xmath67 $ ] is defined by the evolution equation @xmath68 where @xmath69 is a dimensionless precision constant .
+the physical interpretation of ( [ eq : energy with limiter ] ) is straight : material is hyperelastic for the strain energy below the failure limit - @xmath64 .
+when the failure limit is reached , then the strain energy becomes constant for the rest of the deformation process precluding the material healing .
+parameter @xmath70 is _ not an internal variable_. it is a switch : @xmath71 for the reversible process ; and @xmath50 for the irreversibly failed material and dissipated strain energy .    for illustration
+, we present the following specialization of the intact strain energy for a filled natural rubber ( nr ) ( volokh , 2010 ) @xmath72 where @xmath73 , @xmath74 , @xmath75 and the failure parameters are @xmath76 , and @xmath77 .    the cauchy stress , defined by @xmath78 , versus stretch curve for the uniaxial tension is shown in fig . [ fig : cauchy - stress ] for both cases with and without the energy limiter .
+material failure takes place at the critical limit point in correspondence with tests conducted by hamdi et al ( 2006 ) .     versus stretch .
+dashed line specifies the intact model ; solid line specifies the model with energy limiter.[fig : cauchy - stress ] ]    for the implications and experimental comparisons of the elasticity with energy limiters the reader is advised to look through volokh ( 2013a ; 2016 ) , for example .
+we completely skip this part for the sake of brevity .
+thus , the proposed constitutive law for the mass source is motivated by the limit case of the coupled formulations in which the deformation is homogeneous .
+crack in a bulk material is not an ideal unzipping of two adjacent atomic layers .
+it is rather a massive breakage of atomic bonds diffused in a volume of characteristic size .
+the massive bond breakage is accompanied by the localized loss of material .
+thus , material sinks in the vicinity of the crack .
+evidently , the law of mass conservation should be replaced by the law of mass balance , accounting for the mass flow in the vicinity of the crack .
+the coupled mass - flow - elasticity problem should be set for analysis of crack propagation .    in the present work , we formulated the coupled problem based on the thermodynamic reasoning .
+we assumed that the mass loss related to the crack development was small as compared to the mass of the whole body .
+in addition , we assumed that the process of the bond breakage was very fast and the mass density jumped from the intact to failed material abruptly allowing to ignore the transient process of the failure development .
+these physically reasonable assumptions helped us to formulate a simple coupled initial boundary value problem .
+_ in the absence of failure localization into cracks the theory is essentially the hyperelasticity with the energy limiters .
+however , when the failure starts localizing into cracks the diffusive material sink activates via the mass balance equation and it provides the regularization of numerical simulations . _ the latter regularization is due to the mass diffusion - first term on the left hand side of ( [ eq : mass balance ] ) .
+the attractiveness of the proposed framework as compared to the traditional continuum damage theories is that no internal parameters ( like damage variables , phase fields etc . )
+are used while the regularization of the failure localization is provided by the physically sound law of mass balance .
+a numerical integration procedure for the formulated coupled initial boundary value problem is required and it will be considered elsewhere .
+the support from the israel science foundation ( isf-198/15 ) is gratefully acknowledged .
+barenblatt gi ( 1959 ) the formation of equilibrium cracks during brittle fracture .
+general ideas and hypotheses .
+axially - symmetric cracks .
+j appl math mech 23:622 - 636 +   + benzerga aa , leblond jb , needleman a , tvergaard v ( 2016 ) ductile failure modeling .
+int j fract 201:29 - 80 +   + borden mj , verhoosel cv , scott ma , hughes tjr , landis cm ( 2012 ) a phase - field description of dynamic brittle fracture .
+comp meth appl mech eng 217 - 220:77 - 95 +
++ de borst r ( 2001 ) some recent issues in computational failure mechanics .
+int j numer meth eng 52:63 - 95 +
++ de borst r , van der giessen e ( 1998 ) material instabilities in solids .
+john wiley & sons , chichester +   + camacho gt , ortiz m ( 1996 ) computational modeling of impact damage in brittle materials .
+int j solids struct 33:2899 2938 +   + dorfmann a , ogden rw ( 2004 ) a constitutive model for the mullins effect with permanent set in particle - reinforced rubber .
+int j solids struct 41:1855 - 1878 +   + francfort ga , marigo jj ( 1998 ) revisiting brittle fracture as an energy minimization problem .
+j mech phys solids 46:1319 - 1342 +   + gao h , klein p ( 1998 ) numerical simulation of crack growth in an isotropic solid with randomized internal cohesive bonds .
+j mech phys solids 46:187 - 218 +   + gong b , paggi m , carpinteri a ( 2012 ) a cohesive crack model coupled with damage for interface fatigue problems .
+int j fract 137:91 - 104 +   + gurson al ( 1977 ) continuum theory of ductile rupture by void nucleation and growth : part i - yield criteria and flow rules for porous ductile media .
+j eng mat tech 99:2151 +   + hamdi a , nait abdelaziz m , ait hocine n , heuillet p , benseddiq n ( 2006 ) a fracture criterion of rubber - like materials under plane stress conditions .
+polymer testing 25:994 - 1005 +   + hofacker m , miehe c ( 2012 ) continuum phase field modeling of dynamic fracture : variational principles and staggered fe implementation .
+int j fract 178:113 - 129 +   + kachanov lm ( 1958 ) time of the rupture process under creep conditions .
+izvestiia akademii nauk sssr , otdelenie teckhnicheskikh nauk 8:26 - 31 +
++ klein p , gao h ( 1998 ) crack nucleation and growth as strain localization in a virtual - bond continuum .
+eng fract mech 61:21 - 48 +   + lasry d , belytschko t ( 1988 ) localization limiters in transient problems .
+int j solids struct 24:581 - 597 +   + lemaitre j , desmorat r ( 2005 ) engineering damage mechanics : ductile , creep , fatigue and brittle failures .
+springer , berlin +   + menzel a , steinmann p ( 2001 ) a theoretical and computational framework for anisotropic continuum damage mechanics at large strains .
+int j solids struct 38:9505 - 9523 +   +
+moes n , dolbow j , belytschko t ( 1999 ) a finite element method for crack without remeshing .
+int j num meth eng 46:131 - 150 +   + needleman a ( 1987 ) a continuum model for void nucleation by inclusion debonding .
+j appl mech 54:525 - 531 +   + needleman a ( 2014 ) some issues in cohesive surface modeling .
+procedia iutam 10:221 - 246 +   + park k , paulino gh , roesler jr ( 2009 ) a unified potential - based cohesive model of mixed - mode fracture .
+j mech phys solids 57:891 - 908 +   + peerlings rhj , de borst r , brekelmans wam , de vree jhp ( 1996 ) gradient enhanced damage for quasi - brittle materials .
+int j num meth eng 39:3391 - 3403 +   +
+pijaudier - cabot g , bazant zp ( 1987 ) nonlocal damage theory .
+j eng mech 113:1512 - 1533 +   + rice jr , wang js ( 1989 ) embrittlement of interfaces by solute segregation .
+mater sci eng a 107:23 - 40 +   + roe kl , siegmund t ( 2003 ) an irreversible cohesive zone model for interface fatigue crack growth simulation .
+eng fract mech 70:209 - 232 +   + silling sa ( 2000 ) reformulation of elasticity theory for discontinuities and long - range forces .
+j mech phys solids
+48:175 - 209 +   + simo jc ( 1987 ) on a fully three - dimensional finite strain viscoelastic damage model : formulation and computational aspects .
+comp meth appl mech eng 60:153 - 173 +   + tvergaard v , hutchinson jw ( 1992 ) the relation between crack growth resistance and fracture process parameters in elastic - plastic solids .
+j mech phys solids 40:1377 - 1397 +   + voyiadjis gz , kattan pi ( 1992 ) a plasticity - damage theory for large deformation of solidsi . theoretical formulation .
+int j eng sci 30:1089 - 1108 +   +
+volokh ky ( 2004 ) nonlinear elasticity for modeling fracture of isotropic brittle solids .
+j appl mech 71:141 - 143 +   + volokh ky ( 2007 ) hyperelasticity with softening for modeling materials failure .
+j mech phys solids 55:2237 - 2264 +   + volokh ky ( 2010 ) on modeling failure of rubber - like materials .
+mech res com 37:684 - 689 +   + volokh ky ( 2011 ) characteristic length of damage localization in rubber .
+int j fract 168:113 - 116 +   + volokh ky ( 2013a ) review of the energy limiters approach to modeling failure of rubber .
+rubber chem technol 86:470 - 487 +   + volokh ky ( 2013b ) characteristic length of damage localization in concrete .
+mech res commun 51:29 - 31 +   + volokh ky ( 2016 ) mechanics of soft materials .
+springer +   + xu xp , needleman a ( 1994 ) numerical simulations of fast crack growth in brittle solids .
+j mech phys solids 42:1397 - 1434 +

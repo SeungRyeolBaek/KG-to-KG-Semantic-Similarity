@@ -1,0 +1,294 @@
+consider the following stochastic differential equation @xmath0 here @xmath1 is an incompressible periodic vector field , @xmath2 is a 2-dimensional brownian motion , and @xmath3 ( molecular diffusivity ) is a small parameter .
+we further assume that the stream function @xmath4 , such that @xmath5 is itself periodic in both variables , that is the integral of @xmath6 over the periodicity cell is zero . for simplicity of notation assume that the period of @xmath7 in each of the variables is equal to one .
+it is well known ( see for example @xcite ) , that with @xmath8 fixed , the solution of ( [ e1 ] ) scales like a diffusion process with constant diffusion matrix when time goes to infinity .
+more precisely , there exists the limit , called the effective diffusivity , @xmath9 where @xmath10 and @xmath11 are the coordinates and @xmath12 is the initial distribution of the process @xmath13 , which we can take to be an arbitrary measure with compact support .
+the measure on @xmath14 , { \mbox { \bbc r}}^2)$ ] , induced by the process @xmath15 , converges weakly , when @xmath16 , to the measure induced by the diffusion process with constant matrix @xmath17 .
+we are interested in the behavior of the effective diffusivity when the molecular diffusion @xmath18 tends to zero .
+assume that all the critical points of @xmath7 are non degenerate .
+we distinguish two qualitatively different cases , depending on the structure of the stream lines of the flow given by @xmath1 .    in the first case
+, there is a level set of @xmath7 , which contains some of the saddle points , and which forms a lattice in @xmath19 , thus dividing the plane into bounded sets , invariant under the flow .
+a standard example of a cellular flow , which has been studied in several of the papers cited below , is the flow with the stream function @xmath20 . in this particular example
+the separatrices ( the level sets of @xmath7 containing saddle points ) form a rectangular lattice .    in the second case
+, there is more than one unbounded level set of @xmath7 containing critical points , and thus there are ` open channels ' in the flow , and some of the solutions of the equation @xmath21 go off to infinity .
+an example of a flow with open channels is the flow with the stream function @xmath22 .
+indeed , the horizontal axis @xmath23 is an unbounded stream line of the flow .
+[ pic1 ]    since @xmath1 is periodic , we may consider @xmath21 as the flow on the torus .
+the torus is then a union of the sepatatrices and a finite number of open domains , bounded by the separatrices , and invariant under the flow .    in @xcite fannjiang and
+papanicolaou considered cellular flows for which the separatrices form a rectangular lattice on @xmath24 and the stream function satisfies certain symmetry conditions .
+they showed that in this case @xmath25 that is the effective diffusivity is enhanced by a factor of order @xmath26 compared to case of the diffusion process @xmath27 without the advection term .
+moreover , they found the constant matrix @xmath28 explicitly .
+their proof is based on a variational principle applied to a symmetric operator associated to the generator of the process @xmath29 . in @xcite heinze
+provided certain upper and lower estimates on the effective diffusivity in the case of cellular flows , for which the separatrices form a rectangular lattice on @xmath24 .
+there are earlier physical papers ( @xcite , @xcite , @xcite ) , arguing that the asymptotics in ( [ e5 ] ) is true for particular flows .
+our first result is the rigorous proof of this statement for general cellular flows .
+[ t1 ] assume that an infinitely smooth periodic stream function @xmath30 defines a cellular flow , and that its critical points are nondegenerate .
+then the asymptotics of the effective diffusivity for the process ( [ e1 ] ) is given by ( [ e5 ] ) .
+let @xmath31 be the noncompact connected level set of @xmath7 .
+this level set contains some of the saddle points of @xmath7 and forms a lattice in @xmath19 . without loss of generality
+we may assume that @xmath32 when @xmath33 .
+the corresponding level set on the torus will be denoted by @xmath34 .    the process @xmath35 consists of the ` fast ' part , which is the periodic motion along the streamlines , and the ` slow ' diffusion across them .
+the motion is almost periodic away from the separatrices .
+however , once the trajectory is in a sufficiently small neighborhood of the level set @xmath31 , it is likely to continue along it , and may go from cell to cell in a time much shorter than it would take the ` slow ' diffusion to cover the same distance .    the rough outline of the proof of theorem [ t1 ] is the following .
+we introduce a markov chain , which can be viewed as a discrete time version of the process @xmath35 .
+the state space for the markov chain is @xmath36 .
+note , that due to the periodicity of @xmath7 , the process @xmath35 can be viewed as a process on the torus . in order to define the transition probabilities , we introduce stopping times for the process @xmath35 .
+the stopping time @xmath37 is the first time when @xmath35 hits @xmath36 , and @xmath38 is defined as the first time after @xmath39 when the process @xmath35 returns to @xmath36 , after having traveled ` past ' a saddle point .
+the transition times of the markov chain are random .
+we show that the study of the asymptotics of the effective diffusivity can be reduced to the study of the asymptotics of transition probabilities and of the expectations of the transition times for the markov chain .
+the limit of the transition probabilities as @xmath40 is determined by the behavior of the process @xmath35 in an arbitrarily small neighborhood of @xmath36 .
+the asymptotics of the expectations of the transition times , on the contrary , is determined by the event that the trajectory of @xmath35 wanders away from the level set @xmath36 .    in order to study the transition times
+we use the results of freidlin and wentzell @xcite .
+for a given stream function @xmath7 they introduce a graph and a mapping @xmath41 from the plane into the graph , such that each connected level curve of @xmath7 gets mapped into a point on the graph , with the level sets containing critical points mapped into vertices .
+then they demonstrate that the process @xmath42 on the graph converges to a limiting markov process .
+the asymptotics of the expectations of the transition times for our markov chain is related to the limiting process on the graph .
+now consider the flows with ` open channels ' . assuming that the channels are directed along the @xmath43 axis
+, we prove that @xmath44 that is the diffusion across the channels is not qualitatively enhanced , compared with the process @xmath45 .
+the effective diffusivity in the direction of the flow is enhanced by a factor of order @xmath46 .
+[ t2 ] assume that an infinitely smooth periodic stream function @xmath30 defines a flow with open channels , which are directed along the @xmath43 axis , and that its critical points are nondegenerate .
+then the asymptotics of the effective diffusivity for the process ( [ e1 ] ) is given by ( [ oc ] ) .
+* remark * since the matrix of effective diffusivity is symmetric and positive definite , from theorem [ t2 ] it follows that the off - diagonal terms @xmath47 are bounded uniformly in @xmath18 .
+however we do not make a statement here on their asymptotic behavior .
++ the proof of theorem [ t2 ] is much simpler than that of theorem [ t1 ] , and is an easy application of the results of freidlin and wentzell @xcite .
+the paper is organized as follows . in section [ se2 ]
+we describe the construction of the discrete time markov chain associated with a cellular flow , and relate the question of effective diffusivity for the process @xmath35 to the study of transition probabilities and transition times for the markov chain . in sections
+[ se3 ] and [ se4 ] we study of transition probabilities and transition times respectively . in section [ se5 ]
+we prove theorem [ t2 ] . in section [ se6 ]
+we prove several technical lemmas used in the previous sections .
+consider the set @xmath48 on the torus , with some @xmath49 , and let @xmath50 be the connected component of this set , which contains @xmath36 .
+thus @xmath50 is a thin tube around @xmath36 , whose width , however , is much larger than a typical fluctuation of the process @xmath51 in fixed time ( see the picture below ) .
+let @xmath52 be the connected components of @xmath53 , and let @xmath54 be the saddle points , which belong to @xmath36 .
+while the numbers of the connected components and of the saddles are the same for topological reasons , their equality is not used in the proofs , and the numbering of @xmath55 s is not related in any manner to that of @xmath56 s . if there are points , which are carried to @xmath57 by the flow @xmath58 , and to @xmath56 by the flow @xmath59 , then the set of such points ( a subset of @xmath36 ) is denoted by @xmath60 .
+we assume ( for the sake of simplicity of notation only ) that @xmath61 is empty , that is the separatrices do not form `` loops '' . in a neighborhood of each curve @xmath62 we may consider a smooth change of coordinates @xmath63 , where @xmath64 is defined by the conditions : @xmath65 on @xmath62 , and @xmath66 ( this way @xmath64 is defined up to multiplication by @xmath67 and up to an additive constant ) . the same change of coordinates can be considered in @xmath68 . in this case
+@xmath69 , we define @xmath70 let @xmath71 .
+define the stopping times @xmath72 .
+then @xmath73 are defined inductively as follows .
+assume that @xmath74 , and @xmath75 .
+then @xmath76 thus , @xmath77 is the first time after @xmath39 that the process either exits @xmath50 , or goes past a saddle point different from @xmath56 .
+define @xmath78 .
+let @xmath79 . since almost every trajectory of @xmath35 does not contain any of the points @xmath56
+, @xmath80 is a markov chain with the state space @xmath81 .
+the stopping times @xmath38 are the consecutive times when the process @xmath35 hits the separatrix @xmath36 after exiting @xmath50 or after having passed past a saddle point . note , that the case , when a point @xmath82 travels , due to diffusion , against the flow @xmath1 , and returns to @xmath83 , does not count as having passed past a saddle point .
+[ pic2 ]    it is not difficult to see that @xmath80 satisfies the doeblin condition , with the unique ergodic set . therefore there exists a unique invariant measure @xmath84 on @xmath81 ( @xcite ) .
+note that @xmath85 also forms a markov chain with the state space @xmath86 , which satisfies doeblin condition for each @xmath18 , and has a unique ergodic set .
+let @xmath87 be the stochastic transition function for this chain ( it only depends on the first component of the original point , as is reflected in the notation ) .
+then @xmath88 is the invariant measure . since
+, due to the presence of diffusion , the distributions of the transition times have exponentially decreasing tails , we can apply the law of large numbers to the function @xmath89 on @xmath90 to obtain @xmath91 @xmath92 in the arguments , which led to ( [ t ] ) , we considered @xmath13 as a process on the torus . in order to keep track of the displacements of @xmath93 , as the process on @xmath19
+, we introduce another markov chain , on the extended phase space @xmath94 .
+let now @xmath95 be the saddle points of @xmath7 on the plane .
+then any @xmath96 can be uniquely identified with a pair @xmath97 , where @xmath98 and @xmath99 , [ a^2_i ] ) \in { \mbox { \bbc z}}^2 $ ] .
+( @xmath100 $ ] and @xmath101 $ ] are the integer parts of the first and second coordinates of @xmath56 ) .
+thus , we have the mapping @xmath102 .
+let @xmath103 and @xmath104 be the components of this mapping .
+we define the markov chain @xmath105 as follows @xmath106 note that the second component @xmath107 almost surely takes the values in some finite subset @xmath108 of @xmath109 .
+thus @xmath105 is a markov chain on @xmath110 , where @xmath111 .
+it is not difficult to see that @xmath105 satisfies doeblin condition with the unique ergodic set . applying the law of large numbers to the vector valued function @xmath112 , defined on @xmath113
+, we obtain that there exists @xmath114 , such that @xmath115 since @xmath116 in distribution , and due to ( [ t ] ) , we conclude that @xmath117 . applying the central limit theorem to the same function @xmath118
+, we obtain that there exists a matrix @xmath119 , such that @xmath120 due to ( [ t ] ) , we have @xmath121 in sections [ se3 ] and [ se4 ] we shall obtain the asymptotics of the stochastic transition functions for the chain @xmath122 , and of the functions @xmath123 . assuming that this is accomplished
+, the next lemma will allow us to obtain the asymptotics of the effective diffusivity , using ( [ dd ] ) .
+first we introduce the notations and formulate the assumptions needed for the lemma .
+let @xmath124 be a locally compact separable metric space .
+let @xmath125 be the set of bounded continuous functions on @xmath124 .
+let @xmath126 be a family of stochastic transition functions on @xmath124 .
+assume that    \(a ) the family of measures @xmath127 is tight for any compact set @xmath128 .
+\(b ) @xmath129 is weakly feller , that is @xmath130 if @xmath131 .
+\(c ) for any @xmath131 and any compact @xmath132 ,
+@xmath133    \(d ) there exist unique invariant measures @xmath84 .
+there exist @xmath134 , such that @xmath135 ( that is @xmath136 are uniformly exponentially mixing ) .
+let @xmath137 be such that @xmath138 for all @xmath18 .
+let @xmath122 be the stationary markov chain , with the stochastic transition function @xmath139 .
+since @xmath140 is exponentially mixing , the central limit theorem can be applied to @xmath141 , and thus @xmath142 converges weakly as @xmath143 to a mean - zero gaussian distribution .
+we denote the covariance matrix of the limiting distribution by @xmath144 .
+[ l1 ] suppose that assumptions ( a)-(d ) hold .
+then + ( a ) @xmath145 + ( b ) if @xmath146 are uniformly bounded , @xmath147 , and @xmath148 uniformly on any compact , then @xmath149 + ( c ) if @xmath137 is such that @xmath150 for all @xmath18 , then @xmath151    * proof : * from ( a ) it follows that for each @xmath152 the family of measures @xmath153 is tight for any compact set @xmath128 .
+let us assume that for a certain @xmath152 , for any @xmath154 , uniformly on any compact set @xmath128 we have @xmath155 note that this is true for @xmath156 by ( c ) . combining ( [ st ] ) and the fact that @xmath153 is tight we obtain that for any compact set @xmath128 and for any @xmath157 there is a compact set @xmath158 such that @xmath159 for sufficiently small @xmath18 .
+next we justify ( [ st ] ) for @xmath160 instead of @xmath152 .
+@xmath161 @xmath162 where @xmath163 .
+the first term on the right hand side tends to zero by ( [ st ] ) , while the second term tends to zero by ( [ del ] ) as @xmath164 is bounded and tends to zero uniformly on any compact .
+we therefore have established ( [ st ] ) for all @xmath152 .
+let us prove part ( a ) of the lemma .
+fix an arbitrary @xmath165 .
+then for @xmath131 we have @xmath166 and the limit is uniform in @xmath18 by ( d ) .
+the weak convergence of @xmath167 to @xmath168 now follows from ( [ st ] ) .    to prove part ( b ) we write @xmath169
+the difference of the first two terms on the right hand side tends to zero as @xmath170 weakly .
+the difference of the last two terms tends to zero since for any @xmath171 there is a compact set @xmath128 for which @xmath172 for sufficiently small @xmath18 ( since @xmath170 weakly ) , and @xmath173 on any compact set .    in order to prove part ( c ) of the lemma it is sufficient to consider @xmath174 ( scalar valued ) . in this case
+@xmath175~.\ ] ] due to uniform mixing ( d ) @xmath176 where @xmath177 does not depend on @xmath18 .
+in order to prove that @xmath178 we therefore only need to establish that @xmath179 \rightarrow 0\ ] ] for any fixed @xmath152 . the left hand side of ( [ nox ] ) can be written as @xmath180 let @xmath181 .
+then @xmath182 uniformly on any compact by ( [ st ] ) , and the conclusion follows by part ( b ) .
+in this section we shall identify the limit of the transition probabilities for the chains @xmath105 on @xmath183 and verify the conditions ( a)-(d ) for these chains .
+recall the @xmath184 coordinates which we may consider inside each cell @xmath185 near its boundary , that is in @xmath186 .
+let @xmath187 in order to find the limit of the transition probabilities we shall demonstrate that in a small neighborhood of @xmath31 after a random change of time the process @xmath29 is well approximated by the process @xmath188 with the generator @xmath189 in @xmath190 coordinates .
+let @xmath82 be a point on @xmath31 .
+we introduce the stochastic transition function @xmath191 as follows :    let @xmath192 ( if @xmath193 and @xmath194 do not belong to the boundary of the same cell , then @xmath195 . consider the @xmath190 coordinates in @xmath196 , so that @xmath197 , and @xmath64 increases in the direction of the flow . since @xmath198 is a closed contour , points with coordinates @xmath190 and @xmath199 belong to @xmath200 $ ] , and consider the process @xmath188 with the generator @xmath201 in @xmath190 coordinates , which starts at the origin ( corresponding to the point @xmath193 ) .
+let @xmath202 be the time of the first exit from the following domain : @xmath203 . then define @xmath204 \}.\ ] ] the summation over @xmath205
+is needed to account for the fact that @xmath193 and @xmath194 may both belong to the same edge @xmath62 , in which case they both belong to the boundaries of two cells , and we need to consider two sets of @xmath190 coordinates .    the function @xmath129 is a stochastic transition function on @xmath31 , and it can be considered as a stochastic transition function on @xmath110 .
+it clearly satisfies conditions ( a ) and ( b ) preceding lemma [ l1 ] .    for @xmath206 , and for the stopping times
+@xmath207 defined in the previous section , let @xmath208 be the transition function for the chain @xmath93 considered on @xmath209 : @xmath210 \}~.\ ] ] note that this definition is similar to that of @xmath211 . here
+, however , we do not use the @xmath190 coordinates since with small probability the process @xmath13 may travel outside of the domains @xmath185 for which @xmath212 before time @xmath213 ( due to the presence of the small diffusion term @xmath13 may go past the saddle point @xmath56 , thus traveling to one of the neighboring domains before time @xmath213 ) .    [ l2 ] for any closed interval @xmath214 , and any bounded continuous function @xmath215 on @xmath31 , @xmath216    notice that lemma [ l2 ] implies the condition ( c ) for the chain @xmath105 . before we start the proof of lemma [ l2 ] we state and prove the following preliminary lemma .
+[ x ] let @xmath217 and @xmath218 be the following two diffusion processes on @xmath219 with infinitely smooth coefficients : @xmath220 @xmath221 with @xmath222 .
+suppose that for a certain constant @xmath223 the following bound on the coefficients holds : latexmath:[\[|\nabla v^i| , |\nabla a^{ij}| , |v^i_1| , |v^i_2| , |a^{ij}_1| ,    @xmath11 stand for the vector ( matrix ) entries of the coefficients .
+let @xmath12 be the initial distribution for the processes @xmath225 and @xmath226 .
+then for some constant @xmath227 and for any @xmath228 we have @xmath229    * proof : * let us assume that @xmath230 in order to avoid vector and matrix indices . by ito
+s formula , for any stopping time @xmath231 , @xmath232)ds + \ ] ] @xmath233)^2 ds~.\ ] ] from the estimates on the coefficients and their derivatives it follows that the expression in ( [ eql1 ] ) can be estimated as follows @xmath234 in particular , for @xmath235 we have @xmath236 let @xmath237
+. then @xmath238 . by gronwall
+s lemma applied to r(t ) we have @xmath239 define the stopping time @xmath240 .
+then , by ( [ eql2 ] ) @xmath241 @xmath242 which yields the lemma .
++   + * proof of lemma [ l2 ] : * since the kernel @xmath211 is smooth in both variables and satisfies condition ( a ) preceding lemma [ l1 ] , to prove the uniform weak convergence stated in lemma [ l2 ] it is sufficient to demonstrate that for an arbitrary closed interval @xmath243 and an arbitrary @xmath244 there is @xmath245 such that @xmath246 suppose that @xmath247 .
+( if @xmath248 and @xmath249 do nt belong to the boundary of the same cell , then @xmath250 is equal to zero . ) for the sake of simplicity of notation let us assume that @xmath214 and @xmath243 , that is @xmath248 and @xmath249 belong to the adjacent edges of @xmath31 . without loss of generality
+we can assume that @xmath251 in @xmath196 for sufficiently small @xmath18 .
+we can consider the process @xmath29 in @xmath190 coordinates in the following domain ( see the picture below ) @xmath252    [ pic3 ]    as above we consider the process @xmath188 in @xmath190 coordinates in the domain @xmath253 note that @xmath254 is estimated from below by the probability that @xmath29 leaves @xmath255 through any of the copies of @xmath249 ( which corresponds to @xmath29 making a finite number of rotations inside @xmath196 , and then leaving @xmath185 through the segment @xmath249 ) .
+let @xmath256 be the copies of @xmath249 in @xmath190 coordinates ( @xmath257 can be obtained from @xmath258 by a shift by @xmath259 along the @xmath64 axis ) .
+for an initial point @xmath260 let @xmath261 be the probability that @xmath29 leaves the domain @xmath255 through @xmath258 .
+as stated above , for @xmath262 we have @xmath263 similarly , for @xmath264 let @xmath265 be the probability that @xmath188 leaves the domain @xmath266 through @xmath258 .
+if @xmath262 and @xmath249 belong to different edges of @xmath198 ( as we have assumed ) then by ( [ p0 ] ) we have @xmath267 from the definition of @xmath268 it is easily seen that the sum converges uniformly in @xmath193 for @xmath262 . in order to prove ( [ est1 ] ) it is sufficient to demonstrate that for each @xmath269 and each @xmath270 there is @xmath245 such that @xmath271 indeed , for every positive @xmath272 we can select @xmath273 such that @xmath274 . by ( [ est2 ] ) we can ensure that if we take @xmath275 to be sufficiently small then @xmath276 which implies ( [ est1 ] ) due to ( [ ineq1 ] ) .    for the sake of simplicity of notation we shall only prove ( [ est2 ] ) for @xmath277 .
+the generator of the process @xmath29 is @xmath278 which in @xmath279 coordinates becomes @xmath280 amounts to a random time change for the process @xmath29 , which does not affect any of the transition probabilities .
+we shall denote the time - changed process with the generator @xmath281 while @xmath282 where @xmath283 and @xmath284 are one dimensional wiener processes in @xmath285 and @xmath64 variables respectively .
+we can not apply lemma [ x ] to ( [ f1 ] ) and ( [ f2 ] ) directly , as some of the coefficients on the right hand side of ( [ f1 ] ) may be unbounded near the saddle point @xmath286 . to circumvent this problem
+we shall take a sequence of steps ( justified below ) , which will single out a small neighborhood of the saddle point , where yet another coordinate system will be considered .
+let us take @xmath287 small enough , so that there exist @xmath288 , such that for any @xmath289 $ ] the probability of the event that @xmath188 passes through the interval @xmath290 before leaving the domain @xmath291 through @xmath292 differs from @xmath293 by less than @xmath294 for any @xmath262 . due to the smoothness of the transition kernel of the process @xmath188 , for some @xmath295 the interval @xmath128 can be replaced by any set @xmath296 as long as @xmath296 is contained in @xmath128 and has lebesgue measure at least @xmath297 .
+step 2 . if necessary
+make @xmath298 from step 1 smaller , so that @xmath299 whenever @xmath300 and @xmath301 \times [ \theta(a_j ) - \delta ' , \theta(a_j ) + \delta']$ ] .    step 3 .
+take @xmath302 and let @xmath303 , and @xmath304 .
+take @xmath305 sufficiently small so that whenever @xmath306 the process @xmath29 starting at @xmath307 passes through the set @xmath308 before leaving @xmath309 with probability at least @xmath310 for small enough @xmath18 .
+let us split the set @xmath311 into intervals @xmath312 of length @xmath298 ( we can assume that each of the intervals included the endpoints ) . construct on @xmath158 the intervals @xmath313 of length @xmath314 , such that @xmath315 .
+let @xmath316 be the first time when a process either exits @xmath309(@xmath317 ) or reaches @xmath158 .
+let us take @xmath275 so small that @xmath318    step 5 .
+let us take @xmath275 so small that @xmath319 + assuming that the steps 1 - 5 are valid let us prove ( [ est2 ] ) . by the markov property @xmath320 by steps 3 , 5 , and 2 , the second factor on the right hand side can be estimated as follows : @xmath321 while by step 4 @xmath322 combining the above inequalities and using step 1 we obtain @xmath323 @xmath324 which implies ( [ est2 ] ) .
+it remains to justify the construction in steps 1 - 5 .
+the validity of steps 1 and 2 follows from the fact that the transition kernel of the process @xmath188 is smooth . to justify steps
+4 and 5 it is sufficient to consider both processes @xmath13 and @xmath188 in a compliment to a neighborhood of the saddle point , where lemma [ x ] applies .    in order to justify step 3
+we note that by morse lemma in a neighborhood @xmath325 of the saddle point @xmath57 there is a smooth change of variables , such that in the new variables the stream function is @xmath326 , and the interior of @xmath185 corresponds to the first quadrant @xmath327 . in the new variables
+the generator of the process @xmath13 , after a random change of time , becomes @xmath328 , where @xmath329 is a differential operator with first and second order terms , with bounded coefficients , and @xmath330 .
+we shall consider the operator @xmath331 in the domain @xmath332 .
+make a further change of variables in @xmath333 : @xmath334 in the new variables , after dividing all the coefficients of the operator by @xmath335 , which amounts to a random change of time for the process , the operator can be written as @xmath336 where @xmath337 is a differential operator with first and second order terms .
+all the coefficients of @xmath338 can be made arbitrarily small in @xmath333 by selecting a sufficiently small neighborhood @xmath325 of the point @xmath57 , and then taking @xmath18 to be sufficiently small .
+the construction in step 3 now follows from lemma [ x ] by comparing the process whose generator is the operator ( [ star ] ) with the deterministic process with generator @xmath339 . +
+* remark * to verify condition ( d ) ( uniform mixing ) preceding lemma [ l1 ] for the chain @xmath105 it is sufficient to show ( see @xcite , page 197 ) that there is an integer @xmath340 , an interval @xmath341 , and a constant @xmath342 , such that @xmath343 where @xmath344 is the lebesgue measure on @xmath248 .
+the proof of estimate ( [ est101 ] ) is absolutely similar to that of lemma [ l2 ] .
+in this section we shall study the asymptotics of the integral @xmath345 , which enters in the expression ( [ dd ] ) for the effective diffusivity .
+we shall demonstrate the following : @xmath346 @xmath347 where @xmath348 is a positive function and @xmath248 is an arbitrary closed interval @xmath214 . from parts ( a ) and ( b ) of lemma [ l1 ]
+it then follows that @xmath349 where @xmath350 is the invariant measure on @xmath351 for the kernel @xmath211 , defined in section [ se3 ] .
+the proof of formulas ( [ fr1 ] ) and ( [ fr2 ] ) will rely on a sequence of lemmas stated below .
+we shall study separately the probability of the event that the process @xmath352 starting form @xmath353 reaches @xmath354 before time @xmath355 , and the expectation of the time it takes for the process starting from @xmath356 to reach @xmath81 .
+consider the process @xmath357 together with the process @xmath188 , whose generator in @xmath190 coordinates is @xmath358 in the domain @xmath359 .
+we follow the process @xmath188 till it exits @xmath360 .
+let @xmath361 be the corresponding transition kernel .
+thus @xmath361 coincides with a gaussian distribution on @xmath362 , and has two point masses at @xmath363 .
+similarly let @xmath364 be the transition kernel for the process @xmath357 , which starts at @xmath82 and is stopped at the time @xmath365 .
+we have the following :    [ a ] for any continuous function @xmath366 , such that @xmath367 , there exists @xmath342 , such that @xmath368 furthermore , for any closed interval @xmath214 , @xmath369    the proof of lemma [ a ] is completely similar to that of lemma [ l2 ] .
+we introduce the following notation : @xmath370 is the first time the process @xmath357 leaves @xmath371 ; similarly , @xmath372 and @xmath373 are the first instances when @xmath357 leaves @xmath185 and @xmath374 respectively .    in order to estimate the probability that the process @xmath357 starting from @xmath82 reaches @xmath356 before time @xmath213 we shall need the following    @xcite [ b ] there exists a constant @xmath342 , such that @xmath375    this lemma is the same as lemma 4.7 of @xcite ( it must be observed that the proof of lemma 4.7 of @xcite goes through for any @xmath376 ) .    in the event that @xmath377 , after the stopping time @xmath365 the process @xmath357 may exit @xmath378 either through @xmath354 or through @xmath81 .
+the next lemma estimates the probability that the process exits the domain through @xmath356 .
+[ c ] there exists @xmath342 , such that for any @xmath379 @xmath380    * proof : * let @xmath381 be the generator of the process @xmath357 in the domain @xmath382 . then the probability in ( [ lce ] ) is equal to the solution @xmath383 of the equation @xmath384 in @xmath378 with the boundary conditions @xmath385 , @xmath386 . let @xmath387 .
+then @xmath388 is the solution of the equation @xmath389 with the boundary conditions @xmath390 . by lemma [ b ] , since @xmath391 is bounded uniformly in @xmath18 , the solution @xmath388 is estimated as follows : @xmath392 this implies the statement of the lemma .    using the markov property of the process @xmath357 with respect to the stopping time @xmath365
+, we obtain that there is @xmath342 , such that for any @xmath393 we have the following : @xmath394 where @xmath395 is the domain which contains @xmath396 ( one of the domains @xmath185 ) , and the second inequality is due to lemma [ c ] and ( [ pt1 ] ) .
+furthermore , due to ( [ pt2 ] ) we can evaluate the asymptotics of the event @xmath397 as follows : @xmath398 the next lemma allows us to estimate the expectation of the time it takes for the process starting at @xmath356 to return to @xmath81 .
+[ d ] for each of the domains @xmath185 there exists a constant @xmath399 , such that @xmath400    note that lemma [ d ] , together with ( [ e1e ] ) and ( [ e2 ] ) implies ( [ fr1 ] ) and ( [ fr2 ] ) since the expectation of the time it takes for the process to reach @xmath356 can be estimated by lemma [ b ] .
+it remains to prove lemma [ d ] .
+we introduce notations and state several technical lemmas needed for the proof of lemma [ d ] .    since @xmath32 on @xmath401 , we may assume without loss of generality that @xmath402 inside @xmath185 in a small neighborhood of @xmath185 .
+then there is a region @xmath403 , whose boundary consists of @xmath198 and a level curve @xmath404 , and , by selecting a sufficiently small @xmath405 , we can ensure that each level set of @xmath7 in @xmath406 is connected and there are no critical points of @xmath7 in the closure of @xmath406 other than on @xmath198 .
+for @xmath407 let us define the following functions : @xmath408 in each case the integration is over the level set @xmath409 .
+let @xmath410 be a small constant , to be specified later .
+consider the function @xmath411 , which solves the equation @xmath412 with boundary conditions @xmath413 . while it not used here explicitly , we note the fact that the operator in the left hand side of ( [ eqf ] ) after dividing it by the function @xmath414 becomes the generator of the limiting diffusion process on the edge of the graph corresponding to the domain @xmath185 ( cf @xcite and section [ se5 ] of this article ) .    we need the following lemma , which will be proved in section [ se6 ] .
+[ f ] there is a function @xmath415 , which satisfies @xmath416 , such that @xmath417 for all @xmath418 .
+further , there is a constant @xmath342 such that @xmath419 and @xmath420 .
+let us select constants @xmath421 and @xmath422 such that @xmath423 . define the subsets @xmath424 and @xmath425 of @xmath406 as follows : @xmath426 let @xmath427 be the first time the process @xmath352 leaves @xmath424 , similarly @xmath428 is the first time the process leaves @xmath425 .
+let @xmath429 be the deterministic process @xmath430 and let @xmath431 be the time it takes the process @xmath429 starting at @xmath193 to make one rotation along the level set , @xmath432 .
+the next lemma shows that for times of order @xmath431 the process @xmath357 is in a certain sense close to the deterministic process @xmath429 .
+the lemma is proved in section [ se6 ] .
+[ close ] for any @xmath157 there is @xmath433 such that @xmath434 there exist @xmath435 and @xmath433 such that @xmath436    one of the main ingredients of the proof of lemma [ d ] is the following lemma , which is a particular case of the main result ( theorem 2.3 ) of @xcite .
+@xcite [ f ] there is a constant @xmath399 , such that on each level set @xmath437 we have @xmath438 the limit is uniform on each level set , and @xmath439 satisfies @xmath440 .
+lemma [ f ] is different from lemma [ d ] in that the initial point in ( [ ef ] ) belongs to a fixed level set of @xmath7 , while in ( [ ed ] ) the initial point is asymptotically close to @xmath401 as @xmath40 .
++   + * proof of lemma [ d ] : * we shall demonstrate that there exists a function @xmath415 , such that @xmath441 , for which @xmath442 uniformly in @xmath443 .
+let us show that ( [ tt1 ] ) is sufficient to prove the lemma .
+as in the proof of lemma [ c ] , from ( [ tt1 ] ) it follows that @xmath444 uniformly in @xmath443 . for @xmath445 by the markov property @xmath446 the first term on the right side of ( [ equ ] ) is estimated from above by @xmath447 due to ( [ tt1 ] ) .
+the second term has the following asymptotics due to ( [ in01 ] ) and lemma [ f ] @xmath448 for sufficiently small @xmath18 , where @xmath449 satisfies @xmath450 . the last term on the right side of ( [ equ ] )
+is estimated from above by @xmath451 due to lemmas [ b ] and [ c ] , and the repeated use of ( [ equ ] ) .
+therefore @xmath452 for sufficiently small @xmath18 , and @xmath453 which satisfies @xmath454 .
+since @xmath455 can be selected arbitrarily small we obtain @xmath456 .
+it remains to prove ( [ tt1 ] ) .
+let @xmath457 .
+we shall prove that for some @xmath458 for all sufficiently small values of @xmath455 @xmath459 for all @xmath460 . from ( [ m2 ] ) it follows that @xmath461 due to the estimate on the derivative of @xmath215 from lemma [ f ] for @xmath443 the right side of ( [ es02 ] ) is estimated from above by @xmath462 , which implies ( [ tt1 ] ) .
+now we need to prove ( [ m2 ] ) .
+applying ito s formula to @xmath463 we obtain @xmath464 while from ( [ eqf ] ) @xmath465 thus , what we want to show is that there is a constant @xmath158 such that for all @xmath460 @xmath466ds | + \ ] ] @xmath467 ds| + \ ] ] @xmath468ds |\leq k_1t(x)~.\ ] ] since @xmath469 and @xmath470 are bounded , and @xmath158 can be taken arbitrarily large , it is sufficient to estimate only those of the terms in ( [ bg ] ) which contain the second derivative of @xmath215 . by lemma [ close ]
+we have @xmath471 , and the second derivative of @xmath215 can be estimated by lemma [ f ] .
+therefore for the last term containing @xmath472 we have @xmath473 the estimate @xmath466ds | \leq ct(x)\ ] ] follows from lemma [ close ] and the estimates on @xmath472 and @xmath474 of lemma [ f ] .
+this completes the proof of lemma [ d ] .
++   + * proof of theorem [ t1 ] : * the effective diffusivity @xmath17 is related to the variance @xmath119 of the limit of the functional of the markov chain , and to the integral of the expectation of the transition times via formula ( [ dd ] ) .
+as shown in lemma [ l2 ] and in the remark following it , lemma [ l1 ] applies , and therefore there exists the limit @xmath475 .
+the asymptotics of the integral @xmath476 is given by ( [ ai nt ] ) .
+this completes the proof of the theorem .
+in this section it will be convenient to consider the process @xmath477 , which is the same as @xmath13 , but only accelerated by the factor @xmath478 , that is @xmath479 .
+this process satisfies the equation @xmath480 note , that as a process on the torus , @xmath477 is uniformly ( in @xmath18 ) exponentially mixing .
+following @xcite we consider the finite graph @xmath481 which corresponds to the structure of the level sets of @xmath7 on the torus .    the graph @xmath481 is constructed as follows : we identify all the points which belong to each connected component of each level set of @xmath7 . this way each of the domains
+@xmath185 , bounded by the separatrices , gets mapped into an edge of the graph , while the separatrices themselves get mapped into the vertices .
+let @xmath482 label the edge of the graph and let @xmath483 be the coordinate on the edge .
+then the process @xmath484 can be considered as a process on the graph .
+it is proved in @xcite ( theorem 2.2 ) that the process @xmath484 converges to a certain markov process on the graph with continuous trajectories , which is exponentially mixing .
+we state the result here in less generality than in @xcite , but this is sufficient for our purposes .
+@xcite there is a markov ( diffusion ) process @xmath485 on the graph @xmath481 , which is exponentially mixing , and has continuous trajectories , such that for any @xmath486 , the process @xmath484 converges to @xmath485 weakly in @xmath14,g)$ ] .
+we are now in the position to prove theorem [ t2 ] . + * proof of theorem [ t2 ] * : the displacement of the process @xmath477 in the direction @xmath43 ( the direction of the channels ) is given by @xmath487 where @xmath488 is the @xmath43 component of the velocity field .
+therefore , @xmath489 @xmath490 where @xmath491 is distributed according to the invariant ( lebesgue ) measure @xmath12 on @xmath492 . for a function @xmath493 ,
+let @xmath494 , @xmath495 be the function defined on the graph , other than on the vertices , which is equal to the average of @xmath215 over the corresponding connected component of the level set of @xmath7 @xmath496 where @xmath429 is the solution of the deterministic equation @xmath497 , the initial point @xmath193 belongs to the level set , and @xmath431 is the time of one revolution around the level set .
+it is easily seen that for any initial point @xmath193 which does not belong to any of the separatrices of @xmath7 we have @xmath498 therefore , @xmath499 @xmath500 where @xmath501 is the measure on @xmath481 , which is invariant for the process @xmath485 .
+the integrals @xmath502 and @xmath503 can be made arbitrarily small by selecting sufficiently large @xmath504 due to uniform mixing of the processes @xmath505 and @xmath485 .
+therefore , @xmath506 which shows that the asymptotics for @xmath507 is as stated in the theorem .
+now let us consider the asympotics for @xmath508 .
+note that @xmath509 , thus the arguments leading to ( [ ts ] ) do not provide the asymptotics of @xmath508 .
+let @xmath510 be those of the separatrices of @xmath7 on the torus which , when unfolded onto the plane , are non - compact .
+let us select a point @xmath56 on each of @xmath511 .
+let us introduce the sequence of stopping times @xmath512 , @xmath340 , which are the consecutive times when @xmath505 makes the transition to a different level set @xmath511 .
+thus @xmath513 is a markov chain on the set @xmath514 .
+we can also consider the markov chain @xmath515 on the extended phase space @xmath516 .
+the third component @xmath517 is defined as follows : if @xmath513 is considered on the plane , then @xmath518 where @xmath519 is the @xmath520 coordinate of the point corresponding to the separatrix containing the point @xmath513 .
+similarly we can introduce the stopping times @xmath521 for the process @xmath485 on the graph , which are the consecutive times when @xmath485 visits different vertices @xmath522 of @xmath481 , corresponding to the unbounded separatrices of @xmath7 . together with the markov chain @xmath523
+we can consider the chain @xmath524 on @xmath525 , where @xmath526 is defined the same way as @xmath527 .
+let @xmath528 be the invariant measure for the chain @xmath529 , and let @xmath530 be the invariant measure for the chain @xmath531 .
+let @xmath215 be the function defined on the state space of the chain @xmath529 , which is equal to the third component : @xmath532 .
+the function @xmath533 is defined the same way on @xmath534 .    by the central limit theorem applied to the chain @xmath535 ,
+there is a number @xmath119 such that @xmath536 similarly , @xmath537    the effective diffusivity in the @xmath520 direction is then different form @xmath538 by the factor @xmath539 , @xmath540    from theorem 2.2 in @xcite and the uniform mixing of the markov chains @xmath535 and @xmath531 it easily follows that @xmath541 and @xmath542    this completes the proof of theorem [ t2 ] .
+* proof of lemma [ f ] * : for any function @xmath543 we have @xmath544 where the integrals are over the level set @xmath545 .
+in particular @xmath546 , and therefore equation ( [ eqf ] ) can be written as @xmath547 from the definition of the coefficients @xmath548 , and @xmath549 it easily follows that @xmath550 further , with the help of morse lemma and ( [ diff ] ) it is easily seen that @xmath551 let @xmath552 be the point where @xmath411 achieves its maximum , thus @xmath553 . from ( [ b1 ] )
+it follows that @xmath554 thus , the estimate on the first derivative of @xmath215 stated in the lemma follows from ( [ abq ] ) .
+rewrite ( [ eqf ] ) as @xmath555 from ( [ abq ] ) in now follows that @xmath556 for some @xmath342 .
+differentiating both sides of ( [ eqf ] ) we obtain @xmath557 the estimate on @xmath558 now follows from the estimates on the first two derivatives and from ( [ abq ] ) and ( [ bq ] ) .
+this completes the proof of the lemma .
++   + * proof of lemma [ close ] * : the proof is based on the use of lemma [ x ] .
+we can not however apply lemma [ x ] to the pair of processes @xmath13 and @xmath429 directly , since the rotation time @xmath431 grows logarithmically in @xmath18 when @xmath460 .
+let @xmath559 .
+consider a process @xmath560 , which solves the equation @xmath561 on each of the segments @xmath562 $ ] , with a finite number of jump discontinuities @xmath563 , @xmath564 .
+then for any positive @xmath565 there are positive @xmath566 and @xmath298 such that under the conditions @xmath567 we have @xmath568 note that it is sufficient to establish the following : for any pair of points @xmath569 such that @xmath570 and @xmath571 we have @xmath572 where @xmath573 and @xmath574 are the solutions for the deterministic flow ( [ flow ] ) .
+let us take @xmath575 the time it takes for the trajectory of ( [ flow ] ) to make one rotation along the level set @xmath576 is equal to @xmath577 , where @xmath549 was defined in ( [ cff ] ) and is a smooth function for sufficiently small positive @xmath7 , which satisfies @xmath578 the number of full rotations of the trajectory starting from @xmath579 is equal to @xmath580 $ ] and the time it takes to make these rotations is equal to @xmath580t(a_0)$ ] .
+it takes @xmath580t(b_0)$ ] to make the same number of rotations for the trajectory starting at @xmath581 .
+due to ( [ asym ] ) the difference is estimated as follows ; @xmath582 t(a_0 ) - [ \frac{t}{t(a_0 ) } ] t(b_0)| \leq { \rm const } |\ln \varepsilon
+| \varepsilon^{- \alpha_2 } ||a_0 -b_0||~.\ ] ] here we used the facts that @xmath583 and that @xmath584 .
+now consider the images of @xmath579 and @xmath581 under the flow ( [ flow ] ) for time @xmath585 .
+using the reduction of the flow to a linear system in a neighborhood of each of the saddle points ( hartman - grobman theorem @xcite ) , it is easy to show that @xmath586 combining this with ( [ ec1 ] ) and with the fact that the speed of motion in ( [ flow ] ) is bounded , we obtain ( [ one1 ] ) with @xmath298 and @xmath566 defined in ( [ gr ] ) . this in turn implies ( [ form1a ] ) as noted above .
+note that @xmath587 and that by making @xmath566 smaller ( if necessary ) we can satisfy @xmath588 , where @xmath272 is the same as in ( [ tsx ] ) .
+observe that for some @xmath589 we have @xmath590 select the points @xmath591 in such a way that @xmath592 for @xmath593 , where @xmath128 is the constant from lemma [ x ] ( applied to the pair of processes @xmath13 and @xmath429 ) . by ( [ length ] )
+there is the estimate @xmath594 .
+let @xmath595 be the piecewise continuous process , which is defined by the conditions : @xmath596 and @xmath597 on @xmath598 , @xmath599 . by lemma [ x ] @xmath600 due to continuity of @xmath13 formula ( [ y1 ] )
+provides an estimate on the sum of the jumps of the process @xmath595 . from ( [ form1a ] ) it now follows that @xmath601 this , together with ( [ y1 ] ) implies ( [ tsn ] ) for any @xmath602 .
+since @xmath603 is constant and @xmath604 is piecewise constant , we have @xmath605 this , together with ( [ y1 ] ) and the condition that @xmath606 implies ( [ tsx ] ) for any @xmath607 .
+this completes the proof of the lemma .
++   + * acknowledgements * : i am grateful to prof
+. s. molchanov for introducing me to this problem and for many useful discussions .
+s. childress .
+_ alpha - effect in flux ropes and sheets _ , phys .
+earth planet internat . ,
+20 ( 1979 ) , pp 172 - 180 . j. l. doob .
+_ stochastic processes .
+_ j. wiley and sons , 1953 .
+a. fannjiang and g. papanicolaou .
+_ convection enhanced diffusion for periodic flows_. siam j. appl .
+vol 54 , no 2 , pp 333 - 408 , 1994 . m. i. freidlin .
+_ dirichlet problem for equations with periodic coefficients_. probability theory and appl .
+9 , pp 133 - 139 , 1964 .
+m. i. freidlin and a. d. wentzell .
+_ random perturbations of hamiltonian systems_. memoirs of the american math . society .
+vol 109 , no 523 , may 1994
+. s. heinze .
+_ diffusion - advection in cellular flows with large peclet numbers _ , max - plank - institute , preprint no 63 , 2001
+. l. perko , _ differential equations and dynamical systems _ , springer - verlag , 1991 .
+b. shraiman , _ diffusive transport in a rayleigh - benard convection cell _ , phys .
+a , 36 ( 1987 ) , p 261 .
+a. m. soward _ fast dynamo action in steady flow_. j. fluid mech . , 180 ( 1987 )
+, pp 267 - 295 .

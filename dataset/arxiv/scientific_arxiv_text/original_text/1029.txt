@@ -1,0 +1,40 @@
+several diagnostic protocols are usually adopted by dermatologists for analyzing and classifying skin lesions , such as the so - called _ abcd - rule _ of dermoscopy @xcite . due to the subjective nature of examination ,
+the accuracy of diagnosis is highly dependent upon human vision and dermatologist s expertise .
+computerized dermoscopic image analysis systems , based on a consistent extraction and analysis of image features , do not have the limitation of this subjectivity .
+these systems involve the use of a computer as a second independent and objective diagnostic method , which can potentially be used for the pre - screening of patients performed by non - experienced operators .
+although computerized analysis techniques can not provide a definitive diagnosis , they can improve biopsy decision - making , which some observers feel is the most important use for dermoscopy @xcite .
+recently , numerous researches on this topic propose systems for the automated detection of malignant melanoma in skin lesions ( e.g. , @xcite ) . in our previous study on dermoscopic images @xcite , the segmentation of the skin area and the lesion area was achieved by a semi - automatic process based on otsu algorithm @xcite , supervised by a human operator . here , we propose a full automatic segmentation method consisting of three main steps : selection of the image roi , selection of the segmentation band , and segmentation .
+the paper is organized as follows . in section [ proposedapproach ]
+we describe the proposed algorithm , providing details of its main steps . in section [ expres ]
+we provide a thorough analysis of experimental results on the isic 217 dataset @xcite .
+conclusions are drawn in section [ conclusioni ] .
+the block diagram of the segmentation algorithm proposed for dermoscopic images , named sdi algorithm , is shown in fig . [
+fig : overall ] .
+the three main steps are described in the following .          in order to achieve an easier and more accurate segmentation of the skin lesion ,
+it is advisable to select the region of interest ( roi ) , i.e. , the subset if image pixels that belong to either the lesion or the skin .
+this region excludes image pixels belonging to ( usually dark ) areas of the image border and/or corners , as well as those belonging to hair , that will not be taken into account in the subsequent steps of the sdi algorithm .    in the proposed approach ,
+the value band of the image in the hsv color space is chosen in order to select dark image pixels ; these are excluded from the roi if they cover most of the border or the angle regions of the image .    concerning hair ,
+many highly accurate methods have been proposed in the literature @xcite . here , we adopted a bottom - hat filter in the red band of the rgb image .
+an example of the roi selection process is reported in fig .
+[ fig : roiselection ] for the isic 2017 test image no . 15544 . here , we observe that the wide dark border on the left of the image , as well as the dark hair over the lesion , have properly been excluded from the roi mask .
+[ cols="^,^ " , ]
+we proposed the sdi algorithm for dermoscopic image segmentation , consisting of three main steps : selection of the image roi , selection of the segmentation band , and segmentation .
+the reported analysis of experimental results achieved by the sdi algorithm on the isic 2017 dataset allowed us to highlight its pro s and con s .
+this leads us to conclude that , although some accurate results can be achieved , there is room for improvements in different directions , that we will go through in future investigations .
+this research was supported by lab gtp project , funded by miur .
+w.  stolz , a.  riemann , a.  b. cognetta , l.  pillet , w.  abmayr , d.  holzel , p.  bilek , f.  nachbar , m.  landthaler , and o.  braun - falco , `` abcd rule of dermoscopy : a new practical method for early recognition of malignant melanoma , '' _
+european journal of dermatology _ ,
+vol .  4 , pp . 521527 , 1994 .
+m.  burroni , r.  corona , g.  delleva , f.  sera , r.  bono , p.  puddu , r.  perotti , f.  nobile , l.  andreassi , and p.  rubegni , `` melanoma computer aided diagnosis : reliability and feasibility study , '' _ clinical cancer research _ , vol .
+10 , pp . 18811886 , 2004 .
+m.  e. celebi , h.  a. kingravi , b.  uddin , h.  iyatomi , y.  a. aslandogan , w.  v. stoecker , and r.  h. moss , `` a methodological approach to the classification of dermoscopy images . ''
+_ computerized medical imaging and graphics _ , vol .
+31 , no .  6 , pp .
+362373 , september 2007 .
+i.  maglogiannis and c.  n. doukas , `` overview of advanced computer vision systems for skin lesions characterization , '' _ ieee transactions on information technology in biomedicine _ , vol .  13 , no .  5 ,
+pp . 721733 , 2009 .
+v.  cozza , m.  r. guarracino , l.  maddalena , and a.  baroni , `` dynamic clustering detection through multi - valued descriptors of dermoscopic images , '' _ statistics in medicine _ ,
+30 , no .
+20 , pp . 25362550 , 2011 .
+[ online ] .
+available : http://dx.doi.org/10.1002/sim.4285      m.  e. celebi , q.  wen , h.  iyatomi , k.  shimizu , h.  zhou , and g.  schaefer , `` a state - of - the - art survey on lesion border detection in dermoscopy images , '' in _ dermoscopy image analysis _ , m.  e. celebi , t.  mendonca , and j.  s. marques , eds.1em plus 0.5em minus 0.4emcrc press , 2015 , pp .

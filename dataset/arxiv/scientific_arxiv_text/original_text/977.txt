@@ -1,0 +1,331 @@
+r coronae borealis ( rcb ) stars are hydrogen - deficient carbon ( hdc ) stars that exhibit spectacular ( @xmath1 up to @xmath28 mag ) , aperiodic declines in brightness ( for a review on rcb stars see @xcite ) .
+the fading occurs rapidly ( @xmath21 to few weeks ) as new dust is formed in the circumstellar environment , and the recovery is slow , sometimes taking several years , as the new dust is dispersed and removed from the line of sight . at maximum light rcb stars are bright supergiants , which in combination with the large - amplitude photometric variability should make them easy to discover . yet , to date there are only @xmath256 known rcb stars in the galaxy @xcite .
+the rarity of these stars suggests that they reflect a very brief phase of stellar evolution , or a bias in rcb star search methods , or both .
+the lack of hydrogen and overabundance of carbon in rcb atmospheres implies that rcb stars are in a late stage of stellar evolution , but no consensus has yet emerged regarding their true physical nature .
+there are two leading theories for explaining the observed properties of rcb stars : the double degenerate ( dd ) scenario and the final helium shell flash ( ff ) scenario ( see e.g. , @xcite ) .
+the dd scenario posits that rcb stars are the stellar remnant of a carbon  oxygen white dwarf ( wd ) and helium wd merger . in the ff scenario , a thin layer of he in the interior of
+the star begins runaway burning , which leads to the rapid expansion of the photosphere shortly before the star becomes a planetary nebula .
+there are observational properties of rcb stars that both theories have difficulty explaining @xcite , and conflicting observational evidence supporting aspects of both ( e.g. , @xcite ) .
+if , as some of the recent observations suggest , the dd scenario proves correct , then a complete census of galactic rcb stars should be able to calibrate population synthesis models of wd binary systems ( e.g. , @xcite ) , which may improve our understanding of these systems as the progenitors of type ia supernovae . in any event ,
+the enigmatic nature of these rare objects , and the opportunity to elucidate the astrophysics of an important late stage of stellar evolution , motivates us to search for additional benchmark exemplars of the class .
+based on the detection of rcb stars in the large magellanic cloud ( lmc ) , it is argued in @xcite that there should be @xmath23200 rcb stars in the galaxy . with the actual number of known rcb stars in the milky way roughly two orders of magnitude below this estimate
+, this suggests that either thousands of rcb stars remain undetected or the differing star formation environments / histories in the lmc and the milky way result in highly different rcb populations .
+an observational bias that preferentially selects warm rcb stars likely contributes to the discrepancy between the predicted and known number of these stars in the galaxy @xcite .
+indeed , recent discoveries of rcb stars in the galactic bulge and magellanic clouds ( mcs ) have uncovered more cool , @xmath35000 k , rather than warm , @xmath37000 k , rcb stars @xcite .
+the observed correlation between color and @xmath4 , with bluer rcb stars in the mcs being more luminous @xcite , clearly shows that any magnitude - limited survey will have an observational bias towards discovering the intrinsically rarer warm rcb stars
+.    there may also be a large population of rcb stars that have colder photospheres than the cool rcb stars : there is one known galactic rcb star , dy persei @xcite , that has @xmath33500 k @xcite .
+recent observations of the mcs have identified several dy persei - like stars ( dypers ) while searching for rcb stars @xcite , while @xcite discovered the second known dyper in the milky way using observations of the galactic bulge .
+in addition to cooler photospheres , dypers have other properties that differ from rcb stars , which has led to some degree of ambiguity regarding the connection between these two classes ( see e.g. , @xcite ) .
+dypers and rcb stars both show an overabundance of carbon in their atmospheres and unpredictable , large - amplitude declines in their light curves .
+several properties differ between the two , however , for instance , dypers : ( i ) have symmetric declines in their light curves , ( ii ) clearly show @xmath5c in their spectra , ( iii ) are on average @xmath210 times fainter than rcb stars , and ( iv ) may have significant h in their atmospheres .
+a detailed examination of the differences in the mid - infrared excesses of rcb stars and dypers in the mcs led to the conclusion in @xcite that dypers are most likely normal carbon stars that experience ejection events rather than an extension of the rcb phenomenon to lower temperature stars .
+furthermore , using ogle - iii observations , it is shown in @xcite that several carbon - rich asymptotic giant branch stars ( agbs ) , which have been classified as mira or semi - regular periodic variables on the basis of their light curves , show evidence for dyper - like declines in their light curves .
+this leads to the conclusion in @xcite that dypers are heavily enshrouded carbon - rich agb stars that are an extension of typical variables rather than a separate class of variable stars .
+nevertheless , all studies of dypers to date have cited a need for more observations , in particular high resolution spectra to conduct detailed abundance analyses , to confirm or deny the possibility that dypers are the low temperature analogs to rcb stars .    over the past decade
+the decrease in the cost of large ccds , coupled with a dramatic increase in computer processing power and storage capabilities , has enabled several wide - field , time - domain surveys .
+these surveys will continue to produce larger data sets before culminating near the end of the decade with the large synoptic survey telescope ( lsst ; @xcite ) .
+this explosion of observations should enable the discovery of the thousands of `` missing '' galactic rcb stars , should they in fact exist .
+these new discoveries do not come without a cost , however , as the data rates of astronomical surveys are now becoming enormous . while it was once feasible for humans to visually examine the light curves of all the newly discovered variable stars , as the total number of photometric variables grows to 10@xmath610@xmath7 visual inspection by expert astronomers
+becomes intractable .
+advanced software solutions , such as machine - learning ( ml ) algorithms , are required to analyze the vast amounts of data produced by current and upcoming time - domain surveys . in an ml approach to classification ,
+data from sources of known science class are employed to train statistical algorithms to automatically learn the distinguishing characteristics of each class .
+these algorithms generate an optimal predictive model that can determine the class ( or posterior class probability ) of a new source given its observed data .
+@xcite presented an end - to - end ml framework for multi - class variable star classification , in which they describe algorithms for feature generation from single - band light curves and outline a methodology for non - parametric , multi - class statistical classification .
+in this paper we present the results of a search for new rcb stars and dypers in the galaxy using version 2.3 of the ml catalog presented in @xcite . in 
+2 we describe the candidate selection procedure , while  3 describes the new and archival observations of the candidates .
+our analysis of the photometric and spectroscopic data is contained in  4 .
+the individual stars are examined in further detail in  5 , while we discuss the results in  6 .
+our conclusions are presented in  7 .
+candidate selection of possible rcb stars was performed using version 2.3 of the machine - learned acvs classification catalog ( http://www.bigmacc.info/[macc ] ; @xcite ) of variable sources cataloged from all - sky automated survey ( asas ; @xcite ) .
+full details of the classification procedure can be found in @xcite and @xcite .
+briefly , we employ a random forest ( rf ) classifier , which has been shown to provide the most robust results for variable star classification ( see e.g. , @xcite ) , to provide probabilistic classifications for all of the 50,124 sources in asas catalog of variable stars ( acvs ; @xcite ) .
+the classification procedure proceeds as follows : for each source in the acvs 71 features are computed , 66 from the asas light curves ( e.g. , period , amplitude , skew , etc . ; for the full list of features we refer the reader to @xcite and references therein ) and 5 color features from optical and near - infrared ( nir ) catalogs .
+a training set , upon which the rf classifications will be based , is constructed using light curves from 28 separate science classes , most of which are defined using well studied stars with high precision light curves from the _ hipparcos _ and ogle surveys ( @xcite ) , as well as some visually classified sources from acvs for a few of the classes that are not well represented in _ hipparcos _
+the same 71 features are calculated for all the sources in the training set , and the rf classifier uses the separation of the 28 science classes in the multi - dimensional feature space to assign probabilistic classifications to each source in the acvs . in the end ,
+the probability of belonging to each individual science class is provided for each acvs source and a post - rf procedure is used to calibrate these probabilities ( meaning that a source with @xmath8 has a @xmath250% chance of actually being a mira ) .
+when searching for rcb stars in time - domain survey data , rf classification provides a number of advantages relative to the more commonly used method of placing hard cuts on a limited set of a few features .
+many studies have focused on light curves with large amplitude variations and a lack of periodic signal ( e.g. , @xcite ) .
+a few recent studies have noted that additional cuts on nir and mid - infrared colors can improve selection efficiency @xcite .
+while these surveys have all proven successful , the use of hard cuts may eliminate actual rcb stars from their candidate lists .
+hard cuts are not necessary , however , when using a multi - feature rf classifier , which is capable ( in principle ) of capturing most of the photometric behavior of rcb stars ( including the large - amplitude , aperiodic fades from maximum light as well as the periodic variations that occur near maximum light ) .
+another general disadvantage in the use of hard cuts for candidate selection of rare sources is that the hard cuts are typically defined by known members of the class of objects for which the search is being conducted .
+any biases present in the discovery of the known members of a particular class will then be encoded into the absolute ( i.e. , hard cuts ) classification schema .
+this can exclude subclasses of sources that differ slightly from the defining members of a class .
+furthermore , new discoveries will be unable to refine the selection criteria since , by construction , they will fall within the same portion of feature space as previously known examples .
+the rf classifier produces an estimate of the posterior probability that a source is an rcb star given its light curve and colors .
+this allows us to construct a relative ranking of the rcb likelihood for all the sources in acvs . instead of making cuts in feature space , we can search down the ordered list of candidates . in this sense
+the rf classifier identifies the sources that are closest to the rcb training set relative to the other classes .
+the rf classifier finds the class boundaries in a completely data - driven way , allowing for the optimal use of known objects to search for new candidates in multi - dimensional feature spaces .
+this helps to mitigate against biases present in the training set , as classifications are performed using the location of an individual source in the multidimensional feature phase - space volume relative to defined classes in the training set .
+the macc rcb training set was constructed using high - confidence positional matches between acvs sources and known rcb stars identified in simbad and the literature . in total
+there are 18 cataloged rcb stars that are included in the acvs , which we summarize in table  [ tab : training_set ] .
+the light curves of the known rcb stars were visually examined for the defining characteristic of the class : sudden , aperiodic drops in brightness followed by a gradual recovery to pre - decline flux levels .
+all of the known rcb stars but one , asas 054503@xmath96424.4 , showed evidence for such behavior .
+asas 054503@xmath96424.4 is one of the brightest rcb stars in the lmc ( @xmath10 mag ) , which during quiescence is barely above the asas detection threshold . the light curve for asas 054503@xmath96424.4
+does not show a convincing decline from maximum light , and as such we do not include it in the training set .
+in addition to the 18 rcb stars in acvs , 7 additional rcb stars are detected in asas with the characteristic variability of the class .
+these sources all have clearly variable asas light curves ; their exclusion from the acvs means there is some bias in the construction of that catalog . in order to keep this bias self - consistent the training set for
+the macc only included sources from @xcite and supplements from acvs ( see @xcite ) .
+we note that a future paper to classify all @xmath212 million sources detected by asas will include all asas rcb stars in its training set ( richards et al .
+, in prep ) .
+therefore the training set includes 17 rcb stars , which is limited by the coverage and depth of asas , the selection criteria of the acvs , and the paucity of known rcb stars in the galaxy .
+there are no known dypers in acvs : only two are known in the galaxy and the dypers in the mcs are fainter than the asas detection limits .
+nevertheless , the similarity in the photometric behavior of rcb stars and dypers allows us to use the rcb training set to search for both types of star .
+as more galactic rcb stars and dypers are discovered , we will be able to supplement the training set and improve the ability of future iterations of the rf classifier ( see  6.2 ) .
+lllccr asas 054503@xmath116424.4 & hv 12842 & 220040 & n & 0.010 & 2806 + asas 143450@xmath113933.5 & v854 cen & 240306 & y & 0.914 & 2 + asas 150924@xmath117203.8 & s aps & 241463 & y & 0.934 & 2 + asas 154834 + 2809.4 & r crb & 242999 & y & 0.430 & 34 + asas 162419@xmath115920.6 & rt nor & 244506 & y & 0.629 & 10 + asas 163242@xmath115315.6 & rz nor & 244888 & y & 0.944 & 2 + asas 171520@xmath112905.6 & v517 oph & 247066 & y & 0.169 & 158 + asas 172315@xmath112252.0 & v2552 oph & 247575 & y & 0.105 & 425 + asas 180450@xmath113243.2 & v1783 sgr & 250762 & y & 0.642 & 9 + asas 180850@xmath113719.7 & wx cra & 251121 & y & 0.834 & 2 + asas 181325@xmath112546.9 & v3795 sgr & 251489 & y & 0.726 & 8 + asas 181509@xmath112942.5 & vz sgr & 251638 & y & 0.845 & 2 + asas 181851@xmath114632.9 & rs tel & 251987 & y & 0.951 & 1 + asas 184732@xmath113809.6 & v cra & 254404 & y & 0.804 & 3 + asas 190812 + 1737.7 & sv sge & 256072 & y & 0.053 & 859 + asas 191012@xmath112029.7 & v1157 sgr & 256221 & y & 0.276 & 74 + asas 193222@xmath110011.5 & es aql & 257713 & y & 0.044 & 901 + asas 220320@xmath111637.6 & u aqr & 263740 & y & 0.839 & 3 +    [ tab : training_set ]    in order to determine our ability to recover known rcb stars using the rf classifier we perform a leave - one - out cross validation ( cv ) procedure .
+for the 17 sources in the rcb training set , we remove one source and re - run the rf classifier in an identical fashion to that used in @xcite .
+we then record the rf - determined probability that the removed source belongs to the rcb class , @xmath12 , and the ranked value of @xmath12 relative to all other stars that are not included in the training set , @xmath13 .
+we repeat the cv procedure for each star included in the training set , and the results are shown in table  [ tab : training_set ] .
+since the training set is being altered in each run of the cv , @xmath13 provides a better measure of the quality of each candidate ; @xmath13 is a relative quantity , whereas the calibration of @xmath12 will differ slightly from run to run .
+eight of the 17 sources in the training set have @xmath14 , implying that @xmath250% of the training set would be a top three candidate rcb star had we previously not known about it .
+fifteen of the 17 rcb stars in the training set would be in the top 0.8% of the 50,124 sources in the acvs , while all the known rcb stars in acvs , including asas 054503@xmath116424.4 ( which is not in the training set ) , are in the top @xmath26% of rcb candidates .
+two sources in the training set , sv sge and es aql , are not listed near the top of @xmath13 ranking during cv . for es aql
+this occurs because the star is highly active during the asas observations showing evidence for at least six separate declines during the @xmath210 yr observing period . as a result
+the light curve folds fairly well on a period of @xmath2397 day , and es aql becomes confused with mira and semi - regular periodic variables ( see figure  [ fig : hardcuts ] ) .
+sv sge , on the other hand , shows significant periodicity at the parasite frequency of 1 day , which precludes it from having a high @xmath13 .
+the cv procedure allows us to roughly tune the efficiency of our selection criteria ; the purity of the selection criteria can not be evaluated until candidates have been spectroscopically confirmed .
+due to the relative rarity of rcb stars , we elected to generate a candidate list with high efficiency while sacrificing the possibility of high purity . with only @xmath250 galactic rcb stars known to date ,
+every new discovery has the potential to add to our knowledge of their population and characteristics . to generate our candidate list ,
+we selected all sources from the macc with @xmath15 0.1 , which resulted in a total of 472 candidates . the selection criterion was motivated by the cv experiment , which indicates that our candidate list should have an efficiency @xmath1680% . to obtain an efficiency close to 1
+would require visual examination of roughly 3000 sources .    since the expected purity of our sample is small by design ,
+we examine the light curves of all sources within our candidate list by eye to remove sources that are clearly not rcb stars .
+these interlopers are typically semi - regular pulsating variables or mira variables , often with minimum brightness levels below the detection threshold .
+we use the allstars web interface @xcite to examine candidates , which in addition to light curves provides summary statistics ( period , amplitude , color , etc . ) for each source , as well as links to external resources , such as simbad .
+we also remove any sources from the candidate list that are spectroscopically confirmed as non - carbon stars .
+following the removal of these stars the candidate list was culled from 472 to 15 candidates we considered likely rcb stars , for which we obtained spectroscopic follow - up observations .
+the general properties of the 15 spectroscopically observed candidates , including their names , coordinates , and rf probabilities , are summarized in table  [ tab : coords ] .
+finding charts using images from the digitized sky survey ( dss ) for the spectroscopically confirmed rcb and dyper candidates can be found in figure  [ fig : rcbfinders ] .
+six of the selected candidates for spectroscopic observations are known carbon stars listed in the general catalog of galactic carbon stars ( cgcs ; @xcite ; see table  [ tab : coords ] ) .
+lllrrccrr asas 060105 + 1654.7 & v339 ori & 220556 & 06 01 04.65 & + 16 54 40.8 & ... & 0.466 & 25 & n + asas 065113 + 0222.1 & c * 596 & 223100 & 06 51 13.31 & + 02 22 08.6 & 1429 & 0.302 & 73 & d + asas 073456@xmath112250.1 & v455 pup & 225801 & 07 34 56.24 & @xmath1122 50 04.2 & 1782 & 0.123 & 283 &
+n + asas 095221@xmath114329.7 & iras 09503@xmath114315 & 232170 & 09 52 21.37 & @xmath1143 29 40.5 & ... & 0.617 & 10 & n + asas 153214@xmath112854.4 & bx lib & 242289 & 15 32 13.48 & @xmath1128 54 21.6 & ... & 0.367 & 43 & n + asas 162229@xmath114835.7 & io nor & 244409 & 16 22 28.84 & @xmath1148 35 55.8 & ... & 0.950 & 1 & r + asas 162232@xmath115349.2 & c * 2322 & 244411 & 16 22 32.08 & @xmath1153 49 15.6 & 3685 & 0.391 & 36 &
+d + asas 165444@xmath114925.9 & c * 2377 & 245841 & 16 54 43.60 & @xmath1149 25 55.0 & 3744 & 0.490 & 22 &
+r + asas 170541@xmath112650.1 & gv oph & 246478 & 17 05 41.25 & @xmath1126 50 03.4 & ... & 0.702 & 8 & r + asas 180823@xmath114439.8 & v496 cra & 251092 & 18 08 23.05 & @xmath1144 39 46.7 & ... & 0.110 & 389 & n + asas 182658 + 0109.0 & c * 2586 & 252675 & 18 26 57.64 & + 01 09 03.1 & 4013 & 0.115 & 343 & d + asas 185817@xmath113543.8 & iras 18549@xmath113547 & 255280 & 18 58 17.19 & @xmath1135 43 44.7 & ... & 0.127 & 251 & n + asas 191909@xmath111554.4 & v1942 sgr & 256869 & 19 19 09.60 & @xmath1115 54 30.1 & 4229 & 0.543 & 17 & d + asas 194245@xmath112137.0 & ... & 258411 & 19 42 45.05 & @xmath1121 36 59.8 & ... & 0.112 & 376 &
+n + asas 203005@xmath116208.0 & nsv 13098 & 261023 & 20 30 04.96 & @xmath1162 07 59.2 & ... & 0.340 & 52 & r + [ tab : coords ]     with north up and east to the left .
+the circles show the location of the targets and have @xmath17 which is the typical fwhm for asas images @xcite .
+the large pixels on the asas camera result in psfs that include the light from several stars , meaning that some asas light curves underestimate the true variability of the brightest star within the psf.,width=302 ]      rf classifiers can provide quantitative feedback about the relative importance of each feature used for classification .
+the rf feature importance measure describes the decrease in the overall classifier performance following the replacement of a single feature with a random permutation of its values ( see @xcite for further details ) .
+we measure the importance of each feature using the average importance from a one - versus - one classifier whereby the rcb class is iteratively classified against each of the 27 other science classes on an individual basis .
+this procedure is run five times and the average of all runs is taken to reduce the variance present in any single run .
+unsurprisingly , we find that ` mplitude   is the most import`nt feature
+. the importance measure does not properly capture the covariance between features and as a result the majority of the important features have to do with amplitude .
+the second and third most important features that are not highly covariant with amplitude are ` qso_log_chi2nunull_chi2nu ` , statistic , which is defined in @xcite . ] a measure of the dissimilarity between the photometric variations of the source and a typical quasar , and ` req1_harmonics_`req_0 , the best fit period .
+interestingly , ` req_signi ` , the significance of the best fit period of the light curve , ranks as only the 31st most important out of the 71 features .
+we summarize the results of these findings with two - dimensional cuts through the multi - dimensional feature space showing amplitude versus period significance , @xmath18 , and period in figure  [ fig : hardcuts ] .
+we also show amplitude versus @xmath19 . in each panel
+we show the location of the rcb stars in the training set as well as the newly discovered rcbs and dypers presented in this paper , and we use the @xmath19 values from the cv experiment from  2.2 for the rcb stars in the training set .
+we also show the location of cuts necessary to achieve @xmath280% efficiency ( blue dashed line ) when selecting candidates using only two features , as well as the cuts necessary to achieve @xmath2100% efficiency ( red dashed line ) . as would be expected based on the results presented above ,
+it is clear that @xmath18 and period are far more discriminating than period significance when selecting rcb candidates . to achieve an efficiency near 100% , @xmath19 is vastly superior to any two dimensional slice through feature space .
+we note that the discretization seen in the distribution of @xmath19 is the result of using a finite number of trials within the rf classifier .
+the probability of belonging to a class is defined as the total number of times a source is classified within that class divided by the total number of trials .
+these discrete values are then smeared following the calibration procedure described in  2.1 .
+many of the known and new rcb stars have very similar measured best periods clustered near @xmath22400 and 5300 days , which for each corresponds to the largest period searched during the lomb - scargle analysis in @xcite .
+folding these light curves on the adopted periods clearly shows that they are not periodic on the adopted periods , despite the relatively high period significance scores ( see the upper left panel of figure  [ fig : hardcuts ] ) , which suggests some peculiarity in the feature generation process for these sources .
+we are exploring improved metrics for periodicity to be used in future catalogs . nevertheless , despite these spurious period measurements
+, the ml classifier has correctly identified that this feature tends to be erroneous for rcb stars , and as such it is a powerful discriminant for finding new examples of the class .
+all optical photometric observations were obtained during asas-3 , which was an extension of asas , conducted at the las campanas observatory ( for further details on asas and asas-3 see @xcite ) .
+light curves were downloaded from the acvs , and imported into our dotastro.org ( http://dotastro.org ) astronomical light - curve warehouse for visualization and used with internal frameworks @xcite .
+the acvs provides @xmath20-band measurements for a set of 50,124 pre - selected asas variables , measured in five different apertures of varying size @xcite . for each star in the catalog
+an optimal aperture selection procedure is used to determine the final light curve , as described in @xcite .
+the asas-3 @xmath20-band light curves for the eight new rcb stars and dypers are shown in figure  [ fig : rcblc ] .
+optical spectra of the candidate rcb stars were obtained between 2011 sep .
+and 2012 may with the kast spectrograph on the lick 3-m shane telescope on mt .
+hamilton , california @xcite , the low - resolution imaging spectrometer ( lris ) on the 10-m keck i telescope on mauna kea @xcite , and the rc spectrograph on the smarts 1.5-m telescope at the cerro tololo inter - american observatory @xcite .
+all spectra were obtained via long slit observations , and the data were reduced and calibrated using standard procedures ( e.g. , @xcite ) . on each night of observations , we obtained spectra of spectrophotometric standards to provide relative flux calibration for our targets . for queue - scheduled observations on the rc spectrograph , all observations in a single night
+are conducted with the slit at the same position angle .
+thus , the standard stars and targets were not all observed at the parallactic angle , leading to an uncertain flux correction @xcite .
+we note , however , that the uncertainty in the flux correction does not alter any of the conclusions discussed below .
+a summary of our observations is given in table  [ tab : spec ] , while the blue portion of the optical spectra are shown in figures  [ fig : rcbbluespec][fig : dyperbluespec ] .
+lccrrr asas 060105 + 1654.7 & 2011 - 08 - 28.644 & lris & 33005630 & 4 & 60 + asas 060105 + 1654.7 & 2011 - 08 - 28.644 & lris & 58107420 & 2 & 60 + asas 170541@xmath112650.1 & 2011 - 09 - 26.206 & lris & 33005630 & 4 & 60 + asas 170541@xmath112650.1 & 2011 - 09 - 26.205 & lris & 57207360 & 2 & 30 + asas 191909@xmath111554.4 & 2011 - 09 - 26.212 & lris & 33005630 & 4 & 5 + asas 191909@xmath111554.4 & 2011 - 09 - 26.212 & lris & 57207360 & 2 & 2 + asas 162232@xmath115349.2 & 2012 - 01 - 16.375 & rc & 33009370 & 17 & 720 + asas 095221@xmath114329.7 & 2012 - 01 - 19.151 & rc & 33009370 & 17 & 540 + asas 065113 + 0222.1 & 2012 - 02 - 01.204 & kast & 34509850 & 4 & 300 + asas 162229@xmath114835.7 & 2012 - 02 - 06.373 & rc & 33009370 & 17 & 540 +
+asas 162232@xmath115349.2 & 2012 - 02 - 13.325 & rc & 36605440 & 4 & 2700 + asas 162229@xmath114835.7 & 2012 - 02 - 15.348 & rc & 36605440 & 4 & 2700 + dy per & 2012 - 02 - 23.107 & kast & 34509850 & 4 & 380 + asas 073456@xmath112250.1 & 2012 - 03 - 15.225 & lris & 335010000 & 4 & 60 + asas 165444@xmath114925.9 & 2012 - 03 - 15.651 & lris & 325010000 & 4 & 30 + asas 182658 + 0109.0 & 2012 - 03 - 15.654 & lris & 325010000 & 4 & 30 + asas 185817@xmath113543.8 & 2012 - 03 - 15.667 & lris & 325010000 & 4 & 30 + asas 153214@xmath112854.4 & 2012 - 03 - 15.670 & lris & 325010000 & 4 & 60 + asas 203005@xmath116208.0 & 2012 - 03 - 23.426 & rc & 36605440 & 4 & 2160 + nsv  11154 & 2012 - 04 - 02.524 & kast & 34509850 & 4 & 210 + asas 194245@xmath112137.0 & 2012 - 04 - 23.513 & kast & 34509850 & 4 & 120 + asas 180823@xmath114439.8 & 2012 - 05 - 17.626 & lris & 542010000 & 4 & 16 +    [ tab : spec ]
+while the unique photometric behavior of rcb stars makes them readily identifiable in well sampled light curves taken over the course of several years , there are several examples of high - amplitude variables being classified as rcb stars which are later refuted by spectroscopic observations .
+most of the misidentified candidates are either cataclysmic , symbiotic or semi - regular variables ( see e.g. , @xcite ) .
+rcb stars are a subclass of the hdc stars . for an rcb candidate to be confirmed as a true member of the class
+, its spectrum must show the two prominent features of hdc stars : anomalously strong carbon absorption and a lack of atomic and molecular h features .    to confirm the rcb candidates
+found in the acvs , we obtained low - resolution spectra of the 15 candidates presented in   [ sec : cands ] .
+candidates observable from the northern hemisphere were observed with kast and lris , while those only accessible from the southern hemisphere were observed with the rc spectrograph .
+for some of the southern hemisphere targets very low resolution spectra were obtained first to confirm the presence of c@xmath21 before slightly higher resolution observations were obtained ( see table  [ tab : spec ] ) .
+we searched the spectra for the presence of strong carbon features , primarily c@xmath21 and cn , and a lack of balmer absorption to confirm the rcb classification for the acvs candidates .
+we find these characteristics in eight of the spectroscopically observed stars ( see figures  [ fig : rcbbluespec][fig : dyperbluespec ] ) , which we consider good rcb and dyper candidates as summarized in table  [ tab : observations ] .
+the remaining candidates were rejected as possible rcb stars based on their spectra , which typically showed strong tio and vo absorption or clear evidence for h. the properties of the rejected candidates are summarized in table  [ tab : rejects ] . in the remainder of this paper
+we no longer consider these stars candidates and restrict our discussion to the eight good candidates listed in table  [ tab : observations ] .
+in addition to the hallmark traits of overabundant carbon and a lack of balmer absorption , rcb stars show a number of other unique spectroscopic characteristics . in particular , they show a very high ratio of @xmath22c/@xmath5c and no evidence for @xmath23 band absorption . to search for the presence of @xmath5c , we examined the spectra for the @xmath244744 band head of @xmath22c@xmath5c , which is typically very weak or absent in the spectra of rcb stars .
+we find evidence for @xmath22c@xmath5c in asas 191909@xmath111554.4 , asas 162232@xmath115349.2 , asas 065113 + 0222.1 , and
+asas 182658 + 0109.0 while asas 162232@xmath115349.2 shows possible evidence for the @xmath5c@xmath5c band at @xmath244752 .
+the presence of @xmath5c suggests that these four stars are likely dypers .
+we consider these four stars closer analogs to dy per and the dypers found in the lmc and smc @xcite than they are to classical rcb stars .
+one of the dypers , asas 065113 + 0222.1 , shows weak evidence for ch @xmath244300 ( @xmath23 band ) absorption and possible evidence for h@xmath25 , which is sometimes seen in the spectra of dypers .
+we note that the signal - to - noise ratio ( s / n ) of all our spectra in the range between @xmath243004350 is relatively low , making definitive statements about the presence or lack of both ch and h@xmath25 challenging . finally , we note that we see evidence for the merrill - sanford bands of sic@xmath21 in three of our candidates : asas 162232@xmath115349.2 , asas 065113 + 0222.1 , and asas 182658 + 0109.0 . to our knowledge
+this is the first identification of sic@xmath21 in a dyper spectrum , though the presence of this molecule should not come as a surprise as rcb stars are both c and si rich @xcite .
+lrrrrcccl asas 170541@xmath112650.1 & 11.9 & 1.2 & 31 & 0.04 & weak 4744 ? & none & n & rcb + asas 162229@xmath114835.7 & 10.8 & 2.8 & 83 & 0.03 & none & weak h@xmath25 ? , weak ch & y & rcb + asas 165444@xmath114925.9 & 11.8 & @xmath261.6 & @xmath2648 & 0.03 & none & weak h@xmath25 ?
+, h@xmath27 ? & y & rcb + asas 203005@xmath116208.0 & 13.2 & @xmath261.4 & @xmath2630 & 0.05 & none & h@xmath25 ? , h@xmath27 ?
+ blends & y & rcb + asas 191909@xmath111554.4 & 6.9 & 1.0 & 20 & 0.05 & y & none & y & dyper + asas 162232@xmath115349.2 & 11.5 & 1.7 & @xmath28256 & @xmath260.007 & y & none & y & dyper + asas 065113 + 0222.1 & 12.4 & 1.0 & @xmath28140 & @xmath260.007 & y & weak h@xmath25 ?
+, weak ch & y & dyper + asas 182658 + 0109.0 & 12.1 & 1.6 & 960 & 0.002 & y & none & y & dyper +    [ tab : observations ]    lrl asas 060105 + 1654.7 & 12.3 & no c@xmath21 ; strong h , @xmath23 band + asas 073456@xmath112250.1 & 12.8 & c@xmath21 ; strong h emission + asas 095221@xmath114329.7 & 10.6 & strong tio , vo ; h ? + asas 153214@xmath112854.4 & 12.3 & no c@xmath21 ; h@xmath29 emission , strong @xmath23 band ; srpv + asas 180823@xmath114439.8 & 12.1 & strong tio , vo + asas 185817@xmath113543.8 & 10.9 & strong tio , vo + asas 194245@xmath112137.0 & 12.5 & strong tio , vo +    [ tab : rejects ]      in addition to spectral differences , rcb stars and dypers show some dissimilarities in their photometric evolution as well .
+the first order behavior is the same : both show deep , irregular declines in their light curves which can take anywhere from a few months to a several years to recover to maximum brightness . beyond that generic behavior
+, however , the shape of the decline tends to differ : rcb stars show fast declines with slow recoveries whereas dypers tend to show a more symmetric decline and recovery .    the photometric properties of our candidates , including decline rates for the most prominent and well sampled declines , are summarized in table  [ tab : observations ] .
+as previously noted in the caption of figure  [ fig : rcbfinders ] , the full amplitude of the variations of these stars are likely underestimated due to the large psf on asas images .
+this means that the decline rates should be treated as lower limits , since the true brightness of the star may be below that measured in a large aperture
+. nevertheless , the decline rates for the four rcb stars are relatively fast and consistent with those given in @xcite for rcb stars in the mcs , @xmath20.04 mag day@xmath30 .
+the most telling feature of the light curves is the shape of the declines , however .
+for the four spectroscopic rcb stars , asas 170541@xmath112650.1 , asas 162229@xmath114835.7 , asas 165444@xmath114925.9 , and asas 203005@xmath116208.0 the declines are very rapid . while we do not detect asas 165444@xmath114925.9 after its sharp decline on tjd@xmath315000 , the other three show slow asymmetric recoveries to maximum light .
+the four spectroscopic dypers generally show a slower decline with a roughly symmetric recovery , though we note that the full recoveries of asas 065113 + 0222.1 and asas 162232@xmath115349.2 are not observed .
+all rcb stars are variable near maximum light , with most and possibly all of the variations thought to be due to pulsation @xcite .
+typical periods are @xmath240100 days , and the amplitudes are a few tenths of a magnitude .
+the pulsational properties of dypers are not as well constrained , because the sample is both small and only recently identified .
+each of the four dypers identified in @xcite shows evidence for periodic variability near maximum light , with typical periods of @xmath2100200 days .    to search for the presence of pulsations in our candidate rcb stars , we use a generalized lomb 
+scargle periodogram ( @xcite ) to analyze each star ( see @xcite for more details on our lomb 
+scargle periodogram implementation ) .
+our analysis only examines data that are well separated from decline phases , and we focus on the portions of light curves where the secular trend is slowly changing relative to the periodic variability . for each star
+we simultaneously fit for the harmonic plus linear or quadratic long - term trend in the data .
+the frequency that produces the largest peak in the periodogram , after masking out the 1 day alias , is adopted as the best - fit period .
+we find evidence for periodicity in the light curves of each star , except for asas 162229@xmath114835.7 .
+for most of the observing window asas 162229@xmath114835.7 was in or near a decline , and we predict that additional observations of asas 162229@xmath114835.7 , be they historical or in the future , will show periodic variability near maximum light . the trend - removed , phase - folded light curves of the remaining seven stars are shown in figure  [ fig : rcbpulse ] .
+insets in each panel list the range of dates that were included in the lomb - scargle analysis , as well as the best fit period for the data .
+some rcb stars are known to have more than a single dominant period ( see @xcite and references therein ) .
+we find evidence for multiple periods in asas 191909@xmath111554.4 , with periods of 120 , 175 , and 221 days that appear to change every @xmath212 years .
+evidence for multiple periods also appears to be present in asas 165444@xmath114925.9 .
+the best fit periods in this case are 27 and 56 days , which differ by roughly a factor of two . the longer period may in this case simply be a harmonic of the shorter period . finally , we note that the best fit period for asas 162232@xmath115349.2 , 359 days , is very close to one year , and it is possible that the data are beating against the yearly observation cycle .
+the folded light curve appears to traverse a full cycle over @xmath2half the full phase cycle .
+the slight upturn in the folded data around phase 0.15 suggests that the true period is likely @xmath2180 days , half the best fit period .
+4925.9 and asas 191909@xmath111554.4 show evidence for multiple dominant periods , which are shown with blue and red points as indicated in their respective legends.,width=340 ]      all rcb stars are known to have an infrared ( ir ) excess due to the presence of circumstellar dust @xcite , and all the known dypers in the mcs also show evidence for excess ir emission @xcite
+. to check for a similar excess in the new acvs rcb stars and dypers , broadband spectral energy distributions ( seds ) were constructed with catalog data obtained from usno - b1 @xcite , the two micron all sky survey ( 2mass ; @xcite ) , the _ wide - field infrared survey explorer _ ( _ wise _ , @xcite ) , _ akari _ @xcite , the _ mid - course space experiment _ ( _ msx _ ; @xcite ) , and the _ infrared astronomical satellite _ ( _ iras _ ; @xcite ) .
+the usno - b1 catalog contains measurements made on digital scans of photographic plates corresponding roughly to the @xmath32 , @xmath33 , and @xmath34 bands .
+repeated @xmath32 and @xmath33 plates were taken typically more than a decade apart . to convert the five separate usno - b1 magnitude measurements to the standard @xmath35 system of the sloan digital sky survey ( sdss ; @xcite ) , we invert the filter transformations from ( @xcite ; see also @xcite ) .
+the two measurements each for the @xmath36 and the @xmath37 band are then averaged to get the reported sdss @xmath36 and @xmath37 magnitudes , unless the two measurements differ by @xmath26 1 mag , in which case it is assumed that the fainter observation occurred during a fading episode of the star .
+then the final adopted sdss magnitude is that of the brighter measurement . there is a large scatter in the transformations from usno - b1 to sdss @xcite , which , leads us to adopt a conservative 1-@xmath38 uncertainty of 40% in flux density on each of the transformed sdss flux measurements .
+the 2mass magnitude measurements are converted to fluxes via the calibration of @xcite and the _ wise _ magnitudes are converted to fluxes via the calibration in @xcite .
+the remaining catalogs provide flux density measurements in jy rather than using the vega magnitude system .
+the full seds extending from the optical to the mid - infrared for each of the new rcb stars and dypers are shown in figure  [ fig : rcbsed ] .
+all of the candidates but asas 203005@xmath116208.0 saturate the w1 ( 3.5 @xmath39 m ) and w2 ( 4.6 @xmath39 m ) bands of _ wise _ , while of those all but asas 170541@xmath112650.1 and asas 165444@xmath114925.9 saturate w3 ( 11.6 @xmath39 m ) as well .
+asas 191909@xmath111554.4 and asas 182658 + 0109.0 saturate all three of the 2mass filters and are the only candidates detected at either 60 and/or 100 @xmath39 m by _
+iras_. asas 162229@xmath114835.7 and asas 191909@xmath111554.4 were the only candidates detected at 90 @xmath39 m by _
+akari_.    using rcb stars and dypers in the mcs , @xcite find that the rcb stars typically have seds with two distinct peaks , whereas dypers typically have a single peak .
+it is argued in @xcite that the seds of both can be understood as emission from a stellar photosphere and surrounding dust shell ; the cooler photospheric temperatures of dypers are less distinct relative to the dust emission leading to a single broad peak rather than two .
+we caution that the reddening toward each of the new galactic candidates is unknown , which makes a detailed analysis of their seds challenging .
+furthermore , the observations were not taken simultaneously in each of the various bandpasses .
+nevertheless , a few interesting trends can be gleaned from the data .
+the four stars that spectroscopically resemble rcb stars , asas 170541@xmath112650.1 , asas 162229@xmath114835.7 , asas 165444@xmath114925.9 , and asas 203005@xmath116208.0 all show clear evidence for a mid - infrared excess relative to their optical brightness .
+the peak of emission from asas 191909@xmath111554.4 and asas 182658 + 0109.0 is not well constrained because they saturate the detectors between 1 and 6 @xmath39 m , yet interestingly both show evidence for an infrared excess redward of 50 @xmath39 m .
+this suggests that there might be some very cool ( @xmath40 100 k ) dust in the circumstellar environment of these stars , which is observed in some of the bright , nearby rcb stars .
+for instance , _ spitzer _ and _ herschel _ observations of r crb show evidence for a large , @xmath24 pc , cool , @xmath41 k , and diffuse shell of gas that is detected in the far - ir @xcite .
+asas 162232@xmath115349.2 and asas 065113 + 0222.1 show evidence for a single broad peak in their sed occurring around @xmath22 @xmath39 m , which is similar to the seds of the dypers observed in the mcs .
+an overlap in the survey fields between 2mass and the deep near infrared souther sky survey ( denis ; @xcite ) allows measurements of the nir variability of four of the newly discovered rcb stars and dypers .
+photometric measurements from 2mass and the two epochs of denis observations for these stars are summarized in table  [ tab : ir_var ] .
+unfortunately the 2mass and denis observations proceeded the asas monitoring , and so we can not provide contextual information such as the state of the star ( near maximum , on decline , during deep minimum , etc . ) at the time of the nir observations . to within a few tenths of a magnitude , asas 162229@xmath114835.7 is not variable between the 2mass and denis observations . on timescales of a few weeks to months both asas 162232@xmath115349.2 and
+asas 170541@xmath112650.1 show evidence for variations @xmath16 1 mag in the nir .
+similar variations have been observed for several of the rcb stars and dypers in the mcs ( e.g. , @xcite ) .
+the largest variations were observed in asas 203005@xmath116208.0 , which changed by @xmath24 mag in the @xmath42 band during the @xmath24 yr between the denis and 2mass observations .
+asas 203005@xmath116208.0 also shows a large variation between the denis @xmath34 band measurement and the @xmath34-band measurement from usno - b1 , with @xmath43 mag .
+this star is clearly a large - amplitude variable , which likely explains its unusual sed . in the denis observations , which provide simultaneous optical and nir measurements , asas
+203005@xmath116208.0 is always fainter in the optical , suggesting that the unusual shape to its sed ( see figure  [ fig : rcbsed ] ) is the result of non - coeval observations .
+lrrrrrrrr asas 170541@xmath112650.1 & 2451004.658 & 10.01 & 9.28 & 8.46 & 2451730.639 & 11.09 & 10.18 & 9.13 + & & & & & 2451749.592 & 9.94 & 8.91 & 7.96 + asas 162229@xmath114835.7 & 2451347.541 & 7.26 & 6.47 & 5.73 & 2451387.540 & 9.10 & 6.90 & 5.40 + & & & & & 2451395.492 & 8.98 & 7.13 & 5.45 + asas 162232@xmath115349.2 & 2451347.538 & 7.24 & 6.01 & 5.36 & 2451387.532 & 9.12 & 6.59 & 4.40 + & & & & & 2451395.485 & 9.20 & 6.30 & 4.28 + asas 203005@xmath116208.0 & 2451701.878 & 11.73 & 11.20 & 10.40 & 2450267.768 & 17.62 & 15.66 & 12.06 + & & & & & 2451003.746 & 15.82 & 14.37 & 11.89 +    [ tab : ir_var ]
+we discuss the individual stars and whether they should be considered rcb stars or dypers below .
+we also use simbad to identify alternate names for these stars and previous studies in the literature ( see also table  [ tab : coords ] ) .
+this star was first identified as a variable source on harvard photographic plates with the name harvard variable 4368 , and was cataloged as a likely long period variable based on the large amplitude of variations from 13.9 mag to below the photographic limit of @xmath216.5 mag @xcite .
+it was later named gv oph in the general catalog of variable stars ( gcvs ; @xcite ) as a variable of unknown type with rapid variations . the light curve , spectrum , and sed of this star are consistent with it being an rcb star .
+this star is listed as a mira variable in the gcvs with the name io nor . in @xcite
+it is identified as a star with an ir excess based on _ msx _ observations . on the basis of its nir and mid - ir colors ,
+it is identified as a rcb candidate in @xcite , and considered a likely rcb star on the basis of its asas light curve .. it has @xmath44 and @xmath45 .
+the light curve is somewhat similar to es aql , in that it fades below the asas detection limits and it is highly active during the @xmath318 yr it was observed , meaning it that folds decently well on a period of @xmath2450 days .
+a spectrum will be needed to disambiguate between an rcb and long period variable classification for v653 sco .
+] we independently identified io nor as a likely rcb star on the basis of its light curve ( in the macc it is the most likely rcb in acvs ) , and our spectrum confirms that it is a genuine rcb star .
+the previous classification as a mira variable is likely based on the late spectral type and large amplitude of variability , but figure  [ fig : rcblc ] clearly shows that asas 162229@xmath114835.7 is not a long period variable .      the variability of this star has not been cataloged to date , and it is listed in the cgcs as c * 2377 @xcite .
+the spectrum , sed , and pulsations exhibited by this star are consistent with rcb stars .
+there may be evidence for weak ch absorption , though we caution that the s / n is low near @xmath24300  .
+the light curve shows a sharp decline , similar to rcb stars , but the recovery is not observed .
+nevertheless , the evidence points to asas 165444@xmath114925.9 being a new member of the rcb class .
+this star was first identified as variable by @xcite with a maximum brightness of 14 mag and a minimum @xmath26 18 mag .
+@xcite assigned it the name an  141.1932 , and it was later cataloged as a possible variable star in the gcvs as nsv  13098 .
+the light curve , spectrum , and sed are all consistent with an rcb classification .
+higher resolution and s / n spectra are needed to confirm if h absorption is present , though we note that some rcb stars do show evidence of h in their spectra ( e.g. , v854 cen ; @xcite ) , leading us to conclude that asas 203005@xmath116208.0 is an rcb star .
+this star is listed as a slow irregular variable of late spectral type with the name v1942 sgr in the gcvs .
+it is the brightest star among our candidates , and as such it is one of the best studied carbon stars to date . according to simbad asas 191909@xmath111554.4 is discussed in more than 50 papers in the literature . in the cgcs
+it is listed as c * 2721 .
+asas 191909@xmath111554.4 is detected by _
+( hip 94940 ) and has a measured parallax of 2.52@xmath460.82 mas @xcite .
+this corresponds to a distance @xmath47 pc and a distance modulus @xmath48 8 mag .
+asas 191909@xmath111554.4 is one of the few galactic carbon stars with a measured parallax , and it is important for constraining the luminosity function of carbon stars @xcite . in their spectral atlas of carbon stars , @xcite
+identify asas 191909@xmath111554.4 as having a spectral type of n5 + c@xmath215.5 .
+relative abundance measurements by @xcite show that @xmath22c/@xmath5c@xmath49 , which is low relative to classical rcb stars .
+the proximity of asas 191909@xmath111554.4 allows its circumstellar dust shell to be resolved in _
+iras _ images ( e.g. , @xcite ) , and @xcite use asas 191909@xmath111554.4 and other carbon stars with resolved dust shells and 100 @xmath39 m excess to statistically argue that each of these stars must be surrounded by two dust shells , one that is old , @xmath210@xmath50 yr , and the other that is produced by a current episode of mass loss .
+recent observations by @xcite have shown evidence for the presence of h in the circumstellar shell of asas 191909@xmath111554.4 .
+the shallow , symmetric fade of the light curve , along with the n type carbon star spectrum and the presence of @xmath5c in the spectrum , leads us to conclude that asas 191909@xmath111554.4 is a dyper .
+this is the only candidate within our sample for which we can measure the absolute magnitude , since we have the _ hipparcos _ parallax measurement . adopting a maximum light brightness of @xmath51 6.8 mag
+, we find that asas 191909@xmath111554.4 has @xmath52 mag .
+this is roughly 0.4 mag fainter than the faintest dypers in the mcs @xcite , suggesting that either the luminosity function extends fainter than that observed in the mcs or there is unaccounted for dust extinction toward asas 191909@xmath111554.4 .
+the variability of this star has not been cataloged to date , and it is listed in the cgcs as c * 2322 . the relatively slow , symmetric decline and recovery in the light curve of asas 162232@xmath115349.2
+lead us to classify it as a dyper variable .
+the presence of @xmath5c in the spectrum and the single peak in the sed support this classification .
+the variability of this star has not been cataloged to date , and it is listed in the cgcs as c * 596 .
+the presence of @xmath5c in the spectrum and the single peak in the sed lead us to classify asas 065113 + 0222.1 as a dyper variable .
+the variability of this star has not been cataloged to date , and it is listed in the cgcs as c * 2586 . based on weekly averages of _ dirbe _ nir observations taken over 3.6 yr , @xcite list asas 182658 + 0109.0 as a non - variable source .
+low resolution spectra taken with _
+iras _ show 11 @xmath39 m sic dust emission , which typically indicates significant mass loss from a carbon star @xcite .
+the light curve shows a @xmath256 yr symmetric decline , and there is clear evidence for @xmath5c in the spectrum .
+the _ iras _ detection at 60 @xmath39 m shows a clear ir excess relative to a single temperature blackbody . while there is no evidence for h@xmath29 , the s / n in our spectrum is low blueward of @xmath24700  .
+we consider asas 182658 + 0109.0 a likely dyper , though higher s / n spectra are required for a detailed abundance analysis to confirm this classification .
+lllrrcccc asas 053302 + 1808.0 & iras 05301@xmath531805 & 219583 & 05 33 01.72 & 18 07 59.0 & 980 & 0.339 & 380 & 1 + asas 081121@xmath113734.9 & c * 1086 & 227950 & 08 11 21.39 & @xmath1137 34 54.2 & 2106 & 0.145 & 492 & 1 + asas 125245@xmath115441.6 & ... & 237449 & 12 52 44.92 & @xmath1154 41 37.5 & ... & 0.309 & 394 & 2 + asas 160033@xmath112726.3 & 1rxs j160033.8@xmath11272614 ?
+& 243486 & 16 00 33.16 & @xmath1127 26 18.5 & ... & 0.142 & 498 & 2,3 + asas 175226@xmath113411.5 & iras
+17491@xmath113410 & 249729 & 17 52 25.50 & @xmath1134 11 28.2 & ... & 0.166 & 460 & + asas 200531 + 0427.2 & v902 aql & 259768 & 20 05 30.83 & 04 27 12.8 & ... & 0.382 & 353 & 2,4 + [ tab : new_cands ]    as mentioned in 
+[ sec : ml ] , one of the major strengths of ml classification is that new discoveries may be fed back into the machinery in order to improve future iterations of the classifier . in an attempt to recover more rcb stars and dypers in the acvs that were missed in our initial search of the macc , we created an augmented rcb training set by adding the eight new rcb stars and dypers identified in this paper to the 17 sources already included in the training set .
+this augmented training set should increase the likelihood of discovering new candidates , particularly dypers , of which there were no examples in the original training set .    using the augmented training set we re - ran the rf classifier from @xcite on all the acvs light curves to search for any additional good candidates .
+we focus our new search on candidates with a significant change in @xmath13 , which were not examined in the initial search of the macc . in particular , we visually examine the light curves of all sources with @xmath54 , @xmath55 , and @xmath56 . there are a total of 96 sources that meet these criteria , which were not included in the 472 visually inspected sources from the original macc . of these 96 , we conservatively select six as candidate rcb stars or dypers .
+one is a highly likely rcb star with multiple declines and asymmetric recoveries , three show evidence for a single decline which is only partially sampled , and two are known carbon stars that are likely semi - regular periodic variables .
+we list the candidates in table  [ tab : new_cands ] with brief comments on each and show their light curves in figure  [ fig : aug_lc ] .          restricting our search for bright rcb stars to only those sources in the acvs
+has biased the results of our search . as was mentioned in 
+[ sec : training_set ] , there are seven known rcb stars that show clear variability in their asas light curves yet were not selected for inclusion in the acvs .
+this suggests that several large - amplitude asas variables are missing from the acvs , presumably including a few unknown rcb stars .
+this bias can easily be corrected by searching all of asas for rcb stars , however , such a search would include significant new challenges as there are @xmath212 million sources in asas .
+in addition , our existing classification framework is not designed to deal with a catalog where the overwhelming majority of sources are not in fact variable .
+nevertheless , both of these challenges must be addressed prior to the lsst era .
+we have developed frameworks that can ingest millions of light curves and are currently experimenting with methods to deal with non - variable sources , the results of which will be presented in a catalog with classifications for all @xmath212 million sources in asas ( richards et al . , in prep ) .
+furthermore , it has been shown that the use of mid - infrared colors is a powerful discriminant when trying to select rcb stars @xcite .
+while our use of nir colors is important for selecting rcb stars ( see e.g. , @xcite ) , adding the mid - infrared measurements from the all - sky _ wise _ survey will dramatically improve our purity when selecting rcb candidates as several of the mira and semi - regular variables that served as interlopers in the current search (   [ sec : macc_cands ] ) would be eliminated with the use of mid - infrared colors .
+we have used the 71-feature random forest machine - learning acvs classification catalog from @xcite to identify likely dypers and rcb stars in the acvs catalog .
+the rf classifier provides several advantages over previous methods to search time - domain survey data for rcb stars and dypers .
+previously successful searches for rcb stars have developed a methodology focused on large amplitude variables that do not show strong evidence for periodicity ( e.g. , @xcite ) .
+while the rf classifier is capable of capturing the large variations and irregular declines observed in rcb stars , the use of many features allows complex behavior , such as the shape of the decline and recovery , to be captured as well .
+another advantage of rf classification is that it does not require hard cuts on any individual light curve feature , which can exclude real rcb stars from the final candidate selection .
+there are a total of 472 stars with @xmath57 0.1 in version 2.3 of the macc , 15 of which were selected as good rcb or dyper candidates after visual inspection and existing spectroscopic information .
+following spectroscopic observations eight of the good candidates were identified as bona fide rcb stars or dypers .
+four of these , asas 170541@xmath112650.1 ( gv oph ) , asas
+162229@xmath114835.7 ( io nor ) , asas 165444@xmath114925.9 , and asas 203005@xmath116208.0 were confirmed as new rcb stars on the basis of ( i ) their light curves showing irregular , sharp declines of large amplitude ( @xmath1 @xmath58 1 mag ) , ( ii ) carbon rich spectra showing a lack of evidence for h and @xmath5c , and ( iii ) the mid - infrared excess observed in their seds .
+four of the candidates , asas 191909@xmath111554.4 ( v1942 sgr ) , asas 065113 + 0222.1 , asas 162232@xmath115349.2 , and asas 182658 + 0109.0 appear to be galactic dypers on the basis of ( i ) shallow , symmetric declines in their light curves occurring at irregular intervals , ( ii ) carbon rich spectra resembling carbon n stars showing @xmath5c and weak or no h , and ( iii ) seds that show a single peak , but which are too broad to be explained via a single temperature blackbody . with the exception of asas 170541@xmath112650.1 ,
+all of the new candidates show evidence for periodic variability near maximum light . we incorporate the newly confirmed rcb stars and dypers into the training set to identify six new candidates as likely rcb stars .
+our effort has increased the number of known galactic dypers from two to six . while the sample size is small , it appears that dypers have pulsations with period @xmath59 days at maximum light , which is longer than the typical timescale for pulsation in rcb stars ( see also @xcite ) .
+each of the new rcb stars and dypers is bright , @xmath60 12 mag , which will enable high - resolution spectroscopy for future studies of the detailed abundances of these stars .
+this is particularly important in the case of the four new dypers , as dy per itself is the only member of the class which has been observed at high resolution to confirm the lack of h absorption in the spectrum @xcite .
+if these stars are shown to be h deficient , it would be strong evidence that dypers are the cool ( @xmath33500 k ) analogs to rcb stars .
+we view the results presented herein as one culmination of a broader effort to extract novel science from the time - domain survey data deluge .
+earlier work focused on determining the most suitable ml frameworks for classification and subsequent classification efficiency ( see @xcite for review ) . while production of ml - based catalogs ( e.g. , acvs ; @xcite ) have been the norm for over a decade , we know of no concerted effort to validate the predictions of those catalogs .
+now having a probabilistic catalog of variable sources @xcite to work with , we can select our demographic priors on classes of interest and also decide just how many false - positives we are willing to tolerate in the name of improved efficiency . in the case of the construction of a new set of very common stars ( e.g. , rr lyrae catalog ) , we might be willing to tolerate a reduced discovery efficiency to preserve a high level of purity .
+management of the available resources to follow - up the statements made in a probabilistic catalog becomes the next challenge .
+we were obviously most interested in finding new exemplars of two rare classes and thus tolerated a high impurity . in the discovery and characterization of several bright rcb stars and dypers ,
+the payoff of the efficient use of follow - up resources enabled by probabilistic classification is evident .
+the classification taxonomy of variable stars clearly conflates phenomenology ( e.g. , `` periodic '' ) within a physical understanding ( `` pulsating '' ) of the origin of what is observed . and while phenomenologically based mining around an envelope of class prototypes can turn up new class members , we have shown that the diversity of rcb stars and dypers demands an expanded approach to discovery .
+we speculate that the richness and connections of the feature set in the ml search may be also capturing some of the phenomenological manifestations of the underlying physics , however nuanced , that we can not ( yet ) express .
+we thank the anonymous referee for comments that have helped to improve this paper .
+we thank alex filippenko for obtaining the lick telescope time , while he and peter nugent contributed to the keck proposal and assisted in the observations .
+we thank k.  clubb , a.  morgan , d.  cohen and i.  shivvers for assisting in the keck and lick observations .
+we thank fred walter for help with the scheduling and reduction of rc spectrograph data , and we thank r.  hernandez , a.  miranda , and m.  hernandez for carrying out the rc spectrograph observations .
+is supported by the national science foundation ( nsf ) graduate research fellowship program .
+j.s.b . and j.w.r .
+acknowledge support of an nsf - cdi grant-0941742 .
+some of the work for this study was performed in the cdi - sponsored center for time domain informatics .
+was partially supported by nsf - aag grant-1009991 .
+s.b.c .  acknowledges generous financial assistance from gary & cynthia bengier , the richard & rhoda goldman fund , nasa/_swift _ grants
+nnx10ai21 g and go-7100028 , the tabasgo foundation , and nsf grant ast-0908886 . support for k.g.s . is through the vanderbilt initiative in data - intensive astrophysics ( vida ) .
+some of the data presented herein were obtained at the w. m. keck observatory , which is operated as a scientific partnership among the california institute of technology , the university of california , and nasa .
+the observatory was made possible by the generous financial support of the w. m. keck foundation .
+the authors wish to recognize and acknowledge the very significant cultural role and reverence that the summit of mauna kea has always had within the indigenous hawaiian community .
+we are most fortunate to have the opportunity to conduct observations from this mountain .
+this research has made use of nasa s astrophysics data system bibliographic services , the simbad database operated at cds , strasbourg , france , the nasa / ipac extragalactic database and nasa/ ipac infrared science archive operated by the jet propulsion laboratory , california institute of technology , under contract with nasa , and the vizier database of astronomical catalogs @xcite .
+feature computations and classifier research and evaluations were performed using ibm - http://citris - uc.org/[citris ] s 280 core linux cluster located at uc berkeley .
+the digitized sky surveys were produced at the space telescope science institute under u.s .
+government grant nag w-2166 .
+the images of these surveys are based on photographic data obtained using the oschin schmidt telescope on palomar mountain and the uk schmidt telescope .
+the plates were processed into the present compressed digital form with the permission of these institutions .                      , j.  m. , bloom , j.  s. , kennedy , r. , & starr , d.  l. 2009 , in astronomical society of the pacific conference series , vol .
+411 , astronomical data analysis software and systems xviii , ed .
+d.  a.  bohlender , d.  durand , & p.  dowler , 357                                                                                                                      , j.  p. , bailyn , c.  d. , smith , r.  c. , et  al .
+2010 , http://dx.doi.org/10.1117/12.859145[in society of photo - optical instrumentation engineers ( spie ) conference series , vol .
+7737 , society of photo - optical instrumentation engineers ( spie ) conference series ]

@@ -1,0 +1,646 @@
+let @xmath0 be an oriented surface of finite type , i.e. @xmath0 is a closed surface of genus @xmath1 from which @xmath2 points , so - called _ punctures _ , have been deleted .
+we assume that @xmath3 , i.e. that @xmath0 is not a sphere with at most @xmath7 punctures or a torus with at most @xmath8 puncture .
+we then call the surface @xmath0 _ nonexceptional_. since the euler characteristic of @xmath0 is negative , the _ teichmller space _ @xmath9 of @xmath0 is the quotient of the space of all hyperbolic metrics on @xmath0 under the action of the group of diffeomorphisms of @xmath0 which are isotopic to the identity .
+the smooth fibre bundle @xmath10 over @xmath9 of all _ holomorphic quadratic differentials _ of area one can naturally be viewed as the unit cotangent bundle of @xmath9 for the _ teichmller metric_. the _ teichmller geodesic flow _
+@xmath5 on @xmath10 commutes with the action of the _ mapping class group _ @xmath11 of all isotopy classes of orientation preserving self - homeomorphisms of @xmath0 .
+thus this flow descends to a flow on the quotient @xmath12 , again denoted by @xmath5 .    for a quadratic differential @xmath13 define the _ unstable manifold _
+@xmath14 to be the set of all quadratic differentials whose vertical measured geodesic lamination is a multiple of the vertical measured geodesic lamination for @xmath15 . then @xmath16 is a submanifold of @xmath10 which projects homeomorphically onto @xmath9 @xcite .
+similarly , define the _ strong stable manifold _ @xmath17 to be the set of all quadratic differentials whose horizontal measured geodesic lamination coincides with the horizontal measured geodesic lamination of @xmath15 . the sets @xmath16 ( or @xmath17 ) @xmath18 ) define a foliation of @xmath10 which is invariant under the mapping class group and hence projects to a singular foliation on @xmath4 which we call the _ unstable foliation _
+( or the _ strong stable foliation _ ) .    there is a @xmath5-invariant probability measure @xmath19 on @xmath4 in the lebesgue measure class which was discovered by masur @xcite ( see also the papers @xcite of veech which contain a similar construction ) .
+this measure is absolutely continuous with respect to the strong stable and the unstable foliation , it is ergodic and mixing , and its metric entropy equals @xmath6 ( note that we use a normalization for the teichmller flow which differs from the one in @xcite ) .
+recently avila , gouzel and yoccoz @xcite established that the lebesgue measure @xmath20 on the moduli space of _ abelian _ differentials is even exponentially mixing , i.e. exponential decay of correlations for hlder observables holds .
+the proof of this result uses the fact , independently due to athreya @xcite , that the teichmller flow is _ exponentially recurrent _ to some fixed compact set , i.e. there is a compact set @xmath21 and a number @xmath22 such that @xmath23 for all @xmath24\}<e^{-ct}/c$ ] for every @xmath25 .
+the main goal of this paper is to construct a subshift of finite type @xmath26 and a borel suspension @xmath27 over @xmath26 which admits a semi - conjugacy @xmath28 into the teichmller flow .
+the images under @xmath28 of the flow invariant measures on @xmath27 induced by gibbs equilibrium states for the shift @xmath26 define an uncountable family of @xmath5-invariant probability measures on @xmath4 including the lebesgue measure .
+we summarize their properties as follows .
+there is an uncountable family of @xmath5-invariant probability measures on @xmath4 including the lebesgue measure which are mixing , absolutely continuous with respect to the strong stable and the unstable foliation and which moreover are exponentially recurrent to a compact set .
+denote by @xmath29 the teichmller metric on @xmath9 . for a fixed point @xmath30 and a number @xmath31 , the _
+poincar series _ of the mapping class group with exponent @xmath32 and basepoint @xmath33 is defined to be the series @xmath34 the _ critical exponent _ of @xmath11 is the infimum of all numbers @xmath35 such that the poincar series with exponent @xmath32 converges @xcite .    for a compact subset @xmath36 of @xmath4 and for @xmath37
+let @xmath38 be the number of periodic orbits for the teichmller geodesic flow on @xmath4 of period at most @xmath39 which intersect @xmath36 .
+we show .    1
+.   the critical exponent of the mapping class group equals @xmath6 , and the poincar series diverges at @xmath6 .
+2 .   for every sufficiently large compact subset @xmath36 of @xmath4
+we have @xmath40    theorem 3 is an improvement of a recent result of bufetov @xcite , with a different proof .
+much earlier , veech @xcite established a counting result for _ all _ periodic orbits of the teichmller flow .
+namely , denote by @xmath41 the number of all periodic orbits for the teichmller flow on @xmath4 of period at most @xmath39 .
+veech showed the existence of a number @xmath42 such that @xmath43 as a corollary of theorem c , we deduce that we can take @xmath44 which is still far from the conjectured value @xmath6 . on the other hand , in @xcite we constructed for a surface @xmath0 of genus @xmath45 with @xmath46 punctures and @xmath47 and for every compact subset @xmath36 of @xmath4 a periodic orbit for @xmath5 which does not intersect @xmath36 . thus if @xmath47 then for every compact subset @xmath36 of @xmath4 we have @xmath48 for all sufficiently large @xmath39 ( depending on @xmath36 ) . recently eskin and mirzakhani announced that the asymptotic growth of periodic orbits is indeed @xmath6 .
+the organization of the paper is as follows . in section 2
+we review some properties of train tracks and geodesic laminations needed in the sequel . in section 3
+we use the _ curve graph _ of @xmath0 to show that the restriction of the teichmller flow to any invariant compact subset @xmath36 of @xmath4 is a hyperbolic flow in a topological sense . in section 4
+we use train tracks to construct a special subshift of finite type @xmath26 . in section 5
+we construct a bounded roof function @xmath49 for our subshift of finite type and a semi - conjugacy of the suspension of @xmath26 with roof function @xmath49 into the teichmller flow .
+this is used in section 6 to show theorem 1 . in section 7
+we calculate the critical exponent for @xmath11 , and section 8 is devoted to the proof of the second part of theorem 2 .
+in this section we summarize some results and constructions from @xcite which will be used throughout the paper ( compare also @xcite ) .
+let @xmath0 be an oriented surface of genus @xmath1 with @xmath2 punctures and where @xmath3 .
+geodesic lamination _ for a complete hyperbolic structure on @xmath0 of finite volume is a _ compact _ subset of @xmath0 which is foliated into simple geodesics .
+a geodesic lamination @xmath19 is called _ minimal _ if each of its half - leaves is dense in @xmath19 .
+thus a simple closed geodesic is a minimal geodesic lamination .
+a minimal geodesic lamination with more than one leaf has uncountably many leaves and is called _ minimal arational_. every geodesic lamination @xmath19 consists of a disjoint union of finitely many minimal components and a finite number of isolated leaves .
+each of the isolated leaves of @xmath19 either is an isolated closed geodesic and hence a minimal component , or it _ spirals _ about one or two minimal components @xcite .
+a geodesic lamination is _ maximal _ if its complementary regions are all ideal triangles or once punctured monogons .
+a geodesic lamination _ fills up @xmath0 _ if its complementary regions are all topological discs or once punctured topological discs .
+a geodesic lamination @xmath19 is called _ complete _ if @xmath19 is maximal and can be approximated in the _ hausdorff topology _ by simple closed geodesics .
+a _ measured geodesic lamination _ is a geodesic lamination @xmath19 together with a translation invariant transverse measure .
+such a measure assigns a positive weight to each compact arc in @xmath0 with endpoints in the complementary regions of @xmath19 which intersects @xmath19 nontrivially and transversely .
+the geodesic lamination @xmath19 is called the _ support _ of the measured geodesic lamination ; it consists of a disjoint union of minimal components .
+the space @xmath50 of all measured geodesic laminations on @xmath0 equipped with the weak@xmath51-topology is homeomorphic to @xmath52 .
+its projectivization is the space @xmath53 of all _ projective measured geodesic laminations_. there is a continuous symmetric pairing @xmath54 , the so - called _ intersection form _ , which extends the geometric intersection number between simple closed curves .
+the measured geodesic lamination @xmath55 _ fills up @xmath0 _ if its support fills up @xmath0 .
+the projectivization of a measured geodesic lamination which fills up @xmath0 is also said to fill up @xmath0 .    a _ maximal generic train track _ on @xmath0
+is an embedded 1-complex @xmath56 whose edges ( called _ branches _ ) are smooth arcs with well - defined tangent vectors at the endpoints . at any vertex ( called a
+_ switch _ ) the incident edges are mutually tangent .
+every switch is trivalent . through each switch
+there is a path of class @xmath57 which is embedded in @xmath58 and contains the switch in its interior . in particular , the branches which are incident on a fixed switch
+are divided into `` incoming '' and `` outgoing '' branches according to their inward pointing tangent at the switch .
+the complementary regions of the train track are trigons , i.e. discs with three cusps at the boundary , or once punctured monogons , i.e. once punctured discs with one cusp at the boundary .
+we always identify train tracks which are isotopic ( see @xcite for a comprehensive account on train tracks ) .
+a maximal generic train track or a geodesic lamination @xmath59 is _ carried _ by a train track @xmath58 if there is a map @xmath60 of class @xmath57 which is isotopic to the identity and maps @xmath59 into @xmath58 in such a way that the restriction of the differential of @xmath61 to the tangent space of @xmath59 vanishes nowhere ; note that this makes sense since a train track has a tangent line everywhere .
+we call the restriction of @xmath61 to @xmath59 a _ carrying map _ for @xmath59
+. write @xmath62 if the train track or the geodesic lamination @xmath59 is carried by the train track @xmath58 .    a _ transverse measure _ on a maximal generic train track @xmath58 is a nonnegative weight function @xmath63 on the branches of @xmath58 satisfying the _ switch condition _ : for every switch @xmath64 of @xmath58 , the sum of the weights over all incoming branches at @xmath64 is required to coincide with the sum of the weights over all outgoing branches at @xmath64 .
+the train track is called _ recurrent _ if it admits a transverse measure which is positive on every branch .
+we call such a transverse measure @xmath63 _ positive _ , and we write @xmath65
+. the space @xmath66 of all transverse measures on @xmath58 has the structure of an euclidean cone . via a carrying map
+, a measured geodesic lamination carried by @xmath58 defines a transverse measure on @xmath58 , and every transverse measure arises in this way @xcite . thus @xmath66 can naturally be identified with a subset of @xmath50 which is invariant under scaling .
+a maximal generic train track @xmath58 is recurrent if and only if the subset @xmath66 of @xmath50 has nonempty interior .
+a _ tangential measure _
+@xmath63 for a maximal generic train track @xmath58 associates to every branch @xmath67 of @xmath58 a nonnegative weight @xmath68 such that for every complementary triangle with sides @xmath69 we have @xmath70 ( indices are taken modulo three ) .
+the space @xmath71 of all tangential measures on @xmath58 has the structure of an euclidean cone .
+the maximal generic train track @xmath58 is called _ transversely recurrent _ if it admits a tangential measure @xmath63 which is positive on every branch @xcite .
+there is a one - to - one correspondence between the space of tangential measures on @xmath58 and the space of measured geodesic laminations which _ hit @xmath58 efficiently _ ( we refer to @xcite for an explanation of this terminology ) . with this identification ,
+the pairing @xmath72 defined by @xmath73 is just the intersection form on @xmath50 @xcite .
+a maximal generic train track @xmath58 is called _ complete _ if it is recurrent and transversely recurrent .    a half - branch @xmath74 in a complete train track @xmath58 incident on a switch @xmath75 of @xmath58
+is called _ large _ if every embedded arc of class @xmath57 containing @xmath75 in its interior passes through @xmath74 . a half - branch which is not large is called _ small_. a branch @xmath67 in a complete train track @xmath58 is called _ large _ if each of its two half - branches is large ; in this case @xmath67 is necessarily incident on two distinct switches , and it is large at both of them .
+a branch is called _ small _ if each of its two half - branches is small .
+a branch is called _ mixed _ if one of its half - branches is large and the other half - branch is small ( for all this , see @xcite p.118 ) .
+there are two simple ways to modify a complete train track @xmath58 to another complete train track .
+first , we can _ shift _
+@xmath58 along a mixed branch to a train track @xmath76 as shown in figure a below .
+if @xmath58 is complete then the same is true for @xmath76 .
+moreover , a train track or a lamination is carried by @xmath58 if and only if it is carried by @xmath76 ( see @xcite p.119 ) . in particular , the shift @xmath76 of @xmath58 is carried by @xmath58 .
+note that there is a natural bijection of the set of branches of @xmath58 onto the set of branches of @xmath76 .
+second , if @xmath77 is a large branch of @xmath58 then we can perform a right or left _ split _ of @xmath58 at @xmath77 as shown in figure b. note that a right split at @xmath77 is uniquely determined by the orientation of @xmath0 and does not depend on the orientation of @xmath77 . using the labels in the figure , in the case of a right split we call the branches @xmath78 and @xmath79 _ winners _ of the split , and the branches @xmath80 are _ losers _ of the split . if we perform a left split , then the branches @xmath80 are winners of the split , and the branches @xmath81 are losers of the split .
+the split @xmath76 of a train track @xmath58 is carried by @xmath58 , and there is a natural choice of a carrying map which maps the switches of @xmath76 to the switches of @xmath58 .
+there is a natural bijection of the set of branches of @xmath58 onto the set of branches of @xmath76 which maps the branch @xmath77 to the diagonal @xmath82 of the split .
+the split of a complete train track is maximal , transversely recurrent and generic , but it may not be recurrent . in the sequel we denote by @xmath83 the set of isotopy classes of complete train tracks on @xmath0 .
+in this section we relate teichmller geodesics and the teichmller flow to the geometry of the _ curve graph _ @xmath84 of @xmath0 .
+this curve graph is a metric graph whose vertices are the free homotopy classes of _ essential _ simple closed curves on @xmath0 , i.e. curves which are neither contractible nor freely homotopic into a puncture of @xmath0 . in the sequel
+we often do not distinguish between an essential simple closed curve and its free homotopy class whenever no confusion is possible .
+two such curves are connected in @xmath84 by an edge of length one if and only if they can be realized disjointly .
+since our surface @xmath0 is nonexceptional by assumption , the curve graph @xmath84 is connected .
+any two elements @xmath85 of distance at least 3 _ jointly fill up @xmath0 _ , i.e. they decompose @xmath0 into topological discs and once punctured topological discs .    by bers theorem
+, there is a number @xmath86 such that for every complete hyperbolic metric on @xmath0 of finite volume there is a _ pants decomposition _ of @xmath0 consisting of @xmath87 simple closed geodesics of length at most @xmath88 .
+moreover , for a given number @xmath89 , the diameter in @xmath84 of the ( non - empty ) set of all simple closed geodesics on @xmath0 of length at most @xmath90 is bounded from above by a universal constant only depending on @xmath90 ( and on the topological type of @xmath0 ) .    as in the introduction , denote by @xmath10 the bundle of quadratic differentials of area one over teichmller space @xmath9 . by possibly enlarging our constant @xmath86 as above
+we may assume that for every @xmath13 there is an essential simple closed curve on @xmath0 whose _
+@xmath15-length _ , i.e. the minimal length of a representative of the free homotopy class of @xmath32 with respect to the singular euclidean metric defined by @xmath15 ,
+l at most @xmath88 ( see @xcite and lemma 2.1 of @xcite ) .
+thus we can define a map @xmath91 by associating to a quadratic differential @xmath15 a simple closed curve @xmath92 whose @xmath15-length is at most @xmath88 . by lemma 2.1 of @xcite ,
+if @xmath93 is any other choice of such a map then we have @xmath94 for all @xmath13 where @xmath29 is the distance function on @xmath84 .
+similarly we obtain a map @xmath95 by associating to a hyperbolic metric @xmath45 on @xmath0 of finite volume a simple closed curve @xmath79 of @xmath45-length at most @xmath88 . by the discussion in @xcite there is a constant @xmath96 such that @xmath97    let @xmath98 be the canonical projection . by lemma 2.2 of @xcite ( or see the work of rafi @xcite ) , we have .
+[ simple2 ] there is a constant @xmath99 such that @xmath100 for all @xmath13 .    for a quadratic differential @xmath13 the _ strong stable manifold _
+@xmath101 is defined as the set of all quadratic differentials of area one whose horizontal measured geodesic lamination coincides _ precisely _ with the horizontal measured geodesic lamination of @xmath15 .
+the _ strong unstable _
+manifold @xmath102 is defined as @xmath103 where @xmath104 is the _ flip _ @xmath105 .
+the map @xmath106 which associates to a quadratic differential its horizontal projective measured geodesic lamination restricts to a homeomorphism of @xmath102 onto the open contractible subset of @xmath53 of all projective measured geodesic laminations @xmath63 which together with @xmath107 _ jointly fill up @xmath0 _ , i.e. are such that for every measured geodesic lamination @xmath108 we have @xmath109 ( note that this makes sense even though the intersection form @xmath110 is defined on @xmath50 rather than on @xmath53 ) . by definition ,
+the manifolds @xmath111 @xmath112 define continuous foliations of @xmath10 which are invariant under the action of @xmath11 and under the action of the _ teichmller geodesic flow _ @xmath5 .
+hence they descend to singular foliations on @xmath4 which we denote by the same symbol .
+veech @xcite showed that there is a family @xmath113 of distance functions on strong stable manifolds in @xmath4 such that for a set @xmath114 of quadratic differentials which has full mass with respect to the natural _ lebesgue measure _ on @xmath4 @xcite and every @xmath115 there is a constant @xmath116 such that @xmath117 the following proposition is a modified version of this result .
+namely , define a closed invariant subset @xmath36 for a continuous flow @xmath118 on a topological space @xmath119 to be a _ topological hyperbolic set _ if there is a distance @xmath29 on @xmath36 defining the subspace topology and there is a constant @xmath120 such that every point @xmath121 has an open neighborhood @xmath122 in @xmath119 which is homeomorphic to a product @xmath123 and such that the following holds .    1 .   for all @xmath124 , all @xmath125 such that @xmath126 @xmath127 and all @xmath128 we have @xmath129 .
+2 .   for all @xmath130 , @xmath131 with @xmath132
+@xmath127 there is a number @xmath133 $ ] such that @xmath134 for all @xmath128 .    we show .
+[ hyperbolic ] every @xmath5-invariant compact subset @xmath36 of @xmath4 is a topological hyperbolic set for @xmath5 .
+let as before @xmath86 be such that for every complete hyperbolic metric on @xmath0 of finite volume there is a pants decomposition consisting of pants curves of length at most @xmath88 .
+choose a smooth function @xmath135 $ ] with @xmath136\equiv 1 $ ] and @xmath137 .
+for each @xmath138 , the number of essential simple closed curves @xmath32 on @xmath0 whose hyperbolic length @xmath139 ( i.e. the length of a geodesic representative of its free homotopy class ) does not exceed @xmath140 is bounded from above by a universal constant not depending on @xmath141 , and the diameter of the subset of @xmath84 containing these curves is uniformly bounded as well .
+thus we obtain for every @xmath138 a finite borel measure @xmath142 on @xmath84 by defining @xmath143 where @xmath144 denotes the dirac mass at @xmath79 .
+the total mass of @xmath142 is bounded from above and below by a universal positive constant , and the diameter of the support of @xmath142 in @xmath84 is uniformly bounded as well . moreover
+, the measures @xmath142 depend continuously on @xmath138 in the weak@xmath51-topology .
+this means that for every bounded function @xmath145 the function @xmath146 is continuous .
+the curve graph @xmath147 is a hyperbolic geodesic metric space @xcite and hence it admits a _ gromov boundary _ @xmath148 . for @xmath149
+there is a complete distance function @xmath144 on @xmath150 of uniformly bounded diameter and there is a number @xmath151 such that @xmath152 for all @xmath153 . for @xmath138
+define a distance @xmath154 on @xmath148 by @xmath155 clearly @xmath154 depends continuously on @xmath141 , moreover the metrics @xmath154 are equivariant with respect to the action of @xmath11 on @xmath9 and @xmath150 .
+let @xmath156 be the set of all hyperbolic structures whose _ systole _ is at least @xmath157 .
+let @xmath98 be the canonical projection and denote by @xmath158 the collection of all quadratic differentials whose orbit under the teichmller flow @xmath5 projects to a teichmller geodesic entirely contained in @xmath159 . by theorem 2.1 of @xcite and lemma [ simple2 ]
+, there is a constant @xmath160 only depending on @xmath157 such that for every @xmath161 the curve @xmath162 is a _
+@xmath163-quasi - geodesic _ in @xmath84 , i.e. we have @xmath164    for @xmath165 define a distance function @xmath166 on @xmath167 as follows .
+recall that the gromov boundary @xmath148 of @xmath84 can be identified with the set of all ( unmeasured ) minimal geodesic laminations @xmath19 on @xmath0 which fill up @xmath0 , i.e. which decompose @xmath0 into topological discs and once punctured topological discs @xcite .
+if @xmath168 then the horizontal measured geodesic lamination of @xmath169 is _ uniquely ergodic _ , i.e. it admits a unique transverse measure up to scale , and its support @xmath170 is minimal and fills up @xmath0 @xcite .
+moreover , the @xmath163-quasi - geodesic @xmath171 converges in @xmath172 to @xmath170 .
+in particular , for every @xmath173 there is a natural injection @xmath174 , and this map is continuous ( compare the discussion of the topology on @xmath148 in @xcite ) .
+its image is a locally compact subset of @xmath148 .    for @xmath175 ,
+a _ chain _ from @xmath176 to @xmath177 is a finite collection @xmath178 .
+for such a chain @xmath79 , write @xmath179 and let @xmath180 note that by the properties of the distance functions @xmath154 @xmath181 the function @xmath166 is a distance function on @xmath167 which does not depend on @xmath75
+. locally near @xmath75 , the map @xmath182 is uniformly bilipschitz with respect to @xmath166 and the distance function @xmath183 on @xmath148 .
+the resulting family @xmath166 of metrics on the intersection with @xmath184 of strong unstable manifolds is invariant under the action of the mapping class group .
+moreover , it is continuous in the following sense .
+if @xmath185 and if @xmath186 then @xmath187 .
+similary we obtain a continuous @xmath11-invariant family @xmath188 of distance functions on the intersections with @xmath184 of the strong stable manifolds .
+since for every @xmath189 the assignment @xmath190 is a @xmath163-quasi - geodesic in @xmath84 where @xmath160 only depends on @xmath157 , we obtain from hyperbolicity of @xmath84 , the definition of the metrics @xmath144 , lemma 3.2 and inequality ( [ lipschitz ] ) above the existence of numbers @xmath191 only depending on @xmath157 such that the flow @xmath5 satisfies the following contraction property .    1
+.   @xmath192 for all @xmath193 .
+@xmath194 for all @xmath195 .
+now the assignment which associates to a quadratic differential @xmath15 its horizontal and its vertical measured foliation is continuous and therefore for every @xmath161 there is an open neighborhood @xmath196 of @xmath15 in @xmath10 , an open neighborhood @xmath197 of @xmath15 in @xmath17 , an open neighborhood @xmath198 of @xmath15 in @xmath102 , a number @xmath22 and a homeomorphism @xmath199 which associates to a quadratic differential @xmath200 the triple @xmath201 . here
+@xmath202 equals the quadratic differential in @xmath203 and @xmath204 is such that @xmath205 , and @xmath206 equals the quadratic differential in @xmath207 .
+the homeomorphism @xmath208 then defines a box metric @xmath209 on @xmath210 by @xmath211    let @xmath212 be the canonical projection ; the map @xmath213 is open .
+the projection @xmath214 of @xmath184 to @xmath4 is compact .
+choose a finite covering of @xmath215 by open sets @xmath216 which are images under @xmath213 of open subset @xmath217 of the above form @xmath218 .
+for every @xmath110 let @xmath219 be the box metric on @xmath220 and define a distance @xmath221 on @xmath222 by @xmath223 .
+let @xmath224 be a partition of unity for this covering and define a distance @xmath49 on @xmath215 by @xmath225 .
+the distance function @xmath49 has the properties required in the definition of a topological hyperbolic set .
+the proposition now follows from the fact that @xmath226 for @xmath227 and that @xmath228 contains every compact @xmath5-invariant subset of @xmath4 .
+in this section we use train tracks to construct a subshift of finite type which we use in the following sections to study the teichmller geodesic flow .    define a _ numbered complete train track _ to be a complete train track @xmath58 together with a numbering of the branches of @xmath58 .
+since a mapping class which preserves a train track @xmath229 as well as each of its branches is the identity ( compare the proof of lemma 3.3 of @xcite ) , the mapping class group @xmath11 acts _ freely _ on the set @xmath230 of all isotopy classes of numbered complete train tracks on @xmath0 .
+if a complete train track @xmath76 is obtained from @xmath58 by a single shift , then a numbering of the branches of @xmath58 induces a numbering of the branches of @xmath76 in such a way that the branch with number @xmath110 is large ( or mixed or small ) in @xmath58 if and only if this is the case for the branch with number @xmath110 in @xmath76 .
+define the _ numbered class _ of a numbered train track @xmath58 to consist of all numbered train tracks which can be obtained from @xmath58 by a sequence of numbered shifts .
+the mapping class group naturally acts on the set of all numbered classes .
+we have .
+[ freeaction ] the action of @xmath11 on the set of numbered classes is free .
+let @xmath231 be a numbered complete train track and let @xmath232 be such that @xmath233 is contained in the numbered class of @xmath58 .
+we have to show that @xmath234 is the identity . for this note
+that since @xmath233 can be obtained from @xmath58 by a sequence of numbered shifts , there is a natural bijection between the complementary components of @xmath58 and the complementary components of @xmath233 .
+these complementary components are trigons , i.e. topological discs with three sides of class @xmath57 which meet at the cusps of the component , and once punctured monogons , i.e. once punctured discs with a single side whose endpoints meet at the cusp of the component .
+thus if @xmath234 is not the identity then with respect to the natural identification of complementary components , @xmath234 induces a nontrivial permutation of the complementary components of @xmath58 .
+now for each fixed complementary component @xmath235 of @xmath58 , the train track @xmath58 can be modified with a sequence of shifts to a train track @xmath76 with the property that the boundary of the complementary component @xmath236 of @xmath76 corresponding to @xmath235 consists entirely of small and large branches .
+but this just means that the complementary component @xmath235 is determined by the small and large branches in its boundary .
+since @xmath233 is contained in the numbered class of @xmath58 , the map @xmath234 preserves the large and the small branches of @xmath58 and hence it maps @xmath235 to itself .
+this implies that @xmath234 is the identity and shows the lemma .
+define a _ numbered combinatorial type _ to be an orbit of a numbered class under the action of the mapping class group .
+thus by definition , the set of numbered combinatorial types equals the quotient of the set of numbered classes under the action of the mapping class group .
+let @xmath237 be the set of all numbered combinatorial types .
+if the numbered combinatorial type defined by a numbered train track @xmath58 is contained in a subset @xmath238 of @xmath237 , then we say that @xmath58 is _ contained _ in @xmath238 and we write @xmath239 .
+if the complete train track @xmath76 can be obtained from a complete train track @xmath58 by a single split , then a numbering of the branches of @xmath58 naturally induces a numbering of the branches of @xmath76 and therefore such a numbering defines a _ numbered split_. in particular , we can define a _
+split _ of a numbered class @xmath33 to be a numbered class @xmath240 with the property that there are representatives @xmath241 of @xmath242 such that @xmath76 can be obtained from @xmath58 by a single numbered split in this sense .
+if @xmath76 is obtained from @xmath58 by a single split at a large branch with number @xmath77 then a large branch @xmath243 in @xmath58 is large in @xmath76 as well .
+thus we can define a _ full split _ of a numbered class @xmath33 to be a numbered class @xmath240 with the property that there are representatives @xmath241 of @xmath242 such that @xmath76 can be obtained from @xmath58 by splitting @xmath58 at each large branch once .
+numbered splitting and shifting sequence _ is a sequence @xmath244 of numbered complete train tracks such that for each @xmath110 , the numbered train track @xmath245 can be obtained from a shift of @xmath246 by a single numbered split .
+similarly , a _ full numbered splitting and shifting sequence _ is a sequence @xmath244 of numbered complete train tracks such that for each @xmath110 , the numbered train track @xmath245 can be obtained from a shift of @xmath246 by a single full numbered split .
+we say that a numbered combinatorial type @xmath247 is _ splittable _ to a numbered combinatorial type @xmath248 if there is a numbered train track @xmath249 which can be connected to a numbered train track @xmath250 by a full numbered splitting and shifting sequence .
+recall from @xcite the definition of a train track in _ standard form _ for some _ framing _ ( or _ marking _ in the terminology of masur and minsky @xcite ) of our surface @xmath0 .
+each such train track is complete .
+twist connector _ in a train track to be an embedded closed trainpath of length @xmath251 consisting of a large branch and a small branch .
+we call a train track @xmath58 to be in _ special standard form _ if it satisfies the following properties .    1
+.   every large branch of @xmath58 is contained in a twist connector .
+the union of all twist connectors in @xmath58 is the pants decomposition @xmath252 of our framing .
+@xmath58 carries a complete geodesic lamination @xmath19 whose minimal components are the pants curves of @xmath0 and such that every pair of pants of our decomposition contain precisely three leaves of @xmath19 spiraling about mutually distinct pairs of boundary curves of the pair of pants .
+we have .
+[ numberedtype ] there is a set @xmath253 of numbered combinatorial types with the following properties .    1 .   for all @xmath254
+, @xmath33 is splittable to @xmath240 .
+if @xmath58 is contained in @xmath238 and if @xmath244 is any full numbered splitting and shifting sequence issuing from @xmath255 then @xmath246 is contained in @xmath238 for all @xmath256 .
+3 .   for every train track @xmath59 in special standard form for some framing of @xmath0
+there is a numbering of the branches of @xmath59 such that the resulting numbered train track is contained in @xmath238 .
+let @xmath231 be any numbered train track in special standard form for some framing of @xmath0 and let @xmath253 be the set of numbered combinatorial types of all complete train tracks which can be obtained from @xmath58 by a full numbered splitting and shifting sequence . by construction , the set @xmath238 has property ( 2 ) in the lemma .
+let @xmath257 be any numbered train track which contains a twist connector @xmath79 consisting of a large branch @xmath77 and a small branch @xmath67 .
+then the train track @xmath258 obtained from @xmath257 by a split at @xmath77 with @xmath67 as a winner is contained in the numbered class which is obtained from @xmath257 by exchanging the numbers of @xmath77 and @xmath67 .
+this means the following .
+let @xmath259 be the large branches of @xmath257 different from @xmath77 and assume that the numbered train track @xmath59 is obtained from @xmath257 by one split at each large branch @xmath259 .
+then there is a numbered combinatorial type obtained from the numbered combinatorial type of @xmath58 by a full numbered split and which is obtained from the type of @xmath59 by a permutation of the numbering .
+let @xmath260 and let @xmath261 be a numbered train track representing @xmath176 .
+it follows from the considerations in @xcite that there is a numbered splitting sequence connecting @xmath59 to a numbered train track @xmath262 which can be obtained from a point in the @xmath11-orbit of @xmath58 by a sequence of shifts and by a permutation of the numbering .
+our above consideration shows that @xmath59 can also be connected with a full numbered splitting and shifting sequence to a numbered train track which can be obtained from a point in the @xmath11-orbit of @xmath58 by a permutation of the numbering .
+since the collection of all permutations of the numbering of @xmath58 obtained in this way clearly forms a group , the train track @xmath59 can be connected to a train track of the same numbered combinatorial type as @xmath58 by a full numbered splitting and shifting sequence .
+thus @xmath238 has the first property stated in the lemma .
+the third property follows from @xcite in exactly the same way .
+let @xmath263 be the cardinality of a set @xmath253 as in lemma [ numberedtype ] and number the @xmath264 elements of @xmath238 in an arbitrary order .
+we identify each element of @xmath238 with its number .
+define @xmath265 if the numbered combinatorial type @xmath110 can be split with a single full numbered split to the numbered combinatorial type @xmath266 and define @xmath267 otherwise .
+the matrix @xmath268 defines a _ subshift of finite type_. the phase space of this shift is the set of biinfinite sequences @xmath269 with the property that @xmath270 if and only if @xmath271 for all @xmath110 .
+every biinfinite full numbered splitting and shifting sequence @xmath272 contained in @xmath238 defines a point in @xmath273 . vice versa , since by lemma [ freeaction ] the action of @xmath11 on the set of numbered classes of train tracks is free , a point in @xmath273 determines an @xmath11-orbit of biinfinite full numbered splitting and shifting sequences which is unique up to replacing the train tracks in the sequence by shift equivalent train tracks .
+we say that such a numbered splitting and shifting sequence _ realizes _
+@xmath274 .
+the shift map @xmath275 acts on @xmath273 . for @xmath276 write @xmath277 ; the shift @xmath278 is _ topologically transitive _ if for all @xmath279 there is some @xmath276 such that @xmath280 .
+namely , if we define a finite sequence @xmath281 of points @xmath282 to be _ admissible _
+if @xmath271 for all @xmath110 then @xmath283 equals the number of all admissible sequences of length @xmath46 connecting @xmath110 to @xmath266 @xcite . the following observation is immediate from the definitions .    [ shift ]
+the shift @xmath26 is topologically transitive .
+let @xmath284 be arbitrary .
+by lemma [ numberedtype ] , there is a nontrivial finite full numbered splitting and shifting sequence @xmath285 connecting a train track @xmath286 of numbered combinatorial type @xmath287 to a train track @xmath288 of numbered combinatorial type @xmath266 .
+this splitting and shifting sequence then defines an admissible sequence @xmath289 connecting @xmath110 to @xmath266 .
+the subshift of finite type defined by the matrix @xmath268 is _ topologically mixing _ if there is some @xmath276 such that @xmath280 for all @xmath284 .
+the next simple lemma will imply that the shift defined by numbered splitting and shifting sequences as above is topologically mixing .    [ mixing ]
+let @xmath26 be a topologically transitive subshift of finite type for the finite alphabet @xmath290 and with transition matrix @xmath268 . if there are @xmath291 such that @xmath292 then @xmath26 is topologically mixing .
+let @xmath26 be a topologically transitive subshift of finite type as in the lemma with @xmath293-transition matrix @xmath268 and such that for some @xmath279 we have @xmath292 .
+assume to the contrary that @xmath26 is not topologically mixing .
+following @xcite , there is then a number @xmath294 and there is a partition of the set @xmath290 into disjoint subsets @xmath295 such that for @xmath296 we have @xmath265 only if @xmath297 .
+let @xmath279 be as above and let @xmath298 be such that @xmath296 where indices are taken modulo @xmath299 . from our assumption
+@xmath265 we conclude that @xmath297 , on the other hand it follows from @xmath300 that also @xmath301 . in other words , @xmath302 mod @xmath299 and therefore @xmath303 which contradicts our assumption that the shift is not topologically mixing .
+this shows the lemma .
+[ submix ] the subshift of finite type defined by the set @xmath238 of numbered combinatorial types of complete numbered train tracks on @xmath0 is topologically mixing .    by lemma
+[ mixing ] , it is enough to find some numbered combinatorial types @xmath284 such that our transition matrix @xmath268 satisfies @xmath292 .
+however , such numbered combinatorial types of train tracks are shown in figure c below .
+namely , the train tracks @xmath304 and @xmath305 are numbered shift equivalent , and the same is true for the train tracks @xmath306 and @xmath307 .
+to complete the proof of the corollary , simply observe that any large branch in a complete train track @xmath58 incident on a switch @xmath75 with the property that at least one of the branches of @xmath58 which is incident on @xmath75 and small at @xmath75 is _ not _ a small branch defines a configuration as in figure c. in particular , every large branch of a train track in special standard form for some framing of @xmath0 is contained in such a configuration ( see @xcite , h06a ) .
+in this section we relate the subshift of finite type @xmath26 constructed in section 4 to the extended teichmller flow . as in section 2 , for @xmath231 denote by @xmath66 the convex cone of all transverse measures on @xmath58 .
+recall that @xmath66 coincides with the space of all measured geodesic laminations which are carried by @xmath58 .
+in particular , if @xmath76 is shift equivalent to @xmath58 then we have @xmath308 .
+the projectivization of @xmath66 can naturally be identified with the space @xmath309 of all projective measured geodesic laminations which are carried by @xmath58 .
+then @xmath309 is a _ compact _ subset of the compact space @xmath53 of all projective measured geodesic laminations on @xmath0 . if @xmath310 is any numbered splitting and shifting sequence then @xmath311 and hence @xmath312 is well defined and non - empty .
+thus by the considerations in section 4 , every sequence @xmath270 determines an orbit of the action of @xmath11 on the space of compact subsets of @xmath53 .
+we call the sequence @xmath270 _ uniquely ergodic _
+if @xmath312 consists of a single _ uniquely ergodic _ point , whose support @xmath19 fills up @xmath0 and admits a unique transverse measure up to scale .
+let @xmath313 be the set of all uniquely ergodic sequences .
+we define a function @xmath314 as follows . for @xmath315 choose a full numbered splitting and shifting sequence @xmath272 which realizes @xmath274 . by the definition of a uniquely ergodic sequence
+there is a distinguished uniquely ergodic measured geodesic lamination @xmath63 which is carried by each of the train tracks @xmath246 and such that the maximal weight disposed by this measured geodesic lamination on a _ large _ branch of @xmath286 equals one .
+note that if @xmath257 is shift equivalent to @xmath286 then the maximal weight that @xmath63 disposes on a large branch of @xmath257 equals one as well , i.e. this normalization only depends on the numbered class of @xmath286 .
+define @xmath316 by the requirement that the maximal mass that the measured geodesic lamination @xmath317 disposes on a large branch of @xmath318 equals one . by equivariance under the action of the mapping class group ,
+the number @xmath319 only depends on the sequence @xmath274 . in other words
+, @xmath49 is a function defined on @xmath320 .
+we have .
+[ roofcont ] the function @xmath314 is continuous .
+let @xmath315 and let @xmath321 . by the definition of the topology on our shift space it suffices to show that there is some @xmath322 such that @xmath323 whenever @xmath324 is such that @xmath325 for @xmath326 .
+for this let @xmath244 be a numbered full splitting and shifting sequence which realizes @xmath274 .
+then @xmath244 defines a measured geodesic lamination @xmath19 which is carried by @xmath318 and such that the maximal weight which is disposed by @xmath19 on any large branch of @xmath318 equals one . by definition
+, @xmath319 equals the logarithm of the maximal weight which is disposed by @xmath19 on a large branch of @xmath286 .    now the space @xmath327 of all transverse measures for @xmath318 equipped with the topology as a family of weights on the branches of @xmath318 coincides with a closed subset of the set of all measured geodesic laminations equipped with the weak@xmath51 topology .
+thus there is a neighborhood @xmath122 of @xmath19 in the space @xmath50 of all measured geodesic laminations such that for every @xmath328 the logarithm of the maximal weight of a large branch of @xmath318 defined by @xmath329 is contained in the interval @xmath330 and that the logarithm of the maximal weight that @xmath329 disposes on a large branch of @xmath286 is contained in the interval @xmath331 . on the other hand , for every @xmath332 the set @xmath333 of all measured geodesic laminations which are carried by @xmath334 is a closed cone in @xmath50 containing @xmath19 and we have @xmath335 for @xmath336 and @xmath337 . as a consequence ,
+there is some @xmath338 such that @xmath339 .
+this implies that the value of @xmath49 on the intersection with @xmath320 of the cylinder @xmath340 for @xmath341 is contained in @xmath342 which shows the lemma .
+the next lemma gives additional information on the function @xmath49 .
+[ bounded ]    1 .
+the function @xmath314 is nonnegative and uniformly bounded from above .
+2 .   there is a number @xmath160 such that for every @xmath315 we have @xmath343 3 .   if the support of a measured geodesic lamination defined by @xmath315 is maximal then @xmath344 .
+we have to show that there is a number @xmath345 such that @xmath346 for every @xmath315 . to show the first inequality , choose a numbered full splitting and shifting sequence @xmath272 which realizes @xmath274 .
+we assume that @xmath318 is obtained from @xmath286 by a single split at each large branch of @xmath286 . using the above notations ,
+let @xmath347 be the uniquely ergodic measured geodesic lamination defined by @xmath244 .
+then @xmath347 is carried by each of the train tracks @xmath246 , and the maximal weight of a large branch of @xmath286 for the transverse measure @xmath63 on @xmath286 defined by @xmath347 equals one .
+if @xmath348 is the transverse measure on @xmath318 defined by the measured geodesic lamination @xmath347 then for every large branch @xmath77 of @xmath286 we have @xmath349 where @xmath80 are the neighbors of the diagonal @xmath82 of our split in @xmath318 which are the images of the losing branches of the split under the natural identification of the branches of @xmath286 with the branches of @xmath318 .
+moreover , we have @xmath350 for every branch @xmath351 of @xmath286 and the corresponding branch of @xmath352 , and the measure @xmath348 is nonnegative . in particular , the @xmath348-weight of any branch of @xmath318 does not exceed the @xmath63-weight of the corresponding branch of @xmath286 . since for every transverse measure @xmath329 on a complete train track @xmath58
+the maximum of the @xmath329-weights of the branches of @xmath58 is assumed on a large branch @xcite we conclude that our function @xmath49 is non - negative .
+let @xmath259 be the large branches in @xmath286 with @xmath353 and let @xmath354 be the branches of @xmath286 which are incident on the endpoints of @xmath355 and which are winners of the split .
+let moreover @xmath356 be the losing branches of the split chosen in such a way that the branch @xmath357 is incident on the same endpoint of @xmath355 as @xmath358 .
+denote by @xmath359 the branches in @xmath318 corresponding to @xmath354 .
+if there is a large branch in @xmath318 of weight one with respect to the measure @xmath348 then necessarily this branch is among the branches @xmath360 , so assume that @xmath361 is such a branch .
+then the @xmath63-weight of the branch @xmath362 vanishes and hence @xmath344 if the support of the measured geodesic lamination @xmath347 is maximal .
+this shows the third part of our lemma .
+if @xmath347 is any uniquely ergodic measured geodesic lamination which fills up @xmath0 then the subtrack @xmath363 of @xmath286 of all branches of positive @xmath63-weight is _ large _ , i.e. its complementary components are all topological discs or once punctured topological discs .
+a branch @xmath362 of @xmath286 with @xmath364 is contained in the interior of a complementary component of @xmath363 which contains both branches @xmath365 in its boundary . by the considerations in @xcite ,
+the number of consecutive splits of @xmath286 of this form at a large branch contained in the side of a complementary region of @xmath59 is bounded from above by the number of branches contained in this side .
+this just means that there is a universal number @xmath160 such that @xmath366 and complete the proof of the second part of our lemma .    on the other hand , by the switch condition for transverse measures on a train track @xmath58 ,
+the maximum of the @xmath348-weights of the two winning branches @xmath81 of a split of @xmath286 at a large branch @xmath77 is not smaller than half the @xmath63-weight of @xmath77 .
+since the maximum of the weight of a transverse measure on a complete train track @xmath58 is assumed on a large branch , our function @xmath49 is uniformly bounded .
+this completes the proof of the lemma .
+following @xcite we call a finite admissible sequence @xmath367 _ tight _ if for one ( and hence every ) numbered splitting and shifting sequence @xmath368 realizing @xmath274 the natural carrying map @xmath369 maps every branch @xmath67 of @xmath288 _ onto _ @xmath286 . by the definition of @xmath238 , by lemma [ numberedtype ] and by the considerations in section 5 of @xcite ,
+tight finite admissible sequences exist .
+call a biinfinite sequence @xmath370 _ normal _ if every finite admissible sequence occurs in @xmath371 infinitely often in forward and backward direction .
+the next lemma follows from the considerations in @xcite . for this
+we define a measured geodesic lamination @xmath19 on @xmath0 to be _ recurrent _ if for one ( and hence every ) teichmller geodesic @xmath372 defined by a quadratic differential with horizontal lamination @xmath19 there is a compact subset @xmath36 of moduli space with the property that the intersection of the projection of @xmath372 to moduli space with the compact @xmath36 is unbounded . by the results of masur @xcite ,
+a recurrent lamination is uniquely ergodic and its support fills up @xmath0 .
+we have .    [
+normal ] let @xmath270 be normal and let @xmath373 be a numbered splitting and shifting sequence which realizes @xmath274 ; then @xmath312 consists of a single recurrent projective measured geodesic lamination .
+let @xmath270 be normal and let @xmath374 be a numbered splitting and shifting sequence defined by @xmath274 and the choice of a numbered train track @xmath286 of numbered combinatorial type @xmath375 .
+then for every @xmath110 there is a natural projective linear map @xmath376 .
+following @xcite , this map can be described as follows .
+let @xmath377 be the number of branches of a complete train track on @xmath0 .
+if the train track @xmath245 is obtained from @xmath246 by a single split at a large branch @xmath77 then every measured geodesic lamination @xmath19 which is carried by @xmath245 defines both a transverse measure @xmath378 on @xmath245 and a transverse measure @xmath379 on @xmath246 .
+if @xmath81 are the losers of the split connecting @xmath246 to @xmath245 and if @xmath82 is the diagonal branch of the split , then we have @xmath380 , i.e. the convex cone @xmath381 of transverse measures on @xmath245 is mapped to the convex cone @xmath382 of transverse measures on @xmath246 by the product @xmath383 of two elementary @xmath384-matrices .    for a column vector @xmath385 write @xmath386 . viewing a measure in the cone @xmath387 as a point in @xmath388 we denote by @xmath389 the intersection of @xmath387 with the sphere @xmath390 .
+the set @xmath389 can be identified with the projectivization @xmath391 of @xmath387 and is homeomorphic to a closed ball in @xmath392 .
+for all @xmath393 the projective linear map @xmath394 can naturally be identified with the map @xmath395 ( see @xcite ) .
+the jacobian of this map is bounded from above by one at every point of @xmath396 @xcite .
+following the reasoning in @xcite , it is enough to show that there is a number @xmath397 and there are infinitely many @xmath266 such that for each of the transformations @xmath398 @xmath399 which is given by products @xmath400 of @xmath401 elementary @xmath384-matrices , every column vector is added to every other column vector at least once .
+namely , in this case the jacobians of the projectivizations of the maps @xmath402 are bounded from above by a number @xmath403 which is independent of @xmath266
+. then the jacobians of the projectivized transformations @xmath404 tend to zero as @xmath405 uniformly on @xmath389 .
+moreover , the maps @xmath406 are uniformly quasiconformal and therefore their pointwise dilatations tend to zero as well ( see @xcite ) . in particular , the intersection @xmath407 consists of a single point @xmath19 .
+moreover , for every @xmath110 the point @xmath19 is contained in the _ interior _ of the convex polyhedron @xmath391 and hence the transverse measure defined by @xmath19 on @xmath246 is positive on every branch of @xmath246 ( compare the beautiful argument in @xcite ) .
+now for every tight admissible sequence @xmath408 and for every numbered splitting and shifting sequence @xmath409 which realizes @xmath410 , the transformation @xmath411 has the above property . as a consequence ,
+if @xmath412 is normal and if @xmath413 is a splitting and shifting sequence which realizes @xmath414 then @xmath407 consists of a single point @xmath19 .
+since @xmath312 contains with every @xmath415 every projective measured geodesic lamination with the same support , the projective measured geodesic lamination @xmath19 is necessarily uniquely ergodic .
+we are left with showing that it also fills up @xmath0 . for this call a geodesic lamination @xmath19 _
+complete _ if @xmath19 is maximal and if moreover @xmath19 can be approximated in the hausdorff topology by simple closed geodesics .
+the space @xmath416 of _ complete _ geodesic laminations carried by @xmath246 is a compact non - empty subset of the compact space @xmath417 of all complete geodesic laminations on @xmath0 ( compare @xcite ) and consequently @xmath418 is non - empty .
+every projective measured geodesic lamination whose support is contained in a lamination from the set @xmath36 is contained in @xmath312 .
+since the intersection @xmath312 consists of the unique point @xmath19 , the laminations from the set @xmath36 contain a single minimal component @xmath419 which is the support of @xmath19 .
+if @xmath419 does not fill up @xmath0 then there is a simple closed curve @xmath79 on @xmath0 which intersects a complete geodesic lamination @xmath420 in a finite number of points . by the considerations in @xcite
+we can find a sequence @xmath421 of simple closed curves on @xmath0 which approximate @xmath329 in the hausdorff topology such that the intersection numbers @xmath422 are bounded from above by a universal constant @xmath120 .
+moreover , for every @xmath332 there is some @xmath423 such that the train track @xmath334 carries the curve @xmath424 . as a consequence
+, there is a splitting and shifting sequence connecting @xmath334 to a train track @xmath425 which contains @xmath424 as a _ vertex cycle _ @xcite .
+this means that the transverse measure on @xmath425 defined by a carrying map @xmath426 spans an extreme ray in the convex cone @xmath427 of all transverse measures on @xmath425 .
+let @xmath84 be the _ curve graph _ of @xmath0 and let @xmath428 be any map which associates to a complete train track @xmath429 a vertex cycle of @xmath59 .
+it was shown in @xcite that there is a number @xmath430 such that the image under @xmath431 of every splitting and shifting sequence @xmath432 is an _
+unparametrized @xmath163-quasi - geodesic _ in @xmath84 .
+this means that there is an nondecreasing map @xmath433 such that the assignment @xmath434 is a uniform quasi - geodesic .
+since the curve graph is hyperbolic and since the distance in @xmath84 between the curves @xmath79 and @xmath424 is uniformly bounded @xcite , this implies that the diameter of the image under @xmath431 of the splitting and shifting sequence @xmath413 is _
+finite_. however , the sequence @xmath270 is normal by assumption and hence the sequence @xmath413 contains subsequences whose images under the map @xmath61 are unparametrized quasi - geodesics in @xmath84 with endpoints of arbitrarily large distance .
+this is a contradiction and implies that the support of @xmath19 fills up @xmath0 as claimed .    in other words ,
+the set of normal points in @xmath273 is contained in the set @xmath320 of uniquely ergodic points .
+since normal points are dense in @xmath273 , the same is true for uniquely ergodic points .
+recall from section 2 that for every @xmath229 the cone @xmath71 of all tangential measures on @xmath58 can be identified with the space of all measured geodesic laminations which hit @xmath58 efficiently . if @xmath435 is obtained from @xmath229 by a single split at a large branch @xmath77 and if @xmath235 is the matrix which describes the transformation @xmath436 then there is a natural transformation @xmath437 given by the transposed matrix @xmath438 .
+this transformation maps the tangential measure on @xmath58 determined by a measured geodesic lamination @xmath329 hitting @xmath58 efficiently to the tangential measure on @xmath76 defined by the same lamination ( which hits @xmath76 efficiently as well , compare @xcite ) .
+denote by @xmath439 the space of projective measured geodesic laminations which hit @xmath58 efficiently .
+as in the proof of lemma [ normal ] we observe .
+[ fill ] let @xmath270 be normal and let @xmath272 be a numbered splitting and shifting sequence which realizes @xmath274 ; then @xmath440 consists of a single uniquely ergodic projective measured geodesic lamination which fills up @xmath0 .
+we call the sequence @xmath270 _ doubly uniquely ergodic _ if @xmath274 is uniquely ergodic as defined above and if moreover for one ( and hence every ) numbered splitting and shifting sequence @xmath441 which realizes @xmath274 the intersection @xmath442 consists of a unique point . by lemma [ normal ] and lemma [ fill ] ,
+every normal sequence is doubly uniquely ergodic and hence the borel set @xmath443 of all doubly uniquely ergodic sequences @xmath270 is dense .
+moreover , for each such sequence @xmath444 and every numbered splitting and shifting sequence @xmath272 which realizes @xmath274 there is a unique pair @xmath445 of uniquely ergodic measured geodesic laminations which fill up @xmath0 and which satisfy the following additional requirements .    1 .
+@xmath347 is carried by each of the train tracks @xmath246 and the total mass disposed by @xmath347 on the large branches of @xmath286 equals one .
+@xmath446 hits each of the train tracks @xmath246 efficiently .
+3 .   @xmath447 .
+in particular , by equivariance under the action of the mapping class group , every sequence @xmath444 determines a quadratic differential of total area one over a point in moduli space .
+let @xmath448 be the set of all area one quadratic differentials whose horizontal and vertical measure foliations are both uniquely ergodic and fill up @xmath0 .
+then @xmath449 is a @xmath5-invariant borel subset of @xmath4 .
+a _ suspension _ for the shift @xmath278 on the subspace @xmath450 of all doubly uniquely ergodic sequences in the phase space @xmath273 with roof function @xmath451 is the space @xmath452\mid ( x_i)\in { { \mathcal{d}}{\mathcal{u}}}\}/\sim$ ] where the equivalence relation @xmath453 identifies the point @xmath454 with the point @xmath455 .
+there is a natural flow @xmath118 on @xmath27 defined by @xmath456 ( for @xmath128 ) where @xmath322 is such that @xmath457 .
+a _ semi - conjugacy _ of @xmath458 into a flow space @xmath459 is a ( continuous ) map @xmath460 such that @xmath461 for all @xmath462 and all @xmath463 .
+we call a semi - conjugacy @xmath28 _ countable - to - one _ if the preimage of any point is at most countable . as an immediate consequence of lemma [ bounded ]
+we obtain .
+[ semi ] there is a countable - to - one semi - conjugacy @xmath28 of the borel suspension @xmath27 for the shift @xmath278 on @xmath464 with roof function @xmath49 to the teichmller geodesic flow .
+the image of @xmath28 is the @xmath5-invariant subset @xmath448 .
+the existence of a countable - to - one semi - conjugacy @xmath28 as stated in the corollary is clear from the above considerations .
+we only have to show that this semi - conjugacy is continuous and that its is image equals precisely the set @xmath449 .
+continuity of @xmath28 follows as in the proof of lemma [ roofcont ] . to show that the image of @xmath28 is all of @xmath449 let @xmath445 be any pair of distinct uniquely ergodic geodesic laminations with @xmath447 .
+then every leaf of @xmath347 intersects every leaf of @xmath446 transversely . by the results from section 2 of @xcite ,
+there is a complete train track @xmath58 which carries @xmath347 and which hits @xmath446 efficiently . for a suitable numbering of the branches of @xmath58 and up to modifying @xmath58 by a sequence of shifts
+the results of section 4 show that we can choose our train track in such a way that it is contained in the set @xmath238 . by construction
+, this means that there is an infinite full splitting and shifting sequence @xmath272 such that the intersection @xmath312 consists of a unique point which is just the class of @xmath347 and that the intersection @xmath465 consists of a unique point which is just the class of @xmath446 .
+this shows that our map @xmath28 maps @xmath464 onto @xmath449 .    a quadratic differential @xmath13 of area one defines a marked piecewise euclidean metric on our surface @xmath0 .
+every essential closed curve @xmath372 can be represented by a geodesic with respect to this metric .
+if @xmath466 are the horizontal and vertical measured geodesic laminations for @xmath15 then the length of @xmath372 with respect to the metric defined by @xmath15 is contained in the interval @xmath467 $ ] .
+recall that a point in teichmller space can be viewed as a ( marked ) hyperbolic metric on @xmath0 and that there is a number @xmath86 only depending on the topological type of our surface such that for every @xmath30 there is a pants decomposition for @xmath0 which consists of pants curves of hyperbolic length at most @xmath88 .
+rafi @xcite showed that for every quadratic differential @xmath15 of area one on the riemann surface corresponding to @xmath33 the @xmath15-lengths of the pants curves of this short pants decomposition ( i.e. the lengths of the @xmath15-geodesic representatives ) are bounded from above by a universal constant @xmath468 .
+for every @xmath321 there is a constant @xmath469 such that if @xmath33 is contained in the _
+@xmath157-thick part _
+@xmath470 of all marked hyperbolic metrics without closed geodesics of length less than @xmath157 then the hyperbolic metric and the @xmath15-metric are @xmath471-bilipschitz equivalent ( compare e.g. @xcite for this well known fact ) . however , for points in the thin part of teichmller space there may be curves which are short in the @xmath15-metric but which are long in the hyperbolic metric .
+the next lemma gives some information on the curves which become short for the quadratic differential metric along a teichmller geodesic defined by a quadratic differential @xmath472 .
+for its formulation , recall from @xcite the definition of a _ vertex cycle _ for a train track @xmath58 .
+such a vertex cycle is a simple closed curve @xmath79 which is carried by @xmath58 and such that the transverse measure defined by @xmath79 spans an extreme ray in the convex polygon of all transverse measures on @xmath58 . for simplicity
+, we identify @xmath273 with a subset of our suspension space .
+we have .
+[ shortcurves ] let @xmath444 and let @xmath272 be a full numbered splitting and shifting sequence which realizes @xmath274 .
+let @xmath473 and let @xmath474 be a lift of @xmath15 defined by @xmath244 .
+then there is a vertex cycle on @xmath286 of uniformly bounded @xmath475-length .
+let @xmath444 and let @xmath272 be a full numbered splitting and shifting sequence which realizes @xmath274 .
+let @xmath445 be the pair of transverse measured geodesic laminations which are defined by the lift @xmath475 of @xmath476 which is determined by @xmath244 . by construction ,
+the maximal weight that is disposed by @xmath477 on a large branch of @xmath286 is one and hence the total weight of the transverse measure on @xmath286 defined by @xmath347 is uniformly bounded .
+thus by corollary 2.3 of @xcite , the intersection number between @xmath347 and any vertex cycle of @xmath286 is uniformly bounded .    by the results of @xcite ,
+the number of vertex cycles for a complete train track @xmath58 is uniformly bounded . since the space @xmath66 of transverse measures on @xmath58 is spanned by the vertex cycles
+, there is a decomposition @xmath478 where @xmath479 and @xmath480 are the vertex cycles of @xmath286 . now the number of vertex cycles is uniformly bounded and hence we have @xmath481 for a universal number @xmath321 and at least one @xmath110 .
+then the weight that the tangential measure @xmath446 disposes on any branch @xmath67 contained in the image of @xmath480 is bounded from above by @xmath482 . since a vertex cycle runs through every branch of @xmath286 at most twice @xcite , the intersection @xmath483 is bounded from above by twice the total weight of the measure @xmath446 on the branches of @xmath286 in the image of @xmath480 .
+now @xmath484 and hence by our choice of @xmath480 this total weight is uniformly bounded . but
+this means that @xmath485 is uniformly bounded and shows the lemma .
+now let @xmath486 be a periodic point for the teichmller geodesic flow .
+then @xmath487 as is well known and therefore there is some @xmath444 such that the orbit of the suspension flow through @xmath15 is mapped by the semi - conjugacy @xmath28 onto the @xmath5-orbit of @xmath15 . since our semi - conjugacy @xmath28 is countable - to - one this orbit of the suspension flow need not be closed .
+however we have .    [ closedorbit ]
+let @xmath444 be a point which is mapped by @xmath28 to a periodic point of the teichmller flow .
+then the closure of the set @xmath488 is contained in @xmath464 .    the lemma is a consequence of a general observation about the piecewise euclidean metric defined by a quadratic differential @xmath489 and its relation to the preimages of @xmath15 in @xmath273 . for this let @xmath444 and let @xmath490 .
+let @xmath272 be a numbered splitting and shifting sequence which realizes @xmath274 and let @xmath474 be the lift of @xmath15 defined by @xmath244 .
+let @xmath466 be the measured geodesic laminations defined by the quadratic differential @xmath475 .
+then the maximal weight that @xmath347 disposes on a large branch of @xmath286 equals one . by lemma [ bounded ] we know that there is a number @xmath160 such that @xmath491 .
+we claim that there is a constant @xmath263 only depending on @xmath15 such that @xmath492    for a small number @xmath493 , assume that @xmath494 for large @xmath264 .
+let @xmath495 be the subgraph of @xmath286 of all branches whose weight with respect to the measure @xmath63 defined by @xmath347 is at least @xmath496 .
+it follows from the considerations in the proof of lemma [ bounded ] that @xmath59 carries a simple closed curve @xmath79 . moreover , the @xmath63-weight of every branch @xmath497 which is incident on a switch in @xmath79 and which is not contained in @xmath79 is close to zero . by the considerations in lemma 2.5 of @xcite ,
+this implies that @xmath498 is very small ( depending on @xmath157 ) .
+now if @xmath329 is the tangential measure on @xmath286 defined by the vertical measured geodesic lamination of @xmath15 then @xmath499 and therefore @xmath500 is uniformly bounded . as a consequence
+, the @xmath15-length of @xmath79 is uniformly bounded , and @xmath501 is very small . since the measured geodesic laminations @xmath466 fill up @xmath0
+there is a unique point @xmath463 such that @xmath79 is _ balanced _ with respect to @xmath502 .
+this means that the intersection numbers @xmath503 conicide and are not smaller than half of the @xmath502-length of @xmath79 . in other words ,
+if @xmath504 is small then the minimum over all @xmath463 of the @xmath502-lengths of @xmath79 is very small . on the other hand ,
+if the orbit of @xmath15 under the teichmller geodesic flow is periodic then for sufficiently small @xmath321 it does not intersect the subset of teichmller space of hyperbolic metrics whose systole is smaller than @xmath157 .
+but then the @xmath502-length of any simple closed curve on @xmath0 is uniformly bounded from below independent of @xmath505 .
+this shows our claim .
+let @xmath428 be a map which associates to a complete train track on @xmath0 one of its vertex cycles . by our above consideration and the results from @xcite ,
+the assignment @xmath506 is an @xmath507-quasi - geodesic for some @xmath508 depending only on @xmath15 .
+however , this means that there is a constant @xmath509 such that for each @xmath266 the sequence @xmath510 has the following property .
+let again @xmath244 be a full numbered splitting and shifting sequence which realizes @xmath274 .
+then for each @xmath46 , the distance between @xmath511 and @xmath512 in @xmath84 is at least three .
+now there are only finitely many full numbered splitting and shifting sequences of length @xmath513 with this property .
+in particular , by the considerations in the proof of lemma [ fill ] , there is a universal constant @xmath468 with the following property .
+let @xmath514 be any such sequence and let @xmath329 be _ any _ measured geodesic lamination which is carried by @xmath288 and such that the maximal weight disposed by @xmath329 on a large branch of @xmath58 equals one
+. then the maximal weight disposed by @xmath329 on a large branch of @xmath286 is at least @xmath515 .
+this then implies that the function @xmath49 is bounded from below on @xmath488 by a positive constant and that moreover the assignment @xmath516 is a uniform quasi - geodesic in @xmath84 . as a consequence ,
+the sequence @xmath517 is contained in a compact subset of @xmath464 .
+this shows the lemma .
+masur and veech @xcite constructed a probability measure in the lebesgue measure class on the space @xmath4 of area one quadratic differentials over moduli space .
+this measure is invariant , ergodic and mixing under the teichmller flow @xmath5 , and it gives full measure to the space of quadratic differentials whose horizontal and vertical measured geodesic laminations are uniquely ergodic and fill up @xmath0 .
+moreover , the measure is absolutely continuous with respect to the strong stable and the unstable foliation .    in this section
+we use the results from section 5 to construct an uncountable family of @xmath5-invariant probability measures on @xmath4 including the lebesgue measure which give full measure to the set of quadratic differentials with uniquely ergodic horizontal and vertical measured geodesic laminations .
+these measures are ergodic and mixing , with exponential recurrence to a fixed compact set , and they are absolutely continuous with respect to the strong stable and the unstable foliation .
+this completes the proof of theorem 1 from the introduction .
+we begin with an easy observation on @xmath5-invariant probability measures on @xmath4 .
+[ finiteinv ] let @xmath63 be a @xmath5-invariant borel probability measure on @xmath4
+. then @xmath518 .
+since @xmath519 is a @xmath5-invariant borel subset of @xmath4 it is enough to show that there is no @xmath5-invariant borel probability measure @xmath63 on @xmath4 with @xmath520 .    for this assume to the contrary that such a measure exists .
+note that @xmath4 can be represented as a countable union of compact sets and hence there is some compact subset @xmath36 of @xmath4 with @xmath521 .
+now by a result of masur @xcite , for every @xmath522 there is a number @xmath523 such that @xmath524 for every @xmath525 .
+the thus defined function on @xmath526 can be chosen to be measurable .
+then there is some @xmath25 such that @xmath527 . by invariance of @xmath63 under the teichmller flow
+we have @xmath528 and therefore @xmath529 which is a contradiction .
+the lemma follows .
+recall from section 5 the construction of the semi - conjugacy @xmath28 from our subshift of finite type @xmath26 with roof function @xmath49 onto the @xmath5-invariant set @xmath449 . since the roof function @xmath49 on @xmath530
+is uniformly bounded and essentially positive , every @xmath278-invariant borel probability measure on @xmath273 which gives full mass to @xmath464 defines a finite invariant measure for the @xmath49-suspension flow .
+the image of this measure under the semi - conjugacy @xmath28 is a finite @xmath5-invariant borel measure on @xmath4 which we may normalize to have total mass one .
+this means that the map @xmath28 induces a map @xmath531 from the space @xmath532 of @xmath278-invariant borel probability measures on @xmath273 which give full mass to @xmath464 into the space @xmath533 of @xmath5-invariant probability measures on @xmath4 .
+we equip both spaces with the weak@xmath51-topology .
+we have .    [ continuous ]
+the map @xmath531 is continuous .
+since @xmath273 is a compact metrizable space , the space of all probability measures on @xmath273 is compact .
+thus we only have to show that whenever @xmath534 in @xmath532 then @xmath535 .
+but this just means that for every continuous function @xmath536 on @xmath4 we have @xmath537 which is obvious since @xmath28 is continuous .
+we also have .
+[ dense ] the image of @xmath531 is dense .    there is a one - to - one correspondence between the space of all locally finite @xmath11-invariant borel measures on the product @xmath538 which give full measure to the pairs of distinct uniquely ergodic points and the space of all @xmath5-invariant finite borel measures on @xmath4 .
+now every closed teichmller geodesic gives rise to such a measure which is a sum of dirac measures supported on the endpoints of all lifts of the teichmller geodesic to teichmller space . here
+the pair of endpoint is the pair in @xmath538 which consists of the horizontal and the vertical projective measured geodesic lamination of a quadratic differential defining a lift of the closed teichmller geodesic to teichmller space .
+since the pairs of endpoints of teichmller geodesics are known to be dense in @xmath538 the set of @xmath5-invariant borel probability measures which can be approximated by weighted point masses on closed geodesics is dense in @xmath533 . as a consequence ,
+it is enough to show that every measure @xmath539 which is supported on a single closed geodesic is contained in the image of @xmath531 .    to see that this is indeed the case ,
+let @xmath15 be a periodic point for the teichmller flow . up to replacing @xmath15 by its image under the time-@xmath505-map of the flow for some small @xmath505
+, we may assume that there is some @xmath444 with @xmath540 .
+denote as before by @xmath458 the suspension flow defined by the roof function @xmath49 . for @xmath25 define @xmath541 where by abuse of notation we view @xmath274 as a point in @xmath27 .
+by lemma [ closedorbit ] , the supports of these measures are all contained in a fixed compact subset of @xmath464 , viewed as a subset of @xmath27 .
+therefore there is a sequence @xmath542 going to infinity such that the measures @xmath543 converge as @xmath405 weakly to a @xmath118-invariant measure @xmath63 .
+however , it follows immediately from the discussion in the proof of lemma [ closedorbit ] that the support of @xmath63 is contained in the preimage of the closed orbit @xmath15 under the map @xmath28 .
+then @xmath544 is a borel probability measure on @xmath4 which is supported on the @xmath5-orbit of @xmath15 .
+this shows the lemma .
+let @xmath264 be the cardinality of the set @xmath238 of numbered combinatorial types as in lemma [ numberedtype ] and let @xmath545 be any @xmath293-matrix with non - negative entries @xmath546 such that @xmath547 if and only if @xmath548 ( where the matrix @xmath268 is defined in the paragraph preceding lemma [ shift ] ) .
+we require that @xmath549 is _ stochastic _ ,
+i.e. that @xmath550 for all @xmath110 .
+by corollary [ submix ] and the definitions , there is a number @xmath551 such that @xmath552 .
+thus by the perron frobenius theorem , there is a unique positive _ probability vector _
+@xmath553 with @xmath554 and such that @xmath555 by our normalization .
+then the probability vector @xmath163 together with the stochastic matrix @xmath252 defines a markov probability measure @xmath329 for the subshift @xmath26 of finite type which is invariant under the shift and gives full measure to the set of normal points .
+the @xmath329-mass of a cylinder @xmath556 @xmath557 equals @xmath558 , and the @xmath329-mass of @xmath559 is @xmath560 .
+note that the identity @xmath561 for all @xmath266 is equivalent to invariance of @xmath329 under the shift .
+since by corollary [ submix ] our shift @xmath26 is topologically mixing , the shift @xmath562 is equivalent to a bernoulli shift ( see p.79 of @xcite ) . in particular , it is ergodic and strongly mixing , with exponential decay of correlations , and it gives full measure to the subset @xmath563 of normal points .
+we call a shift invariant probability measure on @xmath273 of this form a _ bernoulli measure_.    the support of every bernoulli measure @xmath63 on @xmath273 is all of @xmath273 , and @xmath63 is invariant and ergodic under the action of the shift @xmath278 .
+the flow @xmath118 on the borel suspension @xmath27 with roof function @xmath49 constructed in section 4 preserves the borel measure @xmath564 given by @xmath565 where @xmath566 is the lebesgue measure on the flow lines of our flow .
+since by lemma [ bounded ] the roof function @xmath49 on @xmath567 is bounded , the measure @xmath564 is finite and moreover ergodic under the action of the flow @xmath118 .
+the push - forward @xmath568 of the measure @xmath564 by the semi - conjugacy @xmath28 defined in corollary [ semi ] is a finite @xmath5-invariant ergodic measure on @xmath4 which gives full mass to the quadratic differentials with uniquely ergodic horizontal and vertical measured geodesic laminations which fill up @xmath0 .
+we call its normalization to a probability measure on @xmath4 a _ bernoulli measure _ for the teichmller geodesic flow @xmath5 . by construction , a bernoulli measure for @xmath5 is absolutely continuous with respect to the strong stable and the unstable foliation .
+[ mixing2 ] a bernoulli measure for the teichmller geodesic flow is mixing .
+let @xmath569 be the borel set of all projective measured geodesic laminations on @xmath0 which are uniquely ergodic and whose support fills up @xmath0 and denote by @xmath570 the diagonal in @xmath571 .
+the set @xmath572 of quadratic differentials in @xmath10 with uniquely ergodic horizontal and vertical measured geodesic lamination which fill up @xmath0 is ( non - canonically ) homeomorphic to @xmath573 by choosing a borel map which associates to a pair of transverse projective measured geodesic laminations in @xmath574 a point on the teichmller geodesic determined by the pair and extending this map in such a way that it commutes with the natural @xmath575-actions . with this identification , the teichmller geodesic flow acts on @xmath573 via @xmath576 . in particular
+, there is a natural orbit space projection @xmath577 which is equivariant with respect to the natural action of the mapping class group on @xmath578 and the diagonal action of @xmath11 on @xmath579 .
+let @xmath63 be a bernoulli measure for the teichmller geodesic flow .
+then @xmath63 lifts to a @xmath5-invariant @xmath11-invariant radon measure on @xmath10 , and this radon measure disintegrates to a radon measure @xmath580 on @xmath581 which is invariant under the diagonal action of @xmath11 and which gives full mass to the invariant subset @xmath582 . since @xmath63 is ergodic under the teichmller geodesic flow , the measure @xmath583 is ergodic under the action of @xmath11 .
+assume to the contrary that the measure @xmath63 is not mixing . then there is a continuous function @xmath234 on @xmath4 with compact support and @xmath584 so that @xmath585 does not converge weakly to zero as @xmath586 .
+we follow @xcite and conclude that there is a non - constant function @xmath208 which is the almost sure limit of cesaro averages of @xmath234 of the form @xmath587 , i.e. for positive and negative times . replacing @xmath208 by the function @xmath588 for sufficiently small @xmath157 guarantees
+that there is a subset @xmath589 of full @xmath580-measure so that the lift @xmath590 to @xmath10 of the resulting function is well defined and continuous on the lines in @xmath591 .
+the periods of the function @xmath590 define a measurable @xmath11-invariant map of @xmath592 into the set of closed subgroups of @xmath575 which is constant by ergodicity .
+since @xmath593 by assumption , the set @xmath594 where this group is of the form @xmath595 for some @xmath596 has full measure .
+the radon measure @xmath580 on @xmath581 is absolutely continuous with respect to the product foliation of @xmath597 .
+this means that @xmath580 is locally of the form @xmath598 where @xmath599 is a measure on the space of projective measured geodesic laminations whose measure class is invariant under the action of @xmath11 and where @xmath536 is a positive measurable function . since the action of @xmath11 on @xmath53 is minimal , the measures @xmath600 are of full support . now
+the horizontal measured geodesic lamination of a typical point for the measure @xmath63 on @xmath4 is uniquely ergodic and fills up @xmath0 and hence if @xmath601 are typical points for @xmath63 on the same strong stable manifold in @xmath4 then @xmath602 for a suitable choice of a distance function @xmath29 on @xmath4 @xcite . from continuity of the function @xmath234 and absolute continuity of @xmath63 with respect to the strong stable and the unstable manifolds we deduce that @xmath603 .
+similarly we argue for the strong unstable manifolds ( see the nice exposition of this argument in @xcite ) . as a consequence ,
+there is an @xmath11-invariant subset @xmath604 of full @xmath583-mass such that for every @xmath605 and every @xmath606 the function @xmath590 is constant almost everywhere along the strong stable manifold @xmath17 and along the strong unstable manifold @xmath102 .    as in @xcite
+we define @xmath607 by absolute continuity , the set @xmath608 has full measure with respect to @xmath580 .
+choose a density point @xmath609 for @xmath580 and let @xmath610 be small disjoint neighborhoods of @xmath611 in @xmath53 with the property that for every @xmath612 and every @xmath613 the projective measured geodesic laminations @xmath614 together fill up @xmath0 .
+such neighborhoods are well known to exist .
+then every pair @xmath615 determines a unique teichmller geodesic .
+cross ratio _
+function @xmath616 as follows .
+choose a quadratic differential @xmath13 whose horizontal measured geodesic lamination @xmath347 is in the class @xmath617 and whose vertical measured geodesic lamination @xmath446 is in the class @xmath618 .
+for @xmath613 , the pair @xmath619 defines a teichmller geodesic whose corresponding one - parameter family of quadratic differentials intersects @xmath17 in a unique point @xmath620 .
+similarly , the family of quadratic differentials defined by the pair @xmath621 intersects @xmath622 in a unique point @xmath623 , the family of quadratic differentials defined by the pair @xmath624 intersects @xmath625 in a unique point @xmath626 , and finally the family of quadratic differentials defined by @xmath627 intersect @xmath628 in a unique point @xmath629 . the value @xmath630 does not depend on the choice of the quadratic differential @xmath15 defining the pair @xmath627
+the resulting function @xmath631 is continuous and satisfies @xmath632 .
+recall that there is a natural action of the group @xmath633 on @xmath10 where the diagonal subgroup of @xmath633 acts as the teichmller geodesic flow .
+each @xmath633-orbit can naturally and equivariantly be identified with the unit tangent bundle of the hyperbolic plane together with its usual action by isometries . in particular , for every @xmath634 the orbit through @xmath177 of the unipotent subgroup of @xmath633 of all upper triangular matrices of trace two is an embedded line in @xmath635 , and the orbit through @xmath177 of the unipotent subgroup of all lower triangular matrices of trace two is contained in @xmath636 .
+thus the @xmath633-orbit through the above quadratic differential @xmath15 defines two embedded line segments @xmath637 containing @xmath611 in their interior so that the restriction of the function @xmath59 to @xmath638 coincides with the restriction of the usual dynamical cross ratio on the space @xmath639 of oriented geodesics in the hyperbolic plane .
+in particular , the restriction of the function @xmath59 to @xmath638 is not constant in no neighborhood of @xmath627 . on the other hand ,
+if we write @xmath640 then @xmath641 are dense in @xmath610 .
+since our function @xmath59 is continuous and not constant in any neighborhood of @xmath627 we conclude that for every @xmath321 there are points @xmath642 such that @xmath643 . however , by our choice of @xmath644 , the function @xmath590 is constant along the manifolds @xmath645 and @xmath628 and therefore @xmath646 .
+in other words , the function @xmath590 has arbitrarily small periods which is a contradiction to our assumption that the set of periods of @xmath590 equals @xmath595 for some @xmath596 .
+this completes the proof of our proposition .
+we also obtain a control of the return time to a suitably chosen compact subset of @xmath4 for a flow line of the teichmller geodesic flow @xmath5 on @xmath4 which is typical for a bernoulli measure @xmath63 on @xmath4 .
+the following observation is a version of theorem 2.15 of @xcite for all bernoulli measures ( see also @xcite ) .
+[ returntime ] there is a compact subset @xmath36 of @xmath4 and for every bernoulli measure @xmath63 for the teichmller geodesic flow @xmath5 there is a number @xmath647 and a constant @xmath648 such that @xmath649,\phi^sq\not\in k\}\leq ce^{-\epsilon t}.\ ] ]    let @xmath650 be an admissible sequence with the additional property that there is some @xmath651 such that the sequences @xmath652 and @xmath653 are both tight . by lemma 5.2 of @xcite
+there is a compact subset @xmath36 of @xmath4 such that for every numbered splitting and shifting sequence @xmath654 which realizes @xmath650 the following holds .
+let @xmath655 be a measured geodesic lamination which is carried by @xmath656 and which defines a transverse measure on @xmath286 for which the sum of the masses of the large branches of @xmath286 equals one .
+let @xmath657 be a measured geodesic lamination which hits @xmath286 efficiently and such that @xmath658 .
+then the quadratic differential @xmath659 with horizontal measured geodesic lamination @xmath19 and vertical measured geodesic lamination @xmath329 is contained in the lift of @xmath36 to @xmath10 .
+let @xmath63 be any bernoulli measure on the shift space @xmath26 . then @xmath63 is exponentially mixing and hence there are constants @xmath660 such that @xmath661 .
+the corollary now follows from this observation and the fact that the roof function @xmath49 on @xmath567 which defines our borel suspension which is semi - conjugate to the teichmller flow is uniformly bounded .
+we conclude this section with a description of the @xmath11-invariant @xmath5-invariant measure @xmath19 in the lebesgue measure class on the unit cotangent bundle @xmath10 of teichmller space which is invariant under the natural action of the group @xmath633 and which projects to a probability measure on @xmath4 .
+this measure induces a @xmath11-invariant radon measure @xmath20 on @xmath662 .    using the notations from section 4 ,
+let @xmath238 be the collection of all numbered combinatorial types as in lemma 4.2 .
+for every @xmath663 choose a numbered train track @xmath664 of combinatorial type @xmath266 .
+let @xmath665 be the space of all projective measured geodesic laminations which are carried by @xmath664 and let @xmath666 be the space of all projective measured geodesic laminations which hit @xmath664 efficiently .
+note that @xmath667 are closed disjoint subsets of @xmath53 with dense interior .
+define a _ full split _ of @xmath664 to be a complete train track @xmath59 which can be obtained from @xmath664 by splitting @xmath664 at each large branch precisely once .
+since splits at different large branches of @xmath664 commute , the numbering of the branches of @xmath664 induces a numbering of the branches of @xmath59 .
+thus the train tracks @xmath668 obtained from @xmath664 by a full split are numbered .
+we obtain a decomposition @xmath669 into borel sets @xmath670 where @xmath671 consists of the set of all projective measured geodesic laminations which are carried by @xmath672 ( @xmath673 ) . for @xmath674 the intersection @xmath675 is contained in a hyperplane of @xmath53 ( with respect to the natural piecewise linear structure which defines the lebesgue measure class ) and hence it has vanishing lebesgue measure .
+if @xmath676 is the combinatorial type of the numbered train track @xmath672 then define @xmath677 and define @xmath678 for @xmath679 .
+note that we have @xmath680 for all @xmath64 and @xmath681 . by invariance of the measure @xmath20 under the action of the mapping class group ,
+the probabilities @xmath682 only depend on the combinatorial type @xmath663 and the choice of a representative in the shift equivalence class of @xmath266 .
+consider the random walk on the space @xmath683 of all numbered classes defined by the @xmath11-invariant transition probabilities @xmath549 .
+it follows from our above consideration that the exit boundary of this random walk can be viewed as a probability measure on @xmath53 in the lebesgue measure class . by invariance under the action of the mapping class group , the shift
+invariant measure @xmath63 on the subshift @xmath684 of finite type with alphabet @xmath238 and transition matrix defined by the above full splits is contained in the lebesgue measure class .
+therefore the measure on @xmath538 defined by the biinfinite random walk with the above transition probabilities coincides with @xmath20 up to scale .
+we use this observation to obtain a new ( and simpler ) proof of theorem 2.15 of @xcite and of the main theorem of @xcite .
+[ return ] let @xmath19 be the @xmath5-invariant probability measure on @xmath4 in the lebesgue measure class .
+there is a compact subset @xmath36 of @xmath4 and a number @xmath321 such that @xmath685 for every @xmath686\}\leq e^{-\epsilon t}/\epsilon.$ ]    even though a priori it is not clear whether our subshift of finite type is topologically mixing ( or even transitive ) , we can apply the same consideration as above .
+namely , since set of uniquely ergodic minimal and maximal measured geodesic laminations has full lebesgue measure , there is a finite sequence @xmath687 with @xmath688 for all @xmath110 and there is a number @xmath551 such that for every full splitting and shifting sequence @xmath654 which realizes @xmath414 in the above sense , the sequences @xmath689 and @xmath690 are tight in the sense described before lemma 4.6 . as in the proof of lemma 5.2 , from this observation
+the proposition follows ( compare also the discussion in @xcite ) .
+in this section we derive the first part of theorem c from the introduction .
+namely , we show that the critical exponent of the mapping class group equals @xmath6 . for the proof of this result
+we continue to use the assumptions and notations from section 2 - 6 . in particular ,
+we denote by @xmath29 the teichmller distance on @xmath9 .
+fix a point @xmath30 .
+the poincar series at @xmath33 with exponent @xmath31 is defined to be the series @xmath34 the critical exponent of @xmath11 is the infimum of all numbers @xmath35 such that the poincar series with exponent @xmath32 converges .
+note that this critical exponent does not depend on the choice of @xmath33 .
+we first give a lower bound for this critical exponent .
+[ diverge ] the poincar series diverges at the exponent @xmath691 .
+let @xmath692 be a forward recurrent point for the teichmller geodesic flow and let @xmath693 be a lift of @xmath694 . denoting again by @xmath695 the canonical projection
+, we may assume that @xmath696 is not fixed by any nontrivial element of @xmath11 .
+in particular , there is a number @xmath37 such that the images under the elements of @xmath11 of the ball of radius @xmath697 about @xmath33 are pairwise disjoint .
+using the notations from proposition 3.3 of @xcite and its proof , let @xmath698 be the set of all projective measured geodesic laminations which contain a minimal sublamination which fills up @xmath0 .
+let @xmath148 be the gromov boundary of the curve graph .. then there is a natural continuous , surjective and closed map @xmath699 . for @xmath13 let @xmath700 be the image under the map @xmath701 of the lebesgue measure @xmath702 on the strong unstable manifold @xmath102 .
+let @xmath703 be the preimage under @xmath704 of the subset @xmath705 of all recurrent projective measured geodesic laminations determined by @xmath694 . by this we mean that for @xmath706 the point @xmath694 is contained in the @xmath707-limit set of the projection to @xmath4 of any flow line of the teichmller flow with horizontal lamination contained in the class @xmath329 .
+for @xmath115 and @xmath708 denote by @xmath709 the closed @xmath710-ball of radius @xmath90 about @xmath711 we showed in proposition 3.3 of @xcite that there is a number @xmath712 and there is an open neighborhood @xmath122 of @xmath713 in @xmath10 with the following properties .    1 .
+the projection of @xmath122 to @xmath9 is contained in the ball of radius @xmath39 about @xmath714 .
+2 .   there is a number @xmath120 such that for all @xmath715 we have @xmath716 .
+the family @xmath717 of all pairs @xmath718 for some @xmath719 is a vitali relation for @xmath720 .    by the proof of proposition 3.3 of @xcite
+, there is an open relative compact subset @xmath721 of @xmath722 with the property that @xmath723 is an open neighborhood of @xmath724 in @xmath150 .
+let @xmath31 be the diameter of the projection of @xmath721 to @xmath9 . by 3 ) above there is a countable set @xmath725 such that the sets @xmath726 @xmath727 are pairwise disjoint , are contained in @xmath728 and cover @xmath720-almost all of @xmath728 .
+moreover , for each @xmath110 there is some @xmath729 and some @xmath730 such that @xmath731 . by 2 ) above we have @xmath732 , and 1 ) above implies that @xmath733 . from this together with the transformation rule for the measures @xmath702 under the action of the teichmller flow we obtain with @xmath691 that @xmath734 where @xmath735 is a fixed constant .
+let @xmath736 .
+since the closed sets @xmath737 @xmath727 are pairwise disjoint by assumption , every point @xmath738 is contained in at most one of these sets . as a consequence
+, the family @xmath739 forms a covering relation for @xmath235 which is fine at every point of @xmath235 . using again proposition 3.3 of @xcite and its proof ,
+this covering relation is a vitali relation for the measure @xmath720 . in particular
+, we can find a countable subset @xmath740 @xmath741 as above such that the sets @xmath742 are pairwise disjoint , are contained in @xmath728 and cover @xmath720-almost all of @xmath728 . summing over @xmath743 yields that @xmath744 inductively
+we conclude that @xmath745 for every @xmath746 . in other words ,
+the poincar series diverges at the exponent @xmath141 .    with the same method we obtain .
+[ converge ] for every @xmath321 the poincar series converges at @xmath747 .    for @xmath30 let @xmath748 be the set of all unit area quadratic differentials which project to @xmath33 .
+the sets @xmath749 @xmath750 form a foliation of @xmath10 of dimension @xmath751 , and the same is true for the sets @xmath752 for some fixed @xmath128 .
+let @xmath753 be the conformal density of dimension @xmath754 in the lebesgue measure class .
+for @xmath13 and for @xmath746 write @xmath755 .
+let @xmath30 be a point which is not fixed by any nontrivial element of @xmath11 .
+there is a number @xmath37 such that the images under the elements of @xmath11 of the balls of radius @xmath756 about @xmath33 are pairwise disjoint . for @xmath757 and @xmath746 let @xmath758 be the set of all points @xmath759 which project into the closed ball of radius @xmath39 about @xmath33 . using continuity and compactness
+, for sufficiently large @xmath760 , say for all @xmath761 , and for all @xmath757 the @xmath762-mass of @xmath763 is bounded from below by a universal constant @xmath468 ( compare the discussion in the proof of proposition 3.3 of @xcite ) .    for an integer @xmath263 let @xmath764 .
+we claim that there is a constant @xmath22 such that for all @xmath765 the cardinality of the set @xmath766 is bounded from above by @xmath767 .
+then for every @xmath321 we have @xmath768 which shows our lemma .
+to show our claim , let @xmath769 , let @xmath770 and let @xmath771 .
+let moreover @xmath772 be such that @xmath773 .
+we claim that if @xmath774 then the sets @xmath775 and @xmath776 are disjoint . to see this assume otherwise .
+since the restriction of the projection @xmath704 to @xmath749 is a homeomorphism , there is then a quadratic differential @xmath777 with @xmath778 .
+now @xmath779 and therefore we have @xmath780 and hence @xmath781 . by our choice of @xmath39 ,
+this implies that @xmath782 .
+the @xmath783-mass of the set @xmath784 is bounded from below by @xmath67 and consequently by the definition of the measure @xmath762 the @xmath785-mass of @xmath784 is bounded from below by @xmath786 . since by our above considerations the sets @xmath775 @xmath787 are pairwise disjoint , their number does not exceed a universal constant times @xmath788 . from this our above
+claim and hence the lemma is immediate .    as an immediate corollary of lemma [ diverge ] and lemma [ converge ] we obtain .
+[ exponent ] the critical exponent of @xmath11 equals @xmath6 .    by lemma [ diverge ] , the poincar series of @xmath11 diverges at @xmath691 and hence the critical exponent of @xmath11 is not smaller than @xmath141 .
+on the other hand , lemma [ converge ] shows that for every @xmath321 the poincar series converges at @xmath747 and hence the critical exponent is not larger that @xmath747 .
+together the corollary follows .
+* remark : * shortly after this work was completed , a preprint of athreya , bufetov , eskin and mirzakhani @xcite appeared which contains precise asymptotics for the poincar series .
+for @xmath37 let @xmath41 be the number of periodic orbits for the teichmller flow on @xmath4 of period at most @xmath39 .
+veech @xcite showed that there is a number @xmath42 such that @xmath789 .
+similarly , for @xmath37 and a compact set @xmath790 let @xmath38 be the cardinality of the set of all periodic orbits for the teichmller geodesic flow of period at most @xmath39 which intersect @xmath36 . by the results of @xcite ,
+if @xmath47 then for every compact subset @xmath790 and every sufficiently large @xmath39 we have @xmath791 .
+the next proposition shows the second part of theorem c from the introduction ( see also @xcite for a related result ) . for this
+we denote by @xmath792 the moduli space of @xmath0 .
+choose a framing @xmath61 for @xmath0 and let @xmath796 be the collection of all train tracks in standard form for @xmath61 .
+let @xmath797 and recall that there is a constant @xmath263 such that every complete train track on @xmath0 is at distance at most @xmath264 from a train track in the collection @xmath798 in the _ train track complex _ of @xmath0 ( see @xcite for the definition of the train track complex and its basic properties ) .
+recall from section 3 the definition of the map @xmath799 .
+there is a number @xmath800 such that @xmath801 for all @xmath802 ( where we denote by @xmath29 the distance in the train track complex as well as the distance in @xmath9 , see @xcite and lemma 3.4 ) .      1 .
+@xmath59 is contained in the @xmath11-orbit of @xmath805 .
+@xmath805 can be connected to @xmath59 by a splitting and shifting sequence .
+the distance in the train track complex between @xmath59 and @xmath419 is bounded from above by @xmath79 .    as a consequence ,
+there is a number @xmath508 with the following property .
+let @xmath806 ; then there is some @xmath807 with @xmath808 and there is a train track @xmath809 in standard form for @xmath61 which can be connected to the train track @xmath810 by a splitting and shifting sequence .
+write @xmath811 and for each @xmath812 choose a tight splitting and shifting sequence connecting @xmath246 to a train track @xmath813 for some @xmath814 ; such a sequence exists by @xcite and section 4 ( see @xcite and the paragraph before lemma 4.6 for the definition of a tight sequence ) . for
+@xmath806 extend a splitting and shifting sequence connecting @xmath815 to @xmath816 by the splitting and shifting sequence connecting @xmath817 to @xmath818 .
+then the distance between @xmath819 and @xmath820 is bounded from above by a universal constant . moreover , by the results of @xcite , the element @xmath821 is pseudo - anosov and its axis passes through a fixed compact neighborhood of @xmath822 . in other words , there is a universal constant @xmath648 and for every @xmath806 there is a pseudo - anosov element @xmath823 with @xmath824 whose axis projects to a closed geodesic @xmath372 in the moduli space with the following properties .
+let @xmath827 be the preimage of @xmath826 under the projection @xmath828 .
+since by lemma [ diverge ] the poincar series diverges at the exponent @xmath6 and since moreover the number of elements @xmath829 with @xmath830 is bounded from above by a universal constant not depending on @xmath45 , our above consideration implies that @xmath831 .
+we are left with showing that @xmath832 for every compact subset @xmath36 of @xmath4 . for this
+let @xmath833 be any compact subset of @xmath834 with dense interior and let @xmath835 be a relatively compact fundamental domain for the action of @xmath11 on the lift @xmath836 of @xmath833 .
+let @xmath113 be the diameter of @xmath837 .
+let @xmath838 be a point which is not fixed by any element of @xmath11 .
+let @xmath806 be a pseudo - anosov element whose axis projects to a closed geodesic @xmath372 in moduli space which intersects @xmath833 .
+then there is a point @xmath839 which lies on the axis of a conjugate of @xmath45 which we denote again by @xmath45 for simplicity . by the properties of an axis , the length @xmath840 of our closed geodesic @xmath372 equals @xmath841 . on the other hand
+, we have @xmath842 by the definition of @xmath113 and the choice of @xmath843 . therefore ,
+if we denote by @xmath21 the preimage of @xmath844 under the natural projection and if we define @xmath845 for @xmath37 to be the number of all @xmath806 with @xmath846 , then we have @xmath847 since by corollary [ exponent ] the critical exponent of the poincar series equals @xmath6 , we conclude that @xmath848 as claimed .    for a point @xmath849 define @xmath850 to be the length of the shortest closed geodesic on the hyperbolic surface @xmath33 . for a periodic geodesic @xmath851\to { \rm mod}(s)$ ] write @xmath852\}$ ] .
+we have .
+let @xmath708 be sufficiently small that for every complete hyperbolic metric @xmath141 on @xmath0 of finite volume and every closed geodesic @xmath79 for the metric @xmath141 of length at most @xmath90 , the length of every closed @xmath141-geodesic which intersects @xmath79 nontrivially is bigger than @xmath855 . via an appropriate choice of the constant @xmath151 in the statement of the lemma , it is enough to show the lemma for closed geodesics @xmath372 in moduli space with @xmath856 .
+thus let @xmath851\to { \rm mod}(s)$ ] be such a closed geodesic parametrized proportional to arc length . via reparametrization , assume that @xmath857 .
+let @xmath858 be a lift of @xmath372 to @xmath9 which is the axis of the pseudo - anosov element @xmath806 and let @xmath79 be an essential simple closed curve on @xmath859 of length @xmath856 .
+we claim that the length of the geodesic arc @xmath860 $ ] is at least @xmath861 .
+namely , the function @xmath862 which associates to @xmath463 the length @xmath863 of the geodesic representative of the simple closed curve @xmath79 with respect to the hyperbolic metric @xmath864 is smooth , and the derivative of its logarithm does not exceed the length of the tangent vector of @xmath865 ( see @xcite ) . thus if the length of @xmath860 $ ] is smaller than @xmath866 then the length of the curve @xmath79 with respect to the hyperbolic structure @xmath867 is smaller than @xmath90 for @xmath868 . by our choice of @xmath90 , for every @xmath513
+there are at most @xmath87 distinct simple closed geodesics of length at most @xmath90 for the hyperbolic metric @xmath867 .
+however , since for each @xmath110 the length of @xmath869 on the hyperbolic surface @xmath870 equals @xmath871 , the length of @xmath872 on @xmath873 does not exceed @xmath90 . as a consequence
+, there is some @xmath874 such that the curves @xmath79 and @xmath872 coincide .
+this contradicts the fact that @xmath45 is pseudo - anosov .
+the lemma follows .        for @xmath31 let @xmath876 be the set of all hyperbolic metrics on @xmath0 up to isometry
+whose systole is at least @xmath32 , i.e. @xmath876 is the projection of the subset @xmath877 defined in section 3 . by proposition
+[ compactret ] , there is a number @xmath321 such that for every closed geodesic @xmath372 in moduli space of length at most @xmath39 there is a point @xmath878 whose distance to @xmath372 is not bigger than @xmath879 .
+namely , every @xmath138 can be connected to @xmath159 with a geodesic of length at most @xmath880 where @xmath648 is a universal constant ( see @xcite ) .
+let @xmath746 be the diameter of @xmath881 .
+for @xmath882 there is a lift @xmath865 of @xmath372 to @xmath9 which passes through a point @xmath176 of distance at most @xmath883 to @xmath33 .
+let @xmath806 be the pseudo - anosov map preserving @xmath865 which defines @xmath372 .
+we then have @xmath884 and hence our corollary follows from lemma [ converge ] and proposition [ compactret ] .    to conclude , we reduce the counting problem for closed geodesics in moduli space to a counting problem for pseudo - anosov elements with small translation length in the curve graph . for this
+we fix again a point @xmath30 .
+[ counting ] for every @xmath321 there is a number @xmath885 with the following property .
+let @xmath30 and let @xmath372 be a closed geodesic in moduli space of length @xmath840 .
+let @xmath886 be the conjugacy class in @xmath11 defined by @xmath372 . if @xmath806 is such that @xmath887 then @xmath888 .
+let @xmath889 and let @xmath372 be a closed geodesic in moduli space of length @xmath840 .
+let @xmath890 be sufficiently small that no two simple closed geodesics with respect to a complete hyperbolic metric of finite volume on @xmath0 of length at most @xmath90 can intersect .
+let @xmath891 be the compact subset of moduli space of all hyperbolic metrics whose systole is at least @xmath90 .
+let @xmath30 be a point which projects to a point in @xmath36 and let @xmath892 be such that @xmath893 .
+assume that @xmath372 is parametrized in such a way that @xmath857 .
+by the triangle inequality and the choice of @xmath45 , there is a constant @xmath120 not depending on @xmath372 and an element @xmath892 such that with @xmath894 we have @xmath895 . thus if @xmath896 then we have @xmath897 .
+let @xmath79 be a curve of length @xmath871 on @xmath859 .
+with @xmath708 as above , let @xmath898 be the smallest number such that the length of @xmath79 on @xmath899 equals @xmath90 ; then @xmath900 . by our choice of @xmath871
+, there is a curve @xmath901 on @xmath902 of length at most @xmath871 , and this curve is necessarily disjoint from @xmath79 . as a consequence
+, we have @xmath903 in the curve graph @xmath84 .
+we repeat this consideration as follows .
+let @xmath904 be the smallest number such that the length of @xmath901 on @xmath905 is at least @xmath90 .
+as before , we have @xmath906 .
+thus after @xmath907 steps we obtain a curve @xmath908 on @xmath909 whose distance to @xmath79 in the curve graph is at most @xmath264 and whose distance to @xmath910 is at most one . from this the lemma follows .
+[ conjug ] for every @xmath321 there is a number @xmath911 with the following property .
+let @xmath912 be the set of conjugacy classes of pseudo - anosov elements whose translation length on the curve graph is at most @xmath913 .
+for @xmath37 let @xmath914 be the number of all elements in @xmath915 which correspond to closed geodesics in moduli space of length at most @xmath39 ; then @xmath916                          r.  canary , d.  epstein , p.  green , _ notes on notes of thurston _ , in `` analytical and geometric aspects of hyperbolic space '' , edited by d.  epstein , london math .
+lecture notes 111 , cambridge university press , cambridge 1987 .
+u.  hamenstdt , _ train tracks and the gromov boundary of the complex of curves _ , in `` spaces of kleinian groups '' ( y.  minsky , m.  sakuma , c.  series , eds . ) , london math .
+notes 329 ( 2006 ) , 187207 .

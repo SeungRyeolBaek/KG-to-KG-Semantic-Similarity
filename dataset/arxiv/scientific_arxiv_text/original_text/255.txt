@@ -1,0 +1,225 @@
+the collective dynamics of complex distributed systems often can be usefully described in terms of a superposition of rate processes or frequencies which determine the changes in macroscopically measurable variables as energy flows through the system ; that is , a dynamical model expressed as a system of coupled ordinary differential equations in a few averaged state variables or mode coefficients and several , independently tunable , parameters that represent physical properties or external controls .
+this type of reduced ( or low - order or low - dimensional ) modelling averages over space , mode spectrum structure , single - particle dynamics and other details , but the payoff lies in its amenity to sophisticated analytic theory and methods that enable us to track important qualitative features in the collective dynamics , such as singularities , bifurcations , and stability changes , broadly over the parameter space .    motivated by the need for improved guidance and control of the ( mostly bad ) behaviour of fusion plasmas in magnetic containers ,
+i elaborate in this work a case study in bifurcation and stability analysis in which reduced dynamical system modelling yields new global and predictive information about gradient driven turbulence 
+flow energetics that is complementary to direct numerical simulation and can guide experimental design .    reduced dynamical models are powerful tools for describing and analysing complex systems such as turbulent plasmas and fluids , primarily because they are supported by well - developed mathematics that gives qualitative and global insight , such as singularity , bifurcation , stability , and symmetry theory . in principle
+one can map analytically the bifurcation structure of the entire phase and parameter space of a reduced dynamical system , but this feat is not possible for an infinite - dimensional system , or partial differential equations , and not practicable for systems of high order .
+the usefulness of such models seems to be no coincidence , too : in turbulent systems generally , which in detail are both complex and complicated , the dynamics seems to take place in a low - dimensional subspace @xcite .
+it seems paradoxical that enthusiasm for low - dimensional modelling and qualitative analysis of fluid and plasma systems has paced the ever larger direct numerical simulations of their flow fields .
+this is an exemplar of how the simplexity and complicity @xcite juxtaposition can work well : these methods affirm each other , for both have common ground in the universal conservation equations for fluid flow ( as well as separate bases in mathematics and computational science ) . developments in one feed developments in  the  other .
+reduced dynamical models can give insights into the physics and dynamics of a system in a way that is complementary to brute - force numerical simulations of the detailed , spatially distributed models from which they are derived .
+in practice this complementarity means that low - order models ( which capture few or no spatial modes ) can be used to channel information gleaned from the generic , qualitative structure of the parameter space  attractors , critical points of onset , stability properties , and so on  to numerical simulations ( which contain all spatial modes but , on their own , bring little physical understanding ) , giving them purpose and meaning . in turn
+the fluid simulations serve as virtual experiments to validate the low - order approach .
+it is reasonable , therefore , to assert that improved low - dimensional dynamical models for plasmas and fluids could provide numerical experimenters with new and interesting challenges that will continue to push the limits of computational science and technology .
+fusion plasmas in magnetic containers , such as those in tokamak or stellarator experiments , are strongly driven nonequilibrium systems in which the kinetic energy of small - scale turbulent fluctuations can drive the formation of large - scale coherent structures such as shear and zonal flows .
+this inherent tendency to self - organize is a striking characteristic of flows where lagrangian fluid elements see a predominantly two - dimensional velocity field , and is a consequence of the inverse energy cascade @xcite .
+the distinctive properties of quasi two - dimensional fluid motion are the basis of natural phenomena such as zonal and coherent structuring of planetary flows , but are generally under - exploited in technology .    in plasmas the most potentially useful effect of two - dimensional fluid motion is suppression of high wavenumber turbulence that generates cross - field transport fluxes and degrades confinement @xcite .
+suppression of turbulent transport can manifest temporally as a spontaneous and more - or - less abrupt enhancement of sheared poloidal or zonal flows and concomitant damping of density fluctuations , and spatially as the rapid development of a localized transport barrier or steep density gradient .
+the phenomenon is often called low- to high - confinement ( l  h ) transitions and has been the subject of intensive experimental , _ in numero , _ and theoretical and modelling investigations since the 1980s .
+the large and lively primary literature on reduced dynamical models for confinement transitions and associated oscillations in plasmas represents a sort of consensus on the philosophy behind qualitative analysis , if not on the details of the models themselves .
+what motivates this approach is the predictive power that a unified , low - order description of the macroscopic dynamics would have in the management of confinement states . since it is widely acknowledged that control of turbulent transport is crucial to the success of the world - wide fusion energy program @xcite it is important to develop predictive models for efficient management of access to , and sustainment of , high confinement rgimes .
+for example , if one plans to maintain a high confinement state at a relatively low power input by exploiting the hysteresis in the transition it would be useful , not to mention cheaper , to know in advance which parameters control the shape and extent of hysteresis , or whether it can exist at all in the operating space of a particular system , or whether a transition will be oscillatory .    however , it has been shown @xcite that many of the models in the literature are structurally flawed . they often contain pathological or persistent degenerate ( higher order ) singularities .
+an associated issue is that of overdetermination , where near a persistent degenerate singularity there may be more defining equations than variables .
+consequently much of the discussion in the literature concerning confinement transitions is qualitatively wrong .
+* such models can not possibly have predictive power*.    the heart of the matter lies in the mapping between the bifurcation structure and stability properties of a dynamical model and the physics of the process it is supposed to represent : if we probe this relationship we find that degenerate singularities ought to correspond to some essential physics ( such as fulfilling a symmetry - breaking imperative , or the onset of hysteresis ) , or they are pathological . in the first case
+we can usually unfold the singularity in a physically meaningful way ; in the other case we know that something is amiss and we should revise our assumptions . degenerate
+singularities are good because they provide opportunities to improve a model and its predictive capabilities , but bad when they are not recognized as such .
+[ [ section ] ]    the literature on confinement transitions has two basic strands : ( 1 ) transitions are an internal , quasi two - dimensional flow , phenomenon and occur spontaneously when the rate of upscale transfer of kinetic energy from turbulence to shear and zonal flows exceeds the nonlinear dissipation rate @xcite ; ( 2 ) transitions are due to nonambipolar ion orbit losses near the plasma edge , the resulting electric field providing a torque which drives the poloidal shear flow nonlinearly @xcite .
+these two different views of the physics behind confinement transitions are smoothly reconciled for the first time in this work .
+a systematic methodology for characterizing the equilibria of dynamical systems involves finding and classifying high - order singularities then perturbing around them to explore and map the bifurcation landscape @xcite .
+broadly , this paper is about applying singularity theory as a diagnostic tool while an impasto picture of confinement transition dynamics is compounded .
+the bare - bones model is presented in section [ two ] in section [ three ] the global consequences of local symmetry - breaking are explored , leading to the discovery of an organizing centre and trapped degenerate singularities .
+this leads in to section [ four ] where i unfold a trapped singularity smoothly by introducing another layer that models the neglected physics of downscale energy transfer .
+section [ five ] follows the qualitative changes to the bifurcation and stability structure that are due to potential energy dissipative losses . in section [ six ]
+the unified model is presented , in which is included a direct channel between gradient potential energy and shear flow kinetic energy .
+the results and conclusions are summarized in section [ seven ]
+in the edge region of a plasma confinement experiment such as a tokamak or stellarator potential energy is stored in a steep pressure gradient which is fed by a power source near the centre .
+gradient potential energy @xmath0 is converted to turbulent kinetic energy @xmath1 , which is drawn off into stable shear flows , with kinetic energy @xmath2 , and dissipation channels .
+the energetics of this simplest picture of confinement transition dynamics are schematized in fig .
+[ fig1](a ) .
+( nomenclature for the quantities here and in the rest of the paper is defined in table [ tab1 ] . )
+energy transfer diagrams for the gradient - driven plasma turbulence  shear flow system .
+annotated arrows denote rate processes ; curly arrows indicate dissipative channels , straight arrows indicate inputs and transfer channels between the energy - containing subsystems
+. see text for explanations of each subfigure . ]    a skeleton dynamical system for this overall process can be written down directly from fig .
+[ fig1](a ) by inspection : @xmath3 the power input @xmath4 is assumed constant and the energy transfer and dissipation rates generally may be functions of the energy variables .
+a more physics - based derivation of this system was outlined in ball ( 2002)ball:2002 , in which averaged energy integrals were taken of momentum and pressure convection equations in slab geometry , using an electrostatic approximation to eliminate the dynamics of the magnetic field energy .
+equations [ e1 ] are fleshed out by substituting specific rate - laws for the general rate expressions on the right hand sides :    [ e2 ] @xmath5    where @xmath6 .
+the rate expressions in eqs [ e2 ] were derived in sugama and horton ( 1995)sugama:1995 and ball ( 2002)ball:2002 from semi - empirical arguments or given as ansatzes .
+( rate - laws for bulk dynamical processes are not usually derivable purely from theory , and ultimately must be tested against experimental evidence . )    the rest of this paper is concerned with the character of the equilibria of eqs [ e2 ] and modifications and extensions to this system .
+we shall study the type , multiplicity , and stability of attractors , interrogate degenerate or pathological singularities where they appear , and classify and map the bifurcation structure of the system . in doing this
+we shall attempt to answer questions such as : are eqs [ e2 ] or modified versions a good  that is , predictive  model of the system ? does the model adequately reflect the known phenomenology of confinement transitions in fusion plasmas ? what is the relationship between the bifurcation properties of the model and the physics of confinement transitions ?
+the equilibrium solutions of eqs [ e2 ] are shown in the bifurcation diagrams of fig .
+[ fig2 ] , where the shear flow @xmath7 is chosen as the state variable and the power input @xmath4 is chosen as the principal bifurcation or control parameter .
+( in these and subsequent bifurcation diagrams stable equilibria are indicated by solid lines and unstable equilibria are indicated by dashed lines . ) several bifurcation or singular points are evident .
+the four points in ( a ) annotated by asterisks , where the stability of solutions changes , are hopf bifurcations to limit cycles , which are discussed in section [ three - two ] .    on the line @xmath8 the singularity * p * is found to satisfy the defining and non - degeneracy conditions for a pitchfork , @xmath9 where @xmath10 is the bifurcation equation derived from the zeros of eqs [ e2 ] , @xmath11 represents the chosen state variable , @xmath12 represents the chosen control or principal bifurcation parameter , and the subscripts denote partial derivatives . in the qualitatively different bifurcation diagrams ( a ) and ( b ) the dissipative parameter @xmath13 is relaxed either side of the critical value given in ( c ) , where the perfect , twice - degenerate pitchfork is represented .
+thus for @xmath14 ( a poorly dissipative system ) the turning points in ( a ) appear and the system may also show oscillatory behaviour .
+the dynamics are less interesting for @xmath15 ( a highly dissipative system ) as in ( b ) because the turning points , and perhaps also the hopf bifurcations , can not occur .
+however , * p * is persistent through variations in @xmath13 or any other parameter in eqs [ e2 ] .
+( this fact was not recognized in some previous models for confinement transitions , where such points were wrongly claimed to represent second - order phase transitions . )
+typically the pitchfork is associated with a fragile symmetry in the dynamics of the modelled physical system .
+the symmetry in this case is obvious from fig .
+[ fig2 ] : in principle the shear flow can be in either direction equally . in real life ( or _ in numero _ ) , experiments are always subject to perturbations that determine a preferred direction for the shear flow , and the pitchfork is inevitably dissolved . in this case
+the perturbation is an effective force or torque from any asymmetric shear - inducing mechanism , such as friction with neutrals in the plasma or external sources , and acts as a shear flow driving rate . assuming this rate to be small and independent of the variables over the characteristic timescales for the other rate processes in the system
+, we may revise the shear flow evolution eq .
+[ e2c ] as @xmath16 where the symmetry - breaking term @xmath17 models the shear flow drive .
+the corresponding energy transfer schematic is shown in fig . [ fig1](b ) .
+the pitchfork * p * in fig . [ fig2 ] ( c ) can now be obtained exactly by applying the conditions ( [ e3 ] ) to the zeros of eqs [ e2a ] , [ e2b ] , and [ e4 ] , with [ e2d ] , and with @xmath18 and @xmath19 : @xmath20    the other singularity * t * on @xmath8 satisfies the defining and non - degeneracy conditions for a transcritical bifurcation , @xmath21 it is once - degenerate and also requires the symmetry - breaking parameter for exact definition .      a bifurcation diagram
+where * p * is fully unfolded , that is , for @xmath22 and @xmath23 , is shown in fig .
+this diagram is rich with information that speaks of the known and predicted dynamics of the system and of ways in which the model can be improved further , and which can not be inferred or detected from the degenerate bifurcation diagrams of fig .
+it is worthwhile to step through fig .
+[ fig3 ] in detail , with the energy schema fig .
+[ fig1 ] ( b ) at hand .
+let us begin on the stable branch at @xmath24 .
+here the pressure gradient is being charged up , the gradient potential energy is feeding the turbulence , and the shear flow is small but positive because the sign of the perturbation @xmath17 is positive . as the power input @xmath4
+is increased quasistatically the shear flow begins to grow but at the turning point , where solutions become unstable , there is a discontinuous transition to the upper stable branch in @xmath7 and @xmath0 , ( a ) and ( b ) , and to the lower stable branch in @xmath1 , ( c ) . at the given value of @xmath13
+the hysteresis is evident : if we backtrack a little the back transition takes place at a lower value of @xmath4 .
+continuing along the upper stable branch in @xmath7 we encounter another switch in stability ; this time at a hopf bifurcation to stable period one limit cycles .
+( in this and other diagrams the amplitude envelopes of limit cycle branches are marked by large solid dots . ) from the amplitude envelope we see that the oscillations grow as power is fed to the system then are extinguished rather abruptly , at a second hopf bifurcation where the solutions regain stability .
+the shear flow decreases toward zero as the pressure - dependent anomalous viscosity , the second term in eq .
+[ e2d ] , takes over to dissipate the energy at high power input .
+the system may also be evolved to an equilibrium on the antisymmetric , @xmath25 branch in fig .
+[ fig3 ]  ( a ) , by choosing initial conditions appropriately or a large enough kick . however , if the power input then falls below the turning point at @xmath26 we see an interesting phenomenon : the shear flow spontaneously reverses direction
+. the transient would nominally take the system toward the nearest stable attractor , the lower @xmath27 branch , but since it would then be sitting very close to the lower @xmath27 turning point small stochastic fluctuations could easily induce the transition to the higher @xmath27 branch .
+see the inset zoom - in over this region in ( a ) .
+here is an example of a feature that is unusual in bifurcation landscapes , a domain over which there is fivefold multiplicity comprising three stable and two unstable equilibria .
+two more examples of threefold stable domains will be shown in section [ five ]    the same equilibria depicted using @xmath0 and @xmath1 as dynamical variables in ( b ) and ( c ) are annotated to indicate whether they correspond to the @xmath27 or @xmath25 domain . for clarity
+the amplitude envelopes of the limit cycle solutions are omitted from ( b ) and ( c ) .    in the remainder of this paper
+i concentrate on the @xmath27 branches and ignore the @xmath25 domain .
+now we approach the very heart of the model , the organizing centre ; strangely enough via the branch of _ unstable _ solutions that is just evident in fig .
+[ fig3 ] ( a ) and ( b ) in the top left - hand corner and ( c ) in the lower left hand corner .
+the effects of symmetry - breaking are more far - reaching than merely providing a local universal unfolding of the pitchfork , for this branch of equilibria was trapped as a singularity at @xmath28 for @xmath29 .
+the organizing centre itself , described as a metamorphosis in ball ( 2002)ball:2002 , can be encountered by varying @xmath17 .
+the sequence in fig .
+[ fig4 ] tells the story visually .
+the `` new '' unstable branch develops a hopf bifurcation at the turning point .
+( strictly speaking , this is a degenerate hopf bifurcation , called dze , where a pair of complex conjugate eigenvalues have zero real and imaginary components . ) as @xmath17 is tuned up to 0.08 ( a ) a segment of stable solutions becomes apparent as the hopf bifurcation moves away from the turning point ; the associated small branch of limit cycles can also just be seen . at @xmath30 , the metamorphosis , the `` new '' and `` old '' branches exchange arms , ( b ) .
+the metamorphosis satisfies the conditions ( [ trans ] ) and is therefore an unusual , non - symmetric , transcritical bifurcation .
+it signals a profound change in the _ type _ of dynamics that the system is capable of . for @xmath31
+a transition must still occur at the lower limit point , but there is no classical hysteresis , ( c ) and ( d ) . in fact
+classical hysteresis is ( locally ) forbidden by the non - degeneracy condition @xmath32 in eqs [ trans ] .
+various scenarios are possible in this rgime , including a completely non - hysteretic transition , a forward transition to a stable steady state and a back transition from a large period limit cycle , or forward and back transitions occurring to and from a limit cycle .
+the symmetry - broken model comprises eqs [ e2a ] , [ e2b ] , and [ e4 ] , with [ e2d ] .
+the bifurcation structure , some of which is depicted in figs [ fig3 ] and [ fig4 ] , predicts various behaviours :    * shear flow suppression of turbulence ; * smooth , hysteretic , non - hysteretic , and oscillatory transitions ; * spontaneous and kicked reversals in direction of shear flow ; * saturation then decrease of the shear flow with power input due to pressure - dependent anomalous viscosity ; * a metamorphosis of the dynamics through a transcritical bifurcation .    a critical appraisal of experimental evidence that supports the qualitative structure of this model is given in ball ( 2004)ball:2004a . with the exception of the last item
+all of the above dynamics have been observed in magnetically contained fusion plasma systems .
+the model would therefore seem to be a `` good '' and `` complete '' one , in the sense of being free of pathological or persistent degenerate singularities and reflecting observed behaviours .    however , there are several outstanding issues that suggest the model is still incomplete .
+one issue arises as a gremlin in the bifurcation structure that makes an unphysical prediction , another comes from a thermal diffusivity term that was regarded as negligible in previous work on this model .
+a third issue arises from the two strands in literature on the physics of confinement transitions : the model as it stands does not describe confinement transitions due to a nonlinear electric field drive .
+the first issue of incompleteness concerns a pathology in the bifurcation structure of the model , implying infinite growth of shear flow as the power input _
+falls_. before we pinpoint the culprit singularity , it is illuminating to evince the physical  or unphysical  situation through a study of the role of the thermal capacitance parameter @xmath33 , which regulates the contribution of the pressure gradient dynamics , eq .
+[ e2a ] , to the oscillatory dynamics of the system .
+conveniently , we can use @xmath33 as a second parameter to examine the stability of steady - state solutions around the hopf bifurcations in fig .
+[ fig4 ] without quantitative change .
+the machinery for this study consists of the real - time equations [ e2a ] , [ e2b ] , and [ e4 ] recast in `` stretched time '' @xmath34 ,    [ e6 ] @xmath35    and the two - parameter locus of hopf bifurcations in the real - time system shown in fig .
+we consider two cases .
+the curve is the locus of the hopf bifurcations in fig .
+[ fig4](c ) over variations in @xmath33 . ]    1 .
+the high - capacitance rgime : + the maximum on the curve in fig .
+[ fig5 ] marks a degenerate hopf bifurcation , a dze point . here
+the two hopf bifurcations at lower @xmath4 in fig . [ fig4](c ) merge and are extinguished as @xmath33 increases .
+( this merger through a dze has obviously occurred in fig .
+[ fig4](d ) , where @xmath17 is varied rather than @xmath33 . ) the surviving upper hopf bifurcation moves to higher @xmath4 as @xmath36 increases further .
++ in this high - capacitance rgime the dynamics becomes quasi one - dimensional on the stretched timescale . to see this formally ,
+define @xmath37 and multiply the stretched - time equations [ e6b ] and [ e6c ] through by  @xmath38 . in the limit @xmath39 the kinetic energy variables are slaved to the pressure gradient ( or potential energy ) dynamics .
+switching back to real time and multiplying eq .
+[ e2a ] through by @xmath38 , for @xmath40 @xmath41 .
+the kinetic energy subsystems see the potential energy as a constant , `` infinite source '' .
+it is conjectured that the surviving upper hopf bifurcation moves toward @xmath42 and for @xmath43 the dynamics becomes largely oscillatory in real time , with energy simply sloshing back and forth between the turbulence and the shear flow .
+2 .   the low - capacitance rgime : + the minimum on the curve in fig .
+[ fig5 ] marks another degenerate hopf bifurcation , also occurring at a dze point . here
+the two hopf bifurcations at higher @xmath4 in fig . [ fig4](c ) merge and are extinguished as @xmath33 decreases .
+the surviving hopf bifurcation moves to lower @xmath4  and higher @xmath7  as @xmath36 decreases further .
+this scenario is illustrated in fig .
+[ trap4a ] , where the steady - state curve and limit cycle envelope are roughly sketched in a decreasing  @xmath33 sequence .
++   as @xmath33 is decreased further than the minimum in fig .
+[ fig5 ] the remaining hopf bifurcation slides up the steady - state curve , which becomes stable toward unrealistically high @xmath7 and low @xmath4 . ]
++ in this low - capacitance rgime the dynamics also becomes quasi one - dimensional , and as @xmath44 the conjectured fate of the surviving hopf bifurcation is a double zero eigenvalue trap at @xmath45 . to see why this can be expected ,
+consider again the stretched - time system , eqs [ e6 ] .
+for @xmath46 we have @xmath47 and @xmath48 . on the stretched timescale
+the potential energy subsystem sees the kinetic energy subsystems as nearly constant , and @xmath49 . reverting to real time , as @xmath50 we have @xmath51 ; the potential energy is reciprocally slaved to the kinetic energy dynamics .
++ the anomaly in this low - capacitance picture is that , as the power input @xmath4 ebbs , the shear flow can grow quite unrealistically . with diminishing @xmath33 the hopf bifurcation moves upward along the curve , the branch of limit cycles shrinks , and the conjugate pair of pure imaginary eigenvalues approaches zero .
+it would seem , therefore , that some important physics is still missing from the model .
+what is not shown in figs [ fig3 ] and [ fig4 ] ( because a log scale is used for illustrative purposes ) is a highly degenerate branch of equilibria that exists at @xmath52 where @xmath53 and @xmath54 ; it is shown in fig .
+[ fig7](a ) . for @xmath55
+there is a trapped degenerate turning point , annotated as s4 , where the `` new '' branch crosses the @xmath52 branch .
+the key to its release ( or unfolding ) lies in recognizing that kinetic energy in large - scale structures inevitably feeds the growth of turbulence at smaller scales , as well as vice versa @xcite . in a flow where lagrangian fluid elements locally experience a velocity field that is predominantly two - dimensional
+there will be a strong tendency to upscale energy transfer ( or inverse energy cascade , see kraichnan and montgomery ( 1980)kraichnan:1980 ) , but the net rate of energy transfer to high wavenumber ( or kolmogorov cascade , see ball ( 2004)ball:2004a ) is not negligible .
+what amounts to an ultraviolet catastrophe in the physics when energy transfer to high wavenumber is neglected maps to a trapped degenerate singularity in the mathematical structure of the model .
+the trapped singularity s4 may be unfolded smoothly by including a simple , conservative , back - transfer rate between the shear flow and turbulent subsystems :    [ e7 ] @xmath56    the model now consists of eqs [ e7 ] and [ e2a ] , with [ e2d ] , and the corresponding energy transfer schematic is fig .
+[ fig1](c ) .
+the back- transfer rate coefficient @xmath57 need not be identified with any particular animal in the zoo of plasma and fluid instabilities , such as the kelvin - helmholtz instability ; it is simply a lumped dimensionless parameter that expresses the inevitability of energy transfer to high wavenumber .
+the manner and consequences of release of the turning point s4 can be appreciated from fig .
+[ fig7](b ) , from which we learn a salutary lesson : unphysical equilibria and singularities should not be ignored .
+the unfolding of s4 creates a maximum in the shear flow , and ( apparently ) a _ fourth _ hopf bifurcation is released from a trap at infinity . at the given values of the other parameters
+this unfolding of s4 has the effect of forming a finite - area isola of steady - state solutions , but it is important to visualize this ( or , indeed , any other ) bifurcation diagram as a slice of a three - dimensional surface of steady states , where the third coordinate is another parameter .
+( isolas of steady - state solutions were first reported in the chemical engineering literature , where nonlinear dynamical models typically include a thermal or chemical autocatalytic reaction rate @xcite . )    in fig .
+[ fig8 ] we see two slices of this surface , prepared in order to demonstrate that the metamorphosis identified in section [ 3.3 ] is preserved through the unfolding of s4 . here
+the other turning points are labelled s1 , s2 , and s3 .    walking through fig .
+[ fig8 ] we make the forward transition at s1 and progress along this branch through the onset of an a limit cycle rgime , as in fig .
+[ fig3 ] . for obvious reasons
+we now designate this segment as the _ intermediate _ shear flow branch , and the isola or peninsula as the _ high _ shear flow branch . in
+( a ) a back - transition occurs at s2 .
+the system can only reach a stable attractor on the isola by a transient , either a non - quasistatic jump in a second parameter or an evolution from initial conditions within the appropriate basin of attraction . in ( b ) as we make our quasistatic way along the intermediate branch with diminishing @xmath4 the shear flow begins to grow , then passes through a second oscillatory domain before reaching a maximum and dropping steeply ; the back transition in this case occurs at s4 .
+in the model so far the only outlet channel for the potential energy is conversion to turbulent kinetic energy , given by the conservative transfer rate @xmath58 .
+however , in a driven dissipative system such as a plasma other conduits for gradient potential energy may be significant .
+the cross - field thermal diffusivity , a neoclassical transport quantity @xcite is often assumed to be negligible in the strongly - driven turbulent milieu of a tokamak plasma @xcite , but here eq .  [ e2 ] is modified to include explicitly a linear `` infinite sink '' thermal energy dissipation rate : @xmath59 following thyagaraja et al .
+( 1999)thyagaraja:1999 @xmath60 is taken as as a lumped dimensionless parameter and the rate term @xmath61 as representing all non - turbulent or residual losses such as neoclassical and radiative losses .
+the model now consists of eqs [ e7 ] and [ e8 ] , with [ e2d ] and the corresponding energy schematic is fig . [
+fig1](d ) .
+this simple dissipative term has profound effects on the bifurcation structure of the model , and again the best way to appreciate them is through a guided walking tour of the bifurcation diagrams .    in fig .
+[ fig9 ] the series of bifurcation diagrams has been computed for increasing values of @xmath60 and a connected slice of the steady state surface ( i.e. , using a set of values of the other parameters for which the metamorphosis has already occurred ) .
+a qualitative change is immediately apparent , which has far - reaching consequences : for @xmath62 the two new turning points s5 and s6 appear , born from a local cusp singularity that was trapped at @xmath63 .
+overall , from ( a ) to ( e ) we see that s1 does not shift significantly but that the peninsula becomes more tilted and shifts to higher @xmath4 , but let us begin the walk at s1 in ( b ) . here , as in fig .
+[ fig8 ] , the transition occurs to an intermediate shear flow state and further increments of @xmath4 take the system through an oscillatory rgime .
+but the effect of decreasing @xmath4 is radically different : at s6 a discontinuous transition occurs to a high shear flow state on the stable segment of the peninsula . from this point
+we may step forward through the shear flow maximum and fall back to the intermediate branch at s5 .
+we see that over the range of @xmath4 between s5 and s6 the system has five steady states , comprising three stable interleaved with two unstable steady states . as in fig .
+[ fig8](b ) a back transition at low @xmath4 occurs at s4 .
+the tristable rgime in ( b ) has disappeared in ( c ) in a surprisingly mundane way : not through a singularity but merely by a shift of the peninsula toward higher @xmath4 . but
+this shift induces a _ different _ tristable rgime through the creation of s7 and s8 at another local cusp singularity . in ( d )
+s4 and s7 have been annihilated at yet another local cusp singularity .
+it is interesting and quite amusing to puzzle over the 2-parameter projection of these turning points s1 , s8 , s7 , and s4 followed over @xmath60 , it is given in fig .
+[ fig9c-2par ] .
+the origins of the three local cusps can be read off the diagram , keeping in mind that the crossovers are a _
+trompe de loeil _ : they are nonlocal .
+the turning points s1 , s8 , s7 , and s4 are followed over @xmath60 .
+@xmath64 , @xmath65 , @xmath66 , @xmath67 , @xmath68 , @xmath69 , @xmath70 , @xmath71 . ]    at s5 in fig .
+[ fig9](c ) , ( d ) , and ( e ) the system transits to a limit cycle , rather than to a stable intermediate steady state . shown in fig .
+[ fig10 ] are the bifurcation diagrams in @xmath1 and @xmath0 corresponding to fig .
+[ fig9](e ) .
+the pressure gradient jumps at s1 because the power input exceeds the distribution rates , and oscillatory dynamics between the energy subsystems sets in abruptly at s5 .
+the turbulence is enormously suppressed due to uptake of energy by the shear flow , but rises again dramatically with this hard onset of oscillations .
+the early theoretical work on confinement transitions attempted to explain edge l  h transitions exclusively in terms of the electric field driving torque created by nonambipolar ion orbit losses @xcite , with no coupling to the internal dynamics of energy transfers from the potential energy reservoir in the pressure gradient .
+the electric field is bistable , hence the transition to a high shear flow , or high confinement , rgime is discontinuous and hysteretic .
+although there are many supporting experiments @xcite , this exposition of the physics behind confinement transitions is incomplete because it can not explain shear flow suppression of turbulence  a well - known characteristic of l  h transitions .    here
+this `` electric field bifurcation '' physics is treated as a piece of a more holistic physical picture and a simple model for the rate of shear flow generation due to this physics is used to create a unified dynamical model for confinement transitions . following the earlier authors this rate
+is given as @xmath72 $ ] , which simply says that the rate at which ions are preferentially lost , and hence flow is generated , is proportional to a collision frequency @xmath73 times the fraction of those collisions that result in ions with sufficient energy to escape .
+the form of the energy factor assumes an ion distribution that is approximately maxwellian and @xmath74 , analogous to an activation energy , is proportional to the square of the critical escape velocity . in this form of the rate expression
+i have explicitly included the temperature - dependence of @xmath75 , through @xmath0 , which couples it to the rest of the system .
+if @xmath76 is high the rate is highly temperature ( pressure gradient ) sensitive .
+( for heuristic purposes constant density is assumed , constants and numerical factors are normalized to 1 , and the relatively weak temperature dependence of the collision rate @xmath73 is ignored . )    for convenience the equations for the unified model are gathered together :    [ e9 ] @xmath77 \label{e8c}\\ & \mu(p , n ) =   bp^{-3/2 } + a pn .
+\tag{\ref{e2d}}\end{aligned}\ ] ]    the corresponding energy schematic is fig . [ fig1](e ) where it is seen that @xmath78 is a competing potential energy conversion channel , that can dominate the dynamics when the critical escape velocity @xmath76 is low or the pressure is high .
+this is exactly what we see in the bifurcation diagrams , fig .
+[ fig11 ] .
+overall , the effect of this contribution to shear flow generation from the ion orbit loss torque is to elongate and flatten the high shear flow peninsula .
+the hopf bifurcations that are starred in ( a ) , where the contribution is relatively small , have disappeared in ( b ) at a dze singularity .
+what this means is that as @xmath79 begins to take over * there is no longer a practicably accessible intermediate branch * , as can be seen in ( c ) where the intermediate branch is unstable until the remaining hopf bifurcation is encountered at extremely high @xmath4 .
+locally , in the transition region , as @xmath80 becomes significant the bifurcation diagram begins to look more like the simple s - shaped , cubic normal form schematics with classical hysteresis presented by earlier authors .
+however , this * unified * model accounts for shear flow suppression of the turbulence ( d ) , whereas theirs could not .
+the generation of stable shear flows in plasmas , and the associated confinement transitions and oscillatory behaviour in tokamaks and stellarators , is regulated by reynolds stress decorrelation of gradient - driven turbulence and/or by an induced bistable radial electric field .
+* these two mechanisms are smoothly unified by the first smooth road through the singularity and bifurcation structure of a reduced dynamical model for this system*.    the model is constructed self - consistently , beginning from simple rate - laws derived from the basic pathways for energy transfer from pressure gradient to shear flows .
+it is iteratively strengthened by finding the singularities and allowing them to `` speak for themselves '' , then matching up appropriate physics to the unfoldings of the singularities .
+the smooth road from turbulence driven to electric field driven shear flows crosses interesting territory :    * hysteresis is possible in both rgimes and is governed by different physics . * a metamorphosis of the dynamics is encountered , near which hysteretic transitions are forbidden .
+the metamorphosis is a robust organizing centre of codimension 1 , even though there are singularities of higher codimension in the system .
+* oscillatory and tristable domains are encountered . * to travel the smooth road several obstacles are successively negotiated in physically meaningful ways :
+a pitchfork is dissolved , simultaneously releasing a branch of solutions from a singular trap at infinity , a singularity is released from a trap at zero power input , and another is released from a trap at zero thermal diffusivity .    in particular , these results suggest strategies for controlling access to high confinement states and manipulating oscillatory behaviour in fusion experiments .
+more generally i have shown that low - dimensional models have a useful role to play in the study of one of the most formidable of complex systems , a strongly driven turbulent plasma .
+having survived such a trial - by - ordeal , the methodology is expected to continue to develop as a valuable tool for taming this and other complex systems .
+.glossary of nomenclature [ cols= " < , < " , ]
+this work is supported by the australian research council .
+i thank the referees for helpful comments that have resulted in a better paper , and for their positive endorsements .
+diamond , p.  h. , shapiro , v. , shevchenko , v. , kim , y.  b. , rosenbluth , m.  n. , carreras , b.  a. , sidikman , k. , lynch , v.  e. , garcia , l. , terry , p.  w. , and sagdeev , r.  z. ( 1992 ) .
+self - regulated shear flow turbulence in confined plasmas : basic concepts and potential applications to the l@xmath81h transition .
+, 2:97113 .
+fujisawa , a. , iguchi , h. , minami , t. , yoshimura , y. , tanaka , k. , itoh , k. , sanuki , h. , lee , s. , kojima , m. , itoh , s .-
+i . , yokoyama , m. , kado , s. , okamura , s. , akiyama , r. , ida , k. , isobe , m. , and s.  nishimura , m. ( 2000 )
+. experimental study of the bifurcation nature of the electrostatic potential of a toroidal helical plasma .
+, 7(10):41524183 .

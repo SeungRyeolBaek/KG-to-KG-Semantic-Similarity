@@ -1,0 +1,200 @@
+developments are currently underway to promote the sensitivity of ligo and to improve its prospect for detecting gravitational waves emitted by compact object binaries @xcite . of particular interest
+are the detection of gravitational waves released during the inspiral and merger of binary black hole ( bbh ) systems .
+detection rates for bbh events are expected to be within 0.41000 per year with advanced ligo @xcite .
+it is important that rigorous detection algorithms be in place in order to maximize the number of detections of gravitational wave signals .
+the detection pipeline currently employed by ligo involves a matched - filtering process whereby signals are compared to a pre - constructed template bank of gravitational waveforms . the templates are chosen to cover some interesting region of mass - spin parameter space and are placed throughout it in such a way that guarantees some minimal match between any arbitrary point in parameter space and its closest neighbouring template .
+unfortunately , the template placement strategy generally requires many thousands of templates ( e.g.  @xcite ) evaluated at arbitrary mass and spin ; something that can not be achieved using the current set of numerical relativity ( nr ) waveforms .    to circumvent this issue
+, ligo exploits the use of analytical waveform families like phenomenological models @xcite or effective - one - body models @xcite .
+we shall focus here on the phenomenological b ( phenomb ) waveforms developed by @xcite .
+this waveform family describes bbh systems with varying masses and aligned - spin magnitudes ( i.e.  non - precessing binaries ) .
+the family was constructed by fitting a parameterized model to existing nr waveforms in order to generate a full inspiral - merger - ringdown ( imr ) description as a function of mass and spin .
+the obvious appeal of the phenomb family is that it allows for the inexpensive construction of gravitational waveforms at arbitrary points in parameter space and can thus be used to create arbitrarily dense template banks .    to optimize computational efficiency of the detection process
+it is desirable to reduce the number of templates under consideration .
+a variety of reduced bases techniques have been developed , either through singular - value decomposition ( svd ) @xcite , or via a greedy algorithm @xcite .
+svd is an algebraic manipulation that transforms template waveforms into an orthonormal basis with a prescription that simultaneously filters out any redundancies existing within the original bank . as a result
+, the number of templates required for matched - filtering can be significantly reduced . in addition
+, it has been shown in @xcite that , upon projecting template waveforms onto the orthonormal basis produced by the svd , interpolating the projection coefficients provides accurate approximations of other imr waveforms not included in the original template bank .    in this paper , we continue to explore the use of the interpolation of projection coefficients . we take a novel approach that utilizes both the analytic phenomb waveform family @xcite and nr hybrid waveforms @xcite .
+we apply svd to a template bank constructed from an analytical waveform family to construct an orthonormal basis spanning the waveforms , then project the nr waveforms onto this basis and interpolate the projection coefficients to allow arbitrary waveforms to be constructed , thereby obtaining a new waveform approximant .
+we show here that this approach improves upon the accuracy of the original analytical waveform family .
+the original waveform family shows mismatches with the nr waveforms as high as @xmath0 when no extremization over physical parameters is applied ( i.e. , a measure of the  faithfulness " of the waveform approximant ) , and mismatches of @xmath1 when maximized over total mass ( i.e. , a measure of the  effectualness " of the waveform approximant ) . with our svd accuracy booster
+, we are able to construct a new waveform family ( given numerically ) with mismatches @xmath2 even without extremization over physical parameters .
+this paper is organized as follows .
+we begin in section [ sec : mbias ] where we provide definitions to important terminology used in our paper .
+we then compare our nr hybrid waveforms to the phenomb family and show that a mass - bias exists between the two . in section [ sec : method ]
+we present our svd accuracy booster applied to the case study of equal - mass , zero - spin binaries . in section [ sec:2d ]
+we investigate the feasibility of extending this approach to include unequal - mass binaries . we finish with concluding remarks in section [ sec : discussion ] .
+a gravitational waveform is described through a complex function , @xmath3 , where real and imaginary parts store the sine and cosine components of the wave .
+the specific form of @xmath4 depends on the parameters of the system , in our case the total mass @xmath5 and the mass - ratio @xmath6 .
+while @xmath4 is a continuous function of time , we discretize by sampling @xmath7 , where the sampling times @xmath8 have uniform spacing @xmath9 .
+we shall also whiten any gravitational waveform @xmath4 .
+this processes is carried out in frequency space via @xmath10 where @xmath11 is the ligo noise curve and @xmath12 is the fourier transform of @xmath4 .
+the whitened time - domain waveform , @xmath13 , is obtained by taking the inverse fourier transform of . in the remainder of the paper
+, we shall always refer to whitened waveforms , dropping the subscript `` w '' . for our purposes
+it suffices to take @xmath11 to be the initial ligo noise curve . using the advanced ligo noise curve
+would only serve to needlessly complicate our approach by making waveforms longer in the low frequency domain .    as a measure of the level of agreement between two waveforms , @xmath4 and @xmath14
+, we will use their match , or overlap , @xmath15  @xcite .
+we define @xmath16 where @xmath17 is the standard complex inner product and the norm @xmath18 .
+we always consider the overlap maximized over time- and phase - shifts between the two waveforms .
+the time - maximization is indicated in , and the phase - maximization is an automatic consequence of the modulus .
+note that @xmath19 . for discrete sampling at points
+@xmath20 we have that @xmath21 where @xmath22 is the complex conjugate of @xmath14 . without whitening , would need to be evaluated in the frequency domain with a weighting factor @xmath23 .
+the primary advantage of is its compatibility with formal results for the svd , which will allow us to make more precise statements below .
+when maximizing over time - shifts @xmath24 , we ordinarily consider discrete time - shifts in integer multiples of @xmath25 , as this avoids interpolation .
+after the overlap has been maximized , it is useful to speak in terms of the mismatch , @xmath26 , defined simply as @xmath27 we use this quantity throughout the paper to measure the level of disagreement between waveforms .
+we use numerical waveforms computed with the spectral einstein code spec @xcite .
+primarily , we use the 15-orbit equal - mass ( mass - ratio @xmath28 ) , zero - spin ( effective spin @xmath29 ) waveform described in @xcite . in section [ sec:2d ] , we also use unequal mass waveforms computed by @xcite .
+the waveforms are hybridized with a taylort3 post - newtonian ( pn ) waveform as described in @xcite at matching frequencies @xmath30 and @xmath31 for mass - ratios @xmath32 and @xmath33 , respectively .
+taylort4 at 3.5pn order is known to match nr simulations exceedingly well for equal - mass , zero - spin bbh systems  @xcite ( see also fig .  9 of  @xcite ) .
+for @xmath34 , a taylort3 hybrid is very similar to a taylort4 hybrid , cf.figure 12 of @xcite .
+the mismatch between taylort3 and taylort4 hybrids is below @xmath35 at @xmath36 , dropping to below @xmath37 for @xmath38 , and @xmath39 for @xmath40 .
+these mismatches are significantly smaller than mismatches arising in the study presented here , so we conclude that our results are not influenced by the accuracy of the utilized @xmath28 pn - nr hybrid waveform . for higher mass - ratios ,
+the pn - nr hybrids have a larger error due to the post - newtonian waveform  @xcite .
+the error - bound on the hybrids increases with mass - ratio , however , is mitigated in our study here , because we use the @xmath41 hybrids only for total mass of @xmath42 , where less of the post - newtonian waveform is in band .
+because nr simulations are not available for arbitrary mass ratios , we will primarily concentrate our investigation to the equal - mass and zero - spin nr hybrid waveforms described above .
+the full imr waveform can be generated at any point along the @xmath43 line through a simple rescaling of amplitude and phase with total mass @xmath44 of the system .
+despite such a simple rescaling , the @xmath43 line lies orthogonal to lines of constant chirp mass @xcite , therefore tracing a steep gradient in terms of waveform overlap , and encompassing a large degree of waveform structure .
+since our procedure for constructing an orthonormal basis begins with phenomb waveforms , let us now investigate how well these waveforms model the nr waveforms to be interpolated . for this purpose , we adopt the notation @xmath45 and @xmath46 to represent nr and phenomb waveforms of total mass @xmath44 , respectively .
+we quantify the faithfulness of the phenomb family by computing the mismatch @xmath47 $ ] as a function of mass .
+the result of this calculation for @xmath48 is shown as the dashed curve in the top panel of figure [ figure : bias ] .
+the mismatch starts off rather high with @xmath49 at @xmath50 and then slowly decreases as the mass is increased , until eventually flattening to @xmath51 at high mass .
+the mismatch between nr and phenomb waveforms can be reduced by optimizing over a mass - bias .
+this is accomplished by searching for the mass @xmath52 for which the mismatch @xmath53 $ ] is a minimum .
+the result of this process is shown by the solid line in the top panel of figure [ figure : bias ] . allowing for a mass bias significantly
+reduces the mismatch for @xmath54 .
+the mass @xmath55 that minimizes mismatch is generally smaller than the mass @xmath44 of our nr `` signal '' waveform , @xmath56 over almost all of the mass range considered .
+apparently , phenomb waveforms are systematically underestimating the mass of the `` true '' nr waveforms , at least along the portion of parameter space considered here . the solid line in the bottom panel of figure [ figure : bias ] plots the relative mass - bias , @xmath57 .
+at @xmath50 this value is @xmath58 , and it rises to just above @xmath59 for @xmath60 . and @xmath29 . a more comprehensive minimization over mass , mass ratio , and effective spin might change this result . ]
+it is useful to consider how this mass bias compares to the potential parameter estimation accuracy in an early detection . for a signal with a matched - filter signal - to - noise ratio ( snr ) of 8
+ characteristic of early detection scenarios  template / waveform mismatches will influence parameter estimation when the mismatch is @xmath61 @xcite . placing a horizontal cut on the top panel of figure  [ figure : bias ] at @xmath62 , we see that for @xmath63 phenomb waveform errors have no observational consequence ; for @xmath64 a phenomb waveform with the wrong mass will be the best match for the signal . for @xmath65 the missmatch between equal - mass phenomb waveforms and nr ( when optimizing over mass )
+grows to @xmath66 .
+optimization over mass - ratio will reduce this mismatch , but we have not investigated to what degree .
+we aim to construct an orthonormal basis via the svd of a bank of phenomb template waveforms , and then interpolate the coefficients of nr waveforms projected onto this basis to generate a waveform family with improved nr faithfulness .
+the first step is to construct a template bank of phenomb waveforms , with attention restricted to equal - mass , zero - spin binaries .
+an advantage of focusing on the @xmath43 line is that template bank construction can be simplified by systematically arranging templates in ascending order by total mass .    with this arrangement
+we define a template bank to consist of @xmath67 phenomb waveforms , labelled @xmath68 ( @xmath69 ) , with @xmath70 and with adjacent templates satisfying the relation : @xmath71 where @xmath72 is the desired overlap between templates and @xmath73 is some accepted tolerance in this value .
+the template bank is initiated by choosing a lower mass bound @xmath74 and assigning @xmath75 .
+successive templates are found by sequentially moving toward higher mass in order to find waveforms satisfying until some maximum mass @xmath76 is reached . throughout each trial , overlap between waveforms
+is maximized continuously over phase shifts and discretely over time shifts . for template bank construction
+we choose to refine the optimization over time by considering shifts in integer multiples of @xmath77 .
+we henceforth refer to our fiducial template bank which employs the parameters @xmath78 , @xmath79 , @xmath80 , and @xmath81 . the lower mass bound
+was chosen in order to obtain a reasonably sized template bank containing @xmath82 waveforms ; pushing downward to @xmath50 results in more than doubling the number of templates .
+template waveforms each have a duration of @xmath83 and are uniformly sampled at @xmath84 ( a sample frequency of @xmath85 ) .
+@xmath86 of memory is required to store this template bank using double - precision waveforms .
+the next step is to transform the template waveforms into an orthonormal basis .
+following the presentation in @xcite , this is achieved by arranging the templates into the rows of a matrix @xmath87 and factoring through svd to obtain @xmath88 where @xmath89 and @xmath90 are orthogonal matrices and @xmath91 is a diagonal matrix whose non - zero elements along the main diagonal are referred to as singular values .
+the svd for @xmath87 is uniquely defined as long as the singular values are arranged in descending order along the main diagonal of @xmath91 .
+the end result of is to convert the @xmath67 complex - valued templates into @xmath92 real - valued orthonormal basis waveforms .
+the @xmath93 basis waveform , @xmath94 , is stored in the @xmath93 row of @xmath89 , and associated with this mode is the singular value , @xmath95 , taken from the @xmath93 element along the main diagonal of @xmath91 .
+one of the appeals of svd is that the singular values rank the basis waveforms with respect to their ability to represent the original templates .
+this can be exploited in order to construct a reduced basis that spans the space of template waveforms to some tolerated mismatch .
+for instance , suppose we choose to reduce the basis by considering only the first @xmath96 basis modes while discarding the rest .
+template waveforms can be represented in this reduced basis by expanding them as the sum @xmath97 where @xmath98 are the complex - valued projection coefficients , @xmath99 the prime in is used to stress that the reduced basis is generally unable to fully represent the original template .
+we are guaranteed from to completely represent the template . ]
+it was shown in @xcite that the mismatch expected from reducing the basis in this way is @xmath100 given @xmath91 , can be inverted to determine the number of basis waveforms , @xmath101 , required to represent the original templates for some expected mismatch @xmath102 .
+provides a useful estimate to the mismatch in represeting templates from a reduced svd basis . in order to investigate its accuracy ,
+however , we should compute the mismatch explicitly for each template waveform . using the orthonormality condition @xmath103 , it is easy to show from that the mismatch between the template and its projection can be expressed in terms of the projection coefficients : @xmath104 this quantity is minimized continuously over phase and discretely over time shifts in integer multiples of @xmath25 .
+choosing @xmath105 , predicts that @xmath106 of the @xmath107 basis waveforms from our fiducial template bank are required to represent the templates to the desired accuracy . in figure
+[ figure : rec ] we compare the expected mismatch of @xmath108 to the actual mismatches computed from for each phenomb waveform in the template bank . the open squares in this plot show that the actual template mismatch has a significant amount of scatter about @xmath102 ,
+but averaged over a whole remains well bounded to the expected result .
+the phenomb template waveforms can thus be represented to a high degree from a reasonably reduced svd basis .
+we are of course more interested in determining how well nr waveforms can be represented by the same reduced basis of phenomb waveforms .
+since nr and phenomb waveforms are not equivalent , can not be used to estimate the mismatch obtained when projecting nr waveforms onto the reduced basis .
+we must therefore compute their representation mismatch explicitly .
+a general waveform , @xmath109 , can be represented by the reduced basis in analogy to by expressing it as the sum : @xmath110 where @xmath111 .
+as before , the represented waveform @xmath112 will in general be neither normalized nor equivalent to the original waveform @xmath109 .
+the mismatch between them is @xmath113 where we remind the reader that we always minimize over continuous phase shifts and discrete time shifts of the two waveforms .    in figure [ figure :
+rec ] we use open circles to plot the representation mismatch of nr waveforms evaluated at the same set of masses @xmath114 from which the phenomb template bank was constructed .
+we see that nr waveforms can be represented in the reduced basis with a mismatch less than @xmath35 over most of the template bank boundary .
+this is about a factor of five improvement in what can be achieved by using phenomb waveforms optimized over mass . since nr waveforms were not originally included in the template bank , and because a mass - bias exists between the phenomb waveforms which were included , we can expect that the template locations have no special meaning to nr waveforms .
+this is evident from the thin dashed line which traces the nr representation mismatch for masses evaluated between the discrete templates .
+this line varies smoothly across the considered mass range and exhibits no special features at the template locations .
+this is in contrast to the thin solid line which traces phenomb representation mismatch evaluated between templates .
+in this case , mismatch rises as we move away from one template and subsequently falls back down as the next template is approached .
+the representation tolerance @xmath115 of the svd is a free parameter , which so far , we have constrained to be @xmath116 .
+when this tolerance is varied , we observe the following trends : ( i ) phenomb representation mismatch generally follows @xmath117 ; ( ii ) nr representation mismatch follows @xmath117 at first and then _ saturates _ to a minimum as the representation tolerance is continually reduced .
+these trends are observed in figure [ figure : trun ] where we plot nr and phenomb representation mismatch averaged over the mass boundary of the template bank evaluated both at and between templates .
+the saturation in nr representation mismatch occurs when the reduced basis captures all of the nr waveform structure contained within the phenomb basis . reducing
+the basis further hits a point of diminishing returns as the increased computational cost associated with a larger basis outweighs the benefit of marginally improving nr match .
+we now wish to examine the possibility of using the reduced svd basis of phenomb template waveforms to construct a new waveform family with improved nr representation .
+the new waveform family would be given by a numerical interpolation of the projection coefficients of nr waveforms expanded onto the reduced basis .
+here we test this using the fiducial template bank and reduced basis described above .
+the approach is to sample nr projection coefficients , @xmath118 , at some set of locations , @xmath119 , and then perform an interpolation to obtain the continuous function @xmath120 that can be evaluated for arbitrary @xmath121 .
+the accuracy of the interpolation scheme is maximized by finding the space for which @xmath118 are smooth functions of @xmath121 .
+it is reasonable to suppose that the projection coefficients will vary on a similar scale over which the waveforms themselves vary .
+hence , a suitable space to sample along is the space of constant waveform overlap .
+we define this to be the space @xmath122 $ ] for which the physical template masses are mapped according to : @xmath123 moving a distance @xmath124 in this space is thus equivalent to moving a distance equal to the overlap between adjacent templates .    in this space
+, we find the real and imaginary components , @xmath125 and @xmath126 , of the complex projection coefficients to be oscillatory functions that can roughly be described by a single frequency .
+this behaviour is plotted for the basis modes @xmath127 , 50 , and 123 in figure [ figure : interpcoeff ] .
+another trend observed in this plot is that the projection coefficients become increasingly complex ( i.e.  show less structure ) for higher - order modes .
+this is a direct result of the increasing complexity of higher - order basis waveforms themselves .
+we find that the low - order waveforms are smoothest while the high - order modes feature many of the irregularities associated with the multiple frequency components and merger features of the templates .
+though they are more complex , higher - order modes have smaller singular values and are therefore less important in representing waveforms .
+this is evident from the steady decline in amplitude of the projection coefficients when moving down the different panels of figure [ figure : interpcoeff ] .
+we shall use chebyshev polynomials to interpolate the projection coefficients .
+these are a set of orthogonal functions where the @xmath128 chebyshev polynomial is defined as @xmath129 .
+\label{eq : chebyn } \end{aligned}\ ] ] the orthogonality of chebyshev polynomials can be exploited to perform an @xmath130 order chebyshev interpolation by sampling @xmath131 at the @xmath132 so - called collocation points given by the gauss - lobatto chebyshev nodes @xcite @xmath133 for @xmath134 .
+in general , the interpolation will not be exact and some residual , @xmath135 , will be introduced : @xmath136 here @xmath137 is the actual coefficient of @xmath45 projected onto the basis waveform @xmath94 , @xmath138 and @xmath139 is the coefficient obtained after interpolation .
+the new waveform family is expressed numerically as a function of mass through the relation @xmath140{\bf u}_k,\ ] ] where the subscript 
+intp " reminds the reader that this is computed from an interpolation over @xmath98 .
+an interpolated waveform of total mass @xmath44 can be compared to the original nr waveform ( which we consider to be the  true " signal ) , where the latter is expressed as @xmath141 with @xmath142 denoting the component of @xmath45 that is orthogonal to the svd basis ( i.e.  orthogonal to all phenomb waveforms in the template bank ) .
+@xmath45 differs from @xmath143 by an amount @xmath144    to compute the impact of the various approximations influencing , we calculate the overlap between the interpolated waveform , and the exact waveform , @xmath145 $ ] . to begin this calculation ,
+it is useful to consider the square of the overlap , @xmath146 where we have dropped the explicit mass - dependence and subscripts for convenience . using @xmath147 and taylor - expanding the right - hand - side of to second order in @xmath148 , we find @xmath149 to second order in @xmath148 , the mismatch is therefore @xmath150 we note that the right - hand - side of can be written as @xmath151 , where @xmath152 is the part of @xmath148 orthogonal to @xmath109 , @xmath153 however , for simplicity , we proceed by dropping the last term in : @xmath154 using , this gives @xmath155 \le \\ \frac{1}{2}\sum_{k=1}^{n ' } \left|r_k(m)\right|^2 + \frac{1}{2}\sum_{k = n'+1}^{2n}\left|\mu_k(m)\right|^2 + \frac{1}{2}|{\bf h}_\perp|^2 \end{gathered}\ ] ] we thus see three contributions to the total mismatch : ( i ) the interpolation error , @xmath156 ; ( ii ) the truncation error from the discarded waveforms of the reduced basis , @xmath157 ; ( iii ) the failure of the svd basis to represent the nr waveform , @xmath158 .
+the sum of the last two terms , which together make up the representation error , is traced by the dashed line in figure [ figure : rec ] .
+the goal for our new waveform family is to have an interpolation error that is negligible compared to the representation error .    to remove the mass - dependence of interpolation error in ,
+we introduce the maximum interpolation error of each mode , @xmath159 this allows the bound @xmath160 to place an upper limit on the error introduced by interpolation .
+figure [ figure : rk ] plots @xmath161 as a function of mode - number @xmath162 as well as the cumulative sum @xmath163 .
+the data pertains to an interpolation performed using @xmath164 chebyshev polynomials on the reduced svd basis containing the frist @xmath106 of @xmath107 waveforms . in this case , we find the interpolation error to be largely dominated by the lowest - order modes and also partially by the highest - order modes .
+interpolated coefficients for various modes are plotted in figure [ figure : interpcoeff ] and help to explain the features seen in figure [ figure : rk ] . in the first place , interpolation becomes increasingly more difficult for higher - order modes due to their increasing complexity .
+this problem is mitigated by the fact that high - order modes are less important for representing waveforms , as evidenced by the diminishing amplitude of projection coefficients .
+although low - order modes are much smoother and thus easier to interpolate , their amplitudes are considerably larger meaning that interpolation errors are amplified with respect to high - order modes
+.    summarizes the three components adding to the final mismatch of our interpolated waveform family .
+their total contribution can be computed directly from the interpolated coefficients in a manner similar to : @xmath165 = 1 - \sqrt{\sum_{k=1}^{n^\prime } \mu_k^\prime(m ) \mu_k^{\prime^*}(m)}. \label{eq : interpolationmismatch3}\ ] ] in the case of perfect interpolation for which @xmath166 , and reduce to and respectively , and the total mismatch is simply the representation error of the reduced basis .    in figure
+[ figure : interperror ] open circles show the total mismatch between our interpolated waveform family and the true nr waveforms for various masses . also plotted is the nr representation error without interpolation and the mismatch between nr and phenomb waveforms minimized over mass .
+we see that interpolation introduces only small additional mismatch to the interpolated waveform family , and remains well below the optimized nr - phenomb mismatch .
+this demonstrates the efficacy of using svd coupled to nr waveforms to generate a _ faithful _ waveform family with improved accuracy over the _
+phenomb family that was originally used to create templates .
+this represents a general scheme for improving phenomenological models and presents an interesting new opportunity to enhance the matched - filtering process employed by ligo .
+so far , we have focused on the total mass axis of parameter space .
+as already discussed , this served as a convenient model - problem , because the @xmath28 nr waveform can be rescaled to any total mass , so that we are able to compare against the `` correct '' answer .
+the natural extension of this work is to expand into higher dimensions where nr waveforms are available only at certain , discrete mass - ratios @xmath167 . in this section
+we consider expanding our approach of interpolating nr projection coefficients from a two - dimensional template bank containing unequal - mass waveforms .
+we compute a template bank of phenomb waveforms covering mass - ratios @xmath167 from 1 to 6 and total masses @xmath168 .
+this mass range is chosen to facilitate comparison with previous work done by @xcite .
+for the two - dimensional case the construction of a template bank is no longer as straightforward as before due to the additional degree of freedom associated with varying @xmath167 .
+one method that has been advanced for this purpose is to place templates hexagonally on the waveform manifold @xcite . using this procedure we find @xmath169 templates are required to satisfy a minimal match of 0.97 .    following the waveform preparation of @xcite ,
+templates are placed in the rows of a matrix @xmath87 with real and imaginary components filled in alternating fashion where the whitened waveforms are arranged in such a way that their peak amplitudes are aligned .
+the waveforms are sampled for a total duration of @xmath170 with uniform spacing @xmath9 so that @xmath171 of memory is required to store the contents of @xmath87 if double precision is desired .
+application of transforms the 16 complex - valued waveforms into 32 real - valued orthonormal basis waveforms .
+the aim is to sample the coefficients of nr waveforms projected onto the svd basis of phenomb waveforms using mass - ratios for which nr data exists , and then interpolate amongst these to construct a numerical waveform family that can be evaluated for arbitrary parameters .
+this provides a method for evaluating full imr waveforms for mass - ratios that have presently not been simulated . to summarize , we take some nr waveform , @xmath172 , or total mass @xmath44 and mass - ratio @xmath167 , and project it onto the basis waveform @xmath94 in order to obtain @xmath173
+next we apply some two - dimensional interpolation scheme on to construct continuous functions @xmath174 that can be evaluated for arbitrary values of @xmath44 and @xmath167 bounded by the regions of the template bank .
+the interpolated waveform family is given numerically by the form : @xmath175    as before , the interpolation process works best if we can develop a scheme for which the projection coefficients are smoothly varying functions of @xmath44 and @xmath167 .
+following the procedure described in @xcite , the complex phase of the first mode is subtracted from all modes : @xmath176}\mu_k(m , q ) .
+\label{eq : musmooth}\ ] ] to motivate why might be useful , let us consider modifying the phenomb waveform family with a parameter - dependent complex phase @xmath177 : @xmath178 when constructing a template bank , or when using a template bank , such a complex phase @xmath177 is irrelevant , because the waveforms are always optimized over a phase - shift .
+however , @xmath177 will appear in the projection coefficients , , @xmath179 therefore , if one had chosen a function @xmath177 with fine - scale structure , this structure would be inherited by the projection coefficients @xmath180 . for traditional uses of waveform
+families the overall complex phase @xmath177 is irrelevant , and therefore , little attention may have been paid to how it varies with parameters @xmath181 .
+the transformation removes the ambiguity inherent in @xmath177 by choosing it such that @xmath182 .
+this choice ties the complex phase to the physical variations of the @xmath183 coefficient , and does therefore eliminate all unphysical phase - variations on finer scales .    in the leftmost panels of figure
+[ figure : coeff2d ] we plot the real part of the smoothed coefficients @xmath184 for phenomb waveforms projected onto the basis modes @xmath185 and @xmath186 .
+the middle panels show the same thing except using the nr waveforms evaluated at the set of mass - ratios @xmath167 = \{1 , 2 , 3 , 4 , 6 } for which we have simulated waveforms .
+obviously , the refinement along the @xmath167 axis is much finer for the phenomb waveforms since they can be evaluated for arbitrary mass - ratio , whereas we are limited to sampling at only 5 discrete mass - ratios for nr waveforms . for comparison purposes ,
+the rightmost panels of figure [ figure : coeff2d ] show the phenomb projection coefficients coarsened to the same set of mass - ratios for which the nr waveforms are restricted to .
+we find the same general behaviour as before that low - order modes display the smoothest structure , while high - order modes exhibit increasing complexity . a plausible interpolation scheme would be to sample @xmath187 for nr waveforms of varying mass for constant mass ratio ( i.e.  as we have done previously ) and then stitch these together across the @xmath167 axis .
+since the projection coefficients in figure [ figure : coeff2d ] show sinusoidal structure they must be sampled with at least the nyquist frequency along both axes .
+however , looking at the middle and rightmost panels it appears as though this is not yet possible given the present set of limited nr waveforms .
+at best the 5 available mass - ratios are just able to sample at the nyquist frequency along the @xmath167 axis for high - order modes . in order to achieve a reasonable interpolation from these projection
+coefficients the current nr data thus needs to be appended with more mass - ratios .
+based on the left panels of figure [ figure : coeff2d ] a suitable choice would be to double the current number of mass - ratios to include @xmath167 = \{1.5 , 2.5 , 3.5 , 4.5 , 5 , 5.5}. hence , though it is not yet practical to generate an interpolated waveform family using the svd boosting scheme applied to nr waveforms , the possibility remains open as more nr waveforms are generated .
+we have shown that svd can be used to improve the representation of nr waveforms from a phenomb template bank . a reasonably reduced svd basis was able to reduce mismatch by a factor of five compared to phenomb waveforms optimized over mass .
+there was also no mass - bias associated with the svd basis and therefore no optimization over physical parameters required .
+this occurs because svd unifies a range of waveform structure over an extended region of parameter space so that any biases become blended into its basis .
+svd therefore represents a generalized scheme through which phenomenological waveform families can be de - biased and enhanced for use as matched - filter templates .
+we were able to calibrate an svd basis of phenomb templates against nr waveforms in order to construct a new waveform family with improved accuracy .
+this was accomplished by interpolating the coefficients of nr waveforms projected onto the phenomb basis .
+only marginal error was introduced by the interpolation scheme and the new waveform family provided a more faithful representation of the `` true '' nr signal compared to the original phenomb model .
+this was shown explicitly for the case of equal - mass , zero - spin binaries .
+we proceeded to investigate the possibility of extending this approach to phenomb template banks containing unequal - mass waveforms . at present , however , this method is not yet feasible since the current number of mass - ratios covered by nr simulations are unable to sample the projection coefficients with the nyquist frequency .
+this method will improve as more nr waveforms are simulated and should be sufficient if the current sampling rate of mass - ratios were to double .
+we thank ilana macdonald for preparing the hybrid waveforms used in this study .
+kc , jde and hpp gratefully acknowledge the support of the national science and engineering research council of canada , the canada research chairs program , the canadian institute for advanced research , and industry canada and the province of ontario through the ministry of economic development and innovation .
+dk gratefully acknowledges the support of the max planck society .

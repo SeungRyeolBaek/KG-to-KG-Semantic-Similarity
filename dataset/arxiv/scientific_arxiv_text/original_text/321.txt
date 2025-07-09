@@ -1,0 +1,238 @@
+the _ kepler _ mission provides an unprecedented set of data on the photometric variability of stars @xcite .
+it is unparalleled in its combination of photometric precision and time coverage .
+it observes a large sample of stars , which consist primarily of main sequence stars in the solar neighborhood .
+although the primary mission is to discover exoplanets , clearly the stellar lightcurves are themselves a rich source of astrophysical information .
+stars can vary their luminosity for a variety of reasons .
+our orientation in this paper is to concentrate on stellar magnetic activity ( primarily seen through starspot modulation ) .
+questions of interest in this area include the stellar rotation periods , the differential rotation as a function of latitude , the distribution of spot areal coverages , the distributions in longitude and latitude on different stars , the presence and distribution of active longitudes , the timescale for evolution of spots of different sizes , spot contrasts , and the behavior of all these as a function of stellar mass , age , and rotation .
+of particular interest to the mission is the translation of photometric periods into stellar ages for planet - bearing stars .
+this paper is not intended to provide answers to any of the above questions , but rather to present the characteristics of the _ kepler _ dataset and its potential for making progress on these questions .
+starspots have long been studied with either photometry or spectroscopy @xcite .
+ground - based coverage , however , tends to have many gaps , and the spot areal coverage has to be many times solar for a signal to be robust .
+the promise of solving these deficiencies was well - illustrated first by the most @xcite and corot @xcite missions , but with less precision and length of coverage than will be available over the _
+kepler _ mission .
+we have discussed the general level of variability in the first quarter of _ kepler _ data in our first paper @xcite ; hereafter paper i ) , where there is also a lengthier introduction to stellar variability in the context we are interested in here .
+the _ kepler _ quarter 1 ( q1 ) observations took place over @xmath133.5 days between may 13 and june 15 2009 .
+this paper refers to data gathered in q1 , which was almost entirely released to the public on june 15 , 2010 .
+we use only the so - called long cadence data which is formed on - board the spacecraft by summing 270 6 second integrations into successive 29.42 minute blocks ( see @xcite for additional details ) .
+q1 consists of 1639 such intervals from 13 may 2009 to 15 june 2009 , which provide continuous coverage .
+156,097 stars were observed , almost all of which belong to the sample of stars that are identified as the core exoplanet target list .
+the construction of this target list has been described by @xcite .
+as described in the release notes , the data product which is relevant to this paper is the so - called raw data ( identified by the keyword ap_raw_flux in the fits files ) .
+this is not really raw pixel data - it has been added up in each target aperture , corrected for background , flat fielding , cosmic ray removal , non - linearities , and there is some treatment of selected instrumental effects and data gaps .
+what remains in the raw photometry are other instrumental artifacts @xcite , secular instrumental drifts @xcite , and intrinsic astrophysical variability .    subsequent steps in the _ kepler _ pipeline attempt to render the data more suitable for the primary mission : the detection of transits .
+currently the methodology employed @xcite is not suitable for a study of stellar variability ; one can not be sure what components of variability have been removed , and the effects of reduction are different for different amounts of stellar variability . by comparing raw and corrected lightcurves
+, we determined that only raw lightcurves are suitable as a starting point for work that concentrates in detail on the variability due to stars ( that may change with future versions of the pipeline ) .
+we elect to use a form of differential photometry , produced by dividing each lightcurve by its median value then subtracting unity .
+we next investigated whether the secular trends seen in almost all raw lightcurves have an instrumental component that can be easily distinguished from true stellar variability .
+we made a linear fit to each curve , and examined the slopes as a function of position within a given detector or across the focal plane .
+it is not surprising to find these slopes ; the stars drift on the pixels due to pointing errors , positioning of the field , differential velocity aberration , and focal plane distortion due to thermal and other effects .
+the response of each pixel can vary .
+the psf of the _ kepler _ photometer has been intentionally designed to spread a star over several pixels , and apertures are intentionally larger than a target psf ( both help with photometric precision ) .
+stars at the edge of each target aperture can contribute more or less light over time depending on the direction of motion .
+because of the great precision of _ kepler _ photometry , all these effects may be important , depending on the target star and neighboring star field being measured .
+unfortunately , we conclude that to first order the overall effects on the measured intensity of a star are very local , and one can not use the behavior of nearby stars to reliably remove trends in a given target .
+of course , the linear trend in our fitting procedure could have a truly stellar component in some cases , and we have to acknowledge that in such cases it will be removed .
+after removal ( by subtraction ) of linear trends , it is clear that for many quiet stars , there remain curvatures in the lightcurve over the month of q1 ( there is no reason that instrumental secular effects should be purely linear ) .
+these also are not correlated spatially with each other , but it is clear that there is an instrumental component to them , because it is very common for such lightcurves with a linear fit removed to be high in the middle and low at the ends . with a quadratic fit removed , there was also some ( though not as much ) consistency in the slope of the curves at the ends . in most cases , therefore , we subtracted a third order polynomial from the lightcurve .
+this resulted in flat lightcurves for many of the quiet stars ; again with the danger that in some cases an astrophysical signal with a timescale of a couple of weeks or longer has been removed .
+this means that we are likely missing some slower low - amplitude rotators .
+we also tested the effect of removing a third - order fit from pure sine curves of 1 to 4 cycles , constructed using the same cadence and timespan as the real data . for a single cycle ( a period of 33.5 days )
+, the third order fit crosses the sine wave 5 times and remains close to it . after subtraction one
+is left with a much smaller amplitude , and the periodogram has its maximum peak at about half the original period .
+the corrected lightcurve is much less affected for a 2-cycle curve ( with an intrinsic period of 16.75 days ) .
+the amplitude after subtraction of a polynomial fit remains the same ( with a slightly altered shape for the corrected lightcurve ) , and the inferred primary period is closer to 16 rather than 17 days .
+the effects for more cycles are even smaller .
+we conclude that our reduction procedure only allows valid discussion of primary periodicities of 16 days or less .
+obviously , as kepler continues to collect data this issue will be re - visited , along with development of methods for joining data across time intervals when the spacecraft has left and returned to the target field .    a caveat to the removal of third order
+fits must be made in the case when a star is clearly quite variable primarily on a timescale of 10 days or more .
+that is to say , the corrections on quiet stars were never large in amplitude ( not larger than about 10 times the rms fluctuations on short timescales ) , and essentially all of them were flattened with a third order polynomial .
+this indicates that the spacecraft does not generally produce signals with higher amplitude and higher frequency than the polynomial .
+we therefore made an exception to the removal of a third order fit in the following circumstance .
+after removal of the linear fit , the differential lightcurve can be analyzed for zero crossings ( the number of times it goes from positive to negative or vice versa ) . for a quiet star with a flat lightcurve
+there will be many of these ( albeit with small excursions from zero ) . for a star with substantial low frequency variability
+the number of zero crossings gives an indicator of what its timescale of variability is .
+we used this to avoid removing a third order polynomial in lightcurves first smoothed over 10 hours which then exhibit 10 or fewer zero crossings .
+this is clearly somewhat arbitrary , and could be refined in the future .
+it is worth noting that in the sine wave test described above , even the 4-cycle test would not have had a third - order polynomial removed , since it has too few zero crossings .
+thus we believe that our procedure retains almost all of the variability we are primarily interested in
+.    finally , there are a few cases ( usually less than 5 per 1000 ) where the raw lightcurve contains a sudden large discontinuity .
+these are removed in the pipeline after the raw stage , but because we can not use that version , we had to remove them ourselves .
+this was done by filtering all lightcurves with a routine that looked for large abrupt changes ( a version of the routine we also use to look for eclipses and flares ) .
+this yielded few enough cases that they could be dealt with manually .
+it is still true , however , the best way to treat them is not always obvious , and we employed three different strategies . in most cases , the discontinuity occurred somewhere in the middle of a not too variable lightcurve . in that case
+we removed a third order polynomial on each side of the discontinuity ; these tended to match across the gap , but if they did not we forced a match .
+this procedure removes variability on a shorter timescale than one polynomial fit across the whole lightcurve .
+in other cases with more variable stars , it was clearly damaging to use the first procedure ( the polynomials removed variations that are clearly stellar ) , so we simply removed the discontinuity by forcing a match across the gap , always adjusting the latter part of the curve to agree with the earlier part .
+this often resulted in a new residual linear slope , which we removed again . finally , in some cases the discontinuity occurred near one end or the other , and we selected which of the above procedures gave a more plausible solution .
+fortunately there were rather few discontinuities , although there remain some that are below our chosen detection threshold ; these do not matter in the current analysis .
+this manual intervention consumes most of the reduction time ; the rest of it ( including making the measurements described in the next section ) can be done in a few hours on a personal computer .
+clearly all of these corrections have the potential to alter an astrophysical signal .
+for now we must accept that the photometry is not perfect ( nor will it ever be ) , and look forward to the much longer measurement of each star that _ kepler _ will obtain , which should clarify in many cases what the right thing to do is .
+the purpose of this paper , in any case , is to produce a large statistical overview of the stellar photometry , rather than to model in detail particular stars .
+we are confident that the conclusions we draw do not depend too much on the details of the preliminary methodology we have employed in this paper .
+we are capturing most of the amplitude and characteristics of stellar variability on timescales less than about 2 weeks , and can distinguish between periodic and non - periodic behavior .
+we can see whether the observed behavior is repetitious over a month , and can detect flares and other short timescale phenomena .
+once the data were reduced as described in section ii , we proceeded to collect certain measurements on each lightcurve . here
+we describe only those which proved useful to the aims of this paper . as in paper
+i , one useful quantity is the variability range v@xmath2 ( sometimes just called  range " ) , which is intended to represent the basic level of photometric variability .
+we slightly changed the means of computing this quantity from paper i , taking the unsmoothed differential lightcurve , sorting it by differential intensity , then computing the range between the 5@xmath3 and 95@xmath3 percentile of intensity ( this tends to avoid including really anomalous excursions up or down ) .
+we express v@xmath2 in mmag for convenience ( actually the units are differential intensity times 1085.84 , which is nearly correct but not logarithmic like the actual magnitude scale ) .
+we determined the zero crossings in both the reduced lightcurve itself and when it is smoothed by 10 hours ( 20 points ) , tabulating both the number of crossings and the mean and median separation of crossings .
+for all segments between crossings ( either above or below zero ) we saved the mean and median of absolute maximum excursions and integrated fluxes .
+the high frequency noise hf@xmath4 in the lightcurve was calculated by subtracting a four - point boxcar smoothed version of itself from the lightcurve and computing the standard deviation of the result .
+we also computed a lomb - scargle periodogram for each lightcurve , using 400 points spanning a range of periods between one and 100 days .
+these parameters were chosen because the procedure uses a logarithmic period spacing that is denser at short periods , so we extend the period range beyond the data length to force sufficient sampling in the periods of interest .
+we do not make use of results for periods beyond half the data length ( 16 days ) or for periods below 3 days ( to concentrate on solar - type rotating stars ) .
+this is the most computationally intensive part of our analysis , and we rebinned the lightcurve to 2 hour bins to save time .
+it then only requires a few hours on a small computer to obtain periodograms for all 156,000 stars .
+we saved the position , height , and width of all the peaks in them .
+we collected the height and integrated strength of the highest two peaks , the shortest and longest significant periods , and the number of peaks at least 10% as strong as the strongest one .
+our first division of the data was made on the basis of the strength of the strongest peak in the periodograms .
+after extensive manual examination , we found that strengths p@xmath5 of 60 or more showed by eye a clear believable periodicity , those between 35 and 60 were marginal , and those below 35 did not appear to be period in an obvious way .
+the values of p@xmath5 depend on the ratio of the periodic signal to the noise and on the number of data samples and periods tested .
+the formal false alarm probability for our case is 1% at p@xmath5 of 13 , and absurdly low for p@xmath5 of 35 , so we are being subjective but conservative in our judgment of what is a significant periodicity . the value of p@xmath5 for a pure sine wave is around 800 . in figure [ f1persample ]
+we show the kepler input catalog ( kic ) stellar parameters for the group of stars with p@xmath5 above 60 and below 35 ( we will refer to these as the periodic and non - periodic samples ) .
+there are features in the log(g)-t@xmath6 plane that are due to artifacts in the way the kic was constructed and in target selection criteria for the exoplanet search @xcite .
+we checked that the distribution of crowding factors ( the fraction of light in target apertures that does nt come from the intended target star ) is very similar for the two samples ; the median crowding factor is 0.135 .
+there are some clear differences between the two samples .
+giants are much more populous in the non - periodic sample . as described by @xcite they tend to have complex variability ; periodograms do not reach the level of p@xmath5 we have set as our minimum threshold for significant periodicity ( and exhibit multiple period peaks of comparable strength ) .
+by contrast , there are many solar - type stars in both the periodic and non - periodic samples .
+cool dwarfs tend to show up preferentially as periodic .
+hot stars also show up in both cases ; part of the reason for this is that we have not tested for very short periods .
+many of the hot pulsators are not flagged in our diagnostics but would be if we extended the search to shorter periods .
+there are more than 60,000 stars in our periodic sample , and nearly that many in the non - periodic sample .
+the marginal stars make up the roughly 35,000 remainder .
+the large number of stars with detected periods means that _ kepler _ will be quite powerful in measuring stellar rotation .
+we are only considering slightly over a month s data here and more than a year has already been collected . on one hand
+we should be able to detect spot rotations both longer in period and perhaps lower in amplitude as more data is available .
+on the other hand substantial issues remain to be resolved about how well stellar variability can be distinguished from instrumental effects , and how to patch across data segments where the stars are on different pixels .
+figure [ f2tempvarange ] shows v@xmath2 in the two samples as a function of effective temperature . for comparison ,
+v@xmath2 for the active sun is about 1 mmag .
+the periodic sample has a cloud of points of high variability at all temperatures , and the non - periodic sample shows a two concentrations with lower variability .
+one is at temperatures corresponding to red giants ( between 4500k@xmath7t@xmath85200k ) and the other corresponds to less variable solar - type stars .
+most of the higher amplitude objects in the non - periodic sample are hot pulsators with periods less than a day , which are not flagged by us as periodic because we have filtered for longer periods to focus on stellar rotation .
+another way to look at the two samples is to examine the range of variability v@xmath2 against the high frequency noise hf@xmath4 in the lightcurve due to faintness of the stars .
+figure [ f3rmsrange ] shows the comparison between them .
+because of the way they are defined , v@xmath2 tends to be at least 4 times hf@xmath4 in almost all cases .
+this is the cause of the diagonal line along which many of the stars lie in both samples .
+these low - lying stars are ones for which the amplitude of variability is not much greater than the noise , although in the periodic sample a low - amplitude periodicity has been detected .
+conversely , the stars lying well above the line show high - amplitude variability , whether it is periodic or not .
+many of the giants show up rather clearly in the non - periodic sample at log(v@xmath2 ) between 0.2 to 0.5 , and hf@xmath4 between -1.2 and -0.7 . as a reminder , in the units of v@xmath2 the depth of an earth - sized transit is about -1.1 in the log . the objects which show up below the main diagonal are almost all cases where there are a few deep transit / eclipse dips .
+they do nt have enough points to generate high periodogram power , and are essentially ignored by the range calculation ( which drops the 5% extremes at each end ) , but have an influence on hf@xmath4 ( pushing it to the right off the main line ) .
+the periodic sample shows a much more robust cloud of higher amplitudes , at all values of hf@xmath4 . particularly for points above the main diagonal ridge ,
+the lightcurves show obvious periodic variability , and in the upper ranges they almost all appear to be starspots rotating in and out of view ( with a few eclipsing systems with ellipsoidal lightcurves also present ) .    in figure [ f4rangehist ]
+we show the distribution of the ranges for the periodic ( thicker line ) and non - periodic samples .
+this conveys some of the same information as in fig .
+[ f3rmsrange ] , but shows more clearly that the periodic sample has many more stars with high - amplitude variability ( as would be expected if starspots were the source of the variability ) .
+the distributions are much more similar at the low - amplitude end . here
+the stars are quiet ( do nt show much variability ) ; a little more than half of those are non - periodic .
+we have used spot modeling to convert an amplitude into a spot covering fraction , assuming spot contrast of about 0.6 ( which may not hold over all spectral classes ) .
+this yields the result that log ( v@xmath2)=0.3 corresponds to a spot coverage of 1% of the stellar surface .
+a simple estimation using half - black spots gives about the same answer .
+the active solar coverage is about 0.5% , the peak of the distribution here is at about 1% , and more than half of the stars flagged as periodic have coverages well above 1% , extending up to 20% or more in the largest cases .
+some of those extreme cases are not spots but ellipsoidal binaries ; others are indeed very spotted stars ( judging from the variations in the lightcurve from cycle to cycle , which binaries should not exhibit as readily ) .
+we now present some typical lightcurves . in fig .
+[ f5giants]a are some obviously periodic g dwarfs .
+the parameter space from which they are randomly chosen is 5800k@xmath7t@xmath95850 , log(g)@xmath104.2 , 8@xmath7v@xmath1112,100@xmath7 p@xmath12120 , and period ( days ) between 4 and 12 .
+[ f5giants]b shows a set of m dwarfs with the same parameters ( except 3900k@xmath7t@xmath94000k ) .
+one can see from the noise which stars are fainter ( the top middle m dwarf is substantially brighter than the others ) .
+there is not an obvious difference between the g and m stars , but of course we ve chosen them from the same relevant parameter spaces ( although it is also true that the g and m dwarfs do nt populate these spaces very differently ) . in fig .
+[ f5giants]c we return to the g dwarfs , but now look in the region 2@xmath7v@xmath114 and 65@xmath7p@xmath1270 .
+the intensity scale has been decreased by a factor of 2 to better display the decreased range . in most cases
+the periodicity is still obvious . in a couple of instances
+it is harder to pick out a periodicity by eye .
+finally , we present some lightcurves of stars in the giant domain in fig .
+[ f5giants]d .
+these have 4700k@xmath7t@xmath94750k , 2.5@xmath7log(g)@xmath73 , 2@xmath7v@xmath114 , and 20@xmath7p@xmath1225 .
+they look different from the g dwarfs in that the variability is aperiodic and fairly consistent in amplitude .
+we investigated whether one can isolate giants purely by their photometric behavior .
+it has been well established that they have a characteristic photometric signature @xcite ; the question we are asking here is how well one can eliminate dwarfs which might also show similar behavior ( even though the vast majority of them do not ) .
+we provide one reasonably successful attempt to do this without using kic gravities as priors for g , k , m stars ( we use them to check afterward ) .
+we choose stars with v@xmath2 between 1 and 5 ( motivated by where they are seen in fig .
+[ f3rmsrange ] ) , and with the number of peaks within 10% of the primary peak power
+greater than 10 ( based on the periodograms of known giants ) .
+finally we pick the number of smoothed zero crossings to be greater than 40 ( to pick out the right timescale for giant photometric excursions ) but the number of unsmoothed zero crossings to be less than 200 ( to eliminate noise as the primary source of zero crossings ) .
+figure [ f6photgiant ] shows the result ( with the unsmoothed zero crossings as the ordinate and kic gravity as the abscissa ) .
+most of the giants pass through our filter while very few dwarfs do .
+the remaining dwarfs have lightcurves that indeed closely resemble giant lightcurves , and perhaps some of them are actually misclassified giants .
+this can only be resolved through ground - based spectroscopy , or if the promise of detecting all the dwarf parallaxes from _ kepler _ data itself is realized .
+we now take a look at the periodic sample in more detail .
+figure [ f7perpowhist ] shows the distribution of primary periods within a sample that has been further restricted by choosing only stars with kic gravities greater than log(g)=4 ( which still leaves over 50,000 stars in the sample ) .
+the distribution of periods rises towards 2 weeks . beyond
+that we do not trust the results because the time coverage is only 34 days , and because removing a third order fit can definitely have an influence on whether the lightcurve shows features timescales longer than 2 weeks .
+the small peak at about 3.5 days might possibly be due to the fact that one of the guide stars was a spotted star with this period ( see the kepler data release 5 notes ; it was removed after q1 ) which caused the pointing to vary periodically .
+the structure at longer periods is due primarily to the fact that the sampling of periods tested is becoming sparser ( the actual sampling is given by the row of cyan plusses in the upper histogram ) .
+we also investigated whether the range of variability is a function of the primary period .
+generally , shorter periods indicate more active stars @xcite , and these might be both more obviously periodic or show larger amplitudes of variation ( unless the activity were too uniformly distributed ) .
+we see that the bulk of the stars have v@xmath2 a little greater than the active sun , and there is modest evidence of greater variability at shorter periods ( the lowest v@xmath2 are found mostly at the long periods ) . of course
+, by restricting this study to stars rotating fast enough to show periodicity in two weeks , we have biased the result against the slower rotators ( many of which presumably currently lie in our non - periodic sample ) .
+it is known that activity saturates at short periods and that might be playing a role here .
+still , it is perhaps a little surprising that there is not a more obvious effect , especially since we are sampling rotation periods up to solar in the case of a half - period of two weeks .
+we remind the reader that we did not analyze periods below 2 days ; there is indeed a population of short period cases but we expect that those are not due to rotation ( except perhaps in close binaries ) .
+it is important to note that one can not assume that the dominant period is the rotation period of the star , even when the signal looks very much like starspots . in many cases it is more likely to be the half - period ; when a star has an asymmetric spot distribution each face produces a dip of a different depth so that there could be two major dips per rotation .
+if there is essentially one active location , or a continuous enough distribution around the star , two discrete dips may not appear and then the periodogram will find the actual period .    to produce an active sun sample for comparison , 20 segments of soho diarad @xcite data from 2001 were recast to have similar cadence and length as the _ kepler _ data ( as in paper i ) .
+periods are found between 10 - 50 days with a mean and median of about 20 days ( and mean p@xmath5 of  200 ) .
+of course , most of these periods ( even those matching the actual solar period ) would not be considered valid in our current analysis ( since they are derived from 33 day data segments and we do nt trust periods over 16 days ) .
+we composed a similar sample of quiet sun data from 1996 soho measurements , and actually obtained a similar period distribution with a mean p@xmath5 of about 150 .
+the high significance of p@xmath5 is primarily due to the very low noise in the soho data .
+we performed the additional experiment of removing a third order fit from the quiet sun data ; this reduced p@xmath5 to a little below 100 but left the dominant period distribution as rather similar .
+in order to better study this , we selected a subsample out of the periodic sample by restricting it to kic gravities greater than log(g ) of 4.2 , temperatures between 3800k and 6200k , periods between 3 and 16 days , p@xmath1370 , and v@xmath142 .
+the upper panel of figure [ f9nonpwrrng ] shows some trend in this sample of these nearly 14,000 clear dwarf rotators for p@xmath5 to increase with v@xmath2 , but there is a great deal of scatter along both axes . in this periodic dwarf sample
+there is a general decline in population to higher periodogram strengths , but all were chosen to show very clear periods .
+the analogous plot for the non - periodic sample ( lower panel ) is quite different , showing again that periodic stars tend to be more variable ( although there is a region of low variability in common ) .
+even these non - periodic stars lie primarily above the formal criterion for a significant period ( which is at p@xmath1515 ) . for solar - type main sequence stars ,
+high variability very likely arises from starspots ( which then exhibit periodicity through stellar rotation ) , and objects which do nt exhibit periods ( or half - periods ) as short as 2 weeks are not as variable .
+we often see possible signs of differential rotation in the variable stars ( even with such a short span of data ) .
+such signs are typically that there are two dips of different depth , and they can be seen to move out of phase with respect to each other .
+an excellent longer span example of this is shown by corot - exo-2b @xcite .
+the dominant period can change as the spot distribution changes ( although we do nt have long enough data segments here to really see that ) .
+we find that the amplitude of variability is generally substantially larger for stars that are clearly periodic than for those that are not . among the non - periodic variables ,
+giants are the dominant constituent .
+we are able to select for giants based on their photometric properties alone with reasonable efficiency .
+the high amplitude non - periodic stars are almost all high frequency pulsators ( too high for our tailored periodogram test to pick them up ) . for the periodic variables , the dominant period distribution rises to the long end of what we consider
+well - determined ( up to two weeks ) . since a substantial fraction of stars with dominant periods of two weeks
+may actually have rotation periods of a month , we are sampling into the pool of main sequence stars with solar rotation .
+some of the stars with even longer periods must wait for more time coverage , and some of them are quiet enough to have been classified as non - periodic in the current study .
+it is too early to give a real rotational period distribution or make statements about the age distribution in this sample .
+perhaps the main conclusion of this preliminary overview of stellar variability as seen by the
+mission is that this will be a very rich and unique dataset for studying the surfaces of stars .
+this study is preliminary both because the data reduction will require further refinement and mostly because we have only treated the first month of what is already more than a year ( expected to become at least 3.5 years ) of nearly continuous measurements at very high precision of roughly 150,000 stars .
+well over half of the sample of main sequence solar - type stars show variability at a level beyond the noise , and many of them show apparently periodic behavior ( 60,000 more clearly and 34,000 somewhat marginally ) . even restricting the sample to solar - type main sequence stars with strong amplitudes and periodicities
+produces a population of 14,000 .
+we have only looked by eye at a small minority of them so far .
+the stars whose variability is periodic but clearly not due to spots ( pulsators and eclipsers are the primary other variables ) are both far less numerous and can be filtered out ( or selected ) with good efficiency .
+while it is quite obvious in many cases that we are looking at starspots rotating in and out of view , evolving in strength , and differentially rotating at different latitudes , more work is needed to distinguish between these and other sources of variability in more ambiguous cases .
+we believe that the ambiguity of some of the lightcurves will be reduced or eliminated as longer time series become available . a lot of additional work is needed to model the spotted cases
+sufficiently well to extract all the information that is present .
+this will allow a qualitative leap in our understanding of magnetic activity on stars .
+the authors wish to thank the entire kepler mission team , including the engineers and managers who were so pivotal in the ultimate success of the mission .
+lw is grateful for the support of the _ kepler fellowship for the study of planet - bearing stars_. gb thanks the nsf through grant ast-0606748 for partial support of this work .
+funding for this discovery mission is provided by nasa s science mission directorate .
+affer , l. , micela , g. , favata , r. , flaccomio , e. 2009 , aip conf . ser . 1094 , cool stars , stellar systems and the sun ( melville , ny : aip ) , 341 alonso , r. et al .
+2008 , _ a&a _ , 482 , l21 .
+basri , g. et al .
+2010 , _ apj _ , 713 , l155 .
+batalha , n.m .
+et al . 2010 , _ apj _ , 713 , l109 .
+borucki , w.  j. et al .
+_ science _
+, 327 , 977 .
+batalha , n.  b. et al . 2010 , _ apj _ , 713 , l103 .
+bedding , t.r . , et al .
+2010 , _ apj _ , 713 , l176 .
+caldwell , d.  a. et al .
+2010 , _ apj _ , 713 , l120 .
+dewitte , s. , crommelynck , d. , joukoff , a. 2004 , j. geophys .
+109 , a02102 .
+gilliland , r.  l. , 2008 , _ aj _ , 136 , 566 .
+guenther , d.  b. et al .
+2008 , _ apj _ , 687 , 1448 .
+jenkins , j.  m. et al .
+2010 , _ apj _ , 713 , l87 .
+jenkins , j.  m. et al .
+2010 , _ apj _ , 713 , l120 .
+koch , d. et al .
+_ apjl _ , in press .
+pizzolato , n. , maggio , a. , micela , g. , sciortino , s. , ventura , p. 2003 , _ a&a _ , 397 , 147 .
+strassmeier , k.  g. 2009 , , 17 , 251        0.4 in the non - periodic sample is the locus of post - main sequence stars.,title="fig:",scaledwidth=75.0% ] 0.4 in the non - periodic sample is the locus of post - main sequence stars.,title="fig:",scaledwidth=75.0% ]

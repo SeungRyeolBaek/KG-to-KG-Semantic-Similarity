@@ -1,0 +1,510 @@
+chemical master equations ( cmes ) are the accepted mathematical description of chemical systems in well - mixed conditions @xcite .
+these equations provide a mesoscopic description of chemical kinetics , interpolating between the microscopic regime of molecular dynamics and the macroscopic regime of rate equations ( res ) .
+it has been shown that cmes are exact descriptions for any well - stirred and thermally equilibrated gas - phase chemical system @xcite .
+more recently it has been rigorously confirmed that their validity extends to chemical reactions in well - stirred dilute solutions @xcite .
+however , well before these rigorous demonstrations of the microscopic physical basis of the cme , scientists have employed these equations to probe the nature of mesoscopic chemical kinetics and in particular to understand how this may differ from kinetics on macroscopic length scales ( see mcquarrie for a review @xcite of the literature up till 1967 ) .
+we briefly review the cme formalism . consider a general chemical system consisting of a number @xmath4 of distinct chemical species interacting via @xmath5 elementary chemical reactions of the type : @xmath6 here @xmath7 is an index running from 1 to @xmath5 , @xmath8 denotes chemical species @xmath9 , @xmath10 and @xmath11 are the stoichiometric coefficients and @xmath12 is the macroscopic rate of reaction .
+if this system is well - mixed then its mesoscopic state is fully determined by the vector of the absolute number of molecules of each species , @xmath13 , where @xmath14 is the number of molecules of the @xmath15species .
+the cme is then a time - evolution equation for the probability of the system being in a particular mesoscopic state @xcite : @xmath16 where @xmath2 is the volume of the compartment in which the reactions occur and @xmath17 is a step operator  when it acts on some function of the absolute number of molecules , it gives back the same function but with @xmath14 replaced by @xmath18 .
+the chemical reaction details are encapsulated in the stoichiometric matrix @xmath19 and in the microscopic rate functions @xmath20 .
+the probability that the @xmath21 reaction occurs in the time interval @xmath22 is given by @xmath23 .
+for elementary reactions , the microscopic rate function takes one of four different forms , depending on the order of the @xmath21 reaction : ( i ) a zeroth - order reaction by which a species is input into a compartment gives @xmath24 ; ( ii ) a first - order unimolecular reaction involving the decay of some species @xmath25 gives @xmath26 ; ( iii ) a second - order bimolecular reaction between two molecules of the same species @xmath25 gives @xmath27 ; ( iii ) a second - order bimolecular reaction between two molecules of different species , @xmath25 and @xmath28 , gives @xmath29 .
+the re description of the same system is much simpler . denoting the macroscopic concentration of species @xmath9 by @xmath30 , the set of res describing the macroscopic kinetics of the reactive system represented by eq .
+( 1 ) are given by : @xmath31 where @xmath32 is the vector of macroscopic concentrations and @xmath33 is the macroscopic rate function of the @xmath21 reaction which has the general mass - action form , @xmath34 .
+res provide a continuous deterministic `` many molecule '' description of kinetics .
+this strongly contrasts with the cme description which constitutes a discrete , stochastic , `` any number of molecule '' description that is faithful to the underlying microscopic basis of chemical reactions .
+unfortunately , one of the main advantages of cmes over their re cousins , their discrete description , is also the source of their computational intractability .
+differential - difference equations , such as the cme @xcite , do not lend themselves easily to analysis .
+in contrast , there is a vast body of literature in engineering , mathematics and physics dealing with the analysis and solution of differential and partial differential equations .
+thus at an early stage , considerable effort was invested in obtaining a partial differential approximation of the cme . in the 1940 s ,
+kramers @xcite and moyal @xcite developed a taylor series expansion of the cme ; by assuming that all terms with derivatives greater than two are negligible , one obtains the chemical fokker - planck equation ( cfpe , @xcite ) , a second - order partial differential equation of the form : @xmath35 as gardiner mentions in his book @xcite , `` this procedure enjoyed wide popularity  mainly because of the convenience and simplicity of the result '' and also because `` it is often simpler to use the fokker - planck equation than the master equation . '' a major and important difference between the cme and the cfpe is that @xmath14 is a positive integer for the cme while it is a real number for the cfpe .
+several authors have questioned the validity of the cfpe approximation .
+the approximation is obtained by a perfunctory truncation of the taylor expansion and hence it appears to be an uncontrolled and unjustified approximation of the cme .
+van kampen , in particular , was a leading and influential critic of the cfpe approximation . in the 1960 s and 70 s , he developed a systematic perturbative expansion of the cme in powers of the inverse square root of the system volume @xmath2 ( the system - size expansion ) and used it to show that to lowest order in the expansion , i.e. in the limit of large volumes  the macroscopic limit , one obtains a fokker - planck equation which is of a different form than the cfpe @xcite .
+of particular concern is that van kampen s fokker - planck equation is linear whereas the cfpe is non - linear .
+note that by non - linear fokker - planck equation here we mean one such that its drift and diffusion coefficients are generally non - linear functions of the molecule numbers @xmath14 ; this convention is adopted since it is in mainstream use , for example see the book by van kampen @xcite .
+taking into account higher - order terms in the system - size expansion does not lead to the cfpe as well .
+however , interestingly , in the limit of large volumes , the cfpe does reduce to van kampen s linear fokker - planck equation @xcite .
+this led van kampen to conclude that any features arising from the non - linear character of the cfpe are spurious and not to be taken seriously @xcite .
+we note that the limit of large volumes in van kampen s system - size expansion is taken at fixed macroscopic concentrations and hence it corresponds to the limit of large molecule numbers @xcite .
+hence van kampen s conclusions can be equivalently stated as : the cfpe becomes a legitimate approximation of the cme in the limit of large molecular populations .
+a few studies at the time @xcite did suggest that the cfpe s validity extended beyond the linear regime .
+of particular importance is a result of horsthemke and brenig @xcite which motivated the present study .
+the authors considered a simple dimerization reaction @xmath36 whereby molecules of a monomer species @xmath37 are introduced in a compartment of volume @xmath2 and subsequently they bind to each other to form dimers @xmath38 . assuming stationary conditions , the cme and cfpe are solved exactly .
+it is shown that the average concentration of monomers and the variance of the fluctuations from the two formalisms agree exactly to order @xmath39 and are respectively equal to @xmath40 and @xmath41 , where @xmath42 is the macroscopic concentration obtained by solving the corresponding re in steady - state conditions .
+the same example can be found worked in van kampen s book @xcite wherein he shows that the linear noise approximation gives mean and variance equal to @xmath42 and @xmath41 . as we mentioned before
+, a linearization of the cfpe will lead to the linear - noise approximation and hence from this example we can conclude that the non - linearity of the cfpe is non - spurious since it leads to a more accurate concentration estimate than that which is obtained from the linear - noise approximation .
+however one could argue that this higher accuracy is only particular to the dimerization example and not a general feature of the cfpe .
+because of this or other reasons , the results of hortshemke and brenig do not appear to have received the attention they deserved at the time and van kampen s conclusions about the cfpe were accepted , by and large , by the statistical physics community .
+approximately 40 years later after the inception of the system - size expansion , gillespie revived the question of the validity of the cfpe by deriving it without invoking truncation of the kramers - moyal expansion of the cme @xcite . to be precise , he derived the chemical langevin equation ( cle ) : @xmath43 where @xmath44 are temporally uncorrelated , independent gaussian white noises . this stochastic differential equation is exactly equivalent to the cfpe in the sense that its solution generates exact sample paths of the cfpe , eq . ( 4 ) .
+essentially he showed that the cfpe approximation is valid provided two conditions are satisfied .
+a large number of molecules suffices to ensure that both conditions are satisfied however this is not a necessary condition .
+this suggests that there are regimes in which the particle numbers may not be very large and yet the cfpe may still provide a reasonably good approximation of the cme .
+however gillespie s derivation does not provide us with a means to estimate the accuracy of the cfpe for general chemical systems .
+questions regarding the validity and accuracy of the cfpe and cle are more important now than ever before . in the past decade , interest has virtually exploded in realistic stochastic simulations of biochemical reactions inside cells @xcite .
+the exact method of sampling the trajectories of the cme , the stochastic simulation algorithm @xcite , is computationally expensive and the cme is analytically intractable ; thus approximate methods such as the cfpe and the cle have come to the foreground as an alternative means to obtain numerical and theoretical insight into the functioning of intracellular biochemical networks @xcite .
+these networks are typically characterized by a large number of bimolecular reactions in which at least one of the species is present in very small molecule numbers @xcite , indeed the precise conditions in which the fidelity of the cfpe remains unclear .
+hence the question of the accuracy of the cfpe has nowadays become a practical one  how much can we trust the conclusions derived from the cfpe or the corresponding cle ?    in this article ,
+we derive formulas to estimate the relative error in the cfpe predictions of the mean concentrations and of the variance of the fluctuations about the mean .
+the results are valid for all monostable chemical reaction networks . as a byproduct of our derivation
+, we will also clarify the connection between the cfpe and van kampen s system - size expansion , in particular showing that the non - linear character of the cfpe is not completely spurious and that generally cfpe estimates are more accurate than those obtained from the linear fokker - planck equation .
+the article is organized as follows . in section
+ii , we use the multivariate system - size expansion to derive expressions for the mean concentrations and for the variance of the fluctuations as predicted by the cme accurate to order @xmath45 . in section iii , we develop the system - size expansion of the cfpe and use it to derive expressions for the mean concentrations and for the variance of the fluctuations accurate to the same order as derived for the cme in section ii . in section iv , we use the results of the previous two sections to derive expressions for the relative error in the predictions of the cfpe .
+we also compare the predictions of the cfpe and the linear fokker - planck equation .
+these results are tested on two bimolecular reaction systems  dimerization and an enzyme - catalyzed reaction  in section v. we conclude by a discussion in section vi .
+we will now probe the mesoscopic description provided by the cme using the system - size expansion developed by van kampen @xcite .
+this method allows one to derive expressions for the mean concentrations and for the variance of the fluctuations about these concentrations , as predicted by the cme , accurate to the order of any desired power of the inverse square root of the volume .
+the only requirement for the expansion to hold is that the steady - state of the chemical system is asymptotically stable . for the applications that we are interested in , namely biochemical reactions in intracellular conditions
+, the number of molecules can be very small , in some cases just few tens of molecules of a given species per cell .
+we will derive equations accurate to @xmath45  this accuracy should be more than sufficient for the applications mentioned since terms of lower order , @xmath46 , already imply corrections to the concentrations of the order of a single molecule in the compartment . to our knowledge
+this is the first time that the system - size expansion has been carried to this order for a general system of @xmath4 interacting chemical species .
+van kampen has treated a one species example to the same order in his book @xcite while elf and ehrenberg @xcite have derived the multivariate expansion to @xmath47 .
+the starting point of the system - size expansion is to write the absolute number of molecules of species @xmath9 as : @xmath48 where @xmath30 is the macroscopic concentration of species @xmath9 as determined by the res .
+this has the effect of transforming all functions of @xmath14 in the cme into functions of @xmath49 .
+the expansion of the cme proceeds by writing eq .
+( 2 ) in terms of the new variables .
+details of this transformation can be found in @xcite ; here we will simply state the relevant results and use them for our present derivation .
+the variable change causes the probability distribution of molecular populations , @xmath50 , to be transformed into the probability distribution of fluctuations , @xmath51 , where @xmath52 .
+the time derivative , the step operator and the microscopic rate function in the cme , read in the new variables : @xmath53 where @xmath54 note that in eq .
+( 9 ) the microscopic rate function is expressed in terms of the macroscopic rate function .
+as we shall shortly see , this is convenient from a calculation point of view since the final expressions for the means and variances will be solely in terms of functions which appear in the res .
+note that the upper limit of the sum in eq .
+( 9 ) is 2 because all reactions involve at most the interaction of two molecules and hence @xmath55 equals zero for @xmath56 .
+although our analysis is specifically for elementary reactions , one can easily extend the approach to include `` elementary complex '' reactions @xcite .
+however we shall not pursue this here .
+substituting eqs .
+( 7 - 9 ) in eq .
+( 2 ) we get the following new form of the cme : @xmath57 note that terms proportional to @xmath58 do not appear in the expansion of the cme . this is because when one substitutes eqs .
+( 7 - 9 ) in eq .
+( 2 ) , one equates terms of this order on both sides of the cme which simply gives us back the macroscopic res , eq .
+( 3 ) .    to proceed
+further we need the explicit dependence of the right hand side of eq .
+( 14 ) on the new variables @xmath49 .
+this is obtained by substituting eqs .
+( 10 - 13 ) in eq .
+( 14 ) which leads to : @xmath59 note that in the above equation , we have used the einstein summation convention where all twice repeated indices are understood to be summed over 1 to @xmath4 .
+the partial derivative @xmath60 denotes @xmath61 .
+we have also used the following two convenient definitions : @xmath62 from eq .
+( 3 ) it follows that @xmath63 and consequently @xmath64 represents the @xmath9-@xmath65 element of the jacobian matrix associated with the res of the system .
+note that eq .
+( 15 ) to order @xmath66 is the linear fokker - planck equation which was mentioned in the introduction .
+the drift vector is linear in the @xmath67 variables while the diffusion tensor is independent of them .
+both depend on time via their own dependence on the macroscopic concentrations .
+this level of approximation is frequently called the linear - noise approximation , a nowadays popular means of estimating the size of the concentration fluctuations about the macroscopic concentrations @xcite .
+we are interested in the dynamics on mesoscopic length scales and hence we shall consider terms of higher order than @xmath66 in eq .
+( 15 ) .
+we now proceed to construct equations for the moments of the @xmath67 variables .
+we start by expanding @xmath51 as a series in powers of the inverse square root of the volume : @xmath68 from which it follows that the moments possess an equivalent expansion : @xmath69_j \omega^{-j/2},\ ] ] where @xmath70_j = \int \epsilon_k \epsilon_m ...
+\epsilon_r \ \pi_j(\vec{\epsilon},t ) d\vec{\epsilon}.\ ] ] the angled brackets denote the statistical average .
+some subtle points associated with the perturbative expansion in the probability density and with the physical interpretation of @xmath71_j$ ] are discussed in appendix a. the time - evolution equations for the moments are obtained as follows .
+one starts by substituting eq .
+( 18 ) in eq .
+( 15 ) , multiplying the resulting equation on both sides by @xmath72 and integrating over @xmath73 . equating terms of order @xmath74 on both sides of the equation
+gives the time - evolution equation for @xmath71_j$ ] .
+finally one constructs the time - evolution equation for the moments using eq .
+( 19 ) .
+as mentioned earlier , our aim is to determine the mean concentrations and the variance of the fluctuations about the means and hence we must relate the latter to the moments of the @xmath67 variables above . using eqs .
+( 6 ) and ( 19 ) , one can easily verify that the mean concentration of species @xmath9 and the variance of the fluctuations about it , accurate to order @xmath1 are respectively given by : @xmath75_j \omega^{-j/2 } + o(\omega^{-5/2 } ) , \\
+\sigma_i^2 & = \biggl \langle \biggl(\frac{n_i}{\omega } \biggr)^2 \biggr \rangle - \biggl \langle \frac{n_i}{\omega } \biggr \rangle^2 = \omega^{-1 } ( \langle \epsilon_i^2 \rangle - \langle \epsilon_i \rangle^2 ) \nonumber \\ & = \omega^{-1 } \biggr ( \sum_{j=0}^{2 } [ \epsilon_i^2 ] _
+j \omega^{-j/2 } - \biggl(\sum_{j=0}^{1 } [ \epsilon_i ] _ j \omega^{-j/2 } \biggr)^2 - \omega^{-1 }   [ \epsilon_i ] _ 0   [ \epsilon_i ] _ 2 \biggl ) + o(\omega^{-5/2}).\end{aligned}\ ] ] hence it is clear that to determine the mean and variance accurate to order @xmath1 , we shall need to determine the first and second moments of the @xmath67 variables accurate to orders @xmath0 and @xmath39 respectively .
+we proceed by implementing the calculation recipe outlined just after eq .
+( 20 ) to derive equations for the corrections to the second moments accurate to order @xmath39 : @xmath76_0 & =   j_r^{w }   [ \epsilon_w \epsilon_k ] _ 0 + ( r \leftrightarrow k ) + d_{rk } , \\
+\frac{\partial}{\partial t } [ \epsilon_r \epsilon_k ] _ 1 & =   j_r^{w }   [ \epsilon_w \epsilon_k ] _ 1 + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p \epsilon_k ] _ 0 - \frac{1}{2 } j_r^{w(2 ) }   \phi_w [ \epsilon_k ] _
+0 \nonumber \\ &   + ( r \leftrightarrow k )   + j_{kr}^w [ \epsilon_w ] _ 0 , \\
+\frac{\partial}{\partial t } [ \epsilon_r \epsilon_k ] _ 2 & =   j_r^{w }   [ \epsilon_w \epsilon_k ]
+_ 2 + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p \epsilon_k ] _ 1 - \frac{1}{2 } j_r^{w(2 ) }   \phi_w [ \epsilon_k ] _ 1 \nonumber \\ & - \frac{1}{2 }   j_r^{w(2 ) }   [ \epsilon_w \epsilon_k ] _ 0 + ( r \leftrightarrow k )   +   j_{kr}^w [ \epsilon_w ] _ 1 + \frac{1}{2 } j_{rk}^{wm } [ \epsilon_w \epsilon_m ] _ 0 - \frac{1}{2 } j_{rk}^{w(2 ) } \phi_w.\end{aligned}\ ] ] details of the calculations leading to the above equations are illustrated by a step - by - step derivation of eq .
+( 25 ) in appendix b. note that the short - hand notation @xmath77 stands for all the expressions of the same form as the ones preceding the notation but with @xmath78 and @xmath79 interchanged .
+for example in eq .
+( 24 ) , @xmath77 stands for @xmath80_1 + \frac{1}{2 } j_k^{wp }   [ \epsilon_w \epsilon_p \epsilon_r ] _ 0 - \frac{1}{2 } j_k^{w(2 ) }   \phi_w [ \epsilon_r ] _ 0 $ ] .
+this notation will be used throughout the rest of the article since it enables the equations to be written in a compact way .
+the equation for @xmath81_0 $ ] , eq .
+( 23 ) , is a lyapunov equation which can be solved either analytically ( see for example @xcite ) or else numerically , for example using the built in functions of matlab and mathematica .
+solution of the equation for @xmath81_1 $ ] , eq .
+( 24 ) , requires the solutions of the equations for the first and third moments to order @xmath66 : @xmath82_0 & =   j_r^{w }   [ \epsilon_w ] _ 0 , \\
+\frac{\partial}{\partial t } [ \epsilon_r \epsilon_k \epsilon_l ] _ 0 & =   j_l^{w }   [ \epsilon_w \epsilon_k \epsilon_r ] _
+0 + ( l \leftrightarrow k ) + ( k \leftrightarrow r ) \nonumber \\ & + d_{rl } [ \epsilon_k ] _
+0 +   ( k \leftrightarrow l ) + ( r \leftrightarrow l).\end{aligned}\ ] ] note that in eq .
+( 27 ) , @xmath83 stands for two expressions ; the first expression corresponds to the first term on the right hand side of eq .
+( 27 ) with @xmath84 and @xmath79 interchanged and the second expression is the first expression just obtained with @xmath79 and @xmath78 interchanged . by a similar reasoning , it follows that @xmath85 in eq .
+( 27 ) stands for @xmath86_0 + d_{lk } [ \epsilon_r ] _ 0 $ ] .
+note that in steady - state conditions , @xmath87_0 = [ \epsilon_r \epsilon_k \epsilon_l ] _ 0 = 0 $ ] and and consequently there is no correction to the second moments to @xmath46 , i.e. , @xmath81_1 = 0 $ ] .
+solution of the equation for @xmath81_2 $ ] , eq .
+( 25 ) , requires the solutions of the corrections to the the first and third moments to order @xmath3 and the second and fourth moments to order @xmath88 : @xmath82_1 & =   j_r^{w }   [ \epsilon_w ] _ 1 + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p ] _ 0 - \frac{1}{2 } j_r^{w(2 ) }   \phi_w , \\
+\frac{\partial}{\partial t } [ \epsilon_r \epsilon_k \epsilon_l ] _ 1 & =   j_l^{w }   [ \epsilon_w \epsilon_k \epsilon_r ] _ 1 + \frac{1}{2 } j_l^{wp } [ \epsilon_w \epsilon_p \epsilon_r \epsilon_k ] _ 0 - \frac{1}{2 } j_l^{w(2 ) } \phi_w [ \epsilon_r \epsilon_k ] _
+0 \nonumber \\ & + ( l \leftrightarrow k ) + ( k \leftrightarrow r ) + d_{rl } [ \epsilon_k ] _ 1 +   j_{rl}^w [ \epsilon_w \epsilon_k ] _ 0 + ( k \leftrightarrow l ) \nonumber \\ & + ( r \leftrightarrow l ) +   d_{rkl } , \\
+\frac{\partial}{\partial t } [ \epsilon_r \epsilon_k \epsilon_l \epsilon_m ] _ 0 & =   j_r^{w }   [ \epsilon_w \epsilon_k \epsilon_l \epsilon_m ] _ 0 + ( r \leftrightarrow m ) + ( m \leftrightarrow k ) + ( k \leftrightarrow l ) + d_{rm } [ \epsilon_k \epsilon_l ] _ 0 \nonumber \\ & +   ( m \leftrightarrow l ) + ( l \leftrightarrow k ) + ( r \leftrightarrow m ) + ( m \leftrightarrow l ) + ( k \leftrightarrow m).\end{aligned}\ ] ]
+the procedure to obtain the second moments to order @xmath39 is now clear .
+one first solves eq .
+( 23 ) to get @xmath81_0 $ ] ; then one solves eqs .
+( 26 - 27 ) and substitutes in eq .
+( 24 ) to get @xmath81_1 $ ] ; finally one solves eqs .
+( 28 - 30 ) and substitutes these , together with the solution of eq .
+( 23 ) , in eq .
+( 25 ) to get @xmath81_2 $ ] .
+the first moment equations and the corresponding equations for the mean concentrations can be obtained in an analogous manner as for the second moments . the equations for @xmath87_0 $ ] and @xmath87_1 $ ]
+have been already derived , eqs .
+( 26 ) and ( 28 ) , respectively .
+the equations for @xmath87_2 $ ] and @xmath87_3 $ ] are given by : @xmath82_2 & =   j_r^{w }   [ \epsilon_w ] _ 2 + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p ] _ 1 - \frac{1}{2 } j_r^{w(2 ) } [ \epsilon_w ] _ 0 , \\
+\frac{\partial}{\partial t } [ \epsilon_r ] _ 3 & =   j_r^{w }   [ \epsilon_w ]
+_ 3 + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p ] _ 2 - \frac{1}{2 } j_r^{w(2 ) } [ \epsilon_w ] _ 1.\end{aligned}\ ] ] the procedure to obtain the first moments to order @xmath0 is now also clear .
+one first solves eq .
+( 26 ) to get @xmath87_0 $ ] ; then one solves eq .
+( 23 ) and substitutes in eq .
+( 28 ) to obtain @xmath87_1 $ ] ; finally one uses the solutions already obtained when deriving the second moments to solve eqs .
+( 31 - 32 ) for @xmath87_2 $ ] and @xmath87_3 $ ] .
+given the first and second moments accurate to @xmath0 and @xmath39 , one finally determines the mean concentrations and the variance of the fluctuations about them accurate to @xmath1 from eqs .
+( 21 - 22 ) .
+although the procedure of obtaining the latter final expressions is fairly laborious , as we shall see in the next section , in order to obtain the leading order error in the predictions of the cfpe , it will only be necessary for us to solve very few of these equations explicitly .
+in this section we use the system - size expansion to derive expressions for the mean concentrations and the fluctuations about them , as predicted by the cfpe , accurate to @xmath45 . to the best of our knowledge
+this is the first time that the expansion has been used on the cfpe although the method is similar in principle to the small - noise expansion of fokker - planck equations as presented by gardiner @xcite .
+the cfpe is obtained by truncating the kramer s moyal expansion to include at most second - order derivatives : @xmath89 note that the second step above , follows by taylor expanding the step operator .
+next we perform the system - size expansion on the cfpe , eq .
+( 33 ) , i.e. , we make the variable transformation given by eq .
+( 6 ) which transforms functions of @xmath14 into functions of the new variables @xmath49 .
+the probability distribution @xmath50 is transformed into a new one @xmath90 .
+note that the subscript @xmath91 will be used to distinguish quantities calculated using the cfpe from those previously calculated using the cme .
+the time derivative on the left hand side of the equation and the microscopic rate function @xmath92 transform as in the case of the cme and are given by eqs .
+( 7 ) and ( 9 ) together with the definitions eqs .
+( 11 - 13 ) and with @xmath51 replaced by @xmath90 .
+the operators involving derivatives with respect to absolute particle number transform as follows : @xmath93 where the operators @xmath94 are as defined in eq .
+hence the cfpe in the new variables reads : @xmath95 note that whereas the transformation given by eq .
+( 6 ) on the cme leads to an infinite series in powers of the inverse square root of the volume , eq . ( 14 ) , the same transformation on the cfpe leads to a finite series with the highest order term being of order @xmath0 ( this is only true for elementary reactions ) .
+the derivation of the equations for the time evolution of the moments of the @xmath67 variables proceeds in an exactly analogous manner as to that presented in detail in section ii .
+the probability distribution is written as a series in powers of the inverse square root of the volume , @xmath96 and the moments are then generally given by : @xmath97_{f , j } \omega^{-j/2},\ ] ] where @xmath70_{f , j } = \int \epsilon_k \epsilon_m ... \epsilon_r
+\ \pi_{f , j}(\vec{\epsilon},t ) d\vec{\epsilon}.\ ] ] the equations for the mean concentrations and the variance of the fluctuations about them are given by eqs .
+( 21 - 22 ) with the subscript @xmath91 carried throughout .
+the time evolution equations for the corrections to the moments can be derived as before . although there is some repetition involved , we will state these equations in full so that the differences between them and those derived using the cme are very clear .
+the equations for the corrections to the second moments accurate to order @xmath39 are : @xmath76_{f,0 } & =   j_r^{w }   [ \epsilon_w \epsilon_k ] _ { f,0 } + ( r \leftrightarrow k ) + d_{rk } , \\ \frac{\partial}{\partial t } [ \epsilon_r \epsilon_k ] _
+{ f,1 } & =   j_r^{w }   [ \epsilon_w \epsilon_k ] _
+{ f,1 } + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p \epsilon_k ] _ { f,0 } - \frac{1}{2 } j_r^{w(2 ) }   \phi_w [ \epsilon_k ]
+_ { f,0 } \nonumber \\ &   + ( r \leftrightarrow k )   + j_{kr}^w [ \epsilon_w ] _ { f,0 } , \\
+\frac{\partial}{\partial t } [ \epsilon_r \epsilon_k ] _ { f,2 } & =   j_r^{w }   [ \epsilon_w \epsilon_k ] _ { f,2 } + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p \epsilon_k ] _ { f,1 } - \frac{1}{2 } j_r^{w(2 ) }   \phi_w [ \epsilon_k ] _ { f,1 } \nonumber
+\\ & - \frac{1}{2 }   j_r^{w(2 ) }   [ \epsilon_w \epsilon_k ] _ { f,0 } + ( r \leftrightarrow k )   +   j_{kr}^w [ \epsilon_w ] _ { f,1 } + \frac{1}{2 } j_{rk}^{wm } [ \epsilon_w \epsilon_m ] _ { f,0 } - \frac{1}{2 } j_{rk}^{w(2 ) } \phi_w.\end{aligned}\ ] ] note that these are the same as eqs ( 23 - 25 ) but with subscript @xmath91 ; the implicit reason for this is that only terms containing @xmath98 and @xmath99 contribute to the equations for the second moments and all such terms are equally present in eqs .
+( 14 ) and ( 36 ) .
+note also that eqs .
+( 23 ) and ( 40 ) lead to the same solution , i.e. , @xmath100_{0 } = [ \epsilon_r \epsilon_k ]
+_ { f,0}$ ] .
+the solution of @xmath100_{f,1}$ ] is dependent on the solutions of the time evolution equations for @xmath101_{f,0}$ ] and @xmath102_{f,0}$ ] .
+the equations for the latter are the same as eqs .
+( 26 - 27 ) but with subscript @xmath91 ; this is since eq .
+( 14 ) and ( 36 ) are equal to order @xmath66 .
+it follows that @xmath103_{0 } = [ \epsilon_r ] _ { f,0}$ ] and @xmath102_{0 } = [ \epsilon_r \epsilon_k \epsilon_l]_{f,0}$ ] from which we can conclude using eq .
+( 41 ) that @xmath100_{1 } = [ \epsilon_r \epsilon_k ] _ { f,1}$ ] . however , as we now show , generally @xmath100_{2 } \ne [ \epsilon_r \epsilon_k ]
+_ { f,2}$ ] .
+the solution of @xmath100_{f,2}$ ] is dependent on the solutions of the time evolution equations for @xmath101_{f,1}$ ] , @xmath102_{f,1}$ ] and @xmath104_{f,0}$ ] which are : @xmath82_{f,1 } & =   j_r^{w }   [ \epsilon_w ] _
+{ f,1 } + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p ] _ { f,0 } - \frac{1}{2 } j_r^{w(2 ) }   \phi_w , \\
+\frac{\partial}{\partial t } [ \epsilon_r \epsilon_k \epsilon_l ] _
+{ f,1 } & =   j_l^{w }   [ \epsilon_w \epsilon_k \epsilon_r ] _ { f,1 } + \frac{1}{2 } j_l^{wp } [ \epsilon_w \epsilon_p \epsilon_r \epsilon_k ] _ { f,0 } - \frac{1}{2 } j_l^{w(2 ) } \phi_w [ \epsilon_r \epsilon_k ] _ { f,0 }
+\nonumber \\ & + ( l \leftrightarrow k ) + ( k \leftrightarrow r ) + d_{rl } [ \epsilon_k ] _ { f,1 } +   j_{rl}^w [ \epsilon_w \epsilon_k ]
+_ { f,0 } + ( k \leftrightarrow l ) \nonumber \\ & + ( r \leftrightarrow l ) , \\
+\frac{\partial}{\partial t } [ \epsilon_r \epsilon_k \epsilon_l \epsilon_m ] _
+{ f,0 } & =   j_r^{w }   [ \epsilon_w \epsilon_k \epsilon_l \epsilon_m ] _ { f,0 } + ( r \leftrightarrow m ) + ( m \leftrightarrow k ) + ( k \leftrightarrow l ) + d_{rm } [ \epsilon_k \epsilon_l ] _ { f,0 } \nonumber \\ & +   ( m \leftrightarrow l ) + ( l \leftrightarrow k ) + ( r \leftrightarrow m ) +
+( m \leftrightarrow l ) + ( k \leftrightarrow m).\end{aligned}\ ] ] equations ( 43 ) and ( 45 ) have the same form as eqs .
+( 28 ) and ( 30 ) respectively .
+this combined with the fact that the right hand sides of eqs .
+( 43 ) and ( 45 ) are functions of @xmath100_{f,0}$ ] and that @xmath100_{0 } = [ \epsilon_r \epsilon_k ] _ { f,0}$ ] , implies that @xmath103_{1 } = [ \epsilon_r]_{f,1}$ ] and @xmath105_{0 } = [ \epsilon_r \epsilon_k \epsilon_l \epsilon_m]_{f,0}$ ] .
+however note that eq .
+( 44 ) has one term missing compared to its counterpart eq .
+( 29 ) and hence generally @xmath102_{1 } \ne [ \epsilon_r \epsilon_k \epsilon_l ]
+_ { f,1}$ ] from which it follows using eq . ( 42 ) that @xmath100_{2 } \ne [ \epsilon_r \epsilon_k ] _ { f,2}$ ] .
+the only remaining equations to be considered are those paralleling eqs .
+( 31 ) and ( 32 ) for which we find : @xmath82_{f,2 } & =   j_r^{w }   [ \epsilon_w ] _ { f,2 } + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p ] _ { f,1 } - \frac{1}{2 } j_r^{w(2 ) } [ \epsilon_w ] _ { f,0 } , \\
+\frac{\partial}{\partial t } [ \epsilon_r ] _ { f,3 } & =   j_r^{w }   [ \epsilon_w ] _ { f,3 } + \frac{1}{2 } j_r^{wp }   [ \epsilon_w \epsilon_p ] _ { f,2 } - \frac{1}{2 } j_r^{w(2 ) } [ \epsilon_w ] _ { f,1}.\end{aligned}\ ] ] by similar arguments to the above , these equations imply @xmath103_{2 } = [ \epsilon_r]_{f,2}$ ] and @xmath103_{3 }   \ne [ \epsilon_r]_{f,3}$ ] .
+hence , in summary , we have obtained the following results :    1 .
+@xmath101_{0 } = [ \epsilon_r]_{f,0}$ ] , @xmath100_{0 } = [ \epsilon_r \epsilon_k ]
+_ { f,0}$ ] , @xmath102_{0 } = [ \epsilon_r \epsilon_k \epsilon_l]_{f,0}$ ] , @xmath105_{0 } = [ \epsilon_r \epsilon_k \epsilon_l \epsilon_m]_{f,0}$ ] 2 .
+@xmath103_{1 } = [ \epsilon_r]_{f,1}$ ] , @xmath100_{1 } = [ \epsilon_r \epsilon_k ]
+_ { f,1}$ ] , @xmath102_{1 } \ne [ \epsilon_r \epsilon_k \epsilon_l ] _ { f,1}$ ] 3 .
+@xmath103_{2 } = [ \epsilon_r]_{f,2}$ ] , @xmath100_{2 } \ne [ \epsilon_r \epsilon_k ] _ { f,2}$ ] 4 .
+@xmath103_{3 }   \ne [ \epsilon_r]_{f,3}$ ]    note that these results are not for the moments but for the corrections to the moments ; the real physical meaning of these results in terms of means and variances will be elucidated in the next section .
+using eqs .
+( 32 ) and ( 47 ) , eqs ( 25 ) and ( 42 ) and eqs .
+( 29 ) and ( 44 ) , we can respectively write down simple equations for the differences in the corrections to the first , second and third moments as predicted by the cfpe and the cme : @xmath106 where we have used the convenient definitions : @xmath107_{3 }   - [ \epsilon_r]_{f,3 } , \\
+\delta_{rk }   & = [ \epsilon_r \epsilon_k ] _ { 2 } - [ \epsilon_r \epsilon_k ] _ { f,2 } , \\ \delta_{rkl } & = [ \epsilon_r \epsilon_k \epsilon_l]_{1 } - [ \epsilon_r \epsilon_k \epsilon_l ] _ { f,1}.\end{aligned}\ ] ]
+in this section we will use the results derived in the last section to obtain formulas for the absolute and relative errors ( to leading order ) in the cfpe predictions of the mean concentrations and the variance of the fluctuations . using these formulas
+we will be able to deduce the general conditions in which the differences between the cfpe and the cme are minimal .
+furthermore we will show that the cfpe is generally more accurate than the linear fokker - planck equation of van kampen and that the mean concentrations of the cfpe to order @xmath39 are precisely the same as those obtained from effective mesoscopic rate equations .
+we will now derive expressions for the leading order term of the absolute and relative errors made by the cfpe in predicting the mean concentrations and the variance of the fluctuations about the mean concentrations .
+we will also obtain an expression for the leading order term of the absolute error made by the cfpe in predicting the skewness of the probability distribution of the concentrations .    the mean concentration predicted by the cme , @xmath108 ,
+is given by eq .
+( 21 ) while the mean concentration predicted by the cfpe , @xmath109 is given by the same equation but with the subscript @xmath91 carried throughout .
+subtracting the two expressions and using the summary of results in section iii together with eq .
+( 51 ) we get the absolute error in the cfpe concentration : @xmath110 the relative error follows easily : @xmath111 \biggl \langle \frac{n_i}{\omega } \biggr\rangle^{-1 } = \frac{\delta_i}{\phi_i } \omega^{-2 } + o(\omega^{-5/2}).\ ] ] similarly , using eq .
+( 22 ) and using the summary of results in section iii together with eq .
+( 52 ) we find the absolute and relative errors in the variance of the fluctuations to respectively be given by : @xmath112 where @xmath113 is the variance in the concentration of species @xmath9 as estimated by the linear - noise approximation , i.e. , @xmath114_{0 } - [ \epsilon_i]_{0}^2)$ ] . hence the recipe for calculating the errors of the cfpe predictions is now complete .
+one first solves eqs .
+( 48 - 50 ) and then substitutes their solution in eq .
+( 54 - 57 ) .
+note that this calculation recipe is valid for all times and not only in steady - state conditions .
+note also that since the denominator in eq . ( 57 ) is the linear - noise approximation estimate for the variance then the leading relative error term in the variance is proportional to @xmath39 .
+in contrast the leading relative error term in the mean concentrations , eq .
+( 55 ) , is proportional to @xmath1 .
+hence the cfpe s estimates of mean concentrations are generally expected to be more accurate than those of the variance of the fluctuations about the mean concentrations .
+finally we obtain the absolute error in the cfpe prediction of the skewness of the probability distribution of the concentration of species @xmath9 .
+the skewness is defined as : @xmath115 the absolute error in the skewness is then @xmath116 where @xmath117 is the skewness predicted by the cfpe , i.e. , eq . ( 58 ) with subscript @xmath91 throughout . as before , by using using eqs .
+( 21 - 22 ) together with the summary of results in section iii and eq .
+( 53 ) we get : @xmath118      we can now answer the question : which of the two , cfpe or linear fokker - planck equation , is the most accurate
+? we note that the linear fokker - planck equation ( or equivalently the linear - noise approximation ) is obtained by keeping only terms of order @xmath66 in eq .
+if we do the same on the expansion of the cfpe , i.e. eq . ( 36 ) , then we also get the same linear fokker - planck equation .
+this equality implies that the cfpe becomes correct for large enough volumes or equivalently for large enough molecular populations .
+this result was known to van kampen and is discussed in the book by gardiner @xcite .    within the linear - noise approximation , one can calculate the two quantities @xmath103_{0}$ ] and @xmath100_{0}$ ] using eqs .
+( 26 ) and ( 23 ) respectively .
+the quantities @xmath103_{m}$ ] and @xmath100_{m}$ ] where @xmath119 are all zero in this approximation since the expansion has only terms to order @xmath66 . now
+the initial condition for the cme is a delta function centered on the number of molecules as given by the res , i.e. at time @xmath120 , the average number of molecules of the cme and the res agree
+and hence it follows that @xmath103_{0 } = 0 $ ] initially and for all times @xcite .
+these results together with eqs .
+( 21 ) and ( 22 ) , would seem to imply that within the linear - noise approximation , the mean concentrations are accurate to order @xmath3 while the variance is accurate to order @xmath39 .
+however by considering terms of higher order than those leading to the linear - noise approximation , one arrives at the conclusion that actually the variance within this approximation is accurate to higher order than @xmath39 .
+this can be deduced by noting that @xmath103_{0 } = 0 $ ] for all times implies @xmath121_{0 } = [ \epsilon_r \epsilon_k ] _
+{ 1}= 0 $ ] also for all times .
+hence it follows from eq .
+( 22 ) that the variance in the linear - noise approximation is accurate to order @xmath0 .    now from eqs .
+( 54 ) and ( 56 ) , it is evident that generally the mean concentration and variance prediction of the cfpe are accurate to at least order @xmath0 .
+hence the mean concentration prediction of the cfpe is more accurate than that which can be obtained from the linear fokker - planck equation .
+it is also clear that the higher accuracy comes from taking into account the non - linear character of the cfpe since the @xmath122 term in eq .
+( 54 ) is obtained by considering terms in eqs .
+( 14 ) and ( 36 ) of higher order than the linear - noise approximation .
+we can also derive an explicit equation for the mean concentrations predicted by the cfpe accurate to order @xmath39 : @xmath123_{f,0 } \omega^0 + \partial_t [ \epsilon_i]_{f,1 } \omega^{-1/2 } ) + o(\omega^{-3/2 } ) \nonumber \\ & = \partial_t \phi_i + j_i^w \biggl(\biggl \langle \frac{n_i}{\omega } \biggr \rangle_f - \phi_i \biggr ) + \frac{1}{2 } \omega^{-1 } ( j_i^{wp } [ \epsilon_w \epsilon_p]_{f,0 } - j_i^{w(2 ) } \phi_w ) + o(\omega^{-3/2}).\end{aligned}\ ] ] note that the first step proceeds by taking the time derivative of eq .
+( 21 ) and the second step follows from using eqs . ( 26 ) and ( 43 ) , bearing in mind that @xmath124_{f,0 } = [ \epsilon_i]_{0}$ ] . hence the computation of the mean concentrations to this order requires only the solution of the res and of the lyapunov equation eq .
+note that eq .
+( 60 ) is exactly the same as the effective rate equations recently derived by grima from the cme ( eq .
+60 is the same as eq .
+( 22 ) together with eq .
+( 24 ) in ref @xcite ) .
+consider the case where we have @xmath4 species interacting via @xmath5 elementary reactions of the equal - step type , i.e. , in each individual reaction , either @xmath125 molecules of a species are generated or @xmath125 molecules are destroyed or no molecules are generated or destroyed .
+in such a case , the stoichiometric matrix elements are @xmath126 or @xmath127 , where @xmath125 is a non - zero positive integer .
+three examples of equal - step reactions are : @xmath128{k_2 }   2x_1 , x_1 \xrightarrow{k4 } \o \nonumber \\ &
+\o \xrightarrow{k_1 } 2 x_1 \xrightarrow{k_2 } \o \nonumber \\ & \o \xrightleftharpoons[k_2]{k_1 } x_1 , \o \xrightleftharpoons[k_4]{k_3 } x_2 , x_1+x_2 \xrightarrow{k_5 } \o \end{aligned}\ ] ] the first reaction is autocatalytic where @xmath129 is some very abundant species whose number of molecules is considered constant ; this is a one - step , one species reaction scheme .
+the second reaction involves the burst input of two molecules and their dimerization , a two - step one species reaction scheme .
+the third reaction involves the production and degradation of two species and their bimolecular interaction ; this is a one - step , two species reaction scheme .    for equal - step reactions , one species reaction schemes ,
+the quantity @xmath130 evaluates to zero in steady - state conditions : @xmath131 note that in the last step , use was made of the steady - state condition : @xmath132 . from eqs .
+( 48 - 50 ) , we can then deduce that @xmath133 .
+hence it follows from eqs .
+( 54 ) and ( 56 ) that the mean concentrations and the variance of fluctuations predicted by the cfpe for one species , equal - step reactions , are accurate to at least order @xmath1 .
+this is impressive when one considers that the linear - noise approximation of the cme only leads to estimates accurate to order @xmath3 in the mean and order @xmath0 in the variance .
+these conclusions lend support to the results of an early investigation of the one species cfpe @xcite .    however , this high accuracy of the cfpe is not generally true for multispecies equal - step reactions .
+for example , for the third reaction scheme in the examples considered above , one finds @xmath134 and @xmath135 .
+the non - zero values of @xmath136 for some index values implies that the mean and variance predictions of the cfpe in this case are accurate to order @xmath0 .      in the previous subsection
+we have seen how @xmath137 is zero for one species , one - step reaction schemes and how this leads to a particularly high accuracy in the predictions of the cfpe .
+we now want to find the condition which forces @xmath138 for chemical reactions involving any number of species .
+consider the case where all reactions are reversible . since
+each reaction can be paired with its reverse , it follows that the formula for @xmath137 can then be written as : @xmath139,\end{aligned}\ ] ] where the subscripts @xmath140 and @xmath141 indicates quantities evaluated for the forward and backward reactions respectively .
+the reversibility condition imposes @xmath142 and was used in deriving the last step .
+furthermore , a system of reversible reactions will always reach chemical equilibrium and in such conditions the system is characterized by detailed balance , i.e. , @xmath143 , the forward and reverse rates of each elementary reversible reaction balance @xcite . hence by eq .
+( 63 ) , @xmath138 , in detailed balance conditions , and consequently by eqs .
+( 48 - 50 ) and eqs . ( 54 ) and ( 56 ) , the cfpe s predictions of mean and variance are accurate to order @xmath1
+. equilibrium conditions always imply detailed balance and hence our results suggest that the size of the differences between the predictions of the cfpe and the cme increase with how far is the system from equilibrium .
+as a first application of our theory , we will estimate the relative errors in the cfpe predictions for a dimerization reaction .
+this is the simplest case of a bimolecular reaction mechanism .
+the main purpose of considering such a reaction is that both its cme and cfpe are exactly solvable and hence it provides us with a direct test of our expressions for the leading order error in the means and the variances as predicted by the cfpe .
+the set of reactions under study are : @xmath144 monomers , denoted as @xmath37 , are pumped into some compartment at a rate @xmath145 .
+pairs of monomers react with rate constant @xmath146 to form a dimer molecule , @xmath38 .
+the concentration of dimers increases with time however the concentration of monomers becomes constant after a short time , i.e. the monomers reach a steady - state . since @xmath38 is not involved in the reaction , the mathematical description is solely in terms of the number of molecules of the monomers for the cme and cfpe and in terms of the monomer concentration for the re .    the cme , eq .
+( 2 ) , for the dimerization reaction reads : @xmath147 multiplying the equation on both sides by @xmath148 and summing over @xmath149 from @xmath127 to infinity , we get the equivalent generating function equation : @xmath150 where @xmath151 .
+this partial differential equation is solved in the steady - state with boundary conditions @xmath152 and @xmath153 @xcite leading to : @xmath154 where @xmath155 , @xmath156 and @xmath157 is the modified bessel function of the first kind of order @xmath158 . the mean concentration and variance of the concentration fluctuations about this mean according to the cme
+are then given by the following expressions : @xmath159 ^ 2 \biggr ) \nonumber \\ & = \frac{\phi_1 ^ 2 [ n_{ode } [ i_1(4 n_{ode})]^2 - n_{ode } [ i_0(4 n_{ode})]^2 + i_0(4 n_{ode } ) i_1(4 n_{ode } ) ] } { n_{ode } [ i_1(4 n_{ode})]^2}.\end{aligned}\ ] ] note that these expressions are obtained within an exact approach and are not approximations as the ones stemming from the system - size expansion of the cme .
+now we obtain expressions for the mean and variance using the cfpe approach .
+the cfpe , eq .
+( 33 ) , for the dimerization reaction reads : @xmath160 where @xmath161 and @xmath162 .
+the exact stationary solution of this non - linear second order partial differential equation can be shown to be : @xmath163}{4 k_2 ( n_1 - 1 ) n_1 + k_1 \omega^2 } \biggl ( k_1 + k_2 \int_1^{n_1 } d \eta \exp \biggl [ - \frac{3 k_1 \omega^2 \arctan h(\eta)}{2 \sqrt{k_2 } \sqrt{k_1 \omega^2 - k_2 } } + \eta \biggr ] \biggr),\end{aligned}\ ] ] where @xmath164 .
+the constants @xmath165 and @xmath166 are to be determined by the boundary conditions and the normalization condition .
+the boundary conditions of the cfpe are @xmath167 .
+note that the cfpe unlike the cme does not generally have a natural boundary at @xmath168 since the noise can sometimes drive the system to negative values of @xmath149 @xcite .
+note that this problem is also implicit in the stationary solution of the linear fokker - planck equation , a gaussian which is non - zero for negative particle numbers @xcite ( see the end of this subsection for a further discussion of boundary conditions ) .
+the condition at @xmath169 fixes the value of @xmath166 while the condition at @xmath170 is automatically satisfied by the exponential pre - factor .
+the remaining constant @xmath165 is fixed by the normalization condition . since there is no closed form solution for the integral in eq . ( 71 ) , @xmath165 has to be computed numerically ; once @xmath171 is determined , the mean and variance can be straightforwardly numerically computed as well .    the exact relative error in the mean and variance predictions of the cfpe can now be computed .
+one first fixes the rate constants @xmath145 and @xmath146 and @xmath172
+. the normalization constant @xmath165 is found by numerical integration and from the ensuing steady - state probability distribution , one finds the mean , @xmath173 , and variance @xmath174 . the numerical error in the integration
+is essentially eliminated by performing the integration for a set of decreasing step size values and extrapolating to obtain the integral value at zero step size .
+using the same values of rate constants and @xmath172 , one uses eqs .
+( 68 - 69 ) to compute the mean and variance according to the cme .
+the exact relative errors in the mean and variance can then be found using @xmath175 and @xmath176 , respectively .
+the exact absolute values of the relative errors in the cfpe predictions are shown by the red open circles in fig . 1 for parameter values @xmath177 and @xmath178 .
+note that the relative error in the variance is larger than that in the mean .
+the errors increase with decreasing steady - state numbers of monomers .
+even for very small numbers , the errors are quite small .
+for example for a case in which the res predict 5 monomers in steady - state , the percentage relative errors in the mean and variance predictions of the cfpe are just @xmath179 and @xmath180 respectively .
+the high accuracy of the cfpe in low particle number conditions is indeed surprising since typically it has only been deemed accurate for systems characterized by large particle numbers .
+we can now test the accuracy of the theory developed in the previous sections by using it to obtain expressions for the approximate relative errors in the mean and variance and then compare these with the exact values as already obtained above . by inspection of the reaction scheme , eq .
+( 64 ) , it can be easily deduced that the stoichiometric matrix is @xmath181 . from the definition of the macroscopic rate function vector ( see introduction ) it also follows that it is equal to @xmath182 .
+this is all the information needed to calculate the estimates for the relative errors using our theory .
+the macroscopic concentration and the relevant entries of the d and j matrices evaluated at steady - state are then given by : @xmath183 these are substituted in eqs .
+( 48 - 50 ) which are then evaluated at steady - state , leading to : @xmath184 the relative error in the mean concentration to leading order is then given by eq .
+( 55 ) : @xmath185 where @xmath186 is the average number of monomers as predicted by the res . to compute the relative error in the variance we need to first estimate the variance to the linear - noise level of approximation .
+this is done by solving eq .
+( 23 ) in steady - state : @xmath187_0 = -\frac{d_{11}}{2 j_1 ^ 1 } = \frac{3 k_1}{8 k_2 \phi}.\ ] ] the variance is then @xmath188_0 $ ] . using the latter and eq . (
+76 ) , it is found that eq .
+( 57 ) evaluates to : @xmath189    the theoretical absolute values of the relative errors in the cfpe predictions , as given by eq .
+( 78 ) and eq .
+( 80 ) , are shown by the solid blue lines in fig . 1 for parameter values @xmath177 and @xmath178 .
+the theory is generally in very good agreement with the exact solution ; small discrepancies are only apparent in the error for the variance at molecule numbers less than approximately 5 monomers .
+the comparison has also been done for many other parameters values and as predicted by theory , in all cases , the graphs are the same as shown in fig
+. 1 .    we have also computed the exact errors by solving the cfpe with different boundary conditions .
+one could argue that constraints should be imposed on the cfpe such that it preserves the natural boundary of the cme at @xmath168 .
+this can be fulfilled by requiring that the probability current of the cfpe vanishes at @xmath168 @xcite .
+in such a case the stationary solution of the cfpe has the form of eq .
+( 71 ) with @xmath190 and @xmath165 is found by requiring that the solution is normalized on @xmath191 .
+the exact errors computed with this new solution of the cfpe are practically indistinguishable from the previous solutions shown in fig . 1 except for a small discrepancy at @xmath192
+. the excellent agreement of our theoretical solution with both cfpe solutions is simply due to the fact that the probability of @xmath149 taking negative values in eq .
+( 71 ) is very small , unless @xmath172 is also very small .      as a second application
+, we consider the catalysis of a substrate species @xmath193 into a product species @xmath194 by an enzyme species via the michaelis - menten mechanism @xcite : @xmath195{k_0}c , \\ & c \xrightarrow{k_2 } e + p,\end{aligned}\ ] ] where @xmath196 denotes the free enzyme , i.e. when it is not bound to substrate , and @xmath197 denotes the substrate - enzyme complex .
+we will denote substrate , complex and free enzyme as species 1 , 2 and 3 respectively .
+note that the product species is missing from the kinetic description because it is a byproduct of the reaction and thus not involved in the reactions .
+the total enzyme concentration is a constant , @xmath198 , since the enzyme is either bound to substrate or unbound .
+hence we effectively have a two variable system .
+the reaction system exhibits a steady - state in the concentrations of substrate and complex whenever the inequality @xmath199 is satisfied , i.e. when the rate at which substrate is pumped into the system is less than or equal to the maximum rate at which the enzyme can convert substrate to product .
+assuming such conditions , our aim is to calculate the relative errors in the mean and variance predictions of the cfpe , i.e. eqs ( 55 ) and ( 57 ) ; to achieve this , we will first need to solve eqs .
+( 48)-(50 ) , which we show in detail now .    the stoichiometric matrix and the macroscopic rate function vector follow directly from their definitions ( see introduction ) : @xmath200 the rate equations and the @xmath201 and @xmath202 matrices follow by inserting the above in eq .
+( 1 ) , eq . ( 16 ) and eq . (
+17 ) to obtain : @xmath203 where @xmath204 , @xmath205 is the michaelis - menten constant and @xmath206 .
+note that @xmath207 is a measure of enzyme saturation since as the input rate of substrate , @xmath208 , approaches the maximum rate at which the enzyme can catalyze the reaction , @xmath209 , the proportion of enzyme in complex form increases accordingly , as can also be seen from eq .
+note also that @xmath210 is a measure of how far is the system from equilibrium .
+this is since if substrate binding would occur at equilibrium , i.e. , @xmath211 , then the relationship between the macroscopic concentrations would be @xmath212 while generally in steady - state conditions , i.e. @xmath213 , the relationship between the macroscopic concentrations is @xmath214 .
+both @xmath207 and @xmath210 are non - dimensional , positive fractions .    substituting eqs .
+( 84 - 87 ) in eqs .
+( 48 - 50 ) , setting the time derivative to zero and solving the resulting set of simultaneous equations we obtain : @xmath215 where @xmath216 .
+the leading order term of the relative errors in the mean concentrations of substrate and complex , as predicted by the cfpe , are then given by substituting eq .
+( 83 ) together with eq .
+( 89 ) in eq .
+( 55 ) : @xmath217 note that the relative error in the substrate concentration is always negative , i.e. , the cfpe overestimates the mean substrate concentrations and it increases with the distance from equilibrium , @xmath210 .
+there is no error in the cfpe estimate for enzyme concentration ( at least to order @xmath1 ) .    to calculate the relative errors in the variance using eq .
+( 57 ) we first need to compute the variance as estimated by the linear - noise approximation .
+this is obtained by solving eq .
+( 23 ) using eq .
+( 84 ) and eq .
+( 88 ) : @xmath218 finally substituting the above two equations and eqs .
+( 90 - 91 ) in eq . ( 57 ) we obtain the leading order term of the relative errors in the variance of the substrate and complex concentration fluctuations , as predicted by the cfpe : @xmath219 note that both relative errors are always positive implying that the cfpe underestimates the variance .
+we can now use the formulae given by eq .
+( 92 ) , eq .
+( 94 ) and eq .
+( 95 ) to estimate the relative error of the cfpe when modeling conditions typical of the intracellular environment .
+a principal characteristic of such an environment is that the number of molecules of some species can be quite small .
+a detailed protein abundance profiling of the escherichia coli cytosol by ishihama et al @xcite shows that the total number of enzyme molecules per cell approximately varies from a hundred to a few thousands .
+it is indeed in this limit of small numbers that it is frequently thought that the cfpe and the cle description are not very accurate .
+we quantitatively test this hypothesis using our formulae .
+we will first express our error formulae in terms of the average number of molecules of substrate and free enzyme as predicted by the res , i.e. , @xmath220 and @xmath221 .
+using eqs ( 83 ) we find that : @xmath222 substituting eq .
+( 96 ) in eq .
+( 92 ) , eq .
+( 94 ) and eq . ( 95 ) we get expressions for the errors in terms of @xmath223 , @xmath224 , @xmath207 and @xmath210 .
+given fixed molecule numbers , @xmath223 and @xmath224 , we can find the maximum error by varying @xmath207 and @xmath210 over their allowed range @xmath225 $ ] .
+repeating this procedure for various molecule numbers we can obtain simple two dimensional plots of the maximum error .
+the results for the maximum relative error in the predictions of the variance are shown in fig .
+the results verify that the predictions of the cfpe become increasingly accurate with increasing molecule numbers .
+they also show that the error incurred by using the cfpe for cases of small molecule numbers is very small : less than @xmath226 for a few tens of molecule numbers .
+it is noteworthy that this accuracy is far better than even that hypothesized by proponents of the cfpe @xcite .
+for example gillespie in his seminal paper on the derivation of the cle @xcite remarks in his conclusion that the cle ( and hence the cfpe ) approximation is probably not a good one when one models a system composed of three time - varying species with total molecular population of 2000 since it appears quite possible that the molecule number of at least one of the species becomes significantly small at some point in time .
+in contrast our theory seems to predict that the cfpe predictions will still be very accurate even when the molecule numbers are quite low .
+we have tested these predictions by numerically solving the cle for the michaelis - menten process using the euler - mayurama method to obtain the mean substrate concentrations and the variance of the substrate fluctuations about the means .
+the same were obtained from stochastic simulation algorithm simulations of the cme .
+the results are shown in fig .
+the parameters are chosen to be @xmath227 , @xmath228 , @xmath229 , @xmath230 , @xmath231 and @xmath232 since this gives conditions similar to those mentioned by gillespie above . the re solutions , eqs .
+( 83 ) , with the above parameters lead to @xmath233 , @xmath234 and @xmath235 which , given a volume of @xmath232 , would imply @xmath236 , @xmath237 and @xmath238 .
+the total molecular population of enzyme ( free plus complex form ) is 2500 molecules .
+each algorithm ( euler - mayurama and stochastic simulation algorithm ) was run 5 times leading to 5 independent estimates @xcite .
+note that even though the mean number of free enzyme molecules is considerably low , the predictions of the cfpe for both the mean and the variance agree ( within sampling error ) with those of the cme . for comparison we have also plotted the predictions of the linear - noise approximation ( red lines ) and of the mean concentration as predicted by the effective mesoscopic rate equation eq .
+( 60 ) ( blue line ) .
+the results clearly confirm that the cfpe is more accurate than the linear fokker planck equation associated with the linear - noise approximation and that indeed the mean concentrations of the cfpe are in excellent agreement with the effective mesoscopic rate equations derived in ref @xcite .
+the effective mesoscopic rate equation for the michaelis - menten reaction was first obtained in ref @xcite ( see eq .
+( 29 ) in the latter reference ) .    for our set of parameters , the theoretical expressions , eqs .
+( 92 ) and ( 94 ) , evaluate to @xmath239 and @xmath240 ; these errors are so small that they are clearly masked by the sampling error inherent in the calculation of the mean and the variance from the long - time simulation trajectories . indeed , in agreement with our theory , from fig
+. 3 one can detect no significant difference between the cfpe and cme predictions .
+the numerical experiments were performed with various other parameter sets  in all cases we could not detect any discrepancy between the cfpe and cme predictions within sampling error .
+summarizing , in this article we have shown that ( i ) the mean and variance predictions of the cfpe are accurate to order @xmath0 . since those of the linear fokker - planck equation are accurate to order @xmath3 for the mean and @xmath0 for the variance , it is clear that the cfpe is generally more accurate than the linear fokker - planck equation or equivalently the linear - noise approximation .
+( ii ) for detailed balance conditions , the predictions of the cfpe are even more accurate , order @xmath1 , i.e. in equilibrium or near equilibrium conditions the cfpe does an excellent job of approximating the cme . (
+iii ) accuracy to such high order in inverse powers of the system volume implies that the cfpe estimates should be quite good even for small populations of molecules .
+our simulations for dimerization and enzyme - catalyzed reactions support these theoretical conclusions , with impressively good agreement down to an average of 5 molecules for the dimerization example .
+the cfpe s accuracy is indeed surprising given that it arises out of a naive truncation of the kramers - moyal expansion of the cme and that the cfpe can not be obtained from the systematic system - size expansion of the cme .
+only the linear fokker - planck equation can be derived from the latter expansion by considering terms of order @xmath66 .
+this equation leads to mean and variance estimates which are accurate to orders @xmath3 and @xmath0 .
+now if one wants more accurate estimates one needs to consider higher - order terms in the expansion . to get mean
+concentration estimates to order @xmath39 one needs to consider the term in the system - size expansion proportional to @xmath3 @xcite . to this order
+, one does not obtain the cfpe , rather one obtains a partial differential equation with a third - order derivative .
+however , it turns out that the mean calculated from this equation precisely agrees with that calculated from the cfpe to order @xmath39 .
+if we even wanted to get more accurate means and variance , say both to order @xmath1 , we need to consider terms in the system - size expansion to order @xmath0 .
+this leads to a partial differential equation for the time evolution of the probability density function with derivatives as high as fifth order .
+once again this is not the cfpe .
+however under steady - state conditions obeying detailed balance , the estimates from this high - order differential equation and the cfpe exactly agree to order @xmath1 .
+hence we have shown that though it is true that the cfpe does not arise out of the system - size expansion , nevertheless its predictions are better than those which can be obtained by considering only the first term of the expansion ( the linear - noise approximation ) as is conventional @xcite .
+it follows that the non - linear character of the cfpe is not completely spurious as originally suggested by van kampen @xcite .
+our study is the first one to our knowledge which systematically analyzes the validity of the non - linear multivariate cfpe and which derives approximate expressions for the size of the errors in the cfpe estimates  previous studies @xcite have focused on the cfpe for unimolecular reactions and for unimolecular and bimolecular reactions involving one species @xcite .
+our analysis is based on the system - size expansion and thus has the same limitations , namely that it is only applicable for chemical systems which are `` asymptotically stable in the sense of lyapunov '' .
+this implies that from our analysis we can not draw any conclusions for bistable systems @xcite . within these constraints ,
+the system - size expansion is a legitimate means of obtaining the moments of the cme accurate to any desired order @xcite .
+a few authors @xcite have expressed reservations regarding the accuracy of the expansion beyond the linear - noise level , their reasoning stemming from the fact that pawula s theorem @xcite states that a time - evolution equation for a probability density function with higher than second - order derivatives can not describe a stochastic process .
+however these misgivings are undue  the higher - order partial differential equation stemming from the expansion truncated to some order is `` not an exact equation for a markov process that in some way approximates the original process ; rather it is an approximate equation for the exact p. '' @xcite .
+this statement of van kampen is generally true for any legitimate expansion of the cme , not only the system - size expansion ; for example risken and vollmer @xcite showed that taking into account higher - order derivatives than two in the kramers - moyal expansion of the cme also leads to more accurate solutions than if one just had to use the cfpe .
+the accuracy of the system - size expansion beyond the linear - noise approximation has also been verified by many recent studies @xcite , putting at rest any small doubts about its general validity .
+finally , the good agreement of our theoretical expressions for the errors with simulations is a clear indication of the soundness of our system - size expansion based approach .    concluding our results offer theoretical and numerical support for gillespie s hypothesis @xcite regarding the validity of the cfpe in both mesoscopic and macroscopic systems .
+our formulas provide a simple means to estimate the error in the predictions of the cfpe and the associated cle and hence should be of wide applicability to both theoretical and numerical studies of stochastic chemistry .
+r. g. acknowledges support by sulsa ( scottish universities life science alliance ) .
+by the normalization condition and the expansion of @xmath51 we have : @xmath241 equating powers of the volume we obtain : @xmath242 an analogous property has been discussed by gardiner in the different though related context of small noise expansions of the fokker - planck equation @xcite .
+the two properties above are useful in the computation of the integrals needed to arrive to eqs .
+( 23 - 32 ) ; for more details see appendix b.    it follows from eqs .
+( a2-a3 ) that only @xmath243 is a genuine probability density while the higher orders are negative in some regions of the @xmath244 space . from eq .
+( 15 ) , we see that to order @xmath66 , the time - evolution of @xmath243 is given by a linear fokker - planck equation : @xmath245 which again verifies that @xmath243 is a probability density .
+however the time - evolution equations for @xmath246 where @xmath247 , involve derivatives of order larger than two and hence by pawula s theorem @xcite @xmath246 can not be genuine probability density functions .
+the above arguments also imply that it is not correct to think of @xmath248_j$ ] , where @xmath247 , as genuine statistical moments ; rather they are best considered as placeholders or labels for the associated integrals @xmath249 . in the main text
+we refer to them as corrections to the moments to order @xmath74 .
+it is however important to bear in mind that though @xmath248_j$ ] are generally not true statistical moments , their linear superposition via eq .
+( 19 ) is a genuine statistical moment .
+hence it is best to avoid associating any physical meaning to @xmath248_j$ ] and to simply regard them as a means to obtain the desired answer , i.e. , @xmath250 .
+the time - evolution equations are obtained by substituting eq . ( 18 ) in eq .
+( 15 ) , multiplying the resulting equation on both sides by @xmath251 and integrating over @xmath73 .
+finally we equate terms of order @xmath39 on both sides of the equation to obtain the time - evolution equation for @xmath81_2 $ ] .
+the right hand side of the resulting equation simplifies by performing integration by parts ; there are 8 integrals which need such evaluation and we treat each one of them below .    1
+.   @xmath252 d{\vec{\epsilon } } \nonumber \\ & = - j_{i}^w ( [ \epsilon_w \epsilon_k ] _ 2 \delta_{i , r } + [ \epsilon_w \epsilon_r ] _ 2 \delta_{i , k } ) \nonumber \\ & =   - j_{r}^w [ \epsilon_w \epsilon_k ] _ 2 - j_{k}^w [ \epsilon_w \epsilon_r ] _ 2.\end{aligned}\ ] ] + note that in eq .
+( 15 ) we are summing over all twice repeated indices , which for the above integral are @xmath9 and @xmath253 .
+use was made of this implicit summation on @xmath9 in the derivation of the last step .
+@xmath254 d{\vec{\epsilon } } \nonumber \\ & = d_{ip}(\delta_{p , r } \delta_{i , k } + \delta_{p , k } \delta_{i , r } ) \int \pi_2 d{\vec{\epsilon } } = 0 .
+\end{aligned}\ ] ] + in the last step , we have made use of the fact that @xmath255 , as shown in appendix a. 3 .
+@xmath256 d{\vec{\epsilon } } \nonumber \\ & = - j_{i}^{wp } ( [ \epsilon_w \epsilon_p \epsilon_r ] _ 1 \delta_{i , k } + [ \epsilon_w \epsilon_p \epsilon_k ] _ 1 \delta_{i , r } ) \nonumber \\ & =   - j_{k}^{wp } [ \epsilon_w \epsilon_p \epsilon_r ] _ 1 - j_{r}^{wp } [ \epsilon_w \epsilon_p \epsilon_k ] _ 1.\end{aligned}\ ] ] 4 .
+@xmath257 d{\vec{\epsilon } } \nonumber \\ & = - j_{i}^{w(2 ) } ( [ \epsilon_r ] _ 1 \delta_{i , k } + [ \epsilon_k ] _ 1 \delta_{i , r } ) \nonumber \\ & =   - j_{k}^{w(2 ) } [ \epsilon_r ] _ 1 - j_{r}^{w(2 ) } [ \epsilon_k]_1.\end{aligned}\ ] ] 5 .
+@xmath258 d{\vec{\epsilon } } \nonumber \\ & = j_{ip}^w [ \epsilon_w ] _ 1 ( \delta_{p , r } \delta_{i , k } + \delta_{p , k } \delta_{i , r } ) \nonumber \\ & = 2 j_{kr}^{w } [ \epsilon_w ] _ 1.\end{aligned}\ ] ] + in obtaining the last step we have used the implicit summation over @xmath9 and @xmath125 and also the symmetrical property , @xmath259 , which follows from the definitions given by eqs .
+( 16 - 17 ) .
+@xmath260 d{\vec{\epsilon } } \nonumber \\ & = - j_{i}^{w(2 ) } ( [ \epsilon_w \epsilon_k ] _ 0 \delta_{i , r }
++ [ \epsilon_w \epsilon_r ] _ 0 \delta_{i ,
+k } ) \nonumber \\ & =   - j_{r}^{w(2 ) } [ \epsilon_w \epsilon_k ] _ 0 - j_{k}^{w(2 ) } [ \epsilon_w \epsilon_r ] _ 0.\end{aligned}\ ] ] 7 .
+@xmath261 d{\vec{\epsilon } } \nonumber \\ & = j_{ip}^{wm } [ \epsilon_w \epsilon_m ] _ 0 ( \delta_{p , r } \delta_{i , k } + \delta_{p , k } \delta_{i , r } ) \nonumber \\ & = 2 j_{kr}^{wm } [ \epsilon_w \epsilon_m ] _
+0.\end{aligned}\ ] ] + note that in the last step we have used the symmetrical property , @xmath262 , which follows from the definitions given by eqs .
+( 16 - 17 ) . 8 .
+@xmath263 d{\vec{\epsilon } } \nonumber \\ & = j_{ip}^{w(2)}(\delta_{p , r } \delta_{i , k } + \delta_{p , k } \delta_{i , r } ) \int \pi_0 d{\vec{\epsilon } } = 2 j_{kr}^{w(2)}. \end{aligned}\ ] ] + in the last step , we have made use of the fact that @xmath264 , as shown in appendix a and the symmetry property used in the evaluation of the previous integral .
+ohphs d. t. gillespie , annu .
+phys . chem . *
+58 * , 35 ( 2007 ) d. t. gillespie , physica a * 188 * , 404 ( 1992 ) d. t. gillespie , j. chem
+* 131 * , 164109 ( 2009 ) d. a. mcquarrie , j. appl . prob . * 4 * , 413 ( 1967 ) n. g. van kampen , _
+stochastic processes in physics and chemistry _ ( elsevier , 2007 ) h. kramers , physica * 7 * , 284 ( 1940 ) j. e. moyal , j. r. stat .
+soc . * 11 * , 151 ( 1949 ) c. w. gardiner , _ handbook of stochastic methods for physics , chemistry and the natural sciences _ ( springer , 2004 ) n. g. van kampen , can .
+* 39 * , 551 ( 1961 ) n. g. van kampen , adv .
+* 34 * , 245 ( 1976 ) n. g. van kampen , the diffusion approximation for markov process , pp .
+181 - 195 . in : i.
+lamprecht and a. i. zotin , ed 1982 .
+_ thermodynamics and kinetics of biological processes_. walter de gruyter and co. , new york t. g. kurtz , j. chem .
+phys . * 50 * , 460 ( 1969 ) w. horsthemke and l. brenig , zeitschrift fuer physik b * 27 * , 341 ( 1977 ) d. t. gillespie , j. chem . phys . * 113 * , 297 ( 2000 ) t. e. turner , s. schnell and k. burrage , comp . biol . chem .
+* 28 * , 165 ( 2004 ) r. grima and s. schnell , essays in biochemistry * 45 * , 41 ( 2008 ) j. paulsson , phys .
+life revs .
+* 2 * , 157 ( 2005 ) t. c. meng , s. somani and p. dhar , in silico biology * 4 * , 293 ( 2004 ) d. t. gillespie , j. phys
+. chem . * 81 * , 2340 ( 1977 )    z. hou and h. xin , j. chem .
+phys . * 119 * , 11508 ( 2003 ) m. l. simpson , c. d. cox and g. s. sayler , j. theor . biol . * 229 * , 383 ( 2004 ) t. xiao , j. ma , z. hou and h. xin , new . j. phys .
+* 9 * , 403 ( 2007 ) j. wilkie and y. m. wong , chem . phys . * 353 * , 132 ( 2008 ) v. sotiropoulos et al , ieee / acm trans .
+. bioinform .
+* 6 * , 470 ( 2009 ) y. ishihama y. et al , bmc genomics * 9 * , 102 ( 2008 ) s. ghaemmaghami et al , nature * 425 * , 737 ( 2003 ) j. elf and m. ehrenberg , genome res .
+* 13 * , 2475 ( 2003 ) r. grima , j. chem
+. phys . * 133 * , 1 ( 2010 ) d. t. gillespie , j. chem . phys . * 72 * , 5363 ( 1980 ) j. keizer , _ statistical thermodynamics of nonequilibrium processes _ ( springer , 1987 ) r. m. mazo , j. chem . phys . *
+62 * , 4244 ( 1975 ) h. grabert , p. haenggi and i. oppenheim , physica * 117a * , 300 ( 1983 ) h. risken , _ the fokker - planck equation : methods of solution and applications _
+( springer , 1996 ) a. cornish - bowden , _ fundamentals of enzyme kinetics _
+( portland press , 1995 ) the estimates were calculated according to the following procedure .
+running the cle euler - mayurama algorithm once leads to a set of numbers @xmath265 where @xmath266 is the discretization time step of the algorithm .
+an estimate of the steady - state average concentration of species @xmath9 as predicted by the cfpe is then given by @xmath267 where @xmath268 is the maximum number of time steps . running
+the algorithm @xmath4 times leads to @xmath4 slightly different estimates of the mean of the cfpe ; this variation leads to statistical error in the numerical estimation of the mean concentrations and can be reduced by increasing the total number of time steps .
+the same arguments hold for the estimation of the variance . for the simulations leading to fig .
+3 we chose @xmath269 and @xmath270 .
+smaller @xmath266 and larger @xmath268 did not change the results .
+estimates of the concentrations and variances predicted by the cme can be obtained by sampling the trajectories of the stochastic simulation algorithm at intervals of time equal to the discretization time step of the cle .
+the means and variance are then obtained as for the cle .
+r. grima , bmc sys . biol . * 3 * : 101 ( 2009 ) d. t. gillespie , j. phys .
+a * 106 * , 5063 ( 2002 ) d. j. higham and r. khanin , open appl .
+j * 2 * , 59 ( 2008 ) r. f. pawula , phys . rev . * 162 * , 186 ( 1967 ) h. risken and h. d. vollmer , zeitschrift fuer physik b * 35 * , 313 ( 1979 ) r. grima , phys .
+letts . * 102 * , 218103 ( 2009 ) p. thomas , a.v .
+straube and r. grima , j. chem .
+* 133 * , 195101 ( 2010 ) c. cianci , f di patti , d. fanelli and l. barletti , arxiv:1104.5668v1 c. cianci , f di patti , d. fanelli , arxiv:1104.5570v1

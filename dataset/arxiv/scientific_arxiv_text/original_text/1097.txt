@@ -1,0 +1,166 @@
+we begin with the definitions of the essential concepts of our model .    *
+random geometric graph * consists of @xmath10 agents randomly distributed in a unit square @xmath11 .
+each agent has an interaction range defined by @xmath12 , where @xmath5 is the local interaction radius .
+two agents are connected if they fall in each others interaction range .
+the choice of network topology , denoted as @xmath13 , impacts the boundary conditions .
+some studies , like @xcite , choose the natural topology of the unit square which leads to the free boundary condition . in this paper , we assume that @xmath13 is a torus , imposing the periodic boundary condition . consequently , the opinion dynamics is free of boundary effects until the correlation length of the opinions grows comparable to the length scale of @xmath13 .
+* microstate * of a network is given by a spin vector @xmath14 where @xmath15 represents the opinion of the @xmath16 individual .
+in the ng , the spin value is assigned as follows : @xmath17 the evolution of microstate is given by spin updating rules : at each time step , two neighboring agents , a speaker @xmath18 and a listener @xmath19 are randomly selected , only the listener s state is changed ( lo - ng ) .
+the word sent by the speaker @xmath18 is represented by @xmath20 , @xmath21 if the word is a and @xmath22 if the word is b. @xmath20 is a random variable depending on @xmath15 .
+the updating rule of the ng can be written as : @xmath23    * macrostate * is given by @xmath24 , @xmath25 and @xmath26 , the concentrations of agents at the location @xmath27 with opinion a , b and ab , respectively , that satisfy the normalization condition @xmath28 .
+we define @xmath29 as the local order parameter ( analogous to  magnetization " ) , and @xmath30 as the local mean field @xmath31 finally , @xmath32 denotes the probability for an agent to receive a word a if it is located at @xmath27 .    through the geographic coarsening approach discussed in more detail in * methods *
+, we obtain the mean - field equation describing the evolution of macrostate @xmath33 while the macrostate itself is defined as @xmath34      there are two characteristic length scales in this system , one is the system size ( which is set to @xmath35 ) , the other is the local interaction radius @xmath5 .
+so regarding the correlation length or the typical scale of opinion domains @xmath36 , the dynamics can be divided into two stages : ( 1 ) @xmath36 is smaller or comparable to @xmath5 ; ( 2 ) @xmath37 . in the second stage ,
+the consensus is achieved when @xmath36 grows up to 1 .
+figure [ meanfield ] present snapshots of solution of the mean - field equation .
+they illustrate the formation of opinion domains and the coarsening of the spatial structure .    ) .
+snapshots are taken at @xmath38 , the scale of opinion domains are much bigger than @xmath39 .
+black stands for opinion a , white stands for opinion b and gray stands for the coexistence of two types of opinions .
+the consensus is achieved at @xmath40.,scaledwidth=95.0% ]    to study the spatial coarsening , we consider the pair correlation function @xmath41 defined by the conditional expectation of spin correlation .
+@xmath42.\ ] ]    figure [ meanfield ] implies there exists a single characteristic length scale @xmath43 so that the pair correlation function has a scaling form @xmath44 , where the scaling function @xmath45 does not depend on time explicitly . for coarsening in most systems with non - conserved order parameter such as the opinion dynamics on a d - dimensional lattice ,
+the characteristic length scale is @xmath46@xcite . according to the numerical results in fig .
+[ scaling ] , the length scale for opinion dynamics on rgg at the early stage ( t=30,50 ) is also @xmath8 , but at the late stage ( t=100,200,400 ) , the length scale @xmath47 fits more precisely simulation results than the previous one .     for the pair correlation function at times @xmath48 . overlapped curves indicate correct scaling of @xmath49 .
+simulations are done for the case @xmath50 , @xmath39 , @xmath51 .
+@xmath49 is normalized by the length scale ( a ) @xmath8 and ( b ) @xmath52.,scaledwidth=95.0% ]      here , we find all the possible stationary solutions of the mean - field equation eq .
+( [ eqn_macro ] ) . taking @xmath53
+, we obtain @xmath54    the eigenvalues of the linear dynamical system @xmath55 are both negative , so @xmath56 is stable . applying the definition of @xmath57 and @xmath30
+, we have @xmath58 @xmath59    once we solve the above integral equation , we can retrieve the stationary macrostate @xmath60 by eq .
+( [ local_equil ] ) .
+taking @xmath30 as a constant , we find three solutions @xmath61 or @xmath62 .
+@xmath61 are both asymptotically stable , while @xmath63 is unstable .
+another class of solution is obtained by taking @xmath64 ( or similarly @xmath65 ) .
+the solution consists of an even number of stripe - like opinion domains demarcated by two types of straight intermediate layers parallel to one side of the unit square @xmath13 as shown in fig .
+[ stationary_solution](b ) . with the boundary condition @xmath66 or
+vice versa , we solve the two types of intermediate layers @xmath67 as shown in fig .
+[ stationary_solution ] ( a ) .
+the intermediate layers are of the scale @xmath5 and can be placed at arbitrary @xmath68 .
+this class of solution is neutrally stable .
+finally , there is another class of solution shown in fig .
+[ stationary_solution](c ) with intermediate layers both in @xmath69 and @xmath70 directions and opinion domains assigned as a checker board .
+this type of solution is unstable at the intersections of two types of intermediate layers .
+the latter two classes of solutions can be easily generalized to the cases when the intermediate layers are not parallel to x or y axis .
+later we will show that in stationary solutions all the curvature of the opinion domain boundary has to be 0 , so the solutions mentioned above are the only possible stationary solutions .    .
+@xmath71 is the location of the intermediate layer .
+the slope of the intermediate layer at @xmath72 is about @xmath73 .
+( b ) stripe - like stationary solution , neutrally stable .
+( c ) checker - board - like stationary solution , unstable . ]    in conclusion , considering the stability , the final state of the macrostate dynamics can be : ( 1 ) all a or all b consensus states which are both asymptotically stable , ( 2 ) stripe - like solution .
+the probability for the dynamics stuck in the stripe - like state before achieving full consensus is roughly @xmath74 in analogy to similar cases in continuum percolation and spin dynamics @xcite .
+one important observation regarding the macrostate dynamics is that the change of local mean field is usually much slower than the convergence of local macrostate @xmath75 to its local equilibrium @xmath56 .
+let @xmath76 , @xmath77 , @xmath78 .
+the following equation shows the exponential rate of convergence of @xmath75 : @xmath79    the largest eigenvalue is @xmath80 .
+so the typical time scale @xmath81 of the convergence of the local macrostate is @xmath82 which is independent of time and system size .
+the typical time scale @xmath83 of the change of the local mean field is inversely proportional to the propagation speed @xmath84 of opinion domain boundaries , and as we will show later , is of the order @xmath85 where @xmath86 is the curvature of the opinion domain boundary .
+therefore , @xmath87 for both long time ( @xmath86 grows to infinity along with the time @xmath6 ) and big systems ( in the sense that @xmath88 ) .
+[ adiabatic ] shows the significant two - time - scale separation observed in numerical results .
+the equilibrium value of the local order parameter , @xmath89 , can be predicted by the local mean field , @xmath90 . in fig .
+[ adiabatic ] , we present the empirical local order parameter @xmath91 for different local mean field values @xmath92 and show that it is very close to its local equilibrium @xmath89 .     from numerical simulation and the equilibrium @xmath89 for different local mean fields
+@xmath92 s .
+the solid line stands for @xmath89 .
+the error bars present the means and standard deviations of @xmath91 that is the empirical local order parameter for the given @xmath92 in numerical simulations.,title="fig:",scaledwidth=75.0% ] +    since @xmath93 , we have @xmath94 \label{eq_s}.\ ] ]    this ode is quite relevant to reaction - diffusion systems . on the right hand side ,
+the coefficient @xmath95 is easy to get rid of by scaling the time @xmath96 .
+after the scaling , the first term is diffusive since @xmath97 is the continuum approximation of the laplace operator on rgg network acting on @xmath91 .
+the second term @xmath98 is the local reaction term .
+though classified rigorously , it is non - local as defined in reaction - diffusion system , it represents a reaction in local neighborhood @xmath99 .
+the adiabaticity of the dynamics implies that the diffusion is much slower than the local reaction .
+we can obtain an approximated ode for slow time scale dynamics in a closed form by estimating @xmath100 by its local equilibrium @xmath101 .
+@xmath102    the qualitative behavior of the reaction - diffusion system is determined by the linear stability of the reaction term @xcite . in this sense ,
+( [ slow ] ) provides clear differentiation between dynamics in our model and in the voter model , the majority game and the glauber ordering .
+taking a similar approach , we find that the voter model on rgg is purely diffusive , i.e. the reaction term is 0 . for the glauber ordering , the reaction term is @xmath103 in which @xmath104 is the inverse of temperature and @xmath105 is the interaction intensity .
+[ reaction_term ] shows the reaction term @xmath106 for the voter , ng , and glauber ordering ( go ) at different temperatures .
+the majority game , ng , and glauber ordering at zero temperature have reaction terms with the same equilibria and stability ( @xmath107 stable , @xmath62 unstable ) .
+thus , the mean - field solutions of these models behave similarly .
+however , at the level of the discrete model , the ng on rgg will always go to a microstate corresponding to some stationary mean - field solution , while glauber ordering at zero temperature on rgg may get stuck in one of many local minima of its hamiltonian .     for voter , ng and glauber ordering ( go ) at different temperatures.,title="fig:",scaledwidth=75.0% ]
++      the evolution of the opinion domains is governed by a very simple rule .
+the boundary of opinion domains propagate at the speed @xmath84 that is proportional to its curvature @xmath108 , i.e. @xmath109 . here
+, @xmath110 is a constant defined by the average degree @xmath9 . in * methods * , we provide a heuristic argument and using the perturbation method prove this relation for the mean - field equation , i.e. the case when @xmath111 .
+this behavior is common for many reaction - diffusion systems and it is qualitatively the same as the behavior of glauber ordering at zero temperature @xcite .
+following the rule of boundary evolution minimizes the length of the domain boundary .
+a direct consequence of this fact is that if any stationary solution exists , its boundaries must be all straight ( geodesic ) , confirming our conclusion about the stationary solutions found in the previous paragraph .
+since global topology is irrelevant to our derivation , this relation applies also to other two - dimensional manifolds .
+the manifold considered here is the torus embedded in 2d euclidean space .
+however , for the standard torus embedded in 3d euclidean space , the topology is the same but metrics are not , hence the geodesics are different .
+therefore , there are quite different and more complicated stationary solutions there .
+another example is the sphere in 3d space . on the sphere ,
+the only inhomogeneous stationary solution consists of two hemispherical opinion domains , because the great circle is the only closed geodesic on a sphere .
+the numerical result presented in fig .  [ propagation_speed ] confirms this relation . in fig .
+[ propagation_speed ] , we gather @xmath112 data points from numerical solutions of the macrostate equation , using different initial conditions , taking snapshots at different times , tracking different points on the boundary and calculating the local curvature radius @xmath86 and boundary propagation speed @xmath84 . these data points in the double - log plot are aligned well with the straight line with slope @xmath113 .
+the curve formed by data points is jiggling with some period because we implemented the numerical method on a square lattice , so the numerical propagation speed is slightly anisotropic .     of the boundary of opinion domains vs. curvature radius @xmath86 .
+data points are gathered from 100 runs of macrostate equation with different initial conditions . in each run , propagation speed and curvature radius are calculated for 10000 points on the boundary.,title="fig:",scaledwidth=80.0% ] +    another way to confirm this rule is to consider a round opinion domain with initial radius @xmath114 . given @xmath115 , the size of this opinion domain decreases as @xmath116 when @xmath117 .
+this relation is shown in fig .
+[ shrink ] . in simulations , the size of opinion domain @xmath118 is evaluated by @xmath119 where @xmath120,@xmath121 are the total numbers of a , ab nodes , respectively .
+we also observe from this plot that @xmath110 increases with average degree @xmath122 and converges to its upper bound when @xmath123 .     as a function of time with @xmath124 .
+the initial radius of the opinion domain is @xmath125 .
+the straight line is for the numerical solution of mean - field equation .
+the dotted line and dash line are for simulation of discrete model with @xmath126 and @xmath127 , as well as with @xmath128 and @xmath129 , respectively.,title="fig:",scaledwidth=80.0% ] +      we now consider influencing the consensus by committed agents . in sociological interpretation ,
+a committed agent is one who keeps its opinion unchanged forever regardless of its interactions with other agents .
+the effect of committed agents in the ng has been studied in @xcite .
+a critical fraction of committed agent @xmath130 is found for ng - lo on complete graph which is also relevant here . in our setting ,
+a fraction @xmath131 of agents are committed to opinion a , and all other agents are uncommitted and hold opinion b. the macrostate with committed agents is still defined by eq .
+( [ eqn_macro ] ) , but the definition of local mean field @xmath92 is replaced by    @xmath132    generally , @xmath131 can vary on the x - y plane , but we only consider the case that @xmath131 is a constant , i.e. the committed agents are uniformly distributed .
+then we reanalyze the stationary solution .
+firstly there is a critical committed fraction @xmath133 which is exactly the same as that on complete graph . when @xmath134 , the only stationary solution is @xmath135 and it is stable .
+when @xmath136 , there are three solutions , of which two @xmath135 , @xmath137 are stable , and the third @xmath138 is unstable . besides there is a class of stationary solutions when the committed fraction is below the critical .
+they are analogues of the stripe - like solutions in the non - committed agent case .
+the evolution of the boundary can be interpreted as a mean curvature flow .
+in such view , the fraction of agents committed to a opinion exert a constant pressure on the boundary surface from the side of a opinion domain .
+similarly , agents holding opinion b exert a pressure from the side of b opinion domain .
+so the stationary solution will contain opinion domains in the form of disks with critical radius @xmath139 for which the pressure arising from the curvature offsets the pressure from the committed fraction ; thus we have @xmath140 .
+this type of stationary solutions are unstable , the round disk of the opinion domain will grow when @xmath141 and will shrink when @xmath142 . in the first case ,
+when the typical length scale of opinion domains grows beyond @xmath143 , the system will achieve consensus very quickly .    on the basis of the above stability analysis
+, we then analyze the dependence of the consensus time on the system size @xmath10 , the committed fraction @xmath131 , and the average degree @xmath122 , and show our conclusions are consistent with the numerical results in fig .
+[ committed2 ] which for a given fraction @xmath110 ( @xmath144 in the figure ) depicts the time for @xmath110-consensus in which at least fraction @xmath110 of agents hold the same opinion .
+the time to achieve @xmath145consensus is independent of @xmath10 both according to the mean field prediction and numerical plots .
+when @xmath134 the dynamics will converge to its unique local equilibrium @xmath146 at all locations simultaneously .
+the consensus in this case is close to that on the complete network , especially when @xmath122 tends to infinity . in the opposite case , when @xmath136 , the process to consensus is twofold - before and after the a opinion domain achieves the critical size @xmath143 .
+after this criticality , the process is just the extension of the opinion domain driven by the mean field eq .
+( [ eqn_macro ] ) .
+this stage is relatively fast and the consensus time is dominated by the duration of the other stage , the one before the criticality , in which the dynamic behavior is a joint effect of the mean field and the random fluctuation we neglect in mean field analysis . assuming the dynamics was purely driven by the random fluctuation , the typical length scale of opinion domains would have the scaling @xmath147 at the early stage ,
+hence the time scale of this stage would be @xmath148 , i.e. @xmath149 . if the dynamics was purely driven by the mean field , the a opinion domain would never achieve the critical size .
+the actual dynamics behavior is in between the two extreme cases .
+when @xmath122 decreases , the fluctuation level relative to the mean field becomes higher , leading to faster consensus . in fig .
+[ committed2 ] , linear regression for the data points @xmath150 gives @xmath151 in which @xmath152 for @xmath153 respectively , where @xmath154 is the value corresponding to the purely random extreme case .
+two observations here may have meaningful sociological interpretation :    \(1 ) when @xmath123 , for both @xmath136 and @xmath134 , the dynamics behavior converges to that on the complete networks , though the rgg itself may be far from the complete network ( with @xmath5 kept constant , the diameter of the rgg network is much larger than 1 ) .
+\(2 ) when @xmath136 , committed agents are more powerful in changing the prevailing social opinion on rggs with low average degree .
+it is similar to the result of the previous study@xcite on the social dynamics on sparse random networks but the `` more powerful '' is in a different sense meaning not the smaller tipping fraction ( with longer consensus time ) , but the shorter time to consensus .     for @xmath155-consensus for ng on rgg with different fractions ( @xmath131 ) of committed agents with direct simulation on networks with average degrees
+@xmath156 , and network sizes @xmath157 .
+the solid black curve shows the mean field prediction of ng on the complete network(cn ) as the limit case when @xmath123 .
+the slope of the red data points near @xmath133 is -2.19.,title="fig:",scaledwidth=80.0% ] +
+on rggs , the average degree of an agent @xmath158 is an important structural parameter which also strongly impacts the local dynamic behavior .
+there are two critical values of @xmath122 : one is for the emergence of the giant component , @xmath159 @xcite ; the other one , @xmath160 , only applicable for finite - size networks , is for the emergence of the giant component with all vertices belonging to it . in this paper , we only considered the case when @xmath122 is above the critical value @xmath161 so that the network is connected @xcite .    we mainly focused on analyzing the mean - field equation of the ng dynamics on rgg .
+we predicted a number of behaviors , including the existence of metastable states , the two - time - scale separation , and the dependence of the boundary propagation speed on the boundary curvature .
+we demonstrated in detail that the evolution of the spatial domains for the two - word lo - ng is governed by coarsening dynamics , similar to the broader family of generalized voter - like models with intermediate states @xcite .
+however , there are still some behaviors that can not be explained by the mean - field equation , such as : ( _ i _ ) in the large @xmath6 limit , the scaling of correlation length is not @xmath8 as on the 2-@xmath162 regular lattice , but @xmath163 ; ( _ ii _ ) the propagation speed increases along with the average degree @xmath122 and its upper - bound is the mean field prediction , i.e. , the @xmath164 case .
+so the major limitation of the mean - field equation derived from the geographic coarsening approach is that it neglects the fluctuation among replicas ( see * methods * ) and loses the information about @xmath122 .
+the dependence of the dynamics on @xmath122 is left for further study .
+first , we provide the equation for the evolution of microstate @xmath165 . denote the probabilities for @xmath15 taking values @xmath35 , @xmath62 , @xmath113 as @xmath166 , @xmath167 and @xmath168 , respectively . the master equation for spin @xmath15
+is given by @xmath169    where @xmath170 is the probability for the @xmath16 agent receiving a signal @xmath171 , while @xmath172 is the local mean field defined as the average of the neighboring spins , @xmath173 where @xmath174 is the coordinate of the @xmath16 agent and @xmath175 is the degree of the @xmath16 agent .
+master equations for all spins together describe the evolution of microstate .
+the motivation for geographic coarsening comes from the fact that rgg is embedded in a geographic space , so we may skip the level of agents and relate the opinion states directly to the geographic coordinates . instead of taking into account the opinion of every agent , in geographic coarsening , we consider the concentration of agents with different opinions at a specific location .
+@xmath176 , @xmath57 , @xmath177 are continuously differentiable w.r.t .
+@xmath69 , @xmath70 and @xmath6 .
+we derive the equation of @xmath176 from eq .
+( [ eqn_micro ] ) by taking limits , @xmath178 the limit is done as follows @xmath179 \;.\ ] ] the coarsening based on the above limit is valid under either of the following two assumptions .
+the first is when the rgg is very dense ( @xmath180 ) and @xmath181 keeps constant .
+the second is when we consider @xmath182 replicas of rgg with the same set of parameters , and the summation above is over all replicas .
+in addition , @xmath183 keeps constant .
+our derivation is actually based on the second assumption .
+however under the first assumption , the fluctuation is vanishing , and the dynamics behavior of a single run converges to the mean field result .
+we show here the qualitative property of the boundary evolution by a heuristic argument .
+we consider a solution with the form @xmath184 where @xmath185 and with boundary conditions @xmath186 and @xmath187 .
+@xmath188 has an intermediate layer at @xmath86 as shown in fig .
+[ stationary_solution](a ) , so near @xmath86 , @xmath189 . when @xmath190 , using moving coordinate @xmath191 where @xmath192 is unit wave vector , @xmath193 is spatial coordinate and @xmath84 is the wave speed , eq .
+( [ eq_s ] ) becomes @xmath194 here , @xmath92 can be approximated by @xmath195    then we make perturbation on eq .
+( [ traveling_wave ] ) @xmath196 , @xmath197 , @xmath198 and so on , requiring @xmath199 , and obtain the equation for @xmath200 @xmath201 at @xmath202 , @xmath203 , @xmath204 , @xmath205 and @xmath206 is @xmath207 , the above equation becomes @xmath208 , so @xmath209
+this work was supported in part by the army research laboratory under cooperative agreement number w911nf-09 - 2 - 0053 , by the army research office grant nos w911nf-09 - 1 - 0254 and w911nf-12 - 1 - 0546 , and by the office of naval research grant no .
+n00014 - 09 - 1 - 0607 .
+the views and conclusions contained in this document are those of the authors and should not be interpreted as representing the official policies either expressed or implied of the army research laboratory or the u.s . government .
+z.w . , c.l . , g.k . and b.k.s .
+designed the research ; z.w implemented and performed numerical experiments and simulations ; z.w . , c.l .
+, g.k . and b.k.s .
+analyzed data and discussed results ; z.w .
+, g.k . and b.k.s
+. wrote and reviewed the manuscript .
+the authors declare no competing financial interests .
+lu , q. , korniss , g. & szymanski , b.k . naming games in spatially - embedded random networks . in _ proceedings of the 2006 american association for artificial intelligence
+fall symposium series , interaction and emergent phenomena in societies of agents _ ( aaai press , menlo park , ca 2006 ) , pp .
+148155 ; arxiv : cs/0604075v3 .

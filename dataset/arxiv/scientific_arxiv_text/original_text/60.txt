@@ -1,0 +1,44 @@
+in @xcite a database containing a solution of the 3d incompressible navier - stokes ( ns ) equations is presented .
+the equations were solved numerically with a standard pseudo - spectral simulation in a periodic domain , using a real space grid of @xmath0 grid points .
+a large - scale body force drives a turbulent flow with a taylor microscale based reynolds number @xmath1 . out of this solution ,
+@xmath2 snapshots were stored , spread out evenly over a large eddy turnover time .
+more on the simulation and on accessing the data can be found at http://turbulence.pha.jhu.edu . in practical terms
+, we have easy access to the turbulent velocity field and pressure at every point in space and time .
+one usual way of visualising a turbulent velocity field is to plot vorticity isosurfaces  see for instance the plots from @xcite .
+the resulting pictures are usually very `` crowded '' , in the sense that there are many intertwined thin vortex tubes , generating an extremely complex structure .
+in fact , the picture of the entire dataset from @xcite looks extremely noisy and it is arguably not very informative about the turbulent dynamics .    in this work ,
+we follow a different approach .
+first of all , we use the alternate quantity @xmath3 first introduced in @xcite .
+secondly , the tool being used has the option of displaying data only inside clearly defined domains of 3d space .
+we can exploit this facility to investigate the multiscale character of the turbulent cascade . because vorticity is dominated by the smallest available scales in the velocity
+, we can visualize vorticity at scale @xmath4 by the curl of the velocity box - filtered at scale @xmath4 .
+we follow a simple procedure :    * we filter the velocity field , using a box filter of size @xmath5 , and we generate semitransparent surfaces delimitating the domains @xmath6 where @xmath7 ; * we filter the velocity field , using a box filter of size @xmath8 , and we generate surfaces delimitating the domains @xmath9 where @xmath10 , but only if these domains are contained in one of the domains from @xmath6 ;    and this procedure can be used iteratively with several scales ( we use at most 3 scales , since the images become too complex for more levels ) .
+additionally , we wish sometimes to keep track of the relative orientation of the vorticity vectors at the different scales . for this purpose
+we employ a special coloring scheme for the @xmath11 isosurfaces : for each point of the surface , we compute the cosine of the angle @xmath12 between the @xmath13 filtered vorticity and the @xmath5 filtered vorticity : @xmath14 the surface is green for @xmath15 , yellow for @xmath16 and red for @xmath17 , following a continuous gradient between these three for intermediate values .
+the opening montage of vortex tubes is very similar to the traditional visualisation : a writhing mess of vortices . upon coarse - graining
+, additional structure is revealed .
+the large - scale vorticity , which appears as transparent gray , is also arranged in tubes .    as a next step ,
+we remove all the fine - scale vorticity outside the large - scale tubes . the color scheme for the small - scale vorticity
+is that described earlier , with green representing alignment with the large - scale vorticity and red representing anti - alignment .
+clearly , most of the small - scale vorticity is aligned with the vorticity of the large - scale tube that contains it .
+we then remove the fine - grained vorticity and pan out to see that the coarse - grained vortex tubes are also intricately tangled and intertwined . introducing a yet larger scale , we repeat the previous operations
+. the relative orientation properties of the vorticity at these two scales is similar to that observed earlier .
+next we visualize the vortex structures at all three scales simultaneously , one inside the other .
+it is clear that the small vortex tubes are transported by the larger tubes that contain them .
+however , this is not just a passive advection .
+the small - scale vortices are as well being distorted by the large - scale motions .    to focus on this more clearly
+, we now render just the two smallest scales .
+one can observe the small - scale vortex tubes being both stretched and twisted by the large - scale motions .
+the stretching of small vortex tubes by large ones was suggested by orszag and borue @xcite as being the basic mechanism of the turbulent energy cascade .
+as the small - scale tubes are stretched out , they are `` spun up '' and gain kinetic energy . here , this phenomenon is clearly revealed .
+the twisting of small - scale vortices by large - scale screw motions has likewise been associated to helicity cascade @xcite .
+the video thus allows us to view the turbulent cascade in progress .
+next we consider the corresponding view with three levels of vorticity simultaneously .
+since the ratio of scales is here 1:15:49 we are observing less than two decades of the turbulent cascade .
+one must imagine the complexity of a very extended inertial range with many scales of motion .
+not all of the turbulent dynamics is tube within tube . in our last scene
+we visualize in the right half domain all the small - scale vortices , and in the left domain only the small - scale vortices inside the larger scale ones . in the right half ,
+the viewer can observe stretching of the small - scale vortex structures taking place externally to the large - scale tubes .
+the spin - up of these vortices must contribute likewise to the turbulent energy cascade .
+6ifxundefined [ 1 ] ifx#1 ifnum [ 1 ] # 1firstoftwo
+secondoftwo ifx [ 1 ] # 1firstoftwo secondoftwo `` `` # 1''''@noop [ 0]secondoftwosanitize@url [ 0 ]  + 12$12  & 12#1212_12%12@startlink[1]@endlink[0]@bib@innerbibempty link:\doibase 10.1080/14685240802376389 [ * * ( ) ,  10.1080/14685240802376389 ] @noop * * ( ) ,   in  http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1592886[__ ] ( )  p.   @noop _ _ ,   ( ) link:\doibase 10.1017/s0022112097008306 [ * * ,   ( ) ] http://journals.cambridge.org / production / action / cjogetfulltext?fulltextid=4% 00523 [ * * ,   ( ) ]

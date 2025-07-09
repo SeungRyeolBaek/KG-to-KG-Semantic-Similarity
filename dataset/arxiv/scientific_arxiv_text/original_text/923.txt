@@ -1,0 +1,229 @@
+quantum information processing has attracted a lot of interest in recent years , following deutsch s investigations @xcite concerning the potentiality of a quantum computer , i.e. , a computer where information is stored and processed in quantum systems .
+their application as quantum information carriers gives rise to outstanding possibilities , like secret communication ( quantum cryptography ) and the implementation of quantum networks and quantum algorithms that are more efficient than classical ones @xcite .
+many investigations concern the transmission of quantum information from one party ( usually called alice ) to another ( bob ) through a communication channel . in the most basic configuration
+the information is encoded in qubits .
+if the qubits are perfectly protected from environmental influence , bob receives them in the same state prepared by alice . in the more realistic case , however , the qubits have a nontrivial dynamics during the transmission because of their interaction with the environment @xcite . therefore , bob receives a set of distorted qubits because of the disturbing action of the channel .    up to
+now investigations have focused mainly on two subjects : determination of the channel capacity @xcite and reconstruction schemes for the original quantum state under the assumption that the action of the quantum channel is known @xcite . here
+we focus our attention on the problem that precedes , both from a logical and a practical point of view , all those schemes : the problem of determining the properties of the quantum channel .
+this problem has not been investigated so far , with the exception of very recent articles @xcite .
+the reliable transfer of quantum information requires a well known intermediate device .
+the knowledge of the behaviour of a channel is also essential to construct quantum codes @xcite . in particular
+, we consider the case when alice and bob use a finite amount @xmath0 of qubits , as this is the realistic case .
+we assume that alice and bob have , if ever , only a partial knowledge of the properties of the quantum channel and they want to estimate the parameters that characterize it .
+the article is organized as follows . in section [ generaldescript ]
+we shall give the basic idea of quantum channel estimation and introduce the notation as well as the tools to quantify the quality of channel estimation protocols .
+we shall then continue with the problem of parametrizing quantum channels appropriately in section [ parametrization ] .
+then we are in a position to envisage the estimation protocol for the case of one parameter channels in section [ oneparameter ] .
+in particular , we shall investigate the optimal estimation protocols for the depolarizing channel , the phase damping channel and the amplitude damping channel .
+we shall also give the estimation scheme for an arbitrary qubit channel . in section [ qubitpauli ]
+we explore the use of entanglement as a powerful nonclassical resource in the context of quantum channel estimation .
+section [ quditpauli ] deals with higher dimensional quantum channels before we conclude in section [ conclude ] .
+the determination of all properties of a quantum channel is of considerable importance for any quantum communication protocol . in practice
+such a quantum channel can be a transmission line , the storage for a quantum system , or an uncontrolled time evolution of the underlying quantum system .
+the behaviour of such channels is generally not known from the beginning , so we have to find methods to gain this knowledge .
+this is in an exact way only possible if one has infinite resources , which means an infinite amount of well prepared quantum systems .
+the influence of the channel on each member of such an ensemble can then be studied , i.e. , the corresponding statistics allows us to characterize the channel . in a pratical application , however , such a condition will never be fulfilled .
+instead we have to come along with low numbers of available quantum systems .
+we therefore can not determine the action of a quantum channel perfectly , but only up to some accuracy .
+we therefore speak of channel estimation rather than channel determination , which would be the case for infinite resources .
+a quantum channel describes the evolution affecting the state of a quantum system .
+it can describe effects like decoherence or interaction with the environment as well as controlled or uncontrolled time evolution occuring during storage or transmission . in mathematical terms a quantum channel is a completely positive linear map @xmath1 ( cp - map ) @xcite , which transforms a density operator @xmath2 to another density operator @xmath3 each quantum channel @xmath1 can be parametrized by a vector @xmath4 with @xmath5 components . for a specific channel we shall therefore write @xmath6 throughout the paper . depending on the initial knowledge about the channel
+, the number of parameters differs .
+the goal of channel estimation is to specify the parameter vector @xmath4 .
+the protocol alice and bob have to follow in order to estimate the properties of a quantum channel is depicted in figure [ figurescheme ] .
+alice and bob agree on a set of @xmath0 quantum states @xmath7 , which are prepared by alice and then sent through the quantum channel @xmath8 .
+therefore , bob receives the @xmath0 states @xmath9 .
+he can now perform measurements on them . from the results he has to deduce an estimated vector @xmath10 which should be as close as possible to the underlying parameter vector @xmath4 of the quantum channel .
+quantum state @xmath11 to bob .
+the channel maps these states onto the states @xmath12 , on which bob can perform arbitrary measurements .
+note that bob s measurements are designed with the knowledge of the original quantum states @xmath11 .
+his final aim will be to present an estimated vector @xmath10 being as close as possible to the underlying parameter vector @xmath4.,width=302 ]    how can we quantify bob s estimation ? to answer this we introduce two errors or cost functions which describe how good the channel is estimated .
+the first obvious cost function is the _ statistical error
+_    c_s(n,)_=1^l ( _ -_^est(n))^2 [ ciesse ] in the estimation of the parameter vector @xmath4 .
+note that the elements of the estimated parameter vector @xmath13 strongly depend on the available resources , i.e.  the number @xmath0 of systems prepared by alice .
+we also emphasize that @xmath14 describes the error for one single run of an estimation protocol .
+however , we are not interested in the single run error ( [ ciesse ] ) but in the average error of a given protocol
+. therefore , we sum over all possible measurement outcomes @xmath15 to get the _ mean statistical error _ @xmath16 while keeping the number @xmath0 of resources fixed .    though this looks as a good benchmark to quantify the quality of an estimation protocol it has a major drawback .
+the cost function @xmath14 strongly depends on the parametrization of the quantum channel . while this is not so important if one compares different protocols using the same parametrization it anyhow would be much better if we could give a cost function which is independent of any specifications .
+we define such a cost function with the help of the average overlap ( c_1,c_2 ) _ [ channelfidelity ] between two quantum channels @xmath17 and @xmath18 , where we average the fidelity @xcite f(_1,_2)^2 [ mixedstatefidelity ] between two mixed states @xmath19 and @xmath20 over all possible pure quantum states @xmath21 .
+since the fidelity ranges from zero to one , the _ fidelity error _ is given by c_f(n,)1-f(c_,c_^est(n ) ) [ costfct_f ] which now is zero for identical quantum channels .
+again we average over all possible measurement outcomes to get the _
+mean fidelity error _ _ f(n,)c_f(n,)_j [ costfct_fav ] which quantifies the whole protocol and not a specific single run .    in the first part of this paper we are only dealing with qubits
+described by the density operator 12(1+s ) [ blochvector ] with bloch vector @xmath22 and the pauli matrices @xmath23 .
+the action of a channel is then completely described by the function s=c(s ) , [ mapbloch ] which maps the bloch vector @xmath24 to a new bloch vector @xmath25 . in particular , the mixed state fidelity equation ( [ mixedstatefidelity ] ) , for two qubits with bloch vectors @xmath26 and @xmath27 , see equation ( [ blochvector ] ) , then simplifies to @xcite f(s_1,s_2)=12[fidss1 ] which leads to an average channel overlap , equation  ( [ channelfidelity ] ) , ( c_1,c_2 )  f(c_1(n),c_2(n ) ) [ fidss2 ] for the two qubit channels @xmath17 and @xmath18 . as emphasized above we only average over pure input states with unit bloch vector    @xmath28    and bloch sphere element @xmath29 . by inserting equations ( [ fidss1 ] ) and ( [ fidss2 ] ) into equations ( [ costfct_f ] ) and ( [ costfct_fav ] )
+we get a cost function for the comparison of two qubit channels which is independent of the chosen parametrization .
+as we have already mentioned in section [ generaldescript ] , the qubits that alice sends to bob are fully characterized by their bloch vector .
+therefore , the disturbing action of the channel modifies the initial bloch vector @xmath30 according to equation ( [ mapbloch ] ) .
+it has been shown that for completely positive operators the action of the quantum channel @xmath31 is given by an affine transformation @xcite    @xmath32    where @xmath33 denotes a @xmath34 invertible matrix and @xmath35 is a vector .
+the transformation is thus described by 12 parameters , 9 for the matrix @xmath33 and 3 for the vector @xmath35 .
+these 12 parameters have to fullfill some constraints to guarantee the complete positivity of @xmath36 @xcite .
+the definition of the parameters is somewhat arbitrary .
+we will not use the parameters as defined in @xcite , but adopt a different parametrization    @xmath37    in terms of the parameter vector @xmath38 .
+in general , the choice of the best parametrization of quantum channels depends on the relevant features of the channel and also on which observables can be measured .
+the reason for the choice of the parametrization , equation ( [ ssprime ] ) , will become clear at the end of the section [ oneparameter ] , in which a protocol for the general channel is described .
+although the characterization of the general quantum channel requires the determination of 12 parameters , only a smaller number of parameters must be determined in practice for a given class of quantum channels .
+indeed , the knowledge of the properties of the physical devices used for quantum communication gives information on some parameters and allows to reduce the number of parameters to be estimated .
+we shall now examine in detail some known channels described by only one parameter .
+the first channel we consider is the depolarizing channel .
+the relation ( [ eq12 ] ) between the bloch vectors @xmath30 and @xmath39 of alice s and bob s qubit , respectively , reduces to the simple form @xmath40 where @xmath41 is the only parameter that describes this quantum channel .
+this channel is a good model when quantum information is encoded in the photon polarization that can change along the transmission fiber via random rotations of the polarization direction .
+if alice prepares the qubit in the pure state @xmath42 , the qubit bob receives is described by the state    @xmath43    where @xmath44 denotes the state orthogonal to @xmath45 .
+we note that the depolarizing channel has no preferred basis
+. therefore , its action is isotropic in the direction of the input state .
+this means that the action of the channel is described by equation ( [ dep ] ) even after changing the basis of states .
+bob must estimate @xmath46 , which ranges between 0 ( noiseless channel ) and 1/2 ( total depolarization ) .
+the estimation protocol is the following : alice prepares @xmath0 qubits in the pure state    @xmath47    which denotes spin up in the direction @xmath48 , equation ( [ enne ] ) , in terms of eigenvectors @xmath49 and @xmath50 of @xmath51 .
+the state @xmath52 is sent to bob through the channel .
+bob knows the direction @xmath48 and measures the spin of the qubit he receives along @xmath48 .
+the outcome probabilities are    @xmath53    since alice sends a finite number of qubits , bob can only determine frequencies of measurements instead of probabilities .
+after bob has measured @xmath54 qubits with spin down and the remaining @xmath55 with spin up , his estimate of @xmath46 is @xmath56 .
+note that in a single run of the probabilistic estimation method we can get results @xmath57 , which is outside the range of the depolarizing channel . however , for the calculation of the average errors we do not have to take that into account . the cost function @xmath58 , equation ( [ ciesse ] ) , is thus    @xmath59    the average error is easily obtained when one considers that bob s frequencies of measurements occur according to a binomial probability distribution , since each of the @xmath60 measurements of spin down occurs with probability @xmath46 and each of the spin up measurements occurs with probability @xmath61 .
+therefore , the mean statistical error reads    @xmath62    this function , shown in figure [ depolarizingfigure ] a ) , scales with the available finite resources @xmath0 .
+it vanishes when the channel faithfully preserves the polarization , @xmath63 .
+the largest average error occurs for @xmath64 , when the two actions of preserving and changing the polarization have the same probability to occur
+.     equation ( [ eq16 ] ) , and b ) the fidelity mean error @xmath65 , equation ( [ eqdepolarizingcf ] ) , for a depolarizing channel with parameter @xmath46 , are shown for different values of the number of qubits n.,width=453 ]    the cost function @xmath66 is obtained from equations ( [ costfct_f ] ) and ( [ fidss2 ] )    @xmath67 ^ 2,\ ] ]    which leads to the fidelity mean error    @xmath68    which is shown in figure [ depolarizingfigure ] b ) . although @xmath69 does not show a simple @xmath70dependency , it clearly decreases for increasing values of the number of qubits @xmath0 . for
+a given quality @xmath71 or @xmath72 one can use figure [ depolarizingfigure ] and read off the number @xmath0 of needed resources .
+the phase - damping channel acts only on two components of the bloch vector , leaving the third one unchanged : @xmath73 here @xmath74 is the damping parameter .
+this channel , contrarily to the depolarizing channel , has a preferred basis . in terms of density matrices
+, it transforms the initial state    @xmath75    where @xmath76 , etc .
+, into    @xmath77    we note that here the parameter @xmath46 only appears in the off - diagonal terms . for this reason ,
+the phase damping channel is a good model to describe decoherence @xcite .
+indeed , a repeated application of this channel leads to a vanishing of the off  diagonal terms in @xmath78 , whereas its diagonal terms are preserved .    since the parameter @xmath46 of the phase damping channel appears in the off - diagonal elements of @xmath78 , the protocol is the following : alice sends @xmath0 qubits with the bloch vector in the @xmath79 plane ; for instance , qubits in the state @xmath80 can be used .
+this would correspond to a density operator whose matrix elements are all equal to 1/2 , can be used .
+the density matrix of bob s qubit is then given by    @xmath81    now he measures the spin in the @xmath82 direction .
+the theoretical probabilities are    @xmath83    and we denote the frequency of a spin  down measurement as @xmath84 , leading to @xmath56 .
+the mean statistical error has again the form    @xmath85    as for the depolarizing channel . for the fidelity , equation ( [ fidss1 ] )
+, we obtain    @xmath86 \left(s_{1}^{2}+s_{2}^{2}\right)\end{aligned}\ ] ]    and after averaging over the bloch surface , according to equation ( [ fidss2 ] ) ,    @xmath87    therefore the fidelity mean error @xmath72 reads    @xmath88 \nonumber \\
+= \frac{4}{3}\left [ \lambda \left ( 1-\lambda\right ) -\frac{1}{n}\sum_{i=0}^{n } { n \choose i } \lambda^{i}\left ( 1-\lambda \right)^{n - i } \sqrt{\lambda(1-\lambda)i(n - i ) } \right ] \label{eqphasecf}\end{aligned}\ ] ]    which is shown in figure [ phasedampingfigure ] b ) .
+this mean error is very similar to that obtained for the depolarizing channel .
+, equation ( [ eq7 ] ) , and b ) the fidelity mean error @xmath65 , equation ( [ eqphasecf ] ) , for a phase damping channel with parameter @xmath46 , are shown for different values of the number of qubits n.,width=453 ]      the amplitude damping channel affects all components of the bloch vector according to    @xmath89    where @xmath90 is the damping parameter .
+the density matrix , equation ( [ denmat ] ) , is transformed into    @xmath91    this channel is a good model for spontaneous decay @xcite from an atomic excited state @xmath92 to the ground state @xmath50 . repeated applications of this channel cause all elements but one of the density matrix to vanish .
+now the parameter @xmath46 appears in all the elements of @xmath78 and the channel clearly possesses a preferred basis .
+if alice and bob know that they are using an amplitude damping channel , alice sends all @xmath0 qubits in the state @xmath93 .
+the density operator of the qubit received by bob is    @xmath94    he measures the spin along the @xmath95 direction ( the diagonal elements of @xmath78 are the probabilities to find spin down and spin up , respectively ) .
+we denote the frequency of spin down measurements with @xmath84 .
+the statistical cost function is again    @xmath96    using equation ( [ eq28 ] ) we obtain    @xmath97s_{3 } \nonumber \\ \left .
++ \lambda \lambda^{\rm est}+ ( 1-s_{3})^2\sqrt{\lambda(1-\lambda ) } \sqrt{\lambda^{\rm est}(1-\lambda^{\rm est } ) } \right]\end{aligned}\ ] ]    for the fidelity cost function , equation ( [ fidss1 ] ) , and    @xmath98\end{aligned}\ ] ]    for the averaged fidelity ( [ fidss2 ] ) .
+thus @xmath99 \nonumber \\ = \frac{1}{3 } \left [ 1+\lambda(1 - 2\lambda)-\sqrt{\frac{1-\lambda}{n } } \sum_{i=0}^{n } { n \choose i }   \lambda^{n - i}(1-\lambda)^{i}\sqrt{i } \right . \nonumber \\ \left .
+-\frac{2}{n}\sqrt{\lambda(1-\lambda ) } \sum_{i=0}^{n } { n \choose i } \lambda^{i}(1-\lambda)^{n - i}\sqrt{i(n - i ) } \right ] \label{eqamplitudecf}\end{aligned}\ ] ] which is illustrated by figure [ amplitudedampingfigure ] .     , equation ( [ eq9 ] ) , and b ) the fidelity mean error @xmath65 , equation ( [ eqamplitudecf ] ) , for the amplitude damping channel with parameter @xmath46 , are shown for different values of the number of qubits n.,width=453 ]    we see from the figures ( [ depolarizingfigure])([amplitudedampingfigure ] ) that for a fixed number of resources the mean error @xmath72 has a local maximum for small values of the parameter @xmath46 .
+for the amplitude damping channel there is also a second local maximum for large values of @xmath46 .
+we now come to the problem of estimating the 12 parameters @xmath100 of the general quantum channel .
+the protocol is summarized in table 1 : alice prepares 12 sets of qubits , divided into 4 groups .
+bob measures the spin of the three sets in each group along @xmath82 , @xmath101 , and @xmath95 , respectively . from the measurements on each set he gets an estimate of one of the parameters @xmath102 .
+the parametrization ( [ ssprime ] ) has been chosen for this purpose .
+the statistical cost function for the general channel is thus a generalization of the cost functions for one  parameter channels ,    @xmath103 \sum_{j=1}^{12}\left ( \lambda_{j}-\lambda_{j}^{\rm{est } } \right)^2 \nonumber \\ & = & \frac{1}{n/12}\sum_{j=1}^{12}\lambda_{j}(1-\lambda_{j}).\end{aligned}\ ] ]    the mean fidelity error can be calculated numerically .
+however , we do not give the expression here as it gives no particular further insight .
+up to now we have only considered estimation methods based on measuring single qubits sent through the quantum channel .
+however , we are not restricted to these estimation schemes . instead of sending single qubits we could use entangled qubit pairs @xcite . in this section
+we will demonstrate the superiority of such entanglement - based estimation methods for the estimation of the so called pauli channel by comparing both schemes ( for a different use of entanglement as a powerful resource when using pauli channels , see @xcite ) .
+the pauli channel is widely discussed in the literature , especially in the context of quantum error correction @xcite .
+its name originates from the error operators of the channel .
+these error operators are the pauli spin matrices @xmath104 , @xmath105 and @xmath51 . the operators define the quantum mechanical analogue to bit errors in a classical communication channel since @xmath104 causes a bit flip ( @xmath106 transforms into @xmath107 and vice versa ) , @xmath51 causes a phase flip ( @xmath108 transforms into @xmath109 ) and @xmath105 results in a combined bit and phase flip . the pauli channel is described by three probabilities @xmath110 for the occurrence of the three errors . if an initial quantum state @xmath2 is sent through the channel , the pauli channel transforms @xmath2 into @xmath111 thus we see that the density operator @xmath2 remains unchanged with probability @xmath112 , whereas with probability @xmath113 the qubit undergoes a bit flip , with probability @xmath114 there occurs a phase flip , and with probability @xmath115 both a bit flip and a phase flip take place
+.      we will first describe the single qubit estimation scheme for the pauli channel , before we switch to the entanglement - based one in the next subsection .
+following the general estimation scheme presented in section [ generaldescript ] the protocol to estimate the parameters of the pauli channel , equation ( [ pau ] ) , requires the preparation of three different quantum states with spin along three orthogonal directions .
+alice sends ( i ) @xmath116 qubits in the state @xmath117 , ( ii ) @xmath118 qubits in the state @xmath119 , and ( iii ) @xmath118 qubits in the state @xmath120 .
+bob measures their spins along the direction of spin - preparation , namely the @xmath95 , @xmath82 , and @xmath101 axes , respectively .
+the measurement probabilities of spin down along those three directions are then given by    @xmath121    the estimated parameter values can be calculated via @xmath122 \\
+\lambda_{2}^{\rm{est } } & = & \frac{1}{2}\left [ \frac{i_{1}}{m}-\frac{i_{2}}{m } + \frac{i_{3}}{m}\right ] \\
+\lambda_{3}^{\rm{est } } & = & \frac{1}{2}\left [ \frac{i_{2}}{m}-\frac{i_{3}}{m } + \frac{i_{1}}{m}\right]\end{aligned}\ ] ] where @xmath123 , @xmath124 , denote the frequencies of spin down results along the directions @xmath82 , @xmath101 and @xmath95 .
+we note that , although the probabilities @xmath102 are positive or vanish , their estimated values @xmath125 may be negative .
+this occurs because in the present case the measured frequencies are not the estimates of the parameters .
+nonetheless , the average cost functions can always be evaluated . for the statistical cost function
+we find @xmath126 \nonumber \\ & = & \frac{9}{2n}\left [ \lambda_{1}(1-\lambda_{1}-\lambda_{2})+\lambda_{2}(1-\lambda_2-\lambda_3 ) \right .
+\nonumber \\ & & \left .
++ \lambda_{3}(1-\lambda_3-\lambda_1)\right ] .
+\label{ave}\end{aligned}\ ] ] for the average error @xmath127 of the estimation with separable qubits @xcite .
+for fixed @xmath0 the average error has a maximum at @xmath128 , in which case all acting operators occur with the same probability . on the other hand
+, the average error vanishes when faithful transmission or one of the errors occurs with certainty .
+instead of using the statistical cost function @xmath14 we can also use the fidelity based cost function @xmath129 ( [ costfct_f ] ) . the average error @xmath130 of the estimation via separable qubits is then given by @xmath131 the cost function @xmath129 can not be calculated analytically .
+we shall compare the results ( [ ave ] ) and ( [ eqpaulicfsep ] ) with the same mean errors for a different estimation scheme , where entangled pairs are used , that we are now going to illustrate .
+all the protocols that we have considered so far are based on single qubits prepared in pure states .
+these qubits are sent through the channel one after another .
+however , one can envisage estimation schemes with different features .
+an interesting and powerful alternative scheme is based on the use of entangled states @xcite . in this case
+the estimation scheme requires alice and bob to share entangled qubits in the @xmath132 bell state .
+thus from @xmath0 initial qubits alice and bob can prepare @xmath133 bell states .
+alice sends her @xmath133 qubits of the entangled pairs through the pauli channel , which transforms the entangled state into the mixed state latexmath:[\ ] ]    if we use the fidelity  based cost function @xmath129 we can also write down the average error @xmath140 for the entangled estimation scheme . it reads @xmath141 and can be evaluated numerically . in figure [ deltafigure ]
+we show the difference @xmath142 between the average error obtained with single qubits and entangled qubits .
+we compare the two average errors when the same number of qubits are used .
+the figure shows that the use of entangled pairs always leads to an enhanced estimation and therefore we can consider entanglement as a nonclassical resource for this application .
+equation ( [ eqdelta ] ) between the fidelity mean errors @xmath143 , equation ( [ eqpaulicfsep ] ) , and @xmath144 , equation ( [ eqpaulicfent ] ) for the qubit pauli channel .
+@xmath145 is plotted as a function of @xmath146 and @xmath147 , while keeping @xmath148 and @xmath149 fixed .
+, width=302 ]    before ending this section we want to add some comments about our findings . we have found that the mean statistical error has the form    @xmath150    whenever the estimates of the parameters @xmath102 are directly given by the frequencies of measurements . this occurs also for the relevant case of the entanglement  based protocol for the pauli channel , but not for the qubit  based protocol .
+although the parametrization we have used is better indicated since the @xmath102 represent the probabilities of occurence of the logic errors , one might be tempted to use a different parametrization @xmath151 that gives again the expression ( [ univ ] ) . indeed , this can be done and actually the errors for the @xmath151 are smaller .
+nonetheless , one can show that in spite of this improvement , the scheme based on entangled pairs still gives an enhanced estimation even with the new parameters @xmath151 .
+this is not the case of the one  parameter channels , where the use of entangled pairs does not lead to enhanced estimation .
+in the previous section we have proposed an entanglement  based method for estimating the parameters which define the pauli channel . as we shall show in this section , this method can be easily extended to the case of quantum channels defined on higher dimensional hilbert spaces .
+let us start by considering the most general possible trace preserving transformation of a quantum system described initially by a density operator @xmath2 .
+this transformation can be written in terms of quantum operations @xmath152 as @xcite    @xmath153    with @xmath154 . according to the stinespring theorem @xcite
+this is the most general form of a completely positive linear map .
+the set of operators @xmath155 can be interpreted as error operators which characterize the action of a given quantum channel onto a quantum system and the set of parameters @xmath156 as probabilities for the action of error operators @xmath157 .
+in particular , we can consider the action of the quantum channel , equation ( [ general quantum channel ] ) , onto only one , say the second , of the subsystems of a bipartite quantum system .
+for sake of simplicity we assume that the two subsystems are @xmath158level systems .
+if only the second particle is affected by the quantum channel , equation ( [ general quantum channel ] ) , then the final state is given by    @xmath159    where @xmath160 is the identity operator .
+in the special case of an initially pure state , i. e. @xmath161 , the final state @xmath162 becomes    @xmath163    where we have defined @xmath164 .
+our aim is the estimation of the parameter values @xmath165 which define the quantum channel .
+this can be done by projecting the state of the composite quantum system onto the set of states @xmath166 . as in the previous protocols ,
+the probabilities @xmath165 can be inferred from the relative frequencies of each state @xmath167 and the quality of the estimation can be quantified with the help of a cost function .
+however , these states can be perfectly distinguished if and only if they are mutually orthogonal .
+hence , we impose the condition    @xmath168    on the initial state @xmath169 .
+it means that the initial state @xmath169 of the bipartite quantum system should be chosen in such a way that it is mapped onto a set of mutually orthogonal states @xmath170 by the error operators @xmath157 .
+it is worth to remark the close analogy between this estimation strategy and quantum error correction .
+a non - degenerate quantum error correcting code @xcite corresponds to a hilbert subspace which is mapped onto mutually orthogonal subspaces under the action of the error operators . in this sense ,
+a state @xmath169 satisfying the condition ( [ condition ] ) is a one - dimensional non - degenerated error correcting code .    a necessary but not sufficient condition for the existence of a state @xmath171 satisfying equation([condition ] ) is given by the inequality    @xmath172    where @xmath173 is the total number of error operators which describe the quantum channel and @xmath174 is the dimension of the hilbert space .
+this inequality shows why the use of an entangled pair enhances the estimation scheme .
+although the first particle is not affected by the action of the noisy quantum channel , it enlarges the dimension of the total hilbert space in such a way that the condition ( [ condition ] ) can be fulfilled .
+it is also clear from this inequality that if the state @xmath175 is a separable one , a set of orthogonal states can only be designed in principle if the number of error operators @xmath173 is smaller than @xmath174 .
+for instance , in the case of the pauli channel for qubits considered in the previous section , condition ( [ bound ] ) does not hold if we use single qubits for the estimation .
+the action of the pauli channel is defined by a set of @xmath176 error operators ( including the identity ) acting onto qubits ( @xmath177 ) .
+let us now apply our consideration to the case of a generalized pauli channel .
+the action of this channel is given by    @xmath178    where the @xmath179 kraus operators @xmath180 are defined by    @xmath181    the operation    @xmath182    is the generalization of a phase flip in @xmath158 dimensions .
+the @xmath158dimensional bit flip is given by @xmath183    these errors occur with probabilities @xmath184 , which are normalized , @xmath185 . the states @xmath186 form a @xmath158-dimensional basis of the hilbert space of the quantum system .
+this extension of the pauli channel to higher dimensional hilbert spaces has been studied previously in the context of quantum error correction @xcite , quantum cloning machines @xcite and entanglement @xcite .
+now we will apply the estimation strategy based on condition ( [ condition ] ) to this particular channel .
+thus , we must look for a state of the bipartite quantum system which satisfies the set of conditions ( [ condition ] ) , for the error operators @xmath180 , i.e.    @xmath187    it can be easily shown that such a state is    @xmath188    where @xmath189 and @xmath190 , @xmath191 , are basis states for the two particles .
+in fact , the action of the operators @xmath192 onto state @xmath193 generates the basis    latexmath:[\[|\psi_{\alpha,\beta}\rangle\equiv   { \bf 1}\otimes u_{\alpha,\beta}|\psi_{0,0}\rangle= \frac{1}{\sqrt{d}}\sum_{k=0}^{d-1}e^{i\frac{2\pi}{d}\alpha k }     of @xmath179 maximally entangled states for the total hilbert space .
+thereby , the action of the generalized pauli channel yields    @xmath195 .
+the particular values of the coefficients @xmath184 can now be obtained by projecting onto the states @xmath196 . the quality of this estimation strategy according to the statistical error
+is given by    @xmath197    with @xmath133 the number of pairs of quantum systems used in the estimation .
+we have examined the problem of determining the parameters that describe a noisy quantum channel with finite resources .
+we have given simple protocols for the determination of the parameters of several classes of quantum channels .
+these protocols are based on measurements made on qubits that are sent through the channel .
+we have also introduced two cost functions that estimate the quality of the protocols . in the most simple protocols measurements
+are performed on each qubit .
+we have also shown that more complex schemes based on entangled pairs can give a better estimate of the parameters of the pauli channel .
+our investigations stress once more the usefulness of entanglement in quantum information .
+we acknowledge support by the dfg programme `` quanten - informationsverarbeitung '' , by the european science foundation qit programme and by the programmes `` qubits '' and `` quest '' of the european commission .
+m  a  c  wishes to thank v  buek for interesting discussions and remarks .
+99 for recent books on the topic , see deutsch d 1985 _ proc .
+a _ * 400 * 97 gruska j 1999 _ quantum computing _
+( london : mcgraw  hill ) ; nielsen m a and chuang i l 2000 _ quantum computation and quantum information _
+( cambridge : cambridge university press ) ; bouwmeester d , ekert a and zeilinger a 2000 _ the physics of quantum information _
+( berlin : springer ) ; g. alber _ et al_. 2001 _ quantum information _
+( berlin : springer ) schumacher b 1996 _ phys . rev .
+a _ * 54 2614 ; schumacher b and nielsen m a 1996 _ phys .
+rev . a _ * 54 2629 ; bennett c h , divincenzo d p , smolin j a and wootters w k 1996 _ phys .
+a _ * 54 3824 ; lloyd s 1997 _ phys .
+rev . a _ * 55 1613 ; bennett c h , divincenzo d p , and smolin j a 1997 _ phys .
+lett . _ * 78 3217 ; schumacher b and westmoreland m d 1997 _ phys .
+a _ * 56 131 ; adami c and cerf n j 1997 _ phys . rev .
+a _ * 56 3470 ; barnum h , nielsen m a and schumacher b 1998 _ phys .
+a _ * 57 4153 ; divincenzo d p , shor p w and smolin j a 1998 _ phys .
+rev . a _ * 57 830 mack h , fischer d g and freyberger m 2000 _ phys . rev . a _ * 62 * 042301 fujiwara a 2001 _ phys .
+a _ * 63 * 042304 fischer d g , mack h , cirone m a and freyberger m 2001 _ phys .
+a _ * 64 * 022309 shor p w 1995 _ phys .
+a _ * 52 r2493 ; calderbank a r and shor p w 1996 _ phys . rev .
+a _ * 54 1098 ; laflamme r , miquel c , paz j p and zurek w h 1996 _ phys .
+lett . _ * 77 198 ; steane a m 1996 _ phys . rev . lett . _ * 77 793 knill e and laflamme r 1997 _ phys .
+rev . a _ * 55 900 kraus k 1983 _ states , effects , and operations _ , lecture notes in physics vol .
+190 ( berlin : springer ) stinespring w f 1955 _ proc .
+soc . _ * 6 * 211 jozsa r 1994 _ j. mod
+* 41 * 2315 fujiwara a and algoet p 1999 _ phys .
+a _ * 59 * 3290 for recent experiments on decoherence , see brune m , hagley e , dreyer j , maitre x , maali a , wunderlich c , raimond j m and haroche s 1996 _ phys .
+lett . _ * 77 * 4887 ; myatt c j , king b e , turchette q a , sackett c a , kielpinski d , itano w m , monroe c and wineland d j 2000 _ nature _ * 403 * 269 ; kokorowski d a cronin a d roberts t d and pritchard d e 2001 _ phys . rev . lett . _ * 86 * 2191 ; see also giulini d _
+et al_. 1996 decoherence and the appearance of a classical world in quantum theory ( berlin : springer ) carmichael h 1993 _ an open system approach to quantum optics _
+( berlin : springer ) ; carmichael h j 1999 _ statistical methods in quantum optics i _
+( berlin : springer ) ; macchiavello c and palma g m 2001 _ preprint _ quant - ph/0107052 bennett c h and wiesner s j 1992 _ phys .
+lett . _ * 69 * 2881 knill e 1998 _ preprint _ quant  ph/9808049 gottesmann d 1998 _ preprint _ quant  ph/9802007 cerf n j 2000 _ j.  mod
+_  * 47 * 187 fivel d i 1995 _ phys .
+* 74 * 835 * * * * * * * * * * * * * *

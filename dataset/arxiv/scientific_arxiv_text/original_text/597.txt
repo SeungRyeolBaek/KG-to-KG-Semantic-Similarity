@@ -1,0 +1,216 @@
+quantum information processing ( qip ) often requires pure state as the initial state @xcite .
+shor s prime factorizing algorithm @xcite , grover search algorithm @xcite are few examples .
+creation of pure state in nmr is not easy due to small gaps between nuclear magnetic energy levels and demands unrealistic experimental conditions like near absolute zero temperature or extremely high magnetic field .
+this problem has been circumvented by creating a pseudo pure state ( pps ) . while in a pure state
+all energy levels except one have zero populations , in a pps all levels except one have equal populations . since the uniform background populations do not contribute to the nmr signal , such a state then mimics a pure state .
+several methods of creating pps have been developed like spatial averaging @xcite , logical labeling @xcite , temporal averaging @xcite , spatially averaged logical labeling technique ( sallt ) @xcite .
+however pseudo pure state , as well as pure states are not stationary and are destroyed with time as the spin system relaxes toward equilibrium . in qip
+there are also cases where one or more qubits are initialized to a suitable state at the beginning of the computation and are used as storage or memory qubits at the end of the computation performed on some other qubits@xcite . in these cases it is important for memory qubits to be in the initialized state till the time they are in use since deviation from the initial state adds error to the output result .
+since it is not possible to stop decay of a state which is away from equilibrium , alternate strategies like quantum error correction @xcite , noiseless subspace @xcite are being tried .
+recently sarthour et al.@xcite has reported a detailed study of relaxation of pseudo pure states and few other states in a quadrupolar system . here
+we experimentally examine the lifetime of various pseudo pure states in a weakly j - coupled two qubit system .
+we find that cross terms ( known as cross - correlation ) between different pathways of relaxation of a spin can retard the relaxation of certain pps and accelerate that of others .
++   + in 1946 bloch formulated the behavior of populations or longitudinal magnetizations when they are perturbed from the equilibrium @xcite .
+the recovery toward equilibrium is exponential for a two level system and for a complex system the recovery involves several time constants @xcite . for complex systems the von neumann - liouville equation @xcite describes mathematically the time evolution of the density matrix in the magnetic resonance phenomena . for system
+having more than one spin the relaxation is described by a matrix called the relaxation matrix whose elements are linear combinations of spectral densities , which in turn are fourier transforms of time correlation function @xcite of the fluctuations of the various interactions responsible for relaxation . there
+exist several different mechanisms for relaxation , such as , time dependent dipole - dipole(dd ) interaction , chemical shift anisotropy(csa ) , quadrupolar interaction and spin rotation interaction @xcite .
+the correlation function gives the time correlations between different values of the interactions .
+the final correlation function has two major parts , namely the ` auto - correlation ' part which gives at two different times the correlation between the same relaxation interaction and the ` cross - correlation ' part which gives the time correlation between two different relaxation interactions .
+the mathematics of cross correlation can be found in detail , in works of schneider @xcite , blicharski @xcite and hubbard @xcite .
+recently a few models have been suggested to study the decoherence of the quantum coherence , the off - diagonal elements in density matrix @xcite . it can be shown that in absence of r.f . pulses and under secular approximation the relaxation of the diagonal and the off - diagonal elements of the density matrix are independent @xcite .
+here we study the longitudinal relaxation that is the relaxation of the diagonal elements of the density matrix and the role of cross - correlations in it .
+in terms of magnetization modes the equilibrium density matrix of a two spin system is given by @xcite[fig.[eqlev ] ] , @xmath0 where @xmath1 and @xmath2 are gyro - magnetic ratios of the two spins @xmath3 and @xmath4 respectively .
+the density matrix of a general state can be written as , @xmath5 \label{general}\end{aligned}\ ] ] which for the condition @xmath6=@xmath7=@xmath8=k , corresponds to the density matrix of a pps given by @xcite , @xmath9 \label{pps}\end{aligned}\ ] ] where , k is a constant , the value of which depends on the method of creation of pps .
++ the first two terms in the right hand side in eq.[general ] and eq.[pps ] are the single spin order modes for the first and second spin respectively while the last term is the two spin order mode of the two spins @xcite .
+choosing properly the signs of the modes , the various pps of a two - qubit system are , @xmath10\nonumber \\
+\chi_{pps}^{01 } =   k[- i_{1z } + i_{2z } + 2i_{1z}i_{2z } ] \nonumber \\ \chi_{pps}^{10 } =   k[+ i_{1z } - i_{2z } + 2i_{1z}i_{2z}]\nonumber \\
+\chi_{pps}^{11 } =   k[+ i_{1z } + i_{2z } -2i_{1z}i_{2z}]\end{aligned}\ ] ] the relative populations of the states for different pps are shown in fig .
+[ ppslev ] .
+as seen in eq.2 , in pps the coefficients of the all three modes are equal . on the other hand equilibrium density matrix
+does not contain any two spin order mode . to reach eq.[pps ] starting from eq.[eqd ] , the two spin order mode has to be created and at the same time the coefficients of all the modes have to be made equal .
+the equation of motion of modes m is given by @xcite , @xmath11 \label{magmode}\end{aligned}\ ] ] where @xmath12 is the relaxation matrix and @xmath13 is the equilibrium values of a mode .
+for a weakly coupled two - spin system relaxing via mutual dipolar interaction and the csa relaxation , the two dominant mechanism of relaxation of spin half nuclei in liquid state , the above equation takes the form , @xmath14 =   \left [ \begin{array}{ccc } \rho_1 & \sigma_{12 } & \delta_{1,12}\\ \sigma_{12 } & \rho_2 & \delta_{2,12}\\ \delta_{1,12 } & \delta_{2,12 } & \rho_{12 } \end{array } \right ] \cdot \left [ \begin{array}{c } i_{1z}(0)-i_{1z}(\infty)\\ i_{2z}(0)-i_{2z}(\infty)\\ 2i_{1z}i_{2z } \end{array } \right ] \label{relax}\end{aligned}\ ] ] where @xmath15 is the self relaxation rate of the single spin order mode of spin @xmath16 , @xmath17 is the self relaxation rate of the two spin order mode of spin @xmath16 and @xmath18 , @xmath19 is the cross - relaxation ( nuclear overhouser effect , noe ) rate between spins @xmath16 and @xmath18 and @xmath20 is the cross - correlation term between csa relaxation of spin @xmath16 and the dipolar relaxation between the spins @xmath16 and @xmath18 .
+@xmath21 and @xmath22 involve only the auto - correlation terms and @xmath23 involves only the cross - correlation terms@xcite .
+magnetization modes of one order relaxes to other orders through cross - correlation and in absence of it the relaxation matrix becomes block diagonal within each order .
+the relaxation of modes are in general dominated by their self relaxation @xmath21 , but in case of samples having long @xmath24 , the cross - correlation terms become comparable with self - relaxation and play an important role in relaxation of the spins .
++ the formal solution of eq .
+[ magmode ] is given by , @xmath25 exp(-\hat{\gamma}t)\end{aligned}\ ] ] as time evolution of various modes are coupled , a general solution of the above equation requires diagonalization of the relaxation matrix .
+however , in the initial rate approximation eq.7 can be written ( for small values of t=@xmath26 ) as , @xmath27[1-\hat{\gamma}\tau ] \cr & = & \vec{m}(0 ) - \hat{\gamma}\tau[\vec{m}(0)-\vec{m}(\infty ) ] \label{initialapp}\end{aligned}\ ] ] this equation asserts that in the initial rate approximation ( for low @xmath26 ) , the decay or growth of a mode is linear with time and the initial slope is proportional to the corresponding relaxation matrix element . if the modes are allowed to relax for a longer time , their decay or growth deviates from the linear nature and adopts a multi - exponential behavior to finally reach the equilibrium@xcite .
+let a two qubit system be in @xmath28 pps at t=0 .
+@xmath29 \end{aligned}\ ] ] after time t it will relax to , @xmath30 where @xmath31,@xmath32 and @xmath33 are the time dependent deviations of respective modes from their initial values .
+the deviation of the two spin order can be measured from spectrum of either spin .
+eq.[e10 ] can also be written as , @xmath34 + ( \delta_1(t ) - \delta_{12}(t))i_{1z }   + ( \delta_2(t ) - \delta_{12}(t))i_{2z } \label{chi001 }   \label{chi00}\end{aligned}\ ] ] the first term is the pseudo pure state with the coefficient decreasing in time while the other two terms are the excesses of the single spin order modes with coefficients increasing in time .
+for other pseudo pure states eq.[chi001 ] becomes , @xmath35 + ( \delta_1(t ) + \delta_{12}(t))i_{1z } + ( \delta_2(t ) - \delta_{12}(t))i_{2z } \\
+\chi^{10}(t ) & = & ( k + \delta_{12}(t))[i_{1z } - i_{2z } + 2i_{1z}i_{2z } ] + ( \delta_1(t ) - \delta_{12}(t))i_{1z } + ( \delta_2(t ) + \delta_{12}(t))i_{2z }
+\\ \chi^{11}(t ) & = & ( k - \delta_{12}(t))[i_{1z } + i_{2z } - 2i_{1z}i_{2z } ] + ( \delta_1(t ) + \delta_{12}(t))i_{1z } + ( \delta_2(t ) + \delta_{12}(t))i_{2z }   \label{chi11}\end{aligned}\ ] ] in the initial rate approximation ( using eq.[initialapp ] ) we obtain for the @xmath28 pps ,
+@xmath36 \label{d1}\\ \delta_2(\tau ) & = & \tau[\sigma_{12}(\gamma_1 -k ) + \rho_{1}(\gamma_2 -k ) -k \delta_{2,12 } ] \\ \delta_{12}(\tau ) & = & \tau[\delta_{1,12}(\gamma_1 -k ) + \delta_{2,12}(\gamma_2 -k ) -k \rho_{12 } ] \label{d2}\end{aligned}\ ] ] let the coefficients of the pps term and the two single spin order modes @xmath37 and @xmath38 in eq.[chi00 ] be called as @xmath39,@xmath40 and @xmath41 respectively .
+fig.[ppsmode ] schematically shows the time evolution of the coefficients @xmath39,@xmath40 and @xmath41 for @xmath28 pps .
+any coefficient for any pps at any instant , is simply the initial value plus the total deviation due to the auto and the cross - correlations .
+for example , @xmath42 for @xmath28 pps at time @xmath26 , is @xmath43 ) , where k is the initial value , and @xmath44 and @xmath45 are the deviations at @xmath26 due to auto - correlation and cross - correlation parts respectively .      putting the values of the deviations of different modes obtained from eq.([d1]-[d2 ] ) in eq.([chi001]-[chi11 ] ) , we obtain the contribution only of auto - correlation terms to the deviation from initial value of the coefficients @xmath46,@xmath40 and @xmath41 under initial rate approximation ( at t=@xmath26 ) as , @xmath47 @xmath48\tau & ; &   { \mathcal{b}}_{auto}^{01}(\tau ) = [ \rho_{1}(\gamma_1 + k)+ \sigma_{12 } ( \gamma_2 -k ) - k \rho_{12}]\tau \nonumber \\ { \mathcal{b}}_{auto}^{10}(\tau ) = [ \rho_{1}(\gamma_1 -k)+ \sigma_{12 } ( \gamma_2 + k ) + k \rho_{12}]\tau & ; & { \mathcal{b}}_{auto}^{11}(\tau ) = [ \rho_{1}(\gamma_1 -k)+ \sigma_{12 } ( \gamma_2 -k ) + k \rho_{12}]\tau \nonumber \\ { \mathcal{c}}_{auto}^{00}(\tau ) = [ \sigma_{12}(\gamma_1 -k)+ \rho_2 ( \gamma_2 -k ) + k \rho_{12}]\tau & ; &   { \mathcal{c}}_{auto}^{01}(\tau ) = [ \sigma_{12}(\gamma_1 + k)+ \rho_2 ( \gamma_2 -k ) + k \rho_{12}]\tau \nonumber \\ { \mathcal{c}}_{auto}^{10}(\tau ) = [ \sigma_{12}(\gamma_1 -k)+ \rho_2 ( \gamma_2 + k ) - k \rho_{12}]\tau & ; & { \mathcal{c}}_{auto}^{11}(\tau ) = [ \sigma_{12}(\gamma_1 -k)+ \rho_2 ( \gamma_2 -k ) + k \rho_{12}]\tau\end{aligned}\ ] ] it is evident that in absence of cross - correlations the @xmath28 and @xmath49 pps relax at the same initial rate since @xmath50 , @xmath51 and @xmath52 .
+however the same is not true for @xmath53 and @xmath54 pps .
+the contribution by the cross - correlation terms is given by , @xmath55\tau \nonumber \\   { \mathcal{a}}^{01}_{cc}(\tau ) = + [ \delta_{1,12 } ( \gamma_1 + k)+ \delta_{2,12}(\gamma_2 -k)]\tau \nonumber \\ { \mathcal{a}}^{10}_{cc}(\tau ) = + [ \delta_{1,12 } ( \gamma_1 -k)+ \delta_{2,12}(\gamma_2 + k)]\tau   \nonumber
+\\ { \mathcal{a}}^{11}_{cc}(\tau ) = -[\delta_{1,12 } ( \gamma_1 -k)+ \delta_{2,12}(\gamma_2 -k)]\tau \nonumber \\ \end{aligned}\ ] ] @xmath56\tau & ; &   { \mathcal{b}}^{01}_{cc}(\tau ) = + [ \delta_{1,12 } \gamma_1 + \delta_{2,12}(\gamma_2 -k)]\tau \nonumber \\
+{ \mathcal{b}}^{10}_{cc}(\tau ) = - [ \delta_{1,12 } \gamma_1 + \delta_{2,12}(\gamma_2 + k)]\tau & ; & { \mathcal{b}}^{11}_{cc}(\tau ) = + [ \delta_{1,12 } \gamma_1 + \delta_{2,12}(\gamma_2 -k)]\tau\nonumber \\ { \mathcal{c}}^{00}_{cc}(\tau ) = - [ \delta_{1,12 } ( \gamma_1 -k ) + \delta_{2,12 } \gamma_2 ] \tau & ; &   { \mathcal{c}}^{01}_{cc}(\tau ) = - [ \delta_{1,12 } ( \gamma_1 + k ) + \delta_{2,12 } \gamma_2 ] \tau\nonumber \\ { \mathcal{c}}^{10}_{cc}(\tau ) = + [ \delta_{1,12 } ( \gamma_1 -k ) + \delta_{2,12 } \gamma_2 ] \tau & ; & { \mathcal{c}}^{11}_{cc}(\tau ) = + [ \delta_{1,12 } ( \gamma_1 -k ) + \delta_{2,12 } \gamma_2 ] \tau \label{abc - cross } \end{aligned}\ ] ]
+the important thing is that the presence of cross - correlation can lead to differential relaxation of all pps .
+positive cross - correlation rates @xmath57 and @xmath58 , slow down the relaxation of all the three coefficients for @xmath28 pps since ( @xmath59 ) , while make the relaxation of all three coefficients faster for @xmath49 pps since ( @xmath60 ) . for @xmath53 and @xmath54
+pps cross - correlations give a mixed effect since ( @xmath61 ) and ( @xmath62 ) .
+as the contributions of the auto - correlation part for @xmath28 and @xmath49 pps are equal , we have monitored the relaxation behavior only of @xmath28 and @xmath49 pps to study the effect of cross - correlations .
++   + for samples having long @xmath24 , where the cross - correlations becomes comparable with auto - correlation rates , the four pps relax with four different rates and the difference increases with the increased value of the cross - correlation terms .
+the three coefficients @xmath39,@xmath40 and @xmath41 ( normalized to the equilibrium line intensities ) in terms of proton and fluorine line intensities for @xmath28 pps are , @xmath63 @xmath64 and for @xmath49 pps are , @xmath65 @xmath66 where , @xmath67 and @xmath68 are intensities of the two proton transitions , when the fluorine spin is respectively in state @xmath69 and @xmath70 . similarly @xmath71 and @xmath72 are intensities of two fluorine transitions corresponding to the proton spin being respectively in the state @xmath69 and @xmath70 , as shown in fig.[eqlev ] and fig.[allspec ] .
+@xmath73 and @xmath74 give the @xmath67 line intensity respectively at time t and at equilibrium .
+thus by monitoring the intensities of the two proton and two fluorine transitions as a function of time , one can calculate the coefficient @xmath75 which is a measure of decay of pps .
+relaxation of the coefficients @xmath39,@xmath40 and @xmath41 have been simulated using matlab , for a weakly coupled @xmath76-@xmath77 system .
+the relaxation matrix used for the simulation is , @xmath78\end{aligned}\ ] ] fig.[asimu ] shows the decay of coefficient @xmath39 with time .
+@xmath79 and @xmath80 show no difference in decay rate in absence of cross - correlation rates . as @xmath57 and @xmath58
+are increased more and more difference in decay rate is observed .
+fig.[bcsimu ] shows growth of coefficients @xmath40 and @xmath41 .
+as @xmath58 is taken smaller than @xmath57 , difference in decay rate between @xmath81 and @xmath82 is found to be less than between @xmath83 and @xmath84 .
+all the relaxation measurement were performed on a two qubit sample formed by one fluorine and one proton of 5-fluro 1,3-dimethyl uracil yielding an ax spin system with a j - coupling of 5.8 hz .
+longitudinal relaxation time constants for @xmath76 and @xmath85 are 6 and 7.2 sec respectively at room temperature ( 300k ) .
+all the experiments were performed in a bruker drx 500 mhz spectrometer where the resonance frequencies for @xmath76 and @xmath85 are 470.59 mhz and 500.13 mhz respectively .
+the pseudo - pure state was prepared by spatial averaging method using j - evolution @xcite .
+relaxation of all the three coefficients for @xmath28 and @xmath49 pps has been calculated .
+since auto - correlations contribute equally to the relaxation of these two pps , any difference in relaxation rate can be attributed to cross - correlation rates .
++ sample temperature was varied to change the correlation time and hence the cross - correlation rate @xmath23 .
+four different sample temperatures , 300k , 283k , 263k and 253k were used .
+fig.[allspec ] shows the proton and fluorine spectra obtained using recovery measurement at four different temperatures .
+the spectra correspond to the initial pps state and that after an interval of 2.5 sec .
+fig.[fht1 ] shows the longitudinal relaxation times ( @xmath24 ) of fluorine and proton as function of temperature obtained from initial part of inversion - recovery experiment . a steady decrease in @xmath24 with decreasing temperature
+indicates that the dynamics of the sample molecule is in the short correlation time limit @xcite . in this limit auto as well as
+cross - correlations increase linearly with decreasing temperature .
++ all the spectra were fitted to bi - lorentzian lines in matlab and various parameters were extracted using the origin software .
+fig.[aplot ] shows the decay of the coefficient @xmath39 calculated independently from proton and fluorine spectra . at 300k ,
+@xmath79 and @xmath80 showed almost same rate of decay .
+as the temperature was gradually lowered , a steady increase in difference in decay rate was observed .
+this is due to the steady increase in cross - correlation rates with decreasing temperature , which is expected in the short correlation time limit . in fig.[bcplot ]
+the growths of the coefficients @xmath40 and @xmath41 are shown .
+similar to the coefficient @xmath39 , coefficients @xmath40 and @xmath41 also show differences in decay rate between @xmath28 and @xmath49 pps at lower temperatures .
+the difference between @xmath83 and @xmath84 at any temperature was found to be larger compared to between @xmath81 and @xmath82 .
+this is expected since , according to eq.[abc - cross ] the dominant cross - correlation factor in @xmath83 and @xmath84 is @xmath57 which is the cross - correlation between csa of fluorine with fluorine - proton dipolar interaction whereas in @xmath81 and @xmath82 the dominant factor is @xmath58 which is cross - correlation between csa of proton , which is much less than fluorine , with fluorine - proton dipolar interaction .
+thus it is found that at lower temperatures the @xmath28 pps decays slower than the @xmath49 pps .
+the dominant difference in the decay rates arises from the cross - correlations between the csa of the fluorine and the dipolar interaction between the fluorine and the proton spin . to the best of our knowledge
+this is the first study of its kind where the differential decay of the pps has been attributed to cross - correlations .
+we have demonstrated here that in samples having long @xmath24 cross - correlations plays an important role in determining the rate of relaxation of pseudo pure state . in qip
+sometimes one or more qubits having comparatively longer longitudinal relaxation are used as storage or memory qubits . recently
+levitt et al .
+have demonstrated a long living antisymmetric state arrived by shifting the sample from high to very low magnetic field , suggesting that this long living state could be used as memory qubit @xcite . in such cases fidelity of computation
+depends on how much the memory qubits have been deviated from the initialized state at the beginning of the computation till the time they are actually used .
+theoretically it is shown here that in presence of cross - correlations , all the four pps relax with different initial rates .
+for positive cross - correlations the @xmath28 pps relaxes significantly slower than @xmath49 pps .
+it is therefore important to choose a proper initial pseudo pure state according to the sample .
+we gratefully acknowledge prof .
+k. v. ramanathan for discussions and mr .
+rangeet bhattacharyya for his help in data processing .
+the use of drx-500 high resolution liquid state spectrometer of the sophisticated instrument facility , indian institute of science , bangalore , funded by department of science and technology ( dst ) , new delhi , is gratefully acknowledged .
+ak acknowledges `` dae - brns '' for `` senior scientist scheme '' , and dst for a research grant .
+( a ) chemical structure of 5-fluro 1,3-dimethyl uracil .
+the fluorine and the proton spins ( shown by circles ) are used as the two qubits @xmath3 and @xmath4 respectively .
+( b ) the energy level diagram of a two qubit system identifying the four states 00,01,10 and 11 .
+under high temperature and high field approximation @xcite the relative equilibrium deviation populations are indicated in the bracket for each level . assuming this to be a weakly coupled two spin system the deviation populations become proportional to the gyromagnetic ratios @xmath1 and @xmath2 .
+@xmath86 refers to the transition of the @xmath87 spin when the other spin is in state @xmath88 .
+thus @xmath67 means the proton transition when the fluorine is in state @xmath69 .
++   + figure 2 .
+population distribution of different energy levels of a two spin system in different pseudo - pure states .
+k is a constant whose value depends on the protocol used for the preparation of pps .
+( a),(b),(c ) and ( d ) show respectively the @xmath28,@xmath53,@xmath54 and @xmath49 pps .
++   + figure 3 .
+schematic representation of decay of the coefficient @xmath39 and growth of the coefficients @xmath40 and @xmath41 .
+the magnetization modes are normalized to their respective equilibrium values . in each sub - figure the three bars correspond to the modes @xmath37,@xmath38 and 2@xmath89 from left to right . the amount of any mode present at any time is directly proportional to the height of the corresponding bar .
+the numbers provided in the rightmost column represent typical values of the modes .
+( a ) thermal equilibrium . at thermal equilibrium
+only @xmath37 and @xmath38 exist .
+( b ) @xmath28 pseudo - pure state just after creation , where all the three modes are equal in magnitude . for @xmath28 pps all modes are of same sign but this is not the case for other pps [ eq.3 ] .
+coefficient @xmath39 is the common equal amount of all the modes and it is maximum at t=0 .
+( c ) the amount of magnetization modes ( schematic ) at time @xmath26 , after preparation of the pps at t=0 .
+the two single spin order modes increase and the two spin order mode decreases from their initial values .
+( d ) the state of various modes at time @xmath26 , ( same as fig.c ) redrawn with filled bar to indicate the residual value of @xmath39 . all the three coefficients @xmath39,@xmath40 and @xmath41 are shown .
+@xmath39 ( shown by the filled bar ) , which is the measure of the pps , has come down by the same amount as the two spin order .
+@xmath40 ( shown by the empty bar ) and @xmath41 ( shown by the striped bar ) are the residual part of the single spin order modes @xmath37 and @xmath38 respectively.(e ) the values of various modes and coefficients after a delay @xmath90 . +   +
+simulation of decay of coefficient @xmath39 .
+the boxes ( @xmath91 ) and circles ( @xmath92 ) correspond to the @xmath49 and @xmath28 pps respectively . in each plot deviation from initial value (
+@xmath93)has been plotted .
++   + figure 5 .
+simulation of growth of coefficient @xmath40 and @xmath41 .
+the boxes ( @xmath91 ) and circles ( @xmath92 ) correspond to the @xmath49 and @xmath28 pps respectively .
++   + figure 6 .
+relaxation of pseudo pure state as monitored on ( a ) fluorine spin and ( b ) proton spin of the 5-fluro 1,3-dimethyl uracil at four different temperatures . the top row in ( a ) and ( b )
+show the equilibrium spectrum at each temperature .
+with decrease in temperatures the lines broaden due to decreased @xmath94 .
+the second row in ( a ) and ( b ) show the spectra corresponding to the @xmath28 pps , prepared by spatial averaging method using j - evolution .
+the state of pps was measured by @xmath95 pulse at each spin .
+the third row in ( a ) and ( b ) show the spectra after an interval of 2.5 seconds after creation of the @xmath28 pps .
+the fourth row shows the spectra immediately after creation of @xmath49 pps and the fifth row , the spectra after 2.5 seconds .
++   +   + figure 7 .
+longitudinal relaxation time @xmath24 of fluorine ( a ) and proton ( b ) as function of temperature , measured from the initial part of inversion recovery experiment for each spin .
++   + figure 8 .
+the deviation from initial value ( at t=0 ) of the coefficient @xmath39 of the pps term calculated from proton ( left column ) and fluorine ( right column ) at four different sample temperature .
+the empty ( @xmath92 ) and filled ( @xmath96 ) circles correspond to the @xmath28 and @xmath49 pps respectively .
++   + figure 9 .
+the growth of the coefficients @xmath40 and @xmath41 at different sample temperatures .
+@xmath40 was calculated from fluorine spectrum while @xmath41 was calculated from the proton spectrum .
+the empty ( @xmath92 ) and filled ( @xmath96 ) circles correspond to the @xmath28 and @xmath49 pps respectively .
++   +    99 j. preskill , lecture notes for physics 229 : quantum information and computation , http://theory.caltech.edu / people / preskill/. m.a .
+nielsen and i.l .
+chuang , quantum computation and quantum information , cambridge university press 2000 .
+p.w.shor , polynomial - time algorithms for prime factorization and discrete algorithms on quantum computer , siam rev .
+41 ( 1999 ) 303 - 332 .
+grover , quantum mechanics helps in searching for a needle in a haystack , phys .
+79 ( 1997 ) 325 .
+cory , a.f .
+fahmy and t.f .
+havel , ensemble quantum computing by nmr spectroscopy , proc.natl.acad.sci .
+usa , 94 ( 1997 ) 1634 .
+cory , m. d. price and t.f .
+havel , nuclear magnetic resonance spectroscopy : an experimentally accessible paradigm for quantum computing , physica d , 120 ( 1998 ) 82 . n. gershenfeld and i.l .
+chuang , bulk spin - resonance quantum computation , science , 275 ( 1997 ) 350 .
+chuang , n. gershenfeld , m.g .
+kubines and d.w .
+leung , bulk quantum computation with nuclear magnetic resonance , proc.roy.soc.lond .
+a , 454 ( 1998 ) 447 - 467 .
+kavita dorai , arvind and anil kumar , implementing quantum - logic operations , pseudopure states , and the deutsch - jozsa algorithm using noncommuting selective pulses in nmr , phys .
+a. 61 ( 2000 ) 042306 .
+kavita dorai , t.s.mahesh , arvind and anil kumar , quantum computations by nmr , current science
+. 79 ( 2000 ) 1447 - 1458 .
+e. knill , i. l. chuang and r. laflamme , effective pure states for bulk quantum computation , phys .
+a. 57 ( 2000 ) 3348 .
+mahesh and anil kumar , ensemble quantum - information processing by nmr : spatially averaged logical labeling technique for creating pseudopure states , phys .
+a. 64 ( 2001 ) 012307 .
+d. gottesman and i.l.chuang , demonstrating the viability of universal quantum computation using teleportation and single - qubit operations , nature ( london ) .
+402 ( 1999 ) 390 .
+e.knill and r. laflamme , theory of quantum error correcting codes , phys .
+a. 55 ( 1997 ) 900 - 911 .
+e.knill , r. laflamme and l. viola , theory of quantum error correction for general noise , phys .
+84 ( 2000 )
+2525 . l. viola , e. m. fortunato , m. a. pravia , e.knill , r. laflamme and d. g. cory , experimental realization of noiseless subsystems for quantum information processing , science .
+293 ( 2001 ) 2059 - 2063 .
+r. s. sarthour , e. r. deazevedo , f. a. bonk , e. l. g. vidoto , t. j. bonagamba , a. p. guimar@xmath97es , j. c. c. freitas and i. s. oliveira , relaxation of coherent states in a two - qubit nmr quadrupolar system , phys .
+a. 68 ( 2003 ) 022311 .
+f. bloch , nuclear induction , phys .
+70 ( 1946 ) 460 .
+a. g. redfield , the theory of relaxation processes , adv .
+res . 1 ( 1966 ) 1
+. j. von neumann , measurement and reversibility and the measuring process , chapter v and vi in mathematische grund lagen der quantenmechanik , springer , berlin ( 1932 ) .
+english translation by r. t. beyer , mathematical foundations of quantum mechanics , princeton unv . press , princeton .
+a. abragam , principles of nuclear magnetic resonance , claredon press , oxford,1961 .
+anil kumar , r. c. r. grace , p. k. madhu , cross correlation in nmr , prog . in nucl .
+res . spec .
+37 ( 2000 ) 191 - 319
+. h. schneider , kernmagnetische relaxation von drei - spin - molek@xmath98len i m fl@xmath98ssign oder adsorbierten zustand.i , ann .
+( 1964 ) 313 .
+h. schneider , kernmagnetische relaxation von drei - spin - molek@xmath98len i m fl@xmath98ssign oder adsorbierten zustand.ii , ann .
+( 1965 ) 135
+. j. s. blicharski , interference effect in nuclear magnetic relaxation , phys .
+( 1967 ) 608 .
+p. s. hubbard , some properties of correlation functions of irreducible tensor operators , phys .
+180 ( 1969 ) 319 .
+w. h. zurek , environment - induced superselection rules , phys .
+d. 26 ( 1982 ) 1862 .
+g. teklemariam , e. m. fortunato , c. c. lopez , j. emerson , j. p. paz , t. f. havel and d. g. cory , a method for modeling decoherence on a quantum information processor , phys .
+a. 67 ( 2003 ) 062316 .
+ersnt , g. bodenhausen , and a. wokaun , principles of nuclear magnetic resonance in one and two dimensions , clarendon press , oxford,1987 .
+j. a. jones , r. h. hansen and m. mosca , quantum logic gates and nuclear magnetic resonance pulse sequences , jl . of mag .
+res . 135 ( 1998 ) 353 .
+m. carravetta and m. h. levitt , long - lived nuclear spin states in high - field solution nmr , j. am .
+( 2004 ) 6228 .
+m. carravetta , o. g. johannessen and malcolm h. levitt , beyond the @xmath24 limit : singlet nuclear spin states in low magnetic fields , phys .
+92 ( 2004 ) 153003 .

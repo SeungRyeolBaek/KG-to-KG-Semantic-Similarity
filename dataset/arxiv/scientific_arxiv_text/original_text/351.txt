@@ -1,0 +1,252 @@
+the lisa observatory  @xcite has incredible science potential , but that potential can only be fully realized by employing advanced data analysis techniques .
+lisa will explore the low frequency portion of the gravitational wave spectrum , which is thought to be home to a vast number of sources .
+since gravitational wave sources typically evolve on timescales that are long compared to the gravitational wave period , individual low frequency sources will be `` on '' for large fractions of the nominal three year lisa mission lifetime .
+moreover , unlike a traditional telescope , lisa can not be pointed at a particular point on the sky .
+the upshot is that the lisa data stream will contain the signals from tens of thousands of individual sources , and ways must be found to isolate individual voices from the crowd .
+this `` cocktail party problem '' is the central issue in lisa data analysis .
+the types of sources lisa is expected to detect include galactic and extra - galactic compact stellar binaries , super massive black hole binaries , and extreme mass ratio inspirals of compact stars into supermassive black holes ( emris ) .
+other potential sources include intermediate mass black hole binaries , cosmic strings , and a cosmic gravitational wave background produced by processes in the early universe . in the case of compact stellar binaries  @xcite and emris  @xcite ,
+the number of sources is likely to be so large that it will be impossible to resolve all the sources individually , so that there will be a residual signal that is variously referred to as a confusion limited background or confusion noise .
+it is important that this confusion noise be made as small as possible so as not to hinder the detection of other high value targets .
+several estimates of the confusion noise level have been made  @xcite , and they all suggest that unresolved signals will be the dominant source of low frequency noise for lisa .
+however , these estimates are based on assumptions about the efficacy of the data analysis algorithms that will be used to identify and regress sources from the lisa data stream , and it is unclear at present how reasonable these assumptions might be .
+indeed , the very notion that one can first clean the data stream of one type of signal before moving on to search for other targets is suspect as the gravitational wave signals from different sources are not orthogonal .
+for example , when the signal from a supermassive black hole binary sweeps past the signal from a white dwarf binary of period @xmath0 , the two signals will have significant overlap for a time interval equal to the geometric mean of @xmath0 and @xmath1 , where @xmath1 is the time remaining before the black holes merge .
+thus , by a process dubbed `` the white dwarf transform , '' it is possible to decompose the signal from a supermassive black hole binary into signals from a collection of white dwarf binaries .    as described in  [ cocktail ] , optimal filtering of the lisa data would require the construction of a filter bank that described the signals from every source that contributes to the data stream . in principle one could construct a vast template bank describing all possible sources and look for the best match with the data . in practice the enormous size of the search space and
+the presence of unmodeled sources renders this direct approach impractical .
+possible alternatives to a full template based search include iterative refinement of a source - by - source search , ergodic exploration of the parameter space using markov chain monte carlo ( mcmc ) algorithms , darwinian optimization by genetic algorithms , and global iterative refinement using the maximum entropy method ( mem ) .
+each approach has its strengths and weakness , and at this stage it is not obvious which approach will prove superior .
+here we apply the popular markov chain monte carlo  @xcite method to simulated lisa data .
+this is not the first time that mcmc methods have been applied to gravitational wave data analysis , but it is first outing with realistic simulated lisa data .
+our simulated data streams contain the signals from multiple galactic binaries .
+previously , mcmc methods have been used to study the extraction of coalescing binary  @xcite and spinning neutron star  @xcite signals from terrestrial interferometers .
+more recently , mcmc methods have been applied to a simplified toy problem  @xcite that shares some of the features of the lisa cocktail party problem .
+these studies have shown that mcmc methods hold considerable promise for gravitational wave data analysis , and offer many advantages over the standard template grid searches .
+for example , the emri data analysis problem  @xcite is often cited as the greatest challenge facing lisa science . neglecting the spin of the smaller body yields a 14 dimensional parameter space , which would require @xmath2 templates to explore in a grid based search  @xcite .
+this huge computational cost arises because grid based searches scale geometrically with the parameter space dimension @xmath3 .
+in contrast , the computational cost of mcmc based searches scale linearly with the @xmath3 . in fields such as finance ,
+mcmc methods are routinely applied to problems with @xmath4 , making the lisa emri problem seem trivial in comparison .
+a _ google _
+search on `` markov chain monte carlo '' returns almost 250,000 results , and a quick scan of these pages demonstrates the wide range of fields where mcmc methods are routinely used .
+we found it amusing that one of the _ google _ search results is a link to the _ pagerank _
+@xcite mcmc algorithm that powers the _ google _ search engine .
+the structure of the paper follows the development sequence we took to arrive at a fast and robust mcmc algorithm . in  [ cocktail ]
+we outline the lisa data analysis problem and the particular challenges posed by the galactic background .
+a basic mcmc algorithm is introduced in  [ mcmc7 ] and applied to a full 7 parameter search for a single galactic binary .
+a generalized multi - channel , multi - source f - statistic for reducing the search space from @xmath5 to @xmath6 is described in 
+[ fstat ] .
+the performance of a basic mcmc algorithm that uses the f - statistic is studied in 
+[ mcmc_f ] and a number of problems with this simple approach are identified . a more advanced mixed mcmc algorithm that incorporates simulated annealing
+is introduced in  [ mcmc_mix ] and is successfully applied to multi - source searches .
+the issue of model selection is addressed in  [ bayes ] , and approximate bayes factor
+are calculated by super - cooling the markov chains to extract maximum likelihood estimates .
+we conclude with a discussion of future refinements and extensions of our approach in  [ conclude ] .
+space based detectors such as lisa are able to return several interferometer outputs  @xcite .
+the strains registered in the interferometer in response to a gravitational wave pick up modulations due to the motion of the detector .
+the orbital motion introduces amplitude , frequency , and phase modulation into the observed gravitational wave signal .
+the amplitude modulation results from the detector s antenna pattern being swept across the sky , the frequency modulation is due to the doppler shift from the relative motion of the detector and source , and the phase modulation results from the detector s varying response to the two gravitational wave polarizations  @xcite .
+these modulations encode information about the location of the source .
+the modulations spread a monochromatic signal over a bandwidth @xmath7 , where @xmath8 is the co - latitude of the source and @xmath9 is the modulation frequency . in the low frequency limit , where the wavelengths are large
+compared to the armlengths of the detector , the interferometer outputs @xmath10 can be combined to simulate the response of two independent 90 degree interferometers , @xmath11 and @xmath12 , rotated by 45 degrees with respect to each other  @xcite .
+this allows lisa to measure both polarizations of the gravitational wave simultaneously .
+a third combination of signals in the low frequency limit yields the symmetric sagnac variable  @xcite , which is insensitive to gravitational waves and can be used to monitor the instrument noise .
+when the wavelengths of the gravitational waves become comparable to the size of the detector , which for lisa corresponds to frequencies above 10 mhz , the interferometry signals can be combined to give three independent time series with comparable sensitivities  @xcite .
+the output of each lisa data stream can be written as @xmath13 here @xmath14 describes the response registered in detector channel @xmath15 to a source with parameters @xmath16 .
+the quantity @xmath17 denotes the combined response to a collection of @xmath18 sources with total parameter vector @xmath19 and @xmath20 denotes the instrument noise in channel @xmath15 .
+extracting the parameters of each individual source from the combined response to all sources defines the lisa cocktail party problem . in practice
+it will be impossible to resolve all of the millions of signals that contribute to the lisa data streams .
+for one , there will not be enough bits of information in the entire lisa data archive to describe all @xmath18 sources in the universe with signals that fall within the lisa band .
+moreover , most sources will produce signals that are well below the instrument noise level , and even after optimal filtering most of these sources will have signal to noise ratios below one .
+a more reasonable goal might be to provide estimates for the parameters describing each of the @xmath21 sources that have integrated signal to noise ratios ( snr ) above some threshold ( such as @xmath22 ) , where it is now understood that the noise includes the instrument noise , residuals from the regression of bright sources , and the signals from unresolved sources .    while the noise will be neither stationary nor gaussian , it is not unreasonable to hope that the departures from gaussianity and stationarity will be mild .
+it is well know that matched filtering is the optimal linear signal processing technique for signals with stationary gaussian noise  @xcite .
+matched filtering is used extensively in all fields of science , and is a popular data analysis technique in ground based gravitational wave astronomy  @xcite .
+switching to the fourier domain , the signal can be written as @xmath23 , where @xmath24 includes instrument noise and confusion noise , and the signals are described by parameters @xmath25 . using the standard noise
+weighted inner product for the independent data channels over a finite observation time @xmath0 , @xmath26 a wiener filter statistic can be defined : @xmath27 the noise spectral density @xmath28 is given in terms of the autocorrelation of the noise @xmath29 here and elsewhere angle brackets @xmath30 denote an expectation value .
+an estimate for the source parameters @xmath25 can be found by maximizing @xmath31 .
+if the noise is gaussian and a signal is present , @xmath31 will be gaussian distributed with unit variance and mean equal to the integrated signal to noise ratio @xmath32 the optimal filter for the lisa signal ( [ lisa_sig ] ) is a matched template describing all @xmath21 resolvable sources . the number of parameters @xmath33 required to describe a source ranges from 7 for a slowly evolving circular galactic binary to 17 for a massive black hole binary .
+a reasonable estimate  @xcite for @xmath21 is around @xmath34 , so the full parameter space has dimension @xmath35 . since the number of templates required to uniformly cover a parameter space grows exponentially with @xmath3 , a grid based search using the full optimal filter is out of the question .
+clearly an alternative approach has to be found .
+moreover , the number of resolvable sources @xmath21 is not known a priori , so some stopping criteria must be found to avoid over - fitting the data .
+existing approaches to the lisa cocktail party problem employ iterative schemes .
+the first such approach was dubbed `` gclean ''
+@xcite due to its similarity with the `` clean ''  @xcite algorithm that is used for astronomical image reconstruction .
+the `` gclean '' procedure identifies and records the brightest source that remains in the data stream , then subtracts a small amount of this source .
+the procedure is iterated until a prescribed residual is reached , at which time the individual sources are reconstructed from the subtraction record . a much faster iterative approach dubbed
+`` slice & dice ''  @xcite was recently proposed that proceeds by identifying and fully subtracting the brightest source that remains in the data stream . a global least squares re - fit to all the current list of sources
+is then performed , and the new parameter record is used to produce a regressed data stream for the next iteration .
+bayes factors are used to provide a stopping criteria .
+there is always the danger with iterative approaches that the procedure `` gets off on the wrong foot , '' and is unable to find its way back to the optimal solution .
+this can happen when two signals have a high degree of overlap .
+a very different approach to the lisa source confusion problem is to solve for all sources simultaneously using ergodic sampling techniques .
+markov chain monte carlo ( mcmc )  @xcite is a method for estimating the posterior distribution , @xmath36 , that can be used with very large parameter spaces .
+the method is now in widespread use in many fields , and is starting to be used by astronomers and cosmologists .
+one of the advantages of mcmc is that it combines detection , parameter estimation , and the calculation of confidence intervals in one procedure , as everything one can ask about a model is contained in @xmath36 .
+another nice feature of mcmc is that there are implementations that allow the number of parameters in the model to be variable , with built in penalties for using too many parameters in the fit . in an mcmc approach , parameter estimates from wiener
+matched filtering are replaced by the bayes estimator  @xcite @xmath37 which requires knowledge of @xmath36 - the posterior distribution of @xmath38 ( _ i.e. _ the distribution of @xmath38 conditioned on the data @xmath39 ) . by bayes theorem , the posterior distribution is related to the prior distribution @xmath40 and the likelihood @xmath41 by @xmath42 until recently the bayes estimator was little used in practical applications as the integrals appearing in ( [ be ] ) and ( [ post ] ) are often analytically intractable .
+the traditional solution has been to use approximations to the bayes estimator , such as the maximum likelihood estimator described below , however advances in the markov chain monte carlo technique allow direct numerical estimates to be made .
+when the noise @xmath43 is a normal process with zero mean , the likelihood is given by  @xcite @xmath44\ , , \ ] ] where the normalization constant @xmath45 is independent of @xmath39 .
+in the large snr limit the bayes estimator can be approximated by finding the dominant mode of the posterior distribution , @xmath36 , which finn  @xcite and cutler & flannagan@xcite refer to as a maximum likelihood estimator .
+other authors  @xcite define the maximum likelihood estimator to be the value of @xmath38 that maximizes the likelihood , @xmath41 .
+the former has the advantage of incorporating prior information , but the disadvantage of not being invariant under parameter space coordinate transformations .
+the latter definition corresponds to the standard definition used by most statisticians , and while it does not take into account prior information , it is coordinate invariant .
+the two definitions give the same result for uniform priors , and very similar results in most cases ( the exception being where the priors have a large gradient at maximum likelihood ) .
+the standard definition of the likelihood yields an estimator that is identical to wiener matched filtering@xcite .
+absorbing normalization factors by adopting the inverted relative likelihood @xmath46 , we have @xmath47 in the gravitational wave literature the quantity @xmath48 is usually referred to as the log likelihood , despite the inversion and rescaling . note that @xmath49 the maximum likelihood estimator ( mle ) , @xmath50 , is found by solving the coupled set of equations @xmath51 .
+parameter uncertainties can be estimated from the negative hessian of @xmath52 , which yields the fisher information matrix @xmath53 in the large snr limit the mle can be found by writing @xmath54 and taylor expanding ( [ ml ] ) . setting @xmath55 yields the lowest order solution @xmath56
+the expectation value of the maximum of the log likelihood is then @xmath57 this value exceeds that found in ( [ comp ] ) by an amount that depends on the total number of parameters used in the fit , @xmath3 , reflecting the fact that models with more parameters generally give better fits to the data .
+deciding how many parameters to allow in the fit is an important issue in lisa data analysis as the number of resolvable sources is not known a priori .
+this issue does not usually arise for ground based gravitational wave detectors as most high frequency gravitational wave sources are transient .
+the relevant question there is whether or not a gravitational wave signal is present in a section of the data stream , and this question can be dealt with by the neyman - pearson test or other similar tests that use thresholds on the likelihood @xmath58 that are related to the false alarm and false dismissal rates .
+demanding that @xmath59 - so it is more likely that a signal is present than not - and setting a detection threshold of @xmath60 yields a false alarm probability of 0.006 and a detection probability of 0.994 ( if the noise is stationary and gaussian ) .
+a simple acceptance threshold of @xmath60 for each individual signal used to fit the lisa data would help restrict the total number of parameters in the fit , however there are better criteria that can be employed .
+the simplest is related to the neyman - pearson test and compares the likelihoods of models with different numbers of parameters .
+for nested models this ratio has an approximately chi squared distribution which allows the significance of adding extra parameters to be determined from standard statistical tables .
+a better approach is to compute the bayes factor , @xmath61 which gives the relative weight of evidence for models @xmath62 and @xmath63 in terms of the ratio of marginal likelihoods @xmath64 here @xmath65 is the likelihood distribution for model @xmath62 and @xmath66 is the prior distribution for model @xmath62 .
+the difficulty with this approach is that the integral in ( [ marginal ] ) is hard to calculate , though estimates can be made using the laplace approximation or the bayesian information criterion ( bic )  @xcite .
+the laplace approximation is based on the method of steepest descents , and for uniform priors yields @xmath67 where @xmath68 is the maximum likelihood for the model , @xmath69 is the volume of the model s parameter space , and @xmath70 is the volume of the uncertainty ellipsoid ( estimated using the fisher matrix ) .
+models with more parameters generally provide a better fit to the data and a higher maximum likelihood , but they get penalized by the @xmath71 term which acts as a built in occam s razor .
+we begin by implementing a basic mcmc search for galactic binaries that searches over the full @xmath72 dimensional parameter space using the metropolis - hastings  @xcite algorithm .
+the idea is to generate a set of samples , @xmath73 , that correspond to draws from the posterior distribution , @xmath36 . to do this
+we start at a randomly chosen point @xmath74 and generate a markov chain according to the following algorithm : using a proposal distribution @xmath75 , draw a new point @xmath76 .
+evaluate the hastings ratio @xmath77 accept the candidate point @xmath76 with probability @xmath78 , otherwise remain at the current state @xmath74 ( metropolis rejection  @xcite ) . remarkably , this sampling scheme produces a markov chain with a stationary distribution equal to the posterior distribution of interest , @xmath36 , regardless of the choice of proposal distribution  @xcite .
+a concise introduction to mcmc methods can be found in the review paper by andrieu _
+et al _  @xcite .
+on the other hand , a poor choice of the proposal distribution will result in the algorithm taking a very long time to converge to the stationary distribution ( known as the burn - in time ) .
+elements of the markov chain produced during the burn - in phase have to be discarded as they do not represent the stationary distribution .
+when dealing with large parameter spaces the burn - in time can be very long if poor techniques are used .
+for example , the metropolis sampler , which uses symmetric proposal distributions , explores the parameter space with an efficiency of at most @xmath79 , making it a poor choice for high dimension searches .
+regardless of the sampling scheme , the mixing of the markov chain can be inhibited by the presence of strongly correlated parameters .
+correlated parameters can be dealt with by making a local coordinate transformation at @xmath74 to a new set of coordinates that diagonalises the fisher matrix , @xmath80 .
+we tried a number of proposal distributions and update schemes to search for a single galactic binary .
+the results were very disappointing .
+bold proposals that attempted large jumps had a very poor acceptance rate , while timid proposals that attempted small jumps had a good acceptance rate , but they explored the parameter space very slowly , and got stuck at local modes of the posterior .
+lorentzian proposal distributions fared the best as their heavy tails and concentrated peaks lead to a mixture of bold and timid jumps , but the burn in times were still very long and the subsequent mixing of the chain was torpid .
+the mcmc literature is full of similar examples of slow exploration of large parameter spaces , and a host of schemes have been suggested to speed up the burn - in .
+many of the accelerated algorithms use adaptation to tune the proposal distribution .
+this violates the markov nature of the chain as the updates depend on the history of the chain .
+more complicated adaptive algorithms have been invented that restore the markov property by using additional metropolis rejection steps .
+the popular delayed rejection method  @xcite and reversible jump method  @xcite are examples of adaptive mcmc algorithms .
+a simpler approach is to use a non - markov scheme during burn - in , such as adaptation or simulated annealing , then transition to a markov scheme after burn - in .
+since the burn - in portion of the chain is discarded , it does not matter if the mcmc rules are broken ( the burn - in phase is more like las vegas than monte carlo ) .    before resorting to complex acceleration schemes we tried a much simpler approach that proved to be very successful .
+when using the metropolis - hastings algorithm there is no reason to restrict the updates to a single proposal distribution .
+for example , every update could use a different proposal distribution so long as the choice of distribution is not based on the history of the chain .
+the proposal distributions to be used at each update can be chosen at random , or they can be applied in a fixed sequence . our experience with single proposal distributions suggested that a scheme that combined a very bold proposal with a very timid proposal would lead to fast burn - in and efficient mixing .
+for the bold proposal we chose a uniform distribution for each of the source parameters @xmath81 . here
+@xmath82 is the amplitude , @xmath83 is the gravitational wave frequency , @xmath8 and @xmath84 are the ecliptic co - latitude and longitude , @xmath85 is the polarization angle , @xmath86 is the inclination of the orbital plane , and @xmath87 is the orbital phase at some fiducial time .
+the amplitudes were restricted to the range @xmath88 $ ] and the frequencies were restricted to lie within the range of the data snippet @xmath89 $ ] mhz ( the data snippet contained 100 frequency bins of width @xmath90 ) .
+a better choice would have been to use a cosine distribution for the co - latitude @xmath8 and inclination @xmath86 , but the choice is not particularly important . when multiple sources were present each source was updated separately during the bold proposal stage . for the timid proposal we used a normal distribution for each eigendirection of the fisher matrix , @xmath80 .
+the standard deviation @xmath91 for each eigendirection @xmath92 was set equal to @xmath93 , where @xmath94 is the corresponding eigenvalue of @xmath80 , and @xmath72 is the search dimension .
+the factor of @xmath95 ensures a healthy acceptance rate as the typical total jump is then @xmath96 .
+all @xmath18 sources were updated simultaneously during the timid proposal stage .
+note that the timid proposal distributions are not symmetric since @xmath97 .
+one set of bold proposals ( one for each source ) was followed by ten timid proposals in a repeating cycle .
+the ratio of the number of bold to timid proposals impacted the burn - in times and the final mixing rate , but ratios anywhere from 1:1 to 1:100 worked well .
+we used uniform priors , @xmath98 , for all the parameters , though once again a cosine distribution would have been better for @xmath8 and @xmath86 .
+two independent lisa data channels were simulated directly in the frequency domain using the method described in ref .
+@xcite , with the sources chosen at random using the same uniform distributions employed by the bold proposal .
+the data covers 1 year of observations , and the data snippet contains 100 frequency bins ( of width @xmath99 ) .
+the instrument noise was assumed to be stationary and gaussian , with position noise spectral density @xmath100 and acceleration noise spectral density @xmath101 .
+.7 parameter mcmc search for a single galactic binary [ cols="<,^,^,^,^,^,^,^",options="header " , ]     [ tab9 ]    it is also interesting to compare the output of the 10 source mcmc search to the maximum likelihood one gets by starting at the true source parameters then applying the super cooling procedure ( in other words , cheat by starting in the neighborhood of the true solution ) .
+we found @xmath102 , and @xmath103 , which tells us that the mcmc solution , while getting two of the source parameters wrong , provides an equally good fit to the data .
+in other words , there is _ no _ data analysis algorithm that can fully deblend the two highly overlapping sources .
+our first pass at applying the mcmc method to lisa data analysis has shown the method to have considerable promise .
+the next step is to push the existing algorithm until it breaks .
+simulations of the galactic background suggest that bright galactic sources reach a peak density of one source per five @xmath99 frequency bins  @xcite .
+we have shown that our current f - mcmc algorithm can handle a source density of one source per ten frequency bins across a one hundred bin snippet .
+we have yet to try larger numbers of sources as the current version of the algorithm employs the full @xmath72 dimensional fisher matrix in many of the updates , which leads to a large computational overhead .
+we are in the process of modifying the algorithm so that sources are first grouped into blocks that have strong overlap .
+each block is effectively independent of the others .
+this allows each block to be updated separately , while still taking care of any strongly correlated parameters that might impede mixing of the chain .
+we have already seen some evidence that high local source densities pose a challenge to the current algorithm .
+the lesson so far has been that adding new , specially tailored proposal distributions to the mix helps to keep the chain from sticking at secondary modes of the posterior ( it takes a cocktail to solve the cocktail party problem ) . on the other hand ,
+we have also seen evidence of strong multi - modality whereby the secondary modes have likelihoods within a few percent of the global maximum . in those cases the chain tends to jump back and forth between modes before being forced into a decision by the super - cooling process that follows the main mcmc run .
+indeed , we may already be pushing the limits of what is possible using any data analysis method .
+for example , the 10 source search used a model with 70 parameters to fit 400 pieces of data ( 2 channels @xmath104 2 fourier components @xmath104 100 bins )
+. one of our goals is to better understand the theoretical limits of what can be achieved so that we know when to stop trying to improve the algorithm !
+it would be interesting to compare the performance of the different methods that have been proposed to solve the lisa cocktail party problem .
+do iterative methods like gclean and slice & dice or global maximization methods like maximum entropy have different strengths and weakness compared to mcmc methods , or do they all fail in the same way as they approach the confusion limit ?
+it may well be that methods that perform better with idealized , stationary , gaussian instrument noise will not prove to be the best when faced with real instrumental noise .
+p. bender _
+_ , _ lisa pre - phase a report _ , ( 1998 ) . c. r. evans , i. iben & l. smarr , apj * 323 * , 129 ( 1987 ) . v. m. lipunov , k. a. postnov & m. e. prokhorov , a&a * 176 * , l1 ( 1987 ) .
+d. hils , p. l. bender & r. f. webbink , apj * 360 * , 75 ( 1990 ) .
+d. hils & p.
+l. bender , apj * 537 * , 334 ( 2000 ) .
+g. nelemans , l. r. yungelson & s. f. portegies zwart , a&a * 375 * , 890 ( 2001 ) .
+l. barack & c. cutler , phys .
+rev . d*69 * , 082005 ( 2004 ) .
+j. r. gair , l. barack , t. creighton , c. cutler , s. l. larson , e. s. phinney & m. vallisneri , class .
+* 21 * , s1595 ( 2004 ) .
+a. j. farmer & e. s. phinney , mon . not .
+. soc . * 346 * , 1197 ( 2003 ) .
+s. timpano , l. j. rubbo & n. j. cornish , gr - qc/0504071 ( 2005 ) .
+l. barack & c. cutler , phys .
+rev . d*70 * , 122002 ( 2004 ) .
+n. christensen & r. meyer , phys .
+rev . d*58 * , 082001 ( 1998 ) ; n. christensen & r. meyer , phys .
+rev . d*64 * , 022001 ( 2001 ) ; n. christensen , r. meyer & a. libson , class .
+* 21 * , 317 ( 2004 )
+. n. christensen , r. j. dupuis , g. woan & r. meyer , phys .
+rev . d*70 * , 022001 ( 2004 ) ; r. umstatter , r. meyer , r. j. dupuis , j. veitch , g. woan & n. christensen , gr - qc/0404025 ( 2004 ) .
+r. umstatter , n. christensen , m. hendry , r. meyer , v. simha , j. veitch , s. viegland & g. woan , gr - qc/0503121 ( 2005 ) . l. page , s. brin , r. motwani & t. winograd , stanford digital libraries working paper ( 1998 ) .
+m. tinto , j. w. armstrong & f. b. estabrook , phys .
+rev . d*63 * , 021101(r ) ( 2001 ) . c. cutler , phys .
+d * 57 * , 7089 ( 1998 ) . n. j. cornish & l. j. rubbo , phys . rev . d*67 * , 022001 ( 2003 ) .
+t. a. prince , m. tinto , s. l. larson & j. w. armstrong , phys .
+d*66 * , 122002 ( 2002 ) .
+c. w. helstrom , _ statistical theory of signal detection _
+, 2nd edition ( pergamon press , london , 1968 ) .
+wainstein and v.d .
+zubakov , _ extraction of signals from noise _
+( prentice - hall , englewood cliffs , 1962 ) .
+thorne , in _ 300 years of gravitation _ , edited by s.w . hawking and w. israel ( cambridge university press , cambridge , england , 1987 ) , p. 330 .
+schutz , in _ the detection of gravitational waves _ , edited by d.g .
+blair ( cambridge university press , cambridge , england , 1991 ) , p. 406 .
+sathyaprakash and s.v .
+dhurandhar , phys .
+d * 44 * , 3819 ( 1991 ) .
+s.v . dhurandhar and b.s .
+sathyaprakash , phys .
+d * 49 * , 1707 ( 1994 ) . c. cutler and . .
+flanagan , phys .
+d * 49 * , 2658 ( 1994 ) .
+r. balasubramanian and s.v .
+dhurandhar , phys .
+d * 50 * , 6080 ( 1994 ) .
+sathyaprakash , phys . rev .
+d * 50 * , 7111 ( 1994 ) .
+apostolatos , phys .
+d * 52 * , 605 ( 1996 ) .
+e. poisson and c.m .
+will , phys .
+d * 52 * , 848 ( 1995 ) .
+r. balasubramanian , b.s .
+sathyaprakash , and s.v .
+dhurandhar , phys .
+d * 53 * , 3033 ( 1996 ) .
+owen , phys .
+d * 53 * , 6749 ( 1996 ) .
+b.j . owen and b.s .
+sathyaprakash , phys .
+d * 60 * , 022002 ( 1999 ) .
+l. s. finn , phys .
+d * 46 * 5236 ( 1992 ) .
+p. jaranowski & a. krolak , phys .
+rev . d*49 * , 1723 ( 1994 ) .
+p. jaranowski , a. krolak & b. f. schutz , phys . rev .
+d*58 * 063001 ( 1998 ) . m. h. a. davis , in _ gravitational wave data analysis _
+, edited by b. f. schutz , ( kluwer academic , boston , 1989 ) .
+f. echeverria , phys .
+d * 40 * , 3194 ( 1989 )
+.    n.j . cornish & s.l .
+larson , phys .
+d*67 * , 103001 ( 2003 ) .
+j.  hgbom , astr .
+* 15 * , 417 ( 1974 ) .
+cornish , _ talk given at gr17 , dublin , july ( 2004 ) _ ; n.j .
+cornish , l.j .
+rubbo & r. hellings , _ in preparation _ ( 2005 ) .
+g. schwarz , ann . stats . *
+5 * , 461 ( 1978 ) .    ,
+w. r. gilks , s. richardson & d. j. spiegelhalter , ( chapman & hall , london , 1996 ) .
+d. gamerman , _ markov chain monte carlo : stochastic simulation of bayesian inference _ , ( chapman & hall , london , 1997 ) .
+c. andrieu , n. de freitas , a. doucet & m. jordan , machine learning * 50 * , 5 ( 2003 ) .

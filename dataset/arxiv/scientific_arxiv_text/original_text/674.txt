@@ -1,0 +1,336 @@
+for all thermodynamical systems , the macroscopic quantities have a fluctuation because of the statistical nature . according to the law of large numbers , the fluctuation is negligible for large system , which means the probability distribution concentrates near the expectation @xcite . but for small systems , the macroscopic quantity spreads in a wide range , which urges us to explore more on the distribution of the quantity .
+the probability distribution of the work done to the system under a certain process is usually referred as work function .
+work function , together with work fluctuation of small system have attracted much attention recently @xcite .
+work function also relates non - equilibrium qualities with the equilibrium ones @xcite .
+for example , jarzynski equality relates the non - equilibrium work @xmath0 with helmholtz free energy @xmath1 through @xmath2 . in such discussions ,
+the work fluctuation becomes a vital issue because it gives us information about the error in the estimation of @xmath3 in practice . therefore understanding the work function @xcite , as well as suppressing the corresponding work fluctuation are very important for small systems .
+researchers are making significant progress on work function .
+some recent researches @xcite compare the work function of adiabatic and non - adiabatic process under quantum scheme .
+results show that adiabatic process owns smaller work fluctuation .
+this result is not surprising , because adiabatic process will keep the population on each state invariant , or in other words , eliminate transitions between the eigenstates of the system .
+however , conventional adiabatic process requires the parameter changing slowly , and due to this reason , it will take a comparatively long time period in practice .
+thus one of our motivations is to speed up adiabatic process . to be more precise , in quantum case , we hope to eliminate the transition between states even if the parameter changes rapidly . and
+in classical case , we will keep the action variable , a classical analog of quantum number invariant as time evolves .
+we notice that in both cases , we are trying to accomplish a transitionless feature .
+based on the previous works of transitionless driving @xcite , we develop a method to achieved this goal in both quantum and classical cases by adding a control field to the system . with this approach
+, the system effectively undergoes an adiabatic process in a short time period , which is definitely a powerful tool for practical purpose .
+based on recent works on work function and jarzynski equality , we digest deeper on this topic , and use an extra driving field to achieve the so - called fast - forward adiabatic process . in the mean time , the fast - forward adiabatic process could retain all the features of the work function and work fluctuation of conventional adiabatic process with a carefully chosen control field .
+one amazing result is the estimation of @xmath3 converges much faster in practice with such control field .
+fast - forward adiabatic process also has potential applications in technology aspect .
+recent research on quantum otto engine @xcite is faced with choices between efficiency and output power . in the conventional scheme ,
+non - adiabatic cycles have smaller efficiency but larger output power , compared with adiabatic cycles .
+qualitatively , non - adiabatic cycles have larger work fluctuation thus might not be very efficient ; but they can be performed within arbitrarily short duration time , thus the output power could be very large .
+however , if we remember the previously mentioned remarkable features of our fast - forward adiabatic process , we realize that it minimizes the duration time and work fluctuation at the same time .
+follow the same logic , in later chapters we could see how our fast - forward adiabatic process helps the quantum engine to achieve the maximum efficiency and output power at the same time .    in the rest of this report
+, we will first review both quantum and classical adiabatic theorem in the second chapter , followed by the formal definitions and discussions on work function and work fluctuation in the third chapter . after that
+, we will introduce our original work on classical fast - forward adiabatic process , including the formal solution of control field and application in 1-d harmonic oscillator .
+work functions of adiabatic and non - adiabatic processes will be compared in analytical and numerical manner .
+next , for the quantum fast - forward adiabatic process , we will follow berrys approach of transitionless driving .
+furthermore , we will consider its work function and compare it with quantum non - adiabatic process in a similar way .
+last but not least , we will show some dramatic application of our fast - forward adiabatic process , including increasing the converging speed of @xmath3 and improving the performance of quantum engine .
+adiabatic process plays an important role in modern quantum mechanics . because of the population - invariant nature of adiabatic process
+, it is widely used in quantum optics and atomic physics in both theoretical @xcite@xcite and experimental aspect @xcite .
+besides that , there are some very fundamental signatures of a quantum system , for example , berrys phase , can only be described and measured when the system undergoes a cyclic adiabatic process .
+adiabatic theorem points out one way of realizing the adiabatic process .
+it tells us that a system usually undergoes an adiabatic process when the parameters of the system are changing slowly .
+thus slowly changing the parameters becomes the most common approach to adiabatic process .
+such approach will be referred as conventional adiabatic process in the rest of this article .    in this chapter
+, we will review both quantum and classical adiabatic theorem to explain why the changing rate of parameter matters . particularly for classical adiabatic theorem , before constructing fast - adiabatic process , we hope to introduce an unfamiliar tool called action - angle variables and make analog with the more familiar quantum version .
+we will illustrate the quantum adiabatic theorem for the system with only one time - dependent parameter .
+systems with more parameters are quite similar .    for such system , hamiltonian is represented by @xmath4 , where @xmath5 is the time - dependent parameter .
+notice here we write it as @xmath6 rather than @xmath7 .
+this is because in later chapters we will modify @xmath6 and hope the notations to be consistent with each other .
+the state at time @xmath8 satisfies @xmath9 and instantaneous eigenstates of @xmath4 are given by @xmath10 the general solution of @xmath11 can be expanded using eigenstates of @xmath4 at time @xmath8 , i.e. , @xmath12 where @xmath13 is the dynamical phase of state @xmath14 at @xmath8 .
+plug ( [ c1generalsolution ] ) into ( [ c1shordinger ] ) , @xmath15 here we omit @xmath8 in time - dependent terms @xmath16 and @xmath17 for convenience . differentiating ( [ c1staticstate ] ) on both sides gives us @xmath18 and multiplying @xmath19 @xmath20 on the left then gives @xmath21 where @xmath22 are short hand notation for @xmath23 , and we further assume the system is non - degenerated @xmath24 . and
+( [ c1coefficient ] ) becomes @xmath25 when @xmath26(compared with the level spacing @xmath27 ) , @xmath28 thus @xmath29 notice @xmath30 is purely imaginary , as @xmath31 , we immediately know @xmath32 , i.e. _ adiabatic approximation _ holds .
+this approximation means there is no transition between eigenstates of @xmath33 . and
+slowly changing parameter is the common approach .      in the previous derivations
+, we have shown that if @xmath34 changes slowly , adiabatic approximation holds , i.e. the probability of a state falling in a certain instantaneous eigenstate of @xmath4 is constant .
+this implies that there is no transition between states since probability is conserved .
+however , if the initial state to be a mixed state @xmath35 , @xmath36 where @xmath37 and @xmath38 .
+if adiabatic approximation holds , it is easy to conclude that the state at time @xmath8 will be @xmath39 and the probability of falling in @xmath40 is a still constant . in other words , for an quantum ensemble undergoing quantum adiabatic process , the population on each energy level will not change as time evolves .    here
+we would like to distinguish the above quantum adiabatic process from the semistatic adiabatic process in thermodynamics . consider a gibbs canonical ensemble with partition function @xmath41
+, @xmath42 thus a quantum adiabatic process turn the state into @xmath43 meanwhile , for a gibbs ensemble undergoing a seimistatic adiabatic process , the system is always in equilibrium , hence @xmath44 where @xmath45 is the partition function when parameter @xmath34 is @xmath5 . in general , since the energy level spacing between states is not fixed , @xmath46 , and the quantum adiabatic process discussed in the adiabatic theorem is not the equilibrium thermodynamical adiabatic process .
+the canonical ensemble in classical adiabatic theory encounters the same problem . in the rest of this article , when we use adiabatic process , we are actually referring to the adiabatic process described by either quantum or classical adiabatic theorem , rather than the equilibrium thermodynamical one .
+classical adiabatic theorem is based on a special set of canonical coordinates called action - angle variables . in this section
+we will start with canonical transformation , followed by a brief introduction about the mathematics of the action - angle variables .
+we will also make analogues between action variable and quantum number to clarify the relationship between classical and quantum adiabatic theorems .
+given a time - dependent hamiltonian @xmath47 , let @xmath48 representing the system energy .
+the the action - angle is defined by @xmath49 the integral is integrated over a periodic @xmath50 . for a system has more degrees of freedom , the existence of such integral requires the system to be separable @xcite , hence action - angle variable might not exist for some systems .
+if action - angle variables exist , ( [ c1action ] ) implies that @xmath51 is independent of @xmath52 , @xmath53 notice that although @xmath54 and @xmath55 has the same value , they have different dependent variables , thus we use tilde to distinguish one from the other .
+the advantage of action - angle variable is , if the hamiltonian is time - independent ( @xmath56 ) , @xmath57 becomes our new hamiltonian under @xmath58 .
+remember @xmath57 is independent of @xmath52 , we have @xmath59 i.e. @xmath60 is constant as time evolves .
+now let us come back to the physical interpretation of @xmath60 .
+equation ( [ c1action ] ) reminds us of _ bohr - sommerfeld quantization _ in old quantum theory , which obeys @xmath61 where @xmath62 are quantum numbers in old quantum theory .
+a famous result is the quantization of angular momentum @xmath63 in bohr model , @xmath64    one important property of quantum adiabatic theorem is that an energy eigenstate remains on the corresponding instantaneous energy eigenstate of the system , or in other words , the quantum number @xmath65 is invariant .
+so it is quite natural to require @xmath66 in classical adiabatic theorem , when @xmath47 is changing slowly .      in order to derive classical adiabatic theorem
+, we need to know the new hamiltonian @xmath67 when the coordinate is changed from @xmath68 to @xmath69 .
+according to ( [ c1independent ] ) , when @xmath54 is time independent , @xmath70 , which could greatly simplify our calculation .
+however , to carry out the transformation under time - dependent @xmath47 , we need to find the so - called type - ii generating function @xmath71 @xcite . here
+we will skip this step , and show the subsequent steps .
+explicit example in 1-d harmonic oscillator will be shown in the next chapter .
+once we get the generating function @xmath71 , the relations between coordinates @xmath68 and@xmath69 are given by @xmath72 in principle , with the above equations , we can solve @xmath68 as functions of @xmath58 , i.e. @xmath73 and @xmath74 .
+hamiltonian @xmath47 in @xmath68 coordinate and @xmath67 in @xmath75 coordinate are related by @xmath76\biggr|_{p = p(i,\theta,\lambda),\ q = q(i,\theta,\lambda ) } { \nonumber \\}&= & h_0(p(i,\theta,\lambda),q(i,\theta,\lambda)),\lambda ) + \left[\left ( { \partial f_2(i , q,\lambda)\over \partial t}\right)\biggr|_{i , q}\dot \lambda\right]\biggr|_{q = q(i,\theta,\lambda ) } { \nonumber \\}&= & \tilde h_0(i,\theta,\lambda ) + \left[\left ( { \partial f_2(i , q,\lambda)\over \partial t}\right)\biggr|_{i,\ q}\dot \lambda\right]\biggr|_{q = q(i,\theta,\lambda)}\end{aligned}\ ] ] from ( [ c1cyclic ] ) we know @xmath55 is independent of @xmath52 , therefore we obtain @xmath77\biggr|_{q = q(i,\theta,\lambda ) } \label{c1k}\ ] ] the dynamics of @xmath60 is given by @xmath78\biggr|_{q = q(i,\theta,\lambda))}\right)\biggr|_{i\ const }   { \nonumber \\}&= & -\dot \lambda { \partial \over \partial \theta } \left(\left[{\partial f_2(i , q,\lambda)\over \partial \lambda}\dot \lambda\right]\biggr|_{q = q(i,\theta,\lambda))}\right)\biggr|_{i\ const }   \label{c1idot}\end{aligned}\ ] ] here , if we cheat a little bit , we could claim that @xmath79 when @xmath80 approached 0 .
+in addition , we notice that if @xmath54 is time - independent , i.e. @xmath81 , equation ( [ c1idot ] ) is reduced to @xmath82 , which is consistent with ( [ c1independent ] ) .
+in fact , the classical adiabatic theorem requires one more step .
+this step is used to guarantee when @xmath83 , ( [ c1idot ] ) does not result in significant change of @xmath60 as time accumulates . to prove this ,
+we actually require @xmath84 , where @xmath85 is the inherent angular frequency of the system .
+an complete deviation will be given in goldsteins textbook @xcite .
+work function is an important concept for small systems .
+it is defined as the probability distribution of the work done to the system during a certain process .
+one may be wondering why there is distribution of work . as we know , in general , for a thermodynamical system , the macroscopic quantities have fluctuations .
+however , due to the large number of particles ( @xmath86 ) in large systems , the fluctuation is negligible , and the probability distribution of the macroscopic quantities is quite close to a @xmath87-function .
+but the case is quite different for small systems .
+for example , for a canonical ensemble , the ratio between the fluctuation and average of the system energy is given @xcite by @xmath88 where @xmath89 is the particles in the system .
+for a system whose @xmath89 is large enough , the fluctuation is negligible . in contrary , for small systems , the macroscopic quantity spreads in a wide range . in order to describe the work precisely , we need to take work distribution and work fluctuation into consideration .
+this chapter mainly discusses the work function and work fluctuation .
+we will introduce work function under both classical and quantum scheme . in each section
+, we will first give the definition of work and the general form of work function .
+at last we will briefly introduce jarzynski equality .      before defining the work function ,
+we should make it clear what is the work done to the system in classical mechanics .
+in this project we will follow jarzynski approach of inclusive work @xcite@xcite .
+notice we always assume the system is not in contact with heat reservoir during the whole process , so the work is simply the energy difference of final and initial state .
+assume time @xmath8 varies from @xmath90 to @xmath91 , and hamiltonian @xmath92 is given , then in principle we could solve for the trajectory of the system , @xmath93 here the system is not restricted to 2 degrees of freedom , and @xmath94 can have arbitrary many components . given any initial condition @xmath95 of the system , during the action time @xmath91 of the process , work @xmath0 can be worked out as a function @xmath96 of @xmath95 , @xmath97 this equation is totally deterministic . for the system to have fluctuation on work @xmath0 , the initial condition must be given in the form of classical ensemble @xmath98 .
+@xmath98 is the probability distribution of initial condition in phase space .
+then the probability density @xmath99 of work satisfies @xmath100 or equivalently , @xmath101 @xmath102 is the dirac - delta function , and @xmath103 under the integral means that the integration is performed over the entire phase space @xmath103 .      for quantum ensemble ,
+the case is slightly different .
+let @xmath104 be the eigenenergies of the system at @xmath105 , similarly for @xmath106 .
+first consider a system starts with a pure state @xmath107 , there are several final states the system might fall in .
+the transition probability of initial state @xmath107 to final state @xmath108 is @xmath109 where @xmath110 is the time - evolution from 0 to @xmath91 .
+the work done is simply @xmath111 .
+thus for this single state @xmath107 , the work function is discretized , @xmath112\bigr).\ ] ] it is easy to verify that @xmath113 is normalized .
+similarly , lets now consider a quantum ensemble , i.e. a mixed state @xmath114 in order to measure the work done to the system , we need to measure the system energy at both @xmath105 and @xmath115 to get the exact system energy difference . in mathematics , this is equivalent to projecting the mixed state onto instantaneous energy eigenstates of @xmath116 .
+the corresponding @xmath99 is @xmath117\bigr ) .
+\label{c1quantumwf}\ ] ]      jarzynski equality is an important equation relating non - equilibrium and equilibrium process under a fixed temperature . a brief idea of the classical theory
+is stated below .
+remember we define work in jarzynskis approach ( [ c1solution ] ) , i.e. , @xmath118 for a certain trajectory with @xmath95 as initial condition .
+thus for a system start with a gibbs canonical ensemble @xmath119 the expectation @xmath120 notice that @xmath121 is a canonical transformation , thus the jacobian is equal to @xmath122 , and @xmath123 where @xmath124 is the partition function when @xmath125 .
+furthermore , we know the relation between helmholtz free energy and partition function , @xmath126 plug into ( [ c3interjar ] ) , and jarzynski equality emerges , @xmath127 this equation is very powerful in the sense that it relates non - equilibrium quality @xmath0 with equilibrium quality @xmath1 , with regardless of work function @xmath99 . in practical aspect , if we want to measure the free energy difference between two equilibrium state , we only need to prepare the gibbs canonical ensemble , randomly pick a sample from it , and change the parameter @xmath34 from @xmath128 to @xmath129 ( might be very fast ) .
+we do not even need to wait for the final state turning to equilibrium . as
+if we repeat such non - equilibrium process for enough times and measure the work done during the process , we could estimate @xmath130 through jarzynski equality .
+for example , if we hope to measure the free energy increase when the length of a protein is changed @xmath131 , a conventional way is stretching the protein very slowly , so that the process can be regarded as semi - static .
+such process costs much time . but with jarzynski equality , we need only to stretch the protein by length @xmath131 and measure the work @xmath0 in this process .
+average of @xmath132 will give us estimation of @xmath130 .
+however , we notice that ( [ c3jar ] ) only contains information about the average , and it does not tell us information on work fluctuation .
+for some system , the work fluctuation might be very large , and the expectation value @xmath3 converges slowly .
+later we will show how fast - forward adiabatic process helps @xmath3 to converge faster , by shrinking the work fluctuation .
+in the introduction chapters we have briefly discussed the pros and cons of the conventional adiabatic process .
+conventional adiabatic process suppresses the work fluctuation significantly according to lutz @xcite . on the other hand
+, it takes comparatively longer time since parameter must change slowly enough .
+so far there is no literal discussion focused on overcoming such difficulty in classical cases .
+however , our pioneering work on fast - forward adiabatic process fills in this gap .
+it does not only boost up the speed , but also suppresses the work fluctuation compare with non - adiabatic process with the same speed .
+this chapter will explain the details of our original work in classical theory .
+this chapter is aimed to show how to guarantee action @xmath60 invariant even if the parameter changes fast .
+basically we will ensure this by adding a control field @xmath133 onto the original hamiltonian @xmath54 .
+an explicit example of 1-d classical harmonic oscillator will be shown for different processes .
+we will then compare their work functions , hence show how the control field @xmath133 suppresses the work fluctuation of a gibbs canonical ensemble .
+simulation results will also be shown at the end of the chapter .
+assume we have obtained the type - ii generating function @xmath134 , we can immediately get the relation between @xmath68 and @xmath58 . according to ( [ c1k ] ) and ( [ c1idot ] ) @xmath135\biggr|_{q = q(i,\theta,\lambda ) } \label{c2k}\ ] ] and @xmath136\biggr|_{q = q(i,\theta,\lambda))}\right)\biggr|_i\approx 0 ,   \label{c2idot}\ ] ] when @xmath137 adiabatic approximation holds . however , if @xmath138 is not negligible , ( [ c2idot ] ) is the only term term which might change the value of @xmath60 .
+this is resulted from the @xmath52 dependence of the second term in ( [ c2k ] ) .
+our method of speeding up the adiabatic process ( keep @xmath60 constant ) is very straight forward .
+we will add a control field @xmath139 to @xmath140 , such that the new hamiltonian @xmath141 is @xmath52 independent , which leads to @xmath142 one obvious solution is @xmath143\biggr|_{q = q(i,\theta,\lambda)},\ ] ] so that @xmath144 which is @xmath52 independent . in explicit examples , if necessary , we could transform it back to @xmath68 coordinate to get a more familiar physical picture .
+since we are much concerned about the work function , it is necessary for us to specify which ensemble we are working with
+. we will use gibbs canonical ensemble as our start point , because it is the most natural ensemble to deal with and also simple to prepare in experiment .
+then for this classical ensemble , the partition function at @xmath105 is @xmath145 where @xmath146 is the conventional inverse temperature .
+distribution of initial momentum @xmath147 and position @xmath148 is @xmath149 by ( [ c3classwork ] ) , the work function is @xmath150      in this section we will show the results for 1-d classical harmonic oscillator .
+the original hamiltonian @xmath54 is given by @xmath151 where @xmath152 plays the role of @xmath5 .
+we will first derive @xmath133 and work function under a certain @xmath152
+. we will then give the work function under a process without @xmath133 .
+adiabatic and sudden limit will also be given for comparison .
+first calculate action @xmath60 .
+follow ( [ c1action ] ) and ( [ c1cyclic ] ) , let @xmath153 , @xmath154 or simply @xmath155    as illustrated previously , we also need to find the type - ii generating function @xmath134 . as ( [ c1generate ] ) indicates ,
+@xmath156 thus @xmath157 and @xmath52 is given by @xmath158 or @xmath159 by ( [ c1k ] ) @xmath160\biggr|_{q = q(i,\theta,\omega ) } { \nonumber \\}&=&\omega i + \dot \omega\left [ \int { \partial \over \partial \omega}\sqrt{2m\omega i - m^2\omega^2 q^2}dq\right ] \biggr|_{q = q(i,\theta,\omega ) } { \nonumber \\}&=&\omega i + \dot \omega\left[\int { ( m i -m^2 \omega q^2)dq\over \sqrt{2m\omega i - m^2\omega^2 q^2}}\right ] \biggr|_{q = q(i,\theta,\omega ) } { \nonumber \\}&=&\omega i + \dot \omega\left[\int { mi\over \sqrt{2m\omega i}}{1-{m\omega\over i } q^2 dq\over \sqrt{1 - { m\omega\over 2i } q^2}}\right ] \biggr|_{q = q(i,\theta,\omega ) }   { \nonumber \\}&=&\omega
+i + \dot \omega\left[\int { i\over\omega}{1-{m\omega\over i } q^2 d\sqrt{m\omega\over 2i}q\over \sqrt{1 - { m\omega\over 2i } q^2}}\right ] \biggr|_{q = q(i,\theta,\omega ) }   \nonumber\end{aligned}\ ] ] substitute @xmath161 with @xmath162 , @xmath163 \biggr|_{q = q(i,\theta,\omega ) } { \nonumber \\}&=&\omega i+{\dot \omega i\over \omega}\left[\int{(1 - 2\sin^2s ) d s}\right ] \biggr|_{q = q(i,\theta,\omega ) } { \nonumber \\}&=&\omega i+{\dot \omega i\over \omega}\left[\int{\cos(2s ) d s}\right ] \biggr|_{q = q(i,\theta,\omega ) } { \nonumber \\}&=&\omega i+{\dot \omega i\over 2\omega}\left[\sin ( 2\arcsin(\sqrt{m\omega\over 2i}q ) ) \right ] \biggr|_{q = q(i,\theta,\omega ) } { \nonumber \\}({\rm plug\ in \ } q =   \sqrt{2i\over m\omega}\sin\theta)\ \ \   & = & \omega i+{\dot \omega i\over 2\omega}\sin(2\theta ) .
+\label{c2kfinal}\end{aligned}\ ] ] thus an obvious control field @xmath139 to make @xmath164 @xmath52 independent is @xmath165 and as we know , @xmath166 so control field in @xmath68 coordinate is @xmath167 before working out the work function @xmath99 explicitly , in order to compare the fast - forward adiabatic process with other processes , we hope to choose our @xmath152 such that @xmath168 reduces to @xmath54 at the start ( @xmath169 ) and the end ( @xmath170 ) of the process , i.e. @xmath171 .
+we will always assume this requirement is satisfied .
+with such @xmath85 , the canonical ensemble @xmath35 ( or , our initial probability distribution of @xmath95 ) is given by @xmath172 which implies @xmath173 here @xmath174 is the jacobian matrix , and its determinate equals to @xmath122 since the transformation is canonical .
+and partition function at @xmath169 is @xmath175 since @xmath176 at @xmath177 , the work done to the system is @xmath178 although @xmath133 vanished at both end , it still does work to the system .
+so here the work is the total work of both @xmath54 and @xmath133 .
+next , plug ( [ c2workfunction1 ] ) , ( [ c2workfunction2 ] ) and ( [ c2workfunction3 ] ) into ( [ c2classicalwf ] ) , @xmath179 which is an exponential distribution . both the expectation and standard deviation are @xmath180 .
+as we know , conventional adiabatic process has infinitely long duration @xmath91 as the parameter is changing infinitely slow .
+we now consider finite - time process with arbitrary finite duration @xmath91 . by adiabatic theorem
+, such finite - time process can be reduced to conventional adiabatic process as if we choose a sufficiently long duration @xmath91 .
+first of all , although @xmath133 is not used in this section , to compare work with fast forward adiabatic process , we hope @xmath152 could lead to @xmath181 .
+such that @xmath182 i.e. the definition work is consistent .
+one way of ensuring this is @xmath183 where @xmath184 is a real number and @xmath65 is an integer .
+it is easy to verify that @xmath185 , which implies @xmath171 . in the context , if not specify we will choose @xmath186 for convenience .
+the advantage of choosing @xmath186 is that @xmath187 actually @xmath184 stands for factor of @xmath85 being increased .    under such realization of @xmath152 ,
+the dynamics is @xmath188q,\label{c2pdot } \\
+\dot q & = & { \partial h_0 \over \partial p } = { p\over m } .
+\label{c2qdot}\end{aligned}\ ] ] differentiate ( [ c2qdot ] ) with respect to @xmath8 and plug it into ( [ c2pdot ] ) @xmath189q(t ) = 0 .
+\label{c2diffeqn1}\ ] ] let @xmath190 , or @xmath191 we get @xmath192q(x ) = 0,\ ] ] or @xmath193q(x ) = 0.\ ] ] then define @xmath194 we get @xmath195q(x ) = 0 , \label{c2diffeqn2}\ ] ] which is exactly _ mathieus differential equation_. the independent solutions are called _ mathieu sin _ and _ mathieu cos _ , which satisfies @xmath196 here @xmath197 denotes the derivative with respect to @xmath198 . the solution with initial condition @xmath95 is @xmath199 now lets consider the work done to the system .
+we would like to emphasize that the following arguments hold in general , here we simply use mathieu function as an example .
+let @xmath16 and @xmath200 be solutions of 1-d harmonic oscillator with time - dependent @xmath152 .
+@xmath201 and @xmath202 satisfies @xmath203 since in our example we have chosen our @xmath152 , so the corresponding solutions are @xmath204 and solutions with initial condition @xmath95 are @xmath205 like ( [ c2pq ] ) indicates .
+consider ( [ c1solution ] ) , since we are not considering @xmath133 , @xmath206 is our full hamiltonian , @xmath207 ^ 2+{m
+\omega_{f}^2\over 2}\left[q_0 c(\tau ) + { p_0\over m } s(\tau)\right]^2 { \nonumber \\}&\ & -{1\over 2m}p_0 ^ 2 - { m \omega_0 ^ 2\over 2}q_0 ^ 2 { \nonumber \\}&=&k { \beta\over 2m}p_0 ^ 2
++ l { \beta m\omega_0 ^ 2\over 2}q_0 ^ 2 + m\beta\omega_0 p_0 q_0 , \label{c2workdone}\end{aligned}\ ] ] where @xmath208 is the conventional inverse temperature , and @xmath209 } , { \nonumber \\}l & \equiv&{1\over \beta } { \left[{\dot c^2(\tau)\over \omega_0 ^ 2 } +    { \omega_{final}^2 \over \omega_0 ^ 2}c^2(\tau)-1   \right ] } , { \nonumber \\}m & \equiv&{1\over \beta \omega_0 } { \left[\dot c(\tau ) \dot
+s(\tau)+    \omega_{f}^2 c(\tau)s(\tau )   \right]}.\end{aligned}\ ] ] or in canonical quadratic form , @xmath210 where @xmath211 , @xmath63 , @xmath212 consist of @xmath213 , @xmath214 , @xmath215 , @xmath216 and system constants , therefore @xmath211 , @xmath63 , @xmath212 are independent of @xmath217 . in our case they contain mathieu functions , in a more general case we only need to replace the mathieu function with other special functions , and could always express @xmath96 as a canonical quadratic form of @xmath95 .    because the matrix consists of @xmath211 , @xmath63 and @xmath212
+is symmetric , there exists an orthonormal matrix @xmath218 , s.t .
+@xmath219 if we define @xmath220 @xmath96 can be expressed as @xmath221 doing such complicated transformation helps working out our work function .
+notice that @xmath218 is orthonormal , thus @xmath222 and work function is given by @xmath223 here we use the result @xmath224 , and additional @xmath225 factor is the jacobian from @xmath95 to @xmath226 .
+to finish the following calculation , we will further assume that matrix consists of @xmath211 , @xmath63 and @xmath212 is positive - definite when @xmath227 , i.e. its two eigenvalues @xmath228 .
+because of this , we can alway make the following transformation @xmath229 with @xmath230 and @xmath231 . easy to calculate the jacobian from @xmath232 to @xmath233 is @xmath234 , thus @xmath235}d\phi { \nonumber \\}&=&\exp{\left[-{\mu_++\mu_-\over 2\mu_+\mu_-}w\right]}\int_0^{4\pi}{1\over4\pi\sqrt{\mu_+\mu_-}}\exp{\left[{\mu_+-\mu_-\over 2\mu_+\mu_-}w\cos(2\phi)\right]}d2\phi { \nonumber \\}&=&4\exp{\left[-{\mu_++\mu_-\over 2\mu_+\mu_-}w\right]}\int_0^{\pi}{1\over4\pi\sqrt{\mu_+\mu_-}}\exp{\left[{\mu_+-\mu_-\over 2\mu_+\mu_-}w\cos(\phi\rq{})\right]}d\phi\rq { } { \nonumber \\}&=&{1\over\sqrt{\mu_+\mu_-}}\exp{\left[-{\mu_++\mu_-\over 2\mu_+\mu_-}w\right]}i_0\left[{\mu_+-\mu_-\over 2\mu_+\mu_-}w\right ]   \ \ \ \ \ ( w\ge 0 ) ,                \label{c4nonadia}\end{aligned}\ ] ] where @xmath236 is the modified bessel function of the first kind , with parameter @xmath237 .
+and we use the formula @xmath238 this is the case for @xmath239 , and @xmath240 .
+if @xmath241 , @xmath99 has a similar expression with @xmath242 , except @xmath243 will be less than @xmath90 .
+although we have got the compact form of work function under finite - time process , it is not easy to calculate @xmath244 and higher order moment . and
+the algebraic relation between @xmath243 and mathieu function is quite complicated in our case . because of this , in later sections we will use numerical and simulation results to compare finite - time process with fast - forward adiabatic process .      for conventional adiabatic process , @xmath245 .
+thus partition function at @xmath169 is @xmath246 and @xmath247 since @xmath176 at @xmath177 , the work done to the system is @xmath248 and work function is @xmath249 we notice the work function of adiabatic process is identical with ( [ c21drho ] ) , the work function of fast - forward adiabatic process .
+in fact , for any system , if the control field vanishes at the start and the end of the process , the work function should be identical with the conventional adiabatic process .
+this is due to the @xmath52-independence of @xmath55 , i.e. , the initial distribution ( gibbs canonical ensemble @xmath35 ) and work alone a specific path @xmath96 are both independent of @xmath52 .
+in addition , the dynamics of @xmath60 are the same in both process : @xmath250 is constant .
+thus the work functions are identical .    now lets work on system undergoing a sudden change in @xmath85 at @xmath105
+this sudden change condition is an extreme case of non - adiabatic process . since the duration of this sudden change is infinitely small ,
+the position @xmath50 and momentum @xmath251 are not changed , i.e. @xmath252 suppose @xmath85 is increased from @xmath253 to @xmath254 , the work is @xmath255 the initial partition function @xmath256 is still @xmath257 , but this time we will express the distribution under @xmath68 coordinates , @xmath258.\ ] ] the work function is @xmath259\delta[w-{m\over 2}(\omega_{f}^2-\omega_0 ^ 2)q_0
+^ 2]dp_0dq_0 , \end{aligned}\ ] ] noting there are @xmath260 distinct root of @xmath261 , @xmath2622\times \biggr|{1\over 2\sqrt{w{m\over 2}(\omega_{f}^2-\omega_0 ^ 2)}}\biggr|dp_0 { \nonumber \\}&=&\int\limits_{\gamma}{1\over\pi}\sqrt{\beta \omega_0 ^ 2 \over w(\omega_{f}^2-\omega_0 ^ 2 ) } \sqrt{\beta \over 2m}\exp\left[{-\beta ( { p^2\over 2 m } + { \omega_0 ^ 2\over \omega_{f}^2-\omega_0 ^ 2}w)}\right ] dp_0 { \nonumber \\}&=&\sqrt{1\over\pi w } \sqrt{\beta \omega_0 ^ 2 \over ( \omega_{f}^2-\omega_0 ^ 2 ) } \exp\left[-{\beta\omega_0 ^ 2\over \omega_{f}^2-\omega_0 ^ 2}w\right ]              \label{c4suddenwork}\end{aligned}\ ] ] for @xmath240 .
+the expectation of @xmath0 under sudden change is @xmath263 dw { \nonumber \\}&= & { 1\over\sqrt\pi } { \omega_{f}^2-\omega_0 ^ 2   \over\beta \omega_0 ^ 2 } \gamma({3\over 2 } ) { \nonumber \\}&=&{1\over 2 } { \omega_{f}^2-\omega_0 ^ 2   \over\beta \omega_0 ^ 2 } .
+\label{c4suddenwork}\end{aligned}\ ] ] here @xmath103 stand for gamma function , not the phase space .
+standard deviation of @xmath0 is calculated through @xmath264 dw { \nonumber \\}&= & { 1\over\sqrt\pi } \left({\omega_{f}^2-\omega_0 ^ 2   \over\beta \omega_0 ^ 2 } \right)^2\gamma({5\over 2 } ) { \nonumber \\}&= & { 3\over 4}\left({\omega_{f}^2-\omega_0 ^ 2   \over\beta \omega_0
+^ 2 } \right)^2,\end{aligned}\ ] ] and standard deviation @xmath265 is @xmath266 and higher order moments can be easily obtained through gamma function .
+although we have got the analytic solution for work function , it might be difficult to measure the work fluctuation for distributions like ( [ c4nonadia ] ) .
+therefore we will basically use numerical results to compare different processes .    for this section
+, we will fix the parameter @xmath267 in our @xmath268 . remember @xmath269 we set @xmath270 , @xmath271 and @xmath272 . here
+@xmath91 is an important parameter .
+it is the total duration of our process , therefore it together with @xmath85 describes adiabaticity of the process .
+small @xmath273 means the process tends to be non - adiabatic , while large @xmath273 means adiabatic process .
+simulation follows the following steps .
+we first fix @xmath274 , and then randomly take samples according to @xmath275 .
+next we solve the corresponding differential equation numerically with initial condition @xmath276 , and then calculate the work @xmath0 .
+this procedure is repeated 1 million times , so that the histogram of @xmath0 will be a good estimation of work function @xmath99 .
+we simulate the following @xmath277 processes .
+process 1 .
+fast - forward adiabatic process with control field @xmath133 .
+we choose @xmath278 , such that @xmath279 .
+this example is aimed to show we can keep the process adiabatic even if the parameter changes rapidly .
+the work function should be the same with the one of conventional adiabatic process    process 2 .
+non - adiabatic process without @xmath133 .
+we choose @xmath278 , and @xmath280 in finite - time process .
+this example will show the work function of extremely fast and non - adiabatic process .
+process 3 . conventional adiabatic process without @xmath133 .
+we choose @xmath281 , and @xmath282 in finite - time process . in this case
+, classical adiabatic theorem approximately holds , thus it could be regarded as conventional adiabatic process .
+we first compare the work function from process 1 and process 3 .
+this is to convince the reader that fast - forward and conventional adiabatic process share the same work function .
+, @xmath283 .
+blue line is the theoretical work function given by([c21drho ] ) . ]    .
+blue line is the theoretical work function given by ( [ c4convenadw ] ) . ]
+figure [ p(w)fastad ] and [ p(w)ad ] illustrate the work function of two adiabatic processes .
+the blue and gray bars are histogram of @xmath0 which estimates the work function .
+blue lines indicate two identical theoretical work function ( [ c21drho ] ) and ( [ c4convenadw ] ) .
+we observe that these two distributions coincide with each other .
+actually , we must split them into two graph in order to distinguish them from each other .
+therefore we are quite confident that fast - forward adiabatic process has the identical work function with conventional adiabatic process
+.      here comes the crucial part .
+we are going to compare the work function of fast - forward adiabatic process ( process 1 ) and non - adiabatic process ( process 2 ) in this section . at the end of this section
+, we will reach our conclusion saying fast - forward adiabatic process has smaller work fluctuation , or equivalently , our control field @xmath133 significantly suppresses the work fluctuation .    .
+blue one is for fast - forward adiabatic process ( process 1 ) , @xmath284 .
+red one is for non - adiabatic process ( process 2 ) , @xmath284 .
+theoretical predictions are given by ( [ c21drho ] ) and ( [ c4nonadia ] ) respectively .
+corresponding expectation and standard deviation are listed in table [ table ] . ]
+.list of expectation @xmath244 and standard deviation @xmath285 from simulation of fast - forward adiabatic process and non - adiabatic process .
+theoretical predictions of @xmath244 and @xmath285 are also listed for comparison purpose . [ cols="^,^,^,^,^",options="header " , ]     [ table2 ]
+from previous chapters we know two outstanding features of our fast - forward adiabatic process and control field .
+first one is the control field greatly suppresses the work fluctuation .
+second one is that it allows adiabatic process to be performed arbitrarily fast , which saves much time in practice . in this chapter
+we are going to discuss how these two features are applied in jarzynski equality and quantum engine .      ,
+@xmath274 . @xmath286 .
+red curve is for non - adiabatic process , blue one for fast - forward adiabatic process .
+the middle horizontal line is the theoretical value of @xmath3 , @xmath287 . ]    from chapter three we know that jarzynski relates the non - equilibrium quantity work @xmath0 with the equilibrium quantity free energy @xmath1 through @xmath288    in chapter three we also discussed that jarzynski equality contains only information about the average , and does not contain information about the work fluctuation .
+so if the work fluctuation is very large , converging rate of @xmath3 might be very slow . in such cases , if we add the control field @xmath133 , the non - equilibrium process can be completed with smaller work fluctuation and within the same time .
+figure [ fig : convergingrate ] shows the comparison between simulation results of non - adiabatic process without control field or fast - forward adiabatic process .    from this figure
+, we find that the estimated @xmath3 of fast - forward adiabatic process approached theoretical value much faster .
+it comes stable around the theoretical value @xmath289 after @xmath290 trajectories .
+however , the non - adiabatic one comes to @xmath289 at the end of simulation  @xmath291 trajectories . hence @xmath133 could speed up converging of jarzyski average @xmath3 by reducing the work fluctuation .
+the quantum engine we are going to discuss is based on otto cycle considered by lutz @xcite .
+we suppose the system is a previously discussed quantum harmonic oscillator .
+the cycle consists of four consecutive steps as shown in [ fig : otto ] .
+suppose the start point @xmath292 is a gibbs canonical ensemble .
+isentropic compression @xmath293 .
+the angular frequency is increased during time @xmath294 , and the system is isolated from any heat reservoir .
+the time - evolution is unitary , thus the von neumann entropy is constant .
+notice @xmath295 is no longer an equilibrium state , thus we use @xmath296 instead of exact temperature .
+hot isochore @xmath297
+. the angular frequency of the system is fixed , and meanwhile the system is weakly coupled with a heat reservoir at @xmath298 .
+thus state @xmath201 is a canonical ensemble .
+the relaxation time is @xmath299 .
+isentropic expansion @xmath300 .
+@xmath85 is decreased to @xmath301 during time @xmath302 while system is isolated from heat reservoir .
+cold isochore @xmath303 .
+similar to 2 .
+time duration is @xmath304 .
+the authors consider two cases under classical limit : angular frequency in 1 and 3 is changed slowly ( conventional adiabatic limit ) or fast ( sudden change limit ) , and then consider the efficiency at maximum average output for a cycle . here
+, for convenience we assume the oscillator is actually a classical one .
+there are two reasons .
+first , the results of both classical oscillator and quantum oscillator under classical limit turn out to be the same .
+it is not surprising that classical and quantum process share the same work function under classical limit @xmath305 .
+second , many bio - motors are actually classical engines as they are under room temperature , which will kill most quantum effects . thus it is reasonable to apply the results of classical fast - forward adiabatic process to quantum engines under classical limit .
+we first calculate the adiabatic limit case .
+average energy of state @xmath306 is @xmath307 , which is obvious . and by ( [ c21drho ] ) ,
+the average work done in 1 is @xmath308 .
+thus average energy of state @xmath295 is @xmath309 .
+since @xmath310 , the heat received from hight - temperature reservoir is @xmath311 .
+we could get @xmath312 in the similar way .
+thus the average work done in one cycle is @xmath313 noting the total time is @xmath314 , and output @xmath315 .
+the tricky part is , @xmath316 are dominant , because 1 and 3 are adiabatic process . therefore minimizing total work in one cycle is actually maximizing the output .
+after simple mathematics , we find the maximum power occurs at @xmath317 .
+the efficiency at maximum output is given by @xmath318 the power adiabatic limit is very low since @xmath316 tends to infinity .
+the sudden limit case is quite similar . using ( [ c4suddenwork ] ) @xmath319 , and @xmath320 .
+then @xmath321 , and @xmath322 .
+this time , under sudden change limit , total time is @xmath323 as @xmath324 .
+we further assume @xmath323 is approximately constant for any combination of @xmath325 .
+this is reasonable as they are system relaxation time .
+so minimizing total work @xmath326 gives us @xmath327{\beta_1/\beta_2}$ ] . and efficiency at maximum output is @xmath328 the power of sudden change is much bigger than adiabatic limit , but the efficiency is less than half of @xmath329 .      in previous section we show that designers of quantum engine have to choose between efficiency and work output : sudden change provides higher output while conventional adiabatic process provides higher efficiency .
+now lets apply our fast - forward adiabatic process to 1 and 3 .
+obviously the efficiency at maximum output should be the same for both conventional and fast - forward adiabatic process , since they share the same work function , expectation and fluctuation , etc .
+but the output can be improved up to @xmath330 because the fast - forward process can be performed arbitrarily fast .
+next compare it with the sudden change limit .
+we know the efficiency is improved more than twice , how about the output power ?
+for fast - forward adiabatic process , maximum power occurs at @xmath317 , the absolute value of total work is latexmath:[\[\begin{aligned }    for sudden change , maximum power is at @xmath327{\beta_1/\beta_2}$ ] , latexmath:[\[\begin{aligned }    which means fast - forward adiabatic process doubles both the efficiency and output if we assume @xmath323 is constant .
+besides the output and efficiency issue , there are other advantages of fast - forward adiabatic process . quantum engine ,
+as the name suggests , is engine work on small scale system . due to the size of the system ,
+the fluctuation is not negligible .
+large work fluctuation , especially negative work in quantum non - adiabatic work function , might lead to a fluctuated output .
+however , quite uniform output of a heat engine is always one important industrial requirement , and fast - forward adiabatic process suppresses the fluctuation , i.e. provides a much more uniform output .
+in this report , we discuss the fast - forward adiabatic process , particularly its effect in suppressing the work fluctuation in details .
+we review both the classical and quantum adiabatic theorems , which describe the slowly changing feature of the conventional adiabatic process .
+we emphasize and rigorously define the work function of small system , as well as the work fluctuation .    in classical aspect ,
+we construct our original control field under the most general condition , which could turn a non - adiabatic process into a fast - forward process .
+we calculate an explicit example in a time - dependent harmonic oscillator to illustrate how to construct the control field analytically .
+numerical and simulated results are performed in order to compare the work functions of different processes .    in quantum aspect
+, we follow the works of berry and lutz on transitionless driving and non - adiabatic process .
+we make our contribution by comparing them .
+we propose to use control field to make a fast non - adiabatic process adiabatic , which effectively suppresses the work fluctuation .
+we verify our arguments again using a time - dependent harmonic oscillator example .
+the toy model also reveals physical intrinsics , for example , how the quantum nature affects the work function .
+based on our formalism and examples in fast - forward adiabatic process , we conjecture that the work fluctuation argument holds in general , which is resulted from the nature of adiabatic assumption .
+there are many applications of the fast - forward adiabatic processes . in this report
+we only briefly touch two of them .
+the first one is the jarzynski equality which links the thermo - average of the work function and the change of free energy .
+using fast - forward adiabatic processes , the equality converges much faster .
+the second application is a quantum engine based on an otto cycle .
+the application of fast - forward adiabatic processes not only maximizes the power output by speeding up the otto cycle , but also increases the efficiency of the engine .    the results in this report can be easily realized in models other than the one - dimensional harmonic oscillator , for example , the two - level system .
+the fast - forward adiabatic processes can be also applied to quantum engines based on other cycles .
+k. huang , _ statistical mechanics _ ( wiley , 1987 ) , 2nd ed .
+c. jarzynski and d. k. wojcik , phys
+lett . 92,230602 ( 2004 ) .
+m. campisi , p. hanggi , and p. talkner , rev .
+83,771 ( 2011 ) . c. jarzynsk , phys .
+78.2690(1997 ) .
+m. campisi , p. talkner , and p. hanggi , phys .
+102 , 210401 ( 2009 ) .
+s. deffner and e. lutz , phys .
+e 77 , 021128 ( 2008 ) .
+m. v. berry , j. phys .
+a : math . theor .
+42 365303 ( 2009 ) .
+o.abah , j. rossnagel , g. jacob , s. deffner , f. schmidt - kaler , k. singer , and e , lutz , phys .
+109 , 203006 ( 2012 ) .
+xi chen , i. lizuain , a. ruschhaupt , d. gury - odelin , and j. g. muga , phys .
+105 , 123003 ( 2010 ) .
+xi chen , e. torrontegui , d. stefanatos , jr - shin li , and j. g. muga , phys . rev . a 84 , 043415 ( 2011 ) .
+m. a. bouchiat and c. bouchiat , phys .
+a 83 , 052126 ( 2011 ) .
+jiangbin gong , lecture notes of _ advanced dynamics_. h. goldstein , c. poole , and j. safko , _ classical mechanics _
+( pearson , 2002 ) , 3rd ed . k. husimi , prog .
+theo . phys . 9 , 381 ( 1953 ) .

@@ -1,0 +1,369 @@
+in this paper , the novel statistical problem of deriving asymptotic results for nested random sequences of statistical descriptors for data in a non - euclidean space is considered .
+it can be viewed as a generalization of classical pca s asymptotics , e.g. by @xcite , where , as a consequence of pythagoras theorem , nestedness of approximating subspaces is trivially given and thus requires no special attention . for pca analogs for data in non - euclidean spaces , due to curvature
+, nestedness considerably complicates design of descriptors and , to the best knowledge of the authors , has hindered any asymptotic theory to date .    for dimension reduction of non - euclidean data ,
+_ procrustes analysis _ by @xcite and later _ principal geodesic analysis _ by @xcite are approaches to mimic pca on shape spaces and riemannian manifolds , respectively .
+both build on the concept of a frchet mean , a minimizer of expected squared distance , around which classical pca is conducted for the data mapped to a suitable tangent space .
+asymptotics for such means have been subsequently provided , among others , by @xcite , allowing for inferential methods such as two - sample tests .
+asymptotics for these _ tangent space pca _ methods , however , reflecting the _ forward nestedness _ due to random basepoints ( i.e. corresponding means ) of tangent spaces with random pcs therein , remain open to date
+.    moreover , these tangent space pca methods are in no way canonical
+. not only may statistical outcomes depend on specific choices of tangent space coordinates , more severely , given curvature , no tangent space coordinates can correctly reflect mutual data distances . for this reason , among others , _ geodesic principal component analysis _
+( gpca ) has been introduced by @xcite , _ iterated frame bundle development _ by @xcite and _ barycentric subspaces _ by @xcite . as the following example teaches ,
+nestedness may be lost .
+[ intro.ex ] consider data on a two - sphere that is confined to its equator and nearly uniformly spread out on it .
+then the best @xmath0 approximating geodesic is the equator and far away there are two ( due to symmetry ) intrinsic frchet means , each close to one of the poles , see @xcite .
+let us now detail our ideas , first by elucidating the following .
+* classical pca from a geometric perspective . * given data on @xmath1 , for every @xmath2 a unique affine subspace @xmath3 of dimension @xmath4 is determined by equivalently minimizing residual sums of squares or , among those containing the classical mean @xmath5 , maximizing the projected variance .
+also equivalently , these subspaces have representations as @xmath6 , the affine translates of spans from an eigenvector decomposition @xmath7 of the data s covariance matrix with descending eigenvalues . in consequence ,
+one may either start from the zero dimensional mean and subsequently add most descriptive dimensions ( forward ) or start from the full dimensional space and remove least descriptive dimensions ( backward ) to obtain the same forward and backward nested sequence of subspaces @xmath8 for non - euclidean data , due to failure of pythagoras theorem , this canonical decomposition of data variance is no longer possible . for a detailed discussion see @xcite .
+* nestedness of non - euclidean pca * is highly desirable , when due to curvature and data spread , intrinsic frchet means are away from the data .
+for instance in example [ intro.ex ] , in order to have a mean on the equator , also in this case , @xcite devised _ principal arc analysis _ with the _ backward nested mean _ confined to the best approximating circle .
+this method and its generalization _ backward nested sphere analysis _ ( pns ) by @xcite give a tool for descriptive shape analysis that often strikingly outperforms tangent space pca , e.g. @xcite .
+here , the data space is a unit sphere @xmath9 of dimension @xmath10 , say , and in each of the @xmath3 is a @xmath4-dimensional ( small ) subsphere for pns and for _ principal nested great spheres _ ( pngs ) it is a @xmath4-dimensional great subsphere . in passing we
+note that pns is _ higher dimensional _ in the sense of having higher dimensional descriptor spaces than classical pca and pngs which are equally high dimensional , cf .
+@xcite .    to date
+, however , there is no asymptotic theory for pns available , in particular there are no inferential tools for backward nested means , say .
+asymptotic results for non - data space valued descriptors , geodesics , say , are only available for single descriptors ( cf .
+@xcite ) that are directly defined as minimizers , not indirectly as a nested sequence of minimizers .    *
+challenges for and results of this paper . *
+it is the objective of this paper to close this gap by providing asymptotic results for rather general random _
+backward nested families of descriptors _ ( bnfds ) on rather general spaces .
+the challenge here is that random objects that are constrained by other random objects are to be investigated , requiring an elaborate setup . into this setup
+, we translate strong consistency arguments of @xcite and @xcite , and introducing a _ constrained _ m - estimation technique , we show joint asymptotic normality of an entire bnfd . in the special case of nested subspaces , bnfds may terminate at any dimension and @xmath11 is not required .    as we minimize a functional under the constraining conditions that other functionals are minimized as well , our approach can be called _ constrained m - estimation_. in the literature , this term _ constrained m - estimation _ has been independently introduced by @xcite who robustify m - estimators by introducing constraining conditions and by @xcite , who consider m - estimators that are confined to closed subsets of a euclidean space with specifically regular boundaries .
+it seems that our m - estimation problem , which is constrained to satisfying other m - estimation problems has not been dealt with before .
+we solve it using a random lagrange multiplier approach .
+furthermore , in order to obtain asymptotic normality of each single sequence element , in particular for the last , we require the rather technical concept of _ factoring charts_. our very general setup will be illustrated , still with some effort , by example of pns , pngs and the _ intrinsic mean on a first geodesic principal component _ ( imo1gpc ) .    in order to exploit nested asymptotic normality for a _ nested two - sample test _ , we utilize bootstrapping techniques . while for frchet means
+, as they are descriptors assuming values in the data space , one can explicitly model the dependence of the random base points of the tangent spaces as in @xcite , so that suitable statistics can be accordingly directly approximated , this modeling and approximation can be avoided using the bootstrap as in @xcite . for our application at hand , as data space and descriptor space are different , we can not approximate the distribution of random descriptors and we fall back on the bootstrap .    * suggestions for live imaging of stem cell differentiation . * after illustrations of our nested two - sample test by simulations for pns and pngs ,
+we apply it to a cutting edge application in adult human stem cell differentiation research .
+`` rooted in a line of experimentation originating in the 1960s '' ( from @xcite ) , the promise that stem cells taken from a patient s bone marrow may be used to rebuild specific , previously lost , patient s tissue is currently undergoing an abundance of clinical trials .
+although the underlying mechanisms are , to date , not fully understood , it is common knowledge that early stem cell differentiation is triggered by biomechanical cues , e.g. @xcite , which result in specific ordering of the cellular _ actin - myosin filament skeleton_. in collaboration with the third institute of physics at the university of gttingen we map fluorescence images of cell structures to two - spheres , where each point stands for a specific ordering . with our 2d pngs two - sample test
+we can track the direction of increased ordering over the first 24 hours .
+we find , however , a consistent reversal of ordering between hours 16 to 20 which hint toward the effect of cell division .
+this effect suggests that the commonly used time point of 24 hours for fixated hmscs imaging , e.g. as in @xcite , may not be ideal for cell differentiation detection .
+in fact , our method can be used to direct more elaborate and refined imaging techniques , such as time resolved in - vivo cell imaging , using @xcite , say , to investigate specifically discriminatory time intervals in detail .    *
+we conclude our introduction * by noting that our setup of bnfds has a canonical form on a riemannian manifold with @xmath3 in ( [ backward - nested - subspaces : eq ] ) being a totally geodesic submanifold , not necessarily of codimension one in @xmath12 , however .
+for example for kendall s shape spaces @xmath13 which is a complex projective space of real dimension @xmath14 , cf .
+@xcite , we have a sequence of @xmath15 where the numbers below the inclusions denote the corresponding co - dimensions .    more generally , we believe that our setup can be generalized to riemann stratified spaces . for example , ( [ nested - shape - spaces : eq ] ) generalizes at once to @xmath16 ( the shape space of @xmath17-dimensional @xmath18 landmark configurations which has dimension @xmath19 ) with @xmath20 , cf .
+@xcite , now with @xmath21 indeed , in section [ scn : kendalls - shape - spaces ] we illustrate the generalization to the sequence @xmath22 , giving the imo1gpc for arbitrary @xmath16 .
+our setup may also generalize to phylogenetic tree spaces as introduced by @xcite , cf .
+also @xcite , or torus - pca and the more general polysphere - pca , cf .
+moreover , our setup may be applied to flags of barycentric subspaces as introduced by @xcite .    *
+our paper is organized as follows . * in the following section we introduce the abstract setup of bnfds and show that the essential assumptions are fulfilled for pns , pngs and imo1gpcs for riemannian manifolds and kendall s shape spaces . in the section to follow we will develop a set of assumptions necessary for the main results on asymptotic strong consistency and normality which are stated in section [ main - results : scn ] . also in section [ main - results : scn ] ,
+we give our nested bootstrap two - sample test .
+the elaborate proof of asymptotic strong consistency is deferred to the appendix . in section
+[ application : scn ] we show simulations and our applications to stem cell differentiation .
+in this section we first introduce the general framework including the fundamental assumption of _ factoring charts _ which is essential to prove asymptotic normality of single nested descriptors in section [ main - results : scn ] .
+then we give examples : the intrinsic mean on a first geodesic principal component ( imo1gpc ) for riemannian manifolds , principal nested spheres ( pns ) as well as principal nested great spheres ( pngs ) and finally we give an example for the imo1gpcs also on non - manifold kendall s shape spaces .
+the first example is rather straightforward , the last is slightly more involved and the second and third are much more involved . the differential geometry used here can be found in any standard textbook , e.g. @xcite .
+first , let us quickly sketch the ideas in case of imo1gpcs on a riemannian manifold @xmath23 .
+there , we have the space @xmath24 of point sets of geodesics on @xmath23 which is the first non - trivial descriptor space `` below '' the space @xmath25 . in order to show strong asymptotic consistency in theorem [ sc : thm ] ,
+on @xmath26 we require the concept of a _ loss function _
+@xmath27 that has some properties of a distance between two ( point sets of ) geodesics .
+in order to model nestedness , given a geodesic @xmath28 we require the set @xmath29 of lower dimensional descriptors in @xmath30 which lie on @xmath31 .
+these are the candidate nested means on @xmath31 , and in this case , @xmath32 .
+further , we need the data projection @xmath33 and we measure the distance @xmath34 of the projected data to a candidate nested mean @xmath35 . then every @xmath36 with @xmath37 will be a _
+backward nested family of descriptors _ ( bnfd ) and the set @xmath38 with @xmath37 carries a natural manifold structure .
+it is the objective of _ factoring charts _ to represent this manifold locally as a direct product of arbitrary variable offsets @xmath39 times a suitable space parametrizing directions of geodesics , parametrized independently from the offset @xmath40 , cf .
+figure [ chartfactoring : fig ] .
+we will see that is precisely the geometry of the projective bundle .
+once we establish asymptotic normality of the backward nested descriptor @xmath38 , asymptotic normality follows at once also for @xmath41 , because , under factoring charts , @xmath41 is given by some coordinates of a gaussian vector as reasoned in the proof of theorem [ clt : thm ] .      with a silently underlying probability space @xmath42 , _ random elements _ on a topological space @xmath23
+are mappings @xmath43 that are measurable with respect to the borel @xmath44-algebra of @xmath23 . in the following , _
+smooth _ refers to existing continuous 2nd order derivatives .    for a topological space @xmath23
+we say that a continuous function @xmath45 is a _ loss function _ if @xmath46 if and only if @xmath47 .
+we say that a set @xmath48 is @xmath49-bounded if @xmath50 .
+moreover , we say that @xmath51 is _ @xmath49-heine borel _ if all closed @xmath49-bounded subsets of @xmath52 are compact .
+[ bnfd : def ] a separable topological space @xmath23 , called the _ data space _ , admits _ backward nested families of descriptors _ ( bnfds ) if    a.   there is a collection @xmath53 ( @xmath54 ) of topological separable spaces with loss functions @xmath55 ; b.   @xmath56 ; c.   every @xmath57 ( @xmath58 ) is itself a topological space and gives rise to a topological space @xmath59 which comes with a continuous map @xmath60 d.   for every pair @xmath57 ( @xmath58 ) and @xmath61 there is a measurable map called _ projection _
+@xmath62    for @xmath63 and @xmath64 call a family @xmath65 a _ backward nested family of descriptors ( bnfd ) from @xmath53 to @xmath66_. the space of all bnfds from @xmath53 to @xmath66 is given by @xmath67 for @xmath68 , given a bnfd @xmath69 set @xmath70 which projects along each descriptor .
+for another bnfd @xmath71 set @xmath72    in case of pns , the nested projection @xmath73 is illustrated in figure [ pns_illustration : fig ] ( a ) .
+random elements @xmath74 on a data space @xmath23 admitting bnfds give rise to _ backward nested population _ and _ sample means _ ( abbreviated as bn means ) @xmath75 recursively defined via @xmath76 , i.e. @xmath77 and @xmath78 , & f^j & = \{p^k\}_{k = j}^{m } \\      e^{f_n^{j-1}}_n & = \operatorname*{\mbox{\rm argmin}}_{s\in s_{p^{j}_n } } \sum_{i=1}^n\rho_{p_n^{j}}(\pi_{f_n^{j}}\circ x_i , s)^2 , & f_n^j & = \{p_n^k\}_{k = j}^{m } \ , .
+\end{aligned}\ ] ] where @xmath79 and @xmath80 is a measurable choice for @xmath58 .
+we say that a bnfd @xmath81 gives _ unique _ bn population means if @xmath82 with @xmath83 for all @xmath54 .
+each of the @xmath84 and @xmath85 is also called a _
+generalized frchet mean_.    note that by definition there is only one @xmath86 .
+for this reason , for notational simplicity , we ignore it from now on and begin all bnfds with @xmath87 and consider thus the corresponding @xmath88 .
+[ def : factoring ] let @xmath89 .
+if @xmath90 and @xmath91 carry smooth manifold structures near @xmath92 and @xmath93 , respectively , with open @xmath94 , @xmath95 such that @xmath96 , @xmath97 , and with local charts @xmath98 we say that the _ chart @xmath99 factors _ , cf .
+figure [ chartfactoring : fig ] ( a ) and ( b ) , if with the projections @xmath100 we have @xmath101    @xmath102{\includegraphics[width=0.27\textwidth , clip = true , trim=8 cm 4 cm 3.5 cm 1.5cm]{"bnfd_illustration_family " } } } }    \scalebox{2}{$\stackrel{\psi}{\to}$}~~    \vcenter{\hbox{\subcaptionbox{coordinates}[0.27\textwidth]{\includegraphics[width=0.27\textwidth , clip = true , trim=8 cm 4 cm 3.5 cm 1.5cm]{"bnfd_illustration_chart " } } } }    \hspace*{0.02\textwidth }    \vcenter{\hbox{\subcaptionbox{projective bundle}[0.35\textwidth]{\includegraphics[width=0.35\textwidth , clip = true , trim=4 cm 2.5 cm 3 cm 1.5cm]{projective_bundle}}}}$ ]      suppose that @xmath103 are random variables assuming values on a riemannian manifold @xmath23 with riemannian norm @xmath104 for the tangent spaces @xmath105 ( @xmath106 ) , induced metric @xmath107 , _ projective tangent bundle _ @xmath108 and space of classes of geodesics given by their point sets @xmath109 : ( q,\{v ,- v\})\in pq\ } , ~ [ \gamma_{q , v } ] = \{\gamma_{r , w } : \gamma_{q , v}(t ) = r,~ \dot\gamma_{q , v}(t)= w\mbox { for some } t\}\end{aligned}\ ] ] where @xmath110 denotes the unique maximal geodesic through @xmath111 with unit speed velocity @xmath112 , @xmath113 . then consider @xmath114    there is a well defined distance between a point @xmath40 and a class of geodesics determined by @xmath115\big )
+\mapsto \inf_{t}d\big(s,\gamma_{q , v}(t))\,.\end{aligned}\ ] ] then every class of geodesics determined by @xmath116\big)^2\big]\mbox { or } \operatorname*{\mbox{\rm argmin}}_{(q , v)\in tq}\sum_{k=1}^n \rho\big(x_k,[\gamma_{q , v}]\big)^2\end{aligned}\ ] ] is called a _ first population principal component geodesic _ or a _ first sample principal component geodesic _ , respectively , cf .
+@xcite .
+moreover , given a first population principal component geodesic @xmath117 $ ] and a first sample principal component geodesic @xmath118 $ ] , with the orthogonal projection @xmath119 , q'\mapsto
+\operatorname*{\mbox{\rm argmin}}_{\gamma_{q , v}(t ) } d(q',\gamma_{q , v}(t))\end{aligned}\ ] ] which is well defined outside a set of zero riemannian volume , e.g. ( * ? ? ?
+* theorem 2.6 ) , we have the _ intrinsic population means on @xmath31 _ and _ intrinsic sample means on @xmath120 _ determined by @xmath121\mbox { or } \operatorname*{\mbox{\rm argmin}}_{\gamma_{q , v}(t)}\sum_{k=1}^n \rho_p\big(\pi_{q , p}\circ x_k,\gamma_{q , v}(t)\big)^2\,,\end{aligned}\ ] ] respectively , where @xmath122 for @xmath123 in @xmath31 . in particular , we have the space of _ backward nested descriptors _ @xmath124 \in p_1,~ s \in p\}\end{aligned}\ ] ] which carries the natural manifold structure of the projective tangent bundle @xmath125 conveyed by the identity @xmath126,s ) \mapsto ( s,\{w ,- w\})\end{aligned}\ ] ] where @xmath127 , @xmath128 , if @xmath129 .    recall that the tangent bundle @xmath130 admits _ local trivializations _ , i.e. every @xmath106 has a local neighborhood @xmath131 with a smooth one - to - one mapping @xmath132 where the first coordinate satisfies @xmath133 for all @xmath134 , @xmath135 and the second coordinate @xmath136 is a vector space isomorphism . in consequence , for a given @xmath137 , with local charts @xmath138 of @xmath23 around @xmath139 , and @xmath140 of the real projective space @xmath141 of dimension @xmath142 around @xmath143 , @xmath144 open , and the open set @xmath145 the mapping @xmath146 yields a local chart that factors as in definition [ def : factoring ] .
+this scenario is sketched in figure [ chartfactoring : fig ] ( c ) .
+the ( nested ) projections detailed below are illustrated in figure [ pns_illustration : fig ] .
+* notation . * consider the standard inner product @xmath147 on @xmath148 with norm @xmath149 and the @xmath150-dimensional unit sphere @xmath151 , with interior @xmath152 . for any matrix @xmath153
+we have the frobenius norm @xmath154 and the inner product @xmath155 for @xmath156 .
+the @xmath157 dimensional unit matrix is @xmath158 and @xmath159 is the orthogonal group .
+moreover , e.g. @xcite , @xmath160 denotes the stiefel manifold of orthonormal @xmath4-frames in @xmath161 . for every such orthonormal @xmath4-frame
+we have a non - unique _ orthonormal complement _
+@xmath162 such that @xmath163 .    in pns and pngs ,
+for a top sphere @xmath164 a sequence of nested subspheres is sought for . only in the scenario of pngs
+it is required that each subsphere is a great subsphere . in general , every @xmath18-dimensional subsphere ( @xmath165 ) is the intersection of a @xmath166 dimensional affine subspace of @xmath148 with @xmath167 . recall that every @xmath166 dimensional affine subspace @xmath168 is determined by a matrix @xmath169 of @xmath170 orthonormal column vectors that are orthogonal to @xmath171 and a vector of signed distances from the origin @xmath172 in particular @xmath173 ensures that @xmath171 intersects with @xmath167 in a @xmath18 dimensional subsphere .
+obviously , @xmath171 determines @xmath174 and @xmath175 up to an action of @xmath176 , i.e. with every @xmath177 , @xmath178 and @xmath179 determine the same @xmath171 .    in pngs
+only great subspheres are allowed as intersections .
+hence all affine spaces under consideration above pass through the origin , i.e. @xmath180 above .    * the parameter space .
+* in consequence we have that the family of @xmath18-dimensional subspheres ( @xmath181 is given by the smooth manifold @xmath182 : z \in m_j\right\}\mbox { with } [ z ] = \left\{z r : r\in o(m - j)\right\}\end{aligned}\ ] ] where @xmath183 with @xmath184 above , for compatibility , becoming clear in the considerations below . indeed , the smooth action from the right of the compact lie group @xmath185 on @xmath186 is free ( for @xmath187 and @xmath188 , @xmath189 implies that @xmath190 ) , giving rise to a smooth quotient manifold , e.g. ( * ? ? ?
+* theorem 7.10 ) , of dimension @xmath191 for pns and of dimension @xmath192 for pngs .
+notably , in the latter case , @xmath53 is just a grassmannian .    in the above setup
+, we had excluded the cases @xmath193 . for @xmath194 , for pns and pngs
+it is natural to set , as in definition [ bnfd : def ] , @xmath195 in case of @xmath196 , the setup above would yield pairs of points ( the intersections of suitable lines with @xmath167 give topologically zero - dimensional spheres @xmath197 ) . in order to have a single nested mean as a zero dimensional descriptor only , for pns and pngs ( in order to represent nestedness ) we use the convention @xmath198    * distance between subspheres of equal dimension .
+* for pns and pngs , on @xmath186 we have the _ extrinsic metric _
+@xmath199 since the extrinsic metric is invariant under the action of @xmath185 it gives rise to the well defined quotient metric , called the _ ziezold metric _ , cf .
+@xcite ) on @xmath53 given by @xmath200 for arbitrary representatives @xmath201 of @xmath202 , respectively , as the following lemma teaches .
+[ lem : ziezold - metric ] the mapping @xmath203 satisfies the triangle inequality and it is definite , i.e. @xmath204 implies @xmath205 .
+suppose that @xmath206 are representatives of @xmath207 with the property , w.l.o.g .
+, that @xmath208
+. then the usual triangle inequality yields @xmath209
+moreover , we have @xmath210 where @xmath211 and @xmath212 with equality if and only if @xmath213 and @xmath214 with @xmath215 , yielding that the above vanishes if and only if this is the case with @xmath216 .    * backwards nesting . * in pns , the space of subspheres @xmath217 within a given subsphere @xmath218^t\in p_j$ ] ( @xmath219 )
+can be given the following structure .
+@xmath220 indeed ,
+if @xmath221 , @xmath188 is another representative for @xmath31 , then @xmath222 if and only if @xmath223 . in case of pngs ,
+the condition on entries of @xmath175 above is simply @xmath224 because @xmath225 .
+according to our convention of @xmath226 , in case of @xmath227 the inequality above needs to be replaced with @xmath228 ( for pns ) and with @xmath229 for ( pngs ) .
+* projections .
+* for all @xmath230 we have the intrinsic orthogonal projection onto @xmath218^t \in p_j$ ] @xmath231 which is independent of the representative @xmath232 chosen and independent of the specific orthogonal complement @xmath233 of @xmath174 chosen ; and it is well defined except for a set @xmath234 of spherical measure zero . note that we have @xmath235 for @xmath196 and hence the constant mapping @xmath236 .
+* nested projections . * more generally , if @xmath237 are from a family of backward nested subspheres @xmath238
+, @xmath239 , we may choose representatives @xmath232 of @xmath240 and @xmath241 of @xmath242 such that @xmath243 with ( [ eq : blow - down ] ) and the arbitrary but fixed complement @xmath244 of @xmath174 chosen , embed @xmath240 in @xmath245 ( first a translation , possible in pns , and then a blow up ) , depending on the specific choice of @xmath244 , via @xmath246 now , @xmath247 embeds @xmath242 as a @xmath248-dimensional ( possibly small ) subsphere @xmath249 in @xmath245 , given by @xmath250^t = p'_{j'}$ ] , for suitable @xmath251 , and there is an orthogonal complement @xmath252 of @xmath253 , such that @xmath254 this gives the definition of the projection , independent of the specific orthogonal complements chosen , @xmath255 plugging in ( [ eq : blow - down ] ) into the above equality and taking into account that @xmath256 , cf .
+( [ eq : blow - up ] ) , yields at once the following proposition which asserts that projections along nested subspheres only depend on the final subsphere at which it ends .
+recall that @xmath225 ( @xmath257 if @xmath258 ) in case of pngs .
+[ pns - bnds : prop ] with the above notation @xmath259 .
+* distance between projected data and next subsphere . * here , we compute the intrinsic geodesic distance @xmath260 between @xmath261 and @xmath262^t\in s_{p^j}$ ] in a subsphere @xmath263^t \in p_j$ ] ( @xmath264 . note that only in case of @xmath240 being a great subsphere , this distance agrees with the spherical distance @xmath265 in the top sphere @xmath167 . if @xmath240 is a proper subsphere ( @xmath266 ) , assuming w.l.o.g . that @xmath267 and @xmath268 we have @xmath269 indeed with @xmath270 and the notation from ( [ eq : blow - down ] ) to ( [ eq : projections ] ) and orthogonal complements @xmath271 of @xmath174 and @xmath272 of @xmath273 , respectively , we have @xmath274 since @xmath275 due to ( [ eq : blow - down ] ) , @xmath276 and @xmath277 .
+* optimal positioning . * on @xmath186 we have the extrinsic metric due to its embedding in @xmath278 , cf .
+( [ extrinsic - metric : eq ] ) , and its thus induced riemannian metric .
+obviously @xmath185 acts on @xmath186 isometrically w.r.t .
+the extrinsic metric .
+it also acts isometrically w.r.t .
+the riemannian metric because the action also preserves geodesics on @xmath279 , e.g. @xcite . in consequence , for both metrics , we say for given @xmath280 that @xmath188 puts @xmath281 i.o.p .
+( _ in optimal position _ ) to @xmath282 , if @xmath283    [ lem : smooth - op ] let @xmath284 and @xmath201 be sufficiently close
+. then , there is a unique @xmath285 such that    a.   @xmath286 puts @xmath281 uniquely i.o.p .
+@xmath287 to @xmath282 , b.   if @xmath288 is symmetric then @xmath289 .    in order that @xmath188 minimizes the r.h.s of ( [ extrinsic - metric : eq ] ) , given by @xmath290 with @xmath291 , it maximizes @xmath292 .
+this is so if @xmath293 for a singular value decomposition ( svd ) @xmath294 stemming from a spectral decomposition @xmath295 .
+since for @xmath296 we have that @xmath297 is of full rank for all @xmath298 , there is locally a full rank svd , which is unique up to @xmath299 and @xmath300 for any @xmath301 with @xmath302 .
+however , @xmath303 is unique under actions of such @xmath304 , yielding ( i ) .
+( ii ) : the symmetry @xmath305 allows to choose @xmath306 , i.e. @xmath307 .
+this lemma has the following immediate consequence .    if @xmath201 are sufficiently close then @xmath308    thus , in further consequence , for every @xmath309 there is @xmath310 such that @xmath311 is a smooth manifold and every @xmath312 has a neighborhood @xmath313 with a smooth diffeomorphism @xmath314 where @xmath315 is a fixed representative of @xmath316 and @xmath317 is an arbitrary representative of @xmath31 , and @xmath281 is a representative i.o .
+p to @xmath282 .
+this follows from the fact that locally a point is i.o.p to @xmath282 if and only if it can be reached by a _ horizontal _
+geodesic from @xmath282 , and from the fact that all geodesics in @xmath53 through @xmath316 lift to horizontal geodesics in @xmath186 through @xmath282 and all horizontal geodesics in @xmath186 project to geodesics in @xmath53 . for a detailed discussion
+e.g. @xcite .
+* representing spaces of nested subspheres : factoring charts . * for @xmath318 recall @xmath319 and
+that if @xmath320 is a representative of @xmath321 , then every @xmath61 is represented by some @xmath322 with suitable choices @xmath323 , @xmath324 and @xmath325 ( for pns , @xmath326 ) , @xmath327 ( for pngs , @xmath326 ) and @xmath328 ( for @xmath227 ) .
+vice versa , from every representative @xmath329 of @xmath330 , all of the @xmath57 with @xmath61 are determined by choosing @xmath331 orthonormal vectors from the column span of @xmath253 ( the columns of @xmath332 below ) with suitable @xmath331 distances ( given by the vector @xmath333 below ) , i.e. every such @xmath31 has a representation @xmath334\end{aligned}\ ] ] as @xmath52 ranges over @xmath335 .
+in case of pngs and @xmath227 , for compatibility we set @xmath336 .
+of course , different @xmath52 may give same the @xmath31 .
+more precisely , here is the central observation .    given @xmath337\in p^{j-1}$ ] , every @xmath338 with @xmath61 is uniquely determined as @xmath339 $ ] by choice of @xmath340 , where @xmath52 is an arbitrary orthonormal complement of @xmath341 in @xmath342 , i.e. @xmath343 .
+this means that @xmath344 uniquely parametrizes @xmath345 .
+the reason is the well known fact that the grassmannian @xmath346 is diffeomorphic with @xmath344 .
+again , in case of pngs and @xmath227 , for compatibility we set @xmath347 .
+this observation gives rise to _ factoring charts _ as introduced in definition [ def : factoring ] . here and below in theorem
+[ th : several - nested - subspheres ] , @xmath348 assumes the role of @xmath349 from definition [ def : factoring ] .
+[ lem : two - nested - subspheres ] every @xmath350 has a neighborhood @xmath351 and a smooth diffeomorphism @xmath352 where @xmath348 is from ( [ eq : chart - pj ] ) , @xmath353 is a neighborhood of @xmath354 and @xmath355 are representatives of @xmath356 and @xmath316 respectively . in particular , @xmath357\mbox { and } p = [ zb ]    \end{aligned}\ ] ] with arbitrary orthonormal complement @xmath52 of @xmath341 .
+let @xmath358 $ ] for some @xmath359 be sufficiently close to @xmath356 . then , according to lemma [ lem : smooth - op ] , @xmath41 has a unique representative @xmath360 in optimal position to @xmath282 , varying smoothly in @xmath361 , hence smoothly in @xmath41 .
+moreover , as elaborated above , every @xmath57 with @xmath61 depends uniquely upon the choice of @xmath340 and any orthonormal complement @xmath52 , i.e. @xmath362 $ ] .
+although @xmath363 determines the same @xmath331 dimensional subspace , a one - to - one mapping is obtained choosing the neighborhood @xmath313 of @xmath364 suitably small not containing antipodals .
+the following is a straightforward generalization to spaces of sequences of several nested subspheres .
+[ th : several - nested - subspheres ] let @xmath365 and @xmath366 . then every @xmath367 has a neighborhood @xmath94 and a smooth diffeomorphism @xmath368 where @xmath369 is from ( [ eq : chart - pj ] ) , each @xmath370 is a neighborhood of @xmath371 , @xmath372 are representatives of @xmath373 and @xmath374 respectively ( @xmath375 ) . in particular , @xmath376\mbox { and } p^{j - r+1 } = [ zb_k\cdots b_{r } ]    \end{aligned}\ ] ] with arbitrary orthonormal complements @xmath377 in @xmath378 of @xmath379 ( @xmath375 ) .    * a joint representation . * here we assume that @xmath380 and @xmath381 are two sufficiently close families of backward nested spheres with representatives @xmath382 such that @xmath383 are in o. @xmath384-p .
+notably , there are then uniquely determined @xmath385 complements @xmath386 and @xmath387 respectively . for a sufficiently small neighborhood @xmath388 of @xmath389 and neighborhoods @xmath390 of @xmath391 in @xmath392 ( @xmath375 )
+we have then a smooth mapping @xmath393 determined by the following algorithm ( here is only the pngs version ) . for arbitrary @xmath394
+, @xmath395 denotes the orthogonal projection to the complement of @xmath174 .
+* @xmath396 is the unique element such that @xmath397 .
+* @xmath398 is the unique element such that @xmath399 . here , @xmath400 is obtained from @xmath401 by removing one column such that @xmath402 is in the span of the rest ( usually @xmath403 ) . *
+@xmath404 * @xmath405 is the unique element such that @xmath406 . here
+, @xmath407 is obtained from @xmath408 by removing one column such that @xmath409 is in the span of the other two .
+* local charts . * for @xmath53 and @xmath90 ,
+we have derived in and theorem [ th : several - nested - subspheres ] , respectively , local smooth diffeomorphic representations in a euclidean space of suitable dimension , @xmath17 , say , that can be generically written as @xmath410 with a neighborhood @xmath411 of some @xmath412 and a smooth mapping @xmath413 , @xmath414 , @xmath415 with full rank derivative @xmath416 at @xmath417 . here , the corresponding matrices are viewed as vectorized by stacking their columns on top of one another . with @xmath418 , the orthogonal projection to the row space of the @xmath419 matrix of the derivative at @xmath420 and orthogonal @xmath17-vectors @xmath421
+, spanning the kernel of @xmath416 of dimension @xmath422 , obtain the local chart @xmath423      another application is given by the intrinsic mean on a geodesic principal component on a quotient space @xmath424 due to an isometric action of a lie group @xmath425 on a riemannian manifold @xmath426 .
+we treat here the prominent application of kendall s shape spaces @xmath427:x\in { \mathbb s}^{m(k-1)-1}\},\quad , [ x]=\{gx : g\in so(m)\}\end{aligned}\ ] ] where the space @xmath428 of unit size @xmath429 matrices  corresponding to normed and centered configuration of @xmath4 landmarks in @xmath150-dimensional euclidean space  is taken modulo the group of rotations in @xmath150-dimensional space .
+this space models all @xmath150-dimensional configurations of @xmath4 landmarks , not all coinciding , modulo similarity transformations , cf . @xcite . for @xmath430
+this space is no longer a manifold but decomposes into strata of manifolds of different dimensions , cf .
+geodesics on the unit sphere @xmath428 , i.e. great circles , orthogonal to the the orbits @xmath431 $ ] , called _ horizontal great circles _ , project to geodesics in @xmath432 such that the space @xmath24 of geodesics of @xmath23 can be given the quotient structure of a stratified space @xmath433 with the horizontal stiefel manifold @xmath434 and the orbits @xmath435 = \ { ( gx , gv ) h : g\in so(m ) , h \in o(2)\}\,\end{aligned}\ ] ] for @xmath436 , cf .
+* theorem 5.2 ) .
+the action of @xmath437 is not free for @xmath430 , giving rise to a non - trivial stratified structure . as before in section [ imo1gpc : scn ] , we set @xmath438    having geodesics , orthogonal projections @xmath439 can be defined , which are unique outside a set of intrinsic measure zero , cf .
+* theorem 2.6 ) .
+the geodesic distance @xmath49 on @xmath23 gives rise to the geodesic distance @xmath440 between a datum @xmath139 and a geodesic @xmath31 .
+similarly the induced intrinsic distance on @xmath31 gives rise to @xmath441 where @xmath442 can be identified with @xmath31 .
+for @xmath27 and @xmath443 , for simplicity , not the canonical intrinsic distances on @xmath24 and @xmath444 but quotient distances due to the embedding of @xmath445 and @xmath446 , respectively , can be used , called the ziezold distances , cf .
+@xcite .
+the generalized frchet mean corresponding to @xmath447 is the first geodesic principal component ( gpc ) @xmath31 , the generalized frchet mean corresponding to @xmath448 is the the intrinsic mean on the first gpc , cf .
+the latter is again a nested mean . with the _ horizontal projective bundle _ over the unit sphere @xmath449
+we have the space @xmath450,[x ] ) : x\in { \mathbb s}^{m(k-1)-1 } , \{v ,-
+v\ } \in p^h_x { \mathbb s}^{m(k-1)-1}\}\,.\end{aligned}\ ] ]    the principal orbit theorem ( e.g. @xcite states in particular , that @xmath444 and @xmath24 have open and dense subsets @xmath451 that are manifolds , in our case smooth manifolds .
+this gives rise to the manifold @xmath452 with local smooth coordinates near @xmath453 @xmath454 where @xmath455 and @xmath456 is a representative of @xmath31 i.o.p . to @xmath457 , under the action of @xmath458 , with @xmath459 .
+here @xmath457 is an arbitrary but fixed representative of @xmath316 such that @xmath417 is a representative of @xmath356 . along the lines of lemma [
+lem : smooth - op ] one can show that optimal positioning is unique if @xmath460 has rank @xmath461 , which may be assumed for most realistic data scenarios .
+arguing as in section [ imo1gpc : scn ] , with every local trivialization of the horizontal bundle @xmath462 comes a factoring chart .
+in this section we are back in the general scenario described in section [ general_framework : scn ] .
+we develop a set of assumptions necessary for the general results on asymptotic consistency and asymptotic normality in section [ asymptotics : scn ] .
+we then show that they are fulfilled in case of pns / pngs and the imo1gpc of kendall s shape spaces .
+for the following assumptions suppose that @xmath463 .
+[ ass - meas - exists : as ] for a random element @xmath464 in @xmath23 , assume that @xmath465<\infty$ ] for all bnfds @xmath466 ending at @xmath240 , @xmath467 .    in order to measure a difference between @xmath61 and @xmath468 for @xmath469 define the orthogonal projection of @xmath61 onto @xmath470 as @xmath471 in case of pns this is illustrated in figure [ pns_illustration : fig ] ( a ) .
+[ projection - unique : as ] for every @xmath61 there is @xmath472 such that @xmath473 whenever @xmath202 with @xmath474 .
+[ 0.48 ] [ 0.48 ]    for @xmath61 and @xmath202 sufficiently close let @xmath475 be the unique element .
+note that in general @xmath476 in the following assumption , however , we will require that they will uniformly not differ too much if @xmath31 is close to @xmath316 . also , we require that @xmath477 and @xmath41 be close .    [
+projection - close : as ] for @xmath310 there is @xmath472 such that @xmath478 whenever @xmath202 with @xmath474
+.    we will also require the following assumption , which , in conjunction with assumption [ projection - close : as ] , is a consequence of the triangle inequality , if @xmath479 is a metric .
+[ almost - triangle : as ] suppose that @xmath480 and @xmath481 with @xmath482 and @xmath483
+. then also @xmath484    moreover , we require uniformity and coercivity in the following senses .    [
+uniform - link : as ] for all @xmath310 there are @xmath485 such that @xmath486 for all bnfds @xmath487 ending in @xmath202 , respectively , with @xmath488 and @xmath489 with @xmath490 .
+[ coercivity : as ] if @xmath491 and @xmath492 with @xmath493 , then for every @xmath494 we have that @xmath495 for every @xmath106 with @xmath496 and bnfds @xmath497 ending at @xmath498 respectively .
+[ compact : rm ] due to continuity , assumptions [ ass - meas - exists : as ] and [ uniform - link : as ] hold if @xmath23 is compact and assumption [ coercivity : as ] if each @xmath53 is compact .
+assumptions [ ass - meas - exists : as ]  [ coercivity : as ] hold for pns and pngs for all @xmath499 . moreover , each @xmath53 is @xmath500-heine borel for @xmath54 .
+recall from proposition [ pns - bnds : prop ] that @xmath73 only depends on the final descriptor at which @xmath466 ends .
+for pns and pngs we use the notation introduced in section [ setup : scn ] and show first assumption [ projection - unique : as ] .
+let @xmath232 and @xmath501 be representatives of @xmath202 in optimal position and @xmath502^t\in s_p$ ] with @xmath503 and @xmath504 .
+moreover consider a candidate element @xmath505 and its squared distance to @xmath41 , @xmath506 with @xmath507    with the continuous function @xmath508 , we have @xmath509 , which , by lemma [ lem : ziezold - metric ] , is uniquely assumed for @xmath510 and @xmath511 .
+due to continuity , for @xmath512 sufficiently close to @xmath513 all minimizers @xmath514 of @xmath515 are in a neighborhood of @xmath516 and there , @xmath144 is full rank and hence , arguing as in the proof of ( i ) of lemma [ lem : smooth - op ] , the extremal @xmath188 is uniquely determined .
+let us write @xmath517 to obtain @xmath518 as @xmath341 is unique , minimizing the above for @xmath519 is equivalent to minimizing @xmath520 under the constraining conditions @xmath521 and @xmath522 which yields the necessary equation @xmath523 right multiplication with @xmath524 yields at once @xmath525 such that @xmath519 is uniquely determined by @xmath526 indeed , @xmath519 is well defined because it is in a neighborhood of @xmath527 and hence @xmath341 in a neighborhood of @xmath391 .
+more simply , without lagrange minimization , we obtain @xmath528 .    for @xmath529 sufficiently close , this yields a unique @xmath530 minimizing @xmath531 over @xmath532 , yielding at once assumptions [ projection - unique : as ] , [ projection - close : as ] and [ almost - triangle : as ] ( because @xmath500 is a metric ) .
+due to remark [ compact : rm ] , assumptions [ ass - meas - exists : as ] , [ uniform - link : as ] and [ coercivity : as ] hold .
+because each @xmath53 is a finite dimensional manifold and @xmath500 is a topologically compatible metric , @xmath53 is @xmath500-heine borel .    for imo1gpcs on kendall s shape spaces @xmath432 , @xmath533 , assumptions [ ass - meas - exists : as ]  [ coercivity : as ] hold for @xmath227
+. moreover , @xmath53 is @xmath534 heine - borel for @xmath535 .
+assumption [ projection - unique : as ] follows at once from the compactness of @xmath23 , hence the geodesics @xmath536 are also compact and the proof of ( * ? ? ?
+* theorem a.5 ) , as there , in claim ii , a neighborhood of a geodesic @xmath31 is constructed , restricted to which the orthogonal projection @xmath537 is well defined and continuous in @xmath31 .
+compactness and continuity also imply assumptions [ projection - close : as ] and [ almost - triangle : as ] .
+assumptions [ ass - meas - exists : as ] , [ uniform - link : as ] and [ coercivity : as ] follow from remark [ compact : rm ] .      again ,
+let @xmath538 .
+[ as : clt - uniform - derivatives ] assume that @xmath539 carries a smooth manifold structure near the unique bn population mean @xmath540 such that there is an open set @xmath541 , @xmath542 and a local chart @xmath543 further , assume that for every @xmath544 the mapping @xmath545 has first and second derivatives , such that for all @xmath544 , @xmath546\mbox { , and } \mathbb e\big[{\mbox{\rm hess\,}}_\eta \tau^l(\eta',x)\big]\ ,    \end{aligned}\ ] ] exist and are in expectation continuous near @xmath547 , i.e. for @xmath548 we have @xmath549\:\to\:0\ , ,      \\
+{ \mathbb e}\left[\mathop{\sup}_{\|\eta-\eta'\|<\delta}\left\|{\mbox{\rm hess\,}}_\eta \tau^l(\eta , x ) - { \mbox{\rm hess\,}}_\eta \tau^l(\eta',x)\right\|\right]\:\to\:0\ , .
+\end{aligned}\ ] ] finally , assume that the vectors @xmath550,\ldots , { \mathbb e}\big[{\mbox{\rm grad}}_\eta \tau^{m}(\eta',x)\big]$ ] are linearly independent .    for pns and pngs a global ,
+manifold structure has been derived in section [ sec : pns - framework ] with projections ( [ eq : blow - down ] ) ( see also proposition [ pns - bnds : prop ] ) and distances ( [ rho - p - pns : eq ] ) smooth away from singularity sets . for imo1gpcs on kendall s shape spaces , this has been provided in section [ scn : kendalls - shape - spaces ] , cf .
+also @xcite .    in general
+, however , it is unclear under which circumstances ( if the second derivatives are continuous in both arguments where @xmath464 is supported in a compact set , then convergence to zero holds not only in expectation but also a.s . ) the three assumptions above , uniqueness , existence of first and second moments of second and first derivatives and their continuity in expectation are valid .
+even for the much simpler case of intrinsic means on manifolds this is only very partially known , cf .
+the discussion in @xcite .
+it seems that only for the most simple non - euclidean case of intrinsic means on circles the full picture is available ( @xcite ) . recently ,
+rather generic conditions for densities have been derived by @xcite , ensuring @xmath551-gaussian asymptotic normality .
+the condition on linear independence is rather natural for realistic scenarios where each constraining condition adds a new constraint , not covered by the previous , as introduced after corollary [ cor : lambda - lem2 ] .
+for example , if charts factor , then with decreasing @xmath552 , every constraning condition results in conditions on new coordinates .
+[ sc : thm ] let @xmath553 and consider random data @xmath554 on a data space @xmath23 admitting bn descriptor families from @xmath555 to @xmath556 , unique bn population means @xmath557 and bn sample means @xmath558 due to a measurable selection @xmath559 giving rise to bnfds @xmath560 , @xmath561 .
+if assumptions [ ass - meas - exists : as ]  [ coercivity : as ] are valid for all @xmath562 , and every @xmath563 is a.s . @xmath500-heine borel ( @xmath561 ) then @xmath558 converges a.s . to @xmath557 in the sense that @xmath564 measurable with @xmath565 such that for all @xmath561 , @xmath310 and @xmath566 , @xmath567 with @xmath568    we proceed by backward induction on @xmath18 .
+the case @xmath194 is trivial and the case @xmath569 has been covered by theorems a.3 and a.4 from @xcite .
+now suppose that ( [ bp - sc : eq ] ) have been established for @xmath570 .
+set @xmath571 and for an arbitrary bnfd @xmath389 ending at @xmath572 @xmath573,~s\in s_p & f_{n , f'}(s ) & = \frac{1}{n}\sum_{i=1}^n \rho_{p'}(\pi_{f'}\circ x_i , s)^2,~s\in s_{p'}\\      { \mbox{\handw \symbol{96}}}_f & = \inf_{s\in s_p } f_f(s ) , & { \mbox{\handw \symbol{96}}}_{n , f ' } & = \inf_{s\in s_{p ' } } f_{n , f'}(s )    \end{aligned}\ ] ] then , @xmath574 for all @xmath61 , by hypothesis , and with @xmath575 , @xmath576 to complete the proof we first show in the appendix @xmath577 this is ziezold s version of strong consistency ( cf .
+further , we show that this implies the bhattacharya - patrangenaru version ( cf .
+@xcite ) of strong consistency which takes here the form ( [ bp - sc : eq ] ) .
+careful inspection of the proof yields that we have only used that the `` distances '' @xmath500 vanish on the diagonal @xmath578 for all @xmath57 ; they need not be definite , i.e. it is not necessary that @xmath579 .    moreover ,
+note that the @xmath500-heine borel property holds trivially in case of unique sample descriptors .
+[ cor : lambda - lem2 ] suppose that ( [ bp - sc : eq ] ) holds together with assumption [ as : clt - uniform - derivatives ] .
+then we have for @xmath580 the following convergence in probability @xmath581\ , , &      \frac{1}{n}\sum_{k=1}^n { \mbox{\rm hess\,}}_\eta\tau^l(\eta_n , x_k ) & \:\stackrel{{\mathbb p}}{\to}\ : { \mathbb e}\left [ { \mbox{\rm hess\,}}_\eta\tau^l(\eta',x)\right]\ , .    \end{aligned}\ ] ]    let @xmath310 .
+then by assumption [ as : clt - uniform - derivatives ] , chebyshev s inequality and ( [ bp - sc : eq ] ) , there is a sequence @xmath582 such that @xmath583 and @xmath584\right\| \geq \epsilon \right\ }      \\      & \leq { \mathbb p}\left\{\sup_{\|\eta-\eta'\|<\delta_n}\left\| \frac{1}{n}\sum_{k=1}^n{\mbox{\rm grad}}_\eta\tau^l(\eta , x_k ) - { \mathbb e}\big[{\mbox{\rm grad}}_\eta\tau^l(\eta',x)\big]\right\| \geq \epsilon \right\}\\      & \leq \frac{1}{\epsilon}\,{\mathbb e}\left[\sup_{\|\eta-\eta'\|<\delta_n}\left\| \frac{1}{n}\sum_{k=1}^n{\mbox{\rm grad}}_\eta\tau^l(\eta , x_k ) - { \mathbb e}\big[{\mbox{\rm grad}}_\eta\tau^l(\eta',x)\big]\right\| \right]~\to~0    \end{aligned}\ ] ] as @xmath585 .
+yielding the first assertion .
+the second assertion follows similarly .
+we now introduce notation we use for the central limit theorem .
+let @xmath586 . by construction
+, every measurable selection @xmath587 of bn sample means minimizes @xmath588 under the constraints that it minimizes each of @xmath589 similarly , the bn population mean @xmath590 minimizes @xmath591\end{aligned}\ ] ] under the constraints that it minimizes each of @xmath592 , \quad\ldots\quad , { \mathbb e}\left [ \rho_{p^{j+1}}(\pi_{f^{j+1}}\circ x , p^{j})^2\right]\,.\end{aligned}\ ] ] in consequence , due to differentiability guaranteed by assumption [ as : clt - uniform - derivatives ] , with the notation of @xmath593 there , suitable random lagrange multipliers @xmath594 and deterministic lagrange multipliers @xmath595 exist such that for @xmath596 and @xmath597 the following hold @xmath598 & & + \sum_{l = j+1}^m \lambda^l \,{\mathbb e}\big[\tau^l(\eta , x)\big ]    \label{eq : population - lagrange}\end{aligned}\ ] ]    [ lem : lambda - lem1 ] suppose that ( [ bp - sc : eq ] ) holds together with assumption [ as : clt - uniform - derivatives ] . then the random lagrange multipliers @xmath599 in ( [ eq : sample - lagrange ] ) and @xmath600 in ( [ eq : population - lagrange ] ) satisfy @xmath601    by hypothesis , the vector @xmath602 is a linear combination of the vectors @xmath603 conveyed by @xmath599 .
+similarly , @xmath604 $ ] is a linear combination of the vectors @xmath605 $ ] , @xmath606 conveyed by @xmath600 .
+set @xmath607 , @xmath608 and @xmath609 , @xmath610 .    by assumption
+[ as : clt - uniform - derivatives ] we have @xmath611 .
+we set @xmath612 . since the determinant is continuous , by corollary [ cor : lambda - lem2 ] ,
+@xmath613 now consider the function @xmath614 where @xmath615 denotes the moore - penrose pseudoinverse of @xmath341 .
+then @xmath616 and @xmath617 . in consequence , for arbitrary @xmath310 and @xmath585
+we have that @xmath618 because , for any @xmath619 the first term is smaller than @xmath620 here , due to continuity established by @xcite , the first term vanishes for @xmath621 sufficiently small , and , due to corollary [ cor : lambda - lem2 ] , for any fixed @xmath619 , the second term tends to zero .
+this yields the assertion .
+[ clt : thm ] let @xmath622 and consider random data @xmath554 on a data space @xmath23 admitting bnfds from @xmath623 to @xmath624 , a unique bn population mean @xmath625 and bn sample means @xmath626 due to a measurable selection @xmath627 , @xmath628 , @xmath629 .    * assuming that assumption [ as : clt - uniform - derivatives ] hold as well as ( [ bp - sc : eq ] ) for all @xmath630 , we have that @xmath631 with a chart @xmath99 as specified in assumption [ as : clt - uniform - derivatives ] as well as @xmath632 \mbox { and } \\          b_{\psi } & \:=\ : { \mbox{\rm cov}}\left [ { \mbox{\rm grad}}_{\eta}\tau^j(\eta',x ) + \sum_{l = j+1}^m \lambda^l\ , { \mbox{\rm grad}}_{\eta}\tau^l(\eta',x)\right ] \ , ,        \end{aligned}\ ] ] with the notation from assumption [ as : clt - uniform - derivatives ] where @xmath633 are suitable such that @xmath634 + \sum_{l = j+1}^m \lambda^l\,{\mbox{\rm grad}}_\eta \,{\mathbb e}\big[\tau^l(\eta , x)\big]\ ,        \end{aligned}\ ] ] vanishes at @xmath635 .
+* if additionally @xmath636 , then @xmath637 satisfies a gaussian @xmath551-clt @xmath638 * if additionally the chart @xmath99 factors as in definition [ def : factoring ] , then also @xmath639 satisfies a gaussian @xmath551-clt @xmath640 with the notation of definition [ def : factoring ] .    by taylor expansion we have for @xmath641 defined in ( [ eq : sample - lagrange ] ) , @xmath642{\big)}}\nonumber\\      & = \sqrt{n}\,{\mbox{\rm grad}}_{\eta}g_n(\eta ' ) ~&&+~ { \mbox{\rm hess\,}}_{\eta}g_n(\eta ' ) \sqrt{n}\ , ( \eta_n - \eta ' ) \label{eq : clt - proof-1a}\\      & & & + ~ \big({\mbox{\rm hess\,}}_{\eta}g_n(\widetilde{\eta}_n ) - { \mbox{\rm hess\,}}_{\eta}g_n(\eta ' ) \big ) \sqrt{n}\ , ( \eta_n - \eta ' ) \nonumber    \end{aligned}\ ] ] with some random @xmath643 between @xmath644 and @xmath547 . in consequence of corollary [ lem : lambda - lem1 ]
+we have with the usual clt for the first term in ( [ eq : clt - proof-1a ] ) that @xmath645 with a zero - mean gaussian vector @xmath646 of covariance @xmath647\ , .
+\end{aligned}\ ] ] similarly , we have for the first factor in the second term in ( [ eq : clt - proof-1a ] ) , @xmath648\ , .
+\end{aligned}\ ] ] finally , for the first factor in the last the term in ( [ eq : clt - proof-1a ] ) , invoking also corollary [ cor : lambda - lem2 ] , we obtain that @xmath649 this yields assertion ( i ) . if @xmath650 is invertible , as asserted in ( ii )
+, joint normality follows at once for @xmath651 .
+( iii ) : in case of factoring charts we can rewrite @xmath652 where @xmath653 with @xmath654 and @xmath655 , and @xmath656 is defined by @xmath657 . with @xmath658 in assertion ( ii )
+we obtain thus @xmath659 since under projection to the first coordinates @xmath660 , asymptotic normality is preserved , assertion ( iii ) follows at once .
+suppose that we have two independent i.i.d .
+samples @xmath661 , @xmath662 in a data space @xmath23 admitting bnfds and we want to test @xmath663 using descriptors in @xmath664 . here
+, @xmath664 stands either for a single @xmath665 for which we have established factoring charts , or for a suitable sequence @xmath666 .
+we assume that the first sample gives rise to @xmath667 , the second to @xmath668 , and that these are unique . under the corresponding assumptions of theorem [ clt : thm ] ,
+define a statistic @xmath669 under @xmath670 , up to a suitable factor , this is hotelling @xmath671 distributed if @xmath672 is the corresponding empirical covariance matrix .
+therefore , for @xmath672 we use the empirical covariance matrix from bootstrap samples .    with this fixed @xmath171
+, we simulate that statistic under @xmath670 by again bootstrapping @xmath52 times .
+namely from @xmath673 we sample @xmath674 and compute the corresponding @xmath675 ( @xmath676 ) from @xmath677 ( @xmath678 , @xmath58 ) . from these , for a given level @xmath679 we compute the empirical quantile @xmath680 such that @xmath681 arguing as in ( * ? ? ?
+* corollary 2.3 and remark 2.6 ) which extends at once to our setup , we assume that the corresponding population covariance matrix @xmath682 or @xmath683 , respectively , from theorem [ clt : thm ] is invertible .
+we have then under @xmath670 that @xmath680 gives an asymptotic coverage of @xmath684 for @xmath685 , i.  e. @xmath686 as @xmath687 if @xmath688 with a fixed @xmath689 .
+to illustrate our clt for principle nested spheres ( pns ) and principle nested great spheres ( pngs ) , we simulate three data sets , each from two paired random variables @xmath464 and @xmath690 , displayed in figure [ simulated_data ] .
+a.   data on an @xmath691 concentrate on the same proper small @xmath692 and there on segments of orthogonal great circles such that their nested means are antipodal .
+b.   data on an @xmath691 concentrate on the same proper small @xmath692 and there on segments of orthogonal great circles such that their nested means coincide . c.   data on an @xmath692 concentrate on segments of different small circles , have different nested means under pns , but , under pngs , coinciding principal geodesics and nested means .    [ 0.3 ] concentrate on a common proper small @xmath692 , their projections to estimated small two - spheres is depicted .
+the simulated dataset iii ( right ) is on @xmath692.__,title="fig:",scaledwidth=30.0% ] [ 0.3 ] concentrate on a common proper small @xmath692 , their projections to estimated small two - spheres is depicted .
+the simulated dataset iii ( right ) is on @xmath692.__,title="fig:",scaledwidth=30.0% ] [ 0.3 ] concentrate on a common proper small @xmath692 , their projections to estimated small two - spheres is depicted .
+the simulated dataset iii ( right ) is on @xmath692.__,title="fig:",scaledwidth=30.0% ]    we apply pns and pngs to the simulated data and perform the two - sample test for identical respective nested submanifolds ( means , small and great circles ) and for identical small and great two - spheres .
+the resulting p - values are displayed in table [ table ] .
+these values are in agreement with the intuition guiding the design of the data .        ' '' ''    data set & method & @xmath693d & @xmath694d & @xmath695d +    ' '' ''    i & pns & @xmath696 & @xmath696 & @xmath697 +    ' '' ''    & pngs & @xmath696 & @xmath696 & @xmath696 +    ' '' ''    ii & pns & @xmath697 & @xmath696 & @xmath698 +    ' '' ''    & pngs & @xmath699 & @xmath696 & @xmath696 +    ' '' ''    iii & pns & @xmath696 & @xmath696 & +    ' '' ''    & pngs & @xmath700 & @xmath701 & +    [ table ]      understanding differentiation of adult human stem cells with the perspective of clinical use ( see e.g. @xcite who emphasize their potential for cartilage and bone reconstruction ) is an ongoing fundamental challenge in current medical research , still with many open questions ( e.g. @xcite ) . to investigate
+mechanically guided differentiation , _ human mesenchymal stem cells _
+( hmscs , pluripotent adult stem cells taken from the bone marrow ) are placed on gels of varying elasticity , quantified by the young s modulus , to mimic different environments in the human body , e.g. @xcite .
+it is well known that within the first day the surrounding elasticity measured in kilopascal ( kpa ) induces differentiation through biomechanical cues , cf .
+@xcite , where the changes manifest in orientation and ordering of the _ actin - myosin filament skeleton_. in particular , in order to direct future , more focused research , it is of high interest to more precisely identify time intervals in which such changes of ordering occur and to separate changes due to differentiation from changes due to other causes .    [
+0.48 ] [ 0.48 ] + [ 0.48 ] [ 0.48 ]    * experimental setup .
+* we compare hmsc skeletons that have been cultured at the third institute of physics of the university of gttingen on gels with young s moduli of 1  kpa mimicking neural tissue , 10  kpa mimicking muscle tissue , and 30  kpa mimicking bone tissue .
+the cells have been fixed after multiples of 4 hours on the respective gel and have then been immuno - stained for nmm iia , the motor proteins making up small filaments that are responsible for cytoskeletal tension and imaged ( as described in @xcite )
+table_samples ] shows their sample sizes and the data will be published and made available after completion of current research , cf .
+because earlier research ( @xcite ) suggests that during the first 24 hours , 10  kpa and 30  kpa hmscs develop rather similarly and quite differently from 1  kpa hmscs , for this investigation , we pool the former .        ' '' ''    time & 1  kpa & 10  kpa and 30  kpa +    ' '' ''    4h & 159 & 321 +    ' '' ''    8h & 163 & 317 +    ' '' ''    12h & 176 & 344 +    ' '' ''    16h & 135 & 274 +    ' '' ''    20h & 138 & 253 +    ' '' ''    24h & 166 & 304 +    [ table_samples ]    the actin - myosin filament structure has been automatically retrieved from the fluorescence images using the filament sensor from @xcite .
+since neighboring filaments share the same orientation , the 3d structure of the cellular skeleton can be retrieved by separating the filament structure into different orientation fields , cf .
+figure [ fig : filament - sensor ] .
+* orientation fields * for filament structures are determined via a relaxation labeling procedure , see @xcite .
+the source code of our implementation is available as supplementary material .
+a detailed description is deferred to a future publication .
+the algorithm results in a set of contiguous areas with slowly varying local orientation , and , corresponding to each of these areas , a set of filaments which closely follow the local orientation .
+also , these data will be published and made available after completion of current research , cf .
+@xcite .    * data analysis .
+* for each single hmsc image , let @xmath426 be the number of pixels of all detected filaments , @xmath702 the number of all filament pixels of filaments of the largest orientation field and @xmath703 the number of all filament pixels of filaments of all smaller orientation fields .
+@xmath704 is then the number of pixels in all `` rogue '' filaments which are not associated to any field , because they are too inconsistent with neighboring filaments .
+define @xmath705 where the square roots ensure that @xmath519 does not describe relative areas but rather relative diameters of fields .
+this representation is confined to the @xmath706 part in the first octant and every sample shows a distinct accumulation of points in the @xmath707 plane , corresponding to cells with only one orientation field . as common with biological data , especially from primary cells ,
+their variance is rather high . in consequence ,
+great circle fits are more robust under bootstrapping than small circle fits and we use the nested two - sample tests for pngs with the following null hypothesis .
+@xmath670 : : :    hmsc orientation and ordering measured by random loci on    @xmath706 as above does not change between    successive time points .        ' '' ''    time & & +    ' '' ''    gel & 1  kpa & 10  kpa and 30  kpa & 1  kpa & 10  kpa and 30  kpa +    ' '' ''    4h vs. 8h & @xmath708 & @xmath696 & @xmath709 & @xmath696 +    ' '' ''    8h vs. 12h & @xmath696 & @xmath696 & @xmath710 & @xmath696 +    ' '' ''    12h vs. 16h & @xmath711 & @xmath696 & @xmath712 & @xmath696 +    ' '' ''    16h vs. 20h & @xmath713 & @xmath714 & @xmath715 & @xmath716 +    ' '' ''    20h vs. 24h & @xmath696 & @xmath696 & @xmath696 & @xmath717 +    [ table_fields ]    * results . * as visible in table [ table_fields ] ,
+while for hmscs on harder gels ( 10  kpa and 30  kpa ) , nested means and the joint descriptor of nested mean and great circle change over each 4 hour interval until 16 hours  for both the null hypothesis is rejected at the highest level possible  similar changes are less clearly visible for hmscs on the soft gel ( 1  kpa ) between the intervals between 8 and 16 hours and not at all visible for the first time interval .
+strikingly , for hmscs on all gels , no changes seem to occur between 16 and 20 hours .
+in contrast , in the final interval between 20 and 24 hours , nested means and great circles clearly change for hmscs on the soft gel  rejecting the null hypothesis at the highest level possible .
+this effect is also there for the nested mean of hmscs on the harder gels , but not as clearly visible for the joint descriptor including the circle .
+[ 0.4]_,title="fig:",scaledwidth=40.0% ] [ 0.4]_,title="fig:",scaledwidth=40.0% ]    ._displaying p - values of two - sample tests for pngs of filament orientation field distribution data for all time points .
+we use @xmath718 bootstrap samples , thus the penultimate p - value is @xmath719 . _ [ cols="<,^,^",options="header " , ]     [ 24hrs_table ]    visualization in figure [ fig_fields ] reveals further details . as seen from the loci of the nested means , hmscs on the soft gel ( figure [ fields_1kpa ] ) tend to loose minor orientation field filaments with a nearly constant ratio of large orientation field filaments and rogue filaments until the _ critical slot _ , the time interval between 16 and 20 hours . their great circles , indicating the direction of largest spread , change at the beginning of the critical slot , suggesting that the major variation there occurs in the amount of rogue filaments . while , until the critical slot , the temporal motion of nested means for 1  kpa is mainly vertical , the corresponding motion for the hmscs on harder gels ( cf .
+figure [ fields_pooled ] ) is horizontal , indicating that the number of rogue filaments decreases in favor of the main orientation field .
+curiously for the nested means , there is also a sharp drop in height at the beginning of the critical slot as well as a backward horizontal motion .
+after the critical slot , hmscs seem to continue the direction of their previous journey , at a lower smaller fields level , though .
+in contrast , for the hmscs on the soft gel , the critical slot seems to represent a true change point since afterward , the nested mean travels not much longer towards reducing the smaller fields , but like hmscs on harder gels , mainly reduces the number of rogue filaments .
+indeed , taking into account the auxiliary mesh lines , it can be seen that descriptors are rather close at time 24 hours , cf .
+24hrs_table ] , where , in contrast they are rather far away from each other for all other time points .    * discussion . *
+we conclude that hmscs react clearly distinctly and differently on both gels already for short time intervals , where at the critical time slot some kind of reboot happens . a generic candidate for this effect
+is cell division .
+as all cells used in the experiments were thawed at the same time ( 72 hours before seeding ) and treated identically , cell division is expected to occur at similar ( at least for each environment ) time points . dividing cells
+completely reorganize their cell skeleton which would explain the change point found .
+in particular , it seems that due to cell division , the time point 24 hours ( as used in @xcite ) may not be ideal if differences in hmscs differentiation due to different young s moduli are to be detected .
+our results clearly warrant further analysis using higher time resolution , in particular time resolved in - vivo imaging , that among others , allow to register cell division times .
+we thank rabi bhattacharya and vic patrangenaru for their valuable comments on the bootstrap and our collaborators florian rehfeldt and carina wollnik for their stem cell data .
+the authors also gratefully acknowledge dfg hu 1575/4 , dfg crc 755 and the niedersachsen vorab of the volkswagen foundation .
+with @xmath724 which , in conjunction with assumption [ projection - close : as ] and the induction hypothesis @xmath725 a.s . can be made arbitrary small a.s . due to assumption [ uniform - link : as ] . in consequence of the usual strong law
+the first assertion follows .
+the second follows with the same argument .        by separability of @xmath53
+it follows at once from lemma [ basic - ziezold : lem ] that there is a measurable set @xmath727 with @xmath728 and a dense subset @xmath729 such that @xmath730\end{array}\right\ } \quad \forall s \in \{s_k : k\in
+\mathbb n\}\mbox { and } \omega\in \omega'\,.\end{aligned}\ ] ]    in order to obtain ( [ dense - as - conv1:eq ] ) for all @xmath61 , consider @xmath731 and the following estimates .
+@xmath732 with @xmath733 now , w.l.o.g .
+, consider @xmath734 ( which implies that @xmath735 ) for which ( [ dense - as - conv1:eq ] ) is valid
+. using twice the first line in ( [ dense - as - conv2:ineq ] ) for @xmath736 and @xmath737 we obtain @xmath738 due to assumption [ uniform - link : as ] and the strong law ( [ dense - as - conv1:eq ] ) ( and the argument applied in the proof of lemma [ basic - ziezold : lem ] ) , for every @xmath739 there is @xmath740 such that for all @xmath741 we have @xmath742 + \epsilon\big)\epsilon & \leq\lim\inf_{n\to \infty } f_{n , f_n}({s}^{p_n})\\    & \leq \lim\sup_{n\to \infty } f_{n , f_n}({s}^{p_n})\\    & \leq f_f(s_k ) + 2\big(\mathbb e[\rho_p(\pi_f\circ x , s_k ) ] + \epsilon\big)\epsilon\end{aligned}\ ] ] for all @xmath743 .
+taking into account the continuity of @xmath744 , letting @xmath745 yields @xmath746 similarly we see that @xmath747\quad \forall s \in s_p\mbox { and } \omega\in \omega'\quad\mbox { for } n\to \infty\,.\end{aligned}\ ] ]    next , we consider a sequence @xmath748 .
+note that in consequence of assumption [ almost - triangle : as ] we have that @xmath749 using the bottom line of ( [ dense - as - conv2:ineq ] ) yields that @xmath750 with the same @xmath751 for all @xmath61 due to ( [ as - conv4:eq ] ) .
+hence , in consequence of this and ( [ as - conv3:eq ] ) , for all @xmath748 we have that @xmath752 for all @xmath566 .    finally let us show @xmath753 note that assertion ( [ ziezold - sc : eq ] ) is trivial in case of @xmath754 .
+otherwise , for ease of notation let @xmath755 , @xmath756 , @xmath757 .
+then @xmath758 for all @xmath759 .
+hence , there is a sequence @xmath760 , @xmath761 .
+moreover , there is a sequence @xmath762 such that @xmath763 for a suitable @xmath764
+. then @xmath765 by ( [ as - conv5:eq ] ) a.s .. on the other hand , by lemma [ basic - ziezold : lem ] for arbitrary fixed @xmath61 , there is a sequence @xmath766 such that @xmath767 . first letting @xmath585 and then considering the infimum over @xmath61 yields @xmath768 in consequence @xmath769 in particular we have shown that @xmath770 which means that @xmath771 thus completing the proof of ( [ ziezold - sc : eq ] )    * proof of ( [ bp - sc : eq ] ) . * using the notation of the previous proof of ( [ ziezold - sc : eq ] ) , let @xmath772 and consider @xmath773 . if the assertion ( [ bp - sc : eq ] ) was false , there would be a measurable set @xmath774 with @xmath775 such that for every @xmath776 there is @xmath777 and @xmath778 .        in consequence of the heine borel property we have thus @xmath785 for all @xmath786 .
+since @xmath787 < \infty$ ] for all @xmath61 , there is a @xmath494 such that @xmath788 hence , in consequence of assumption [ coercivity : as ] we have thus a subset @xmath789 with @xmath790 such that for all @xmath791 , due to the usual strong law , @xmath792 this is a contradiction to ( [ lw - lim - sup : ineq ] ) .
+this yields ( [ bp - sc : eq ] ) completing the proof of theorem [ sc : thm ] .
+bianco , p. , x.  cao , p.  s. frenette , j.  j. mao , p.  g. robey , p.  j. simmons , and c .- y .
+wang ( 2013 ) .
+the meaning , the sense and the significance : translating the science of mesenchymal stem cells into medicine .  _
+19_(1 ) , 3542 .
+huckemann , s. , k .-
+kim , a.  munk , f.  rehfeldt , m.  sommerfeld , j.  weickert , c.  wollnik , et  al .
+the circular sizer , inferred persistence of shape parameters and application to early stem cell differentiation .  _
+22_(4 ) , 21132142 .
+huckemann , s.  f. and b.  eltzner ( 2015 ) .
+polysphere pca with applications . in _ proceedings of the 33th lasr workshop _
+, pp .   5155 .
+leeds university press .
+http://www1.maths.leeds.ac.uk/statistics/workshop/lasr2015/proceedings15.pdf .
+pittenger , m. , a.  mackay , s.  beck , r.  jaiswal , r.  douglas , j.  mosca , m.  moorman , d.  simonetti , s.  craig , and d.  marshak ( 1999 ) .
+multilineage potential of adult human mesenchymal stem cells .  _
+284_(5411 ) , 143 .
+pizer , s.  m. , s.  jung , d.  goswami , j.  vicory , x.  zhao , r.  chaudhuri , j.  n. damon , s.  huckemann , and j.  marron ( 2013 ) .
+nested sphere statistics of skeletal models . in _
+innovations for shape analysis _ , pp .
+93115 . springer .

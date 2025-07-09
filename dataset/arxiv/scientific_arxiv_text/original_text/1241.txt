@@ -1,0 +1,443 @@
+computer simulation is widely regarded as complementary to theory and experiment  @xcite . at present
+there are only a few physical phenomena that can not be simulated on a computer .
+one such exception is the double - slit experiment with single electrons , as carried out by tonomura and his co - workers  @xcite .
+this experiment is carried out in such a way that at any given time , only one electron travels from the source to the detector  @xcite . only after a substantial ( approximately 50000 ) amount of electrons
+have been detected an interference pattern emerges  @xcite .
+this interference pattern is described by quantum theory .
+we use the term `` quantum theory '' for the mathematical formalism that gives us a set of algorithms to compute the probability for observing a particular event  @xcite .
+of course , the quantum - mechanics textbook example  @xcite of a double - slit can be simulated on a computer by solving the time - dependent schrdinger equation for a wave packet impinging on the double slit  @xcite .
+alternatively , in order to obtain the observed interference pattern we could simply use random numbers to generate events according to the probability distribution that is obtained by solving the time - independent schrdinger equation . however , that is not what we mean when we say that the physical phenomenon can not be simulated on a computer .
+the point is that it is not known how to simulate , event - by - event , the experimental observation that the interference pattern appears only after a considerable number of events have been recorded on the detector .
+quantum theory does not describe the individual events , e.g. the arrival of a single electron at a particular position on the detection screen  @xcite . reconciling the mathematical formalism (
+that does not describe single events ) with the experimental fact that each observation yields a definite outcome is often referred to as the quantum measurement paradox and is the central , most fundamental problem in the foundation of quantum theory  @xcite .    if computer simulation is indeed a third methodology to model physical phenomena it should be possible to simulate experiments such as the two - slit experiment on an event - by - event basis . in view of
+the fundamental problem alluded to above there is little hope that we can find a simulation algorithm within the framework of quantum theory .
+however , if we think of quantum theory as a set of algorithms to compute probability distributions there is nothing that prevents us from stepping outside the framework that quantum theory provides . therefore we may formulate the physical processes in terms of events , messages , and algorithms that process these events and messages , and try to invent algorithms that simulate the physical processes . obviously , to make progress along this line of thought
+, it makes sense not to tackle the double - slit experiment directly but to simplify the problem while retaining the fundamental problem that we aim to solve .
+the main objective of the research reported in this paper is to answer the question : `` can we simulate the single - photon beam splitter and mach - zehnder interferometer experiments of grangier et al .
+@xcite on an event - by - event basis ? '' .
+these experiments display the same fundamental problem as the single - electron double - slit experiments but are significantly easier to describe in terms of algorithms .
+the main results of our research are that we can give an affirmative answer to the above question by using algorithms that have a primitive form of learning capability and that the simulation approach that we propose can be used to simulate other quantum systems ( including the double - slit experiment ) as well .    in section  [ illu ]
+we introduce the basic concepts for constructing event - based , deterministic learning machines ( ) .
+an essential property of these machines is that they process input event after input event and do not store information about individual events .
+a  can discover relations between input events ( if there are any ) and responds by sending its acquired knowledge in the form of another event ( carrying a message ) through one of its output channels . by connecting an output channel to the input channel of another  we can build networks of . as the input of a network receives an event , the corresponding message is routed through the network while it is being processed and eventually a message appears at one of the outputs . at any given time during the processing , there is only one input - output connection in the network that is actually carrying a message .
+the  process the messages in a sequential manner and communicate with each other by message passing .
+there is no other form of communication between different .
+although networks of  can be viewed as networks that are capable of unsupervised learning , there have very little in common with neural networks  @xcite .
+the first  described in section  [ illu ] is equivalent to a standard linear adaptive filter  @xcite but the  that we actually use for our applications do not fall into this class of algorithms .    in section  [ ndim ]
+we generalize the ideas of section  [ illu ] and construct a  which groups @xmath0-dimensional data in two classes on an event - by - event basis , i.e. , without using memory to store the whole data set .
+we demonstrate that this  is capable of detecting time - dependent trends in the data and performs blind classification .
+this example shows that  can be used to solve problems that have no relation to quantum physics .    in section  [ qi ]
+we show how to construct -networks that generate output patterns that are usually thought of as being of quantum mechanical origin .
+we first build a -network that simulates photons passing through a polarizer and show that quantum theory describes the output of this deterministic , event - based network .
+then we describe a -network that simulates a beam splitter and use this network to build a mach - zehnder interferometer and two chained mach - zehnder interferometers .
+we demonstrate that quantum theory also describes the behavior of these networks .
+quantum theory gives us a recipe to compute the frequency of events but does not predict the order in which the events will be observed  @xcite .
+in genuine experiments the detection of events appears to be random  @xcite , in a sense which , as far as we know , has not been studied systematically . in our simulation approach , this apparent randomness can be accounted for by a marginal modification of the , as explained in section  [ slm ] .
+this modification does not change the deterministic character of the learning process .
+it merely randomizes the order in which the  activate their output channels .
+a summary and outlook is given in section  [ summ ] .
+we consider a  that has one input and two output channels labeled by @xmath1 ( see fig .  1 ) .
+the internal state of the  after processing the @xmath2-th input event ( @xmath3 ) is uniquely defined by the real variable @xmath4 . at the next event
+@xmath5 the  receives as input a real number @xmath6 . for simplicity , but without loss of generality , we assume that @xmath7 $ ]
+. the  responds by sending a message containing @xmath6 through one of the two output channels @xmath8 . the  selects the output channel @xmath9 or @xmath10 by minimizing the cost function @xmath11 defined by    @xmath12    updates its internal state according to the rule    @xmath13    and sends a message with the input value @xmath6 on the selected output channel @xmath14 . the parameter @xmath15 that enters eqs .   and controls the decision process . for simplicity
+we assume that @xmath16 is fixed during the operation of the machine .
+it is easy to see that @xmath9
+if @xmath17 and @xmath10 if @xmath18 . thus , for this particular  we have    @xmath19    hence the update rule eq .   can be written as the familiar recursion    @xmath20    the solution of eq .
+reads    @xmath21    where @xmath22 denotes the initial value of the internal variable .    as an illustration of how this  learns
+, we consider the most simple example where @xmath23 for all @xmath24 .
+then from eq .
+we find that    @xmath25    as @xmath15 , we conclude that @xmath26 .
+thus the  `` learns '' the value of the input variable @xmath27 . from eq .
+it follows that @xmath28 ( @xmath29 ) implies @xmath30 ( @xmath31 ) .
+hence @xmath4 approaches @xmath27 monotonically ( and @xmath32 is the same for all @xmath2 ) .
+therefore , if @xmath33 , the  always sends the value of @xmath34 through the same output channel .
+( 8,6 ) ( -5,1 ) by passing the input to one of the two output channels @xmath8 .
+the value of @xmath14 depends on the current state of the , encoded in the variable @xmath35 , the input @xmath6 , and the update rule eq .
+in which @xmath16 appears as a control parameter .
+right : evolution of the internal variable @xmath35 as a function of the number of events @xmath2 .
+solid line : @xmath36 for @xmath37 and @xmath38 for @xmath39 ; dashed line : random sequence of @xmath40 .
+, title="fig:",width=340 ] ( 4,0 ) by passing the input to one of the two output channels @xmath8 .
+the value of @xmath14 depends on the current state of the , encoded in the variable @xmath35 , the input @xmath6 , and the update rule eq .
+in which @xmath16 appears as a control parameter .
+right : evolution of the internal variable @xmath35 as a function of the number of events @xmath2 .
+solid line : @xmath36 for @xmath37 and @xmath38 for @xmath39 ; dashed line : random sequence of @xmath40 .
+, title="fig:",width=340 ]    a distinct feature of this machine is its ability to adapt to changes in the input pattern .
+we illustrate this important property by two examples .
+let @xmath41 for @xmath42 and @xmath43 for @xmath44 . during the first 1000 events the machine will learn @xmath45 . after 1000 events
+only @xmath46 is being presented as input .
+then , the machine `` forgets '' @xmath45 and learns @xmath46 as shown in the right panel of fig .
+[ exam01 ] . in this simulation @xmath47 . alternatively ,
+if @xmath34 is a random sequence of @xmath48 ( each with the same probability ) the machine has to learn @xmath45 and @xmath46 simultaneously . because of this it can not `` forget '' and it ends up oscillating around the mean of the input values ( zero in this example ) as illustrated in the right panel of fig .
+[ exam01 ] .
+let us now assume that our machine has reached this oscillating state .
+all input events @xmath49 give @xmath50 and hence the machine sends @xmath46 over the @xmath51 channel . a second machine attached to this channel only receives @xmath46 events and will learn @xmath46 .
+this suggests that a network of these machines can be used as an adaptive classifier .
+( 8,12 ) ( -4.5,3 ) .
+right : evolution of the internal variables @xmath35 of the  as a function of the number of events @xmath2 . the machine number is used to label the corresponding line .
+top right : first three ; bottom right : third - level
+. , title="fig:",width=302 ] ( 4,6 ) .
+right : evolution of the internal variables @xmath35 of the  as a function of the number of events @xmath2 . the machine number is used to label the corresponding line .
+top right : first three ; bottom right : third - level
+. , title="fig:",width=340 ] ( 4,0 ) .
+right : evolution of the internal variables @xmath35 of the  as a function of the number of events @xmath2 . the machine number is used to label the corresponding line .
+top right : first three ; bottom right : third - level . ,
+title="fig:",width=340 ]    consider the network of three layers of  shown in the left panel of fig .
+[ exam03 ] .
+each machine in the network learns the average of the numbers it receives at its input channel and sends the numbers which are smaller ( larger or equal ) than the number it learned to the -1 ( + 1 ) output channel . in our numerical experiments we set @xmath47 .
+we start with 5000 events of random numbers @xmath52 , each occurring with equal probability .
+machine 1 learns the average ( zero in this example ) and sends the negative ( positive ) @xmath6 over the @xmath53 ( @xmath51 ) channel to the input of machine 2 ( 3 ) .
+machine 2 ( 3 ) learns -0.50 ( 0.50 ) , as shown in the top right panel of fig .
+[ exam03 ] , and sends -0.75 ( 0.25 ) over its -1 output channel and -0.25 ( 0.75 ) over its + 1 output channel .
+machines 4 to 7 learn -0.75,-0.25,0.25 and 0.75 , respectively , as shown in the bottom right panel of fig .
+[ exam03 ] .
+each of these machines forwards the received input on its + 1 ( -1 ) output channel if the initial value of its internal variable is smaller ( larger ) than the received input value .
+let us now assume that after 5000 events the input data set changes to @xmath54 . as can be seen from the right panel of fig .
+[ exam03 ] , machines 1 , 3 and 7 `` forget '' the number they learned and replace it by -0.0625 , 0.375 and 0.50 , respectively .
+all other machines are unaffected because they never get 0.50 as input .
+after another 5000 events we change the set of input values once more , this time to @xmath55 , i.e. , we add one element .
+now , machine 1 learns -0.17 , machine 2 learns -0.53 and the internal state of machine 3 remains unchanged .
+machine 4 can now receive two numbers on its input channel , namely -0.75 and -0.60 . as a consequence , machine 4 learns -0.675 , i.e. , the average of the two possible input numbers .
+machine 4 puts -0.60 on its + 1 output channel and -0.75 on its -1 output channel .
+in order for the network to learn all the numbers of the input set , we would have to attach one extra  to each output channel of machine 4 .
+( 8,6 ) ( -5,0 ) of the machine defined by eqs .   and .
+the input events are @xmath56 , @xmath47 , and the initial value @xmath57 .
+for @xmath58 the internal variable @xmath4 oscillates about @xmath27 . for @xmath59 the sequence of increments ( @xmath9 ) and decrements ( @xmath10 ) of @xmath4 repeats itself after 8 events ( data not shown ) .
+lines are guides to the eyes .
+right : the number of increments of the internal variable ( @xmath9 ) divided by the total number of events as a function of the value of the input variable @xmath27 .
+bullets : each data point is obtained from a simulation of 1000 events with a fixed , randomly chosen value of @xmath60 , using the last 500 events to count the number of @xmath9 events . solid line : @xmath61 . , title="fig:",width=340 ] ( 4,0 ) of the machine defined by eqs .   and .
+the input events are @xmath56 , @xmath47 , and the initial value @xmath57 . for @xmath58 the internal variable @xmath4 oscillates about @xmath27 . for @xmath59 the sequence of increments ( @xmath9 ) and decrements ( @xmath10 ) of @xmath4 repeats itself after 8 events ( data not shown ) .
+lines are guides to the eyes .
+right : the number of increments of the internal variable ( @xmath9 ) divided by the total number of events as a function of the value of the input variable @xmath27 . bullets : each data point is obtained from a simulation of 1000 events with a fixed , randomly chosen value of @xmath60 , using the last 500 events to count the number of @xmath9 events . solid line : @xmath61 .
+, title="fig:",width=340 ]      for the  defined by eqs .   and ,
+formulating the operation of the through the minimization of the difference between the input and internal variable may seem a little superfluous and indeed , for this particular machine it is . however , this formulation is a convenient starting point for defining machines that can perform more intricate tasks .
+for instance , let us make an innocent looking change to the update rule eq .
+by writing    @xmath62    and replace the cost function eq .   by the corresponding expression    @xmath63    for @xmath9 we have @xmath64 and for @xmath10 we have @xmath65 .
+therefore , if @xmath66 and @xmath67 , the internal variable will always be in the range @xmath68 $ ] . at each event
+the internal variable either increases by @xmath69 ( if @xmath9 ) or decreases by @xmath70 ( if @xmath10 ) . in both cases
+this change is always nonzero , except if @xmath71 which can only occur if @xmath72 .
+the ratio of the step sizes is @xmath73 .
+the machine defined by eqs .   and behaves differently from the machine defined by eqs .   and .
+to see this , it is instructive to consider the case @xmath74 for all @xmath24 ( the case @xmath75 can be treated in the same manner ) . for concreteness
+we assume that @xmath76 . at the first event ,
+minimization of eq .
+yields @xmath77 and @xmath78 .
+in other words , the internal variable @xmath79 moves towards @xmath27 . as long as @xmath80 , the  selects @xmath9 , always increasing its internal variable @xmath4 .
+for some some @xmath81 we must have @xmath82 . then , making another move in the positive @xmath79-direction allows for two different decisions .
+if the error that results is larger than the error that is obtained by moving in the negative direction the  decides to set @xmath10 .
+otherwise it makes another move in the positive @xmath79-direction ( @xmath9 ) . in any case , for some @xmath83 the machine will select @xmath10 .
+note that when this happens , we must have @xmath84 and @xmath85 .
+this implies that after this @xmath2-th event ( that we denote by @xmath86 ) the internal variable will oscillate ( forever ) around the input value @xmath27 .
+this process is illustrated in fig .
+[ figline ] ( left ) .
+for @xmath87 we have @xmath88 . thus , if @xmath89 , the amplitude of the oscillations is small .
+the  `` learns '' the input value @xmath27 and the ratio of the increments to decrements is @xmath90 . in this stationary regime of oscillating behavior ,
+the number of times the  actives the + 1 ( -1 ) channel is given by @xmath61 ( @xmath91 ) .
+the simulation results shown in fig .
+[ figline ] ( right ) confirm the correctness of this analysis .
+for a fixed ( unknown ) value of the input variable , the rate at which the machine defined by the rules eqs .   and activates one of its output channels is determined by the value of its internal variable .
+therefore , this rate reflects the value that the machine has learned by processing the input events . depending on the application ,
+the message that is sent through the active output channel can contain @xmath92 or the input value @xmath6 ( there is nothing else that can be send ) .
+obviously we can make the learning process more precise by increasing @xmath93 .
+of course , a larger value of @xmath16 also results in slower learning : in general it will take more events for the internal variable to reach the value where it starts to oscillate .      in going from the first to the second example of section  [ illu ] we changed the update rule such that the variable @xmath4 is constrained to lie in the interval @xmath68 $ ] .
+we now consider the two - dimensional analogue of the  described in section  [ illub ] for which the internal vector @xmath94 and input vector @xmath95 represent points on a circle .
+this  receives as input a sequence of angles @xmath96 defined by    @xmath97    and responds by activating one of the two output channels .    for all @xmath98 ,
+the update rules are defined by    @xmath99    where @xmath100 and @xmath15 . in order that the internal vector @xmath101 stays on the unit circle
+we must have    @xmath102 \pm\sqrt{1-\alpha^2+\alpha^2[x_{1,n}^2\theta_{n+1 } + x_{2,n}^2(1-\theta_{n+1 } ) ] } .
+\label{circ2}\ ] ]    substitution of eq .   in eq .
+gives us four different rules :    @xmath103    where @xmath104 takes care of the fact that for each choice of @xmath105 , the  has to decide between two quadrants .
+the cost function is defined by    @xmath106    obviously , the cost function eq .
+is nothing but the inner product of the vectors @xmath107 and @xmath108 .
+the new internal state itself is determined by calculating the cost eq .   for each of the four candidate update rules listed in eq .   and selecting the rule that yields the minimum cost .
+note that the minimum of the cost function eq .   does not depend on the length of the vector of input variables @xmath95 . from eq .
+it follows that if @xmath109 .
+the value of @xmath110 is obtained by rescaling of @xmath111 and @xmath112 is adjusted such that @xmath113 . for @xmath114 we interchange
+the role of the first and second element of @xmath107 .
+( 8,6 ) ( -5,0 ) ( 4,0 )    in general the behavior of the  defined by rules eqs .   and is difficult to analyze without the use of a computer .
+however , for a fixed input vector @xmath115 it is clear what the  will try to do : it will minimize the cost eq .   by rotating its internal vector @xmath107 to bring it as close as possible to @xmath116 .
+however , @xmath107 will not converge to a limiting value but instead it will keep oscillating about the input value @xmath116 .
+an example of a simulation is given in fig .
+[ c30 ] ( left ) . for a fixed input vector
+@xmath115 the  reaches a stationary state in which its internal vector oscillates about @xmath116 . in this stationary state
+the output signal consists of a finite sequence of ones and zeros .
+the  repeats this sequence over and over again . obviously , the whole process is deterministic .
+the details of the approach to the stationary state depend on the initial value of the internal vector @xmath117 , but the stationary state itself does not .
+these observations are of much more general nature than the example given in fig .
+[ c30 ] ( left ) suggests .
+in fact , as the applications discussed below amply illustrate , the stationary - state analysis is a very useful tool to predict the behavior of the . assuming that @xmath89 and that we have reached the stationary regime in which the internal vector performs small oscillations about @xmath118 , a simple calculation shows that    @xmath119    in the stationary regime , we have @xmath120 where @xmath121 ( @xmath122 ) is the number of @xmath109 ( @xmath114 ) events . from eq .
+it then follows immediately that @xmath123 and @xmath124 .
+the results of this analysis are in excellent agreement with the simulation results shown in fig .
+[ c30 ] ( right ) .    the conventional approach to regard the variables @xmath105 as
+input is fundamentally different from the approach adopted in this paper .
+this can be seen by reformulating the update rules in terms of difference equations and to assume that the @xmath100 are independent , uniform random variables with mean @xmath125 .
+the four rules eq .   can be written as    @xmath126    formally eq .
+has the same structure as eq .  .
+averaging over many realizations of @xmath127 and taking the limit @xmath128 we obtain    @xmath129    in other words , a machine that operates according to the rules eq .   and
+receives as input the random sequence @xmath105 will ( on average ) approach a state in which the direction of its internal vector gives us an estimate of the @xmath130 .
+in contrast , a  that minimizes the cost eq .   and updates its internal state according to eq .
+responds on either output channel @xmath109 or output channel @xmath114 , with a frequency that is directly related to the difference between the current input angle and the angle defined by the internal vector .
+consider a sequence of events , characterized by vectors @xmath131 for @xmath98 .
+the vector @xmath108 is the input for the .
+the internal state of the  is described by a @xmath0-dimensional unit vector @xmath132 .
+we define the @xmath133 candidate update rules @xmath134 by    @xmath135    note that @xmath136 implies @xmath137 for each of the @xmath133 update rules .
+the  responds to the input @xmath108 by selecting from the @xmath133 possible rules in eq .  ,
+the update rule that minimizes the cost    @xmath138    and by sending a message containing @xmath108 ( or , depending on the application , @xmath107 ) on one of its output channels .
+note that the minimum of the cost function eq .   does not depend on the length of the vectors @xmath107 or @xmath108 . disregarding the variables @xmath139 that merely serve to determine the sign of @xmath140 there are @xmath0 rules .
+hence there can be as many as @xmath0 output channels .
+however , depending on the application , it may be expedient to reduce the number of output channels by arranging them in groups .
+the  analyzed in the previous subsections have one input channel that receives input and two output channels , only one of which sends out data ( a message ) at a particular event .
+an obvious generalization is to construct  that accept , at a given instance , input from one out of two different sources .
+this is absolutely necessary if we want to build machines in which events can communicate or , in physical terms , interact with each other .
+we now demonstrate that the  that we introduced above already have the capability to let events interact with each other .
+therefore we do not need to add a new feature or rule to the .
+consider a  that has two input channels 0 and 1 and an internal vector @xmath141 with @xmath142 components . at the @xmath5-th event , either input channel 0 receives the two - component vector @xmath143 or input channel 1 receives the two - component vector @xmath144 .    in the former case
+the  transforms this input into the input vector @xmath145 of four elements by using the current internal vector as a source for the missing elements .
+similarly , in the latter case the input vector becomes @xmath146 .
+then the  uses @xmath147 to determine the cost and selects the update rule according to the procedure described in section  [ hyp ] ( with @xmath147 replacing @xmath108 ) .
+this  learns the two - dimensional vectors @xmath143 and @xmath144 separately , as if it consists of two separate , independent two - dimensional , with the additional crucial feature that the internal vector represents a point on a 4-dimensional unit sphere .
+it is not difficult to imagine what this  does in the case that it receives events on only one of the two input channels ( say 0 ) .
+irrespective of the initial value of the internal vector @xmath148 , the  will always select the update rule with @xmath149 ( see eq .  ) and the two components @xmath150 and @xmath151 will vanish exponentially fast with increasing @xmath2 ( recall that @xmath15 ) .
+thus , after a few events the internal state of the  indicates that the  receives events on only one channel .
+if the machine receives input on both channels ( but never simultaneously ) , eq
+.   implies that the  only scales the two components of the internal state that it uses to provide the missing elements for building the input @xmath147 .
+therefore , in the stationary regime , the length of the two - dimensional vector @xmath94 ( @xmath152 ) is proportional to the number of events on input channel 0 ( 1 ) .
+furthermore the number of @xmath149 ( @xmath153 ) events is approximately equal to the number of events on input channel 0 ( 1 ) .
+although this may seem a very elementary form of communication , it is sufficient to construct  that perform very complicated tasks .
+the  described above are simple deterministic machines that make decisions .
+the  responds to the input event by choosing from all possible alternatives , the internal state that minimizes the error between the input and the internal state itself .
+then the  sends a message through one of its output channels .
+the message contains information about the decision the  took while updating its internal state and , depending on the application , also contains other data that the  can provide . by updating its internal state ,
+the   learns " about the input it receives and by sending messages through one of its two output channels , it tells its environment about what it has learned . in the sequel
+we will call such a machine a * deterministic learning machine * ( dlm ) . for a particular choice of the update rule ( see section  [ illua ] ) , the  performs linear estimation but as the other examples of this section amply demonstrate , minor modifications to this rule and/or cost function yield  that may behave in a substantially different manner .
+the  of section  [ illua ] learns about the input data by moving a point on a line .
+obviously , this point separates two parts of the line .
+the generalization to @xmath0-dimensional space is a @xmath154-dimensional hyperplane that divides the space into two parts .
+thus , to interpret two - dimensional data the should learn a line instead of a point .
+we represent the line by a segment @xmath155 defined by its mid - point @xmath156 and its direction @xmath157 . as the  receives an event @xmath108 , i.e. a point in a two - dimensional plane , the  updates its internal line segment @xmath155 and sends the information describing @xmath155 through the -1 ( + 1 ) channel , depending on whether it lies on the left ( right ) side of the line .
+the update procedure consists of two steps .
+first we define two support points @xmath158 and @xmath159 on either side of @xmath156 along the direction @xmath157 by    @xmath160    and we update the two support points according to    @xmath161    where @xmath15 controls the learning process . then we compute the new mid - point and direction of the line segment :    @xmath162    from eq .
+it follows that the support point farthest away from @xmath108 makes the largest move .
+therefore , as new input data is received by the , both the mid - point and the direction of the line segment change . note that the update rule eq .
+is non - linear in the difference between internal and input vector .
+although a linear update rule also works , our numerical experiments ( results not shown ) indicate that the non - linear rule eq
+.   performs much better .    in general @xmath156
+will converge to the mean of the input vectors and @xmath158 and @xmath159 will be pulled most strongly in the direction of largest variance
+. therefore @xmath155 will be ( approximately ) perpendicular to the largest principal component of the covariance matrix of the input data .
+in other words , the  defined above can find the eigenvector that corresponds to the largest eigenvalue of the covariance matrix by processing data points in a sequential manner , i.e. , without actually having to compute the elements of the covariance matrix .
+( 14,10 ) ( 0,5 ) and means @xmath163 .
+each panel shows the output of the -based classifier after it has processed , point - by - point , the 100 data points shown .
+the classifier smoothly follows the rotation of the means .
+in contrast to the event - by - event processing of the -based classifier , the principal - component - based classifier processes the whole set of 100 data points simultaneously .
+, title="fig:",width=264 ] ( 5,5 ) and means @xmath163 .
+each panel shows the output of the -based classifier after it has processed , point - by - point , the 100 data points shown .
+the classifier smoothly follows the rotation of the means .
+in contrast to the event - by - event processing of the -based classifier , the principal - component - based classifier processes the whole set of 100 data points simultaneously .
+, title="fig:",width=264 ] ( 10,5 ) and means @xmath163 .
+each panel shows the output of the -based classifier after it has processed , point - by - point , the 100 data points shown .
+the classifier smoothly follows the rotation of the means .
+in contrast to the event - by - event processing of the -based classifier , the principal - component - based classifier processes the whole set of 100 data points simultaneously .
+, title="fig:",width=264 ] ( 0,0 ) and means @xmath163 .
+each panel shows the output of the -based classifier after it has processed , point - by - point , the 100 data points shown .
+the classifier smoothly follows the rotation of the means .
+in contrast to the event - by - event processing of the -based classifier , the principal - component - based classifier processes the whole set of 100 data points simultaneously .
+, title="fig:",width=264 ] ( 5,0 ) and means @xmath163 .
+each panel shows the output of the -based classifier after it has processed , point - by - point , the 100 data points shown .
+the classifier smoothly follows the rotation of the means .
+in contrast to the event - by - event processing of the -based classifier , the principal - component - based classifier processes the whole set of 100 data points simultaneously .
+, title="fig:",width=264 ] ( 10,0 ) and means @xmath163 .
+each panel shows the output of the -based classifier after it has processed , point - by - point , the 100 data points shown .
+the classifier smoothly follows the rotation of the means .
+in contrast to the event - by - event processing of the -based classifier , the principal - component - based classifier processes the whole set of 100 data points simultaneously .
+, title="fig:",width=264 ]    as an illustration of the capabilities of the  introduced in this section , let us consider a classification task in which we want to blindly group events into two categories .
+the input data @xmath143 are generated through a gaussian random process described by :    @xmath164    where @xmath165 is a uniform random bit .
+the random numbers @xmath166 and @xmath167 are drawn from the normal distribution @xmath168 . in our numerical example
+we take @xmath169 and @xmath47 . from eq .
+it is clear that the input events consist of points in a plane that are drawn from one of two ( @xmath170 ) gaussian distributions , the centers of which rotate with a period of 10000 events .
+the mean of all input data is @xmath171 and there is no preferred direction of largest variance .
+the reason of course is that the center of the gaussian distributions slowly moves on the unit circle .
+clearly , this kind of classification task can only be performed by permanently updating the estimate of the direction and that is exactly what the  does . in fig .
+[ 2dp2 ] we present results of a blind classification experiment that illustrates the operation of the  defined by the rules eqs .
+the  processes event - by - event , each time updating its estimate for the separatrix . for comparison
+we also show the result obtained by the principal component analysis  @xcite using as input the group of 100 most recent data points processed by the .
+the differences between both classifiers are rather small so that it is clear that the -based classifier performs very well .
+the two - dimensional  described above can easily be extended to a  that processes @xmath0-dimensional input data . instead of a line segment
+the  has to learn a segment of a @xmath154-dimensional hyperplane .
+this can be done by extending the procedure used in the two - dimensional case .
+the hyperplane segment is described by a mid - point @xmath156 and @xmath172 orthonormal directions @xmath173 for @xmath174 .
+we choose @xmath0 points @xmath175 on the hyperplane defined by @xmath176 and @xmath156 such that the distance between each pair of points is one . as new input data @xmath108 is received by the these points
+are updated according to ( the generalization of ) eq .  .
+as in the two - dimensional case , from the updated points we can calculate the new mid - point and the new directions .
+however , unlike in the two - dimensional case , these directions do not need to be orthonormal .
+the orthonormality is then restored by using the ( modified ) gramm - schmidt procedure  @xcite .
+( 14,7 ) ( -1.75,0 ) ( 7,0 )    [ p25 ]    ( 14,7 ) ( -1.,0 )   ( 7,0 )     [ 3pol ]
+we demonstrate that the  defined by eqs .   and and a passive element that performs a plane rotation are sufficient to perform a deterministic simulation of the quantum theory  @xcite of photon polarization .
+we start by recalling some elementary facts about photon polarization  @xcite .
+some optically active materials like calcite split an incoming beam of light into two spatially separated beams  @xcite .
+the light intensity of these beams is related to the angle of polarization @xmath177 of the electromagnetic wave , relative to the orientation @xmath178 of the material  @xcite .
+we disregard all imperfections of real experiments and assume that the experimental data are in exact agreement with the wave mechanical theory .
+then the intensities @xmath179 of beam 0 and @xmath180 of beam 1 are given by  @xcite    @xmath181    respectively .
+if the incident beam has a random polarization , averaging of eq .
+over all @xmath177 shows that half of the light intensity will go to beam 0 and the other half to beam 1 .
+if the conventional light source is replaced by a source that emits one photon at a time , the photon leaves the material either in the direction of beam 0 or beam 1 , never in both  @xcite .
+collecting photons over a sufficiently long period shows that eq .
+still gives the number of photons detected in the direction of beam 0 ( 1 ) , divided by the total amount of detected photons  @xcite .
+quantum theory  @xcite describes the polarization in terms of a two - dimensional ( complex - valued ) vector and the action of the material is to rotate this vector by an angle @xmath178 ( set by the experimentalist )  @xcite .
+the probability to observe photons in beam 0 ( 1 ) is given by the square of the 0-th ( 1-st ) element of the vector  @xcite .
+in addition , as the photon leaves the material in beam 0 ( 1 ) , its polarization is @xmath178 ( @xmath182 )  @xcite .
+thus the piece of material can be used to prepare and also determine the polarization of the photons and is called a `` polarizer ''  @xcite .    according to quantum theory  @xcite , the polarizer rotates the vector of polarization amplitudes in the following manner  @xcite :    @xmath183    still according to quantum theory  @xcite , the intensity in beam 0 ( 1 ) is given by @xmath184 ( @xmath185 ) .
+an incident beam with an angle of polarization @xmath177 is described by the vector @xmath186 . from eq .
+we obtain @xmath187 and hence @xmath188 and @xmath189 , in agreement with eq .  .
+we now construct a simple deterministic machine that generates events of which the distribution agrees with the probability distributions predicted by quantum theory  @xcite .
+the layout of this `` polarizer '' is shown in fig .
+[ figpol ] . the incoming event ( photon ) carries an ( unknown ) angle @xmath190 .
+the purpose of the passive element @xmath191 is to perform a rotation    @xmath192    of the input vector @xmath193 by the angle @xmath178 .
+the resulting vector @xmath194 is sent to the input of a  that operates according to eqs .   and . if @xmath109 , the  responds by sending the vector @xmath195 through the output channel 0 .
+if @xmath114 , the  responds by sending the vector @xmath196 through the output channel 1 . clearly this procedure is strictly deterministic .
+we emphasize that the  processes information event by event and does not store the data contained in each event .    in fig .
+[ p25 ] ( right ) we show simulation results for the machine depicted in fig .
+[ figpol ] ( left ) .
+each data point represents the intensity in beam 0 ( 1 ) , i.e. , the number of @xmath197 @xmath198 events divided by the total amount of events .
+the machine is initialized once by choosing a random direction of the vector @xmath148 .
+the angle of rotation @xmath178 is kept fixed for 1000 events , then a uniform random number is used to select another direction , and this procedure is repeated 100 times . in all these numerical experiments we set @xmath47 . fig .
+[ p25 ] shows the results for two different numerical experiments : in the first set of 100 runs , the direction of polarization @xmath177 of the incoming photons is also determined by means of uniform random numbers . in the second set of 100 runs , the direction of polarization of the incoming photons is fixed ( @xmath199 ) . from fig .
+[ p25 ] ( right ) it is clear that quantum theory  @xcite provides a very good description of the input - output behavior of the  shown in fig .
+[ figpol ] ( left ) .    as a second illustration we use the same  to simulate an experiment with three polarizers described by feynman  @xcite .
+the diagram of this experiment is shown in fig .
+[ fig3pol ] .
+a randomly polarized beam of photons passes through the first polarizer ( without loss of generality we set its angle @xmath200 equal to zero ) .
+each output channel is used as input to another polarizer .
+both these polarizers are tilted by the same angle @xmath201 . according to quantum theory  @xcite ,
+the intensity at the output of these four channels is ( from top to bottom , see fig .
+[ fig3pol ] ) @xmath202 , @xmath203 , @xmath203 , and @xmath202 .
+the results of our numerical experiments are shown in fig .
+the simulation procedure is the same as the one used to generate the data of fig .
+also in these numerical experiments we set @xmath47 .
+we emphasize once more that the randomness in these discrete - event simulations only enters through the characterization of the photon source and through our procedure of selecting the direction of the polarizer for each set of 1000 events .
+actually , the latter only serves to counter the possible objection that the apparent quantum mechanical behavior would be caused by monotonically changing the direction of the polarizers .
+as in the previous example , it is clear that quantum theory  @xcite describes the input - output behavior of the three-  network very well .
+we now show that two @xmath142  and two passive devices that perform a plane rotation by @xmath204 are sufficient to build a network that behaves as if it where a single - photon beam splitter .
+first we describe the network and then we demonstrate that it acts as a beam splitter .
+( 14,7 ) ( -1.75,0 ) ( 7,0 )    [ one - bs ]    ( 14,7 ) ( -1.75,0 ) ( 7,0 )    [ figmz ]        the network shown in fig.[figbs ] has two input channels ( 0 and 1 ) and two output channels ( 0 and 1 ) .
+the network receives events at one of the two input channels .
+each input event carries information in the form of a two - dimensional unit vector .
+either input channel 0 receives @xmath95 or input channel 1 receives @xmath205 .
+the input is fed into the device described in section  [ twoone ] .
+the purpose of this front - end  is to transform the information contained in two - dimensional input vectors ( of which only one is present for any given input event ) , into a four - dimensional unit vector .
+the four - dimensional internal vector of this device is split into two groups of two - dimensional vectors @xmath206 and @xmath207 and each of these two - dimensional vectors is rotated by @xmath204 . put differently
+, the four - dimensional vector is rotated once in the ( 1,4)-plane about @xmath204 and once in the ( 3,2 ) plane about @xmath204 .
+the order of the rotations is irrelevant .
+the resulting four - dimensional vector is then sent to the input of a second @xmath142 .
+this back - end  sends @xmath208 through output channel 0 if it used rule @xmath149 ( see eq .  ) to update its internal state .
+otherwise it sends @xmath209 through output channel 1 .
+the operation of the network depicted in fig.[figbs ] can be analyzed analytically if we disregard transient effects and assume that the information carried by events on channel 0 ( 1 ) is given by @xmath210 ( @xmath211 ) .
+we denote by @xmath212 the number of events on input channel 0 divided by the total number of events .
+then , the number of events on input channel 1 is given by @xmath213 .    in the stationary regime , the internal state @xmath214 of the front - end
+( see fig.[figbs ] ) learns @xmath215 . carrying out the two plane rotations of @xmath204 we see that the back - end  receives as input the four - dimensional vector @xmath216 . in the stationary regime ,
+the internal vector @xmath217 of the back - end oscillates about @xmath216 .
+therefore , in the stationary regime and for fixed two - dimensional vectors on input channels 0 and 1 , the input - output relation of the bs network of fig .
+[ one - bs ] can be written as    @xmath218    using two complex numbers instead of four real numbers eq .
+can also be written as    @xmath219    in quantum theory  @xcite the presence of photons in the input modes 0 or 1 is represented by the probability amplitudes ( @xmath220  @xcite . according to quantum theory  @xcite
+, the probability amplitudes ( @xmath221 of the photons in the output modes 0 and 1 of a beam splitter are given by  @xcite    @xmath222    identifying @xmath223 with @xmath224 and @xmath225 with @xmath226 it is clear that by construction , the  network in fig .
+[ figbs ] will allow us to simulate a beam splitter , not by calculating the amplitudes eq .
+but by a deterministic event - by - event simulation .    in fig .
+[ one - bs ] ( right ) we present results of discrete - event simulations using the  network depicted in fig
+.  [ figbs ] ( left ) .
+before the simulation starts , the internal vectors of the  are given a random value ( on the unit sphere ) .
+each data point represents 10000 events .
+all these simulations were carried out with @xmath47 . for each set of 10000 events ,
+a uniform random number in the range @xmath227 $ ] generates two angles @xmath228 and @xmath229 .
+input channel 0 receives @xmath230 with probability @xmath231 .
+input channel 1 receives @xmath232 with probability @xmath233 .
+random processes only enter in the procedure to generate the input data .
+the  network processes the events sequentially and deterministically . from fig .
+[ one - bs ] it is clear that the output of the deterministic -based beam splitter reproduces the probability distributions as obtained from quantum theory  @xcite .
+( 14,14 ) ( -1,7 ) ( 7,7 ) ( -1,0 ) ( 7,0 )    ( 14,14 ) ( -1,7 ) ( 7,7 ) ( -1,0 ) ( 7,0 )      in quantum physics  @xcite , single - photon experiments with one beam splitter provide direct evidence for the particle - like behavior of photons  @xcite .
+the wave mechanical character appears when one performs single - particle interference experiments . in this subsection
+we construct a  network that displays the same interference patterns as those observed in single - photon mach - zehnder interferometer experiments  @xcite .    the schematic layout of the  network is shown in fig .  [ figmz ] .
+not surprisingly , it is exactly the same as that of a real mach - zehnder interferometer .
+the bs network described in the previous subsection is used for the beam splitters .
+the phase shift is taken care of by a passive device that performs a plane rotation .
+clearly there is a one - to - one mapping from each relevant component in the interferometer to a processing unit in the  network . recall that the processing units in the  network only communicate with each other through the message ( photon ) that propagates through the network .    according to quantum theory  @xcite ,
+the probability amplitudes ( @xmath221 of the photons in the output modes 0 ( @xmath234 ) and 1 ( @xmath235 ) of the mach - zehnder interferometer are given by  @xcite    @xmath236    note that in a quantum mechanical setting it is impossible to simultaneously measure ( @xmath237 , @xmath238 ) and ( @xmath239 , @xmath240 ) : photon detectors operate by absorbing photons .
+however , in our deterministic , event - based simulation there is no such problem .    in fig .
+[ one - mz ] we present a small selection of simulation results for the mach - zehnder interferometer built from .
+we assume that input channel 0 receives @xmath230 with probability one and that input channel 1 receives no events .
+this corresponds to @xmath241 .
+we use uniform random numbers to determine @xmath228 . in all these simulations @xmath47 .
+the data points are the simulation results for the normalized intensity @xmath242 for i=0,2,3 as a function of @xmath243 .
+lines represent the corresponding results of quantum theory  @xcite . from fig .
+[ one - mz ] it is clear that quantum theory provides an excellent description of the deterministic , event - based processing by the  network .    the examples presented in fig .
+[ one - mz ] do not rule out that there may be settings for the angles @xmath228 , @xmath244 and @xmath200 for which quantum theory fails to give a good description of the behavior of the  network
+. however extensive series of simulations show that this is not the case . instead of presenting the results of these simulations we will demonstrate that quantum theory  @xcite also describes the stationary - state input - output behavior of more extended  networks .    as an example we consider the  network depicted in fig .
+[ fig2mz ] . obviously this network maps exactly onto two chained mach - zehnder interferometers  @xcite .
+now there are seven parameters @xmath231 , @xmath228 , @xmath229 , @xmath244 , @xmath200 , @xmath245 , and @xmath246 that may be varied , so simply plotting selected cases is not the proper procedure to establish that quantum theory describes the stationary - state behavior of the  network .
+therefore we adopt the following strategy .
+for each set of 10000 events , we use seven random numbers to fix the parameters @xmath231 , @xmath228 , @xmath229 , @xmath244 , @xmath200 , @xmath245 , and @xmath246 .
+then we collect the data for these 10000 events and compare the intensity in output channel 0 ( @xmath247 ) and 1 ( @xmath248 ) with the corresponding results of quantum theory  @xcite .
+the latter is given by    @xmath249    for each choice of @xmath250 we compute the differences @xmath251 and @xmath252 .
+@xmath247 ( @xmath248 ) is the number of events in the output channel 0 ( 1 ) of the third beam splitter .
+@xmath253 is the total number of events ( 10000 in this case ) . in fig .
+[ two - mz ] we show @xmath251 as a function of @xmath231 , @xmath254 , @xmath255 , and @xmath256 . in all these simulations @xmath47 .
+once again it is clear that quantum theory  @xcite provides a very good description of a -based simulation of two chained mach - zehnder interferometers .
+all simulations that we presented in this section have been performed for @xmath47 . from the description of the learning process
+it is clear that @xmath16 controls the rate of learning or , equivalently , the rate at which learned information can be forgotten . furthermore it is evident that the difference between a constant input to a  and the learned value of its internal variable can not be smaller than @xmath257 . in other words
+, @xmath16 also limits the precision with which the internal variable can represent a sequence of constant input values . on the other hand
+, the number of events has to balance the rate at which the  can forget a learned input value .
+the smaller @xmath257 is , the larger the number of events has to be for the  to adapt to changes in the input data .
+we use the last example of section  [ mzi ] to illustrate the effect of changing @xmath16 and the total number of events @xmath258 . in fig .
+[ two - mz - b ] we show the results of repeating the procedure used to obtain the data shown in fig .
+[ two - mz ] but instead of @xmath47 and @xmath259 events per data point , we used @xmath260 and @xmath261 event per data point . as expected , the difference between the simulation data and the results of quantum theory decreases if @xmath257 decreases and @xmath258 increases accordingly .
+comparing fig .
+[ two - mz ] with fig .
+[ two - mz - b ] it is clear that the decrease of this difference is roughly proportional to the inverse of the square root of the number of events .
+note that each data point in fig .
+[ two - mz ] is generated without the use of random processes .
+in the stationary regime , the sequence of messages that a  ( network ) generates is strictly deterministic . for some applications , e.g. for quantum physics  @xcite , it may be desirable to randomize these sequences .
+a marginal modification turns a  into a stochastic learning machine ( slm ) . here
+the term _ stochastic _ does not refer to the learning process but to the method that is used to select the output channel that will carry the outgoing message .
+in the stationary regime the components of the internal vector represent the probability amplitudes . comparing the ( sums of ) squares of these amplitudes with a uniform random number @xmath262
+gives the probability for sending the message over the corresponding output channel .
+for instance , in the case of the beam splitter bs ( see fig .  [ figbs ] ) we replace the back - end dlm by a slm .
+this slm will send a message over output channel 0 if @xmath263 .
+otherwise it will activate output channel 1 .
+although the learning process of this modified bs network is still deterministic , in the stationary regime the output messages are randomly distributed over the two output channels .
+of course , the distribution of output messages is the same as that of the original -network .    replacing  by slms in a -network changes the order in which messages are being processes by the network but leaves the content of the messages intact .
+therefore , in the stationary regime , the distribution of messages over the outputs of the slm - network is essentially the same as that of the original dlm network .    as an illustration of the use of slms ,
+we replace the two back - end  in the mach - zehnder interferometer network ( see fig
+.  [ figmz ] ( left ) ) by their `` randomized '' version and repeat the procedure that generates the data of fig .
+[ figmz ] ( right ) .
+the results of these simulations are shown in fig .
+[ one - mz - random ] .
+not unexpectedly , the randomness in the output channel selection is reflected by a ( small ) increase of the scatter on the data points . in this simulation ,
+the output channels 0 and 1 of each beam splitter are activated in a random manner and the functional dependence of @xmath237 , @xmath238 , @xmath264 and @xmath265 on @xmath178 is still in full agreement with quantum theory  @xcite . in other words ,
+this slm - network performs a genuine , event - by - event simulation of the ideal ( perfect detectors , etc . ) version of both the single - photon beam splitter and mach - zehnder interferometer experiments by grangier et al  @xcite .
+we have proposed a new procedure to construct deterministic algorithms that have primitive learning capabilities .
+we have used these algorithms to build deterministic learning machines ( dlms ) .
+a dlm learns by processing event after event but does not store the data contained in an individual event . connecting the input of a dlm to the output of another dlm
+yields a locally connected network of dlms .
+a dlm within the network locally processes the information contained in an event and responds by sending a message that may be used as input for another dlm .
+a distinct feature of a dlm network is that at any given time , only one event ( message ) is propagating through the network .
+the dlms process messages in a sequential manner and only communicate with each other by message passing .    we have demonstrated that dlm networks can discover relationships between successive events ( see section  [ ndim ] ) and that certain classes of dlm networks exhibit behavior that is usually only attributed to quantum systems . in sections  [ qi ] and [ slm ] we have presented dlm networks that simulate quantum interference on an event - by - event basis .
+more specifically , we map each physical part of the real mach - zehnder interferometer onto a dlm and the messages ( phase shifts in this case ) are carried by photons .
+no ingredient other than simple geometry is used to specify the update rules of the dlms .
+as the network processes event after event , the network generates output events that build an interference pattern that is described by the quantum theory  @xcite of the single - photon beam splitter and mach - zehnder interferometer . to illustrate that dlm networks are indeed capable of simulating quantum interference on an event - by - event basis we also simulate an experiment involving three beam splitters ( i.e. two chained mach - zehnder interferometers ) and demonstrate that quantum theory  @xcite also describes the behavior of this network .
+the results presented in sections  [ qi ] and [ slm ] suggest that we may have discovered a systematic procedure to construct algorithms that simulate quantum phenomena using deterministic , local , and event - by - event - based processes .
+we emphasize that our approach is not a proposal for another interpretation of quantum mechanics .
+our approach is not an extension of quantum theory in any sense : the probability distributions of quantum theory appear as the result of a deterministic , causal learning process , and not vice versa ( see section  [ qi ] )  @xcite .
+our results suggest that quantum mechanical behavior may originate from an underlying deterministic process  @xcite . indeed
+, it is somewhat ironic that in order to mimic the apparent randomness with which events are observed in experiments , we have to explicitly randomize the output of the dlms to mask the underlying deterministic processes ( see section  [ slm ] ) .
+to the best of our knowledge , this paper contains the first demonstration that quantum interference can be simulated on an event - by - event basis using local , causal , and deterministic processes , and without using concepts such as wave fields or particle - wave duality .    at this point
+it may be worthwhile to recall what a dlm actually does . in a simple physical picture ,
+a dlm is a device ( e.g. beam splitter , polarizer ) that exchanges information with the particles that pass through it .
+the dlm tries to do this in an effective manner .
+it learns by comparing the message carried by an event with predictions based on the knowledge acquired by the dlm during the processing of previous events .
+effectively this comparison amounts to a minimization of the squared error ( see section  [ illu ] ) .
+schrdinger used exactly the same principle to derive his famous equation  @xcite but called this approach `` unverstndlich '' in a subsequent publication  @xcite .    in a future publication
+we will show that the approach introduced in this paper can be employed to perform event - based simulations of a universal quantum computer  @xcite .
+it has been shown that the time evolution of the wave function of a quantum system can be simulated on a quantum computer  @xcite .
+therefore it should be possible to compute the real - time dynamics of these systems ( including the double - slit experiment mentioned in the introduction ) through discrete - event simulation by constructing appropriate dlm networks .
+we thank s. miyashita for extensive discussions .
+we make a distinction between quantum theory and quantum physics .
+we use the term _ quantum theory _ when we refer to the mathematical formalism , i.e. , the postulates of quantum mechanics ( with or without the wave function collapse postulate )  @xcite and the rules ( algorithms ) to compute the wave function .
+the term _ quantum physics _ is used for microscopic , experimentally observable phenomena that do not find an explanation within the mathematical framework of classical mechanics .
+an interactive program that performs the event - based simulations of a beam splitter , one mach - zehnder interferometer , and two chained mach - zehnder interferometers can be found at http://www.compphys.net/dlm      m. nielsen and i. chuang , _ quantum computation and quantum information _ , cambridge university press , cambridge ( 2000 ) g. t hooft , `` determinism beneath quantum mechanics '' , quant - ph/0105105 g. t hooft , `` quantum mechanics and determinism '' , quant - ph/0212095 e. schrdinger , ann .
+* 79 * , 361 ( 1926 )

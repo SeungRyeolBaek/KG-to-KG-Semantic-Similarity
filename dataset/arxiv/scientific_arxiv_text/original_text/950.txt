@@ -1,0 +1,144 @@
+the rayleigh - taylor instability occurs when a heavy fluid is being pushed by a light fluid .
+two plane - parallel layers of fluid , colder on top , are in equilibrium while the slightest perturbation leads to the denser fluid moving down and the lighter material being displaced upwards .
+the early , linear stage of the instability was described by rayleigh  @xcite and taylor  @xcite , and summarized in  @xcite .
+further development of the instability leads to enhancement of the mixing and to a gradual increase of the mixing zone , which is the domain where proportions of heavy in light and light in heavy are comparable .
+dimensional arguments , supported by large - scale modeling @xcite , suggest that the half - width of the mixing zone , @xmath0 , grows quadratically at late time , @xmath1 , where @xmath2 is the atwood number characterizing the initial density contrast , @xmath3 is the gravitational acceleration , and @xmath4 is a dimensionless coefficient .
+the coefficient @xmath4 was the focus of almost every paper written on the subject of rayleigh - taylor turbulence ( rtt ) during the last fifty years .
+the first attempts to look inside the mixing zone were initiated only in late 1990s  @xcite , due to advances in experimental and numerical techniques .
+the results of many studies and the controversies surrounding the @xmath4-coefficient were recently summarized in the review combining and analyzing the majority of existing @xmath4-testing simulations and experiments  @xcite . in this article
+we also discuss the developed regime of rt turbulence .
+our main focus is on the analysis of the internal structure of the mixing zone , and we trace the @xmath4-coefficient only for validation purposes .
+our analysis of the mixing zone develops and extends previous experimental  @xcite and numerical  @xcite observations on the subject , and it is also guided by phenomenological considerations discussed in  @xcite .
+the essence of the phenomenology , which utilizes the classical kolmogorov-41 approach  @xcite , can be summarized in the following statements : ( i ) the mixing zone width , @xmath0 , and the energy containing scale , @xmath5 , are well separated from the viscous , @xmath6 , and diffusive , @xmath7 , scales . in the inertial range , realized within the asymptotically large range bounded by @xmath8 from above / below , turbulence is adjusted adiabatically to the large - scale buoyancy - controlled dynamics .
+( ii ) in three dimensions , the velocity fluctuations at smaller scales are asymptotically decoupled from weaker buoyancy effects   phenomenological prediction of @xcite was numerically confirmed in  @xcite . ] .
+( iii ) typical values of velocity and density fluctuations scale the same way as in the stationary , homogeneous kolmogorov turbulence , @xmath9 , and @xmath10 , where the energy kolmogorov flux , @xmath11 , increases with time while the density fluctuations flux , @xmath12 , remains constant , according to the buoyancy prescribed large scale dynamics .
+all of these three theses of the phenomenology are consistent with available experimental  @xcite and numerical  @xcite observations of the velocity and density spectra .
+one particularly important consequence of the phenomenology , the decrease of the viscous and dissipative scales , was also predicted in  @xcite and numerically confirmed in  @xcite .    in spite of its relative success in explaining rtt
+, the phenomenology @xcite is , obviously , not free from deficiencies .
+first , the asymptotic , large time character of the theory turns into a handicap in explaining numerical and experimental data , taken at finite , and actually modest , times .
+second , the phenomenology treats all @xmath13-slices within the mixing zone equally .
+third , the phenomenology does not differentiate between the mixing zone width , @xmath0 , and the energy containing scale , @xmath5 , for the turbulent fluctuations .
+improving the phenomenology from within itself , or by some complementary theoretical means , does not seem feasible , and one needs to rely on resolving these questions / uncertainties through experiments and simulations .
+this article reports a step in this direction .
+here we raise and give partial answers , based on simulations , to the following subset of key questions concerning the internal structure of the rtt mixing zone :    * analyzing the evolution of @xmath0 , @xmath5 , @xmath7 and @xmath6 with time one often observes a non - universal , simulation / experiment specific behavior , especially at transient , so - called early self - similarity , times  @xcite .
+will the relative dependence of scales be a more reliable indicator of a universal behavior than the time - dependence of the scales ? * how does the energy containing scale , @xmath5 , compare with the width of the mixing layer , @xmath0 ?
+this question was already addressed in @xcite . here
+, we will elaborate on this point . *
+how different are the turbulent spectra at different vertical positions in the mixing zone within a given time snapshot ? * how different are the scales and spectra corresponding to qualitatively different initial perturbations ?    the material in this article is organized as follows .
+we start by describing our simulations , we then proceed to the definitions and subsequently the observations of the various spatial scales characterizing snapshots of the mixing zone .
+finally we discuss self - similarity and universality of the emerging spatio - temporal picture of the rtt .
+we conclude by answering the questions posed above .
+we consider 3d incompressible , miscible rayleigh - taylor flow in the boussinesq regime , @xmath14 where @xmath15 and @xmath16 are the diffusion and viscosity coefficients , while @xmath17 is the normalized density .
+the boussinesq approximation for gravity corresponds to fluids with small density contrast , @xmath18 , where @xmath19 is the atwood number . here
+, we restrict ourself to the case of @xmath20 .
+we solve equations  ( [ ns]-[bm_v ] ) using the spectral element code of fischer et al  @xcite designed specifically for dns of boussinesq fluids .
+the equations are solved in the nondimensional units , @xmath21 = ( 2ag)^{-\frac{1}{3 } } \nu^{\frac{2}{3 } } , \hspace{15 mm }     [ t ] = ( 2ag)^{-\frac{2}{3 } } \nu^{\frac{1}{3}};\ ] ] the results are presented in the same units .
+this choice of units is based solely on the dimensional parameters in eqs .
+( [ ns]-[bm_v ] ) thus reflecting free boundary conditions ( absence of any wall constraints ) .
+the critical wavelength and the wavelength of the linearly most unstable mode are constants in these units .
+the boundary conditions are periodic in the horizontal directions and no - slip in vertical direction .
+the initial conditions include a quiescent velocity and a slightly perturbed interface between the layers , @xmath22 , where @xmath23 $ ] is the function describing the density profile across the interface and @xmath24 is the perturbation .
+we use spectral elements of size @xmath25 with 12 collocation points in each direction .
+this is equivalent to the spectral resolution with the spacing between points @xmath26 .
+the size of our largest computational domain is @xmath27 physical units , or @xmath28 collocation points .
+we stop our simulation at , @xmath29 , when the width of the mixing layer reaches the domain size . at the end of simulation , the reynolds number reaches @xmath30 to @xmath31 depending on the initial conditions , where @xmath32 . for comparison ,
+the largest rayleigh - taylor simulation to date  @xcite was performed in a @xmath33 domain at resolution @xmath34 and reaching time @xmath35 and @xmath36 .
+our relatively coarse resolution might raise concerns , especially in diagnostics of small structures .
+nevertheless , all our results , including the spectra and the estimates for microscale @xmath6 , are in a very good agreement with  @xcite , as well as with our finer - resolved ( but smaller ) simulation with @xmath34 .    in all cases
+studied , the ( initial ) fastest growing mode is located at @xmath37 .
+most of the presented results were obtained in the simulations in the domain of @xmath38 physical units with initial perturbation in the form of a narrow initial spectrum , with modes @xmath39 and spectral index  @xmath40 .
+( here the spectral index refers to the exponent of the wavenumber , as in  @xcite , and describes the shapes of the spectra . ) to investigate the influence of initial condition we also performed additional simulations in smaller domain of size @xmath41 ( in physical units ) with : ( 1 ) a narrower initial spectrum , with modes @xmath42 and spectral index  0 ( figure  [ fig_cubes ] ) ; and ( 2 ) a broader initial spectrum , with modes @xmath43 and spectral index  @xmath44 .
+the two regimes were identified in previous studies as giving distinctly different @xmath45 at transient times  @xcite . according to  @xcite
+, the first system develops a mode - merging regime and exhibits scalings with universal @xmath4 , while the second system develops in the regime of mode - competition , with @xmath4 depending on the amplitude of the initial perturbation .
+we observed that , in spite of the early stage differences , the additional simulations gave the same results in the turbulent ( advanced time ) regime as the main set
+.    one important focus of our simulations / analysis is on resolving the vertical inhomogeneity of the mixing zone ( figure  [ fig_color ] ) . to achieve this goal we differentiate vertical slices within a given snapshot , thus calculating various characteristics of the mixing zone such as the energy containing scale , the energy spectra and the viscous scale .
+we collect statistics within a given slice @xmath13 , e.g. contrasting results for the mixing zone center and its periphery .
+the mixing zone width is the standard characteristic used in the @xmath4-studies @xcite . according to the most recent analysis @xcite
+, the mixing zone width obeys the scaling , @xmath46 , where @xmath47 is an initial - conditions - dependent constant . in the simulation with narrow initial spectrum , we reproduce this scaling relatively well ; in the faster - developing simulation with a broad initial spectrum the scaling is affected by the finite domain size ( figure  [ fig_mixing_width ] ) .     in simulations with narrow ( solid line ) and wide ( dashed line ) initial spectra .
+, scaledwidth=47.0% ]            the value of @xmath4 depends on the definition of the mixing zone width . following  @xcite
+we consider the definition based on the mixing function , @xmath48 , @xmath49 where the overbar denotes averaging over the horizontal plane .
+we prefer integral definitions of the mixing zone width over the common definitions based on the values of @xmath50 ( for example the half - distance @xmath51 between two heights where @xmath52 and @xmath53 ) simply due to the fact that integral quantities are less sensitive to the profile of @xmath54 at the edges of the mixing layer , and consequently the quantities are less sensitive to the size of the computational domain . in the established self - similar regime unrestricted by domain boundaries , two definitions of the mixing zone width are actually within an @xmath55 systematic factor of each other .
+the value of the coefficient @xmath4 , determined from the slopes of the curves shown in figure  [ fig_mixing_width ] at @xmath56 are @xmath57 for the narrow initial spectrum and @xmath58 for the broad initial spectrum .
+the obtained values of @xmath4 are in a good agreement with other simulations ( see reviews in  @xcite ) .
+experimental values are higher , @xmath59-@xmath60 , which is usually attributed to the presence of longer wavelengths in the initial spectra , and our simulation with broader initial spectrum follows the same tendency . as we show below , in spite of the difference in @xmath4 , the two systems are very similar . further broadening of the initial spectrum
+would require larger a and more expensive simulation , while we do not expect the results to be significantly different .
+an important thesis of the phenomenology @xcite is that the internal structure of the mixing zone senses the overall time scale only adiabatically through slowly evolving large scale characteristics , of which the mixing zone width , @xmath0 , is the benchmark one .
+therefore , our intention is to separate the `` large scale '' question of the overall time dependence of the mixing zone width from the set of focused `` small scale '' questions about internal structure of the mixing zone . to achieve this goal
+, we track the dependence of the various internal characteristics of the mixing zone ( see below ) on the mixing zone width .
+the energy - containing scale represents the size of a typical turbulent eddy which , intuitively , corresponds to the size of the large scale vortices seen in the mixing zone snapshot , e.g. shown in figure  [ fig_color ] .
+formally , it is convenient to define this scale , @xmath5 , as the correlation length of the normalized two - point pair correlation function of velocity , @xmath61 , where @xmath62 is one spatial component of the velocity vector , @xmath63 .
+we estimate @xmath5 as a half width of the correlation function , @xmath64 .
+defined this way , @xmath5 is consistent ( up to some @xmath65-dependent constant ) with the wavelength ( inverse of the wave vector ) where the turbulent energy spectra achieves its maximum .
+see e.g. figure  [ fig_spectra ] .
+ energy containing scale based on the two - point correlation function , @xmath66  energy containing scale based on the single point measurements ( see discussion in the text for details ) , and @xmath6  the viscous scale , all plotted at time @xmath67 in simulations with narrow initial spectrum as functions of the distance from the middle of the mixing layer . dashed and dotted lines correspond to scale @xmath5 computed using vertical and horizontal components of velocity respectively.,scaledwidth=47.0% ]                in the developed regime , the correlation length taken at the center of the mixing zone grows linearly with the mixing layer width , @xmath68 and @xmath69 for correlations between horizontal and vertical velocities respectively for both types of initial perturbation ( figure [ fig_scales ] ) . in the limit of large @xmath5 , this suggests significant separation between the two scales , @xmath70 or more .
+ristorcelli and clark  @xcite introduced their version of the energy containing scale as @xmath71 , and found this scale to be of the order of the width of the mixing layer , @xmath72 .
+note that defining @xmath66 requires a single point measurement , while @xmath5 characterizes the two - point correlations .
+this single - point nature of @xmath66 makes it the preferred large scale characteristic in the engineering closure modeling .
+our simulations show that @xmath66 is significantly larger than @xmath5 , where both @xmath66 and @xmath5 scale linearly with @xmath0 : @xmath73 .
+the scale separation of @xmath66 and @xmath5 may be viewed as a very favorable fact for the engineering modeling of the rtt , thus suggesting a numerical justification for the closure schemes , e.g. of the type discussed in @xcite .      in our simulations @xmath74 ,
+thus the viscous scale and the dissipation scale are equal to each other .
+( this simplification reflects our desire to focus on the larger scale physics while keeping the resolution domain sufficiently large . )
+we estimate the viscous scale in the middle of the mixing layer ( @xmath75 ) directly as @xmath76 .
+( the `` @xmath77''-factor here is an artifact of an old tradition , see e.g. @xcite . ) in magnitude , the viscous scale agrees with  @xcite and with the respective phenomenology estimate  @xcite , @xmath78 .
+the viscous scale decreases slowly with time ( see figure  [ fig_scales ] ) .
+however , our data are too noisy to claim anything more than rough consistency with the @xmath79 predicted in @xcite and observed in @xcite .      in view of our focus on the internal structure of the mixing zone
+, we choose to study the relative dependence of the relevant scales .
+thus , figure  [ fig_scales_vsz ] shows dependence of the energy - containing and viscous scales on the mixing zone width .
+analyzing simulations of rtt corresponding to different initial perturbations , we confirm the earlier observed  @xcite sensitivity of time - evolution of the mixing zone width , scales @xmath6 and @xmath5 , and the integral quantities on initial conditions .
+( see left panels in figures  [ fig_scales ] and [ fig_energies ] . )
+however , we also find that the same quantities re - plotted as functions of @xmath0 look very much alike ( figures  [ fig_scales ] and [ fig_energies ] , right panels ) .
+therefore , one conclusion we draw here is that the relative scale representation is actually a better universal indicator of turbulence within the mixing zone .
+figure  [ fig_velotemp_vsz ] shows dependencies of the mixing function and of the rms - averaged velocities across the mixing layer on the height , @xmath13 . in magnitude , the velocities are @xmath80 , as suggested by the @xmath81-dependence of the total kinetic energy : @xmath82 ( see figure  [ fig_energies ] ) .
+the curves taken at three different times are almost indistinguishable from each other .
+this suggests that the mixing zone , viewed from the large - scale perspectives , is self - similar .
+self - similarity of the averaged density and the averaged velocities was observed in  @xcite .
+the self - similarity itself does not define the specific form of the @xmath13-averaged profiles , only suggesting that these profiles are smooth functions of @xmath83 .
+in particular , self - similarity is in principle consistent with specific parabolic predictions for the size of the dominant eddy and total kinetic energy contained in the mixing layer @xcite , @xmath84 and @xmath85 , where @xmath86 and @xmath87 are respective characteristics measured in the middle of the mixing layer .
+notice , however , that our simulation results , shown in fig .  [ fig_scales_vsz ] , suggest a much flatter profile for kinetic energy than the parabolic one .
+we notice that when illustrating self - similarity ( see for instance  @xcite ) , it is common to rescale the mean profiles of different quantities using the values at the center of the mixing layer and plot these profiles as function of @xmath83 . here
+, we propose to use @xmath0-based scalings not only for the @xmath13-coordinate but also for the discussed quantity .
+thus , in figure  [ fig_velotemp_vsz ] we rescale velocities with @xmath88 .    in addition to the mixing function dependence on @xmath13 , figure  [ fig_velotemp_vsz ]
+shows @xmath89 to be almost constant inside of the mixing layer , with a sharp drop - off near the edges .
+profiles of @xmath90 , sometimes called the molecular mixing fraction , were obtained experimentally and numerically in  @xcite , and most of the observations agree on the fact that at the later stages of the rt instability @xmath90 remains constant across the mixing layer at approximately 0.75 - 0.8 .
+this suggests that a @xmath91-based definition of the mixing zone width can be advantageous because it generates a more robust scaling .
+the @xmath0-scaling and self - similarity of the mean profiles are also observed in the probability distribution functions ( pdfs ) as well as in the correlation functions for density and velocities computed at @xmath75 ( see figures  [ fig_pdf_z0 ] and  [ fig_pcf_z0 ] ) .
+the self - similarity is observed at sufficiently large times , @xmath92 , but is lacking at the earlier times ( not shown in the figures ) .
+the dynamics one sees at the earlier times for the pdf points to transition from a single peak curve to two peaks and to a single peak again .
+the explanation for this phenomenon is as follows .
+the initial , single peak distribution is dependent on the initial perturbation of the originally sharp interface .
+the transformation from one to two peaks corresponds to transition to the non - linear regime of the rt instability , associated with the secondary kelvin - helmholtz type shear instability and the formation of rt mushrooms .
+the transition from two peaks to one corresponds to the destruction of rt mushrooms and formation of the turbulent mixed zone .
+notice that the emergence of the earlier time transitions is consistent with results reported in  @xcite for the pdf of density , where , probably , the asymptotic self - similar regime was not reached yet .
+a discussion of scales is rare in the existing literature , not to mention a discussion of how the scales vary across the mixing zone .
+this is partly due to difficulties with experimental diagnostics .
+notable exceptions are  @xcite and  @xcite , which discuss the energy containing scale within simulations and one - dimensional modeling , respectively .
+the model in  @xcite predicts a parabolic profile for the energy containing scale , and this appears consistent with earlier time observations in  @xcite and in our setting . at
+later stages the profile in  @xcite changes to a much flatter one , which also agrees with our estimates of the energy containing scale based ( as in  @xcite ) on single point measurements .
+moreover , we show that later in time these profiles stabilize in a nontrivial self - similar solution ( figure  [ fig_scales_vsz_2 ] ) .    our measurements , based on the two - point correlation functions of density and velocities as well as estimates of the dissipation scale @xmath6 , also exhibit monotonic dependence on @xmath83 .
+as shown in figure  [ fig_scales_vsz ] , both @xmath5 and @xmath6 vary insignificantly across the mixing layer with a slight increase towards the edges . among the scales we measured
+, @xmath5 is the only scale which the self - similarity in time is still questionable ( figure  [ fig_scales_vsz_2 ] ) .
+it might be related to a resolution - related systematic error in obtaining the correlation functions near zero ( figure  [ fig_pcf_z0 ] ) .    comparing the respective curves for different initial spectra , we find that the dependence of @xmath93 and @xmath94 on initial perturbation is weak .
+as expected the level of fluctuations grows with time , resulting in a monotonic shift of the turbulence spectra maxima towards larger wavelengths .
+the energy - containing wavelength , @xmath95 , ( corresponding to the maximum ) is in agreement with the correlation radius , @xmath5 .
+this applies to various spectra .
+for example , the maximum of the @xmath96-spectrum obtained at @xmath75 and @xmath67 , and shown in figure  [ fig_spectra ] ( right ) , is located at @xmath97 , i.e. @xmath98 . the correlation radius at this time is @xmath99 . at time
+@xmath100 the spectrum maximum shifts to @xmath101 ( @xmath102 ) while @xmath103 . extracting the kolmogorov scaling for velocity fluctuations at different wavelengths as well as
+the largest wavelength cutoff ( corresponding to the inverse of the viscous scale ) from the spectral data ( e.g. figure  [ fig_spectra ] ) is problematic due to the lack of spatial resolution . in this regard
+our simulations , as well as many others , e.g. @xcite , lack the power of the simulations performed by cook and cabot @xcite : the latter provide the only reliable confirmation ( so far ) of the expected kolmogorov features of the spectra .
+( these record simulations are an les run  @xcite and a dns run with @xmath33 points resolution  @xcite . ) based on our simulation results , we can only state that the range of scales compatible with the kolmogorov scaling grows with time and that the viscous scale decreases with time in accordance with predictions of @xcite .
+we conclude by presenting a question - and - answer style summary for the observations made in the article .
+* _ does the relative dependence of the characteristic scales constitute a better indicator of self - similarity within the rtt than the dependence of the individual scales on time ? _ we found that the energy - containing scale , @xmath5 , and the viscous scale , @xmath6 , exhibit monotonic evolution with @xmath0 . at transient times both @xmath5 and @xmath6 demonstrate much clearer scaling with @xmath0 than with the observation time @xmath104 . *
+_ how does the energy containing scale , @xmath5 , compare with @xmath0 ? _ we found that at late time , the ratio of @xmath5 to @xmath0 taken at the center of the mixing zone is @xmath105 and fluctuates little with time .
+* _ do the turbulent spectra vary with vertical position of the mixing zone ? _ analyzing spatial correlations for a given time snapshot , we did not observe any qualitatively new features of the turbulence spectra with transition from the vertically central slice to an off - centered one within the mixing zone .
+* _ how different are the scales and the spectra corresponding to qualitatively different initial perturbations ? _ we found that the dependencies of @xmath5 and @xmath6 , as functions of @xmath83 , on the initial perturbations are weak .
+we wish to thank p.  fischer for the permission to use the nekton code , a.  obabko and p.  fischer for the detailed help in using the code , and j.r .
+ristorcelli for useful comments .
+this work was supported by the u.s .
+department of energy at los alamos national laboratory under contract no .
+de - ac52 - 06na25396 and under grant no.b341495 to the center for astrophysical thermonuclear flashes at the university of chicago .
+rayleigh , lord , `` investigation of the character of the equilibrium on an incompressible heavy fluid of variable density , '' proc . of the london math
+* 14 * , 170 ( 1883 ) .
+g.  taylor , taylor , sir geoffrey ingram , `` the instability of liquid surfaces when accelerated in a direction perpendicular to their planes , '' proc . of the royal soc . of london .
+series a , mathematical and physical sciences , * a201 * , no . 1065 , 192 - 196 ( 1950 ) .
+g.  dimonte et al , `` a comparative study of the turbulent rayleigh - taylor instability using high - resolution three - dimensional numerical simulations : the alpha - group collaboration , '' phys .
+fluids * 16 * , 1668 ( 2004 ) .

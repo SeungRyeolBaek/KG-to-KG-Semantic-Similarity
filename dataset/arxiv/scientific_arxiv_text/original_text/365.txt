@@ -1,0 +1,312 @@
+techniques in popular use in the nuclear three - body problem include the faddeev@xcite , green s function monte carlo ( gfmc ) , and correlated hyper - spherical harmonics expansion methods ( see , for instance , refs.@xcite ) .
+these methods have been used with realistic phenomenological potentials ( _ e.g. _ av18@xcite , , cd - bonn@xcite , etc . . . ) with strong short - range interactions , yielding binding energies accurate to within @xmath5%@xcite .
+all of these methods treat the bare @xmath6 interactions in hilbert spaces that are effectively infinite .
+because the complexity of the hilbert spaces grows very rapidly with nucleon number a , the extension of such methods to heavier systems becomes increasingly difficult .
+this motivates another approach : solving a - body problems in more tractable finite `` included spaces , '' while accounting for the missing physics of the `` excluded space '' through an effective interaction . for shell - model - inspired effective theories
+that define included spaces in terms of harmonic oscillator ( ho ) bases , the missing physics includes both high - momentum and long - wavelength interactions .
+the former are missing because the included space contains only low - energy oscillator shells , while the latter are connected with the finite extent of the basis states , which are overconfined in an ho potential .
+shell - model calculations often employ two - body effective interactions , but these are generally determined phenomenologically . in recent years
+there has been growing success in calculating these effective interactions directly from the underlying bare interaction in a precise and systematic way ( _ e.g. _ refs.@xcite and references within ) .
+the purpose of this paper is to extend upon this work by calculating the more complicated @xmath7 that could be used in a shell - model - inspired effective theory , through three - body order in the excluded space .. the inclusion of three - body contributions is generally believed essential in building in the density dependence crucial to saturation .
+the exact effective interaction for the a - body problem is an a - body operator .
+the calculation of this interaction is clearly as difficult as solving the original a - body problem in an infinite hilbert space .
+however , there are reasons to hope that such an a - body calculation might be unnecessary .
+this hope depends on the plausible notion that the effective interaction might converge as an expansion in the number of nucleons interacting in the excluded space .
+were such an expansion to converge at the three- or four - body cluster level , then standard three- or four - body methods could be used to treat the excluded space .
+these more complicated but still tractable effective interactions could then be diagonalized in the shell - model - inspired effective theories to produce accurate binding energies and wave functions .
+there are a couple of arguments that such a scheme might converge .
+one is the success of the shell model when phenomenological two - body effective interactions are used .
+this suggests that a good part of the excluded - space physics is two - body .
+another is the qualitative argument that short - range clustering is increasingly unlikely as the size of the nucleon cluster increases : such spacial clustering is necessary for strong , multi - particle , high - momentum interactions .
+finally , we know that the pauli principle forbids short - range s - wave interactions above a=4 .    additional support for this notion comes from recent large - basis _ ab initio _ no - core shell - model ( ncsm ) calculations@xcite .
+these calculations use a large but finite ho hilbert space .
+a lee - suzuki ( ls ) similarity transformation@xcite coupled with a folded - diagram sum@xcite is performed on the bare nn interaction to yield an energy - independent effective interaction .
+early calculations utilized only the effective two - body interaction as derived from these transformations . hence calculations in large hilbert spaces , or included spaces , were usually needed to ensure convergence which , if judiciously chosen , could improve convergence greatly . ] of the binding energy ( _ i.e. _ the included space had to be large enough such that the contributions to the binding energy from the effective three- and higher - body terms were small ) .
+recent calculations that now include induced three - body interactions derived from the ls procedure show significant improvement in the convergence of binding energies for the alpha particle and some @xmath8-shell nuclei@xcite .    an alternative approach to calculating the induced three - body effective interaction was developed in ref.@xcite using an excitation - energy-_dependent _ three - body interaction based on the self - consistent solution of the bloch - horowitz ( bh ) equation@xcite .
+this method was successfuly used to calculate the binding energy of @xmath0he . however , both of these works to date ( _ i.e. _ ls and bh procedures ) involve handling the excluded - space physics in a very large but still finite hilbert space .
+this approximation introduces an extra dependence to the three - body binding on the size of the excluded space .
+such dependence can only be removed by a true summation over all excluded high - energy modes ( i.e. excluded space of infinte size ) .
+though this dependence is small due to the fact that results of these previous works are quite accurate ( both groups examined the convergence of their results as a function of the size of the excluded space ) , the rate of convergence clearly depends in detail on how singular the underlying nn interaction is . here
+we develop a method for calculating the effective three - body interaction that introduces no such high - momentum cutoff , but instead truly integrates over all high - energy modes .
+the accuracy of our results is only limited by our numerical precision .
+thus it can be applied with equal confidence to any underlying nn reaction , regardless of that potential s description of short - range physics .
+this interaction is used in the simplest test cases , @xmath0he/@xmath0h , and the results are compared with those that would result from evaluating the effective interaction only at the two - body level .
+our treatment is based on solving the bh equation as well , which produces a state - dependent ( and thus excitation - energy - dependent ) hermitian interaction , @xmath9 where @xmath10 here the intrinsic hamiltonian @xmath11 is obtained by summing the relative kinetic energy and potential energy operators @xmath12 and @xmath13 over all nucleon pairs @xmath14 and @xmath15 . the relative kinetic energy is found by subtracting the center - of - mass ( cm ) kinetic energy from the total kinetic energy obtained by summing @xmath16 over all nucleons .
+@xmath17 is the total mass of the a - body system , @xmath18 is the excluded space projection operator , and @xmath19 is the included - space projection operator that defines the finite , low - energy space in which a direct diagonalization will be done , once @xmath7 is obtained . as @xmath20 is the desired eigenvalue , which is not known @xmath21 @xmath22 , the equations must be solved self - consistently . in the calculations reported here , the av18 potential is used as the bare @xmath6 interaction and no bare three - body interaction is included .
+because our application is to @xmath0he/@xmath0h , rather than to a heavier nucleus , we will have solved the effective interaction at the a - body level .
+thus we are not testing the assumption of a cluster expansion here .
+instead , our focus is on the technique for solving the effective interaction , and its relation to the approximate two - body result . using techniques familiar from faddeev calculations , we first determine an effective two - body - like interaction , @xmath23 , from the scattering @xmath24-matrix .
+we find that the induced effective three - body interaction can be evaluated perturbatively by iterating on @xmath23 .
+for a certain range of oscillator parameters @xmath1 , convergence is achieved even for very small included spaces , including the limiting @xmath25 space .
+we also develop a non - perturbative method . by rearranging the terms of the original expansion for the three - body interaction ,
+the series can be summed exactly through numerical solution of an integral equation .
+this method is very accurate and efficient for any included space and any oscillator parameter .    in section  [ preliminaries ]
+we generalize the two - body formulation presented in ref.@xcite .
+section  [ sect : perturbative ] describes our perturbative treatment of the effective interaction , while section  [ sect : nonperturbative ] presents the nonperturbative solution via an integral equation .
+the associated discussions focus on qualitative issues , with derivations reserved for the appendices .
+we discuss the results and the need for a simple test of the cluster assumption ( by applying current results to @xmath26he ) in section  [ sect : conclusion ] .
+to guarantee that @xmath7 , like the bare @xmath11 , is translationally invariant one can work in a complete basis of three - nucleon ho slater determinants that includes all configurations with quanta @xmath27 .
+such a basis , in traditional independent - particle shell - model coordinates , is overcomplete , consisting of subspaces characterized by the eigenvalues of the center - of - mass hamiltonian @xmath28 that do not interact via @xmath7 . for @xmath294 ,
+it is convenient to avoid this overcompleteness by using a jacobi basis , which reduces the @xmath30-body intrinsic - hamiltonian problem to an ( @xmath30 - 1)-body problem .
+this is the choice we make here .
+the jacobi included - space ( @xmath31 ) basis corresponding to the ho shell - model basis described above is thus simple , consisting of all relative - coordinate configurations with @xmath27 .
+( we note that for @xmath324 , the single - particle basis is the more efficient basis for many - body calculations .
+however , an @xmath7 developed in a jacobi basis can be easily transformed to single - particle coordinates for use in shell - model - inspired diagonalizations . )
+such included spaces for the two - nucleon system are simple to construct .
+for example , a @xmath2=2 included space consists of spatial wave functions of the form @xmath33 , @xmath34 , and @xmath35 , coupled to spin and isospin wave functions to maintain antisymmetry .
+this requires @xmath36 to be odd .
+the corresponding construction of fully anti - symmetrized @xmath30-body wave functions is less trivial @xcite . here
+we use the codes described in ref.@xcite to generate these for @xmath30=3 . in table
+[ tab : dimension ] dimensions of various @xmath30=3 included spaces are given as a function of @xmath2 .
+for the three - body system one can obtain accurate results by diagonalizing the bare @xmath11 in a jacobi basis , provided @xmath2 is made sufficiently large .
+this was done in ref.@xcite for the av18 potential with @xmath2=60 , resulting in a binding energy accurate to @xmath4 20 kev .
+the motivation for solving this problem for small @xmath2 using effective interactions is to explore techniques that might be more feasible for larger @xmath30 , where the model - space growth analogous to table  [ tab : dimension ] will be much steeper .
+one goal of the current work is to find techniques that might make the integration over the excluded space more tractable . in our earlier work on the two - body system@xcite we found that this integration is difficult at both long and short distances .
+we found it convenient in ref.@xcite to remove the long - distance difficulties , the pathologies associated with the overbinding of the ho , at the outset .
+as the overbinding of the ho becomes arbitrarily large as @xmath37 increases , part of the tail of the wave function remains unresolved in any finite - basis treatment though numerically the contribution of the tail becomes increasingly unimportant in direct diagonalizations as more shells are added .
+( this contrasts with the short - range problem , as av18 and other modern potentials are regulated at short distance by some assumed functional form .
+such potentials can be fully resolved in finite bases , provided @xmath2 is larger than the scale implicit in that functional form . ) in ref.@xcite the long - range behavior was handled by the following rearrangement of eq .
+( [ eqn : bh ] ) @xmath38\frac{e}{e - qt}\right\}p,\ ] ] where @xmath39 here @xmath40 and @xmath41 are shorthand for @xmath42 and @xmath43 , respectively . due to space restrictions eq .  [ eqn : bhre ]
+was stated in ref.@xcite without derivation .
+hence we show its derivation for completeness in appendix  [ app : bhfinal ] appearing in ref.@xcite differs from the one shown in eq .
+[ eqn : teff ] . however , both expressions , from an operator standpoint , are completely equivalent . ] .    to calculate included - space matrix elements of eq .
+[ eqn : bhre ] , it was first convenient to define the states @xmath44 where @xmath45 is some state that resides in the included space ( _ i.e. _ @xmath46 ) . with this definition , matrix elements of eq .
+[ eqn : bhre ] became @xmath47 our expansion of @xmath7 was formed by expanding the resolvent of @xmath48 ( see eq .
+[ eqn : veff ] ) in powers of @xmath49 : @xmath50 an iterative procedure was then used to calculate included - space matrix elements of this expansion . at each order we solved for the self - consistent energy @xmath20 .    the rearrangement of eq .
+( [ eqn : bhre ] ) was applied to the deuteron in ref.@xcite and led to excellent results in perturbation theory for suitably chosen oscillator parameters @xmath1 ( only few orders of @xmath49 were needed to reproduce the deuteron binding energy to within one kev ) .
+figure  [ fig : endshell ] shows that @xmath51 acting on the ho state @xmath45 drastically changes that state s large-@xmath37 behavior : the asymptotic behavior of @xmath52 is @xmath53 , where @xmath54 , @xmath55 being the mass of the particle@xcite . as this is the proper fall - off ,
+the overconfining effects of the ho are thus repaired .
+the effects are important for the deuteron , which has an extended wave function because of its small binding energy .
+the operator @xmath51 modifies only those ho states that reside in the last shell of the included space . for all other states within the included space ,
+the operator is identical to unity .
+the `` endshell - corrected '' states thus control all of the proper asymptotic behavior .
+the resummation of the kinetic energy operator allows one to adjust basis wave functions to absorb much of the short - range behavior of the @xmath6 interaction into the included space , leaving a weak residual interaction that can be handled perturbatively . by adjusting the oscillator parameter @xmath1 to low values ( @xmath56 fm ) ,
+the residual q - space contributions to the binding energy due to @xmath57 can be evaluated to within @xmath4 one kev in third - order perturbation theory , even for very small included spaces .
+this is only possible because the kinetic energy has been summed to all orders independent of @xmath1 , thus guaranteeing that the choice of a small @xmath1 will not alter the wave function at large @xmath37 .
+the optimal @xmath1 presumably provides the best resolution of the hard core without substantially altering the ability of the basis to reconstruct the intermediate - range potential .    in the next section
+we will explore a similar expansion for @xmath0h/@xmath0he .
+we find modifications are necessary to account for the disparate length scales that come about from the inclusion of a third particle . before starting this discussion
+, we end this section by presenting compact expressions for the operators @xmath58 and @xmath59 .
+such operators appear frequently in subsequent formulae .
+the operator @xmath60 closely resembles the free particle propagator .
+however , due to the projection operator q in the denominator , calculating matrix elements of @xmath58 requires a little ingenuity .
+here we show that the excluded - space green s function can be expanded in terms of the much simpler full green s function and operators within the included space that can be inverted easily .
+following ref.@xcite , we first consider @xmath61 where @xmath62 . collecting terms in this `` schwinger - dyson '' form and noting that @xmath63 gives @xmath64 the last term in eq .
+[ eqn : step2 ] , @xmath65 , can be rewritten @xmath66 plugging the above equation into eq .
+[ eqn : step2 ] finally gives @xmath67 similarly , the `` schwinger - dyson '' form of @xmath58 is @xmath68.\ ] ] using eq .
+( [ eqn : step3 ] ) then yields @xmath69 this expression is relatively simple to use .
+the free particle propagator , @xmath70 , is known analytically . indeed , its form is diagonal in momentum space .
+the operator @xmath71 represents a matrix composed of included - space overlaps of the free particle propagator .
+since we work within small included spaces , inverting this matrix is not difficult .
+the included - space matrix elements are easy to calculate , as analytic expressions for @xmath72 for any @xmath30-body system exists .
+these expressions involve multiple sums over hypergeometric functions and gamma functions . in appendix  [ sect:3bodyetme ]
+we give the relevant expression for the three - body system .
+to derive an analogous expression for @xmath59 , we first consider @xmath73 where we have substituted eq .
+[ eqn : finalstep ] in the second line above . with the use of eqs .
+[ eqn : finalstep ] and  [ eqn : eminusqt ] , @xmath59 becomes @xmath74 the physical interpretation of eq .
+[ eqn : eminusqtq ] is simple : the term on the _ lhs _ represents free propagation in the excluded ( @xmath18 ) space , while the first term on the _ rhs _ ( bottom line ) represents free propagation in the full ( @xmath75 ) space and the second term subtracts off the contribution coming from included - space ( @xmath31 ) propagation .
+it is convenient to make the following definitions : @xmath76 with these definitions , eqs .
+[ eqn : finalstep ] and  [ eqn : eminusqtq ] become @xmath77    finally , with the expressions above , we can express our perturbative expansion in a concise form , @xmath78 where @xmath79 in the expansion given by eq .
+[ eqn : bhfinal ] , @xmath80 corresponds to @xmath81 , while @xmath82 corresponds to @xmath83 , and so on . as we stressed in ref.@xcite , matrix elements of the operators shown in eq .
+[ eqn : gamma_n ] can be simply calculated using a recursive procedure .
+similarly , one might apply the expansion given by eqs .
+( [ eqn : bhfinal ] ) and  ( [ eqn : gamma_n ] ) directly to @xmath0he/@xmath0h .
+as was done in the two - body system , we construct endshell - corrected states to build in the correct aymptotic forms .
+figure  [ fig:3bodyendshell ] shows momentum - space results for one @xmath84 endshell state . as expected , the modified wavefunction acquires a strong peak near zero - momentum , corresponding to large - r corrections .    to determine an optimal @xmath1 for subsequent calculations ,
+@xmath11 is minimized within the included space .
+the results are given in fig .
+[ fig : he3variational ] for several included spaces . as expected , the endshell states improve the binding of the three - body system and lower the optimal @xmath1 , relative to uncorrected ho results
+. however , the improved binding energies are still far away from the exact answers .
+this contrasts with the deuterium results ( see fig.2 of ref .
+@xcite ) , where 0th - order results using endshell states were accurate ( @xmath4 50 kev ) , and became nearly exact in second- or third - order perturbation theory . the 0th order a=3 results underbind by @xmath85 mev .    as fig .
+[ fig:10hwhe3energy ] shows , these results are not corrected in perturbation theory .
+successive orders produce wildly oscillating values for the binding energy , in contrast to the rapid convergence found for the deuteron .
+the difficulty is that a single distance scale @xmath1 does not provide sufficient freedom to describe short - range behavior governed by two relative cordinates .
+extended states such as those of fig .
+[ fig : efimov ] are problematic .
+once one makes a choice of jacobi coordinates , the short - range behavior of some two - body cluster will be difficult to describe .
+for example , the choice @xmath86 and @xmath87 prevents one from adjusting @xmath1 to account for the short - range interactions of nucleons 1 and 2 .
+consequently , important hard - core interactions lie outside the included space , leading to nonperturbative behavior .      because the deuteron was easily treated
+, it is possible to sum to all orders the repeated excluded space scatterings of any two - nucleon cluster .
+such a partial summation should account for the strong repulsive interaction between any two coupled nucleons , leaving only intermediate- and long - range interactions .
+such interactions can be treated reasonably accurately within the included space using our endshell - corrected states , leaving perturbative corrections .
+this partial summation corresponds to the faddeev decomposition@xcite .
+the starting point is again eq .
+[ eqn : heff_me ] , @xmath88 where we cast @xmath48 in its integral form , @xmath89 here the superscript @xmath0 denotes that this is a three - body effective interaction .
+now consider the state @xmath90
+@xmath91 @xmath92 , which satisfies @xmath93 this can be decomposed into faddeev components @xmath94 , given by @xmath95 where @xmath96 equations  [ eqn : psi_sum ] and  [ eqn : psi_faddeev ] show that the faddeev components require the solution of three coupled integral equations .
+for example , @xmath97 satisfies @xmath98 equation  [ eqn : psi12_relation ] can be inverted with respect to the @xmath97 faddeev component , giving @xmath99 where @xmath100 analogous equations can be found for the remaining faddeev components .
+the superscript @xmath101 indicates that the effective interaction given by eq .
+[ eqn : v12eff ] represents the sum of repeated potential scatterings between the same two nucleons ( in this case , nucleons 1 and 2 ) , while the third nucleon remains a spectator , as illustrated in fig .
+[ fig : v12eff ] .
+this expression is exactly the partial sum mentioned above .
+notice that the middle expression in eq .
+[ eqn : v12eff ] is very similar to eq .
+[ eqn : veff ] .
+furthermore , the integral form of @xmath102 is similar to that of the g - matrix@xcite .
+yet there are subtleties that differentiate the two .
+we will return to this point later . the integral equation given by eq .
+[ eqn : v12eff ] can also be solved exactly in terms of the ( 2 + 1)-body @xmath24-matrices@xcite . in appendix
+[ sect : exactv12eff ] we show @xmath103^{-1}g_0t_{12},\ ] ] where @xmath104 and @xmath105 is given by eq .
+[ eqn : invgamma0 ] . the physical interpretation of eq .
+[ eqn : exactv12eff ] is similar to the one given below eq .
+[ eqn : eminusqt ] : the first term on the _ rhs _ represents the effective interaction coming from repeated scatterings in the full ( @xmath75 ) space , while the second term subtracts off the contribution from the included ( @xmath31 ) space .
+the advantage in using the faddeev decompositions comes from exploiting particle exchange symmetries . as the states @xmath106 are fully anti - symmetric , the individual faddeev components can be related to each other by simple permutation operators@xcite . in particular , @xmath107 where the permutation operator @xmath108 is defined as @xmath109 .
+the last expression in eq .
+[ eqn : psi12_relation ] then becomes @xmath110 which can be formally inverted with respect to @xmath111 to give @xmath112 where @xmath113    equation  [ eqn : v30eff ] defines the induced three - body interaction coming from repeated scatterings of @xmath102 ( see fig .  [
+fig : resolvent30 ] ) .
+the operator @xmath108 ensures that every insertion of @xmath102 represents scatterings coming from different pairs of nucleons ( i.e. the rungs of fig .
+[ fig : resolvent30 ] alternate ) , preventing any double couting .
+as there are no spectator nucleons in this expression , it is labeled with the superscript @xmath114 .
+matrix elements @xmath115 are given by @xmath116 where the factor of @xmath117 in the last expression comes from the anti - symmetry of the states .
+an expansion of eq .
+[ eqn : v3effme ] can now be found by expanding the resolvent of eq .
+[ eqn : v30eff ] in powers of @xmath118 , @xmath119 expressions analogous to those of eq .
+( [ eqn : gamma_n ] ) can be constructed from @xmath108 and @xmath102 , @xmath120 combining eq .
+[ eqn : gamma_ns ] with the expansion of eq .  [ eqn : v3effme ] gives the final result ( compare with eq .
+[ eqn : bhfinal ] ) , @xmath121 figure  [ fig : threebodyenergies ] shows the convergence of the binding energies for @xmath0h and @xmath0he for several included - space and oscillator parameter choices .
+the expansion of eq .
+( [ eqn : bhfinal3 ] ) converges even for very small included spaces , including @xmath122 ( which corresponds to a single matrix element ) .
+surprisingly , the most rapid convergence occurs for the smallest included spaces .
+we do not have a convincing physical explanation for this result .
+note that the zeroth order results ( i.e. @xmath123 ) all overbind in fig .
+[ fig : threebodyenergies ] .
+this is possible since the zeroth order calculation is no longer variational , as @xmath102 now depends on @xmath20 ( see eq .
+[ eqn : v12eff ] ) .
+hence there is no prescribed method for finding the optimal @xmath1 , other than by trial and error .
+( we stress that fully converged results will be independent of @xmath1 , as we have executed the effective theory faithfully . by an optimal @xmath1 we mean one that will speed the convergence . )
+the values of @xmath1 used in fig .
+[ fig : threebodyenergies ] should be near the optimal .
+note that these values are much larger than those found for the deuteron calculations of ref.@xcite .
+since @xmath102 is calculated exactly , all short range two - body correlations are correctly taken into account .
+hence @xmath1 is no longer forced to small values by the demands of short-@xmath37 physics , but instead can relax to values characteristic of the size of the three - body system .    as mentioned earlier
+, @xmath102 is reminiscent of the @xmath124-matrix found in traditional nuclear many - body theory , which is also an infinite ladder sum in particle - particle propagation .
+however the differences are substantial .
+traditional shell - model calculations have always used g - matrix interactions at the two - body level , ignoring any dependence the operator may have on spectator nucleons ( including in general certain violations of the pauli principle ) .
+the operator @xmath102 , on the other hand , depends explicitly on the spectator nucleon kinetic energy , as well as on the kinetic energies of the interacting nucleons .
+this dependence is manifest in eq .
+[ eqn : v12eff ] , as the operator @xmath40 in the resolvent @xmath125 represents the sum of the kinetic energies of all nucleons .
+this dependence on the spectator nucleon is essential for calculating the correct two - body correlations within the three - body system , as @xmath18 is defined by the quanta carried by the three - body configurations .
+similarly , for @xmath30-body calculations , the analogous operator , @xmath126 , would carry the dependence of all spectator nucleons .
+it appears that a perturbative expansion for the binding energy of @xmath0he/@xmath0h results only if one first sums two - body ladder interactions to all orders ( _ i.e. _ @xmath102 ) .
+this summation softens the two - body interaction , which on iteration can then generate the effective three - body interaction ( _ i.e. _ @xmath127 ) perturbatively .
+a similar procedure was followed in refs.@xcite , where the triton binding energy was calculated by perturbing in di - baryon fields .
+the di - baryon fields themselves represent an infinite scattering of two - body interactions , in analogy with @xmath102 .
+a drawback of the perturbative approach of the previous section is that for each included space defined by @xmath2 , there is only a limited range of @xmath1s for which the expansion converges readily .
+furthermore , there is no definite procedure for estimating the optimal @xmath1 , as the zeroth - order calculation is no longer variational .
+thus a nonperturbative procedure would be attractive : any @xmath1 could be chosen , and physical observables would prove to be independent of @xmath1 , as they must for a rigorously executed effective theory .
+such a non - perturbative summation is indeed possible by reshuffling the terms of eq .
+( [ eqn : bhfinal3 ] ) to form a summable geometric series and by numerically solving an integral equation .
+this approach provides an opportunity to directly compare the relative sizes of @xmath102 and @xmath127 as functions of both @xmath2 and @xmath1 .    in this section
+we only show results for the triton system , as @xmath0he calculations produce similar resultshe results , the reader is referred to ref.@xcite ] .
+the starting point this time is eq .
+[ eqn : bhfinal3 ] , @xmath128 where the set @xmath129 is given by eq .
+[ eqn : gamma_ns ] .
+this expansion can be rearranged into    @xmath130    equation  [ eqn:3bhfinalnp ] can be verified by expanding its terms out and directly comparing with eq .
+[ eqn : bhfinal3repeat ] .
+the following definitions can be made to simplify eq .
+[ eqn:3bhfinalnp ] , @xmath131 where the above expressions represent infinite summations . substituting these expressions into eq .
+[ eqn:3bhfinalnp ] gives @xmath132 the two geometric series in the equation above can be summed to give the final desired result , @xmath133 where we have made the following identifications , @xmath134    the usefulness of eq .
+( [ eqn:3bodynpert ] ) depends on having an efficient method for calculating the included - space matrix elements of @xmath135 and @xmath136 .
+this can be done by first considering the state @xmath137 , which , using eq .
+[ eqn : gamma_inftys ] , satisfies @xmath138 hence @xmath139 satisfies the fredholm integral equation of the second kind@xcite .
+there are numerous numerical methods available for solving this particular integral equation .
+we use a general projection algorithm@xcite . due to the large number of partial waves and
+the complicated structure of the operator @xmath108 , solving the integral equation by matrix inversion is impractical .
+once @xmath139 is found , the matrix elements @xmath140 can be evaluated .
+then the matrix elements @xmath141 are easily calculated since @xmath142 which can be verified using eqs .
+[ eqn : gamma_ns ] and  [ eqn : gamma_inftys ] .
+hence @xmath143
+tables  [ tab : triton_results ] and  [ tab : tritonnp3half ] show the calculated binding energies for the triton system as a function of the included - space size @xmath2 and oscillator parameter @xmath1 . in table
+[ tab : triton_results ] we have ignored the small isospin - violating parts of the av18 potential . hence isospin is conserved at @xmath144 .
+table  [ tab : tritonnp3half ] includes isospin - violating contributions .
+this causes a small admixture of @xmath145 components into the ground state . at about the kev level ,
+the results are independent of the choice of the included space , i.e. , of @xmath1 and @xmath2 .
+the @xmath4 few kev variations illustrate the level of our numerical precision .
+note that for the values @xmath1=.83 and 1.17 fm , our calculations of the previous section would give non - converging binding energies .
+this of course emphasizes the non - perturbative nature of these calculations .
+note that eq .
+[ eqn:3bodynpert ] has the correct limiting behavior as @xmath146 , @xmath147 . in this limit the projection operator @xmath148 , giving @xmath149 .
+thus @xmath150 it is also straightforward to show that @xmath151 where we have used eq .
+[ eqn : t12def ] to obtain the second line above . finally , it is obvious that @xmath127 vanishes in this limit since @xmath152 hence @xmath153 .    tables  [ tab:00tritonme]-  [ tab:22tritonme ] show the variation of the matrix elements of @xmath102 and @xmath127 with @xmath2 and @xmath1 .
+isospin - violating effects have also been ignored in these results .
+as the number of included - space examples is small , it is difficult to extract any limiting behavior .
+yet it does seem that as @xmath2 increases , matrix elements of @xmath102 approach the bare @xmath154 ( indicated by the symbol @xmath155 in the tables ) .
+this is especially evident in table  [ tab:02tritonme ] , where the effect of renormalization is small ( i.e. the renormalized matrix elements are not too different from their bare matrix elements ) . in the cases involving @xmath127 ,
+limiting behavior is also difficult to extract . indeed , in tables .
+[ tab:00tritonme ] and  [ tab:22tritonme ] matrix elements of @xmath127 tend to grow away from zero with increasing @xmath2 rather than tend toward zero .
+however , in these cases the renormalization is strong , so that limiting behavior would not be expected for such small @xmath2 . in table  [ tab:02tritonme ] the renormalization is much weaker , and the limiting behavior @xmath156 is clearly seen for the @xmath157 and @xmath158 mev examples .
+it is also clear from tables .
+[ tab:00tritonme]-  [ tab:22tritonme ] that the matrix elements of @xmath102 and @xmath127 have a strong dependence on @xmath2 and @xmath1 ( @xmath159 ) , a dependence often ignored in traditional shell - model calculations .
+generally the contribution of @xmath160 to the overall binding energy is small compared to @xmath161 ( @xmath162 of @xmath102 ) , as is evident from fig .
+[ fig : v21_vs_v30 ] .
+this graph gives the @xmath163 , @xmath164 , and @xmath165 contributions to the binding energy as functions of @xmath2 and @xmath1 .
+interestingly , for each included - space @xmath2 , there are two values of @xmath1 at which the contribution of @xmath160 completely vanishes .
+table  [ tab : b_zeros ] lists specific values .
+if this result proves to be a generic property of the three - body @xmath7 in heavier nuclei ( that is , if zeros appear in those calculations at approximately the same value of @xmath1 ) , this could greatly simplify the more complicated included - space diagonalizations required in heavy systems .
+for example , the three - body contribution could be ignored or could be explored in low - order perturbation theory .
+this would require establishing that the a=3 zero for @xmath160 does persist at about the same @xmath1 in heavier systems .
+this seems plausible , as the three - body ladder in a heavy nucleus is quite similar to that in a=3 .
+we found in section  [ sect : perturbative ] that the simple perturbative scheme found in ref.@xcite ( _ i.e. _ eq .  ( [ eqn : bhfinal ] ) ) did not directly extend to the three - body system due to the additional length scale introduced by the third nucleon . for any choice of jacobi
+coordinates , this second length scale excludes a class of hard - core interactions from the included space regardless of the choice of @xmath1 .
+this problem was circumvented by invoking the faddeev decomposition on @xmath7 , which allowed us to sum to all orders the repeated potential scattering between the same two nucleons , generating @xmath102 .
+hence the strong repulsive two - nucleon force was treated non - perturbatively .
+the remaining contribution to @xmath7 , @xmath127 , can then be calculated by summing repeated insertions of @xmath102 on alternate pairs of nucleons . for certain ranges of @xmath1
+, this expansion converged after several orders of perturbation even for the smallest allowed included spaces , as shown in fig .
+[ fig : threebodyenergies ] .
+in section  [ sect : nonperturbative ] we described a non - perturbative method for calculating @xmath7 in the three - body system , summarized in eq .
+( [ eqn:3bodynpert ] ) .
+this allowed a direct comparison of the contributions of @xmath163 , @xmath161 , and @xmath160 . because the calculation was non - perturbative
+, we were able to explore the dependence of the included - space matrix elements ( and establish the independence of the binding energy ) for a wider range of @xmath1s and @xmath2s .
+also , for each included space , we found two values of @xmath1 where the total binding was due to @xmath102 , a result that should be explored in heavier systems .
+the numerical methods included an efficient algorithm for solving integral equations ( _ i.e. _ eq .  ( [ eqn:3bodyintegraleq ] ) ) . in the current applications to a=3 systems , the numerical effort was not substantial .
+work is in progress to apply a similar formalism to the alpha particle . as in the three - body case
+, one must account for the various length scales inherent to the four - body system .
+this can be done by invoking the faddeev - yakubovsky decompositions on @xmath7 , in direct analogy to the three - body decompositions presented in this paper .
+such a procedure will not only yield @xmath163 , @xmath166 and @xmath167 ( direct analogs of @xmath161 and @xmath160 ) , but also @xmath168 .
+this last expression represents the induced effective four - body interaction
+. it will be interesting to see if these calculations verify the commonly implicit assumption of the hierarchical sizes of these interactions ( _ i.e. _ @xmath169 ) .
+the four - body effective interaction is the most complicated lowest - order ( s - wave ) operator that can be constructed .
+furthermore , alpha - particle clustering is an important phenomenological feature of nuclear structure , apparent even in simple systems like @xmath170be .
+thus it will be interesting to determine the size of this contribution .
+the a=4 calculations will also check whether zeros in the three - body effective interaction persist .
+if they do , we may learn something about their `` trajectories '' in @xmath1 as a is inceased .
+for completeness , we show the derivation of eq .  [ eqn : bhre ] , which was first used in ref.@xcite in deriving a perturbative expansion for the deuteron .
+we begin by explicitly expressing the bh equation in its various components , @xmath171 next consider the operator @xmath172qt\\         = & t\frac{1}{e - qt}\left[1+qv\frac{1}{e - qh}\right]qt\\         = & t\frac{1}{e - qt}\left[1+qv\left\{\frac{1}{e - qt}+\frac{1}{e - qh}qv\frac{1}{e - qt}\right\}\right]qt\\         = & tq\frac{1}{e - tq}\left[e - qt+qv+qv\frac{1}{e - qh}qv\right]\frac{1}{e - qt}qt , \end{aligned}\ ] ] where the relation @xmath173 was used .
+a similar calculation gives @xmath174,\\ v\frac{1}{e - qh}qt=&\left[v+v\frac{1}{e - qh}qv\right]\frac{1}{e - qt}qt .
+\end{aligned}\ ] ] substituting eqs .
+[ eqn : teffexpand ] and  [ eqn : vteffexpand ] into eq .
+[ eqn : heffexpand ] and using the fact that @xmath175 and @xmath176 gives the desired result : @xmath177 hence @xmath178 where @xmath179 and @xmath180 note that the resolvent in eq .
+[ eqn : appveff ] is now sandwiched between @xmath41s only , and not @xmath40s . forming a perturbative expansion
+involves expanding this resolvent as was done in eq .
+[ eqn : resolvent_expansion ] .
+the operator @xmath51 acts non - trivially only on endshell states .
+that is , @xmath181 which can be easily verified by expanding the operator in powers of @xmath182 and noting the fact that the kinetic energy operator @xmath40 can change the principal quantum number @xmath183 by at most @xmath184 .
+these ` tilde ' states @xmath185 represent the culmination of the infinitely repeated scatterings of the operator @xmath182 on the original states @xmath186 .
+such scatterings persist at large-@xmath37 even though the potential @xmath41 has already vanished .
+iterating the last expression of eq .
+[ eqn : v12eff ] on @xmath23 gives @xmath187 replacing @xmath59 by the relevant expression below eq .  [ eqn : invgamma0 ] , eq .
+[ eqn : v12effexpansion1 ] becomes @xmath188 the various terms of eq .
+[ eqn : v12effexpansion2 ] can be re - ordered to give @xmath189 where @xmath190 represents an infinite sum of two - body interactions between particles 1 and 2 .
+the solution to eq .
+[ eqn : v12sum ] is given by the operator @xmath191 , where @xmath192 as mentioned near the end of sect .
+[ sect : perturbative ] , the operator @xmath191 differs from the usual two - body @xmath24-matrix since it is imbedded within a three - body space .
+hence @xmath193 contains a dependence on the jacobi momentum @xmath194 of the third ` spectator ' nucleon .
+this dependence carries over to the operator @xmath191 .
+hence the designation @xmath195-body @xmath24-matrix .    replacing the infinite sum of eq .
+[ eqn : v12sum ] by @xmath191 and inserting this into eq .
+[ eqn : v12effexpansion3 ] gives @xmath196 where @xmath197 is given by eq .
+[ eqn : gamma21def ] , i.e. @xmath198 equation  [ eqn : v12effexpansion4 ] can now be summed geometrically , giving the desired result @xmath199^{-1}g_0t_{12}.\ ] ]
+the relevant matrix element is @xmath200 replacing the radial integrals by their series expansion and changing to dimensionless variables , eq .
+[ eqn:3mea ] becomes @xmath201 where @xmath202 and @xmath203 an analytic solution to the integral in eq .
+[ eqn:3meb ] can be found by first changing variables to cylindrical coordinates : @xmath204 hence the integral becomes @xmath205\\ \times \left[\int_0^{\pi/2}d\phi \ ( cos\phi)^{2(1+l+m+m')}(sin\phi)^{2(1+l+m+m')}\right].\end{gathered}\ ] ] the integrals in square brackets have analytic solutions that can be found in any book of integrals ( e.g. see ref.@xcite ) .
+they are written here for completeness : @xmath206 @xmath207    this procedure generalizes for matrix elements of @xmath70 for higher - body systems .
+for an a - body problem within jacobi coordinates , a change of variables to ( a-1)-dimensional spherical coordinates is needed so that the resulting ( a-1 ) integrals ` factorize ' ( e.g. those in square brackets of eq .
+[ eqn:3mec ] ) .
+we thank andreas nogga for his insightful discussions and contribution of codes for calculating the permutation operator @xmath108 .
+this work was supported in part by the division of nuclear physics , office of science , u.s .
+department of energy , and in part under the auspices of the u. s. department of energy by the university of california , lawrence livermore national laboratory under contract no . w-7405-eng-48 .
+( 3217,246)(0,0)[l]@xmath37 ( fm)(2712,1021)(0,0)[l ] @xmath208 fm(2712,1111)(0,0)[l ] @xmath209(2712,1246)(0,0)[l]@xmath210(2743,23)(0,0)(d)(3533,90)(0,0 ) 25(3217,90)(0,0 ) 20(2901,90)(0,0 ) 15(2586,90)(0,0 ) 10(2270,90)(0,0 ) 5(1954,90)(0,0 ) 0(1932,1468)(0,0)[r ] 0.4(1932,1246)(0,0)[r ] 0.3(1932,1024)(0,0)[r ] 0.2(1932,801)(0,0)[r ] 0.1(1932,579)(0,0)[r ] 0(1932,357)(0,0)[r]-0.1(1932,135)(0,0)[r]-0.2(1417,246)(0,0)[l]@xmath37 ( fm)(912,1021)(0,0)[l ] @xmath208 fm(912,1111)(0,0)[l ] @xmath209(912,1246)(0,0)[l]@xmath211(943,23)(0,0)(c)(1733,90)(0,0 ) 25(1417,90)(0,0 ) 20(1101,90)(0,0 ) 15(786,90)(0,0 ) 10(470,90)(0,0 ) 5(154,90)(0,0 ) 0(132,1468)(0,0)[r ] 0.8(132,1246)(0,0)[r ] 0.6(132,1024)(0,0)[r ] 0.4(132,801)(0,0)[r ] 0.2(132,579)(0,0)[r ] 0(132,357)(0,0)[r]-0.2(132,135)(0,0)[r]-0.4(3217,1758)(0,0)[l]@xmath37 ( fm)(2712,2533)(0,0)[l ] @xmath208 fm(2712,2623)(0,0)[l ] @xmath209(2712,2758)(0,0)[l]@xmath212(2743,1535)(0,0)(b)(3533,1602)(0,0 ) 25(3217,1602)(0,0 ) 20(2901,1602)(0,0 ) 15(2586,1602)(0,0 ) 10(2270,1602)(0,0 ) 5(1954,1602)(0,0 ) 0(1932,2980)(0,0)[r ] 1.4(1932,2832)(0,0)[r ] 1.2(1932,2684)(0,0)[r ] 1(1932,2536)(0,0)[r ] 0.8(1932,2388)(0,0)[r ] 0.6(1932,2239)(0,0)[r ] 0.4(1932,2091)(0,0)[r ] 0.2(1932,1943)(0,0)[r ] 0(1932,1795)(0,0)[r]-0.2(1932,1647)(0,0)[r]-0.4(1417,1750)(0,0)[l]@xmath37 ( fm)(912,2550)(0,0)[l ] @xmath208 fm(912,2640)(0,0)[l ] @xmath209(912,2775)(0,0)[l]@xmath213(943,1535)(0,0)(a)(1733,1602)(0,0 ) 25(1417,1602)(0,0 ) 20(1101,1602)(0,0 ) 15(786,1602)(0,0 ) 10(470,1602)(0,0 ) 5(154,1602)(0,0 ) 0(132,2980)(0,0)[r ] 2.5(132,2775)(0,0)[r ] 2(132,2570)(0,0)[r ] 1.5(132,2365)(0,0)[r ] 1(132,2160)(0,0)[r ] 0.5(132,1955)(0,0)[r ] 0(132,1750)(0,0)[r]-0.5      ( 1952,1489)(0,0)[r ] 0.4(1952,1423)(0,0)[r ] 0.2(1952,1357)(0,0)[r ] 0(1952,1292)(0,0)[r]-0.2(1952,1226)(0,0)[r]-0.4(1952,1160)(0,0)[r]-0.6(1952,1094)(0,0)[r]-0.8(1952,1028)(0,0)[r]-1(1952,962)(0,0)[r]-1.2(1952,896)(0,0)[r]-1.4(1952,830)(0,0)[r]-1.6(3291,391)(0,0)@xmath194(3339,696)(0,0)[l ] 8(3282,634)(0,0)[l ] 7(3225,572)(0,0)[l ] 6(3168,511)(0,0)[l ] 5(3112,449)(0,0)[l ] 4(3055,387)(0,0)[l ] 3(2998,325)(0,0)[l ] 2(2941,264)(0,0)[l ] 1(2884,202)(0,0)[l ] 0(2358,115)(0,0)(d)(2358,235)(0,0)@xmath8(2852,186)(0,0 ) 8(2754,221)(0,0 ) 7(2655,257)(0,0 ) 6(2557,293)(0,0 ) 5(2458,328)(0,0 ) 4(2359,364)(0,0 ) 3(2261,400)(0,0 ) 2(2162,435)(0,0 ) 1(2064,471)(0,0 ) 0(152,1489)(0,0)[r ] 0.1(152,1416)(0,0)[r ] 0.08(152,1343)(0,0)[r ] 0.06(152,1270)(0,0)[r ] 0.04(152,1196)(0,0)[r ] 0.02(152,1123)(0,0)[r ] 0(152,1050)(0,0)[r]-0.02(152,977)(0,0)[r]-0.04(152,904)(0,0)[r]-0.06(152,830)(0,0)[r]-0.08(1491,391)(0,0)@xmath194(1539,696)(0,0)[l ] 8(1482,634)(0,0)[l ] 7(1425,572)(0,0)[l ] 6(1368,511)(0,0)[l ] 5(1312,449)(0,0)[l ] 4(1255,387)(0,0)[l ] 3(1198,325)(0,0)[l ] 2(1141,264)(0,0)[l ] 1(1084,202)(0,0)[l ] 0(558,115)(0,0)(c)(558,235)(0,0)@xmath8(1052,186)(0,0 ) 8(954,221)(0,0 ) 7(855,257)(0,0 ) 6(757,293)(0,0 ) 5(658,328)(0,0 ) 4(559,364)(0,0 ) 3(461,400)(0,0 ) 2(362,435)(0,0 ) 1(264,471)(0,0 ) 0(1952,3649)(0,0)[r ] 1.6(1952,3576)(0,0)[r ] 1.4(1952,3503)(0,0)[r ] 1.2(1952,3430)(0,0)[r ] 1(1952,3356)(0,0)[r ] 0.8(1952,3283)(0,0)[r ] 0.6(1952,3210)(0,0)[r ] 0.4(1952,3137)(0,0)[r ] 0.2(1952,3064)(0,0)[r ] 0(1952,2990)(0,0)[r]-0.2(3291,2551)(0,0)@xmath194(3339,2856)(0,0)[l ] 8(3282,2794)(0,0)[l ] 7(3225,2732)(0,0)[l ] 6(3168,2671)(0,0)[l ] 5(3112,2609)(0,0)[l ] 4(3055,2547)(0,0)[l ] 3(2998,2485)(0,0)[l ] 2(2941,2424)(0,0)[l ] 1(2884,2362)(0,0)[l ] 0(2358,2275)(0,0)(b)(2358,2395)(0,0)@xmath8(2852,2346)(0,0 ) 8(2754,2381)(0,0 ) 7(2655,2417)(0,0 ) 6(2557,2453)(0,0 ) 5(2458,2488)(0,0 ) 4(2359,2524)(0,0 ) 3(2261,2560)(0,0 ) 2(2162,2595)(0,0 ) 1(2064,2631)(0,0 ) 0(152,3649)(0,0)[r ] 0.08(152,3539)(0,0)[r ] 0.06(152,3430)(0,0)[r ] 0.04(152,3320)(0,0)[r ] 0.02(152,3210)(0,0)[r ] 0(152,3100)(0,0)[r]-0.02(152,2990)(0,0)[r]-0.04(1491,2551)(0,0)@xmath194(1539,2856)(0,0)[l ] 8(1482,2794)(0,0)[l ] 7(1425,2732)(0,0)[l ] 6(1368,2671)(0,0)[l ] 5(1312,2609)(0,0)[l ] 4(1255,2547)(0,0)[l ] 3(1198,2485)(0,0)[l ] 2(1141,2424)(0,0)[l ] 1(1084,2362)(0,0)[l ] 0(558,2275)(0,0)(a)(558,2395)(0,0)@xmath8(1052,2346)(0,0 ) 8(954,2381)(0,0 ) 7(855,2417)(0,0 ) 6(757,2453)(0,0 ) 5(658,2488)(0,0 ) 4(559,2524)(0,0 ) 3(461,2560)(0,0 ) 2(362,2595)(0,0 ) 1(264,2631)(0,0 ) 0                                                                                                                                                                                                                                                      ( 3196,389)(0,0)[r]triton(3196,506)(0,0)[r]helium3(3196,584)(0,0)[r ] b=1.66 fm(3196,664)(0,0)[r]@xmath220(2730,20)(0,0)(d)(3540,80)(0,0 ) 10(3216,80)(0,0 ) 8(2892,80)(0,0 ) 6(2568,80)(0,0 ) 4(2244,80)(0,0 ) 2(1920,80)(0,0 ) 0(1900,1364)(0,0)[r]-2(1900,1209)(0,0)[r]-4(1900,1053)(0,0)[r]-6(1900,898)(0,0)[r]-8(1900,742)(0,0)[r]-10(1900,587)(0,0)[r]-12(1900,431)(0,0)[r]-14(1900,276)(0,0)[r]-16(1900,120)(0,0)[r]-18(3192,2394)(0,0)[r]triton(3192,2511)(0,0)[r]helium3(3192,2589)(0,0)[r ] b=2.04 fm(3192,2669)(0,0)[r]@xmath221(2720,1532)(0,0)(b)(3540,1592)(0,0 ) 10(3212,1592)(0,0 ) 8(2884,1592)(0,0 ) 6(2556,1592)(0,0 ) 4(2228,1592)(0,0 ) 2(1900,1592)(0,0 ) 0(1880,2876)(0,0)[r]-3(1880,2669)(0,0)[r]-4(1880,2461)(0,0)[r]-5(1880,2254)(0,0)[r]-6(1880,2047)(0,0)[r]-7(1880,1839)(0,0)[r]-8(1880,1632)(0,0)[r]-9(1404,951)(0,0)[r]triton(1404,1068)(0,0)[r]helium3(1404,1146)(0,0)[r ] b=2.04 fm(1404,1226)(0,0)[r]@xmath222(950,20)(0,0)(c)(40,742 )      ( 1740,80)(0,0 ) 10(1424,80)(0,0 ) 8(1108,80)(0,0 ) 6(792,80)(0,0 ) 4(476,80)(0,0 ) 2(160,80)(0,0 ) 0(140,1364)(0,0)[r]-2(140,1226)(0,0)[r]-3(140,1088)(0,0)[r]-4(140,949)(0,0)[r]-5(140,811)(0,0)[r]-6(140,673)(0,0)[r]-7(140,535)(0,0)[r]-8(140,396)(0,0)[r]-9(140,258)(0,0)[r]-10(140,120)(0,0)[r]-11(1408,2375)(0,0)[r]triton(1408,2492)(0,0)[r]helium3(1408,2570)(0,0)[r ] b=1.66 fm(1408,2650)(0,0)[r]@xmath3(960,1532)(0,0)(a)(40,2254 )      ( 1740,1592)(0,0 ) 10(1428,1592)(0,0 ) 8(1116,1592)(0,0 ) 6(804,1592)(0,0 ) 4(492,1592)(0,0 ) 2(180,1592)(0,0 ) 0(160,2876)(0,0)[r]-3(160,2763)(0,0)[r]-3.5(160,2650)(0,0)[r]-4(160,2537)(0,0)[r]-4.5(160,2424)(0,0)[r]-5(160,2311)(0,0)[r]-5.5(160,2197)(0,0)[r]-6(160,2084)(0,0)[r]-6.5(160,1971)(0,0)[r]-7(160,1858)(0,0)[r]-7.5(160,1745)(0,0)[r]-8(160,1632)(0,0)[r]-8.5    ( 0,0 ) , @xmath223 , and @xmath224 for @xmath25 and @xmath225 triton calculations as a function of @xmath1 .
+the upper pairs of lines refer to @xmath226 , the middle pair @xmath127,and the bottom two @xmath102 .
+note that the respective sums of all three terms gives the triton binding energy.,title="fig : " ]                                                                                                                                                                                                                                     0 & -7.6147 ( 218.533 ) & -7.6144 ( 74.113 ) & -7.6148 ( 26.480 ) + 2 & -7.6143 ( 65.260 ) & -7.6144 ( 26.732 ) & -7.6145 ( 12.556 ) + 4 & -7.6144 ( 26.226 ) & -7.6141 ( 15.840 ) & -7.6141 ( 9.068 ) + 6 & -7.6179 ( 13.268 ) & -7.6140 ( 9.899 ) & -7.6141 ( 6.524 ) + 8 & -7.6179 ( 5.985 ) & -7.6136 ( 6.725 ) & -7.6139 ( 5.257 ) + 10 & -7.6182 ( 1.606 ) & -7.6131 ( 4.156 ) & -7.6138 ( 4.093 ) +           8 & 10 & @xmath155 + 60 & 64.51 & 90.00 & 90.00 & 90.00 & 90.00 & 90.00 & 90.00 + & -68.36 & -38.41 & -32.54 & -26.40 & -21.03 & -16.52 & 128.50 + & -3.76 & 8.26 & 22.38 & 37.25 & 51.34 & 64.06 & 0.00 + 30 & 33.59 & 45.00 & 45.00 & 45.00 & 45.00 & 45.00 & 45.00
++ & -45.11 & -47.20 & -45.61 & -44.05 & -42.50 & -40.99 & 29.10 + & 3.91 & 3.71 & 6.17 & 8.96 & 11.96 & 15.03 & 0.00 + 15 & 17.67 & 22.50 & 22.50 & 22.50 & 22.50 & 22.50 & 22.50 + & -26.37 & -31.54 & -30.43 & -29.73 & -29.16 & -28.66 & 3.98 + & 1.08 & 2.43 & 4.16 & 5.03 & 5.68 & 6.26 & 0.00 +       10 & @xmath155 + 60 & -33.149 & -47.107 & -46.936 & -46.873 & -46.837 & -45.375 + & 0.146 & -1.771 & -1.692 & -1.016 & -0.330 & 0.000 + 30 & -13.400 & -18.898 & -18.772 & -18.665 & -18.564 & -18.952 + & 0.641 & -0.197 & -0.655 & -0.920 & -1.065 & 0.000 + 15 & -5.053 & -6.964 & -6.911 & -6.884 & -6.857 & -6.769 + & 0.398 & 0.385 & 0.296 & 0.194 & 0.104 & 0.000 +       10 & @xmath155 + 60 & 122.210 & 150.000 & 150.000 & 150.000 & 150.000 & 150.000 + & -11.616 & 11.714 & 15.141 & 18.365 & 20.788 & 89.884 + & 10.381 & 18.639 & 25.302 & 31.312 & 36.794 & 0.000 + 30 & 61.986 & 75.000 & 75.000 & 75.000 & 75.000 & 75.000 + & -16.159 & -12.223 & -11.338 & -10.376 & -9.496 & 21.034 + & 4.571 & 7.211 & 8.547 & 9.790 & 11.033 & 0.000 + 15 & 31.679 & 37.500 & 37.500 & 37.500 & 37.500 & 37.500 + & -10.649 & -10.579 & -10.162 & -9.805 & -9.509 & 4.019 + & 2.144 & 3.365 & 3.782 & 4.071 & 4.335 & 0.000 +

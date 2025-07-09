@@ -1,0 +1,494 @@
+let @xmath1 be two partitions of an integer  @xmath2 , @xmath3 and let @xmath4 and @xmath5 be two _ coprime _
+polynomials of degree @xmath2 having the following factorization patterns : @xmath6 in these expressions we consider the multiplicities @xmath7 and @xmath8 , @xmath9 , @xmath10 as being given , while the roots @xmath11 and @xmath12 are not fixed , though they must all be distinct . in this paper
+we study polynomials satisfying ( [ eq : p - and - q ] ) and such that _ the degree of their difference @xmath13 attains its minimum_. numerous papers , mainly in number theory , were devoted to the study of such polynomials .    [ assump ] throughout the paper , we always assume that    * the greatest common divisor of the numbers @xmath14 is  1 ; * @xmath15 .    the case of partitions @xmath16 , @xmath17 not satisfying the above conditions can easily be reduced to this case ( see @xcite ) .    in 1995 ,
+zannier @xcite proved that under the above conditions the following statements hold :    1 .
+this bound is always attained , whatever are @xmath16 and @xmath17 .
+[ def : dz ] a pair of polynomials @xmath19 such that @xmath4 and @xmath5 are of the form   and @xmath20 is called _ davenport  zannier pair _ , or _
+dz - pair _ for short .
+the pair of partitions @xmath21 is called the _ passport _ of the dz - pair .
+obviously , if @xmath19 is a dz - pair with a passport @xmath21 , and if we take @xmath22 , @xmath23 where @xmath24 , then @xmath25 is also a dz - pair with the same passport .
+we call such dz - pairs equivalent .
+[ def : over ] we say that a dz - pair @xmath19 is _ defined over _
+@xmath0 if @xmath26 $ ] .
+we say that an equivalence class of dz - pairs is defined over @xmath0 if there exists a representative of this class which is defined over  @xmath0 .    by abuse of language , in what follows
+, we will use the shorter term `` dz - pair '' to denote also an equivalence class of dz - pairs .    in our previous paper @xcite , using the _ theory of dessins denfants _ ( see , for example , ch .  2 of  @xcite ) ,
+we established a correspondence between dz - pairs and _ weighted bicolored plane trees_. these are bicolored plane trees whose edges are endowed with positive integral weights .
+the degree of a vertex is defined as the sum of the weights of the edges incident to this vertex . obviously , the sum of the degrees of black vertices and the sum of the degrees of white vertices are both equal to the total weight of the tree .
+let @xmath27 and @xmath28 be two partitions of the total weight @xmath2 which represent the degrees of black and white vertices respectively .
+the pair @xmath21 is called the _ passport _ of the tree in question .
+[ biject ] there is a bijection between dz - pairs with a passport @xmath21 on one hand , and weighted bicolored plane trees with the same passport on the other hand .
+[ uni ] a weighted bicolored plane tree such that there is no other tree with the same passport is called _
+unitree_.    general facts of the theory of dessins denfants imply that dz - pairs corresponding to unitrees are defined over @xmath0 . basing on our experience
+, we claim that this class represents a vast majority of dz - pairs defined over  @xmath0 .
+the other examples may roughly be subdivided into two categories .
+the members of the first one are constructed as compositions of dz - pairs corresponding to unitrees .
+the second category is , in a way , a collection of exceptions .
+still , the latter category is no less interesting since it involves some subtle combinatorial and group - theoretic invariants of the galois action on dz - pairs and on weighted trees .    *
+the main result of @xcite is the classification of all unitrees .
+the main result of the present paper is a complete list of the corresponding polynomials . *
+the final part of @xcite is devoted to the study of galois invariants of weighed trees . in the final part of the present paper
+we compute the corresponding polynomials .
+the class of unitrees comprises ten infinite series , denoted from @xmath29 to @xmath30 , and ten sporadic trees , denoted from @xmath31 to @xmath32 .
+the pictures of these trees are given below in the text .
+dz - pairs corresponding to the series from @xmath29 to @xmath30 are presented in sects .
+[ sec : a ] to [ sec : j ] ; those corresponding to the sporadic trees from @xmath31 to  @xmath32 , in sect .
+[ sec : sporadic ] .
+the galois action is treated in sects .
+[ sec : galois ] to [ sec : other ] .
+for individual dz - pairs , a computation may turn out to be difficult , sometimes even extremely difficult , but the verification of the result is completely trivial . as to the infinite series ,
+the difficulties grow as a snowball .
+the `` computational '' part now consists in finding an analytic expression of the polynomials in question , depending on one or several parameters , while the `` verification '' part consists in a _ proof _ , which may be rather elaborate .
+see a more detailed discussion below .
+in 1965 , birch , chowla , hall , and schinzel @xcite asked a question which soon became famous:[bchs ]    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ let @xmath29 and @xmath33 be two coprime polynomials with complex coefficients ; what is the possible minimum degree of the difference @xmath34 ? _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _    in order for the question to be meaningful we should take @xmath35 and @xmath36 of the same degree and with the same leading coefficient . denote @xmath37 , @xmath38 ,
+so that @xmath39 .
+let us start with an example .
+[ ex : pair - t ] in this example , @xmath40 , so that both polynomials @xmath4 and @xmath5 are of degree @xmath41 . as to their difference @xmath42 ,
+all its coefficients of degrees from 24 down to  6 vanish , so that @xmath43 becomes a polynomial of degree  5 .
+@xmath44    the following two conjectures were proposed in  @xcite:[init - problem ]    1 .   for @xmath45 , @xmath46
+, one always has @xmath47 .
+this bound is sharp : that is , it is attained for infinitely many values of @xmath48 .
+the first conjecture was proved the same year by davenport @xcite .
+the second one turned out to be much more difficult and remained open for 16 years : in 1981 stothers @xcite showed that the bound is in fact attained not only for infinitely many values of @xmath48 but for all of them .
+a far - reaching generalization of the above result was proved in 1995 by zannier  @xcite .
+let @xmath49 and @xmath50 be two partitions of an integer @xmath2 satisfying the conditions of assumption  [ assump ] , and let @xmath4 and @xmath5 be two polynomials of degree  @xmath2 having the factorization pattern . then    1
+.   @xmath51 .
+this bound is always attained , whatever are @xmath16 and @xmath17 .    for the case of cubes and squares considered above
+we have @xmath52 , @xmath53 so that @xmath54 and @xmath55 , whence @xmath56    a result equivalent to that of zannier was , in fact , proved , in a very implicit way , by boccara in 1982 @xcite ( see also @xcite , page 775 ) . the result of @xcite was purely combinatorial , and relations between combinatorics and polynomials were at the time largely overlooked .
+recall that a pair of polynomials @xmath19 satisfying and such that the degree of @xmath57 is _ equal _ to the minimum value @xmath58 are called davenport  zannier pairs or dz - pairs ( definition  [ def : dz ] ) .
+the theory of dessins denfants implies that dz - pairs are always defined over the field @xmath59 of algebraic numbers .
+however , the most interesting case is , without doubt , the one of pairs defined over @xmath0 . in 2010 ,
+beukers and stewart  @xcite undertook a study of dz - pairs of the special type @xmath60 , @xmath61 , defined over  @xmath0 . in our paper
+we study dz - pairs of a general form defined over @xmath0 .
+as we have already said , the framework of our paper is the theory of dessins denfants ( see , for example , ch .  2 of  @xcite ) .
+the main notion of this theory is that of belyi function . for a rational function @xmath62 , where @xmath63 is the riemann complex sphere ,
+let us call @xmath64 a _ critical value _ of  @xmath65 if the equation @xmath66 has multiple roots .
+the definition of a belyi function restricted to the planar case is as follows :    [ def : belyi ] a rational function @xmath67 is a _ belyi function _ if @xmath65 has at most three critical values , namely , 0 , 1 and @xmath68 .
+[ th : riemann ] if @xmath62 is a belyi function then :    * the preimage @xmath69)$ ] is a plane map , that is , a connected graph , which is embedded into the sphere in such a way that its edges do not intersect . *
+the map @xmath70 has a natural bipartite structure : its vertices may be colored in black and white in such a way that each edge would connect vertices of opposite colors .
+namely , black vertices of @xmath70 are the points @xmath71 , and white vertices of @xmath70 are the points @xmath72 , the vertex degrees being equal to the multiplicities of the corresponding preimages . * inside each face , there is a unique pole of @xmath65 whose multiplicity is equal to the degree of the face .
+here the _ degree of a face _ is defined as _ a half _ of the number of surrounding edges .
+we call this pole the _ center _ of the face in question .    in the opposite direction , if @xmath73 is a bicolored plane map then :    * there exists a belyi function @xmath65 such that @xmath73 can be realized as a preimage @xmath69)$ ] .
+* this function @xmath65 is unique , up to an affine change of the variable @xmath74 .
+* there is a uniquely defined number field @xmath31 corresponding to @xmath73 which is called the _ field of moduli _ of @xmath73 .
+the function @xmath65 can be realized over a number field @xmath75 .
+statements 4 and 5 represent a particular case of riemann s existence theorem .
+statement 6 follows from the rigidity of the ramified covering @xmath67 and from some general facts of the galois theory .
+the above theorem , being applied to the dz - pairs , gives the following statement ( see more details in @xcite ) .
+[ prop : dz - belyi ] a pair of complex polynomials @xmath19 is a dz - pair with a passport @xmath21 if and only if the rational function @xmath76 , where @xmath42 , is a belyi function for a bicolored plane map @xmath73 with the following characteristics :    * the map @xmath73 has @xmath77 edges , @xmath78 black vertices with the degree distribution @xmath16 , and @xmath79 white vertices with the degree distribution @xmath17 .
+the euler formula then implies that the number of faces is @xmath80 .
+* all faces of @xmath73 except the outer one are of degree  @xmath81 .
+* the number of the faces of @xmath73 of degree  @xmath81 is equal to @xmath82 .
+in other words , the degree distribution of the faces is equal to @xmath83 where @xmath84 .
+furthermore , if @xmath85 is the moduli field of @xmath73 , then it is possible to find a corresponding dz - pair such that @xmath86 $ ] . in other words
+, in this case the realization field @xmath87 @xmath88see the last statement of theorem  [ th : riemann]@xmath89 coincides with the field of moduli @xmath31 . in particular , an equivalence class of the pair @xmath19 is defined over @xmath0 if and only if the field of moduli of the map @xmath73 is @xmath90 .    the characteristic which distinguishes the maps corresponding to dz - pairs from other maps is property 2 of the above theorem .
+we will call the faces other than the outer one _ inner faces_. the maps whose all inner faces are of degree 1 can be easily represented in the form of weighted trees : just merge every sheaf of parallel edges into one edge and indicate the number of edges merged together as the _ weight _ of the corresponding edge of the weighted tree : see fig .
+[ fig : map->tree ] .
+weighted trees are easier to work with than maps .
+[ def : weighted ] a _ weighted bicolored plane tree _ , or a _ weighted tree _ , or just a _ tree _ for short , is a bicolored plane tree whose edges are endowed with positive integral _
+weights_. the sum of the weights of the edges of a tree is called the _ total weight _ or the _ degree _ of the tree .
+the _ degree _ of a vertex is the sum of the weights of the edges incident to this vertex .
+obviously , the sum of the degrees of black vertices , as well as the sum of the degrees of white vertices , is equal to the total weight @xmath2 of the tree .
+let the tree have @xmath78 black vertices , of degrees @xmath91 , and @xmath79 white vertices , of degrees @xmath92 , respectively . then the pair of partitions @xmath21 of the total weight @xmath2 of the tree is called its _ passport_.    forgetting the weights and considering only the underlying plane tree , we speak of a _
+topological tree_. weighted trees , all of whose edges are of weight  1 , will be called _
+ordinary trees_. belyi functions for ordinary trees are polynomials ( with the only pole at infinity ) ; they are usually called _
+shabat polynomials_.    we call a _ leaf _ a vertex which has only one edge incident to it , whatever is the weight of this edge . by abuse of language
+, we will also call this edge itself a leaf .    the adjective _
+plane _ in the above definition means that the cyclic order of branches around each vertex of the tree is fixed , and changing this order will in general produce a different plane tree ( though the tree considered as a mere graph , without `` planar '' structure , remains the same ) . _
+all trees considered in this paper will be endowed with the planar structure _ ; therefore , the adjective `` plane '' will often be omitted .
+the filed of moduli of a unitree is @xmath0 , see , e.g. , @xcite .
+therefore , the second part of theorem  [ prop : dz - belyi ] implies the following statement .
+[ uni->q ] if a weighted bicolored plane tree is a unitree , then the corresponding equivalence class of dz - pairs is defined over  @xmath0 .
+[ ex : pair - t.bis ] let us consider the tree shown in fig .
+[ fig : t ] .
+it has eight black vertices of degree  3 and twelve white vertices of degree  2 , so that its total weight ( or degree ) is @xmath93 .
+accordingly , @xmath94 , and @xmath16 and @xmath17 are the following two partitions of @xmath93 : @xmath95    in the corresponding dz - pair , the polynomial @xmath4 must have eight roots of multiplicity  3 , the polynomial @xmath5 must have twelve roots of multiplicity  2 .
+in other words , @xmath96 with @xmath97 , and @xmath98 with @xmath99 .
+the difference @xmath42 must be of degree @xmath100 .    the general results formulated up to now , being applied to this particular tree , imply the following statements :    * the mere existence of such a tree implies the existence of polynomials with needed properties . *
+the fact that there exist polynomials @xmath4 and @xmath5 _ with rational coefficients _ is a consequence of the fact that there exists a unique tree with the passport @xmath101 .    all this can be affirmed without any computations , just by looking at the picture . as to the polynomials themselves , they are given in example  [ ex : pair - t ] .
+it turns out that technically it is often much more convenient to work not with the polynomials appearing in dz - pairs but with their _
+reciprocals_.    [ def : reciprocal ] for a polynomial @xmath4 of degree  @xmath2 , its _ reciprocal _ is @xmath102 .    in many examples , the reciprocals of polynomials forming a dz - pair
+take the form of initial segments of power series of some special functions .
+after having observed this phenomenon we learned that it was ( re)discovered many times , notably in @xcite , @xcite , @xcite .
+assume that polynomials @xmath4 and @xmath5 form a dz - pair , so that @xmath103 and denote by @xmath104 the number of edges of the corresponding topological tree .
+this tree has @xmath105 vertices , therefore it has @xmath106 edges . considering @xmath4 and @xmath5 as power series we may write condition as @xmath107 for the reciprocal polynomials condition is transformed into the following one : @xmath108 where @xmath109 is a polynomial , or , equivalently , to the condition @xmath110 for instance , in the example  [ ex : pair - t ] the polynomials reciprocal to and   and to their difference look as follows : @xmath111      the computation of belyi functions has recently become a vast domain of research .
+a remarkable overview of this activity may be found in @xcite , a paper of 57  pages , with a bibliography of 176  titles . beside a direct approach , involving the solution of a system of polynomial equations , the authors of @xcite also discuss complex analytic methods , modular forms methods , and @xmath78-adic methods .    in order to get an idea of the level of difficulty of such a computation let us return once again to example  [ ex : pair - t ] .
+a naive approach would be to write down polynomials @xmath112 and @xmath113 with indeterminate coefficients @xmath114 and @xmath115 , and then equate to zero the coefficients of degrees from 6 to 24 of the difference @xmath34 . in this way we get a system of @xmath116 algebraic equations for @xmath117 unknowns .
+then we may set , for example , @xmath118 , @xmath119 , and @xmath120 .
+the system thus obtained ( 19  equations with 19  unknowns ) will be of degree @xmath121 ! obviously , this is not a clever way to proceed .    by the way , the solution we are looking for is unique ; all the other solutions of this enormous system are `` parasitic '' ones .
+for example , the system does not give us any guarantee that the polynomials @xmath29 and @xmath33 obtained as its solution will be coprime .
+this condition should be added to the system , but this addition will make our situation even worse .    notice , however , that , once the result is obtained , its verification is trivial .
+taking into account the above considerations , we would like to underline one aspect of our work : though we do compute belyi functions for certain individual dessins , the most interesting part of the paper is the computation of belyi functions for _ infinite series _ of dessins which depend on one or several parameters . for infinite series
+the situation is significantly more complicated than for individual dessins .
+usually , the first thing to do is to compute quite a few particular cases , sometimes dozens of them ( or to use other heuristics whenever possible ) .
+then , we need to guess a general pattern of corresponding belyi functions . and ,
+finally , instead of a trivial verification step which was applicable to individual dessins , we should provide a _ proof _ , which may turn out to be rather laborious .    in the present paper
+we obviously do not expose the first step of the above procedure .
+what we do is presenting the final results , that is , the general form of belyi functions in question , and then we give the proofs whenever they are necessary .
+@xmath122    as it was already said , the unitrees comprise ten infinite series , from @xmath29 to  @xmath30 , and ten sporadic trees , from @xmath31 to @xmath32 . in the subsequent sections we do not strictly follow the `` alphabetic '' order of trees since we prefer to underline the structural properties of belyi functions in question .
+certain belyi functions are expressed in terms of jacobi polynomials ; there are others which lead to interesting differential relations ; we will also encounter compositions , pad approximants , an application to the hall conjecture , etc .
+our first series , called `` series @xmath29 '' in @xcite , is composed of stars - trees , see fig .
+[ fig : a ] .
+all edges except maybe one are of the same weight .
+this is a three - parametric series .
+denote the number of leaves of weight @xmath123 by @xmath48 ; then the total weight of the tree is @xmath124 .
+clearly , we may put the only black vertex at @xmath125 , put the white vertex of degree @xmath126 at @xmath127 , and assume that both @xmath4 and @xmath5 are monic . then @xmath128 and @xmath129 where @xmath29 is a monic polynomial of degree @xmath48 whose roots are the white vertices of degree  @xmath123 .
+now , condition takes the form @xmath130 the only thing we need to know is the polynomial @xmath29 .
+the polynomial @xmath131 reciprocal to @xmath29 is the initial segment of the binomial series for @xmath132 up to the degree @xmath48 : @xmath133    [ [ proof . ] ] proof .
++ + + + + +    let us pass to reciprocals in : we need to obtain @xmath131 such that @xmath134 let us verify that the polynomial @xmath131 defined in ( [ a - a ] ) satisfies the latter equality .
+we have : @xmath135 where @xmath136 therefore , @xmath137 and @xmath138^s \operatorname*{=}_{x\to 0 }   1 + o(x^{k+1})\ ] ] which concludes the proof .
+@xmath139    some particular cases of formula were previously found by n.adrianov ( unpublished ) .
+the two - parametric series of trees shown in fig .  [ fig : d ] was called `` series @xmath140 '' in @xcite .
+this is the only infinite series of unitrees for which we were able to find the corresponding dz - pairs by computer .
+let us introduce the following three _
+quadratic _ polynomials :    [ cols= " < , < , < " , ]     we have @xmath141 and @xmath142 , where @xmath143    [ [ proof.-1 ] ] proof .
++ + + + + +    by , we must prove that @xmath144 clearly , we may assume that the sum of the roots of @xmath29 equals zero .
+write @xmath145 and calculate , with the help of maple , the first five coefficients of the taylor series in the left - hand side of ( [ d - maple ] ) .
+equate now the expressions thus obtained to zero and solve the corresponding system in the unknowns @xmath146 .
+maple returns two solutions : @xmath147 and @xmath148 @xmath149 rejecting the first solution , for which the roots of @xmath29 , @xmath33 and @xmath150 coincide , and making an additional normalization by setting the @xmath151 , we obtain formulas , and . @xmath139      in 1971 , m. hall , jr .
+@xcite suggested the following two conjectures .    1 .
+there exists a constant @xmath152 such that for all positive integers @xmath153 , @xmath154 , the inequality @xmath155 holds .
+the exponent @xmath156 in the above inequality can not be improved .
+namely , for every @xmath157 there exists a constant @xmath158 such that there are infinitely many pairs of integers @xmath159 satisfying the inequality @xmath160    this first conjecture is neither proved nor disproved . however , a general belief is that in order to be true it should be modified as follows : for each @xmath157 there exists a constant @xmath161 such that for all positive integers @xmath153 , @xmath154 , the inequality @xmath162 holds . in this form
+the conjecture is a corollary of the famous @xmath163-conjecture ( see , e.g. , @xcite , @xcite for further details ) .    as to the second conjecture , in 1982 danilov @xcite proved its stronger version .
+his result is interesting for us since in his proof he used , in a slightly different normalization , the above polynomials @xmath164 , see , , , with the parameters @xmath165 .
+[ prop : hall ] there exists a constant @xmath150 such that there are infinitely many pairs of integers @xmath159 satisfying the inequality @xmath166 proof .
++ + + + + +    specializing ( [ a - d ] ) , ( [ b - d ] ) and ( [ c - d ] ) for @xmath165 and computing the difference @xmath57 we get @xmath167 substituting @xmath168 and dividing both parts by 8 we get @xmath169 let us now consider the factor @xmath170 and try to make it a perfect square ; then will give us a relatively `` small '' difference between a cube and a square . to do that we have to solve the diophantine equation @xmath171 where @xmath172 .
+the last equation is a pell - like equation , that is an equation of the form @xmath173 where @xmath174 is a square - free integer and @xmath175 . for @xmath176
+this equation is a usual pell equation , and it is well known that any pell equation has infinitely many integer solutions . pell - like equations not necessarily have integer solutions . however ,
+if at least one such solution @xmath177 exists , then we can obtain infinitely many solutions @xmath178 using the following recursion : @xmath179 where @xmath180 is the minimum solution of the equation @xmath181 . in our case , @xmath182 .
+equation does have an integer solution @xmath183 .
+returning to  , it is easy to verify that for all @xmath184 one has @xmath185 which proves the theorem : there are infinitely many pairs of integers @xmath159 satisfying , with the constant @xmath186 . @xmath139
+the same polynomials @xmath187 with the parameters @xmath165 were used by dujella  @xcite for constructing an infinite series of pairs of polynomials @xmath188 with the following properties : ( a ) @xmath189 , @xmath190 ; ( b ) @xmath4 and @xmath5 are _ not _ coprime ; ( c ) @xmath191 , so that the minimum degree @xmath192 is not attained , though the discrepancy remains bounded ; ( d ) in return , @xmath4 and @xmath5 are defined over @xmath0 .
+using other dz - pairs , danilov @xcite and beukers and stewart @xcite obtained results similar to proposition [ prop : hall ] for the differences between integer powers @xmath193  and  @xmath194 .
+davenport  zannier pairs for the series of trees considered in this section are expressed in terms of jacobi polynomials .
+the trees in question are constructed as follows .
+first , we take chain - trees with alternating edge weights @xmath195 , see fig .  [
+fig : b ] . we must distinguish chains of odd and even length since in one case both ends are of the same color while in the other case they are of different colors .
+then , we have a right to attach to the end - points an arbitrary number of leaves of the weight @xmath196 . in this way
+we obtain `` odd '' series @xmath197 and `` even '' series @xmath198 , see figs .
+[ fig : e1-e3 ] and [ fig : e2-e4 ] .
+we call these series `` double brushes '' . note that any of the parameters @xmath199 , and also both of them , may be equal to zero
+. thus , @xmath200 and @xmath201 are particular cases of @xmath202 , and @xmath203 and @xmath204 are particular cases of @xmath205 .
+there are two exceptions from the above construction .
+the first is when the chain part consists of a single edge , so that there is no alternance of weights .
+we thus obtain the series @xmath150 , see fig .
+[ fig : c ] .
+in contrast to the general case , now the weight of leaves may be smaller than the weight of the edge between the leaves .
+the second exception is when the chain part consists of two edges . in this case
+it is possible to attach exactly one leaf of weight @xmath196 to one of the ends and exactly two leaves of weight @xmath123 ( or @xmath126 , to ensure the weight alternance ) to the other end . in this way
+, we get the series of forks @xmath140 already studied in sect .
+[ sec : d ] .
+let us recall some general facts concerning jacobi polynomials ; for more advances and detailed treatment see , for example , @xcite or @xcite .
+the classical jacobi polynomials @xmath206 , @xmath207 , are defined for the parameters @xmath208 , @xmath209 , as orthogonal polynomials with respect to the measure on the segment @xmath210 $ ] , given by the density @xmath211 .
+the restriction @xmath209 is necessary in order to ensure the integrability .
+the polynomial @xmath206 can also be defined as a unique polynomial solution of the differential equation @xmath212y'+n(n+a+b+1)y { \,=\,}0,\ ] ] satisfying the condition @xmath213 or by the explicit formula @xmath214    notice that equation can be written in the form @xmath215y'+(n+1)(n+a+b)y { \,=\,}0,\ ] ] where @xmath216 , implying that the function @xmath217 satisfies .
+it follows from that @xmath206 are also polynomials in parameters @xmath218 and  @xmath219 .
+therefore , their definition can be extended to arbitrary ( even complex ) values of these parameters .
+these _ generalized _ jacobi polynomials still satisfy  , although they are no longer orthogonal with respect to a measure on the segment @xmath210 $ ] .
+similarly , since the function may be represented as a power series in @xmath74 whose coefficients are polynomials in @xmath153 , this function satisfies equation for arbitrary @xmath218 and @xmath219 .
+the following key observation will be used in subsequent proofs .
+if , in the differential operator , we replace @xmath2 with @xmath220 , @xmath218 with @xmath221 , and @xmath219 with @xmath222 , we get exactly the differential operator .
+therefore , @xmath223 along with satisfies . the last statement , however , should be taken with caution : the subscript @xmath220 must be a non - negative integer since it is the degree of a polynomial
+.    notice that if @xmath218 and @xmath219 do not satisfy the inequalities @xmath209 , then the degree in @xmath74 of the polynomial @xmath206 defined by may drop down below  @xmath2 .
+indeed , implies that the leading coefficient of @xmath206 is equal to @xmath224 hence , in order to obtain a polynomial of degree @xmath2 we must require that the sum @xmath225 does not take values @xmath226 , @xmath227 ,  , @xmath228 . in particular
+, this is always true if @xmath218 and @xmath219 are real and @xmath229 or , equivalently , @xmath230 .    along with the density @xmath211 , which is defined on @xmath210 $ ] , we will use the multivalued complex function @xmath231 ( note the change of the sign of the term in the first parenthesis ) .
+clearly , this function has three ramification points @xmath232 .
+further , observe that if @xmath233 , then any germ of @xmath231 defined near a non - singular point @xmath234 extends to a function @xmath235 which is single - valued in any domain @xmath236 obtained from @xmath237 by removing a simple curve connecting @xmath238 and @xmath81 . indeed , in such @xmath236 the function @xmath235 may have a ramification only at infinity . on the other hand , since the analytic continuation of @xmath235 along a loop around infinity is @xmath239
+, we see that @xmath68 is not a ramification point since @xmath233 .
+in particular , @xmath235 can be expanded into a laurent series at infinity , @xmath240 finally , if @xmath218 and @xmath219 are rational numbers , say @xmath241 then any @xmath235 as above satisfies the condition @xmath242 implying that @xmath235 is defined up to a multiplication by an @xmath104th root of unity , and that for a certain choice of this root the equality @xmath243 holds .
+by abuse of notation , below we will always use the expression @xmath231 to denote the function @xmath235 which satisfies the equality @xmath243 .
+[ lemma ] assume that @xmath218 and @xmath219 are rational numbers which satisfy the condition @xmath233 . then for any @xmath244 the equality @xmath245 holds .
+[ [ proof.-3 ] ] proof .
++ + + + + +    as it was mentioned above , the function satisfies the differential equation , where the function @xmath246 is assumed to be defined on @xmath210 $ ] .
+however , since this function is analytic near the origin , we can consider its analytic continuation @xmath247 , and the function @xmath248 will satisfy in the domain @xmath236 as above .
+furthermore , if holds , then @xmath249 implying that the function @xmath250 also satisfies in @xmath236 .
+since the polynomial @xmath206 satisfies the differential equation , we conclude that the functions @xmath251 both satisfy the differential equation @xmath252 where @xmath253\frac{d}{d z}+(n+1)(n+a+b).\ ] ] this implies that the function @xmath254 also satisfies this equation . on the other hand , it is easy to see that if @xmath255 is a function whose laurent expansion at infinity is @xmath256 then @xmath257 where @xmath258 therefore , if @xmath259 satisfies and @xmath260 while @xmath261 , we should have either @xmath262 or @xmath263 . finally , implies that the leading terms of both @xmath264 and @xmath265 are equal to @xmath266 therefore , the degree of the leading term of their difference @xmath254 is less than @xmath220 , hence the only possible case is @xmath263 , implying .
+let @xmath267 be a weighted tree from the series @xmath205 or of its two particular cases @xmath204 or  @xmath203 , see figs .
+[ fig : e2-e4 ] and [ fig : b ] .
+denote by @xmath268 the number of white vertices of @xmath267 which are not leaves .
+then the total weight of @xmath267 is equal to @xmath269 and the total number of edges is equal to @xmath270 .
+clearly , @xmath271 for some polynomials @xmath29 and @xmath33 with @xmath272 , @xmath273 .
+furthermore , by , we must have : @xmath274 where @xmath275    [ pro ] the polynomials @xmath4 and @xmath5 may be represented as follows : @xmath276 where @xmath277 is the jacobi polynomial with parameters @xmath278 and @xmath279    [ [ proof.-4 ] ] proof .
++ + + + + +    since the polynomials @xmath29 and @xmath33 in , are defined in a unique way up to a multiplication by a scalar factor , it is enough to show that    @xmath280 where @xmath218 and @xmath219 are given by , and @xmath104 , by .
+represent the left side of as a product of two factors using the formula @xmath281 where @xmath282 it is easy to see that both @xmath283 and @xmath284 are @xmath285 near infinity .
+let us consider the difference @xmath286 clearly , @xmath287 furthermore , since @xmath288 the inequality @xmath289 holds .
+therefore , by lemma [ lemma ] , we have : @xmath290 on the other hand , @xmath291 thus , @xmath292 as required
+. @xmath139
+belyi functions for the series @xmath204 and @xmath205 with the parameters @xmath165 were first calculated in the thesis of nicolas magot in 1997 @xcite .
+a different proof , proposed by don zagier , was given in ch .  2 of @xcite .
+we used zagier s proof as a model for the above construction .
+let now @xmath267 be a weighted tree from the series @xmath202 or of its two particular cases @xmath201 and @xmath200 , see figs .
+[ fig : e1-e3 ] and [ fig : b ] . as
+above , denote by @xmath268 the number of white vertices of @xmath267 which are not leaves , so that the total weight of @xmath267 is @xmath293 , and the total number of edges is @xmath294 .
+now we must find polynomials @xmath4 and @xmath5 such that @xmath295 for some polynomials @xmath29 and @xmath33 with @xmath296 and @xmath297 , and @xmath274 where @xmath298    the polynomials @xmath4 and @xmath5 may be represented as follows : @xmath299 where @xmath300 is the jacobi polynomial with the parameters @xmath301 and @xmath302    [ [ proof.-5 ] ] proof .
++ + + + + +    we must show that @xmath303 where @xmath304 and @xmath104 is defined by .
+equality is equivalent to the equality @xmath305 where @xmath306 on the other hand , since @xmath307 and @xmath308 it follows from lemma [ lemma ] that @xmath309 implying in the same way as in proposition [ pro ] that holds .
+@xmath139      the series @xmath150 is a particular case of the series @xmath310 of odd length corresponding to the case of @xmath268 equal to zero . in order to adjust the notation ( which is slightly different for the series @xmath310 and @xmath150 ) we must set @xmath311 and change @xmath123 to @xmath126 and @xmath126 to @xmath312 in formulas . thus , @xmath313 where @xmath314 is the jacobi polynomial of degree @xmath315 with parameters @xmath316 while @xmath317 finally
+, it is clear that the series @xmath200 and @xmath203 ( chains of odd and even length ) are particular cases of the series @xmath202 and @xmath205 , so that the davenport  zannier pairs for @xmath200 and @xmath203 are obtained from those for @xmath202 and @xmath205 by setting @xmath318      the above results can be interpreted in terms of pad approximants for the function @xmath211 .
+recall that if @xmath319 is a formal power series , then its _ pad approximant _ of order @xmath320 $ ] at zero is a rational function @xmath321 , where @xmath322 is a polynomial of degree @xmath323 and @xmath324 is a polynomial of degree @xmath325 , such that @xmath326 defined in this way , pad approximants do not necessarily exist .
+however , if an approximant of a given order exists , it is unique .
+linearizing the problem by requiring that @xmath327 we arrive to the notion of a _ pad form _ @xmath328 of order @xmath320 $ ] .
+being defined by linear equations , pad forms always exist ( in general , does not imply since @xmath324 may vanish at zero ) , and the pad form of a given order is defined in a unique way up to a multiplication by a constant .    keeping the notation of sect .
+[ sec : e - even ] we may now reformulate the condition for @xmath4 and @xmath5 to be a davenport 
+zannier pair for the series @xmath310 of even length as follows ( a similar result is also true for the series @xmath310 of odd length ) .
+[ prop : pade - even ] let polynomials @xmath29 and @xmath33 be like in formulas and
+. then the pair of their reciprocals @xmath329 is the pad form of order @xmath330 $ ] for the function @xmath211 with parameters @xmath331    [ [ proof.-6 ] ] proof .
++ + + + + +    since the pairs @xmath19 and @xmath332 are both defined up to a multiplication by a constant , it is enough to show that @xmath333 where @xmath334 by definition of pad forms we have : @xmath335 implying that @xmath336 ( here we use formula again though now the factors involved are series by non - negative powers of @xmath74 ) . finally , substituting @xmath337 in place of @xmath74 in and multiplying both sides by @xmath338 we obtain .
+[ prop : pade - odd ] let polynomials @xmath29 and @xmath33 be like in formulas and
+. then the pair of their reciprocals @xmath329 is the pad form of order @xmath339 $ ] for the function @xmath211 with parameters @xmath340    the proof is similar to the previous one , so we omit it .
+[ rem : pade ] from the computational point of view , a great advantage of pad approximants is due to the fact that the equations describing them are linear .
+this observation remains true even in the case like ours when the polynomials in question are known explicitly .
+one has to use some astute tricks in order to make maple work with jacobi polynomials whose parameters do not satisfy the condition @xmath209 . at the same time
+, the computation of pad approximants is instantaneous .
+a vast literature is devoted to the study of pad approximants for some particular functions .
+this is the case , for example , for the exponential function . to our surprise
+, we did not find any research concerning pad approximants for the function @xmath211 . by the way , our lemma  [ lemma ] can also be reformulated as a result about pad forms for this function .
+below we find dz - pairs for the series @xmath341 and @xmath342 , see figs .
+[ fig : f ] and [ fig : g ] , using their relations to differential equations . for the series @xmath341 , which consists of ordinary trees , the corresponding formulas are particular cases of the formulas for _ shabat polynomials _ for trees of diameter four , first calculated by adrianov  @xcite .
+since any tree from the series @xmath341 is ordinary , the degree of @xmath42 is zero , that is @xmath343 for some @xmath344 therefore , in order to describe the corresponding dz - pair it is enough to find @xmath4 and @xmath152 .
+this is equivalent to the finding of the shabat polynomial corresponding to the tree .
+similarly , for trees from the series @xmath342 the degree of @xmath43 is one , and it is technically easier to provide explicit formulas for @xmath4 and @xmath43 rather than for @xmath4 and @xmath5 .
+we start with the series @xmath342 .
+the polynomial @xmath4 for the series @xmath342 takes the form @xmath345 where @xmath29 is a polynomial of degree @xmath346 whose roots are the black vertices ( all of them are of degree  @xmath104 ) .
+notice that the number of these vertices does not coincide with the degree of the central vertex since we have one `` double '' edge .
+we choose the normalization of @xmath4 , @xmath5 and @xmath42 in the following way :    * @xmath347 where @xmath29 is monic , @xmath348 ; * the central vertex is placed at @xmath125 , so that @xmath349 where @xmath33 is monic , @xmath350 ; the roots of @xmath33 are the white vertices distinct from zero ; * @xmath351 ; this means that the pole inside the only face of degree 1 is placed at @xmath127 .
+thus , we get @xmath352    the polynomial @xmath29 satisfies the differential equation @xmath353 consequently , coefficients @xmath354 of @xmath355 may be found by the following backward recurrence : @xmath356 finally , @xmath357 .
+[ [ proof.-7 ] ] proof .
++ + + + + +    taking the derivative of the both sides of equality we obtain the equality @xmath358 implying the equality @xmath359 substituting in the last equality the value of @xmath360 from , we obtain @xmath361-ca { \,=\,}x^{k-1}a\left(kb+xb^{\prime}\right)\ ] ] and @xmath362.\ ] ]    we now observe that the degree of the left - hand side of the latter equality is @xmath346 , while its right - hand side is _ proportional _ to @xmath363 .
+therefore , the expression in the square brackets on the right is some constant @xmath31 , and both parts are equal to @xmath364
+. the constant @xmath31 can be easily found as the leading coefficient of the left - hand side : it is equal to @xmath365 .
+finally , we get the equality @xmath366 which implies .    substituting @xmath355 in
+we obtain .
+finally , substituting @xmath125 in we obtain @xmath367 .
+@xmath139    let us take @xmath368 , so that @xmath369 . then the corresponding polynomial looks as follows : @xmath370 where @xmath371    [ rem : hyp - geom ] polynomial @xmath29 also satisfies the hypergeometric differential equation @xmath372\frac{dy}{dx } - ab\cdot y { \,=\,}0.\end{aligned}\ ] ] indeed , applying the differential operator @xmath373 to both parts of equality we obtain @xmath374^{\prime}+(1-k)\left[ma^{\prime}\cdot(x-1)-a\right]=0,\ ] ] implying @xmath375a^{\prime } - \frac{(1-k)}{m}a { \,=\,}0.\ ] ] therefore , @xmath29 is a solution of the differential equation @xmath376\frac{dy}{dx }   + \frac{(1-k)}{m}\,y { \,=\,}0\ ] ] which is a particular case of with @xmath377      for this series we may assume that @xmath378 here @xmath29 is monic and @xmath379 ; namely , @xmath29 is a polynomial whose roots are the black vertices of degree @xmath104 .
+now , @xmath33 is a polynomial whose roots are the white vertices distinct from zero , @xmath380 .
+the polynomials @xmath4 and @xmath5 must satisfy the condition @xmath381 where @xmath382 is a non - zero constant .
+the polynomial @xmath29 satisfies the differential equation @xmath383\,x^{k-1}.\end{aligned}\ ] ] consequently , coefficients @xmath354 of @xmath355 may be found by the following backward recurrence : @xmath384 finally , the value of @xmath152 in is equal to @xmath385 .    [
+[ proof.-8 ] ] proof .
++ + + + + +    as above , let us take the derivative of both sides of equation .
+then we get @xmath386 { \,=\,}x^{k-1}\left(kb+xb^{\prime}\right).\ ] ] we observe that the polynomial @xmath363 is coprime with the factor @xmath387 in the left - hand side , and therefore it must be proportional to the factor @xmath388 which is itself a polynomial of degree @xmath346 .
+therefore , both of them are equal to @xmath364 where the constant @xmath31 can be found as the leading coefficient of @xmath388 ; namely , it is equal to @xmath389
+. thus , holds .
+now , substituting @xmath355 in we obtain the recurrence , and substituting @xmath125 in we obtain the value of @xmath152 .
+@xmath139    here , like in the case of the series @xmath342 , the polynomial @xmath29 also satisfies the hypergeometric differential equation , and therefore it may be represented through a hypergeometric function .
+let us take @xmath368 , so that @xmath369
+. then the corresponding polynomial looks as follows : @xmath390 where @xmath391      the above method may be applied to dz - pairs which do not necessary correspond to trees of diameter four or to unitrees . however , in general , it leads to _ differential relations _ between @xmath4 and @xmath5 .
+let us clarify what we mean by considering the problem of the difference between cubes and squares of polynomials , which was at the origin of the whole activity concerning dz - pairs , see @xcite , @xcite .
+let @xmath392 @xmath393 and @xmath43 be polynomials such that @xmath394 and @xmath395 taking the derivative of both parts of we obtain @xmath396 multiplying now the last equality by @xmath29 and substituting @xmath35 from we obtain the equality @xmath397 implying in its turn the equality @xmath398 since the degree of the right - hand side is @xmath399 while @xmath46 , the above equality implies that @xmath400 for some non - zero constant @xmath401 .
+the last expression is a differential equation of the first order with respect to @xmath29 as well as with respect to @xmath33 .
+unfortunately , both @xmath29 and @xmath33 are unknown .
+thus , it does not give us any immediate information about @xmath29 and @xmath33 .
+still , algebraic equations for coefficients of @xmath29 and @xmath33 obtained from are ( mostly ) of degree  2 while the equations obtained from are ( mostly ) of degree  3 .    differentiating and writing
+the expression thus obtained as a differential equation with respect to @xmath29 we get : @xmath402 this differential equation is a particular case of the differential equation @xmath403 where @xmath404 is a polynomial of degree at most @xmath405 polynomial solutions of the last equation are called stieltjes polynomials .
+the polynomials @xmath404 for which has a polynomial solution are called van vleck polynomials .
+thus , @xmath33 is a van vleck polynomial , and @xmath29 is the corresponding stieltjes polynomial .
+writing now in the form @xmath406 we obtain that @xmath29 is a van vleck polynomial and @xmath33 is the corresponding stieltjes polynomial .
+the above observations show that the relations between dz - pairs and differential equations may be deeper than it seems at first glance and deserve further investigation .
+in this section we consider series @xmath407 ( fig .  [ fig : h ] ) and @xmath408 ( fig .  [ fig : i ] ) . in both cases the corresponding dz - pairs
+are obtained with the help of the operation of composition . notice that the trees in question are ordinary ( the weights of all edges are equal to 1 ) .
+as it was mentioned in definition  [ def : weighted ] , belyi functions for ordinary trees are called shabat polynomials .
+the trees of the series @xmath407 are compositions of trees from the series  @xmath150 with the parameters @xmath165 and chains of length  2 .
+the expressions of the shabat polynomials for the trees from the series  @xmath150 in terms of jacobi polynomials are given in sect .
+[ sec : c ] .
+using the fact that @xmath165 we can also compute them directly .
+indeed , the trees in question have exactly two vertices of degree greater than  1 . putting them into the points @xmath125 and @xmath127 and taking into account that the degree of the corresponding shabat polynomial @xmath409 is @xmath410 , we conclude that the derivative of @xmath109 is proportional to @xmath411 .
+therefore , the polynomial @xmath409 itself can be written as @xmath412 then we automatically have @xmath413 , while in order to get @xmath414 we must take @xmath415 where @xmath416 is the euler beta function .
+then , taking the shabat polynomial for the chain with two edges and with two black vertices put to 0 and 1 , which is equal to @xmath417 we obtain the following    the polynomial @xmath4 for the tree @xmath407 is equal to @xmath418 where @xmath236 is as in and @xmath109 is as in and .
+the proof is obvious .      below
+are given shabat polynomials @xmath419 for the trees of the series @xmath408 .
+these trees are compositions of trees from the series  @xmath150 with @xmath165 and @xmath420 , and the stars with three edges .
+thus , @xmath421 , where @xmath109 is a shabat polynomial corresponding to a tree from the series @xmath150 , and @xmath236 is a shabat polynomial corresponding to the star with three edges .
+however , in order to achieve the rationality of the coefficients of @xmath4 we still must find an appropriate normalization of @xmath109 .    for this purpose ,
+contrary to all traditions , let us put the vertices of degree  @xmath48 of the tree from the series  @xmath150 into the points @xmath422 .
+then the derivative of the corresponding shabat polynomials @xmath409 must be equal to @xmath423 therefore , @xmath424+b\end{aligned}\ ] ] for some @xmath425 . substituting into @xmath409 the critical points @xmath422 , we obtain the critical values @xmath426 , where @xmath427    setting @xmath428 and choosing @xmath218 in such a way that @xmath429 we obtain a polynomial @xmath430 $ ] with two critical values @xmath431 taking now @xmath432 ( we must take @xmath433 instead of @xmath434 in order to get the colors of the vertices which would correspond to fig .  [
+fig : i ] ) , we obtain the following    the polynomial @xmath435 for the tree @xmath408 is equal to @xmath436 where @xmath236 is as in and @xmath109 is as in with @xmath218 and @xmath219 defined by conditions , , .    once again , the proof is obvious .
+this is the last infinite series of unitrees .
+the degree of this tree , or its total weight , is @xmath437 .
+let us normalize the polynomial @xmath4 so that @xmath438 this means that the black vertex of degree 4 is put at @xmath439 , while two black vertices of degree @xmath440 are put at the points @xmath441 for certain @xmath442 , @xmath443 .
+all the white vertices are of degree 2 ; therefore , the polynomial @xmath5 has the form @xmath444 for some polynomial @xmath29 , @xmath445 .
+further , condition gives us @xmath446 here @xmath440 is the `` overweight '' of the tree ( that is , its total weight minus the number of edges of the topological tree ) . for the reciprocal polynomials this gives ( see ) @xmath447 here @xmath448 is the number of edges of the topological tree .
+the reciprocal polynomials @xmath449 and @xmath450 may be represented as follows : @xmath451 where @xmath131 is the initial segment of the series @xmath452 up to the degree @xmath453 : @xmath454    [ [ proof.-9 ] ] proof .
++ + + + + +    let @xmath455 where @xmath456 computing @xmath457 we get @xmath458.\end{aligned}\ ] ]    thus , for any value of the parameter @xmath218 we have @xmath459 and therefore , in order to obtain , we only have to show that for @xmath460 the constant term of @xmath461 is equal to zero , or , equivalently , the coefficient in front of @xmath462 in the series @xmath463 vanishes .
+let us write the second factor of the latter expression explicitly : @xmath464 notice that this series involves only even powers .
+multiplying it by @xmath465 we see that the coefficient in front of @xmath462 in @xmath452 is the sum of the coefficients in front of @xmath462 and @xmath466 in . therefore , we must ensure that @xmath467 collecting similar terms we get @xmath468 which gives @xmath460 .
+@xmath139    let us take @xmath469 .
+then we have : @xmath470 further , @xmath471 notice that the term with @xmath472 is missing . finally , @xmath473
+as it was explained previously , in sect .  [ sec : computation ] , the verification of the results given below is trivial . therefore , we present nothing else but the polynomials themselves .      @xmath474      @xmath475      @xmath477      @xmath479    this tree is symmetric , with the symmetry of order  3 . therefore , @xmath4 , @xmath5 , @xmath43 are polynomials in  @xmath480 .
+@xmath482    this triple was found in beukers and stewart @xcite ( only the polynomial  @xmath4 is given in their paper , but it uniquely determines two other polynomials ) .
+@xmath483    once again , the answer is taken from @xcite , with a slight renormalization .
+@xmath484    this tree is the only sporadic tree from the adrianov s list of ordinary unitrees . correspondingly , @xmath4 is a shabat polynomial : the polynomial @xmath43 is a constant .
+note that the positions of certain black vertices are rational : @xmath485 @xmath486      the tree @xmath43 is the `` square '' of the tree @xmath87 : it is symmetric , with the symmetry of order  2 , and one of its `` halves '' is equal to @xmath87 .
+therefore , we may take the polynomials for the tree @xmath87 and insert @xmath487 instead of @xmath74 .
+@xmath488      @xmath489    notice that the second factor in @xmath4 , the one which is `` cubed '' , does not contain the term with @xmath74 : this is not a misprint .
+the picture of this tree is given in example  [ ex : pair - t.bis ] , and the corresponding polynomials are given in example  [ ex : pair - t ] .
+recall that the passport of a ( bicolored weighted plane ) tree is a pair of partitions @xmath1 , where @xmath2 is the degree ( or the total weight ) of the tree , @xmath16 represents the set of degrees of its black vertices , and @xmath17 represents the set of degrees of its white vertices .
+[ def : comb - orbit ] the set of weighted trees with the same passport is called _
+combinatorial orbit_.    unitrees represent , in fact , combinatorial orbits consisting of a unique tree .
+usually , a dz - pair corresponding to a tree is defined over a number field whose degree is equal to the size of the combinatorial orbit to which this tree belongs .
+this is why unitrees are always defined over @xmath0 .
+there exist , however , other galois invariants which may split a combinatorial orbit into several distinct galois orbits . in this way we may obtain certain trees which are not unitrees but which are still defined over @xmath0 . in @xcite we gave several such examples . here
+we present the corresponding dz - pairs .
+a bicolored map may be characterized by a pair of permutations acting on the set of its edges : one permutation represents the cyclic order ( in the positive direction ) of the edges around black vertices , the other one , the cyclic order around white vertices . for example , the map shown in fig .
+[ fig : pgl27 ] , is represented by the pair of permutations @xmath491 it turns out that the permutation group @xmath492 is equal to @xmath490 .
+this group , which is called _ monodromy group _ , is a galois invariant . since this tree is the only one in its combinatorial orbit whose monodromy group is @xmath490 , it is defined over @xmath0 .
+@xmath493    the combinatorial orbit to which this tree belongs , that is , the set of trees with the passport @xmath494 , contains six trees .
+the five remaining trees constitute a single galois orbit ; the corresponding dz - pairs ( or , we may say , the trees themselves ) are defined over the splitting field of the polynomial @xmath495      the combinatorial orbit corresponding to the passport @xmath496 , consists of five trees
+. one of them , shown in fig .
+[ fig : pgl27-bis ] , has the monodromy group @xmath490 .
+therefore , it is defined over @xmath0 .
+its dz - pair is given below .
+@xmath497    one of the trees in this combinatorial orbit is symmetric ( see fig .  [
+fig : sym ] ) and is therefore also defined over @xmath0 .
+the corresponding polynomials are @xmath498    the three remaining trees constitute a single galois orbit and are defined over the splitting field of the polynomial @xmath499      the _ duality _ for the bicolored maps is defined as follows :    * a map and its dual share their white vertices ; * black vertices of each map correspond to the faces of the dual map ; * edges of the dual map connect the centers of the faces of the initial map to the white vertices which lie on the border of these faces .
+see details and examples in @xcite .
+a map is _ self - dual _ if it is isomorphic to its dual .
+self - duality is a galois invariant .
+the maps corresponding to weighted trees may well be self - dual .
+let @xmath500 be two positive integers , and @xmath501 .
+we consider the trees with the black partition @xmath502 and the white partition @xmath503 .
+the partition representing the face degrees is @xmath504 .
+we notice that @xmath505 ; therefore , the corresponding combinatorial orbit _ may _ contain self - dual trees .
+it is easy to verify that this combinatorial orbit consists of @xmath506 trees , and that only one of them is self - dual , namely , the tree shown in fig .
+[ fig : self - dual ] . therefore , this tree is defined over @xmath0 .
+put the white vertices at the points @xmath439 and @xmath127 so that @xmath507 ( notice that both powers are odd ) .
+observe now that this polynomial is `` antipalindromic '' : if we write it as @xmath508 then @xmath509 , @xmath510 , 
+this fact trivially follows from the equality @xmath511 .
+because of this , the coefficient in front of the `` middle '' degree @xmath512 is zero .
+therefore , if we take the higher degrees from @xmath513 to @xmath105 , what will remain is a polynomial of degree @xmath514 . in other words , @xmath515 where @xmath516 .
+setting now @xmath517 we see that @xmath4 , @xmath5 is a dz - pair with required properties .
+notice that the polynomial @xmath518 is reciprocal to @xmath519 .
+geometrically , this means that if @xmath520 are the positions of the black vertices of degree  1 ( here @xmath521 ) , then the centers of the faces of degree  1 are @xmath522 .
+together with the fact that the position of the black vertex of degree @xmath105 is @xmath125 while the center of the face of degree @xmath105 is @xmath68 , this shows that the map in question is indeed self - dual .
+let us take , for example , @xmath523 , @xmath524 .
+then @xmath525 where @xmath526 and @xmath527 .
+the combinatorial orbit corresponding to the passport @xmath528 , @xmath529 is shown in fig .
+[ fig : zannier-5 ] .
+it consists of four trees ( recall that the invisible white vertices are middle points of the edges ) , and is divided into three galois orbits .
+the tree @xmath218 is the only one which is symmetric with the symmetry of order  3 .
+therefore , it is defined over @xmath0 .
+the corresponding polynomials were computed by b.birch in 1965 @xcite .
+they look as follows ( notice that they are polynomials in  @xmath480 ) : @xmath530    the trees @xmath219 and @xmath152 are symmetric with the symmetry of order 2 with respect to an ( invisible ) white vertex .
+they are also mirror symmetric to each other ; therefore , the complex conjugation sends one of the trees to the other .
+thus , we may conclude that this couple of trees constitutes a separate galois orbit , and this orbit is defined over an imaginary quadratic field .
+the corresponding polynomials were computed in 2005 by shioda @xcite and , indeed , they are defined over the field @xmath531 .
+we do not present these polynomials here .
+the tree @xmath532 does not have any particular combinatorial properties .
+( it is known that the mirror symmetry of a dessin is not a galois invariant . ) but _ it remains alone _ , that is , it constitutes a galois orbit containing a single element .
+therefore , it is defined over @xmath0 .
+the corresponding polynomials were computed in 2000 by n.elkies @xcite .
+they look as follows : @xmath533    by the way , a naive approach mentioned in sect .
+[ sec : computation ] , namely , taking polynomials @xmath29 and @xmath33 of degrees 10 and 15 respectively with indeterminate coefficients and equating to zero the coefficients of degrees from 7 to 30 of @xmath534 , would , this time , lead us to a system of polynomial equations of degree @xmath535 .
+it took 40 years ( from 1965 to 2005 ) to compute all the four dz - pairs of this example , but the fact that there are exactly four non - equivalent solutions and that two of them are defined over @xmath0 while the other two are defined over an imaginary quadratic field , can be immediately seen from the picture without any computation .
+all the polynomials in this section which correspond to the _ asymmetric _ trees are taken from the above - cited article @xcite . the normalization sometimes is changed .
+the goal of this section is to show the _ combinatorial reasons _ of appearance of these sporadic examples .
+the passport shows that we are treating here the problem of the minimum degree of the difference @xmath537 where @xmath538 , @xmath539 .
+the combinatorial orbit consists of two trees , see fig .
+[ fig : split-7 - 3 ] .
+one of them is symmetric , the other one is not ; therefore , both are defined over @xmath0 .
+the triple corresponding to the asymmetric tree is as follows : @xmath540    the triple corresponding to the symmetric tree may be computed as follows :    1 .
+compute the polynomials corresponding to a branch of this three - branch tree , that is , to a tree of the series @xmath29 ( see sect .
+[ sec : a ] ) with the parameters @xmath541 , @xmath542 , @xmath543 .
+2 .   make the change of variables @xmath544 in order to put the white vertex of degree  1 to the point  @xmath125 ; thus , the polynomial @xmath435 , instead of being  @xmath545 , becomes @xmath546 ; it is convenient to change its sign and to get @xmath547 .
+insert @xmath480 instead of @xmath74 .    by pure convenience
+we add to the above operations one more : instead of taking @xmath548 we take @xmath549 .
+this permits us to avoid fractional coefficients .
+the resulting triple is @xmath550      the passport corresponds to the problem of the minimum degree of the difference @xmath552 where @xmath538 , @xmath553 .
+the combinatorial orbit consists of two trees , see fig .
+[ fig : split-8 - 3 ] .
+one of them is symmetric , the other one is not ; therefore , both are defined over @xmath0 .
+the triple corresponding to the asymmetric tree looks as follows : @xmath554    the triple corresponding to the symmetric tree may be computed as follows :    1 .
+compute the polynomials corresponding to the series @xmath205 ( see sect .
+[ sec : e - even ] ) with @xmath555 , @xmath556 , @xmath557 , @xmath558 .
+2 .   make the change of variables @xmath559 in order to move the ( left ) black vertex of degree  4 from @xmath238 to 0 .
+insert @xmath487 instead of @xmath74 .
+we omit the resulting polynomials .      this time we deal with the problem @xmath561 , @xmath538 , @xmath562 .
+the combinatorial orbit corresponding to this passport contains three trees , see fig .
+[ fig : split-10 - 3 ] .
+these trees have three different symmetry types , hence all of them are defined over @xmath0 .
+the polynomials for the asymmetric tree look as follows : @xmath563    the polynomials for the tree with the symmetry of order 2 is computed in the same way as in sect .
+[ sec : split2 ] .
+the parameters of the tree of the type @xmath205 are @xmath564 , @xmath542 , @xmath557 , @xmath565 ; then we must replace @xmath74 with @xmath566 , and insert @xmath487 instead of @xmath74 .
+the polynomials for the tree with the symmetry of order 3 is computed in the same way as in sect .
+[ sec : split1 ] .
+the parameters of the tree of the type @xmath29 are @xmath541 , @xmath542 , @xmath469 ; then we must replace @xmath74 with @xmath567 , and insert @xmath480 instead of  @xmath74 .
+we finish this section with an example which shows that the combinatorial methods , while being very powerful , are , however , not all - powerful .
+there are several trees with the passport @xmath568 , and one of them , shown in fig .
+[ fig : why ] , is defined over @xmath0 without any apparent reason .
+all known combinatorial and group - theoretic galois invariants fail to explain this phenomenon .
+all we can say is that the corresponding system has rational solutions `` by chance '' .    the polynomials @xmath4 and @xmath5 for the tree of fig .
+[ fig : why ] are as follows : @xmath569 the polynomial @xmath43 here is of degree 32 , and it is too cumbersome , so we do not write it explicitly .
+we have already seen two examples ( see sect .  [
+sec : split1 ] and [ sec : split2 ] ) of combinatorial orbits of size  2 which , instead of being defined over a quadratic field , split in two orbits defined over @xmath0 because the trees in question have different orders of symmetry . here
+we present an infinite series of such examples .
+the trees in question have the passport @xmath570 for @xmath571 , see fig .
+[ fig : sym - and - not ] .
+belyi function for the symmetric tree looks as follows : @xmath572 belyi function for the asymmetric tree looks as follows : @xmath573 in both cases , the white vertex of degree 4 lies at @xmath125 .
+the expressions for belyi functions give us the polynomials @xmath4 and @xmath43 .    in order to prove the correctness of the above expressions we need to verify two things : for both @xmath574 and @xmath575
+, we have ( a ) @xmath576 ; ( b ) first three derivatives of @xmath577 at @xmath125 vanish .
+let us return to the problem of the minimum degree of the difference @xmath534 , the question from which this whole line of research started ( see @xcite .
+we have seen that when @xmath45 , @xmath46 , we have @xmath578 . for @xmath579 ,
+the computation becomes exceedingly difficult , and there is practically no hope to find solutions defined over @xmath0 .
+however , if we are not so demanding and accept a solution with the degree of @xmath534 slightly greater than @xmath192 , then sometimes we can find a needed solution .
+let us take a polynomial @xmath29 with one double root , so that @xmath35 would have one root of multiplicity 6 and all the other roots of multiplicity 3 .
+the corresponding tree would have one vertex less and therefore one face more .
+the tree in fig .
+[ fig : deg9-instead-8 ] corresponds to @xmath580 .
+it is the `` cube '' of the tree @xmath109 , see sect .
+[ sec : tree - s ] .
+therefore , all we have to do is to insert @xmath480 instead of @xmath74 in the formulas of section  [ sec : tree - s ] .
+@xmath581    when all the roots of @xmath29 and @xmath33 are distinct , the polynomial @xmath43 has @xmath192 distinct roots .
+let us accept @xmath43 with a multiple root ( thus , its degree will be greater that @xmath192 ) . the tree in fig .
+[ fig : deg - relaxed ] gives such and example .
+it corresponds to @xmath368 , and @xmath582 .
+the polynomials for this tree look as follows : @xmath583      fedor pakovich was partially supported by isf grants no .
+639/09 and 779/13 .
+he is also grateful to the max plank institute for mathematics for the hospitality and support .
+alexander zvonkin was partially supported by the research grant graal anr-14-ce25 - 0014 .
+99 handbook of mathematical functions : with formulas , graphs , and mathematical tables .  dover , 1972 . on generalized chebyshev polynomials corresponding to planar trees of diameter 4 ,
+* 13 * ( 2007 ) , no . 6 , 1933 ( in russian ) ; translation in _ j. math
+( n. y. ) vol .
+* 158 * ( 2009 ) , no .
+1 , 1121 arithmetic theory of graphs on surfaces , ph.d . thesis , moscow state university , 1997 , 116  pp .
+( in russian ) .
+neighboring powers , _ journal of number theory _ , 2010 , vol .  *
+130 * , 660679 . on the difference @xmath584 , _ det kongelige norske videnskabers selskabs forhandlinger _ ( trondheim ) , 1965 , vol .
+* 38 * , 6569 .
+cycles comme produit de deux permutations de classes donnes , _ discrete math . _ , 1982 ,
+vol .  * 58 * , 129142 . the diophantine equation @xmath585 and hall s conjecture . 
+_ matematicheskie zametki _ , 1982 , vol .  *
+32 * , no .  3 , 273275 .
+diophantine equations @xmath586 . 
+_ matematicheskie zametki _ , 1989 ,
+vol .  * 46 * , no .  6 , 3845 .
+on @xmath587 , _ det kongelige norske videnskabers selskabs forhandlinger _ ( trondheim ) , 1965 , vol .  *
+38 * , 8687 . on hall s conjecture .
+ _ acta arith . _ , 2011 , vol .  * 147 * , no .  4 , 397 - 402 .
+realizability of branched coverings of surfaces , _ trans .
+soc . _ , 1984 , vol .  *
+282 * , no .  2 , 773790 .
+rational points near curves and small non - zero @xmath588 via lattice reduction .  in : wieb bosma , ed . , algorithmic number theory , lecture notes in computer science , vol .  *
+1838 * , springer - verlag , 2000 , 3363 . the diophantine equation @xmath585 .
+ in : computers in number theory , academic press , london  new york , 1971 , 173198 .
+graphs on surfaces and their applications .
+ springer - verlag , 2004 .
+old and new conjectured diophantine inequalities .
+_ , new ser . , 1990 , vol .
+* 23 * , no .
+1 , 3775 . cartes planaires et fonctions de belyi  : aspects algorithmiques et exprimenataux .
+thesis , universit bordeaux  i , 1997 , 144  pp . minimum degree of the difference of two polynomials over  @xmath0 , and weighted plane trees .
+ _ selecta mathematica , new ser .
+_ , 2014 , vol .
+* 20 * , no .  4 , 10031065 .
+see also arxiv:1306.4141v1 .
+elliptic surfaces and davenport  stothers triples , _ comment .
+univ . st .
+pauli _ , 2005 , vol .  * 54 * , no .  1 , 4968 . on computing belyi maps , arxiv:1311.2529v3 ( may 2014 )
+polynomial identities and hauptmoduln , _ quart .
+j.  math .
+oxford _ , ser . 2 , 1981 , vol .
+* 32 * , no
+.  127 , 349370 . orthogonal polynomials . 
+colloquium publications , vol .  *
+23 * , 1939 ( reedited in 1992 ) .
+on davenport s bound for the degree of @xmath589 and riemann s existence theorem , _ acta arithmetica _
+, 1995 , vol .  * 71 * , no .  2 , 107137 .      labri , umr 5800 , universit de bordeaux , 33400 talence , france ; e - mail : zvonkin@labri.fr , and the chebyshev mathematical laboratory at the saint - petersburg state university , 29b , 14th line , vasilyevsky island , saint - petersburg 199178 , russia .

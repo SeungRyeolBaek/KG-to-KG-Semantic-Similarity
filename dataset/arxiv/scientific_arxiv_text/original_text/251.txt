@@ -1,0 +1,350 @@
+a proper choice of order parameters is the most important perspective for building a sound model for liquid crystals .
+the order parameters should be simple and explanatory in terms of mathematics and physics , while efficient in computations . from the viewpoint of theoretical analysis
+, it is desirable to adopt order parameters that are as simple as possible in order to capture essential phenomena of liquid crystals , with four phases the most important : isotropic(@xmath0 ) , nematic(@xmath1 ) , smectic - a(@xmath2 ) , and smectic - c(@xmath3 ) phases . as for computational aspects
+, the order parameters should be discretely representable with reasonable dimensions while keeping the energy functional well - posed , concise , and efficient .
+the classical models for static liquid crystals can be classified into three scales : molecular models , tensor models , and vector models .
+each of these models have merits and limitations in respect to mathematics , physics and computations .
+the molecular models for liquid crystals are based on microscopic statistical physics . by means of the cluster expansion ,
+onsager @xcite pioneered the molecular field theory , in which the order parameter is the density function for the position and orientation of molecules .
+onsager s molecular model is established on sound physical principles , and contains no adjustable parameters . however ,
+the molecular model is not clearly related to macroscopic properties , and the high dimension of the order parameter imposes considerable obstacles in computations .
+based on onsager s molecular theory , the mcmillan model @xcite and a list of molecular models @xcite @xcite @xcite parameterized the density function by some scalar order parameters to model the smectic phases . by lowering the dimensions ,
+these model are very efficient in computations .
+however , the order parameters of these models are spatially invariant , so that they can not model detailed physical phenomena with confined geometry and spatial variance .    on the other hand , a vector model for liquid crystals
+was phenomenologically proposed by oseen @xcite , where the order parameter is a vector field @xmath4 representing the director . as a development of landau - ginzburg theory and oseen - frank theory , chen and
+lubensky @xcite introduced the density as another order parameter to characterize @xmath1-@xmath2-@xmath3 phase transitions .
+the chen - lubensky model is famous for its conciseness .
+the internal coefficients can be measured through experiments .
+however , this model presumes liquid crystals to be uniaxial , and the director @xmath5 is singular at defect points , which renders it difficult to characterize some small scale phenomena , such as defects and interfaces .    overcoming the drawbacks of the molecular models and the vector models ,
+the well - known landau - de gennes model @xcite was proposed with the energy functional @xmath6&=\int_\omega\left ( \frac{a(t - t^*)}{2}{\mathrm{tr}}(q^2)-\frac{b}{3}{\mathrm{tr}}(q^3)+\frac{c}{4}({\mathrm{tr}}(q^2))^2\right ) { \mathrm{d}}\tx\\ & + \int_\omega\left ( l_1 \vert \nabla q \vert^2+l_2 \partial_j q_{ik}\partial_k q_{ij}+l_3 \partial_j q_{ij } \partial_kq_{ik}+l_4 q_{lk } \partial_k q_{ij } \partial_l
+q_{ij}\right )   { \mathrm{d}}\tx , \end{aligned}\ ] ] where @xmath7 , @xmath8 , @xmath9 , and @xmath10 are constants . the order parameter is a @xmath11 symmetric traceless tensor field @xmath12 , which is the second moment of molecules orientation at every point .
+the q - tensor is a desirable order parameter providing information on both the preferred molecular orientation and the degree of orientational order at every given point , while capturing essential physical properties .
+various phenomena were studied with the landau - de gennes model , e.g. phase transitions in confined geometries @xcite @xcite , wetting phenomena @xcite @xcite , surface - induced bulk alignment @xcite @xcite , and defects and disclinations @xcite @xcite .
+the order parameter and the energy functional of the landau - de gennes model are also simple enough to perform rigorous mathematical analysis .
+ball and majumdar proved that the energy of landau - de gennes model is unbounded from below as @xmath13 , and proposed to modify the entropy term from a polynomial into a thermotropic one in order to avoid the unboundedness @xcite .
+furthermore , ball and zarnescu proved that for simply - connected domains and in sobolev space @xmath14 with corresponding boundary conditions , the landau - de gennes theory and the oseen - frank theory coincide @xcite .
+various generalizations of the landau - de gennes model @xcite @xcite @xcite @xcite were proposed to include smectic phases .
+the work of pajak and osipov @xcite is a generalization of the mcmillan model @xcite and the landau - de gennes model , which starts from the self - consistent field theory and adopts the one mode approximation to parameterize the density function .
+the details of this model are provided in section [ section : gmm ] .
+this model is efficient in computations , but the order parameters are spatially invariant , failing to characterize some physical phenomena with confined geometry and spatial variance .
+the works of mukherjee @xcite and biscari _
+@xcite are also generalizations of the landau - de gennes theory .
+the q - tensor is coupled with the complex smectic order parameter , and the spatial inhomogeneity of the order parameters enables the model to characterize smectic phases .
+however , it is noteworthy that these models did not explain how the energy functionals were derived in details .      in a recent paper by han _
+@xcite , a systematic way of modeling static liquid crystals with uniaxial molecules was proposed . to be more precise ,
+starting from onsager s molecular theory , a new q - tensor model was presented incorporating the bingham closure and a taylor expansion with truncation at low order moments .
+the coefficients in the new q - tensor model were approximated in terms of the microscopic shape factor @xmath15 by assuming the interaction potential to be the volume exclusion potential of rigid rod - like molecules .
+here , @xmath16 is the diameter of the semisphere at the ends of the rods , and @xmath17 is the length of the rods . in modeling the nematic phase ,
+the oseen - frank model and the ericksen model were derived using the new q - tensor model by assuming a constant density .
+three elastic constants @xmath18 , @xmath19 , and @xmath20 , measuring the strains on liquid crystals in deformation , were calculated analytically . in modeling the smectic phase , under the uniaxial assumption , some preliminary numerical results regarding @xmath0-@xmath1-@xmath2 phase transitions were presented .
+the energy functional of the new q - tensor model in a modified version reads @xmath21=f_{bulk } + f_{elastic , 2}+ f_{elastic , 4},\\ \end{aligned}\ ] ] where @xmath22 { \mathrm{d}}\tx,\\ \nonumber\beta f_{elastic , 2}= & \frac{1}{2}\int_\omega\big[-g_1 \vert \nabla c\vert^2 + g_2 \vert \nabla(cq)\vert^2+g_3\partial_i(cq_{ik})\partial_j(cq_{jk } )   -g_4   \partial_i(cq_{ij})\partial_j(c)\\ \label{elastic2}&+ g_5\vert \nabla(cq_4)\vert^2+g_6\partial_i(cq_{4iklm } ) \partial_j(cq_{4jklm})+g_7 \partial_i(cq_{4ijkl})\partial_j(cq_{kl})\big ] { \mathrm{d}}\tx,\\ \nonumber\beta f_{elastic , 4}=&\frac{1}{2}\int_{\omega}\big[h_1\vert \nabla^2 c\vert^2 + h_2 \vert \nabla^2 ( cq)\vert^2 \\ \label{elastic4}&+ h_3\partial_{ij}(cq_{ij})\partial_{kl}(cq_{kl } ) + h_4 \partial_{ik}(cq_{ip})\partial_{jk}(cq_{jp } ) \big ] { \mathrm{d}}\tx.\end{aligned}\ ] ] here , @xmath23 is the thermodynamic beta .
+@xmath24 is the density .
+q - tensor @xmath12 is the traceless second moment of the orientational variable @xmath25 , and @xmath26 is the traceless fourth moment of the orientational variable @xmath25 .
+@xmath27 is the bingham distribution parameters , and @xmath28 is the normalizing constant for the bingham distribution .
+the bulk energy @xmath29 contains the entropy and the quadratic terms of the order parameters . the second order elastic energy @xmath30 contains the derivative terms of the order parameters ; the fourth order elastic energy @xmath31 contains the second order derivative terms of the order parameters .
+note that here the fourth order elastic energy @xmath31 is truncated : only the positive definite terms are preserved in order to ensure the lower boundedness of the energy functional .
+the detailed descriptions of the energy functional are presented in the main body of this paper .      in this paper , regarding the new q - tensor model as a phenomenological model , we focus on its density variation effects , and show its effectiveness in terms of mathematics , physics , and computations .
+the introduction of the density @xmath24 as another order parameter exhibits many benefits .
+it empowers the model to characterize the smectic phases , and to characterize the density variations in small scale phenomena such as defects and interfaces .
+since a few fourier modes are enough to characterize the profiles of the order parameters , the model can be solved with low computational costs .
+numerical experiments are performed to study @xmath0-@xmath1-@xmath2-@xmath3 phase transitions , and the results are compared with experimental results .
+the @xmath0-@xmath1 interface problem is also studied in the new q - tensor model setup , where the numerical results are compared with previous theoretical results and experimental results .
+in addition , we will elaborate on the strong connections of the new q - tensor model with the classical models of liquid crystals in three scales .
+derived from onsager s molecular theory , the new q - tensor model can generate all the other classical models with some assumptions and approximations .
+figure [ relations ] shows the classical models in three scales and their relations .
+this paper is organized as follows . in section [ section : prop ] , we demonstrate the mathematical properties of the new q - tensor model and the numerical methods to compute the energy functional . in section [ section : phy ] , the numerical results regarding @xmath0-@xmath1-@xmath2-@xmath3 phase transitions and @xmath0-@xmath1 interface are presented . in section [ section :
+compare ] , we compare the q - tensor model with the classical models .
+we give several concluding remarks in section [ section : sum ] .
+some detailed calculations involved in the paper are provided in the appendix .      in this paper ,
+all vectors will be expressed by boldface letters .
+the juxtaposition of a pair of vectors @xmath32 denotes the dyadic product of @xmath25 and @xmath5 .
+doubly contracted tensor products are represented by a colon .
+the einstein summation convention for tensors is used .
+in this section , we review the new q - tensor model previously derived from onsager s molecular theory in the paper @xcite , and discuss the numerical methods .
+we will demonstrate the merits of density as the order parameter in terms of concise mathematics , efficient computations , and explanatory physics .
+the new q - tensor model gives the free energy of liquid crystals as equation ( [ energy0 ] ) , with the definitions of notations as follows .
+consider the rod - like liquid crystal molecules in domain @xmath33 .
+the molecules take positional coordinate @xmath34 , and orientational coordinate @xmath35 .
+the positional coordinate @xmath36 is dimensionless , which is the ratio of the physical position @xmath37 and the length of the molecules @xmath17 .
+we introduce the density @xmath24 and the q - tensor @xmath12 as order parameters .
+the density @xmath24 is dimensionless , representing the number of molecules in volume @xmath38 .
+the tensor @xmath12 is the second moment of @xmath25 with respect to @xmath39 , @xmath40 where @xmath39 is the probability density function of molecules with respect to orientation @xmath25 at given position @xmath41 .
+this definition requires the q - tensor to be a symmetric , traceless @xmath11 matrix whose eigenvalues @xmath42 are constrained by the inequalities @xmath43    let @xmath44 be the fourth moment of @xmath25 in terms of @xmath39 , which is defined as @xmath45 where @xmath46 denotes the symmetrization of the tensor with respect to all permutations of indices .
+various closure models were proposed to represent the relationship between @xmath44 and @xmath47 @xcite . among various closure models
+, we choose the bingham closure model , which has the following good properties .    *
+the maximizer @xmath48 , maximizing the entropy @xmath49 subject to the q - tensor @xmath12 conforming ( [ defq ] ) and ( [ qinequ ] ) , follows the bingham distribution @xcite .
+* the bingham closure automatically ensures ( [ qinequ ] ) , which preserve the physical meanings of the q - tensor . *
+the dynamic q - tensor model , derived from doi s kinetic theory using the bingham closure , obeys the energy dissipation law @xcite . *
+some numerical results show that the bingham closure gives the best approximation to doi s kinetic theory in simulating complex flows of liquid - crystalline polymers @xcite    the bingham distribution of @xmath50 reads @xmath51 where @xmath52 and @xmath53 is any traceless symmetric matrix in @xmath54 . under this assumption
+, it has been proven that given any @xmath12 which conforms ( [ qinequ ] ) , @xmath53 and @xmath50 can be uniquely determined @xcite .
+therefore , the dimension of the probability density function @xmath50 reduces to five , the same as that of @xmath12 and @xmath53 .    as a generalization of the landau - de gennes theory , the introduction of the density @xmath24 as another order parameter enables the model to characterize smectic phases and density variations in physical phenomena such as defects and interfaces .
+the major phases of rod - like molecule liquid crystals can be characterized by @xmath24 and @xmath12 as    * @xmath0 phase : @xmath55 , @xmath56 . * @xmath1 phase : @xmath55 , @xmath57 . * @xmath2 phase : @xmath58 and @xmath47 are one - dimensional and periodic .
+the director @xmath5 , defined as the principal eigenvector of q - tensor , is parallel to the layer normal @xmath59 . * @xmath3 phase : @xmath58 and @xmath47 are one - dimensional and periodic .
+the director @xmath5 and the layer normal @xmath59 yield angle @xmath60 , which represents the average of tilt angles between the rod - like molecules and the layer normal .
+biaxiality is an important property in smectic phases , and in other physical phenomena such as defects and interfaces . in this paper ,
+biaxiality is given by a common mathematical definition @xmath61 this definition requires the biaxiality @xmath62 within the interval @xmath63 $ ] .
+if the q - tensor is uniaxial , @xmath62 will be zero ; if the q - tensor shows strong biaxiality , @xmath62 will tend to one .
+other notations in the energy functional ( [ energy0 ] ) are as follows .
+@xmath23 is the thermodynamic beta .
+the @xmath64 dimensionless coefficients @xmath65 , @xmath66 , and @xmath67 are determined in terms of the microscopic molecule s interaction potential , and are functions of temperature .
+we can infer their approximate range of values by assuming the interaction potential to be the volume exclusion potential of rigid rod - like molecules @xcite . to ensure that the energy is bounded from below ,
+it is necessary that @xmath68 and @xmath69 be positive . otherwise , assuming the order parameters to be a series of highly oscillating functions , it is easy to show that the energy functional tends to negative infinity .
+we consider the one - dimensional q - tensor model .
+we note here that the one - dimensional case is significant and sufficiently representative , since @xmath0 , @xmath1 , @xmath2 , and @xmath3 phases can all be represented in one dimension . for periodic boundary conditions ,
+the spectral method is efficient and accurate enough to compute the energy functional , by representing the order parameters with a few fourier modes . as another method , we can discretize the order parameters in nodal space and use finite difference method to calculate the derivatives .
+consider the reduced energy functional on the interval @xmath70 $ ] , which takes the form @xmath71&=
+\int_0^h c(x)(\ln c(x ) + b_q : q-\ln z(x ) ) { \mathrm{d}}x\\ & + \frac{1}{2 } \int_0^h \big[a_{1}c^2 -a_{2 } ( cq_{ij})^2-a_{3 } ( cq_{4ijkl})^2\big ] { \mathrm{d}}x \\ & + \frac{1}{2}\int_0^h \big [ -g_1 ( \frac{{\mathrm{d}}}{{\mathrm{d}}x } c)^2 + g_2 ( \frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{ij}))^2+g_3(\frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{1k}))^2 -g_4 \frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{11})\frac{{\mathrm{d}}}{{\mathrm{d}}x}(c)\\ & \quad\quad+g_5 ( \frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{4ijkl}))^2 + g_6(\frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{41klm}))^2+g_7 \frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{411kl})\frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{kl } ) \big ] { \mathrm{d}}x\\ & + \frac{1}{2}\int_0^h \big [ h_1(\frac{{\mathrm{d}}^2}{{\mathrm{d}}x^2}(c))^2+h_2(\frac{{\mathrm{d}}^2}{{\mathrm{d}}x^2}(cq_{pq}))^2+h_3(\frac{{\mathrm{d}}^2}{{\mathrm{d}}x^2}(cq_{11}))^2 + h_4(\frac{{\mathrm{d}}^2}{{\mathrm{d}}x^2}(cq_{1p}))^2 \big ] { \mathrm{d}}x . \end{aligned}\ ] ]    we consider how to numerically represent the order parameters . in the following
+, we will show that @xmath72 can be represented by five independent scalar variables @xmath73 , @xmath74 , @xmath75 , @xmath76 , and @xmath77 .
+the bingham assumption implies that @xmath27 , @xmath47 , and @xmath44 are mutually determined and can be diagonalized simultaneously .
+let the eigenvalue decomposition of @xmath27 be @xmath78 , where @xmath79 is a traceless diagonal matrix and @xmath80 is an orthogonal matrix .
+using a change of variables in the integral ( [ defq ] ) and ( [ defq4 ] ) , @xmath47 and @xmath44 can be represented as @xmath81 here , @xmath82 and @xmath83 are the diagonal forms of @xmath47 and @xmath44 respectively , which can be computed using @xmath79 as @xmath84    we use @xmath85 and @xmath86 to represent the traceless diagonal matrix @xmath79 , @xmath87 and use euler angles @xmath60 , @xmath88 , and @xmath89 to represent the orthogonal transformation matrix @xmath80 , @xmath90 here , the first angle @xmath60 is the angle between the principal eigenvector of @xmath47 and the x - axis .
+above all , the q - tensor @xmath72 can be represented by @xmath73 , @xmath74 , @xmath75 , @xmath76 , and @xmath77 . in the meanwhile , @xmath91 , @xmath92 , and @xmath93
+can also be computed using these five variables .
+one way to discretize the order parameters is to expand them by fourier modes @xmath94 where @xmath95 .
+the dimension of variables is @xmath96 .
+the derivatives of @xmath97 and @xmath98 are calculated using fast fourier transform ( fft ) . in the following section , we use this method in computing the phase transition problem ; empirically , @xmath99 is enough to characterize the profiles of the order parameters .    as another way to represent the order parameters , we can discretize the interval @xmath70 $ ] with @xmath100 nodes .
+the dimension of variables is @xmath101 .
+the derivatives of the order parameters are computed using the finite difference method . in the following section , we use this method in computing the @xmath0-@xmath1 interface problem , and
+@xmath102 is accurate enough empirically .
+the minimum of the energy functional can be found by standard methods .
+we use numerical differentiation to calculate the gradient of the objective function , and use quasi - newton methods , such as the bfgs method to solve the optimization problem . the computations for both of the two problems discussed in the following section
+converge in about 100 steps with absolute precision of @xmath103 .
+the overall computational cost is as moderate as the cost of the landau - de gennes model .
+it is worth pointing out that the q - tensor model may have some local minima . in the simulation , we try different random initial values to ensure that we find the global minimum . in practice , there are no other local minimum points near the global minimum point .
+in the paper @xcite where the new q - tensor model was first introduced , the coefficients @xmath65 , @xmath66 , and @xmath67 were expressed in terms of the molecule s shape factor @xmath15 , under the assumption that the interaction is the hard core potential of the rod - like molecules without attraction effects , with @xmath16 the diameter of semi - sphere at two ends of the rod and @xmath17 the length of the rod .
+if we take account of the attraction effects between molecules , these coefficients would be functions of temperature , and alter within a few order of magnitudes as the temperature changes @xcite .    in this paper , we regard the new q - tensor model as a phenomenological model .
+we set these coefficients near the values deduced using the hard core potential .
+fix @xmath104 the coefficients @xmath65 and @xmath66 are derived in terms of microscopic shape factor @xmath105 .
+we set @xmath106 to ensure the lower boundedness , and set @xmath107 and @xmath108 since they are order of magnitude smaller .
+two remaining coefficients @xmath109 and @xmath110 are not fixed .
+empirically , they are more important to determine the phases of liquid crystals .
+we will set these two coefficients near @xmath111 and @xmath112 within an order of magnitude .
+note that we can not relate the coefficients @xmath65 , @xmath66 , @xmath67 with any specific liquid crystal materials so far , and the relationship is still under investigation .
+we consider the phase transition problem and the @xmath0-@xmath1 interface problem .
+the phase transition problem is to find the most stable phase of liquid crystals given the average density , to find the characterizations of the various phases , and to study the transition of phases from one to another as the average density increases . in some suitable environments ,
+@xmath0 and @xmath1 phases will coexist and take up different regions in the liquid crystal materials .
+the @xmath0-@xmath1 interface problem is to investigate the interfacial region between the @xmath0 and @xmath1 phases .
+the mathematical formulation of these two problems will be given below .
+density variations are essential in both problems . in the phase transition problem
+, the density variation serves to lower the second order elastic energy @xmath30 , which renders the smectic phase stable . in the @xmath0-@xmath1 interface problem ,
+given the chemical potential and the grand potential density , the density at @xmath0 and @xmath1 phases are different , which renders a natural variation of density at the interface .
+first , we consider the phase transition problem .
+since @xmath0 and @xmath1 phases are spatially homogeneous , and @xmath2 and @xmath3 phases are layered , we presume the solution to be periodic to reduce the computational costs . therefore , we consider the domain @xmath113 $ ] , and assume that the order parameters enjoy the periodic boundary conditions . given the average density @xmath114 , we need to minimize the average free energy @xmath115 , where @xmath116 is defined as equation ( [ equation reduced ] ) .
+we have the optimization problem @xmath117    spectral methods are used to calculate the free energy .
+the period @xmath118 , which is also a variable that needs to be optimized , represents the layer thickness in the smectic phases .
+figure [ illustration smectic ] illustrates the microscopic configuration of molecules of the smectic phases .
+the following phase transitions are found given various sets of @xmath109 and @xmath110 .    * @xmath119 , @xmath120 . + @xmath121 . *
+@xmath122 , @xmath123 . + @xmath124 . *
+@xmath125 , @xmath126 . + @xmath127 .     and the layer thickness @xmath118 are their important characterizations . ]
+-@xmath3 transition is second order . ]
+-@xmath3 transition is second order . ]
+the one - dimensional phase diagrams of @xmath0-@xmath1-@xmath2-@xmath3 transitions are presented using @xmath128 coordinates in figure [ fig : energy vs density ] , and using @xmath129 coordinates in figure [ fig : angle vs density ] .
+as the average density @xmath114 increases , the system exhibits @xmath0 , @xmath1 , @xmath2 , and @xmath3 phases sequentially .
+as shown in figure [ fig : energy vs density ] , @xmath0-@xmath1 and @xmath1-@xmath2 phase transitions are first order . @xmath0 and @xmath1 phases coexist as @xmath114 is within @xmath130 ; @xmath1 and @xmath2 phases coexist as @xmath114 is within @xmath131 .
+the free energies of both phases in these regions are local minima , which are confirmed by numerically evaluating the hessian matrix at the minimum points .
+it is noteworthy that the @xmath1-@xmath2 phase transition is of weak first order : at both of the local minimum points , the smallest eigenvalue of the hessian is near 0 , which indicates that the energy barrier between these two stable phases is rather small . from the physical point of view , the average density @xmath132 states that on average there are @xmath133 liquid crystal molecules with shape factor @xmath134 in a cube with volume @xmath38 , and the molecules take up roughly @xmath135 percent the volume of the entire space .
+as shown in figure [ fig : angle vs density ] , the @xmath2-@xmath3 phase transition is of second order .
+after @xmath114 exceeds @xmath136 , the tilt angle of director increases from @xmath137 to @xmath138 degrees continuously . in one layer , the centers of molecules align in order , but not exactly in a plane , which renders the layer thickness larger than the length of molecules . the optimized layer thickness for both @xmath2 and @xmath3 phases is roughly @xmath139 , i.e. @xmath140 times the length of the molecule , and it varies slightly within the order @xmath141 as the average density increases .
+the layer thickness is quite sensitive to the coefficients @xmath66 and @xmath67 .
+if @xmath110 decreases from @xmath142 to @xmath143 , the layer thickness will decrease from @xmath139 to @xmath144 .
+this relation between the coefficients and the layer thickness is explained using the vector model , with its details discussed in section [ section : cl ] .
+figure [ separ ] shows the components of the free energy as the average density increases , which exhibits the order of transitions more clearly .
+the definitions of these components are given as ( [ bulk ] ) , ( [ elastic2 ] ) , and ( [ elastic4 ] ) , and the entropy is the first part of the bulk energy @xmath29
+. the entropy decreases at the beginning .
+it has positive leaps at @xmath0-@xmath1 and @xmath1-@xmath2 critical points , and finally increases gradually .
+the bulk energy increases gradually with a leap at @xmath1-@xmath2 critical point . the elastic energy @xmath30 and @xmath145 are zero in @xmath0 and @xmath1 phases .
+the second order elastic energy @xmath30 drops and continuously decreases after reaching @xmath1-@xmath2 critical point , while the fourth order elastic energy @xmath31 soars up and continuously increases after @xmath1-@xmath2 point , with a smaller magnitude than @xmath30 .
+all these components at @xmath2-@xmath3 critical point are continuous .
+the total energy increases steadily without significant leaps .    the second order elastic energy @xmath30 contains two parts : derivative terms in the density @xmath146 and the oseen - frank energy which contains the derivative terms of director @xmath5 .
+this decomposition is further discussed in section [ section : cl ] . in smectic phases ,
+the oseen - frank energy is zero for there is no distortion of the director .
+the derivative terms in the density @xmath146 in @xmath30 with negative coefficients are the reason for the density - varied phases to have a lower free energy .
+the second order derivative terms in the density in @xmath31 with positive coefficients are the reason for the total energy to be stable .
+-axis in the direction normal to the layer .
+( a ) the relative density @xmath147 , defined as @xmath148 .
+( b ) the eigenvalues of q - tensor , written as @xmath149 , where @xmath150 is perpendicular to @xmath5 ; @xmath151 is the principal nematic order parameter , and @xmath152 characterizes biaxial effects .
+( c ) the biaxiality , defined as @xmath153 . ]    -axis in the direction normal to the layer .
+( a ) the relative density @xmath147 , defined as @xmath148 .
+( b ) the eigenvalues of q - tensor , written as @xmath149 , where @xmath150 is perpendicular to @xmath5 ; @xmath151 is the principal nematic order parameter , and @xmath152 characterizes biaxial effects .
+( c ) the biaxiality , defined as @xmath153 . ]    -axis in the direction normal to the layer .
+( a ) the relative density @xmath147 , defined as @xmath148 .
+( b ) the eigenvalues of q - tensor , written as @xmath149 , where @xmath150 is perpendicular to @xmath5 ; @xmath151 is the principal nematic order parameter , and @xmath152 characterizes biaxial effects .
+( c ) the biaxiality , defined as @xmath153 . ]    the representative use of the order parameters and the biaxiality characterizing the smectic phase is shown in figure [ fig : s ] .
+the relative density @xmath154 is defined as @xmath148 .
+the q - tensor can be written as @xmath149 , where @xmath150 is perpendicular to the director @xmath5 ; @xmath155 is the principal nematic order parameter , and @xmath156 characterizes biaxial effects .
+the biaxiality @xmath157 is defined as equation ( [ biaxiality ] ) . in the smectic phase , the relative density @xmath154 and order parameter @xmath155 fluctuate within one layer .
+the maximum point of @xmath146 and @xmath155 are identical , where the centers of molecules concentrate and the molecules are more likely to point to the preferred direction . in the @xmath2 phase ,
+the biaxiality @xmath157 vanishes , which supports that the uniaxial approximation often adopted in modeling @xmath2 . in @xmath3 phase , @xmath157 vanishes when the relative density @xmath154 is large . at the region between two layers where the relative density @xmath154 is small , the biaxiality @xmath157 is large .
+this phenomena can be explained intuitively : the group of molecules at the vicinity region between two layers have more freedom of orientation and are less symmetric than the group of molecules at the center of one layer .
+the @xmath0-@xmath1-@xmath2 transitions and @xmath0-@xmath1-@xmath3 transitions are presented given other sets of coefficients .
+the one - dimensional phase diagrams are presented using @xmath128 coordinates in figure [ fig : ina ] characterizing @xmath0-@xmath1-@xmath2 transitions , and in figure [ fig : inc ] characterizing @xmath0-@xmath1-@xmath3 transitions . in the @xmath2 phase ,
+the layer thickness is roughly @xmath158 . in @xmath3 phase ,
+the layer thickness is roughly @xmath159 , and the tilt angle is @xmath160 degree .
+the @xmath1-@xmath3 transition is also first order .
+-@xmath1-@xmath3 transitions .
+the remaining coefficients are @xmath125 and @xmath126 . ]
+-@xmath1-@xmath3 transitions .
+the remaining coefficients are @xmath125 and @xmath126 . ]    according to liquid crystal experiments , the @xmath0-@xmath1 transition and the @xmath1-@xmath2 transition could be either first or second order , depending on the liquid crystal materials .
+the @xmath0-@xmath1 transition is most commonly believed to be of first order @xcite , but some experiments of mbba [ ( 4-butyl - phenyl)-(4-methoxy - benzylidene)-amine ] reported a second order transitions @xcite .
+the study of 8cb-10cb mixtures @xcite confirmed the prediction made by halperin _
+that fluctuation change the second order @xmath1-@xmath2 transition into a weak first order one .
+the study of 4-n - alkoxybenzylidene-4-phenylazoaniline @xcite drew the conclusion that decreasing the length of the alkyl end chain drives the first order @xmath1-@xmath2 transition to be second order . according to monte - carlo simulation based on molecular theory , assuming the molecule s shape to be spherocylindrical , mcgrother _ et al . _
+@xcite , bolhuis _ et al . _
+@xcite , and lolson _ et al . _
+@xcite showed that the @xmath1-@xmath2 transition is a first order one , but it tends to become continuous as the shape factor @xmath161 . in comparison ,
+our simulation results predict the @xmath0-@xmath1 transition is of first order ; the energy barrier between the @xmath1 and @xmath2 phases is rather small , which indicates that the @xmath1-@xmath2 transition is of weak first order .    for the @xmath2-@xmath3 transition ,
+the study of 8s5 [ 4-n - pentyl - phenylthiol-4-n - octyloxybenzoate ] @xcite reported a second order transition , and the tilt angle increases from @xmath137 degree to @xmath162 degree continuously .
+the study of c7 [ 4-(3-methyl-2-chloropentanoyloxy)-4-heptyloxybiphenyl ] @xcite reported a first order @xmath2-@xmath3 transition , and the tilt angle ranges from 0 to 34 degree . in our simulations ,
+the @xmath2-@xmath3 transition is of second order , and the tilt angle ranges from 0 to 23 degree . for the smectic layer thickness
+, most experiments indicated that the layer thickness of the smectic phase is around the molecule s length @xmath17 .
+a study of 8cb [ 4-n - octyl-4-cyanobiphenyl ] and 8ocb [ 4-n - octyloxy-4-cyanobiphenyl ] @xcite showed that when molecules form dimers , one smectic layer would contain two molecule layer overlapped a bit , such that the layer thickness of the smectic phase is larger than @xmath17 but within @xmath163 . in our simulations , the predicted layer thickness is larger than most experiments results .
+however , our predicted layer thickness is in a reasonable range , which is larger than the length @xmath17 of the molecules but within @xmath163 varying with different coefficients .      consider the liquid crystals in the entire space . @xmath0 and
+@xmath1 are at two opposite ends of the space , sharing the same chemical potential and the same grand potential density .
+assume the problem is one dimensional , and the order parameters vary in one dimension and are homogeneous in the other two dimensions .
+given the angle @xmath60 between the interface normal and the director of the nematic phase , the configuration of the interface is determined .
+the microscopic configuration of molecules of @xmath0-@xmath1 interface is illustrated as figure [ snapshots ] .
+-@xmath1 interface , for the three different anchoring conditions .
+the configuration with tilt angle @xmath164 is the most stable . ]
+consider the region @xmath165 $ ] .
+we need to minimize the grand potential @xmath166=&\int_{-h}^h c (   x)(\ln c ( x ) + b_q : q-\ln z ( x ) ) { \mathrm{d}}x\\ + & \frac{1}{2}\big \ { \int_{-h}^h \big[a_{1}c^2 -a_{2 } ( cq_{ij})^2-a_{3 } ( cq_{4ijkl})^2\big ] { \mathrm{d}}x \\ + & \int_{-h}^h \big [ -g_1 ( \frac{{\mathrm{d}}}{{\mathrm{d}}x } c)^2 + g_2 ( \frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{ij}))^2+g_3(\frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{1k}))^2 -g_4 \frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{11})\frac{{\mathrm{d}}}{{\mathrm{d}}x}(c)\\ & \quad\quad+g_5 ( \frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{4ijkl}))^2 + g_6(\frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{41klm}))^2+g_7 \frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{411kl})\frac{{\mathrm{d}}}{{\mathrm{d}}x}(cq_{kl } ) \big ] { \mathrm{d}}x\\ + & \int_{-h}^h \big [ h_1(\frac{{\mathrm{d}}^2}{{\mathrm{d}}x^2}(c))^2+h_2(\frac{{\mathrm{d}}^2}{{\mathrm{d}}x^2}(cq_{pq}))^2+h_3(\frac{{\mathrm{d}}^2}{{\mathrm{d}}x^2}(cq_{11}))^2 + h_4(\frac{{\mathrm{d}}^2}{{\mathrm{d}}x^2}(cq_{1p}))^2 \big ] { \mathrm{d}}x \big \}\\ - & \mu \int_{-h}^h c(x ) { \mathrm{d}}x , \end{aligned}\ ] ] under proper boundary conditions . the chemical potential is chosen to meet the coexistence condition , @xmath167 .
+the order parameters for the stable isotropic phase are @xmath168 and @xmath56 ; the order parameters for the stable nematic phase are @xmath169 and @xmath170 with @xmath171 .
+we anchor the angle @xmath60 between the director and the interface normal to be constant all over the space , and perform simulations with a series of @xmath60 .
+thus , the boundary conditions are @xmath172 where @xmath173 , @xmath174 , @xmath175 , @xmath176 , @xmath177 .
+the length @xmath118 is chosen large enough , which is @xmath178 in our computations .
+the coefficients @xmath65 , @xmath66 , and @xmath67 are given in equations ( [ coefficients ] ) with @xmath179 , @xmath180 .
+note that the coefficients @xmath66 here are all deduced by assuming the interaction potential to be the volume exclusion potential of rigid rod - like molecules .
+the results are summarized as follows .    ;
+b ) the principal nematic order parameter @xmath155 ; c ) the biaxial effect @xmath156 .
+the definitions of @xmath155 and @xmath156 are given by denoting q - tensor as @xmath181 , where @xmath150 is perpendicular to @xmath182 .
+the centers of these profiles are shifted by @xmath183 in order to clearly display them for different tilt angles . ]    ; b ) the principal nematic order parameter @xmath155 ; c ) the biaxial effect @xmath156 .
+the definitions of @xmath155 and @xmath156 are given by denoting q - tensor as @xmath181 , where @xmath150 is perpendicular to @xmath182 .
+the centers of these profiles are shifted by @xmath183 in order to clearly display them for different tilt angles . ]    ; b ) the principal nematic order parameter @xmath155 ; c ) the biaxial effect @xmath156 .
+the definitions of @xmath155 and @xmath156 are given by denoting q - tensor as @xmath181 , where @xmath150 is perpendicular to @xmath182 .
+the centers of these profiles are shifted by @xmath183 in order to clearly display them for different tilt angles . ]
+figure [ curve1 ] ( a ) shows the profile of the density @xmath146 .
+the density profile for tilt angle @xmath60 greater than @xmath184 is a monotonically increasing function ; nevertheless , for the tilt angle smaller than @xmath184 , it displays a shallow dip near the isotropic side of the interface , and a small oscillation near the nematic side of the interface .
+the shallow dip near the isotropic side was captured by chen and noolandi @xcite in numerical simulation of onsager s molecular theory , in which it was explained by the competition between the entropy and the excluded - volume interaction .
+the oscillating behavior was noticed by allen @xcite in monte carlo simulations ; however , in monte carlo simulations , the oscillating behavior emerged for all cases of the tilt angle , and was explained as boundary effects . in the new q - tensor model , the oscillating behavior can be explained by the negative coefficients of the derivative terms of density @xmath146 : with oscillation , the elastic energy @xmath30 can be lower . on the contrary , the fourth order elastic energy @xmath31 serves to stabilize the energy at the interface .
+the interfacial width of the density is roughly @xmath185 .
+it is at its narrowest at @xmath164 .
+figure [ curve1 ] ( b ) shows the principal nematic order parameter @xmath155 .
+unlike the density profile , the profile of @xmath155 is always a monotonic function .
+the centers of the profiles for @xmath146 and @xmath155 are different .
+there is a `` phase shift '' for @xmath155 to the isotropic side with roughly @xmath186 compared to the density profile .
+unlike the density profile , the interfacial width of @xmath155 remains identical at @xmath185 as tilt angle @xmath60 increases .
+the interfacial width is not sensitive to the coefficients @xmath67 .
+no matter how we alter the coefficients @xmath67 with an order of magnitude , the interfacial width is always roughly @xmath185 ; nevertheless , as @xmath67 increases , the oscillation near the nematic side is mitigated but still exists .
+figure [ curve1 ] ( c ) shows the biaxiality parameter @xmath156 .
+the biaxial effect only appears significantly in the interfacial region .
+it is opposite between the isotropic side and the nematic side , and is stronger at the isotropic side .
+the biaxiality is the strongest for @xmath164 .
+there is no biaxiality for the @xmath187 case because of the rotational symmetry .
+in general , the biaxial effect for @xmath0-@xmath1 interface is quite weak .    ]
+figure [ surface ] shows the dependence of the isotropic - nematic surface energy on the angle @xmath60 .
+the surface energy is defined as the difference between the grand potential of the interface and that of the isotropic phase .
+the surface energy is a monotonic function of the tilt angle and has a minimum at @xmath188 with value @xmath189 .
+therefore , the interface prefers to have a tilt angle of @xmath190 , which is the configuration as figure [ snapshots ] ( c ) . in another word ,
+if we do not assume the tilt angle @xmath60 constant , but just anchor it at the boundary , it would tend to @xmath190 at the interface , which was the setup and situation in the study by monte carlo simulations @xcite .
+there are several previous studies of the @xmath0-@xmath1 interface problem investigated using onsager s molecular theory with volume exclusion potential for rod - like molecules @xcite @xcite @xcite .
+these simulations gave the interfacial width roughly at @xmath163 , which agree with the new q - tensor model .
+chen and noolandi @xcite predicted that the surface energy attains minimum at @xmath177 with value @xmath191 .
+koch and harlen @xcite used a generalization of onsager s approach and did a more comprehensive investigation .
+they predicted that the surface energy attains minimum at @xmath177 with value @xmath192 .
+our new q - tensor model gives it a lower value @xmath189 . since the new q - tensor model is a phenomenological model , and we alter the coefficients in our models , the value of the surface energy is only comparable in orders . to find an accurate value of the surface energy , it is better to use onsager s molecular theory .
+the experimental study of mbba @xcite showed that the surface energy attains minimum at the tilt angle @xmath177 , which is consistent with our calculations .
+however , the study of ncb @xcite showed that the minimum of surface energy is attained at a tilt angle close to @xmath193 . in the meanwhile , the experimental values of the interfacial width for the ncb are of the order of @xmath194 ( with molecule s length about @xmath195 ) , in which the ratio is much larger than the ratio in our work and numerical simulations with hard rod molecules @xcite @xcite @xcite .
+the numerical simulation of the @xmath0-@xmath1 interface problem in modeling specific materials is still under investigation .
+in the paper @xcite , the oseen - frank model and the ericksen model were derived using the new q - tensor model by assuming a constant density . in this section
+, we show the effectiveness of the new q - tensor model by comparing it with other classical models in various scales aiming to model density variations .
+de gennes pioneered the q - tensor , which provides information on both the preferred molecular orientation and the degree of orientational order , to describe nematics phases @xcite .
+later on , by exploiting an analogy between smectic liquid crystals and superconductors , de gennes again proposed an independent , complex order parameter that allows for the description of nematic - smectic phase transitions @xcite .
+successive models generalized the landau - de gennes model and coupled the nematic order tensor with the complex smectic order parameter . in the work of biscari _ et al . _
+@xcite , the free energy contained the polynomial terms and the first order derivative terms . in the work of mukherjee @xcite ,
+the free energy contained the polynomial terms , the first order and the second order derivative terms of these order parameters .
+these models successfully modeled the @xmath0 , @xmath1 , @xmath2 , and @xmath3 phases with computational efficiency .
+however , it is noteworthy that the complex order parameter is not suitable for numerical simulations of liquid crystals in confined geometries , such as disclinations and defects .
+the work of pevnyi _ et .
+@xcite addressed the above problem and replaced the complex order parameter with the density @xmath24 .
+the other order parameter @xmath5 entered the free energy through the second order tensor @xmath196 , so we regard this model as a tensor model .
+this model gave reasonable numerical results to model the @xmath2 phase in confined geometries with defects .
+the free energy contains the polynomial terms of the density , and the second order derivative terms of the order parameters , which can be viewed as a reduced case of the new q tensor model .
+the new q - tensor model are more generalized comparing to the above models . for the new q - tensor model ,
+the entropy term is in the thermotropic form defined by ball and majumdar @xcite , but no longer has the polynomial terms as in the landau - de gennes model .
+such an entropy term ensures the boundedness of the eigenvalues of the q - tensor , preserving its physical meaning .
+if we assume @xmath24 is constant , @xmath197 would degenerate to the energy functional of the landau - de gennes model , which is able to characterize the stable nematic phase @xcite .
+the introduction of @xmath26 is necessary , since otherwise the elastic constant @xmath18 would equal to @xmath20 , which is not always true .
+moreover , if we need to model density variation phenomena in which @xmath24 is not constant , @xmath197 would not be bounded from below , for the reason that the derivative terms of @xmath24 in @xmath30 are negative .
+it is necessary to consider at least the second order derivative terms @xmath31 to stabilize the energy functional .
+based on onsager s molecular theory , assuming a two particle interaction potential and introducing an orientational order parameter , maier and saupe proposed a molecular field theory to characterize the @xmath0-@xmath1 transition @xcite . adding a positional order parameter , mcmillan extended the theory to include the @xmath2 phase @xcite .
+successive improvements were made to account for more complicated potentials , such as the work of mederos _ et al . _
+@xcite which incorporated the hard core interaction , and the work of gorkunov _ et al . _
+@xcite which considered the fragments attraction and repulsion interaction .
+most recently , pajak and osipov @xcite proposed a generalization of the mcmillan model including @xmath198-@xmath199-@xmath200-@xmath201 phases . in the smectic phase ,
+let @xmath202 be the unit layer normal , @xmath203 be the unit normal of the tilt plane , and @xmath204 be their unit orthogonal complement .
+the layer thickness is presumed to be @xmath205 .
+the order parameters of the generalized mcmillan model are @xmath206 , @xmath207 , and @xmath208 , defined in terms of the density function of molecules @xmath209 as @xmath210    in the @xmath211 framework , these order parameters have components decomposition @xmath212    the free energy of the generalized mcmillan model can be expressed as @xmath213-k_b t c_0 \ln z,\ ] ] which represents the sum of the entropy and the quadratic terms of @xmath206 , @xmath214 , @xmath215 , @xmath216 , @xmath217 , @xmath218 , and @xmath219 . here , @xmath114 is the average density , @xmath220 is the maier - saupe constant which determines the @xmath0-@xmath1 transition temperature , @xmath221 are constants , and @xmath222 is the partition function which can be represented by the order parameters .
+the generalized mcmillan model can be directly derived from the new q - tensor model if we assume @xmath223 where @xmath24 and @xmath12 are the order parameters of the new q - tensor model , and @xmath206 , @xmath224 , and @xmath225 are the order parameters of the generalized mcmillan model . intuitively , the order parameters of the generalized mcmillan model are the fourier coefficients of the order parameters of the new q - tensor model , and the generalized mcmillan model can be interpreted as the one mode approximation of the new q - tensor model .
+the generalized mcmillan models are mechanistic models based on self - consistent field theory .
+the coefficients are linked with microscopic quantities , i.e. the parameters in interaction potentials .
+another advantage of the generalized mcmillan model is its elegance and simplicity , where the energy functional can be expressed by several scalar parameters .
+however , the order parameters of the generalized mcmillan model are averaged over the entire space , failing to characterize some small scale phenomena where the domain has confined geometry and spatial variance , for example , phase transitions in confined geometries , wetting phenomena , surface - induced bulk alignment , defects and disclinations , and interfaces .      the chen - lubensky model
+@xcite is a vector model based on the landau - ginzburg theory , characterizing the @xmath1-@xmath2-@xmath3 transitions .
+the order parameters are the density @xmath24 and the director @xmath4 .
+the corresponding free energy consists of two parts , @xmath226 where @xmath227 contains terms up to second order derivatives of the density @xmath24 , @xmath228 ^ 2 -c_{1 } ( \ttn \cdot \nabla c)^2+\frac{c_{1}^2}{4d_{1}}c^2 \\ &
+\qquad+c_{2}(\delta_{ij}-n_in_j ) \nabla _ i c \nabla_j c + d_2 [ ( \delta_{ij}-n_in_j)\nabla_i   \nabla_j c]^2\big ) { \mathrm{d}}\tx , \end{aligned}\ ] ] and @xmath229 is the oseen - frank energy for distortions in terms of the nematic director @xmath4 , @xmath230 ^ 2   + k_3 \vert \ttn \times ( \nabla \times   \ttn ) \vert ^2\big ) { \mathrm{d}}\tx . \end{aligned}\ ] ] the coefficients @xmath231 , @xmath232 , @xmath233 , @xmath234 , @xmath235 , and @xmath236 are determined through experiments .
+these coefficients are intuitive : @xmath236 are elastic constants ; @xmath231 and @xmath233 determine the horizontal period ; @xmath232 and @xmath234 determine the perpendicular period .    in the paper @xcite where the new q - tensor model was first introduced , assuming the q - tensor uniaxial and @xmath24 and @xmath237 constant ,
+the oseen - frank energy @xmath229 was deduced and the elastic constants @xmath18 , @xmath19
+, @xmath20 were expressed analytically . in the following paragraphs , making alternative assumptions that q - tensor is uniaxial and constant , we will deduce a vector model similar to the free energy @xmath227 .
+assume q - tensor is uniaxial and spatially homogeneous , @xmath238 where @xmath239 , @xmath240 , and @xmath5 are constant .    under this assumption , the energy functional
+can be formulated as @xmath241 = & \int_\omega c \ln ( c ) { \mathrm{d}}\tx + \frac{1}{2}\int_\omega \biggl(\hat
+a_1 c^2 -\hat g_1 \vert \nabla c \vert^2 - \hat g_2 ( \ttn \cdot \nabla c)^2 + \hat h_1 ( \nabla^2 c : \ttn\ttn)^2\\ & + \hat h_2 ( \nabla^2 c:\ttn\ttn)\triangle c + \hat h_3 ( \triangle c ) ^2 + \hat h_4\vert \ttn \cdot \nabla^2 c \vert^2 + \hat h_5 \vert \nabla^2 c\vert^2 \biggl ) { \mathrm{d}}\tx,\\ \end{aligned}\ ] ] where @xmath242 , @xmath243 , and @xmath244 are functions of @xmath65 , @xmath66 , @xmath67 , @xmath239 , and @xmath240 , linear with respect to @xmath65 , @xmath66 , @xmath67 , and quadratic with respect to @xmath239 and @xmath240 .
+the expressions of @xmath242 , @xmath243 , @xmath244 in terms of @xmath65 , @xmath66 , @xmath67 , @xmath239 , @xmath240 are listed in the appendix .
+the deduced vector model is able to characterize @xmath0-@xmath1-@xmath2-@xmath3 phase transitions .
+let the average density be @xmath245 , the entropy term is almost linear to @xmath114 , and the interaction terms are quadratic to @xmath114 .
+as @xmath114 is small , the entropy term dominates , and the system exhibits isotropic phases . as @xmath114 increases , the interaction terms dominate , and the system transits to nematic and smectic phases .
+two quantities are important in smectic phases : layer thickness and tilt angle . to derive these quantities , assuming a given @xmath239 , we plug a trial function @xmath246 into the energy functional , where @xmath247 , @xmath248 , and @xmath249 .
+the free energy becomes @xmath250\right\}{\mathrm{d}}\tx , \end{aligned}\ ] ] where @xmath251 is a quadratic function of @xmath252 and @xmath253 . minimizing the free energy over @xmath254 , @xmath255 , and @xmath256
+, we obtain the minimizer @xmath257 , @xmath258 , and @xmath259 , with relations @xmath260 these two equations can be solved iteratively , and @xmath259 is easy to compute but can not be expressed explicitly
+. the system will exhibit    * @xmath2 phase , if @xmath261 , @xmath262 , and @xmath263 .
+let @xmath264 $ ] .
+the layer thickness is @xmath265 .
+* @xmath3 phase , if @xmath266 , @xmath267 , and @xmath263 .
+the layer thickness is @xmath268 , and the tilt angle is @xmath258 . *
+no smectic phase , otherwise .
+the analytical derivation above can explain the relations between the coefficients @xmath65 , @xmath66 , @xmath67 , and the tilt angle and layer thickness .
+it can also help to set the coefficients in the new q - tensor model .    in comparison with the deduced vector model ,
+the chen - lubensky model lacks entropy terms which leads to its failure in characterizing the isotropic phase . in the chen - lubensky model , the oseen - frank energy and the derivative terms of @xmath24
+are added up directly . on the contrary , in the new q - tensor model , the oseen - frank energy and the derivative terms of @xmath24
+are deduced based on different assumptions as discussed previously .
+if no assumptions are made , there will be cross terms incorporating the gradient of @xmath5 and the gradient of @xmath24 .
+furthermore , there are two extra terms in the deduced vector model , @xmath269 and @xmath270 .
+these two terms may lead to different phenomena in the subspace perpendicular to the director . except for these differences
+, the deduced vector model agrees with the chen - lubensky model .
+in this work , we have investigated the new q - tensor theory for liquid crystals focusing on density variations .
+phenomenologically , the @xmath0-@xmath1-@xmath2-@xmath3 phase transitions are predicted , and the @xmath0-@xmath1 interface is investigated .
+we have also drawn comparisons of the proposed model with the classical models , and strong connections are found .
+we have shown that all these classical models can be derived from the new q - tensor model .    in comparison , the high dimension of the order parameter sets considerable obstacles in computations for the onsager s molecular model .
+the order parameter @xmath4 adopted in chen - lubensky model fails to explain the degree of orientational order .
+landau - de gennes model is famous for its tractability in mathematical analysis and computations .
+however , generalizations of q - tensor model are needed to include smectic phase .
+the generalized mcmillan model is a good approximation of the onsager s theory , and efficient in computations .
+the weakness is in the ultimate energy functional which fails to reflect detailed physical understanding .
+in addition , the generalized landau - de gennes models did not explain how their energy functionals were derived in details .
+on the other hand , the new q - tensor model can be derived from onsager s molecular theory .
+the introduction of density enables us to characterize smectic phases and the density variations in physical phenomena .
+the new q - tensor model captures much of the essential physics while remaining mathematically tractable and efficient computationally .
+compared to all classical models , the new q - tensor model is a good trade - off .
+one notes that the coefficients @xmath65 , @xmath66 , @xmath67 in the new q - tensor model can not be related with any specific liquid crystal materials so far .
+the physical relevance of the coefficients is still under investigation .
+the new q - tensor model studies the phase transitions as a function of the average density .
+it is difficult to consider temperature - driven phase transitions , for which one needs to include the attraction interaction .
+this will be studied in future work .
+defects are essential physical phenomena for liquid crystals .
+the effects of density variations in defects characterized by the new q - tensor model will also be studied in the future .
+the authors wish to thank dr .
+jiequn han and dr .
+wei wang for their help in discussions and advices for writings .
+pingwen zhang is partly supported by nsf of china under grant 11421101 and 11421110001 .
+the relations between @xmath242 , @xmath243 , @xmath244 ( the coefficients in vector model with energy functional ( [ vector model ] ) ) and @xmath65 , @xmath66 , @xmath67 ( the coefficients in the new q - tensor model with energy functional ( [ energy0 ] ) ) are as follows .
+@xmath239 and @xmath240 are the principal nematic order parameters defined as ( [ s2s4 ] ) .                                                                                    , _ molecular order and surface tension for the nematic - isotropic interface of mbba , deduced from light reflectivity and light scattering measurements _ , molecular crystals and liquid crystals , 22 ( 1973 ) , pp .
+317 - 331 .

@@ -1,0 +1,470 @@
+nonlocal conserved charges play the central role in quantum integrability @xcite . for the superstring in @xmath0
+their existence was proven in the classical sigma - model in @xcite using the green - schwarz - metsaev - tseytlin formalism , and in @xcite using the pure spinor formalism .
+the existence of the nonlocal conserved charges at the quantum level was proven in @xcite .
+the most important feature of the string worldsheet @xmath2-model ( besides the conformal invariance ) is the existence of the brst structure .
+the physically meaningful constructions should respect the action of the brst operator @xmath3 .
+the nonlocal conserved charges of @xcite are only brst invariant up to the boundary terms . to be more precise , we need to introduce the transfer matrix which is the generating function of the nonlocal conserved charges . for an open contour @xmath4 connecting points @xmath5 and @xmath6 on the string worldsheet
+:        we define the transfer matrix : @xmath7 = p\exp \left ( -\int^b_a j[z ] \right)\ ] ] where @xmath4 is a contour connecting points @xmath5 and @xmath6 on the string worldsheet , and @xmath8 is a representation of @xmath9 .
+the currents @xmath10 $ ] depend on the spectral parameter @xmath11 and the representation @xmath8 .
+the transfer matrix is a function of the _ spectral parameter _
+it is the generating function of the conserved charges
+. it can be also though of as the wilson line operator corresponding to the flat connection @xmath10 $ ] on the string worldsheet . in this paper
+we will use both expressions : `` transfer matrix '' and `` wilson line '' , and understand them as synonyms .
+the brst variation of the wilson line @xmath12 $ ] results in the boundary terms . using the notations of @xcite : @xmath13(z ) & = & \left ( { 1\over z } \varepsilon\lambda_3(b ) + z \varepsilon\lambda_1(b ) \right )   t[c_a^b](z ) - \nonumber \\ & & - t[c_a^b](z ) \left ( { 1\over z } \varepsilon\lambda_3(a ) +
+z \varepsilon\lambda_1(a ) \right ) \end{aligned}\ ] ] this equation is very interesting .
+nontrivial boundary terms in ( [ boundarytermsinbrst ] ) allow to `` bootstrap '' at least at the classical level the structure of @xmath14@xmath15 matrices , see section 7 of @xcite . on the other hand , these boundary terms present a problem : the nonlocal conserved charges are not physical quantities , at least not in an obvious sense .
+( because they are not in the kernel of @xmath3 . )
+what should we do with them ?      a natural thing to try is to find an operator which when inserted at the endpoint of the wilson line would make it @xmath3-closed .
+this is somewhat analogous to the open wilson line in qcd .
+the expression @xmath16 is unphysical , because it is not gauge invariant .
+the physical quantity is : @xmath17 we may call @xmath18 and @xmath19 `` the plugs '' because they fix `` leaking boundary terms '' in gauge tranformations , or in brst transformations .
+can we find similar plugs for the wilson line on the string worldsheet in @xmath0 ?
+in this paper we will report a progress in this direction .
+remember that the wilson line depends on a choice of representation ; we have to choose a representation @xmath8 of @xmath20 .
+consider the space of states of the linearized supergravity multiplet in @xmath0 .
+it splits into the direct sum of infinitely many infinite - dimensional irreducible representations of @xmath20 , each corresponding to a bps state .
+we will argue that when @xmath8 is one of those infinite - dimensional bps representations , then there is a suitable plug of the ghost number 2 .
+this is closely related to the vertex operators for the massless states in @xmath0 .
+in fact we will relate the brst cohomology complex corresponding to the endpoint of the wilson line to the brst complex corresponding to the vertex operators .
+this is essentially an example of the frobenius reciprocity .
+the main nontrivial point is the construction of the vertex operators transforming _ strictly covariantly _ under the global supersymmetries of @xmath0 .
+this is different from flat space where massless vertices transform covariantly only up to brst exact terms .
+wilson lines in infinite - dimensional representations played an important role in the integrable context in @xcite in the construction of the q - operator .
+they also played an important role in the ads / cft context in @xcite for the interpretation of the ym feynman diagramms in the string worldsheet theory .
+consider an infinite - dimensional irreducible representation @xmath21 of @xmath20 .
+it is natural to ask the question : @xmath22 the results of our paper imply that this answer can be answered directly in terms of the structure of @xmath21 , as a representation of @xmath20 .
+namely , given @xmath21 , we consider the following complex : @xmath23 defined entirely in terms of @xmath21  see section [ sec : definitionofalgebraiccomplex ] .
+then , we claim that the multiplicity of @xmath21 in the space of linearized sugra solutions is equal to the dimension of the second cohomology @xmath24 of this complex .
+( we only claim this when @xmath21 has `` high enough '' spin on @xmath25 ; see the end of section [ sec : covariantuniversal ] . )
+most of the paper is about massless vertex operators in @xmath0 . in section [ sec : verticesingrouptheorylanguage ]
+we give a geometrical definition of vertex operators using the representation of @xmath0 as the coset space @xmath26 . in section [ sec : definitionofcovariantvertex ] we explain what it means for the vertex to be strictly covariant , and then in sections [ sec : taylorseries ] and [ sec : cohomologicalargument ] prove the existence of such covariant vertices . in section [ sec : flatspacelimit ]
+we discuss the flat space limit of our construction .
+( although it is impossible to construct the strictly covariant vertex in the flat space , but nevertheless the construction in @xmath0 has a well - defined flat space limit , which does transforms strictly covariantly , but only under a subgroup @xmath27 . ) in section
+[ sec : relationtoendpoint ] we explain how the covariant vertex plugs the endpoint of the wilson line . in section [ sec : applications ] we present some consequences of our construction ; we explain how to prepare the vertex operator depending on the spectral parameter .
+the algebra of supersymmetries of @xmath0 has a @xmath28 grading : @xmath29 we denote @xmath30 the universal enveloping algebra of @xmath31 .
+let @xmath32 denote the group element of @xmath30 , _
+i.e. _ an element of the group @xmath33 : @xmath34 where @xmath35 , @xmath36 , @xmath37 and @xmath38 .
+so defined @xmath39 and @xmath40 are coordinates of the super-@xmath0 .
+the generators of @xmath9 are the same as in @xcite : @xmath41 } \in { \bf g}_{\bar{0}}\ ] ]    for a vector space @xmath42 we will denote @xmath43 the dual vector space . in particular , the space of states is denoted @xmath21 and the space of linear functionals on the states is denoted @xmath44 .
+we will mostly consider the linear functionals which are the values of some supergravity fields ( such as the ramond - ramond field strength ) at a fixed point in @xmath0 .
+these could be also thought of as non - normalizable elements of @xmath21 , `` delta - functions type of states '' in @xmath21 .    for an even vector space @xmath42
+we denote @xmath45 the space of antisymmetric tensors . for an odd vector space @xmath45 will stand for symmetric tensors .
+example : @xmath46 is an odd vector space , and @xmath47 is the dual space . therefore @xmath48 is identified with the fifth order polynomials of some bosonic spinor variable @xmath49 .
+massless vertex operators in @xmath0 were introduced in @xcite .    using the group theory language , we can define the vertex operator as a collection of functions @xmath50 , @xmath51 and @xmath52 of @xmath53 subject to the condition of @xmath54-covariance , which says that for any @xmath55 we should get : @xmath56 here @xmath57 and @xmath58 are the matrix elements of @xmath59 acting on @xmath60 and @xmath61 respectively .    for a tensor field @xmath62
+we introduce the covariant derivatives : @xmath63 } \varphi_{\alpha_1\ldots\alpha_m\;\dot{\beta}_1\ldots\dot{\beta}_n}(g ) & = &   \left.{d\over ds}\right|_{s=0 }   \varphi_{\alpha_1\ldots\alpha_m\;\dot{\beta}_1\ldots\dot{\beta}_n}(e^{-s t^0_{[mn]}}g ) \nonumber\end{aligned}\ ] ] collectively : @xmath64 note that the covariant derivatives @xmath65 for @xmath66 satisfy the condition of @xmath54-covariance , for example : @xmath67 also , the @xmath54-covariance condition ( [ vertexcovariance1 ] )  ( [ vertexcovariance3 ] ) can be formulated as the following explicit expression for the covariant derivative @xmath68}$ ] along @xmath54 : @xmath69 } v_{\beta\gamma}(g ) =   \left.{d\over ds}\right|_{s=0 } v_{\beta\gamma}(e^{-s t^0_{[\mu\nu ] } } g ) = { f_{[\mu\nu]\beta}}^{\beta ' } v_{\beta'\gamma}(g ) +     { f_{[\mu\nu]\gamma}}^{\gamma ' } v_{\beta\gamma'}(g)\ ] ] the condition that the vertex operator is @xmath70-closed can be written as follows : @xmath71 where @xmath5 and @xmath72 are defined by these equations .
+the gauge transformations are : @xmath73 where @xmath74 and @xmath75 are the parameters of the gauge transformations .
+the brst operator is : @xmath76 our definition of the vertex is slightly weaker than the definition of @xcite .
+the definition of @xcite requires that : @xmath77 the only nonzero component of the vertex remains @xmath78 .
+in fact @xmath79 and @xmath80 are always @xmath81-exact .
+therefore the condition ( [ ghostnumbergauge ] ) can always be satisfied by adding to the vertex something @xmath82-exact . in this sense
+the components @xmath79 and @xmath80 can always be `` gauged away '' .
+but we want the _ covariant _ vertex operator .
+we suspect that it might be impossible to gauge away @xmath79 and @xmath80 in a covariant way .
+this is the reason why we prefer to allow these components in the definition of the vertex operator .
+in string theory vertex operators represent states .
+vertex operators are functions @xmath83 .
+the global symmetries act on @xmath40 and @xmath84 , and therefore act on vertex operators .    on the other hand , the global symmetries act on the space of states .
+therefore the action of the global symmetry group on states should agree with the action on vertex operators .
+naively , this would imply that if @xmath85 is a vertex operator corresponding to the state @xmath86 then @xmath87 but in fact this formula , generally speaking , holds only up to brst - trivial corrections ( terms which are @xmath3 of something ) .
+note that @xmath85 is not defined unambiguously , because we could add to it brst - exact terms and get physically equivalent vertex .
+we will prove that in @xmath0 it is possible to use this freedom in the definition of @xmath88 and choose @xmath88 so that it transforms covariantly , as in ( [ transformscovariantly ] ) . in our proof
+we will use the fact that vertices corresponding to supergravity states _ exist_.
+this was proven in @xcite . given the existence of the vertex
+, we will prove that it is always possible to correct it by a brst - exact expression , if necessary , to get a _
+covariant _ vertex .
+the first example of the covariant vertex was given in @xcite .
+it was shown that the _ zero mode _
+dilaton vertex is given by the expression ] which is independent of @xmath40 and @xmath84 : @xmath90 this operator plays the central role in @xcite .
+the corresponding marginal deformation of the action changes the radius of @xmath0 .
+the radius is invariant under the global symmetries , therefore in this case covariance means invariance ; the vertex ( [ zeromodevertex ] ) is invariant under the global symmetries .
+this is related to the fact that the action of the pure spinor superstring in @xmath0 is exactly invariant under the global symmetries ( while the action in flat space is invariant only up to adding a total derivative ) .
+our construction can be considered a generalization of ( [ zeromodevertex ] ) for fields with nontrivial dependence on @xmath40 and @xmath84 .
+the second example will be presented in the forthcoming paper with o.  bedoya , l.  bevilqua , and v.o .
+rivelles ] is : @xmath91 here the indices @xmath92 and @xmath93 enumerate the adjoint representation of @xmath20 .
+notice that ( [ vbeta ] ) is antisymmetric under the exchange of @xmath92 and @xmath93 .
+therefore this vertex transforms in the antisymmetric product of two adjoint representations of @xmath20 .
+this antisymmetric product splits into two irreducible components .
+the first component is the adjoint representation .
+but the part of ( [ vbeta ] ) belonging to the adjoint representation is actually @xmath3-exact : @xmath94_c = \nonumber \\ = \varepsilon q_{brst } ( g^{-1 }
+\varepsilon'(\lambda_3 + \lambda_1 ) g)_c\end{aligned}\ ] ] ( notice that this formula played an important role in section 6 of @xcite . )
+the deformation of the action corresponding to ( [ vbeta ] ) follows from the standard descent procedure .
+let us denote : @xmath95 this is the ghost number 1 cocycle corresponding to the local conserved currents , see also appendix [ sec : ghostnumberone ] .
+it corresponds to the local conserved currents in the following sense : @xmath96 where @xmath97 is the density of the local conserved charge corresponding to the global symmetries .
+therefore : @xmath98}(\varepsilon ' ) ) = 2\varepsilon q j_{[a } \lambda_{b]}(\varepsilon')\ ] ] and : @xmath99}(\varepsilon ) ) = -{1\over 2 } \varepsilon q ( j_{[a}\wedge j_{b]})\ ] ] we conclude that for any constant antisymmetric matrix @xmath100 we can infinitesimally deform the worldsheet action as follows : @xmath101}\ ] ] consider for example @xmath102 in the directions of @xmath25 .
+we get : @xmath103[mn ] } \left ( \int x_{[k } dx_{l ] } \wedge x_{[m } dx_{n ] } + \ldots \right)\ ] ] where @xmath104 describes the embedding of @xmath25 into @xmath105 and dots denote @xmath84-dependent terms .
+these @xmath84-dependent terms appear because @xmath106 includes @xmath84 .
+( [ binsdirections ] ) corresponds to the marginal deformations of the @xmath107 yang - mills known as @xmath89_-deformations _
+@xcite , as follows from their quantum numbers .
+the subspace @xmath108 corresponds to @xmath6 of the following form : @xmath109[mn ] } = \delta^{km } a^{ln } - \delta^{lm } a^{kn } + \delta^{ln } a^{km } - \delta^{kn } a^{lm}\ ] ] where @xmath110 is antisymmetric matrix ; then the corresponding deformation of the lagrangian is a total derivative @xmath111 .
+the complementary space has real dimension 90 , it corresponds to the representation @xmath112 of @xmath113 .
+this is the expected quantum numbers of the linearized @xmath89-deformation , cp .
+section 3.1 of @xcite and references therein .
+it was observed in @xcite that some of these deformations are obstructed when we pass from the linearized supergravity equations to the nonlinear equations .
+not all of the deformations ( [ linearizedbeta ] ) can be extended to the solutions of the nonlinear supergravity equations _ as solutions constant in @xmath114 directions _ , but only those which satisfy some nonlinear equations on @xmath100 . if these nonlinear equations are not satisfied , then the nonlinear solutions will have `` resonant terms '' and because of these resonant terms will not be periodic in the global time of @xmath114 .
+suppose that we are looking at the _ massless _ states transforming in some representation @xmath21 of the global symmetry group @xmath33 .
+for every state @xmath115 we have the corresponding vertex operator @xmath116 .
+as we discussed , @xmath116 consists of the components : @xmath117 , @xmath118 and @xmath119 .
+we write @xmath120 instead of @xmath121 to stress that @xmath120 is a function of @xmath86
+. mathematically it would be more appropriate to call it `` a linear operator from the space of states to the space of vertex operators '' .
+we will call @xmath120 the `` universal vertex '' for the representation @xmath21 because it is a uniform definition of vertex operators for all states in @xmath21 : @xmath122 the global symmetry group @xmath123 acts on both space of states and space of vertex operators .
+it acts on the space of states by definition , because it is the global symmetry group of the theory .
+it also acts on the space of vertex operators .
+the action on the space of vertex operators may seem obvious , but we would like to spell it out explicitly because we feel that some confusion is possible .
+a vertex operator has components @xmath79 , @xmath78 and @xmath80 which are all functions of the group element @xmath32 , _
+i.e. _ @xmath50 , @xmath51 and @xmath52 satisfying the conditions of @xmath54-covariance ( [ vertexcovariance1 ] )  ( [ vertexcovariance3 ] ) .
+then , the action of the global symmetry transformation @xmath124 is defined as follows : @xmath125 because @xmath126 hits @xmath32 on the right , this action of the global symmetries is manifestly consistent with the conditions of @xmath54-covariance ( [ vertexcovariance1 ] )  ( [ vertexcovariance3 ] ) and also commutes with the covariant derivatives ( [ defcovariantderivatives ] ) .
+this defines the action of @xmath127 on @xmath116 for any fixed @xmath86 ; the expression : @xmath128 is defined by ( [ globalactiononv ] ) : @xmath129      it is natural to ask , if it is true that ( [ globalactiononuniversalvertex ] ) is equal to this : @xmath130 in other words , if it is true or not that : @xmath131 this is not automatically true .
+what _ is _ automatically true is this statement : @xmath132 remember that vertex operators are defined modulo brst - exact expressions .
+the question is , can we choose a representative for @xmath116 in the equivalence class of @xmath133 , `` uniformly in @xmath86 '' , so that ( [ exactcovariance ] ) is true ?
+the answer to this question is `` no '' in flat space , but `` yes '' in ads .
+it turns out that in @xmath0 it is possible to choose the vertex operator to be covariant .
+let us introduce the notation for the action of the global symmetries ( compare to ( [ collectively ] ) ) : @xmath134 the covariant vertex is a superfield    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ @xmath135    depending linearly on the state @xmath86 , and such that :    1 .
+it is annihilated by @xmath70 : @xmath136 and is not @xmath137-exact , and 2 .   the action of the global symmetry on @xmath120 as a function of @xmath32 agrees with the action of the global symmetry on the space of states : @xmath138 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+let us study vertex operators for states which are not necessarily normalizable .
+in other words , let us forget about the boundary conditions near the boundary of ads , and study the supergravity states which are not necessarily normalizable .
+moreover , let us pick a point in @xmath0 and consider the taylor expansion of the supergravity fields around this point .
+let us not worry about the convergence of the taylor series .
+just study the supergravity equations , brst cohomology _ etc . _ on formal taylor series .
+the question of convergence , and the question of the behaviour at spacial infinity , can be studied later .    for the study of the taylor series the mathematical notion of the _ coinduced representation _
+is useful .
+let us study the supergravity fields around a point in @xmath0 corresponding to the unit @xmath139 .
+if we do not insist on convergence , then the space of supergravity fields around a point can be replaced by a more algebraic notion , the so - called _ coinduced representation _ @xcite .    for a representation @xmath121 of @xmath140
+, we define the _ coinduced representation _
+@xmath141 , in the following way :    :    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ the space of linear functions @xmath142 from the universal enveloping algebra @xmath30 to @xmath121 , which satisfy the condition of @xmath54-invariance : @xmath143 is called the _ coinduced representation _ and denoted @xmath141 . _
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _    the mathematical notation for such functions is : @xmath144 here `` @xmath145 '' means the space of linear maps from @xmath5 to @xmath6 , and the subindex @xmath54 means @xmath54-invariant functions : @xmath146 .
+the action of @xmath31 on this space is defined by the formula : @xmath147 to summarize :    we will now explain that @xmath141 encodes the taylor series of various tensor fields on @xmath0 , where @xmath121 is the representation of @xmath54 corresponding to the type of the tensor .
+let us start with the trivial representation @xmath148 of @xmath149
+. in this case we should get scalar fields on ads .
+the correspondence between the elements of @xmath150 and the scalar fields on ads goes as follows .
+given a scalar field @xmath151 , the corresponding element @xmath152 is given by the formula : @xmath153 in this case the @xmath54-invariance condition says that @xmath154 for any @xmath155 , and this is indeed satisfied for @xmath142 defined in ( [ inducedfromscalars ] ) because @xmath156 for any @xmath155 because @xmath157 is well defined on @xmath158 .
+there is also a map going in the opposite direction .
+namely , given @xmath142 a linear function from @xmath30 to @xmath159 we define the corresponding scalar field @xmath151 as follows : @xmath160 note that on the right hand side we treat @xmath32 as a _ group element _ is called _ group element _ if it is of the form @xmath161 for some @xmath162 of @xmath30 .    we have just explained why for @xmath148 the space @xmath163 encodes the taylor coefficients of the scalar function on ads ; for general @xmath121 a similar construction shows that @xmath163 encodes the taylor coefficients of the tensor field with indices transforming in the representation @xmath121 of @xmath54 .      to describe the linearized sugra in @xmath0 we need two pure spinor variables @xmath164 and @xmath165 satisfying the constraints : @xmath166 we will consider various types of vertex operators , which are homogeneous polynomials in @xmath167 and @xmath168 . note that ( [ purespinorconstraints ] ) are invariant under the action of @xmath54 .
+therefore the polynomials of @xmath167 and @xmath168 form a representation of @xmath54 .
+we will introduce the notation for such polynomials :    0=    1=    2=    3=to 1 2    we will define the polynomials of @xmath169 by specifying their coefficients , which are elements of @xmath170 ( see section [ sec : notations ] for notations ) .
+we have to `` discard '' those polynomials which are identically zero because of the pure spinor constraints ( [ purespinorconstraints ] ) .    as a trivial example
+, let us consider the quadratic polynomials of @xmath167 .
+the coefficients belong to @xmath171 .
+let us denote @xmath172 the basis vectors of @xmath173 , such that : @xmath174 the space @xmath171 consists of expressions of the form @xmath175 where @xmath176 .
+as an example of the polynomial which is identically zero , take @xmath177 where @xmath178 is the structure constants defined by @xmath179 .
+such a polynomial is identically zero because of the pure spinor constraint ( [ purespinorconstraints ] ) : @xmath180    to summarize : @xmath181 where @xmath182 denotes a subspace of @xmath183 corresponding to those polynomials on @xmath60 which vanish identically on @xmath167 because of the pure spinor constraint .
+we will also introduce : @xmath184 note that @xmath185 and @xmath186 are representations of @xmath54 , but not of @xmath31 .
+the construction of coinduced representation is used to build the representations of @xmath31 from these spaces .      in this section
+we consider the taylor series of the vertex operator and do not bother about the convergence and the behaviour near the boundary .
+then the vertex operator can be considered an element of the coinduced representation : @xmath188 we would like to discuss vertex operators `` uniformly '' for all vectors @xmath115 .
+we will therefore introduce the `` universal '' vertex operator : @xmath189 in other words , we have a linear function on the hilbert space @xmath190 which to every vector @xmath191 associates the corresponding vertex operator : @xmath192 given a state @xmath115 we get @xmath116  an element of @xmath187 .
+this means , by definition , that for every @xmath86 , the object @xmath116 is a linear map from @xmath30 to @xmath193 satisfying the @xmath54-invariance condition : @xmath194 given such @xmath116 , how do we construct the `` usual '' vertex operator ? as an element of @xmath195 our @xmath116 is a function of @xmath196 with values in @xmath193 . let us evaluate this function on a group element @xmath197 , where @xmath198 .
+we get @xmath199  an element from @xmath193 , _
+i.e. _ a quadratic polynomial in @xmath167 and @xmath168 .
+the `` usual '' vertex opearator is just the evaluation of this polynomial : @xmath200      the brst complex is : @xmath201 the brst operator acts on the universal vertex @xmath116 in the following way : @xmath202 note that @xmath203 is an element of @xmath204 . in terms of the `` usual '' vertex @xmath205 defined by ( [ usualvertexoperator ] )
+we get : @xmath206      [ [ statement - of - covariance ] ] statement of covariance + + + + + + + + + + + + + + + + + + + + + + +    note that in eq .
+( [ noncovariantvertex ] ) we use the notation @xmath207 rather than @xmath208 .
+there is no apriori reason why @xmath120 would respect the action of @xmath31 .
+but in the next section we will see that under some conditions on @xmath21 , it is possible to choose the universal vertex operator which does respect the global symmetry .
+we will call it the _ covariant _ universal vertex : @xmath209 given eq .
+( [ actionofg ] ) this implies : @xmath210    [ [ condition - on - cal - h - sufficiently - high - spin ] ] condition on @xmath21 : sufficiently high spin + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +    the conditions on @xmath21 are the following . consider @xmath21 as a representation of @xmath211  the symmetry algebra of @xmath25 . as a representation of @xmath113 , @xmath21 is the direct sum of infinitely many finite - dimensional representations of @xmath113 .
+we request that the minimal value of the quadratic casimir of @xmath113 on @xmath21 be sufficiently high .
+in this section we will use some facts about the lie algebra cohomology which we learned mostly from @xcite . see chapter 3   6 of @xcite for a very brief summary .
+the physical states correspond to the cohomology of @xmath3 at the ghost number 2 , therefore : @xmath212 where @xmath213 is the multiplicity of @xmath21 ( how many times @xmath21 enters in the sugra spectrum on @xmath0 ) .
+we will argue that the second cohomology of the brst operator can be calculated using the covariant subcomplex .
+in other words , @xmath214 ( notice that @xmath215 is the covariant subcomplex . ) to prove eq .
+( [ equalstocovarianth ] ) we rewrite it in the following form : @xmath216 here we have used the fact that for any representation @xmath42 of the lie algebra @xmath31 the zeroth cohomology group @xmath217 equals the space of invariants @xmath218 . in particular , for two representations @xmath219 and @xmath220 , @xmath221 .
+the idea of the proof of ( [ hpermuted ] ) is to note that the left and the right hand side of ( [ hpermuted ] ) are two different second approximations to calculating the cohomology of the `` total '' differential @xmath222 .
+therefore the equality of the left hand side and the right hand side follows if we prove that the second approximation is actually exact .
+let us start by fixing some universal vertex ( not necessarily covariant ) : @xmath223 at this point we do not require that this vertex is covariant ; it is apriori an element of @xmath224 rather than @xmath225 . we will introduce the lie algebra brst operator of @xmath31 . for each generator @xmath226 of @xmath31
+we introduce the corresponding ghost @xmath227 , and define : @xmath228    we will consider the action of @xmath229 on expressions polynomial in @xmath227 .
+the polynomials of @xmath227 are specified by their coefficients ; in degree @xmath230 the coefficients live in @xmath231 .
+therefore @xmath229 acts on the vertex operator as follows : @xmath232 we will consider the bicomplex with the differential @xmath233 : @xmath234 to prove the existence of the covariant vertex we will consider the spectral sequence computing the cohomology of this bicomplex . there are two ways to construct the spectral sequence .
+one can first calculate the cohomology of @xmath3 and then consider @xmath229 as a perturbation .
+the other way is to first calculate the cohomology of @xmath229 and then consider @xmath3 as a perturbation .
+these two ways of calculating the cohomology of @xmath233 should give the same result .
+we will see that this implies the existence of the covariant vertex .
+we will now consider the two methods in turn .
+[ [ first - q_brst - then - q_lie ] ] first @xmath3 then @xmath229 + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +    the first term of the spectral sequence has : @xmath235 where @xmath236 stands for the @xmath237-ghosts ; an element of @xmath238 is schematically @xmath239 .
+the differential in the first term is @xmath240 .
+the second term is : @xmath241 the higher differentials are of the type @xmath242 .
+[ [ first - q_lie - then - q_brst ] ] first @xmath229 then @xmath3 + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +    the first term is : @xmath243 where @xmath244 .
+the higher differentials are of the type @xmath245 .
+[ [ existence - of - the - covariant - vertex ] ] existence of the covariant vertex + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +    the first page of @xmath246 and @xmath247 ; arrows denote @xmath248 and @xmath249 . the lie algebra ghost number ( the number of @xmath237 s ) increases in the horizonthal direction , while the brst ghost number ( the number of @xmath167 plus the number of @xmath168 ) in the vertical direction .
+, title="fig:",width=192 ] the first page of @xmath246 and @xmath247 ; arrows denote @xmath248 and @xmath249 .
+the lie algebra ghost number ( the number of @xmath237 s ) increases in the horizonthal direction , while the brst ghost number ( the number of @xmath167 plus the number of @xmath168 ) in the vertical direction .
+, title="fig:",width=192 ]    the second page of @xmath246 and @xmath247 ; arrows denote @xmath250 and @xmath251 .
+, title="fig:",width=192 ] the second page of @xmath246 and @xmath247 ; arrows denote @xmath250 and @xmath251 .
+, title="fig:",width=192 ]    the differential @xmath252 of @xmath253 .
+, width=192 ]    first of all , we want to show that @xmath254 .
+the first observation is that by definition @xmath255 is zero .
+this is because the vertex is _ covariant up to brst - exact correction _ ( see eq .
+( [ uptobrstexact ] ) ) .
+therefore @xmath256 .
+also , we will show ( for @xmath21 with large enough spin ) that @xmath257 .
+this implies that @xmath254
+.    then we remember the relation between @xmath258 and @xmath259 , which is the following .
+the space @xmath260 has a filtration , corresponding to the number of the @xmath237-ghosts .
+namely , @xmath261 consists of expressions containing at least @xmath262 @xmath237-ghosts
+. then @xmath263 . to summarize : @xmath264 \\[3pt ] e_1^{0,2 } & = & h^2(q_{tot } ) / f^1h^2(q_{tot } ) \label{e1isfactorspace}\end{aligned}\ ] ] on the other hand we will show that @xmath265 ( see eqs .
+( [ shapiroforh2 ] ) , ( [ shapiroforh1 ] ) ) and also that @xmath266 ( similar to ( [ shapiroforh1 ] ) ) .
+this implies that : @xmath267 we are now ready to prove the existence of the covariant vertex .
+notice that @xmath268 is the space of functions @xmath269 , parametrized by @xmath115 , transforming covariantly under @xmath31 .
+this means that @xmath270 is the _ covariant subcomplex _ of the brst complex .
+( the subspace consisting of the covariant expressions . ) and eq .
+( [ h2qtotfrometilde ] ) shows that : @xmath271 now the comparison of ( [ h2qtotfrome ] ) , ( [ e1isfactorspace ] ) and ( [ h2qtotiscovariant ] ) shows that the cohomology of @xmath3 can be calculated using the covariant subcomplex .
+in fact , if the representation @xmath21 has large enough momentum in @xmath25 , then @xmath272 is zero ( because already @xmath273 and @xmath274 are zero ) .
+this means that the factor space on the right hand side of ( [ e1isfactorspace ] ) is just @xmath259 .
+this means that there is a covariant choice of the vertex . in the rest of this section
+we will prove the required vanishing theorems and explain explicitly how the non - covariant vertex can be modified into the covariant one .
+since the vertex transforms covariantly up to brst - exact terms , we must have : @xmath275 where @xmath276 note that @xmath277 is @xmath3-closed and has ghost number 1 : @xmath278 we want to argue that there exists @xmath279 such that @xmath280 .
+more precisely : note that we are free to add to @xmath281 something in the kernel of @xmath3 ; we want to prove that it is possible to use this freedom and choose @xmath281 so that there exists @xmath279 such that @xmath280 .
+an obstacle to this would be a nonzero @xmath282 where @xmath283 we want to argue that the space @xmath284 on the right hand side is zero .
+note that the brst cohomology in ghost number 1 corresponds to local conserved charges .
+but the only conserved charges are the global symmetries @xmath20 , and those transform in the adjoint representation of @xmath31 .
+this means that on the right hand side of ( [ checkermove ] ) we have : @xmath285    adjustment of the vertex operator .
+, width=470 ]    this cohomology group is zero .
+indeed , we can compute it using the serre - hochschild spectral sequence of @xmath286 .
+already the first term of this spectral sequence consists of the following spaces , which are all zero : @xmath287 note that @xmath288 where @xmath289 and @xmath290 .
+consider the corresponding casimir operators @xmath291 and @xmath292 .
+for the cohomology to be nonzero , we need both of them zero , but @xmath292 is positive definite at least for @xmath21 with large enough momenta .
+( note also that @xmath21 is an infinite dimensional irreducible representation of @xmath31 , so there are no invariants in its tensor product with powers of @xmath31 . )
+therefore @xmath280 for some @xmath279 . in other words
+@xmath293 is zero , and we can proceed with computing @xmath252 .
+consider @xmath294 .
+note that @xmath295 has zero pure spinor ghost number , and @xmath296 .
+since @xmath295 is of ghost number 0 , this implies that @xmath295 is a constant ; it does not contain any @xmath40 or @xmath84 .
+also , we could have added a constant to @xmath279 without affecting @xmath297 ; therefore @xmath295 by itself is not very well defined by our construction .
+what is well defined is @xmath295 modulo the image of @xmath229 : @xmath298 \in h^3_{q_{lie}}({\cal h}'\otimes \lambda^{\bullet}{\bf g } ) = h^3({\bf g},{\cal h}')\ ] ]      but the lie algebra cohomology group @xmath299 is zero : @xmath300 one can see that it is zero from the serre - hochschild spectral sequence corresponding to @xmath286 .
+already the first term of this spectral sequence consists of the following spaces , which are all zero : @xmath301 the vanishing of these cohomologies can be proven as follows .
+note that @xmath302 splits into @xmath289 and @xmath290 . for the cohomology to be nontrivial , both @xmath303 and @xmath304 should be zero .
+but @xmath305 is positive definite .
+therefore we can remove @xmath295 by modifying @xmath279 , adding to @xmath279 a constant term @xmath306 so that the modified @xmath307 has @xmath308 .
+( note that adding the constant term does not change the image of @xmath309 under @xmath3 . )
+is it possible to find such @xmath310 that @xmath311 ?
+the answer is `` yes '' , because @xmath312 this can be proven using the shapiro s lemma ( proposition 6.8 and theorem 6.9 from @xcite ) : @xmath313 note that @xmath314 .
+we want to prove that @xmath315 . the space @xmath44 consists of functionals on the space of states .
+since we work in the vicinity of the fixed point @xmath316 our @xmath44 is generated by the values of various supergravity fields at the point @xmath317 .
+for example the ramond - ramond field strength @xmath318 and its derivatives . under the action of @xmath319
+this space splits into infinitely many finite - dimensional representations . for example
+@xmath320 lives in @xmath321 where vect is is the vector representation of @xmath319 and index @xmath322 means that the contraction @xmath323 is zero , for the contraction to be zero ; the ramond - ramond 5-form @xmath324 is nonzero in the ads background . ] .
+it follows from the general theory of lie algebra cohomology that @xmath325 of @xmath319 with coefficients in any finite - dimensional representation is zero .
+these arguments imply that @xmath310 is in the image of @xmath229 .
+we can modify @xmath281 by adding to it : @xmath326 then we have : @xmath327 now we use : @xmath328 therefore @xmath329 is in the image of @xmath229 .    now the _
+modified vertex : _
+@xmath330 is covariant .
+our procedure could perhaps be summarized as follows : @xmath331
+in flat space it is impossible to choose a covariant vertex , because of the nontrivial cohomology @xmath332 which represents the nsns 3-form field strength .    but one can satisfy a weaker covariance condition .
+note that in flat space the generators of the lorentz subalgebra @xmath333 of the poincare algebra can not be obtained as commutators of other generators .
+therefore it is consistent to require the covariance under all translations and supersymmetries , but only some rotations .
+in particular , it turns out that we can choose a vertex covariant under : @xmath334 this is a subalgebra of the super - poincare algebra : @xmath335 corresponding to the split of the space - time : @xmath336 we will say that the ten spacetime directions split into @xmath337 a - directions and @xmath338 s - directions ( the letters a and s stand for the ads and the sphere ) .    let us now explain how the diagramm of fig .
+[ fig : adjustment ] works in flat space .      instead of considering fig .
+[ fig : adjustment ] literally let us study the similar diagramm for the supersymmetric maxwell field ( rather than supergravity ) .
+this is a toy model ; the supersymmetric maxwell field in flat space is `` one half of the supergravity field '' .
+the `` usual '' ( non - covariant ) vertex operator is of the form : @xmath339 } + \ldots\ ] ] where @xmath340 and @xmath341 are the vector potential and the photino .
+let us first try to understand if it is possible to choose the vertex covariant under the even poincare algebra .
+the vertex operator ( [ vertexoperator ] ) involves the gauge field @xmath342 . because of the gauge invariance the gauge field is not in one to one correspondence with the physical states .
+the physical states are described by @xmath343 , not by @xmath342 .
+to describe @xmath342 in terms of @xmath344 , let us break the translational symmetries by choosing a point @xmath322 in space - time .
+then we can write , in the vicinity of the chosen point : @xmath345 where @xmath346 and @xmath347 and @xmath348 are the corresponding @xmath349 and lie derivative .
+for example , @xmath350 and @xmath351 . note that eq .
+( [ vicinitygauge ] ) is one particular way to choose a vector potential with the field strength @xmath142 .
+let us therefore replace @xmath92 with @xmath352 .
+this breaks the translation symmetry , since the gauge ( [ vicinitygauge ] ) depended on a choice of point @xmath353 .
+can we restore the translational symmetry ?
+let us introduce the operator @xmath229 acting on the physical vertex operators in the following way : @xmath354 here the index @xmath355 runs over an infinite set enumerating the basis vectors of @xmath21 , and @xmath356 are the generators of translations @xmath357 .
+fermionic parameters @xmath358 are the lie - algebraic ghosts of the translation algebra .
+this operator @xmath229 measures the deviation of the vertex operator from transforming covariantly under the action of the global shift .
+we observe that @xmath359 is @xmath360 of something : @xmath361 f = \left ( \iota_c { 1\over { \cal l}_e } -   \iota_e { 1\over { \cal l}_e } { \cal l}_c { 1\over { \cal l}_e}\right )
+f = \nonumber \\ & = &   d\left ( { 1\over { \cal l}_e({\cal l}_e+1 ) } \iota_e\iota_c f\right ) \label{descentderham}\end{aligned}\ ] ] let us calculate @xmath229 of this `` something '' : @xmath362 expanding @xmath142 in taylor series around @xmath353 and taking into account that @xmath363 we can see that ( [ equalsconstant ] ) is equal to : @xmath364 we should stress that ( [ equalsconstant ] ) is equal to the _ constant _ ( independent of @xmath40 ) expression ( [ descent ] ) .
+in other words , the only term in the taylor expansion of ( [ equalsconstant ] ) around the point @xmath353 is the constant term .
+one can see it , for example , because the lie derivative @xmath348 of ( [ equalsconstant ] ) vanishes .
+this can be seen from the identity @xmath365 which follows from @xmath363 .
+notice that if we started with some other point @xmath317 ( not the origin ) , then ( [ descent ] ) would change by @xmath229 of something .
+for example , an infinitesimal shift by @xmath366 would change ( [ descent ] ) by the @xmath229-exact expression : @xmath367 ( this is a manifestation of the general fact , that a lie algebra acts trivially in its cohomology . )
+the @xmath229-cohomology class of : @xmath368 is the obstacle for defining @xmath92 such that @xmath369 in a covariant way .
+we have so far discussed only the action of shifts . the expression ( [ obstacle ] )
+as we defined it represents the cohomology class of the algebra of translations @xmath370 .
+but we can also think of it as a cocycle of the poincare algebra .
+indeed , @xmath344 transforms covariantly under rotations and boosts and therefore ( [ obstacle ] ) is closed under the @xmath229 of the full poincare algebra .
+the @xmath229 of the full poincare algebra is the sum of @xmath371 of translations @xmath370 and @xmath372 of rotations and boosts .
+expression ( [ obstacle ] ) is in the kernel of @xmath371 by our construction , and more explicitly because @xmath142 is a closed form .
+but it is also in the kernel of @xmath372 because @xmath142 transforms covariantly under rotations and boosts .
+another question is whether or not ( [ obstacle ] ) is exact .
+one can see that this is not exact as a cocycle of the full poincare algebra , in the following way .
+let @xmath373 stand for the poincare algebra .
+we have : @xmath374 notice that the space of states of the gauge field contains a proper subspace closed under the action of the poincare algebra .
+( in other words , it is not an irreducible representation . )
+this subspace consists of those gauge fields which have a constant field strenght : @xmath375 .
+let us call this subspace @xmath376 : @xmath377 therefore there is a projection @xmath378 this projection naturally acts on the cocycles of @xmath379 with values in @xmath44 , and therefore on the cohomology groups : @xmath380 it is straightforward to see that the projection of ( [ obstacle ] ) to @xmath381 is automatically a nonzero cohomology class .
+this implies that ( [ obstacle ] ) represents a nontrivial cohomology class in @xmath382 .
+this is what prevents us from choosing the vertex covariant with respect to the poincare algebra .
+let us start with introducing some notations .
+for any vector @xmath384 we denote @xmath385 the vector with the components : @xmath386 also introduce : @xmath387 what happens if we do not require the invariance under the full poincare algebra @xmath373 , but only under the @xmath383 of ( [ psmall ] ) ?
+then we can restrict ourselves to the subspace of @xmath21 where @xmath305 is a fixed positive number . on this subspace , it is possible to express @xmath342 in terms of @xmath344 in a @xmath388-covariant way .
+let us choose the covariant gauge : @xmath389 and fix the residual gauge transformations with the additional `` axial '' gauge gauge condition : @xmath390 where @xmath391 is introduced as in ( [ barnotation ] ) .
+in the gauge ( [ axialgauge ] ) we can express the gauge field @xmath342 in terms of the gauge field strength @xmath343 : @xmath392 now we have two different expressions for the vector potential , eq .
+( [ vicinitygauge ] ) and eq .
+( [ covariantgauge ] ) .
+the difference between these two expressions is a gauge transformation .
+let us use a `` diacritical '' mark to distinguish ( [ covariantgauge ] ) from ( [ vicinitygauge ] ) : @xmath393 note that @xmath394 is @xmath383-covariant : @xmath395 while @xmath92 is not  see eq .
+( [ descentderham ] ) .
+also , for every gauge field we can calculate @xmath396 .
+this is a functional of the gauge field , _ i.e. _ an element of @xmath44 .
+if we calculate its @xmath229 as a cochain with values in @xmath44 we get : @xmath397    now let us return to eqs .
+( [ descentderham ] ) , ( [ equalsconstant ] ) and ( [ descent ] ) . on the subspace @xmath398 the cohomology class of ( [ descent ] )
+trivializes : @xmath399 this is analogous to eq .
+( [ h3zero ] ) of section [ sec : descent ] .
+therefore the same arguments as we presented in section [ sec : descent ] should imply that @xmath400 indeed we have : @xmath401 also notice that : @xmath402 this means that the correction of the vector potential : @xmath403 is completely analogous to the correction of the vertex operator described in section [ sec : descent ] . it turns the non - covariant expression @xmath404 into the covariant expression @xmath405 .      let us now study the action of the supersymmetry generators . let us consider the part of the @xmath229 involving the supersymmetry generators .
+we have : @xmath406 q_{brst } & = & \lambda^{\alpha}{\partial\over \partial\theta^{\alpha } } + \lambda^{\alpha}\gamma^{\mu}_{\alpha\beta}\theta^{\beta } { \partial\over \partial x^{\mu}}\end{aligned}\ ] ] here @xmath407 is the supersymmetry transformation acting on the space of states @xmath21 and therefore ( after fixing the gauge ! ) on @xmath342 and @xmath408 .
+we write only the part of @xmath229 corresponding to the super - translations ; @xmath409 are the bosonic ghosts corresponding to the super - translations . to make @xmath407 act on @xmath92 and @xmath408 we have to choose the gauge .    with this notation ,
+let us first of all present @xmath410 acting on the vertex operator ( [ vertexoperator ] ) in the following form : @xmath411 }   -{1\over 4 }   ( \theta\gamma^{\mu\nu\rho}\theta)(\varepsilon\lambda\gamma_{\rho } \varepsilon'\xi )   \partial_{[\mu}a_{\nu ] } + \nonumber \\ & & + ( \varepsilon\lambda\gamma^{\mu}\varepsilon'\xi)(\psi\gamma_{\mu}\theta ) +   ( \varepsilon\lambda\gamma^{\mu}\theta)(\psi\gamma_{\mu}\varepsilon'\xi ) + \ldots = \nonumber \\[10pt ]   & = & - { 3\over 2}(\varepsilon\lambda\gamma^{\mu}\theta ) \left ( ( \varepsilon'\xi\gamma_{\mu}\psi )   + { 1\over 2\delta_s}\partial_{\mu } ( \varepsilon'\xi\overline{\gamma}^{\rho}\partial_{\rho}\psi)\right ) - \nonumber \\ & & -{2\over 3 } ( \varepsilon\lambda\gamma^{\rho}\theta)(\varepsilon'\xi\gamma^{\mu\nu}\gamma_{\rho}\theta ) \partial_{[\mu}a_{\nu ] } + \ldots \\ & & + \varepsilon q_{brst }   \left ( { 1\over 2 } ( \theta\gamma^{\mu}\varepsilon'\xi)(\psi\gamma_{\mu}\theta ) + { 3\over
+2}{1\over 2\delta_s } ( \varepsilon'\xi\overline{\gamma}^{\mu}\partial_{\mu}\psi ) + \right .
+\nonumber \\ & & \phantom{+ q_{brst}\;\ ; }   \left .
++ ( \theta\gamma^{\mu}\varepsilon'\xi ) a_{\mu } -{1\over 12 } ( \theta\gamma^{\mu\nu\rho}\theta ) ( \theta\gamma_{\rho}\varepsilon'\xi ) \partial_{[\mu}a_{\nu ] } + \ldots \right ) \nonumber\end{aligned}\ ] ] this implies that @xmath412}\end{aligned}\ ] ] therefore we have indeed : @xmath413 on the right hand side @xmath3 is taken of the expression which is @xmath229-exact : @xmath414 then we have : @xmath415 this means that the following vertex operator : @xmath416 transforms covariantly under the odd shifts .
+this can be also understood as follows : @xmath417 }   + \ldots\ ] ] now we recognize what it is : @xmath418 where @xmath419 is the superfield ] related to the maxwell superfield @xmath420 by the chain of transformations : @xmath421 see @xcite for a recent discussion of @xmath422 .      in flat space
+the supergravity fields split into the product of the left and the right component ; the left and right components are essentially free maxwell fields .
+the bispinor field is defined as follows : @xmath423 where @xmath424 is the field strength superfield of the free maxwell theory ; the @xmath425 component of @xmath422 is the gaugino @xmath426 .
+this bispinor field is a linear combination of the rr field strengths contracted with the gamma - matrices @xcite : @xmath427 where @xmath428 and @xmath429 are some numeric coefficients which we do not need .
+the supersymmetry variations of @xmath430 is given by this equation : @xmath431 where @xmath432 is a combination of the left dilatino @xmath433 , and the left gravitino field strength @xmath434}$ ] , and @xmath435 is a combination of the corresponding right fields @xmath436 and @xmath437}$ ] .
+the @xmath438-covariant vertex in flat space is the product of two expressions of the form ( [ maxwellvertexviaw ] ) : @xmath439 this is brst equivalent to : @xmath440      the construction of section [ sec : cohomologicalargument ] implies that the @xmath33-covariant vertex operator exists in @xmath0 .
+this construction gives ( [ vertexwithderivatives ] ) when applied in the flat space limit .
+( we have demonstrated this for the maxwell field , but the free supergravity vertex in flat space is just the product of `` left '' and `` right '' maxwell vertices . ) therefore both ( [ vertexwithderivatives ] ) and the brst - equivalent ( [ vertexwithoutderivatives ] ) should be the flat space limits of some covariant vertices in @xmath0 .    notice that ( [ vertexwithoutderivatives ] ) reduces to ( [ zeromodevertex ] ) in the zero momentum limit , except for the overall normalization factor @xmath441 which becomes singular on the zero mode .
+however we were not able to write explicit expressions in terms of the supergravity fields in ads space which would explicitly generalize the flat space formulas ( [ vertexwithderivatives ] ) or ( [ vertexwithoutderivatives ] ) .
+consider the wilson line operator corresponding to a semi - infinite contour going from infinity to some point @xmath6 on the string worldsheet :        in some representation @xmath8 of @xmath442 .
+consider the action of @xmath3 on this operator .
+if we neglect the contribution of the boundary terms at infinity , then the brst variation is@xcite : @xmath443(z )   =   \left ( { 1\over z } \varepsilon\lambda^{\alpha}_3(b)\rho(t^3_{\alpha } )   + z \varepsilon\lambda_1^{\dot{\alpha}}(b)\rho(t^1_{\dot{\alpha } } ) \right )   t[c_{\infty}^b](z)\ ] ] ( see section 2.2 of @xcite and section 7 of @xcite for a discussion of this formula . )    let us fix some vector @xmath408 in the representation @xmath8 `` at infinity '' ; then this expression : @xmath444(z)\psi\ ] ] is a vector in the representation space of @xmath8 . pick a vector @xmath445 in the dual space , and evaluate it on ( [ vectorfrominfinity ] ) : @xmath446(z)\psi\right ) \;\in\ ; { \bf c}\ ] ] this gives a number .
+consider vectors @xmath445 depending on the pure spinors @xmath447 and the spectral parameter @xmath11 . then eq .
+( [ boundarytermssemiinfinite ] ) can be regarded as defining the action of @xmath3 on @xmath445 : @xmath448 this defines the brst complex of the endpoint .
+the @xmath449-cochains of this complex are elements @xmath450 \ ; , \ ;   { \cal p}^n \right)\ ] ] where @xmath451 is defined in section [ sec : purespinors ] , and the differential is ( [ brstcomplexendpoint ] ) .
+the `` plugs '' which we introduced in section [ sec : theplugs ] are the cohomologies of this complex . unfortunately we do not know a general classification of the cohomologies of this complex for a general representation @xmath8
+.      we will now consider the special case where @xmath8 is the representation of @xmath20 on the space of states @xmath21 of the bps multiplet . in this case
+we will relate the brst complex of the endpoint ( [ brstcomplexendpoint ] ) to the brst complex of covariant supergravity vertices .
+let us remember the general structure of the covariant vertex from section [ sec : covariantuniversal ] : @xmath452 here @xmath453 for the supergravity vertex , but we want to consider the whole brst complex so we keep @xmath449 .
+let us evaluate @xmath120 on the unit of the group : @xmath454 this defines a correspondence between covariant vertices @xmath120 and vectors in @xmath455 : @xmath456 notice that @xmath120 is a function of @xmath457 while @xmath445 is essentially its value at @xmath458 . nevertheless , the correspondence ( [ evaluationatzero ] ) is a one - to - one correspondence between the elements of @xmath459 and the elements of @xmath455 .
+indeed , the symmetry under @xmath460 : @xmath461 allows to relate @xmath199 to @xmath462 , see eq .
+( [ actionofgoncovariant ] ) . in other words , if we know the value of the covariant vertex at the point @xmath458 _ for all states _
+@xmath86 , then because of the global symmetry we know the covariant vertex everywhere ( for arbitrary @xmath40 and @xmath84 ) .
+this construction is an example of the _ frobenius reciprocity _ :    which is true for any representation @xmath42 of @xmath149 ; in our case @xmath463 .    to summarize , given the covariant vertex @xmath120 , we define @xmath464 by saying that the value of @xmath445 on @xmath115 is : @xmath465      note that both the left hand side and the right hand side of ( [ vectorfromcovariantvertex ] ) are elements of @xmath451 _ i.e. _ polynomials of @xmath167 and @xmath168 .
+we can evaluate them on @xmath169 : @xmath466 this is a quadratic polynomial in @xmath167 and @xmath168 .
+( [ actionofgoncovariant ] ) and ( [ qonuniversal ] ) imply that the action of @xmath3 on the covariant vertex corresponds to the following action on @xmath445 : @xmath467 this formula for @xmath3 can be interpreted in the following way .
+the space @xmath468 is obviously a representation of @xmath9 , just because @xmath21 is by definition a representation of @xmath31 .
+( the @xmath193 part just `` goes along for the ride '' . )
+let us denote this representation @xmath8 ( the action of @xmath469 on @xmath445 is @xmath470 ) .
+then ( [ brstoncovariantvertex ] ) implies that the action of @xmath82 on @xmath471 corresponds to the action of the nilpotent operator @xmath472 on @xmath445 defined by this formula : @xmath473 this is identical to @xmath472 of ( [ brstcomplexendpoint ] ) at @xmath474 .
+we conclude that :    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ @xmath445 represents a cohomology class @xmath475 of the following complex : + @xmath23 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _    in other words , the brst complex on covariant massless vertices ( independent of derivatives ) is equivalent to the endpoint complex @xmath476 .      we have demonstrated that the complex ( [ zequalsone ] ) is equivalent to ( [ brstcomplexendpoint ] ) at @xmath474 .
+but in fact ( [ brstcomplexendpoint ] ) at @xmath474 is equivalent to ( [ brstcomplexendpoint ] ) at @xmath477 by rescaling of @xmath167 and @xmath168 . in other words ,
+the map @xmath478 is the equivalence of the complex ( [ brstcomplexendpoint ] ) at @xmath474 and the same complex at @xmath477 .
+there is a relation between the endpoint cohomology and the cohomology of the positive - frequency part of the loop algebra of @xmath479 .
+consider the algebra formed by the positive frequency @xmath28-twisted loops with values in @xmath479 .
+we will denote is @xmath480 .
+the cohomology complex is generated by the ghosts @xmath481 , where @xmath482 and @xmath92 the enumerates the adjoint representation of @xmath479 .
+we have @xmath483 , @xmath484 , @xmath485 , @xmath486}$ ] , @xmath487 , _ etc . _
+the `` energy '' operator @xmath488 counts the lower indices , for example : @xmath489 } = -5 c_{-1}^{\alpha } c_{-4}^{[mn]}\ ] ] notice that @xmath488 is a symmetry of the cohomology complex .
+another symmetry is the @xmath237-ghost number ( the number of letters @xmath237 ) .
+let @xmath490 denote the cohomology group with @xmath491 and ghost number @xmath262 .
+the first cohomology group @xmath492 is generated by @xmath493 ( and therefore has @xmath494 ) .
+some of other nontrivial cohomology groups are : @xmath495 generally speaking , @xmath496 is generated by the expressions of the form : @xmath497 but @xmath496 is not all of the cohomology , for example there is nontrivial with the character of @xcite ] @xmath498 .
+the pure spinor cohomology should be identified with the part of the @xmath480 cohomology with `` energy '' equal to minus the ghost number , _ i.e. _ @xmath496 .
+in flat infinite space massless vertex operators have the form : @xmath499 where @xmath262 is some polynomial of @xmath169 and @xmath84 . we can write @xmath500 where @xmath501 therefore there is a generalization of ( [ vertexinflatspace ] ) : @xmath502 this generalization is only well defined in flat space on those worldsheets which do not have handles , or in toroidal compactifications with appropriate integrality conditions on @xmath503 and @xmath504 .
+we can formally consider ( [ flatspacegeneralizedvertex ] ) , for example on an infinite worldsheet without handles , if we neglect boundary effects .
+we will now argue that there is a partial analogue of ( [ flatspacegeneralizedvertex ] ) in @xmath0 .
+given a state @xmath115 we can prepare a nonlocal @xmath11-dependent covariant vertex operator , in the following way .
+consider the transfer matrix @xmath505 from infinity to the point @xmath506 on the worldsheet .
+let us fix a vector @xmath507 , and consider : @xmath508 so defined @xmath509 is analogous to : @xmath510 in particular for @xmath474 we get @xmath511 and therefore : @xmath512 this formula gives us back the covariant vertex for the state @xmath86 if we identify : @xmath513      for any @xmath514 we define @xmath515 as a non - normalizable vector in the space of states , characterized by the formula : @xmath516 where @xmath517 is the hermitean scalar product in @xmath21 .
+note that @xmath515 strictly speaking does not belong to @xmath21 because it is not normalizable .
+for example , one dimensional quantum mechanics has @xmath518  the space of square integrable functions of one variable , with the norm @xmath519 .
+the dual space @xmath44 is the space of generalized functions ; if @xmath514 is defined by the formula @xmath520 then @xmath515 is a delta - function @xmath521 .    using these notations
+we can define the two - point vertex operator :        @xmath522    however , we conjecture that this 2-point vertex operator is in fact brst exact . indeed ,
+although we have not checked it explicitly , it should be true that the derivative of @xmath523 with respect to @xmath524 is @xmath3-exact .
+therefore , up to brst - exact terms this vertex is independent of @xmath524 and @xmath525 . on the other hand , when @xmath526 we get a local vertex operator of the ghost number 4 .
+there is no @xmath20-invariant cohomology at the ghost number 4 .
+this implies that ( [ twopointvertex ] ) is brst exact .
+in this paper we introduced a family of @xmath11-dependent vertex operators ( [ zdependentvertex ] ) parametrized by a choice of the bps representation of @xmath20 .
+schematically , these vertex operators have a form : @xmath527 \right )   \right|\psi^{\infty}\right\rangle\ ] ] this expression is strictly speaking not brst invariant , because of the boundary term at infinity .
+indeed we have put @xmath528 an arbitrary vector from @xmath21 , and this is generally speaking not a valid plug .
+we assume that we can neglect this boundary term because it is at infinity ] .
+we can consider @xmath509 locally near the point @xmath506 .
+notice that @xmath529 is a @xmath169-dependent vector in the dual space to @xmath21 .
+( in fact @xmath529 depends on @xmath530 and @xmath531 through @xmath532 . ) we can also think of @xmath529 as an element of @xmath21 , but then we have to remember that it is not normalizable ; it is a @xmath533-function type of state , rather than a proper wave packet .
+note that for a fixed @xmath169 , our @xmath534 is a _
+fixed _ vector in @xmath44 . in other words , for every bps representation @xmath21 we have a map , which takes a pair of pure spinors and transforms them into a vector in the space of bps states : 0= @xmath535 it would be interesting to describe this map explicitly .
+the non - normalizable vector in @xmath21 on the right hand side of ( [ frompstovectorinh ] ) is obviously not invariant under @xmath20 ( it belongs to an irreducible representation ) .
+but it transforms covariantly under @xmath536 , in the sense that the action of @xmath319 on the right hand side of ( [ frompstovectorinh ] ) agrees with the action of @xmath319 on the left hand side of ( [ frompstovectorinh ] ) .
+another way of thinking about @xmath537 is in terms of the cohomology of the operator : @xmath538 acting on the bps representation @xmath21 ( more precisely , the @xmath149-invariant tensor product of @xmath44 with the space of polynomials of @xmath447 ) .
+our results imply that the second cohomology of this operator is nontrivial , represented by the cocycle ( [ frompstovectorinh ] ) .
+notice that this provides a purely representation - theoretic characterization of the linearized sugra spectrum on @xmath0 .
+indeed , the question of the existence of the excitation transforming in the representation @xmath21 is reduced to the calculation of the cohomology of the operator ( [ lambdatinconclusions ] ) , which is defined in terms of the generators @xmath539 of the representation @xmath21 .
+there is also another example of a plug , a plug of the ghost number 1 .
+consider the wilson line in the adjoint representation .
+the cohomology of ( [ lambdatinconclusions ] ) in the adjoint representation is nontrivial and is represented by : @xmath540 this is obviously a @xmath169-dependent vector in the adjoint representation , of the ghost number @xmath541 .
+one can verify that this is annihilated by ( [ lambdatinconclusions ] ) ; note the relative minus sign of the second term in ( [ adjointrepresentative ] ) .
+therefore we can take ( [ adjointrepresentative ] ) as a plug , and consider : @xmath542 \right )   \psi^{(\infty ) } \right)\ ] ] at @xmath474 the corresponding integrated vertex operator is the density of the local conserved charge @xmath543 .
+we will prove in appendix [ sec : ghostnumberone ] that ( [ adjointrepresentative ] ) is the only example of the endpoint cohomology at ghost number 1 .
+in particular , there is no nontrivial cohomology for representations other than the adjoint .    with these notations
+the 2-point vertex ( [ twopointvertex ] ) reads : @xmath544 \right )   \right| \mbox{plug}(\tau_1^+,\tau_1 ^ - ) \right\rangle \nonumber\end{aligned}\ ] ] ( but as we discussed at the end of section [ sec : twopoint ] this must be brst exact . )
+i want to thank y.  aisaka , n.j .
+berkovits , v.  serganova and b.c .
+vallilo for many useful discussions .
+this research was supported by the sherman fairchild fellowship and in part by the rfbr grant no .
+06 - 02 - 17383 and in part by the russian grant for the support of the scientific schools nsh-8065.2006.2 .
+part of this work was done during the workshop `` non - perturbative methods in strongly - coupled gauge theories '' , at the galileo galilei institute for theoretical physics in florence .
+i would like to thank the organizers of this workshop for their hospitality .
+another part of this work was done during the monsoon workshop in tifr , mumbai .
+i want to thank the organizers and the staff members at tifr for their hospitality .
+another part of this work was done during my stay at the ift so paulo ; i want to thank n.j .
+berkovits for his hospitality .
+another part of this work was done during the workshop `` fundamental aspects of superstring theory '' at kitp santa barbara ; i want to thank the organizers of the workshop for their hospitality .
+in this section we will prove that the only cohomology at ghost number 1 are the global @xmath20 conserved charges .
+the conserved charges are the descendants of the cohomology classes of the ghost number 1 .
+the `` standard '' local conserved charges correspond to the global symmetries @xmath33 .
+they descend from the following operator : @xmath545 in other words , we have the following cohomology class of the ghost number one in the adjoint representation of @xmath31 : @xmath546 in this section we will prove that there are no nontrivial cohomology classes of the ghost number 1 in representations other than the adjoint .
+we will write a representative of the cohomology class in the following way : @xmath549 the condition of @xmath54-invariance says that @xmath550 and @xmath551 should define intertwining operators of @xmath54 : @xmath552 in other words : @xmath553 } v_{\alpha } = { f_{[\rho\sigma]\alpha}}^{\beta}v_{\beta } \label{firstcovariancecondition}\\ & & t^0_{[\rho\sigma ] } v_{\dot{\alpha } } = { f_{[\rho\sigma]\dot{\alpha}}}^{\dot{\beta } } v_{\dot{\beta } } \label{secondcovariancecondition}\end{aligned}\ ] ]  the conditions of @xmath54-covariance .
+the conditions for being annihilated by @xmath81 are : @xmath554 for example , the class ( [ adjointclass ] ) is represented by : @xmath555 we consider the solutions of ( [ conditionthatqannihilates ] ) trivial if they are of the form : @xmath556 where @xmath557}\phi=0 $ ] .      _
+theorem : _ nontrivial solutions to eqs .
+( [ firstidentity ]  [ thirdidentity ] ) exist only when @xmath547 is the adjoint representation of @xmath31 , and are given by ( [ onlysolution ] ) up to adding a trivial solution .
+there are no other nontrivial solutions .
+[ [ cohomology - classes - at - ghost - number-1-consequences - of - the - defining - equations ] ] cohomology classes at ghost number 1 : consequences of the defining equations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    acting on ( [ firstidentity ] ) by @xmath558 we get : @xmath559 } t^0_{[\rho\sigma ] } v_{\beta } - t^3_{\alpha}t^1_{\dot{\beta}}v_{\beta } \right ) + ( \alpha\leftrightarrow\beta )   = { f_{\alpha\beta}}^{\mu } t^1_{\dot{\beta } } a_{\mu}\ ] ] this with eqs . ( [ firstcovariancecondition ] ) and ( [ thirdidentity ] ) implies : @xmath559 } { f_{[\rho\sigma]\beta}}^{\gamma } v_{\gamma } + ( \alpha\leftrightarrow\beta)\right ) + { f_{\alpha\beta}}^{\mu}t^2_{\mu }   \tilde{v}_{\dot{\beta } }   = { f_{\alpha\beta}}^{\mu}t^1_{\dot{\beta } } a_{\mu}\ ] ] this with the jacobi identity for @xmath560 implies : @xmath561 similarly we have : @xmath562 let us act on ( [ fv ] ) by @xmath563 : @xmath564 this and ( [ thirdidentity ] ) implies : @xmath565 let us denote : @xmath566 .
+we have : @xmath567 } = 0\ ] ] note that the gauge transformation @xmath568 where @xmath74 is @xmath149-invariant leads to : @xmath569 therefore we should think of @xmath570 as an element of @xmath571 . but this cohomology group is zero because @xmath572 ( notice that the serre - hochschild spectral sequence for @xmath286 has @xmath573 and @xmath250 acts from @xmath574 to @xmath575 ) .
+therefore we should be able to gauge away @xmath570 .
+let us therefore assume : @xmath576 note that this equation and ( [ firstrelationofas ] ) implies : @xmath577 therefore we can rewrite ( [ fv ] ) and ( [ ftv ] ) as follows : @xmath578 let us define @xmath579 by the following equation : @xmath580 eq .
+( [ antisymmetryoff ] ) implies that @xmath581 is antisymmetric : @xmath582 .
+we get : @xmath583 } t^0_{[\rho\sigma ] } a_{\nu } + t^2_{\mu } t^2_{\lambda }
+a_{\nu } =   \nonumber   \\ & = & { f_{\lambda [ \mu |}}^{[\rho\sigma ] }   { f_{[\rho\sigma]|\nu]}}^{\kappa } a_{\kappa } - t^2_{[\mu } t^2_{\nu ] } a_{\lambda } = \nonumber \\ & = & -{1\over 2 } { f_{\mu\nu}}^{[\rho\sigma ] } { f_{[\rho\sigma]\lambda}}^{\kappa } a_{\kappa } - { 1\over 2 } { f_{\mu\nu}}^{[\rho\sigma ] } { f_{[\rho\sigma]\lambda}}^{\kappa } a_{\kappa } = \nonumber \\ & = & - { f_{\mu\nu}}^{[\rho\sigma ] } { f_{[\rho\sigma]\lambda}}^{\kappa } a_{\kappa } \label{t2onf}\end{aligned}\ ] ] this implies , first of all , that @xmath579 is zero when @xmath584 is tangent to @xmath25 and @xmath585 is tangent to @xmath114 .
+therefore @xmath579 is completely encoded in terms of @xmath586}$ ] which is defined by this equation : @xmath587 } g_{[\rho\sigma]}\ ] ] eq .
+( [ t2onf ] ) implies for @xmath588}$ ] : @xmath589 } = { f_{\lambda[\mu\nu]}}^{\kappa } a_{\kappa}\ ] ] this means that the linear space formed by @xmath590 and @xmath586}$ ] is closed under the action of @xmath302 , and is in fact the adjoint representation of @xmath302 ( where @xmath590 corresponds to @xmath591 and @xmath586}$ ] corresponds to @xmath592}$ ] ) .
+this is already close to what we wanted to prove .
+but we have to also tame the expressions of this form : @xmath593 } \;\ ; , \;\;\ ; etc.\ ] ] for this purpose , let us use ( [ firstfv ] ) and ( [ secondfv ] ) in this expression : @xmath594 on the other hand , the combination @xmath595 can be calculated using the @xmath54-invariance .
+this implies : @xmath596 we will also use this : @xmath597 } t^0_{[\rho\sigma ] }   t_{\delta}^3 a_{\nu } - { 1\over c } { f_{\mu}}^{\gamma\delta } t^3_{\gamma } t^1_{\dot{\alpha } } t^3_{\delta } a_{\nu } = \nonumber \\ & & = { 1\over c}(fff)(t^3 a ) \label{threestructureconstants}\end{aligned}\ ] ] here we used the schematic notation @xmath598 for a product of three structure constants with some indices contracted , and @xmath237 is determined from @xmath599 .
+the subspace of @xmath547 generated by acting on @xmath5 and @xmath127 by finitely many @xmath600 and @xmath601 is finite - dimensional .
+indeed , using ( [ reducea ] ) and ( [ threestructureconstants ] ) we can prove that it is generated as a linear space by expressions of the form : @xmath602 } a_{\mu}\;,\;\ ; t^3_{[\alpha_1 } \cdots t^3_{\alpha_k ] } a_{\mu } \;\;\ ; ( k\geq 0 ) \label{subspacegeneratorsa } \\ & \mbox{and } & g_{[\mu\nu ] } \label{subspacegeneratorsg}\end{aligned}\ ] ] where the square brackets stand for the antisymmetrization of the indices ( for example @xmath603 } a_{\mu}$ ] stands for @xmath604 ) .
+( [ reducea ] ) and ( [ threestructureconstants ] ) imply that this subspace is closed under the action of @xmath31 .
+because @xmath547 is assumed to be irreducible , we conclude that @xmath547 is generated by ( [ subspacegeneratorsa]),([subspacegeneratorsg ] ) . because of the antisymmetrization of the indices of @xmath600 and @xmath601 there are only finitely many linearly independent expressions of the form ( [ subspacegeneratorsa ] ) .
+this proves that @xmath547 is a finite - dimensional space .
+_ one can see that for any element @xmath445 of @xmath190 ( _ i.e. _ a finite linear combination of expressions of the form ( [ subspacegeneratorsa ] ) ) there is a number @xmath262 such that for any @xmath609 and any @xmath610 elements @xmath611 of @xmath302 we get : @xmath612 indeed , let us consider for example acting by @xmath613 on expressions of the form @xmath614 } a_{\mu}$ ] .
+let us define the degree of such an expression by the following formula : @xmath615 } a_{\mu } =   \mbox{deg } t^1_{[\dot{\alpha}_1 } \cdots t^1_{\dot{\alpha}_k ] } a_{\mu } = k\ ] ] more precisely , we introduce a filtration of @xmath190 saying that @xmath616 consists of all the elements of @xmath21 which can be written as linear combinations of the expressions of the form ( [ subspacegeneratorsa ] ) of the degree less or equal @xmath617 .
+using eqs .
+( [ reducea ] ) and ( [ threestructureconstants ] ) we derive that for @xmath618 : @xmath619 this implies ( [ eventuallyreachl ] ) . because of the assumption that @xmath547 is completely reducible as a representation of @xmath302 , eq .
+( [ eventuallyreachl ] ) implies that @xmath608 .
+we conclude that @xmath547 is in fact generated by expressions ( [ smallsetofgenerators ] ) .
+note that the linear space generated by ( [ smallsetofgenerators ] ) consists of the even subspace generated by @xmath590 and @xmath586}$ ] , and odd subspace generated by @xmath620 .
+the even subspace is the same as in the adjoint representation .
+therefore the odd space should be also the same .
+we have argued that the subspace generated by ( [ subspacegeneratorsa ] ) in fact coincides with @xmath547 , based on @xmath547 being an irreducible representation of @xmath31 .
+this requirement can be replaced with the requirement that @xmath621 .
+suppose that ( [ subspacegeneratorsa ] ) generate a smaller subspace @xmath622 .
+let us denote @xmath445 the projection of @xmath121 on @xmath623 : @xmath624 then ( [ secondidentity ] ) implies : @xmath625 these equations imply that @xmath626 actually form the spinor representation of @xmath302 : @xmath627 we will now explain , using ( [ geveninvariance1 ] ) and ( [ geveninvariance2 ] ) , that @xmath445 can be gauged away if @xmath628 . and this cohomology group vanishes if @xmath629 vanishes .
+more generally , let us consider the subcomplex of the brst complex covariant under @xmath302 .
+this means consider the chains which satisfy : @xmath630 on this complex the brst operator coincides with the lie cohomology @xmath81-operator in the relative complex @xmath631 .
+the relative cohomology is related to @xmath632 by the serre - hochschild spectral sequence .
+namely @xmath633 the differential @xmath634 acts from @xmath635 to @xmath636 . in particular : @xmath637 is related to @xmath638 .
+@xmath639 this means that @xmath640 can not cancel with anything and therefore @xmath641 implies that @xmath642 .
+therefore , if @xmath629 vanishes , then @xmath643 should also vanish .
+a.  mikhailov and s.  schafer - nameki , _ algebra of transfer - matrices and yang - baxter equations on the string worldsheet in ads(5 ) x s(5 ) _ , _ nucl .
+phys . _ * b802 * ( 2008 ) 139 , [ http://xxx.lanl.gov/abs/0712.4278[0712.4278 ] ] .
+v.  v. bazhanov , s.  l. lukyanov , and a.  b. zamolodchikov , _ integrable structure of conformal field theory ii .
+q- operator and ddv equation _ , _ commun .
+_ * 190 * ( 1997 ) 247278 , [ http://xxx.lanl.gov/abs/hep-th/9604044[hep-th/9604044 ] ] .
+r.  g. leigh and m.  j. strassler , _ exactly marginal operators and duality in four - dimensional n=1 supersymmetric gauge theory _ , _ nucl .
+* b447 * ( 1995 ) 95136 , [ http://xxx.lanl.gov/abs/hep-th/9503121[hep-th/9503121 ] ] .
+o.  aharony , b.  kol , and s.  yankielowicz , _ on exactly marginal deformations of n = 4 sym and type iib supergravity on ads(5 ) x s**5 _ , _ jhep _ * 06 * ( 2002 ) 039 , [ http://xxx.lanl.gov/abs/hep-th/0205090 [ hep - th/0205090 ] ] .
+n.  berkovits and p.  s. howe , _ ten - dimensional supergravity constraints from the pure spinor formalism for the superstring _ , _ nucl .
+_ * b635 * ( 2002 ) 75105 , [ http://xxx.lanl.gov/abs/hep-th/0112160 [ hep - th/0112160 ] ] .
+j.  kinney , j.  m. maldacena , s.  minwalla , and s.  raju , _ an index for 4 dimensional super conformal theories _ ,
+* 275 * ( 2007 ) 209254 , [ http://xxx.lanl.gov/abs/hep-th/0510251 [ hep - th/0510251 ] ] .
+j.  bhattacharya , s.  bhattacharyya , s.  minwalla , and s.  raju , _
+indices for superconformal field theories in 3,5 and 6 dimensions _ , _ jhep _ * 02 * ( 2008 ) 064 , [ http://xxx.lanl.gov/abs/0801.1435[0801.1435 ] ] .

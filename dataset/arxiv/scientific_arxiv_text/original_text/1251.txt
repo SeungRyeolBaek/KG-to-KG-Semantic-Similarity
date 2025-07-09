@@ -1,0 +1,171 @@
+modern astronomy requires state - of - the - art technology for the efficient detection of the faintest light from the farthest reaches of the universe .
+it is not uncommon for the technologies developed by astronomers to find uses in everyday life .
+rosenberg et al,@xcite have compiled numerous examples of such technology transfer including , but not limited to : ccds  popularized by the _ hubble space telescope _ and now used in practically every digital camera ; wireless local area networking  utilizing algorithms from image processing in radio astronomy ; computerized tomography in modern medical scanners  based on aperture synthesis techniques from radio interferometry ; and gamma ray spectrometers for lunar / planetary surface composition analysis  now used to probe historical buildings and artefacts .
+ongoing successes in sub - millimeter astronomy ( e.g. the _ _
+herschel__@xcite and _ _
+planck__@xcite space telescopes ) and the ever present demand for instruments with improved sensitivities and mapping speeds at terahertz ( thz ) frequencies have spurred the development of highly sensitive detectors , sophisticated optical components , cutting edge electronics , and advanced data processing techniques .
+kinetic inductance detectors ( kids ) are contemporary superconducting pair - breaking detectors that operate across the spectrum from x - ray to sub - thz frequencies@xcite . compared to alternative thz technologies such as semiconductor or transition edge sensor ( tes ) bolometers , kids are relatively simple to fabricate and read out . as such , they provide a practical and cost - effective solution to the manufacture and operation of the large format arrays required for advances in many fields of thz astronomy . a variant known as the lumped element kid , or lekid@xcite ,
+has been demonstrated to provide state - of - the - art performance at millimeter - wavelengths@xcite and has seen first light as part of the nika@xcite instrument at the iram 30-m telescope .
+projects such as the next generation blast experiment@xcite , nika-2@xcite and a - mkid are currently under way to incorporate multi - kilopixel kid arrays into astronomical cameras with the potential for thz megapixel imaging within the next decade .    beyond astronomy , the thz region of the electromagnetic spectrum ( 0.1 - 10thz ) has applications in a range of fields  academic and industrial@xcite .
+in addition to the presence of a multitude of interesting spectral features , many typically opaque materials become transparent when viewed in this frequency range . various disciplines  including biomedical
+sensing , non - destructive testing , and security screening  now have the opportunity to benefit from the highly sensitive and highly multiplexable detector technology being developed by astronomers .
+for example , thz radiation is being used to study protein dynamics@xcite , to investigate thz induced dna damage@xcite , and as a potential imaging modality for the improved delineation of certain types of skin cancers@xcite . however , there are currently no off - the - shelf thz imaging spectrometers or cameras available to help proceed more rapidly with these investigations .    the analysis and restoration of cultural artefacts benefits from the unique differential penetration of thz radiation , making it ideal for the non - destructive investigation of the internal paint layers in pieces of art@xcite .
+time domain techniques have been used to show that unique information can be gleaned at thz frequencies to verify the age , chemical composition and structure of works of art . however ,
+such time - domain techniques are not necessarily time efficient .
+far larger potential demand is associated with the detection of hidden objects ( such as land mines@xcite ) , process control in manufacturing@xcite , and security screening@xcite .
+active mm - wave scanners are now widely deployed in airports across the globe and large format kid arrays could be used to produce systems with improved sensitivity at a comparable cost .
+the capacity for truly passive imaging , and the fast time - response of lekid detectors ( typically @xmath2sec ) enables , for the first time , the possibility of capturing images at video rate for so called `` walk through '' systems .
+this is regarded as desirable by ecac ( the european civil aviation conference ) and opens up the possibility of use in situations where requiring people to stand one - by - one in a booth is not practical@xcite .
+furthermore , multi - spectral observations would improve image contrast and reduce the number of false positives  a common occurrence with current active systems .    to demonstrate these capabilities ,
+we have built and characterized a simple field scanning camera based on a 152 element linear array of lekids operating at 350ghz .
+the detectors have been optimized to perform under the optical loads present at ambient room temperatures ( @xmath1300k ) , which are substantially higher than the backgrounds present during astronomical observations .
+the instrument , in its present configuration , is comparable in performance to other recent passive imaging systems including those based on room temperature microbolometer fpas@xcite , cooled bolometer arrays@xcite , and superconducting tes arrays@xcite .    in this article
+we describe the camera and its achieved performance as a quasi - video - rate system .
+we conclude with discussions of the improvements which will be implemented for the next generation camera in order to achieve a full video - rate , photon - noise limited imaging system .
+our goal was to demonstrate a video rate scanner capable of imaging variations in the thermal thz radiation received from a moving target ( a person ) with sufficient sensitivity to detect and identify concealed objects - akin to airport - style security scanners or other stand - off scanning instruments .
+the basic requirements were for a simple - to - use system with the necessary spatial resolution , scanning speed and sensitivity to identify objects of a few cm in size concealed behind clothing or inside bags or other luggage .
+the camera is designed to provide a @xmath3 m useful field of view ( typical of body scanners ) with operation at a distance of 3 - 5 m from the target and a linear resolution of roughly 1 cm . the camera observes in the 350ghz transparent atmospheric window with a @xmath4% wide band to minimize the loading and thermal fluctuations present at less transparent frequencies . as a demonstration system , quasi - video rate imaging with frames updating at least every second was deemed acceptable although the goal would be to reach full 25hz video rate
+. a 0.1k noise equivalent temperature difference , ne@xmath5 t , in each frame is required as this is necessary to identify the shape of concealed objects@xcite .
+finally , the superconducting detectors need to be operated at sub - kelvin temperatures , so the camera requires a completely dry cryogenic system which , unlike wet systems , can be easily deployed in the field .    ideally , the noise performance of the system would be limited by variance in the arrival of photons from the source rather than from any components of the camera itself . the noise equivalent power due to photons measured at the detector focal plane in a diffraction limited optics system
+is given by@xcite @xmath6 where @xmath7 is planck s constant , @xmath8 is the frequency , @xmath9 is the optical bandwidth , and @xmath10 for a detector absorbing light in both polarizations .
+@xmath11 is the power in a band of width @xmath9 : @xmath12 where @xmath13 is the camera tendue , @xmath14 is the emissivity and @xmath15 is the blackbody radiance of a source at temperature @xmath16 , while @xmath17 and @xmath18 are respectively the optics and detector efficiencies .
+note that both shot and wave noise are accounted for in equation  [ nep ] .
+the camera employs a linear array of detectors housed in a research cryostat retrofitted with a large ( 250 mm diameter ) window in the base .
+incoming radiation is coupled to the detectors through a refractive optics system and a flat beam - folding mirror .
+a thin horizontal section of the object plane is observed in any one instant and this section is scanned continuously in the vertical direction by oscillation of the beam - folding mirror .
+this is illustrated in figure  [ fig : kidcam ] .
+the orientation of the mirror is recorded with an absolute encoder and images are reconstructed in real time by the acquisition electronics in a scheme no dissimilar to that of a common office desktop scanner .
+a photo of the current system ( left ) and a schematic ( right ) of the system overlaid with the zemax model and ray traces .
+the camera sees a small horizontal strip of the object plane in one instance with the oscillating fold mirror providing full sampling in the vertical direction . ]
+a fast ( @xmath19 ) triplet of high - density polyethylene ( hdpe ) lenses was designed to keep the optics simple and compact given limitations on where the focal plane array could be situated within the cryostat . to achieve the desired resolution at these frequencies , a large diameter ( 440 mm ) primary lens , l1 , was chosen .
+the focal distance of the camera is designed to be adjustable between 3 and 5 meters depending on the position of the secondary lens , l2 . at a distance of 3.5 m ,
+the scannable field of view is 0.8@xmath201.6 m and the working depth of field is approximately @xmath21150 mm inside and outside of the focus .
+the third lens , l3 , visible in the cad model in figure  [ fig : cryo - composite]a , is housed within the cryostat behind the hdpe window and a number of thermal blocking filters@xcite ( not shown in the figure ) .
+the lens and window absorptivities were measured in band and are non - negligible , with combined losses of up to 45% expected through the optics chain .
+furthermore , the hdpe components are not anti - reflection coated and are uncooled ( except l3 ) .
+consequently , stray light from these sources contributes significantly to detector loading .
+the oscillating beam - folding mirror is constructed from a thin , polished sheet of aluminum ( 800 mm long by 550 mm wide ) braced with strut profile and mounted to the camera s main frame via a set of bearings on the central horizontal axis .
+the oscillation is brought about by a crank wheel driven by a servo motor located behind the mirror .
+a small steel rod with bearings at each end connects the mirror to the wheel .
+the oscillation rate is controlled by a motor driver that is configured via usb from the control station .
+this mechanism can modulate the field of view at a maximum frequency of 2 - 3 frames per second , this ultimately limits the video rate output .
+cross sections of the cryostat and focal plane assembly .
+( a ) the model shows the focal plane array ( green ) mounted via various thermally isolating support structures to the 4k base plate and connected to the helium-10 fridge ( yellow ) .
+optical paths from the focal plane , through the quasi - optical filters , baffles ( not shown ) , cold lens and the cryostat window are indicated by the transparent cones .
+( b ) the schematic shows the coupling mechanism for a single array element .
+the aluminum lekid device is back - illuminated through the silicon substrate via a back - to - back conical feedhorn and the final band - defining filter .
+any radiation that is not absorbed by the detector is caught by a layer of silicon carbide infused epoxy at the back of the array packaging . ]    a series of quasi - optical metal - mesh filters@xcite define the optical bandwidth of the system .
+currently , three low - pass edges with cut - offs at 630ghz , 540ghz , and 450ghz and two 10% wide band - pass filters define a combined 6% wide band centered at 347ghz
+. the additional bandpass filter was added as a precaution against detector saturation with the effect of reducing the overall bandwidth and the camera optical efficiency .
+the filter profiles were measured by a fourier transform spectrometer ( fts ) from 200ghz to 1thz with 1ghz resolution and are displayed in figure  [ fig : filters ] .
+inset to the figure is a plot of the total transmittance of the filter stack .
+the peak in - band transmission is 45% and the out - of - band rejection at high frequency is better than 100db .
+the spectral transmittance of the band - defining quasi - optical filters .
+the product of these profiles is indicated by the black line and is re - plotted on a log scale in the inset to show the high out of band rejection .
+thermal filters are excluded for clarity as these have @xmath1100% transmission in band . ]
+the large cryostat window and the requirement for fast optics make the focal plane susceptible to off axis radiation .
+to lessen the effects , sic blackened metal baffles are arranged at the entrances to the three radiation shields and a copper horn - plate is mounted to the detector array at the focal plane , see figure  [ fig : cryo - composite]b .
+the feedhorns are each approximately @xmath22 and although this helps prevent stray light reaching the detectors , there is a slight mismatch with the @xmath19 refracting optics .
+the cylindrical waveguides connecting the back - to - back horns admit at most two transverse electromagnetic modes , the te@xmath23 and tm@xmath24 modes .      the number of detectors in the array needed to achieve the required performance is estimated . each lens in the system
+is characterized by its emissivity and transmission properties . l1 and l2 and the window operate at 300k , while l3 is estimated to be at 150k .
+having measured the hdpe transmission , we estimate the overall lens transmission using zemax .
+the overall instrument efficiency , including the filters , is 23% , corresponding to an expected optical load of 131pw per detector at the focal plane assembly .
+the photon noise ( including both the shot noise and wave noise components ) at the focal plane is then calculated from equation  [ nep ] to be 3.0mk@xmath25 .
+this allows us to estimate that in order to achieve an image sensitivity of @xmath10.1k per frame at a 25hz frame rate and a 1 cm resolution , 150 detectors are required .
+note that to first order this is independent from the detector and optical efficiencies , as it is wave noise that currently dominates the noise budget .
+the detector array in use for this demonstration system is composed of 152 lekids arranged in 8 rows of 19 columns .
+the columns are skewed such that the instantaneous field of view is nyquist sampled in the horizontal direction ( see figure  [ fig : array ] ) .    the array and packaging .
+the detectors are arranged to nyquist sample a horizontal section of the object plane . for readout
+, each detector modulates a small range of the total bandwidth of the probe signal that propagates along the feedline .
+the feedline can be seen winding between the rows of detectors and is terminated to sma type connectors at each end . ]      in general , a kinetic inductance detector ( kid ) is fabricated by patterning a thin film of superconducting material in such a way as to create an @xmath26 resonant circuit with frequency @xmath27 .
+the inductance of the superconductor , @xmath28 , has two key components , @xmath29 .
+these depend , respectively , on the shape of the deposited film and the density of cooper pairs in the film .
+photons that couple into the resonator with sufficient energy to overcome the superconducting gap will break cooper pairs into unbound pairs of quasiparticle excitations , leading to a decrease in @xmath30 .
+then , any variations in incident optical power are monitored by measuring the variations in @xmath30 .
+this is achieved by monitoring the complex transmission of a probe signal that is fed through a microwave transmission line adjacent to the resonator .
+multiple resonators , each with a different @xmath30 , may be coupled to the same transmission line and read out simultaneously with a superposition of probe signals .
+this inherent multiplexing capability considerably reduces the requirement for complex cryogenic circuitry .
+lumped - element kids  as opposed to distributed kids  are designed such that the absorbing element of the detector is part of the resonator structure itself . in this configuration
+it is possible to achieve very high filling factors in focal plane arrays without the need for additional coupling optics such as microlens or feedhorn arrays .
+note that the feedhorns used in this system are for stray light reduction and would not be necessary in a well baffled optical system .
+each lumped resonator in the current focal plane array has three sections : an inductor , an interdigital capacitor and a coupling capacitor .
+these are highlighted by the different colored sections in the design and the equivalent circuit in figure  [ fig : detector]a .
+the inductor section is a 4th order hilbert curve which efficiently couples to both orthogonal polarizations of incoming radiation@xcite .
+variations in the length of the interdigital capacitor sections have been designed to set a range of resonant frequencies centered at 1.5ghz and each separated by 3mhz .
+the detectors are capacitively coupled to a coplanar waveguide ( cpw ) feedline , with the length of the coupling capacitor section and its distance from the feedline limiting the q - factor of the resonators to be of the order of 10,000 .
+the array is fabricated from a 40 nm aluminum film thermally deposited onto a 500@xmath0 m high resistivity float - zone silicon wafer .
+the array design was patterned into the aluminum in a single photolithographic cycle with a wet etch of orthophosphoric acid , nitric acid , and water in a 25:2:6 ratio .
+the cpw line is cross - bonded with wire bridges at regular intervals to ensure a constant potential across the ground plane , thus inhibiting problematic slotline modes in the cpw line .
+figure  [ fig : cryo - composite]b shows a cross section of a single detecting element in the focal plane assembly .
+optical coupling is optimised by back - illumination of the detectors through the silicon substrate .
+thin film aluminum has a superconducting transition temperature of @xmath31k and kid arrays require cooling to at least @xmath32 in order to sufficiently reduce the density of quasiparticles in the superconducting film .
+the current system utilizes a cryomech pt400 series pulse - tube - cooler ( ptc ) and air - cooled compressor unit that operate off mains electricity only so that no liquid cryogens are required .
+a closed - cycle helium-10 adsorption fridge from chase cryogenics@xcite cools the focal plane assembly to the required sub - kelvin temperatures .
+thermometry and fridge - cycling are fully automated and may be monitored / controlled remotely .
+cool - down of the current system from room temperature takes around 36 hours with the ptc cold plate settling at 3.2k .
+the optical baffles on the radiation shields settle at 4.2k and 60k respectively , and the cold lens settles with a radial temperature gradient ranging between 100 - 150k . in the present configuration , fridge cycles continue for approximately 16 - 18 hours at 250mk and require up to 4 hours for recycling .
+the electronic readout system consists of cryogenic , warm and digital components ( see figure  [ fig : readout ] ) , as well as a suite of software to control the camera components , to monitor the housekeeping system and to generate and display images in real - time .
+the nature of multi - channel kid read out is such that the complexity of the cryogenic electronics is reduced to an absolute minimum . aside from the detector
+array itself , a single attenuator , a single low noise amplifier , and a single set of coaxial cables are the only components required within the cold stages .
+an overview of the readout system .
+tones are output by the nikel digital electronics system , mixed up to the required kid resonant frequency range , and passed into the cryostat through a single coaxial cable .
+the probe signal is attenuated before reaching the detectors and then boosted by a si - ge cryogenic low noise amplifier at the 4kelvin stage . outside of the cryostat
+the signal is mixed back down to the daq band and read back in to the nikel electronics for spectral decomposition .
+the i and q components of up to 400 tones are sent over network to the control computer for processing and image generation . ]
+the cpw transmission is wire - bonded to sma connectors mounted to the copper array packaging .
+stainless steel semi - rigid coaxial cable then feeds out to the 4k stage .
+a cold attenuator on the input channel reduces the power ( and therefore the thermal noise ) of the multiplexed probe signal prior to the detector array . a high gain , low noise , caltech citlf4 sige amplifier on the output channel boosts the probe signal prior to readout .
+copper semi - rigid coaxial cable then feeds out to hermetic sma connectors on the cryostat exterior .
+a schematic of the cryogenic readout system is presented in figure  [ fig : detector](b ) .
+a room temperature analog mixing circuit converts the probe signal to and from the 1.25 - 1.75ghz detector readout band and the 0 - 500mhz digital electronics band .
+an r&s smf100a signal generator is used as the lo input for a pair of marki iq mixers and a combination of amplifiers and variable attenuators are in place to balance the incoming and outgoing power levels .
+the digital system is a nikel@xcite ( new iram kid electronics ) frequency domain multiplexing system developed for the nika astronomical camera .
+it has the ability to output the in - phase and quadrature ( i and q ) components of the superposition of up to 400 cordic - generated tones across 500mhz of dac bandwidth .
+a single adc feeds into a polyphase filter bank and the resultant 400 independent decomposed i and q timestreams ( as well as the mirror encoder values and other housekeeping data ) are decimated and sent via the on - board computer over ethernet to the control station .
+the sample rate is limited to 477hz which provides a data rate of 24mbps .
+the control station is a desktop computer equipped with a custom software suite for control of the readout electronics , data acquisition , image generation and graphical display .
+the readout electronics system is initialized with commands sent over udp to the nikel on - board computer .
+the detector responses ( variations in @xmath30 , aka @xmath33 ) are computed from linear transformations of the raw i and q timestreams using coefficients from frequency sweep data taken across the resonators during initialization .
+a flat field calibration is performed at the start of each run where the detector responses are measured between a 30@xmath34c glow bar and a room temperature section of the field of view .
+the raw i and q , the transformed amplitude , phase , and @xmath33 , and the calibrated response time - streams can be accessed and displayed alongside their power spectral densities using the real - time plotting software kst . otherwise , image generation is performed on a scan - by - scan basis by reading the latest data , applying the transformations and calibrations , binning these products into a map , and updating the graphical interface with a new frame . broken or poorly performing detectors can cause blank or noisy columns in the image frames however these can be digitally filtered or interpolated over in real - time to improve the overall image quality .
+the optics system was tested with a measurement scheme based on raster scans of a chopped 50@xmath35c blackbody across the object plane .
+maps of the beam profiles for each working detector were made down to a 25db signal to noise level . a typical beam ( figure  [ fig : beammap]a )
+is approximately gaussian and the full width at half maximum ( fwhm ) is 11 mm at 3.5 m after deconvolution of the 10 mm diameter source aperture .
+this provides a resolution close to that expected for a diffraction limited system in this configuration , although , some channels show mild broadening and aberrations ( figure  [ fig : beammap]b ) , particularly at one edge of the focal plane .
+there is also some indication of localized leakage from adjacent feedhorns at a level typically less than 5 - 10% .
+beam profile maps and central slices from two channels measured with a 50@xmath34c chopped blackbody source of 10 mm circular aperture .
+( a ) is from a typical detector with a measured fwhm of 13 mm at a distance of 3.5 m .
+( b ) is from a detector on the right edge of the array with a broader 15 mm fwhm beam and some strong aberration .
+both beams show some off - center low - level response attributable to light leaks from neighboring feedhorns . ]
+the operational yield of the current detector array is 85% with the majority of unusable pixels suffering from the effects of resonator overlap due to non - uniformity of the thickness / resistivity of the aluminum film . aside from this resonator clash
+there is no indication of any other electromagnetic cross coupling between resonators down to the measured 25db level .
+a noise power spectrum for a typical detector channel sampled at the maximum rate of 477hz is presented in the inset to figure  [ fig : net ] .
+the spectrum shows white noise down to @xmath11hz .
+the excess below this knee frequency is attributed to the warm electronics system , as are the spurious components at 95.5hz and 191hz .
+these unwanted narrowband features are digitally filtered from the detector timelines prior to image generation .
+the filters are implemented as fifth - order , butterworth bandstop filters that operate on the timelines in the time domain on a frame - by - frame basis .
+the distribution of nets sampled at the white noise frequencies is indicated in the histogram in figure  [ fig : net ] .
+the distribution is approximately log - normal with a peak net value of 6.1mk@xmath25 , a factor of 2 higher than the expected limit from photon noise in this system .
+the excess is thought to be due to stray infrared radiation leaking from the 4k stage .     a normalized histogram of noise equivalent temperature measured at the white noise levels over each of the @xmath36 detectors .
+the distribution is well approximated by a log - normal function ( black curve ) , the modal value of which is 6.1mk@xmath25 . a noise spectrum , calculated from a typical detector timeline , is included in the inset .
+]    the constraint set by the scanning mechanism and the higher than expected noise currently limit the update rate to 2 frames per second for an ne@xmath37 t of 0.1k per frame with the camera in its present configuration . figure  [ fig : composite ] shows a single frame taken from a combined `` three - color '' video . the sensitivity is clearly sufficient to identify objects that are invisible to thermal nir cameras and standard digital video cameras .
+a snap shot from a 2 fps video in which the 350ghz frames ( left ) were displayed simultaneously with frames from a standard web - cam ( center ) and a thermal nir camera ( right ) .
+objects such as ( a ) a wallet , ( b ) an air pistol , and ( c ) some loose change , are hidden by the high opacity of the coat at higher frequencies but become apparent at 350ghz . ]
+in most respects , the camera presented here has achieved the required specifications .
+the presence of parasitic optical loading on the detector array limits the noise performance so that full video rate could not be achieved  even if a faster field modulation system was employed .
+however , a second generation system could overcome this in a number of ways .
+for example , by utilizing a reflective optics approach , especially one with a cold aperture stop within the cryostat . this would help to inhibit stray light loads on the detectors and also eliminate the requirement for feedhorn coupling .
+additionally , the field scanning mechanism of the present system is purely linear and thus does not employ any cross linking between detector channels .
+as such , the video frames suffer from vertical striping due to broken / noisy detectors and low frequency gain fluctuations between individual detectors .
+transitioning to a dual - axis circular or lissajous style scanning strategy would remedy this and is an advisable approach for any future system .    a general purpose instrument similar to that presented here would benefit from a modular ( rather than fixed ) optics system .
+providing an additional image plane located externally to the cryostat would enable fast turnaround between a variety of application specific imaging formats without the need for any modification to the cryogenic platform .
+kinetic inductance detectors originally developed for far - infrared astronomy are now suitable for use in a range of applications requiring high sensitivity and/or fast mapping of objects at terahertz frequencies .
+the instrument presented here mimics stand - off imaging systems for the detection of concealed items but could easily be transformed for other applications by modification of the optics platform .
+this lekid based system operates close to the ideal photon noise limited sensitivity and is comparable in performance to the latest passive thz imaging systems .
+the development of larger kid arrays is ongoing and next generation instruments will benefit from order of magnitude increases in detecting elements with no considerable penalty in array fabrication or readout complexity .
+the authors acknowledge the uk science and technology facilities council for supporting the development of kid technology for astronomy applications .
+40ifxundefined [ 1 ] ifx#1 ifnum [ 1 ] # 1firstoftwo secondoftwo ifx [ 1 ] # 1firstoftwo secondoftwo `` `` # 1''''@noop [ 0]secondoftwosanitize@url [ 0 ]  + 12$12  & 12#1212_12%12@startlink[1]@endlink[0]@bib@innerbibempty @noop * * ,   ( ) link:\doibase    10.1051/0004 - 6361/201014759 [ * * ,   ( ) ] ,   link:\doibase 10.1051/0004 - 6361/201014519 [ * * ,   ( ) ] ,   link:\doibase    10.1051/0004 - 6361/201014535 [ * * ,   ( ) ] ,   link:\doibase 10.1051/0004 - 6361/201014698 [ * * ,   ( ) ] link:\doibase    10.1051/0004 - 6361/201116464 [ * * ,   ( ) ] ,   link:\doibase 10.1051/0004 - 6361/200912975 [ * * ,   ( ) ] link:\doibase 10.1051/0004 - 6361/200912853 [ * * , ( ) ] ,   link:\doibase    10.1038/nature02037 [ * * ,   ( ) ] link:\doibase    10.1063/1.2390664 [ * * ,   ( ) ] ,   link:\doibase    10.1086/674013 [ * * ,   ( ) ] ,   link:\doibase    10.1051/0004 - 6361/201014727 [ * * ,   ( ) ] ,   link:\doibase    10.1007/s10909 - 007 - 9685 - 2 [ * * , ( ) ] link:\doibase    10.1007/s10909 - 013 - 1069 - 1 [ * * , ( ) ] link:\doibase 10.1007/s10909 - 013 - 0985 - 4 [ * * ,   ( ) ] ,   link:\doibase 10.1142/s2251171714400017 [ * * ,   ( ) ] ,   link:\doibase 10.1109/22.989974 [ * * ,   ( ) ] link:\doibase 10.1109/jproc.2007.898906 [ * * , ( ) ] link:\doibase    10.1364/boe.4.000559 [ * * ,   ( ) ] \doibase    10.1023/a:1024409329416 [ * * ,   ( ) ] link:\doibase 10.1364/oe.21.017800 [ * * ,   ( ) ] link:\doibase    10.1117/12.503414 [ * * ,   ( ) ] link:\doibase 10.1002/jps.20225 [ * * ,   ( ) ] link:\doibase    10.1364/ao.49.00e106 [ * * ,   ( ) ] @noop `` , ''   ( ) in  link:\doibase    10.1109/comcas.2013.6685254 [ _ _ ]  ( , ) in  link:\doibase    10.1109/irmmw - thz.2014.6956015 [ _ _ ]  ( ,  ) in  link:\doibase    10.1117/12.852932 [ _ _ ] ,  ( ,  ) in  link:\doibase 10.1117/12.976849 [ _ _ ] ,  ( ,  ) in @noop _ _  ( )  pp .
+link:\doibase 10.1364/ao.25.000870 [ * * ,   ( ) ] in  link:\doibase 10.1117/12.673159 [ _ _ ] ,  , vol .
+( )  p.   in link:\doibase 10.1117/12.673162
+[ _ _ ] , , vol .
+( ) @noop ( ) ,   @noop   link:\doibase 10.1088/1748 - 0221/7/07/p07014 [ * * ,   ( ) ] ,

@@ -1,0 +1,143 @@
+a _ @xmath0-graph _ is a graph which at each vertex has a bijection from the outgoing half - edges to the vertices of a cycle graph .
+half - edges which are mapped to adjacent vertices are ( formally ) _
+adjacent_. half - edges are said to be _ opposite _ if they are mapped to vertices of maximal distance in the cycle graph .    by an embedding of a @xmath0-graph @xmath2 into a surface @xmath3
+we always mean an embedding of @xmath2 into @xmath3 such that the formal relation of being adjacent coincides with the relation of being adjacent induced by the embedding .
+an _ angle _ in a @xmath0-graph is a pair of adjacent half - edges at a vertex .
+a _ checkerboard embedding _ of a @xmath0-graph @xmath2 into @xmath3 is an embedding such that the cells of @xmath4 admit a 2-coloring under which any cells with a common edge have different colors .
+checkerboard embeddings are exactly those embeddings whose first @xmath1-homology class is zero .    in @xcite the second named author ( v.o.m . ) gave a solution to the question of whether four - valent framed graphs are planar . in @xcite , he addressed the question of determining the genus of surfaces into which four - valent framed graphs can be embedded , in particular considering the special case of surfaces into which four - valent framed graphs may be checkerboard - embedded . in @xcite , the first named author ( t.f . )
+introduced @xmath0-graphs as a generalization of four - valent framed graphs , and gave a planarity condition for @xmath0-graphs with each vertex of degree 4 or 6 . in @xcite , the authors characterized the genera of orientable surfaces into which @xmath0-graphs with each vertex of degree 4 or 6 may be checkerboard - embedded , generalizing some of the results of @xcite . in this paper ,
+we continue the project of generalizing results about embeddability properties of framed four - valent graphs to @xmath0-graphs with each vertex of degree 4 or 6 , now considering checkerboard - embeddability into nonorientable surfaces . in theorem [ main ] we show that this is equivalent to a problem on matrices .
+our methods are close to those used in our previous paper @xcite , which were themselves based closely on those used by the second named author ( v.o.m . ) in @xcite for framed four - valent graphs .
+the goal of this paper is to provide a method for determining whether a given @xmath0-graph @xmath2 has a checkerboard embedding into a nonorientable surface of genus @xmath5 .
+we show that this is equivalent to a problem on matrices . to accomplish this
+, we fix a cycle @xmath6 in @xmath2 satisfying certain properties , called a rotating - splitting cycle .
+then we define a correspondence between checkerboard embeddings of @xmath2 and `` permissible separations '' of a chord diagram @xmath7 , where the result of a permissible separation is a pair of chord diagrams .
+we then show that the number of white ( black ) cells in the embedding is equal to the number of circles resulting from surgery of the first ( second ) of these chord diagrams .
+the circuit - nullity theorem allows us to calculate the number of circles resulting from surgery of each chord diagram in terms of the rank of their intersection matrices over @xmath1 . from this
+we have the total number of cells in the embedding , from which the genus @xmath5 of the surface can be easily calculated .
+the authors of this paper would like to thank victor anatolievich vassiliev and sergei vladimirovich chmutov for valuable discussions .
+a _ @xmath0-atom _ is a closed 2-surface @xmath3 into which a connected graph @xmath2 ( the _ skeleton _ of the @xmath0-atom ) is embedded in such a way that it divides @xmath3 into black and white cells so that cells sharing an edge have different colors .
+this embedding induces a @xmath0-structure on the skeleton .
+the @xmath0-structure at each vertex determines a set of @xmath8 angles among which we say that two angles are adjacent if they share a half - edge .
+two adjacent angles never have the same color .
+thus the angles around a vertex can be partitioned into two sets @xmath9 and @xmath10 in such a way that for any @xmath0-atom corresponding to the @xmath0-graph @xmath2 , either all angles in @xmath9 are black and all angles in @xmath10 are white , or all angles in @xmath9 are white and all angles in @xmath10 are black .
+thus given a connected @xmath0-graph @xmath2 , the @xmath0-atoms corresponding to @xmath2 are uniquely determined by a choice of one of the two possible colorings at each vertex . thus the main problem can be reformulated as follows :    given a @xmath0-graph @xmath2 in which all vertices have degree 4 or 6 , choose a coloring for the angles around each vertex such that the genus of the resulting atom is minimal .
+if such a graph has @xmath11 vertices , there are @xmath12 corresponding @xmath0-atoms .
+an _ euler circuit
+_ @xmath6 of a @xmath0-graph @xmath2 is a surjective mapping @xmath13 which is one - to - one except at the vertices , and such that every vertex of degree @xmath8 has @xmath14 preimages .
+given an euler circuit @xmath6 of a @xmath0-graph @xmath2 , a 4-vertex @xmath15 is _ rotating _ with respect to @xmath6 if for every @xmath16 , @xmath17 and @xmath18 are on adjacent half - edges around @xmath19 .
+given an euler circuit @xmath6 of a @xmath0-graph @xmath2 , a 6-vertex @xmath15 is _ rotating _ with respect to @xmath6 if for every @xmath16 , @xmath17 and @xmath18 are on adjacent half - edges around @xmath19 .
+given an euler circuit @xmath6 of a @xmath0-graph @xmath2 , a 6-vertex @xmath15 is _ splitting _ with respect to @xmath6 if for some @xmath16 , @xmath17 and @xmath18 are on opposite half - edges around @xmath19 , and for the other two points @xmath20 , @xmath21 and @xmath22 are on adjacent half - edges , and @xmath23 and @xmath24 are on adjacent half - edges .
+a _ rotating - splitting circuit _ is a circuit with respect to which every vertex is rotating or splitting .
+a rotating - splitting circuit induces an orientation on the half - edges around a rotating 6-vertex .
+if the order of the edges containing @xmath17 and @xmath18 agrees with this orientation , then the angle is said be _ untwisted _ ; otherwise it is _
+twisted_. see figures [ r0 t ] , [ r1 t ] , [ r2 t ] , [ r3 t ] .
+[ rscycle - exists ] if @xmath2 is a connected @xmath0-graph in which all vertices have degree 4 or 6 , then @xmath2 admits a rotating - splitting circuit .
+assign to each vertex any rotating or splitting structure .
+this gives a partition of the edges of @xmath2 into edgewise disjoint cycles .
+if there is only one such cycle , we are done .
+if there is more than one cycle , since the graph is connected , there must be a vertex @xmath19 shared by different cycles . if @xmath19 has degree 4 , it must be rotating , and we can join the two cycles meeting at @xmath19 by assigning to @xmath19 the other possible rotating structure .
+if @xmath19 has degree 6 , we consider the cycles given by starting at @xmath19 , exiting through one of its incident edges , and following the rotating - splitting structure until we come back to @xmath19 .
+there are three such cycles , up to a change in orientation .
+if each of these cycles contains a pair of adjacent edges at @xmath19 , we can assign to @xmath19 the rotating structure shown on the right side of figure [ r0t - intro ] , so that the three cycles are joined together , and @xmath19 becomes a rotating vertex with no twisted angles .
+note that before making the change , @xmath19 may have some structure other than that shown on the left side of figure @xmath25 ; the left side of the figure and the others referenced in this proof are merely examples .
+if exactly two of the three cycles contain a pair of adjacent edges around @xmath19 , then the third must contain a pair of opposite edges , and we can assign to @xmath19 the splitting structure shown on the right side of figure [ s0t - intro ] to join the cycles together . if exactly one of the three cycles contains a pair of adjacent edges around @xmath19 , then the other two must contain pairs of edges which are neither opposite nor adjacent . in this case
+we can join the cycles by assigning the rotating structure shown on the right side of figure [ r1t - intro ] , so that @xmath19 becomes a rotating vertex with one twisted angle .
+if none of the cycles contains a pair of adjacent edges , then we have two possibilities : each of the cycles contains a pair of opposite edges , or one of the cycles contains a pair of opposite edges and the other two contain a pair of edges which are neither opposite nor adjacent .
+if each of the cycles contains a pair of opposite edges , we can assign to @xmath19 the rotating structure shown on the right side of figure [ r3t - intro ] to join the cycles .
+if one of the cycles contains a pair of opposite edges and the other contains a pair of edges which are neither opposite nor adjacent , we can assign to @xmath19 the rotating structure shown on the right side of figure [ r2t - intro ] to join the cycles .    .
+[ r0t - intro ]    .
+[ s0t - intro ]    .
+[ r1t - intro ]    .
+[ r3t - intro ]    .
+[ r2t - intro ]    a _ chord diagram _ is a cubic graph @xmath26 with a distinguished hamiltonian cycle ; i.e. an embedding @xmath27 which covers all the vertices of @xmath26 .
+a _ signed chord diagram _ is a chord diagram in which each edge not in the distinguished cycle is assigned a positive or negative sign .
+a @xmath0-chord diagram is a graph @xmath26 with a distinguished simple cycle ( i.e. an embedding @xmath28 ) , such that every vertex in @xmath26 has degree 3 or 4 and for every edge @xmath29 in @xmath26 , one of the following holds :    1 .
+@xmath29 is in the distinguished cycle .
+2 .   both of the vertices on @xmath29 are in the distinguished cycle , and both have degree 3
+one of the vertices on @xmath29 is in the distinguished cycle , the other is not , and both have degree 3 .
+both of the vertices on @xmath29 are in the distinguished cycle , one has degree 3 , and the other has degree 4 .
+a _ signed @xmath0-chord diagram _ is a @xmath0-chord diagram in which each edge not in the distinguished cycle is assigned a positive or negative sign .
+an _ arc _ of a @xmath0-chord diagram @xmath2 is an edge in the distinguished cycle of @xmath2 .    a _ chord _ of a @xmath0-chord diagram @xmath2 is an edge not in the distinguished cycle of @xmath2 , connecting two vertices of degree 3 which are in the cycle .    a _ triad _ of a @xmath0-chord diagram @xmath2 is a vertex @xmath19 not in the distinguished cycle of @xmath2 , together with the three edges incident to @xmath19 .
+the vertex @xmath19 is called a _
+triad point_.    a _
+double chord _ of a @xmath0-chord diagram @xmath2 is a pair of edges not in the distinguished cycle of @xmath2 , which are incident to a shared vertex @xmath19 .
+the vertex @xmath19 is called the _ principal vertex _ of the double chord .
+given a @xmath0-graph @xmath2 with all vertices of degree 4 or 6 , and given a rotating - splitting circuit @xmath6 of @xmath2 , we define a @xmath0-chord diagram @xmath30 as follows :    for each 4-vertex @xmath19 in @xmath2 , the two points in @xmath31 which are mapped to @xmath19 by @xmath6 are connected by a chord , whose sign is positive if and only if the two half - edges through which @xmath6 enters @xmath19 are not adjacent . for any rotating 6-vertex @xmath19 in @xmath2 ,
+the three points in @xmath31 which are mapped to @xmath19 by @xmath6 are connected by a triad , and the edge connecting a vertex @xmath16 to the triad point has positive sign if and only the angle into which @xmath6 maps a neighborhood of @xmath32 is not twisted .
+for any splitting 6-vertex @xmath19 in @xmath2 , the three points in @xmath31 which are mapped to @xmath6 are connected by a double chord , whose principal vertex is @xmath16 such that @xmath18 and @xmath17 are in opposite half - edges around @xmath19 , where the sign of the edge connecting @xmath32 another vertex @xmath33 is positive if and only if @xmath21 is adjacent to @xmath18 [ figure ] .
+an _ expansion _ of as signed @xmath0-chord diagram @xmath30 a signed chord diagram @xmath7 such that    1 .   for every chord in @xmath34 containing vertices @xmath32 and @xmath35
+, there is a chord of the same sign in @xmath36 of the same sign connecting vertices @xmath32 and @xmath35 .
+2 .   for every triad @xmath29 in @xmath37 containing at least one edge with positive sign , for some labeling @xmath38 of the vertices of @xmath29 such that the edge connecting @xmath32 to the triad point is positive
+, @xmath36 contains a chord connecting @xmath39 to @xmath35 and a chord connecting @xmath40 to @xmath41 , with @xmath42 chosen in such a way that the chords are not linked .
+furthermore , the chords connecting @xmath32 to @xmath35 and @xmath32 to @xmath41 in @xmath36 have the same signs as the edges connecting the triad point of @xmath29 to @xmath35 and @xmath41 in @xmath37 , respectively .
+3 .   for every triad @xmath29 in @xmath37
+in which all edges have negative sign , for some labeling @xmath38 of the vertices of @xmath29 , @xmath36 contains a chord connecting @xmath39 to @xmath35 and a chord connecting @xmath40 to @xmath41 , with @xmath42 chosen in such a way that the chords are linked .
+furthermore , the chords connecting @xmath32 to @xmath35 and @xmath32 to @xmath41 in @xmath36 have signs opposite to the edges connecting the triad point of @xmath29 to @xmath35 and @xmath41 in @xmath37 , respectively .
+4 .   for every double chord @xmath29 in @xmath37 with principal vertex @xmath32 , for some labeling @xmath43 of the nonprincipal vertices of @xmath29 ,
+there is a chord in @xmath36 connecting @xmath44 to @xmath35 and a chord in @xmath36 connecting @xmath45 to @xmath41 .
+these chords are not linked .
+a _ permissible separation _ of a signed chord diagram @xmath7 arising as an expansion of a signed @xmath0-chord diagram @xmath30 is a pair of signed chord diagrams @xmath46 and @xmath47 such that    1 .
+every chord in @xmath7 is in exactly one of @xmath46 and @xmath47 .
+2 .   two chords in @xmath7 which come from the same triad in @xmath30
+are both in @xmath46 , or both in @xmath47 .
+3 .   of any two chords in @xmath7 which come from the same double chord in @xmath30 ,
+one chord is in @xmath46 and the other is in @xmath47 .
+suppose @xmath2 is checkerboard - embedded in a closed surface @xmath3 .
+then the rotating - splitting circuit @xmath6 gives a mapping from @xmath31 to @xmath3 which is one - to - one except at the preimages of vertices @xmath2 .
+this mapping can be smoothed to give an embedding of @xmath31 into @xmath3 , as in figure [ fig : smoothed_rscycle ] .
+observe that the circle @xmath48 divides the surface into a black part and a white part .
+we can draw the chords of @xmath7 as small edges lying in neighborhoods of vertices of @xmath2 , see figure [ fig : small_chord ] .
+0.3    0.3    0.3    [ fig : small_chord ]    the coloring of @xmath3 divides the chords of @xmath7 into two families : those lying in the white part and those lying in the black part .
+observe that the two chords in the neighborhood of a rotating vertex are in the same part , and the two chords in the neighborhood of a splitting vertex are in different parts .
+thus we have a permissible separation of @xmath7 .
+vice versa , given a @xmath0-graph @xmath2 with all vertices of degree 4 or 6 and which satisfies the source - sink condition , a rotating - splitting circuit @xmath6 of @xmath2 , and a permissible separation of @xmath7 , we can recover the coloring of the angles around each vertex of @xmath2 , and thus we can recover the surface @xmath3 .
+thus given a @xmath0-graph @xmath2 with all vertices of degree 4 or 6 and which satisfies the source - sink condition , and an expansion @xmath7 of its @xmath0-chord diagram , we have a one - to - one correspondence between atoms of @xmath2 and permissible separations of @xmath7 .
+note that the two chords to be drawn in the neighborhood of any rotating 6-vertex @xmath19 do not cross in @xmath3 , as shown in figures [ r0t - lifecycle ] , [ r1t - lifecycle ] , [ r2t - lifecycle ] , and [ r3t - lifecycle ] .
+thus we have an embedding of @xmath7 into @xmath3 . furthermore , since the embedding of @xmath2 divides @xmath3 into 2-cells , the embedding of @xmath7 does as well .
+given a chord diagram @xmath26 , _ surgery _ of @xmath26 is the following process : for each chord @xmath29 connecting points @xmath49 , delete a neighborhood of @xmath29 and connect the obtained endpoints @xmath50 to @xmath51 and @xmath52 to @xmath53 if @xmath29 is positive , and @xmath50 to @xmath53 and @xmath52 to @xmath51 if @xmath29 is negative .
+this produces a family of circles ; these are called the _ result of surgery _ of @xmath26 .    to form the _ intersection matrix _ of a signed chord diagram @xmath26 with @xmath11 chords , first enumerate the chords @xmath54 . then the _ intersection matrix _
+@xmath55 is an @xmath56 matrix over @xmath1 , such that @xmath57 if and only if the chord @xmath58 is negative , and @xmath59 for @xmath60 if and only if the chords @xmath58 and @xmath61 are linked .
+the number of components in the manifold obtained from a signed chord diagram @xmath26 by surgery of the circle is one plus the corank of @xmath55 .
+[ sep - to - genus ] given a @xmath0-graph @xmath2 in which all vertices have degree 4 or 6 and a rotating - splitting circuit @xmath6 of @xmath2 , and a checkerboard embedding of @xmath2 into a nonorientable surface @xmath3 , the nonorientable genus of @xmath3 is given by @xmath62 where @xmath46 and @xmath47 are the results of the permissible separation of @xmath7 induced by the embedding .
+consider the embedding @xmath63 described above .
+the number of 2-cells on the white side of the embedding is the number of circles resulting in surgery of @xmath46 .
+likewise , the number of 2-cells on the black side of the embedding is the number of circles resulting in surgery of @xmath47 . applying the circuit nullity theorem ,
+the total number of 2-cells is @xmath64 . introducing the notation @xmath65 to represent the number of chords in @xmath7 , the number of arcs in @xmath7 is @xmath66 ,
+so its total number of edges is @xmath67 .
+the number of vertices in @xmath7 is @xmath66 .
+thus the euler characteristic of @xmath3 is @xmath68 @xmath69 so the nonorientable genus of @xmath3 is @xmath70 .
+thus @xmath2 has admits an atom of genus @xmath5 if and only if some permissible separation of @xmath30 results in @xmath71 .
+this can be reduced to a problem on matrices , as follows .
+a _ permissible partition _ of the indices of @xmath72 is a partition of the indices of @xmath72 ( which are just the chords of @xmath7 ) into two parts , in such a way that chords arising from the same triad in @xmath30 are in the same part , and chords arising from the same double chord in @xmath30 are in different parts
+.    clearly , @xmath46 and @xmath47 are a permissible separation of @xmath7 if and only if there exists a permissible partition @xmath73 of the indices of @xmath72 such that @xmath74 is the intersection matrix of @xmath46 and @xmath75 is the intersection matrix of @xmath47 .
+[ main ] for a @xmath0-graph @xmath2 which does not satisfy the source - target condition and which has rotating - splitting circuit @xmath6 , @xmath2 has a checkerboard embedding into a nonorientable surface of genus @xmath5 if and only if there is a permissible partition of the indices of @xmath76 into parts @xmath77 and @xmath78 such that @xmath79 .
+let @xmath7 be any expansion of @xmath30 .
+by lemma [ sep - to - genus ] , @xmath2 has a checkerboard embedding into a surface of genus @xmath5 if and only there is a permissible separation @xmath80 of @xmath7 such that @xmath81 .
+such a permissible separation exists if and only if there is a permissible partition of @xmath76 into parts @xmath77 and @xmath78 such that @xmath79 .
+thus , the problem of finding the minimal nonorientable genus into which a @xmath0-chord diagram with each vertex of degree 4 or 6 may be checkerboard - embedded , is equivalent to the problem of finding a permissible partition of the indices of a matrix @xmath82 into parts @xmath77 and @xmath78 which minimizes @xmath83 .
+a @xmath0-graph @xmath2 with rotating - splitting circuit @xmath6 is embeddable into the projective plane if and only if there exists a permissible separation @xmath80 of @xmath36 such that @xmath85 and @xmath86 . in other words , @xmath2 is @xmath84-embeddable if and only if there exists a permissible separation of @xmath7 into two chord diagrams , one of which consists of a family of pairwise - linked negative chords and a family of positive chords which are not linked to each other or to the negative chords , and the other of which consists of a family of pairwise - unlinked negative chords .
+we can test this condition by the following algorithm , which takes time quadratic in the number of chords of @xmath36 : first assign all negative chords to the same chord diagram .
+then for each assigned chord , assign all positive chords linked to it to the other chord diagram .
+if an assigned chord originates from a triad , assign the other chord coming from this triad to the same chord diagram , and if the assigned chord originates from a double chord , assign the other chord coming from this double chord to the other chord diagram . then , for each of the newly assigned chords , assign any unassigned linked chords or chords coming from the same triad or double chord , using the same rules described above .
+repeat this process until for every assigned chord , the linked chords and any chord coming from the same triad or double chord have been assigned .
+if not all chords have been assigned , take any unassigned chord and arbitrarily assign it to @xmath46 or @xmath47 , and repeat until all chords have been assigned .
+finally , check whether this is a permissible separation , and whether @xmath87 .
+@xmath2 is @xmath84-embeddable if and only if both of these conditions are true .
+a @xmath0-graph @xmath2 with rotating - splitting circuit @xmath6 is embeddable into the klein bottle if and only if there exists a permissible separation @xmath80 of @xmath36 such that @xmath88 .
+there are two possible cases in which this can occur : @xmath89 or @xmath90 and @xmath86 .
+we will first consider the case where @xmath89 . in this case
+, we have a permissible separation of @xmath7 , each of which consists of a family of pairwise - linked negative chords and a family of positive chords which are not linked to each other or to the negative chords .
+this condition also admits a quadratic - time test , as follows : assign one of the chords arbitrarily to @xmath46 or @xmath47 .
+if the chord is positive , assign all chords linked to it to the other chord diagram ; if it is negative , assign all positive linked chords and all negative unlinked chords to the other diagram . regardless of sign ,
+if an assigned chord originates from a triad , assign the other chord coming from this triad to the same chord diagram , and if the assigned chord originates from a double chord , assign the other chord coming from this double chord to the other chord diagram . repeat this process until for every assigned chord , the linked chords and any chord coming from the same triad or double chord have been assigned .
+if not all chords have been assigned , take any unassigned chord and arbitrarily assign it to @xmath46 or @xmath47 , and repeat until all chords have been assigned .
+finally , check whether this is a permissible separation , and whether @xmath89 .
+these conditions are met if and only if there is an embedding of @xmath2 into the klein bottle so that a smoothing of @xmath6 divides the klein bottle into two mbius bands .
+if this test fails , there is still the possibility that @xmath2 has an embedding into the klein bottle where the smoothing of @xmath6 bounds a disc . to cover this possibility
+, we choose a negative chord @xmath41 of @xmath36 and perform surgery at that chord , in the manner shown in [ klein - surgery ] .
+since this reverses the orientation of part of the designated cycle , we should also change the sign of all chords which cross @xmath41 , producing a new chord diagram @xmath91 . then for any surface @xmath3 and any embedding of @xmath92 which respects the signs of the chords ,
+there is a corresponding embedding @xmath93 , still respecting the signs of the chords .
+furthermore , if the distinguished cycle in the embedding @xmath92 into the klein bottle bounds a disc , then the distinguished cycle in the embedding @xmath93 bounds a mbius band .
+thus @xmath2 has an embedding into the klein bottle where the smoothing of @xmath6 bounds a disc if and only @xmath94 has an embedding into the klein bottle where the distinguished cycle bounds a mbius band .
+this condition can be checked using the algorithm in the previous paragraph .

@@ -1,0 +1,269 @@
+light plays an essential role in quantum communication and is indispensable in most practical applications , for example quantum cryptography .
+photons are attractive carriers of quantum information because the interactions of light with the surroundings are normally weak , but for the same reason it is generally difficult to prepare , manipulate , and measure quantum states of light in a nondestructive way .
+repeated interactions provide a method to increase the effective coupling strength between light and matter , and the backreflection of light in a cavity thus constitutes an interesting tool , in particular , because experiments are currently moving into the strong coupling regime @xcite , where coherent dynamics takes place on a faster time scale than dissipative dynamics .    in this paper
+we propose a versatile setup consisting of an array of cavities and passive optical elements ( beam splitters and phase shifters ) , which allows for quantum state engineering , quantum state purification , and non - destructive number resolving photon detection .
+the setup builds on two basic ingredients : the hong - ou - mandel interference effect @xcite generalized to input pulses containing an arbitrary number of photons and the possibility of projection onto the subspace of even or the subspace of odd photon - number states by use of cavity quantum electrodynamics in the strong coupling regime .
+regarding quantum state engineering , the basic setup provides a possibility to conditionally generate photon - number correlated states .
+more specifically , the setup allows us to project an arbitrary photonic two - mode input state onto the subspace spanned by the state vectors @xmath0 with @xmath1 .
+we denote this subspace by @xmath2 .
+the scheme is probabilistic as it is conditioned on a specific measurement outcome .
+the success probability equals the norm of the projection of the input state onto @xmath2 and is thus unity if the input state already lies in @xmath2 . in other words
+, the setup may be viewed as a filter @xcite , which removes all undesired components of the quantum state but leaves the desired components unchanged .
+we may , for example , use two independent coherent states as input and obtain a photon - number correlated state as output .
+photon - number correlated states , for example einstein - podolsky - rosen ( epr ) entangled states @xcite , are an important resource for quantum teleportation @xcite , entanglement swapping @xcite , quantum key distribution @xcite , and bell tests @xcite . in practice , however , the applicability of these states is hampered by noise effects such as photon losses .
+real - world applications require therefore entanglement purification .
+the proposed setup is very attractive for detection of losses and can in particular be used to purify photon - number entangled states on site . if a photon - number correlated state , for example an epr state , is used as input , the desired state passes the setup with a certificate , while states which suffered from photon losses are detected and can be rejected .
+photon losses are an especially serious problem in quantum communication over long distances .
+it is not only a very common source of decoherence which is hard to avoid , but also typically hard to overcome .
+the on - site purification protocol mentioned above can easily be adopted to a communication scenario such that it allows for the purification of a photon - number correlated state after transmission to two distant parties .
+purification of two mode entangled states has been shown experimentally for qubits @xcite and in the continuous variable ( cv ) regime @xcite .
+( cv - entanglement purification is especially challenging @xcite .
+nevertheless , several proposals have been made to accomplish this task @xcite , and very recently takahashi _ et al .
+_  succeeded in an experimental demonstration @xcite . )
+a special advantage of our scheme lies in the fact that it does not only allow for detection of arbitrary photon losses , but is also applicable to many modes such that entanglement can be distributed and purified in a network .    with a small modification
+, the basic setup can be used for number resolved photon detection .
+the ability to detect photons in a number resolved fashion is highly desirable in the fields of quantum computing and quantum communication .
+for example , linear optics quantum computation relies crucially on photon number resolving detectors @xcite .
+moreover , the possibility to distinguish different photon - number states allows for conditional state preparation of nonclassical quantum states @xcite , and plays a role in bell experiments @xcite and the security in quantum cryptographic schemes @xcite .
+other applications include interferometry @xcite and the characterization of quantum light sources @xcite .
+existing technologies for photon counting @xcite such as avalanche photodiodes , cryogenic devices , and quantum dots typically have scalability problems and can not reliably distinguish high photon numbers , destroy the quantum state of light in the detection process , or do not work for optical photons . here
+, we present a non - destructive number resolving photo detection scheme in the optical regime .
+this quantum - non - demolition measurement of the photon number allows for subsequent use of the measured quantum state of light .
+an advantage of the counting device put forward in this work compared to other theoretical proposals for qnd measurements of photon numbers @xcite is the ability to detect arbitrarily high photon numbers with arbitrary resolution .
+the scheme is based on testing successively all possible prime factors and powers of primes and the resources needed therefore scale moderately with ( width and mean of the ) photon number distribution . in particular
+, a very precise photon number measurement can be made even for very high photon numbers by testing only few factors if the approximate photon number is known .
+the paper is structured as follows .
+we start with a brief overview of the main results in sec .
+[ overview ] . in sec .
+[ filter ] , we explain how the conditional projection onto @xmath2 can be achieved and discuss some properties of the proposed setup in the ideal limit , where the atom - cavity coupling is infinitely strong and the input pulses are infinitely long . in sec .  [ detector ] , we show that a modified version of the setup can act as a non - destructive photon number resolving detector , and in sec .
+[ purification ] , we investigate the possibility to use the setup to detect , and thereby filter out , losses . in sec .
+[ nonideal ] , we consider the significance of finite input pulse length and finite coupling strength , and we obtain a simple analytical expression for the optimal choice of input mode function for coherent state input fields . section  [ conclusion ] concludes the paper .
+the most important ingredient of the proposed setup is the possibility to use the internal state of a single atom to control whether the phase of a light field is changed by @xmath3 or not @xcite .
+the basic mechanism , which is explained in fig .  [ cavity ] , has several possible applications , including preparation of superpositions of coherent states @xcite , continuous two - qubit parity measurements in a cavity quantum electrodynamics network @xcite , and low energy switches @xcite . concerning the experimental realization , basic ingredients of the scheme such as trapping of a single atom in a strongly coupled cavity and preparing of the initial atomic state
+have been demonstrated experimentally in @xcite , where the decrease in cavity field intensity for an atom in the state @xmath4 compared to the case of an atom in the state @xmath5 is used to subsequently measure the state of the atom . state preparation and readout for a single atom in a cavity
+have also been demonstrated in @xcite .
+another promising candidate for an experimental realization is circuit quantum electrodynamics .
+see , for instance , @xcite for a review .
+( color online ) a single atom with level structure as shown in ( a ) is placed in a cavity in the strong coupling regime . the light field , which is on resonance with the cavity , couples the ground state level @xmath4 resonantly to the excited state @xmath6 , and the state @xmath6 decays to the state @xmath4 through spontaneous emission at a rate @xmath7 .
+( b ) if the atom is in the state @xmath5 , the incident field is not affected by the presence of the atom , and for a sufficiently slowly varying input pulse , the interaction with the resonant cavity changes the phase of the light field by @xmath3 .
+( c ) if the atom is initially in the state @xmath4 , the possibility of spontaneous emission prevents the light field from building up inside the cavity ( provided the photon flux of the input beam is not too high ) , and the incoming field is reflected from the input mirror without acquiring a phase shift .
+this transformation is insensitive to the precise values of @xmath8 , @xmath7 , and the cavity decay rate as long as the system is in the strong coupling and weak driving regime . ]
+the generation of quantum superposition states can be achieved as follows . the atom is initially prepared in the state @xmath9 , and the input field is chosen to be a coherent state @xmath10 .
+after the interaction , the combined state of the atom and the light field is proportional to @xmath11 , and a measurement of the atomic state in the basis @xmath12 projects the state of the light field onto the even @xmath13 or the odd @xmath14 superposition state .
+more generally , the input state @xmath15 , where @xmath16 is an @xmath17-photon fock state , is transformed into the output state @xmath18 , i.e. , the input state is conditionally projected onto either the subspace spanned by all even photon - number states or the subspace spanned by all odd photon - number states without destroying the state .    with this tool at hand
+, we can project an arbitrary two - mode input state onto the subspace @xmath19 , @xmath1 .
+if two modes interfere at a 50:50 beam splitter , a state of form @xmath0 is transformed into a superposition of products of even photon - number states .
+if we apply a 50:50 beam splitter operation to the input state , project both of the resulting modes conditionally on the subspace of even photon - number states , and apply a second 50:50 beam splitter operation , the input state is thus unchanged if it already lies in @xmath2 , but most other states will not pass the measurement test . to remove the final unwanted components , we apply opposite phase shifts to the two modes ( which again leaves @xmath20 unchanged ) and repeat the procedure ( as shown in fig .
+[ setup ] ) . for an appropriate choice of phase shifts ,
+the desired state is obtained after infinitely many repetitions . in practice , however , a quite small number is typically sufficient . if , for instance , the input state is a product of two coherent states @xmath21 with @xmath22 , the fidelity of the projection is @xmath23 for one unit , @xmath24 for two units , and @xmath25 for three units .
+the scheme is easily generalized to an @xmath26 mode input state . in this case , we first project modes 1 and 2 on @xmath2 , modes 3 and 4 on @xmath2 , etc , and then project modes 2 and 3 on @xmath2 , modes 4 and 5 on @xmath2 , etc .
+the setup can also be used as a device for photon number resolving measurements if the phases applied between the light - cavity interactions are chosen according to the new task .
+each photon - number state @xmath16 sent through the array leads to a characteristic pattern of atomic states .
+as explained in section [ destructivescheme ] , one can determine the photon number of an unknown state by testing the prime factors and powers of primes in the range of interest in subsequent parts of the array .
+the scheme scales thereby moderately in the resources .
+three cavity pairs suffice for example for detecting any state which is not a multiple of three with a probability of @xmath27 .
+however , in this basic version of the counting scheme , the tested photon state may leave each port of the last beam splitter with equal probability .
+deterministic emission of the unchanged quantum state of light into a single spatial mode is rendered possible if we allow atoms in different cavities to be entangled before the interaction with the field ( see section [ qndscheme ] ) .
+more generally , the proposed scheme allows to determine the difference in photon numbers of two input beams without changing the photonic state .
+the correlations in photon number between the two modes of states in @xmath2 facilitate an interesting possibility to detect photon losses . to this end
+the state is projected onto @xmath2 a second time .
+if photon loss has occurred , the state is most likely orthogonal to @xmath2 , in which case we obtain a measurement outcome , which is not the one we require in order to accept the projection as successful . on the other hand ,
+if photon loss has not occurred , we are sure to get the desired measurement outcome .
+we note that loss of a single photon can always be detected by this method , and the state can thus be conditionally recovered with almost perfect fidelity if the loss is sufficiently small .
+we can improve the robustness even further , if we use an @xmath26-mode state .
+it is then possible to detect all losses of up to @xmath28 photons , and even though it is @xmath26 times more likely to lose one photon , the probability to lose one photon from each mode is approximately @xmath29 , where @xmath30 is the probability to lose one photon from one mode and we assume @xmath31 . in a situation where many photon losses are to be expected , this procedure allows one to obtain photon - number correlated states with high fidelity , although with small probability .
+we can also distribute the modes of a photon - number correlated state to distant parties , while still checking for loss , provided we send at least two modes to each party . as the proposed scheme can be used as a filter prior to the actual protocol it has an important advantage compared to postselective schemes .
+if the tested entangled state is for example intended to be used for teleportation , the state to be teleported is not destroyed in the course of testing the photon - number correlated resource state .
+the dynamics in fig .  [ cavity ] requires strong coupling , a sufficiently slowly varying mode function of the input field , and a sufficiently low flux of photons . to quantify these requirements
+, we provide a full multi - mode description of the interaction of the light with the cavity for the case of a coherent state input field in the last part of the paper .
+we find that the single atom cooperativity parameter should be much larger than unity , the mode function of the input field should be long compared to the inverse of the decay rate of the cavity , and the flux of photons in the input beam should not significantly exceed the rate of spontaneous emission events from an atom having an average probability of one half to be in the excited state .
+we also derive the optimal shape of the mode function of the input field ( eq .  ) , when the mode function is only allowed to be nonzero in a finite time interval .
+the proposed setup for projection of an arbitrary two - mode input state onto @xmath2 is sketched in fig .
+[ setup ] .
+we denote the field annihilation operators of the two input modes by @xmath32 and @xmath33 , respectively . the total transformation corresponding to one of the units consisting of a beam splitter
+, a set of cavities , and a second beam splitter , conditioned on both atoms being measured in the state @xmath34 after the interaction , is given by the operator @xmath35 , where @xmath36\ ] ] and @xmath37 as explained above , the hong - ou - mandel effect ensures that @xmath38 , while most other possible components of the input state are removed through the conditioning , for instance all components @xmath39 with @xmath40 odd .
+there are , however , a few exceptions , since all states of the form @xmath41 , @xmath1 , @xmath42 , are accepted .
+the phase shifts between the @xmath35 units are represented by the operator @xmath43,\ ] ] which leaves states of the form @xmath0 unchanged , while states of the form @xmath39 with @xmath44 acquire a phase shift .    for a setup containing @xmath45 units ,
+the complete conditional transformation is thus represented by the operator @xmath46\label{on},\end{aligned}\ ] ] where @xmath35 in the last line commutes with the product of cosines . for @xmath47 , the product of cosines vanishes for all components of the input state with different numbers of photons in the two modes
+if , for instance , all the @xmath48 s are chosen as an irrational number times @xmath3 .
+we note that even though we here apply the two - mode operators one after the other to the input state corresponding to successive interactions of the light with the different components of the setup , the result is exactly the same if the input pulses are longer than the distance between the components such that different parts of the pulses interact with different components at the same time .
+the only important point is that the state of the atoms is not measured before the interaction with the light field is completed .
+the setup using an array of cavities as in fig .
+[ setup ] may thus be very compact even though the pulses are required to be long .
+( note that it would also be possible to use a single pair of cavities and atoms repeatedly in a fold - on type of experiment ; however in that case the compactness would be lost due to the need for long delay lines necessary to measure and re - prepare the atoms before they are reused . )
+a natural question is how one should optimally choose the angles @xmath48 to approximately achieve the projection with a small number of units . to this end
+we define the fidelity of the projection @xmath49 as the overlap between the unnormalized output state @xmath50 after @xmath45 units and the projection @xmath51 of the input state @xmath52 onto the subspace @xmath2 .
+the last equality follows from the fact that @xmath53 , where @xmath54 lies in the orthogonal complement of @xmath2 . maximizing @xmath55 for a given
+@xmath56 thus corresponds to minimizing @xmath57\\ \times\langle\psi_{\textrm{in}}|u^\dag pu|n\rangle|m\rangle,\end{gathered}\ ] ] i.e. , we would like to find the optimal solution of @xmath58(n - m)\\ \times\prod_{\substack{i=1\\i\neq j}}^n\cos^2[\phi_i(n - m ) ] \langle\psi_{\textrm{in}}|u^\dag pu|n\rangle|m\rangle=0.\end{gathered}\ ] ] a set of solutions valid for any input state can be obtained by requiring @xmath59\prod_{i\neq j}\cos^2[\phi_i(n - m)]=0 $ ] for all even values of @xmath60 ( note that @xmath61 for @xmath40 odd ) . within this
+set the optimal solution is @xmath62 .
+it is interesting to note that choosing one of the angles to be @xmath63 , @xmath64 , all terms with @xmath65 are removed from the input state according to . when all angles are chosen according to @xmath62
+, it follows that @xmath66 only contains terms with @xmath67 , @xmath68 , which may be a useful property in practical applications of the scheme .
+even though this is not necessarily optimal with respect to maximizing @xmath69 for a particular choice of input state , we thus use the angles @xmath62 in the following , except for one important point : if the input state satisfies the symmetry relations @xmath70 , it turns out that the operator @xmath35 by itself removes all terms with @xmath71 , i.e. , we can choose the angles as @xmath72 , and @xmath66 only contains terms with @xmath73 , @xmath68 . for @xmath74 ,
+for instance , only terms with @xmath75 contribute .    in fig .
+[ fidelity ] , we have chosen the input state to be a product of two coherent states with amplitude @xmath76 and plotted the fidelity as a function of @xmath77 for different numbers of units of the setup .
+even for @xmath77 as large as 10 , the fidelity is still as high as 0.9961 for @xmath74 , and the required number of units is thus quite small in practice .
+the figure also shows the success probability @xmath78 for @xmath79 . for @xmath80 , for instance , one should repeat the experiment about 11 times on average before the desired measurement outcome is observed .
+( color online ) fidelity ( eq .  ) as a function of the expectation value of the number of photons in one of the input modes for @xmath81 and setups with one , two , three , and infinitely many units .
+the angles are chosen as @xmath72 .
+the dotted line labeled @xmath82 is the probability in the limit of infinitely many units to actually obtain the required measurement outcome , i.e. , all atoms in @xmath9 after the interaction with the field . ]
+in this section , we show how a photon number measurement can be implemented using a modified version of the setup introduced in the previous section .
+the key idea is explained in subsection [ destructivescheme ] where we describe the basic photo - counting scheme . in subsection
+[ qndscheme ] , this protocol is extended to allow for a qnd measurement of photon numbers .      in the following ,
+we analyze the setup shown in fig .
+[ setup ] when the input is a product of an @xmath17-photon fock state in the lower input beam and a vacuum state in the upper input beam .
+since the setup contains a series of beam splitters , it will be useful to define @xmath83 and @xmath84 , such that @xmath85 and @xmath86 at beam splitters bs@xmath87 , bs@xmath88 , bs@xmath89 , @xmath90 , and @xmath91 and @xmath92 at beam splitters bs@xmath93 , bs@xmath94 , bs@xmath95 , @xmath90 .
+as before , all atoms are initially prepared in the state @xmath96 and will after the interaction with the field be measured in the @xmath97 basis .
+when we start with an @xmath17 photon state , there are only two possible outcomes of the measurement of the atoms in the cavities labeled c@xmath87 and c@xmath93 in fig .
+[ setup ] dependent on whether @xmath17 is even or odd . in the even case
+, the two atoms can only be in @xmath98 or @xmath99 and in the odd case @xmath100 or @xmath101 .
+to handle the odd and even case at the same time we denote @xmath102 as @xmath103 and @xmath104 as @xmath105 .
+a measurement of @xmath103 indicates an even number of photons in the @xmath33-beam , resp .
+, @xmath105 an odd number of photons in the @xmath33-beam .
+we start with the state @xmath106 as input . after the beam splitter bs@xmath87
+, the state has changed into @xmath107 and interacts with the two atoms in the cavities c@xmath87 and c@xmath93 .
+by measuring the atoms in the @xmath97 basis , the state is projected into the subspace of an even or odd number of photons in the @xmath33 path .
+the photon state after the measurement can be written as @xmath108\ket{0}\ket{0}=\frac{1}{\sqrt{2\ n!}}(\hat{a}^n \pm\hat{b}^n)\ket{0}\ket{0}$ ] , where @xmath109(@xmath110 ) is the state with an even ( odd ) number of @xmath33 photons and corresponds to the measurement result @xmath103 ( @xmath105 ) .
+note that this first measurement result is completely random .
+after bs@xmath93 the state simplifies to @xmath111\ket{0}\ket{0}$ ] .
+now due to the phase shifters the two modes pick up a relative phase of @xmath112 so that the state is given by @xmath113\ket{0}\ket{0}$ ] . finally , after bs@xmath88 we have the state @xmath114 , which is equal to @xmath115
+this can also be rewritten as @xmath116 .
+so the result of measuring the state of the atoms in cavities c@xmath88 and c@xmath94 will be @xmath117 with probability @xmath118 and @xmath119 with probability @xmath120 . since the state is again projected into one of the two states @xmath121 we can repeat exactly the same calculations for all following steps .
+whereas the first measurement result was completely random , all following measurement results depend on @xmath17 and the previous measurement outcome , i.e. , with probability @xmath122 the @xmath123-th measurement result is the same as the @xmath124-th result , and with probability @xmath125 the measurement result changes and the state changes from @xmath121 to @xmath126 . if the number of units is infinite ( or sufficiently large ) and we have chosen all phases equal as @xmath127 , then we can guess from the relative frequency with which the measurement result has switched between @xmath103 and @xmath105 the number of photons with arbitrary precision for all photon numbers @xmath128 .
+@xmath129 , where @xmath130 and @xmath131 ( @xmath132 ) is the number of cases , where the measurement outcome is the same ( not the same ) as the previous measurement outcome .    measuring this relative frequency with a fixed small phase is not the optimal way to get the photon number .
+we propose instead the following .
+let us use a setup with a total of @xmath45 units and choose the phases to be @xmath133 , @xmath134 , for an arbitrarily chosen value of @xmath135 and let us calculate the probability @xmath136 that the measurement results are all the same , @xmath137 this probability is equal to one for all photon numbers that are a multiple of @xmath138 and goes to zero otherwise in the limit of infinitely many units of the setup .
+this way we can measure whether the photon number is a multiple of @xmath138 .    for example , for @xmath139 and @xmath140 we detect any state which is not a multiple of three with a probability of at least @xmath141 , resp .
+, @xmath142 for @xmath143 , where @xmath144 for @xmath145 , already @xmath140 is sufficient to achieve @xmath146 . for @xmath147 and @xmath140
+we have @xmath141 , which increases to @xmath142 for @xmath143 . in fig .  [ 20photo ] and [ 100photo ]
+we have shown @xmath136 for @xmath148 and @xmath149 .
+the number @xmath150 needed to get a good result typically scales logarithmical with @xmath138 , e.g. for @xmath151 already @xmath152 is enough to reach @xmath153 .
+( color online ) probabilities @xmath136 ( eq .  ) for @xmath148 and @xmath143 resulting in @xmath154 ( eq .  ) . for @xmath155 , @xmath156 . ]
+( color online ) probabilities @xmath136 for @xmath149 and @xmath157 resulting in @xmath158 . for @xmath159 , @xmath153 . ]    given an unknown state we can test all possible prime factors and powers of primes to identify the exact photon number .
+if , e.g. , we have a state consisting of @xmath160 to @xmath161 photons the following factors have to be tested @xmath162 ( where 2 does not need to be checked separately ) .
+24 measurement results are sufficient to test all factors with a probability over @xmath163 .    if we require reliable photon number counting for @xmath17 ranging from @xmath160 to @xmath164 , for large @xmath164 , all primes and power of primes that are smaller than @xmath164 need to be tested .
+this number can be bounded from above by @xmath164 .
+all @xmath164 tests are required to work with high probability . to this end
+each single test needs to succeed with a probability better than @xmath165 .
+it can be checked numerically that this is the case if @xmath166 , leading to a photon counting device with reliable photon detection up to @xmath164 using an array consisting of less than @xmath167 basic units .    note that this setup does not destroy the photonic input state but changes @xmath168 randomly into @xmath169 $ ] , i.e. , the photons leave the setup in a superposition of all photons taking either the @xmath32-beam or the @xmath33-beam .
+this can not be changed back into @xmath168 by means of passive optical elements .
+the output state - a so - called @xmath170 state - is , however , a very valuable resource for applications in quantum information protocols and quantum metrology @xcite .      for a non - demolition version of the photon number measurement we use the basic building block depicted in fig .
+[ block ] .
+the atoms in the two upper cavities are initially prepared in an entangled state @xmath171 , and the atoms in the lower cavities are also prepared in the state @xmath172 .
+this can , for instance , be achieved via the parity measurement scheme suggested in @xcite . during the interaction the upper and
+the lower atoms will stay in the subspace spanned by @xmath173 .
+the state changes between @xmath172 and @xmath174 each time one of the two entangled cavities interacts with an odd number of photons . as in the previous subsection
+we define @xmath117 to handle the even and the odd case at the same time . for @xmath17
+even , @xmath175 and @xmath176 , while in the odd case we define @xmath177 and @xmath178 .     and c@xmath88 and between the atoms in cavities c@xmath93 and c@xmath94 .
+the gray box is either a cavity or a mirror .
+( in the latter case , we may as well send the light directly from the cavities c@xmath88 and c@xmath94 to the first two cavities of the next block . ) ]    using the same notation as before , the state is transformed as follows , when we go through the setup from left to right .
+the initial state is @xmath179 and after the first beam splitter we have the state @xmath180 the interaction with the first two cavities leads to the state @xmath181 the second beam splitter transforms the state into @xmath182\ket{0}\ket{0}\ket{b_+}\\ + [ ( \hat{a}^\dag)^n-(\hat{b}^\dag)^n]\ket{0}\ket{0}\ket{b_-}\big\}.\end{gathered}\ ] ] the two modes pick up a relative phase shift of @xmath183 at the phase shifters so that @xmath184\ket{0}\ket{0}\ket{b_+}\\ + [ e^{i\phi_i n}(\hat{a}^\dag)^n -e^{-i\phi_i n}(\hat{b}^\dag)^n]\ket{0}\ket{0}\ket{b_-}\big\}.\end{gathered}\ ] ] after the third beam splitter we get @xmath185\\ = \frac{1}{\sqrt{2}}\cos(\phi_i n)\ket{b_+}\ket{b_+ } + \frac{i}{\sqrt{2}}\sin(\phi_i n)\ket{b_-}\ket{b_+}\\ + \frac{i}{\sqrt{2}}\sin(\phi_i n)\ket{b_+}\ket{b_- } + \frac{1}{\sqrt{2}}\cos(\phi_i n)\ket{b_-}\ket{b_-}.\end{gathered}\ ] ] note now that independent of whether @xmath17 is even or odd , the interaction with the last two cavities turns the states @xmath186 into @xmath187 and the states @xmath188 into @xmath189 .
+the state is thus changed to @xmath190,\end{gathered}\ ] ] and after the last beam splitter we have @xmath191.\end{gathered}\ ] ] note that the photonic modes are now decoupled from the state of the atoms .
+the photons will continue after the final beam splitter unchanged in @xmath168 while the atoms still contain some information about the photon number .
+note that @xmath192 and @xmath193 . by measuring all atoms in the @xmath97 basis
+we can easily distinguish between @xmath194 by the parity of the measurements .
+the probability to obtain @xmath195 is @xmath196 , and the probability to get @xmath197 is @xmath198 . after the measurement , all photons
+are found in the @xmath32 beam for both outcomes .
+the probability for measuring @xmath195 is the same as the changing probability in the previous setup such that we can do the same with a chain of the demolition free block .
+if we prefer also to get the parity information in each step , we can add an additional cavity at the end of each block as shown in fig .
+[ block ] .
+more generally , the demolition free element leaves photonic input states @xmath199 , where @xmath17 photons enter through the lower and @xmath200 photons enter through the upper port , unchanged . a calculation analogous to
+the previous one shows that one obtains the atomic states @xmath195 and @xmath197 with probabilities @xmath201 and @xmath202 respectively .
+this way , we can test for photon number differences @xmath203 in two input states in the same fashion as for photon numbers in a single input beam described above .
+similarly , one can project two coherent input states @xmath204 onto generalized photon - number correlated states @xmath205 with fixed photon number difference @xmath206 ....    in a realistic scenario we may be faced with photon losses .
+both setups have a built - in possibility to detect loss of one photon . in the first case
+we get the parity of the total number of photons in every single measurement of a pair of atoms .
+if this parity changes at some place in the chain then we know that we lost at least one photon . in the demolition free setup
+the valid measurement results are restricted to @xmath195 and @xmath197 . if we measure @xmath207 or @xmath208 we know that we lost a photon in between the two pairs of cavities .
+in addition , the optional cavity at the end of each block provides an extra check for photon loss .
+we next investigate the possibility to use a comparison of the number of photons in the two modes to detect a loss . as in sec .
+[ filter ] , we start with the input state @xmath81 and use the proposed setup to project it onto the subspace @xmath2 .
+we then use two beam splitters with reflectivity @xmath209 to model a fractional loss in both modes . after tracing out the reflected field
+, we finally use the proposed setup once more to project the state onto @xmath2 . in fig .
+[ recover ] , we plot the fidelity between the state obtained after the first projection onto @xmath2 and the state obtained after the second projection onto @xmath2 , the probability that the second projection is successful given that the first is successful , and the purity of the state after the second projection .
+the second projection is seen to recover the state obtained after the first projection with a fidelity close to unity even for losses of a few percent .
+this is the case because a loss of only one photon will always lead to a failure of the second conditional projection .
+the main contribution to the fidelity decrease for small @xmath209 is thus a simultaneous loss of one photon from both modes .
+it is also interesting to note that the final state is actually pure for all values of @xmath209 , which is a consequence of the particular choice of input state .
+finally , we note that a single unit is sufficient to detect loss of a single photon , and for small @xmath209 we thus only need to use one unit for the second projection in practice .
+( color online ) projecting the input state @xmath81 onto the subspace @xmath2 followed by a fractional loss @xmath209 in both modes and a second projection onto @xmath2 , the figure shows the fidelity between the states obtained after the first and the second projection onto @xmath2 , the probability that the second projection is successful given that the first is successful , and the purity of the state after the second projection for two different values of @xmath77 . ]
+let us also consider a four mode input state @xmath210 . as before we use the setup to project this state onto the subspace spanned by the state vectors @xmath211 , @xmath1 .
+we then imagine a fractional loss of @xmath209 to take place in all modes .
+if two of the modes are on their way to alice and the two other modes are on their way to bob , we can only try to recover the original projection by projecting the former two modes onto @xmath2 and the latter two modes onto @xmath2 .
+the results are shown in fig .
+[ loss ] , and again the curves showing the fidelity and the purity are seen to be very flat and close to unity for small losses .
+this scheme allows one to distribute entanglement with high fidelity , but reduced success probability .
+( color online ) projecting the input state @xmath210 onto the subspace spanned by the vectors @xmath211 , @xmath1 , followed by a fractional loss @xmath209 in all four modes and a projection of modes 1 and 2 onto @xmath2 and of modes 3 and 4 onto @xmath2 , the figure shows the fidelity between the states obtained after the first and the second set of projections , the probability that the projections onto @xmath2 are successful given that the first projection is successful , and the purity of the state after the projections onto @xmath2 for two different values of @xmath77 . ]
+so far we have considered the ideal limit of infinitely long pulses and an infinitely strong coupling . in this section , we use a more detailed model of the interaction of the light field with an atom in a cavity to investigate how long the input pulses need to be and how large the single atom cooperativity parameter should be to approximately achieve this limit .
+the backreflection of light in a cavity leads to a state dependent distortion of the shape of the mode function of the input field , and to study this effect in more detail we concentrate on a single cavity as shown in fig .
+[ cavity ] in the following . for simplicity , we assume the input field to be a continuous coherent state @xcite @xmath212|0\rangle\ ] ] with mode function @xmath213 , where @xmath214 is the expectation value of the total number of photons in the input beam .
+the light - atom interaction is governed by the hamiltonian @xmath215 and the decay term @xmath216 where @xmath8 is the light - atom coupling strength , @xmath217 is the annihilation operator of the cavity field , @xmath7 is the decay rate of the excited state of the atom due to spontaneous emission , and @xmath218 is the density operator representing the state of the atom and the cavity field . for @xmath219 , where @xmath220 denotes the trace , the population in the excited state of the atom is very small , and we may eliminate this state adiabatically .
+this reduces the effective light - atom interaction dynamics to a single decay term @xmath221 i.e. , the atom is equivalent to a beam splitter which reflects photons out of the cavity at the rate @xmath222 if the atom is in the state @xmath4 and does not affect the light field if the atom is in the state @xmath5 .
+assume the atom to be in the state @xmath223 , @xmath224 .
+since the input mirror of the cavity may be regarded as a beam splitter with high reflectivity , all components of the setup transform field operators linearly . for a coherent state input field ,
+the cavity field and the output field are hence also coherent states .
+we may divide the time axis into small segments of width @xmath225 and approximate the integrals in by sums .
+the input state is then a direct product of single mode coherent states with amplitudes @xmath226 and annihilation operators @xmath227 , where @xmath228 , @xmath229 . in the following ,
+we choose @xmath225 to be equal to the round trip time of light in the cavity , which requires @xmath230 to vary slowly on that time scale . denoting the coherent state amplitude of the cavity field at time @xmath231 by @xmath232
+, we use the beam splitter transformation @xmath233=\bigg[\begin{array}{cc}t_c&-r_c\\r_c&t_c\end{array}\bigg ] \bigg[\textrm{in}\bigg]\end{aligned}\ ] ] for the input mirror of the cavity to derive @xmath234 where @xmath235 is the reflectivity of the input mirror of the cavity , @xmath236 is the transmissivity of the beam splitter , which models the loss due spontaneous emission , i.e. , @xmath237 , and @xmath238 denotes the output field from the cavity .
+we have here included an additional phase shift of @xmath3 per round trip in the cavity to ensure the input field to be on resonance with the cavity , i.e. , the second element of the input vector in is @xmath239 . taking the limit @xmath240 and @xmath241 for fixed cavity decay rate @xmath242 , and
+reduce to @xmath243 where @xmath244 is the single atom cooperativity parameter . according to the steady state solution of @xmath245 we need @xmath246 to efficiently expel the light field from the cavity for @xmath247 .
+we should also remember the criterion for the validity of the adiabatic elimination , which by use of takes the form @xmath248 i.e. , for @xmath246 the average flux of photons in the input beam should not significantly exceed the average number of photons emitted spontaneously per unit time from an atom , which has an average probability of one half to be in the excited state .    solving , @xmath249 we obtain the output field @xmath250 with @xmath251 note that @xmath252 is not necessarily normalized due to the possibility of spontaneous emission .
+the ideal situation is @xmath253 and @xmath254 , and we would thus like the norm of @xmath255 to be as small as possible .    for @xmath247 and @xmath246 ,
+the exponential function in is practically zero unless @xmath256 , and as long as @xmath257 changes slowly on the time scale @xmath258 , we may take @xmath257 outside the integral to obtain @xmath259 and @xmath260 . as
+this result is independent of @xmath257 , a natural criterion for the optimal choice of input mode function is to minimize @xmath261 under the constraint @xmath262 .
+we also restrict @xmath257 to be zero everywhere outside the time interval @xmath263 $ ] .
+since we would like the double integral to be as close to 2 as possible , we should choose @xmath264 .
+a variational calculation then provides the optimal solution @xmath265\\ 0&\textrm{otherwise } \end{array } \right.,\ ] ] where @xmath266 @xmath267 and @xmath268 .
+deviation @xmath269 of the overlap between the output mode function and the input mode function from the ideal value when the atom is in the state @xmath223 .
+note that @xmath252 is defined such that the norm is less than unity if a loss occurs during the interaction .
+the single atom cooperativity parameter is assumed to be @xmath270 .
+solid lines are for the optimal input mode function given in , and dashed lines are for an input mode function , which is constant in the interval @xmath271 $ ] and zero otherwise .
+the inset illustrates these functions for @xmath272 . for @xmath273 ,
+the shape of the output mode function is almost the same as the shape of the input mode function as long as @xmath274 , but the norm is slightly decreased due to spontaneous emission from the atom such that @xmath275 .
+this result is independent of the actual shape of the input mode function , and the solid and dashed lines for @xmath276 are hence indistinguishable in the figure .
+the results for @xmath277 are independent of @xmath278 , because the light field does not interact with the atom in this case .
+nonzero values of @xmath277 only occur due to distortion of the shape of the mode function . for @xmath279 , @xmath280 for the optimal input mode function and @xmath281 for the constant mode function . ]
+this solution gives @xmath282 for fixed @xmath283 , @xmath284 is a decreasing function of @xmath285 , and for @xmath286 , @xmath287 and @xmath280 .
+distortion of the input mode function can thus be avoided by choosing a sufficiently long input pulse .
+this may be understood by considering the fourier transform of the input mode function . for a very short pulse
+the frequency distribution is very broad and only a small part of the field is actually on resonance with the cavity , i.e. , most of the field is reflected without entering into the cavity . for a very long pulse , on the other hand
+, the frequency distribution is very narrow and centered at the resonance frequency of the cavity .
+@xmath288 is plotted in fig .
+[ optmode ] as a function of @xmath285 both for the optimal input mode function and an input mode function , which is constant in the interval @xmath263 $ ] .
+the optimal input mode function is seen to provide a significant improvement .
+in fact , for the constant input mode function @xmath289/(\kappa t)$ ] , and hence @xmath277 scales only as @xmath290 for large @xmath291 .
+finally , we note that @xmath292 , and @xmath279 thus also ensures @xmath293 , which justifies the approximation in eqs .
+[ gammaeq ] and [ inout ] .
+we would like to determine how a single unit of the setup transforms the state of the field , when we use the full multi - mode description .
+for this purpose it is simpler to work in frequency space , and we thus use the definition of the fourier transform @xmath294 on eqs .   and to obtain @xmath295 where @xmath296 assume now that the density operator of the two - beam input field to the unit may be written on the form @xmath297 where @xmath17 and @xmath298 are summed over the same set of numbers and @xmath299 and @xmath300 are continuous coherent states in frequency space , i.e. , @xmath301|0\rangle\end{gathered}\ ] ] and similarly for @xmath300 .
+note that and are consistent when @xmath302 and @xmath303 as well as @xmath304 and @xmath305 are related through a fourier transform @xcite .
+after the first 50:50 beam splitter , the input state is transformed into @xmath306 and this is the input state to the two cavities .
+the initial state of the two atoms is @xmath307 .
+we saw in the last subsection that a cavity is equivalent to an infinite number of beam splitter operations applied to the cavity mode and the input field modes . to take the possibility of spontaneous emission into account
+, we also apply a beam splitter operation to the cavity mode and a vacuum mode in each time step and subsequently trace out the vacuum mode .
+as the beam splitters are unitary operators acting from the left and the right on the density operator , the field amplitudes are transformed according to as before , but when the ket and the bra are different , the trace operations lead to a scalar factor .
+since the reflectivity of the beam splitter modeling the loss is @xmath308 for an atom in the state @xmath223 , this factor is @xmath309\\ = \prod_{k=-\infty}^\infty\langle\sqrt{2c\kappa\tau}\gamma_{m , p}(k\tau)\delta_{p\uparrow}| \sqrt{2c\kappa\tau}\gamma_{n , i}(\kappa\tau)\delta_{i\uparrow}\rangle\\ = \exp\bigg\{-\int_{-\infty}^{\infty}\frac{c\kappa^2}{(1 + 2c)^2(\kappa/2)^2+\omega^2 } \big[|\alpha_{\textrm{in},n}(\omega)|^2\delta_{i\uparrow}\\ + |\alpha_{\textrm{in},m}(\omega)|^2\delta_{p\uparrow } -2\alpha_{\textrm{in},n}(\omega)\alpha^*_{\textrm{in},m } ( \omega)\delta_{i\uparrow}\delta_{p\uparrow}\big]d\omega\bigg\},\end{gathered}\ ] ] where @xmath310 is the amplitude of the cavity field corresponding to the input field @xmath311 and the atomic state @xmath312 as given in eq .  .
+altogether , @xmath313 is thus transformed into @xmath314    \langle k_p(\omega)\alpha_{\textrm{in},m}(\omega)| \otimes|i\rangle\langle p|$ ] .
+projecting both atoms onto @xmath315 and taking the final 50:50 beam splitter into account , we obtain the output state after one unit    @xmath316\\ \times d_{jq}[(\beta_n(\omega)-\alpha_n(\omega))/\sqrt{2},(\beta_m(\omega)-\alpha_m(\omega))/\sqrt{2}]\\ \times\left|\left\{\frac{1}{2}(k_i+k_j)\alpha_n(\omega ) + \frac{1}{2}(k_i - k_j)\beta_n(\omega)\right\}\right\rangle \left\langle\left\{\frac{1}{2}(k_p+k_q)\alpha_m(\omega ) + \frac{1}{2}(k_p - k_q)\beta_m(\omega)\right\}\right|\\ \otimes\left|\left\{\frac{1}{2}(k_i+k_j)\beta_n(\omega ) + \frac{1}{2}(k_i - k_j)\alpha_n(\omega)\right\}\right\rangle \left\langle\left\{\frac{1}{2}(k_p+k_q)\beta_m(\omega ) + \frac{1}{2}(k_p - k_q)\alpha_m(\omega)\right\}\right|,\end{gathered}\ ] ]    where we have written @xmath317 for brevity .
+a subsequent phase shifter is easily taken into account by multiplying the coherent state amplitudes by the appropriate phase factors .
+we note that the result has the same form as the input state if we collect @xmath17 , @xmath124 , and @xmath318 into one index and @xmath298 , @xmath30 , and @xmath200 into another index .
+we can thus apply the transformation repeatedly to obtain the output state after @xmath45 units of the setup .
+( color online ) fidelity as defined in as a function of the single atom cooperativity parameter @xmath278 for different values of the expectation value of the number of photons in one of the input modes and different numbers of units of the setup , assuming @xmath279 and @xmath319 .
+the dotted lines are the asymptotes for @xmath320 . ]
+if we assume @xmath302 and @xmath321 to have the same shape for all @xmath17 and @xmath298 , the output field simplifies to a two - mode state for @xmath279 as expected .
+this may be seen as follows .
+when @xmath285 is much larger than @xmath322 , the width of the distribution @xmath302 in frequency space is much smaller than @xmath283 .
+for the relevant frequencies we thus have @xmath323 , and in this case the right hand side of reduces to @xmath324 , i.e. , @xmath325 is independent of frequency , and the amplitudes of all the continuous coherent states of the output density operator are proportional to @xmath302 .    in fig .
+[ finitec ] , we have used in the limit @xmath279 to compute the fidelity as a function of the single atom cooperativity parameter for @xmath319 .
+the ideal values for @xmath320 are also shown , and the deviations are seen to be very small for @xmath278 larger than about @xmath326 .
+current experiments have demonstrated single atom cooperativity parameters on the order of @xmath327 @xcite , and high fidelities can also be achieved for this value .
+when @xmath278 is finite , there is a relative photon loss of @xmath328 due to spontaneous emission each time the field interacts with a cavity containing an atom in the state @xmath4 .
+we note , however , that the setup is partially robust against such losses because the next unit of the setup removes all components of the state for which a single photon has been lost .
+the setup put forward and studied in this article acts in many respects like a photon number filter and has several attractive applications for quantum technologies . based on the ability to distinguish even and odd photon numbers using the interaction of the light field with a high finesse optical cavity
+, photonic two mode input states can be projected onto photon - number correlated states .
+naturally , this protocol is very well suited to detect losses and can in particular be adapted to purify photon - number entangled states in quantum communication .
+we studied deviations from ideal behavior such as finite length of the input pulses and limited coupling to estimate for which parameters the idealized description is valid .
+the setup can be modified such that it is capable to perform a quantum - non - demolition measurement of photon numbers in the optical regime .
+the non - destructive photon counting device completes the versatile toolbox provided by the proposed scheme .
+we acknowledge valuable discussions with ignacio cirac and stefan kuhr and support from the danish ministry of science , technology , and innovation , the elite network of bavaria ( enb ) project qccc , the eu projects scala , qap , compas , the dfg - forschungsgruppe 635 , and the dfg excellence cluster map .
+d. i. schuster , a. a. houck , j. a. schreier , a. wallraff , j. m. gambetta , a. blais , l. frunzio , j. majer , b. johnson , m. h. devoret , s. m. girvin , and r. j. schoelkopf , nature ( london ) * 445 * , 515 ( 2007 ) .

@@ -1,0 +1,461 @@
+in quantum information theory entanglement between parts of a system has been identified as the key resource that can possibly make quantum information processing more powerful than classical information processing .
+entanglement can also be a resource for long - distance quantum communication or distributed quantum computation , and it is at the heart of some quantum communication protocols .
+but entanglement is fragile under the influence of environment induced decoherence .
+all engineering hence thrives to better control and manipulate the quantum information stored in the system while keeping the detrimental effects of decoherence low .    in nature ,
+on the other hand , we mostly find less controllable systems , especially if the system size becomes macroscopic as in gases , fluids , solids or even biological systems .
+since these systems are usually open , noisy systems at possibly high temperatures one expects that environment induced decoherence will erase all entanglement between system degrees of freedom .
+this reasoning is true except for three cases .
+first , the environment and its coupling to the system could be special in a way that it creates rather than destroys entanglement . however , it is unlikely to find such an environment in nature where usually thermalization dominates , and we will only briefly touch upon the subject of such environments in this paper .
+second , if the system has an entangled ground state , as many solid state systems do , its thermal state will be entangled in a certain temperature range above zero by a continuity argument .
+coupling to a heat bath drives a system into its thermal state .
+but there is a temperature threshold for the bath above which the thermal state will be unentangled .
+third , the system might have a built - in entropy drain , meaning that the correlations with the environment are , by one way or another , erased such that the system can re - build entanglement through its quantum mechanical interactions .
+this entropy drain may even be local to exclude the trivial cases where entanglement is simply  pumped " into the system , e.g. , by injecting fresh , entangled bell pairs .    in  @xcite we proposed such a local entropy drain in form of a reset mechanism , where system particles are randomly replaced by particles in some standard , mixed state of sufficiently low entropy .
+note that such a mechanism can not create entanglement , on the contrary , it erases any entanglement that might still be present between the particle that is reset and the rest of the system . only the interplay with the system hamiltonian can lead to entanglement in a steady state that is possibly far from thermodynamic equilibrium .
+this reset mechanism was studied for a toy model with two qubits , where analytic solutions could be obtained .
+also a multipartite scenario for a ( simplified ) gas model was discussed , and further generalizations were suggested . by gas - type systems we mean systems in which the decoherence processes act locally on the system particles , by strongly coupled systems we mean those where the decoherence processes act globally . to be more precise , local decoherence processes are those , which induce transitions between the eigenstates of the local , free hamiltonian alone , while global decoherence processes induce transitions between eigenstates of the total hamiltonian .    in this paper
+we review the key idea of a reset mechanism but provide more in - depth material than in  @xcite .
+we elaborate on the generalizations suggested in  @xcite , namely on the influence of local entropy drains on the dynamics of entanglement and on the steady - state entanglement in gas - type systems as well as in strongly coupled systems .
+we prove that the master equation describing the evolution of the system coupled to a heat bath and subject to a reset mechanism is of lindblad form and hence generates a completely positive , i.e. , physical map .
+we analytically solve the master equation for small systems of two spins with special interaction hamiltonians , which enables us to illustrate the main features of the reset mechanism .
+in particular we show the following .    1 .
+steady - state entanglement in systems with reset mechanism is different from the entanglement in thermal states .
+2 .   in strongly coupled systems with constant coupling steady - state entanglement with reset can exist for higher temperatures than the entanglement in the thermal state , which is the steady state without reset .
+3 .   in gas - type systems
+steady - state entanglement with reset can exist even for arbitrary temperatures .
+these features are not due to the specially chosen interaction hamiltonians and decoherence processes .
+we demonstrate that the above properties are almost independent of both .
+one can also relax the conditions on the reset states and take mixed states with sufficiently low entropy instead of pure states .
+finally , a generalization to larger system sizes , possibly even with fluctuating particle numbers , still leads to similar results .
+hence , the reset mechanism is at the same time simple and generic .
+we remark that in cavity qed an incoherent generation of entanglement has been proposed , which bears resemblance to our work  @xcite .
+there , an atom couples to two leaky optical cavities and is driven by a white noise field .
+this incoherent driving can , when the atom is finally traced out , result in entanglement between the cavity modes
+. entanglement is generated for intermediate cavity damping rates and intensities of the noise field , an effect labeled `` stochastic resonance '' in  @xcite .
+we believe that this effect is more correctly interpreted as an example for a reset mechanism . in a subsequent work
+@xcite strongly related to  @xcite , one single cavity entangles two atoms , giving yet another example for a reset mechanism even closer to the setups of this paper .
+the reset mechanism is certainly not a preferred way to actively protect entanglement and mostly can not even be compared to such strategies , but , because of its simplicity and generality , there is hope that such a mechanism may ultimately be identified in natural processes leading to an increased understanding whether entanglement can play a role in systems at high temperatures .
+the paper is organized as follows .
+we first concentrate on simple models with only two particles ( qubits ) . in section  [ gasmodel ]
+we motivate the description by a master equation , explain in which cases the model is valid , and study several specific hamiltonians and noise channels analytically and others numerically .
+we also compare entangled steady states resulting from a reset mechanism to entangled steady states resulting from special choices of interaction hamiltonian and decoherence process .
+we show in section  [ stronglycoupledmodel ] that we can find the same features in strongly coupled systems , and we give the conditions to be met by the reset mechanism such that entangled steady states can exist . then , in section  [ multipartite ] , we extend the model to include more qubits and discuss the meaning of different kinds of entanglement that we use .
+finally we give a summary of the results in section  [ summary ] .
+in this chapter we discuss a toy model with only two particles , which we take as spin-@xmath0 systems or qubits for simplicity .
+the toy model shows all the features that we will later find in larger systems and it has the advantage that we can show many results analytically leading to an increased understanding of the involved processes .
+we will formulate the equations for an arbitrary number @xmath1 of qubits , so that we can refer to them later in section  [ multipartite ] .      in a gas particles
+are weakly coupled in the sense that most of the time they do not considerably interact with each other unless they collide . in the meantime
+they only feel their local , free hamiltonian and are subject to individual , local decoherence processes , e.g. through interactions with thermal photons ( radiative damping ) . if we pick a subset consisting of @xmath1 gas particles and consider these as the system , collisions with the remaining gas particles are another source of decoherence ( non - radiative damping or dephasing ) . in a master equation that models this gas - type system
+we replace the original , time - dependent collision hamiltonian by an averaged , time - independent interaction hamiltonian .
+since the interaction hamiltonian does not modify the energy landscape in this model , the local , radiative decoherence processes tend to drive the system to the thermal state of the free hamiltonian , for which we choose the form @xmath2 we leave the interaction hamiltonian @xmath3 unspecified for the moment . for two qubits
+, we will often use the ising hamiltonian @xmath4 for analytic discussions , whereas more complicated hamiltonians will be treated numerically .
+we write the total hamiltonian as @xmath5 such that the master equation is @xmath6+{\cal l}_{\rm{noise}}\rho,\ ] ] where @xmath7 is a liouville operator representing the noise channels .
+we describe the noise channels by the lindblad operator  @xcite @xmath8\nonumber\\ -\frac{b}{2 } s[\sigma_-^{(i)}\sigma_+^{(i)}\rho+\rho\sigma_-^{(i)}\sigma_+^{(i)}-2\sigma_+^{(i)}\rho\sigma_-^{(i)}]-\frac{2c - b}{4}[\rho-\sigma_z^{(i)}\rho\sigma_z^{(i)}]\end{aligned}\ ] ] where @xmath9 and the @xmath10s are pauli operators .
+parameters @xmath11 and @xmath12 give the decay rate of inversion @xmath13 and polarization @xmath14 under the action of @xmath7 , and @xmath15 $ ] depends on temperature , where @xmath16 corresponds to @xmath17 ( we set the boltzmann and planck constant equal to one ) .
+the definition of @xmath18 stems from laser physics where inversion occurs corresponding to  negative temperatures " .
+many authors use @xmath19 instead of @xmath18 and @xmath20 instead of @xmath21 .
+then , no negative temperatures are possible .
+the noise channel is derived assuming certain approximations , e.g. the markov approximation .
+note , however , that this is not an essential assumption as we will demonstrate later in an example ( see figure  [ spingas ] and related text ) .
+an important special case of  ( [ localnoise ] ) , obtained by setting @xmath22 and @xmath23 , is the dephasing channel @xmath24,\ ] ] well - known especially in its integrated form as a completely positive map @xmath25 with @xmath26 . as with the ising hamiltonian  ( [ isinghamiltonian ] )
+, we will often use the dephasing channel for analytic discussions because of its simplicity .
+we are interested in the steady state of this master equation for @xmath27 qubits and the question whether there is entanglement in this state . at this point we simply state the following results since we will later solve a more general master equation that contains equation  ( [ gasme ] ) as a special case .    as an easy example
+we start with the ising interaction hamiltonian  ( [ isinghamiltonian ] )
+. the steady state will be the tensor product of the thermal states of each free hamiltonian @xmath28 since this state commutes with @xmath29 and since dephasing noise does not change the diagonal elements of the density matrix . in conclusion
+, we have the unentangled steady state @xmath30    when can we hope to find an entangled steady state ? as we know
+the radiative decoherence processes drive the system into the thermal states of the free hamiltonian .
+if the interaction hamiltonian can entangle these states we may find an entangled steady state at least for low temperatures .
+as an example , consider an interaction hamiltonian @xmath31 while the other terms stay the same as in the example above .
+we set @xmath32 ( no non - dissipative processes ) .
+the steady - state density matrix is then    @xmath33    this density matrix can be entangled .
+we measure the entanglement between two sets of qubits by the negativity  @xcite , which is given with respect to a bipartition @xmath34-@xmath35 as @xmath36 , where @xmath37 means the partial transpose with respect to @xmath34 . for two qubits ,
+we omit the label @xmath34 since there is only one bipartition , and the negativity can assume values between zero ( separable state ) and @xmath0 ( maximally entangled state ) .
+the reason why we choose the negativity as a measure throughout the paper is that we will use a generalization thereof in the multipartite case where the generalization of other entanglement measures might be hard to compute .
+the negativity of the state above is @xmath38\left(b^2 + 4 \left(g^2+\omega ^2\right)\right)^{-2}\big\},\end{aligned}\ ] ] which can be larger than zero but will always vanish for high temperatures of the bath , @xmath39 ( see figure  [ sxsx ] )
+.     entanglement as measured by the negativity in the steady state of equation  ( [ gasme ] ) with interaction hamiltonian @xmath31 and free hamiltonian @xmath40 .
+the decoherence processes are given by equation  ( [ localnoise ] ) .
+we choose the decay rate of inversion , @xmath11 , as inverse unit timescale and the other parameters as @xmath41 ( no dephasing noise ) and @xmath42 .
+the parameter @xmath43 on one of the axes is also measured in units of @xmath11 , whereas @xmath18 is dimensionless.,scaledwidth=70.0% ]    we see that the steady state of the master equation  ( [ gasme ] ) can be entangled for specially chosen interaction hamiltonians , but only below a certain temperature threshold . furthermore , if the free , local hamiltonian is too strong , i.e. , @xmath44 dominates by far all other parameters , there is also no entanglement .
+this statement applies to other models involving the hamiltonian  ( [ atomichamiltonian ] ) as well , and , accordingly , @xmath44 should have the same order of magnitude as the other parameters .
+spin gases  @xcite are an example for such gas - type systems .
+a spin gas is a system of quantum spins with stochastic , time - dependent interactions .
+a physical model of a spin gas is a system of @xmath1 classically moving particles with additional , internal spin degrees of freedom . upon collision
+, these quantum degrees of freedom interact according to some specified hamiltonian . in  @xcite the interaction hamiltonians were chosen locally unitarily equivalent to the ising interaction leading to a description in terms of weighted graph states .
+hence , in such spin gases , classical kinematics drives the evolution of the quantum state , and also the decoherence of arbitrary probe systems put into the gas and subjected to interactions with it . in general , multiple non - consecutive collisions of particles are possible .
+the spin gas remembers its whole interaction history , and it provides a microscopic model with _ non - markovian decoherence_.    assume that we have two selected gas particles ( e.g. another species ) that we consider as the system , while the other gas particles act as the environment that induces decoherence when interacting with the system particles .
+the rare interactions between the two system particles happen only during the short times when they collide . in the longer times in between they
+are not coupled and subject to local decoherence processes , i.e. , interactions with the environment gas particles .
+the induced decoherence processes are equivalent to dephasing channels ( corresponding to @xmath45 in equation  ( [ localnoise ] ) ) . in such a situation ,
+any entanglement between the two qubits that may either have been present initially or have built up on a short time scale will eventually be destroyed by the interactions with the other gas particles  @xcite .
++ _ the spin gas with reset mechanism _ + for the moment , we stick to the toy - model with only to selected gas particles .
+imagine now that the two particles can , at a certain rate , leave the box in which the gas is contained and are instantly replaced by fresh qubits that are in a standard mixed state with sufficiently low entropy . instead of a replacement of system particles
+one can equivalently picture a measurement of the particle and a subsequent preparation in this standard state .
+note that the last step need not be an active procedure but can , e.g. , result from a spontaneous decay to this state .
+we call both procedures a reset mechanism
+. certainly , by a reset , we did not introduce entanglement into the system always consisting of two qubits . on the contrary ,
+any entanglement that might have been present between the particle that has left the box and the one that is still inside leads to a description of the latter by a more mixed density matrix ( closer to the identity ) .
+but the advantage is that we have lowered the local entropy of the system since the new particle has no correlations with the environment .
+this new particle can then become entangled with the other one on short time scales .
+we said above that in a spin gas with zero rate of qubit exchange the steady state will not be entangled . for infinite exchange rate the system would always be in a pure ( or a standard separable ) state and
+there is also no entanglement .
+if , however , the rate at which the qubits leave the spin gas is in a certain intermediate parameter regime one can hope that there is entanglement in the system on average . here , averaging means taking the mean density matrix of many simulation runs .
+later , the solutions to master equations are assumed to resemble the evolution of such a mean density matrix and , for explanations of certain ( entanglement ) features , this picture will sometimes be invoked .
+note that there are also other ansatzes . in  @xcite
+the solution of the master equation represents a smoothed version of a single simulation run , where smoothing is achieved by a time - integration kernel .
+the solution of the master equation does then not follow the rapid changes of the single density matrix , but sees only the slower changes resolved by a so - called coarse - grained timescale , which is related to the support of the integration kernel .
+figure  [ spingas ] indeed shows entanglement in steady states in a simulation of a spin lattice gas with an ising - type interaction  @xcite .
+steady - state entanglement between two selected qubits as measured by the negativity in a spin lattice gas ( @xmath46 lattice , @xmath47 qubits ) .
+the probability that a particle is exchanged for a fresh one in one time step of the simulation is plotted on the horizontal axes .
+hence , the value @xmath48 corresponds to an infinite exchange rate .
+the special qubits interact @xmath49 times stronger with each other than with the @xmath50 qubits that form the environment , i.e. , as physical particles , they are e.g. of a different kind than the environment particles .
+the density matrices from which the negativity is derived were averaged over @xmath51 simulation runs .
+other parameters : initial distance between special qubits : @xmath48 , interaction phase picked up during a collision between them : @xmath52 ; interaction phase for interactions with environment spins : @xmath53 ; for details see  @xcite.,scaledwidth=70.0% ]    the above scenario with two qubits might seem a little artificial . however , if we extend the setup to systems with more qubits and allow fluctuating particle numbers we can drop the requirement that selected particles must be instantaneously replaced .
+we can regard the spin - gas particles that do not belong to the system as a  hot bath " introducing decoherence and destroying entanglement in the system , and the source of qubits in standard states as a  cold bath " that can counteract the effect of the hot bath and preserve entanglement in the steady state .
+the analogy with a cold bath has some limitations as we will point out in section  [ stronglycoupledmodel ] .
+we will deal with multipartite qubit systems in section  [ multipartite ] . for the moment
+, we will stick to the two qubit system , for which we can find a master equation that reflects the properties of the  cold bath " and that we can solve analytically in certain cases .
+observe that the master equation will again incorporate the markov - assumption , whereas the spin gases are non - markovian systems  @xcite and also partly have non - local decoherence processes .
+the essential features on the other hand will be qualitatively the same in some parameter regimes of the spin gas , where these effects play a minor role .    in the next subsection ,
+our goal is to transfer the idea of a reset mechanism from the specific example of a spin gas to a description in form of a master equation , suitable for any spin system .
+compared to  ( [ gasme ] ) , the master equation that models a gas - type system with reset mechanism has an additional term @xmath54 , which we describe as follows . with some probability @xmath55 particle @xmath56 , @xmath57 , is reset during the time interval @xmath58 to some specific state @xmath59 .
+the other qubits are left in the state @xmath60 .
+the change in the density matrix during the time @xmath58 due to @xmath54 is @xmath61 .
+observe that the time interval must be longer than the timescale of any of the involved processes but short enough so that we can replace it by the time differential to obtain , for the rate of change @xmath62 , the following master equation : @xmath63+{\cal l}_{noise}\rho+\sum_{i=1}^n r(|\chi_i\rangle\langle\chi_i|\mbox{tr}_i\rho-\rho)\ ] ]    before we proceed to discuss the solution of ( [ generalme ] ) let us establish that the problem is well - defined , i.e. , that the master equation leads to a completely positive map , which is true when the master equation is of lindblad form .
+for the noise part this is known , so we have to bother only about the reset part . since @xmath64 is local we have to show that each summand is of the form @xmath65+[\sigma_m^{(j)},\rho\sigma_n^{(j)}])$ ] where the @xmath66s are pauli operators and @xmath67 must be positive ( semidefinite ) matrices .
+we expand @xmath68 and @xmath69 in the @xmath10-basis as @xmath70 and @xmath71 .
+we insert these expressions into @xmath54 and also into the lindblad - expression , collect the coefficients that belong to each @xmath10-matrix of @xmath68 using the scalar product , and compare the coefficients @xmath72 in each expression , which leads us to a simple linear system of equations for the @xmath73 . solving this system of linear equations we obtain @xmath74
+the eigenvalues of @xmath67 are @xmath75 . since we assumed @xmath69 to be pure , we have @xmath76 and eigenvalues @xmath77 .
+we note that also a mixed reset state would be fine to ensure that the @xmath67 are positive semidefinite . because the sum of positive matrices is a positive matrix , and
+because we know that the noise terms also have positive @xmath78-matrices , we have shown that the master equation is of lindblad form and preserves the positivity of the density matrix .
+up to this point , we have modeled interacting , gas - type systems coupled to a noisy environment .
+we have described a toy model consisting of only two particles by a master equation and compared predictions about the entanglement properties of steady states to simulations with a spin gas as an example for such gas - type systems .
+we have seen that in general there will be no entanglement in the steady state .
+we have extended the example of the spin gas by allowing particle exchange with a  cold bath " of particles in standard states ( or an equivalent reset mechanism ) , and we have found that steady states of such systems can be entangled . we have derived a master equation that models systems with reset mechanism and have proved that the master equation is of lindblad form . in the following subsection
+we study the solutions of  ( [ generalme ] ) .      in principle
+, the solution to the master equation  ( [ generalme ] ) with noise channels as in equation  ( [ localnoise ] ) is simple .
+the equation is of the form @xmath79 with solution @xmath80 mapping @xmath68 to a column vector @xmath12 containing the @xmath81 coefficients @xmath82 of the density matrix and accordingly mapping the liouville operator @xmath83 to a @xmath84-matrix @xmath85 we get the equivalent @xmath81 coupled linear differential equations @xmath86 with solution @xmath87 . to compute the matrix exponential
+we need the spectral representation of @xmath85 , i.e. , we must solve the eigenproblem @xmath88 .
+observe that the steady state ( if it exists ) is given by the eigenvector @xmath89 corresponding to the eigenvalue @xmath90 .    in the following we will first analyze the solutions for an ising interaction hamiltonian and later generalize to generic cases .
+we specialize to the ising hamiltonian  ( [ isinghamiltonian ] ) as ( effective ) interaction hamiltonian , @xmath91 , and to a specific reset state , namely @xmath92 for both qubits .
+the free hamiltonian is @xmath93 as before .
+we can solve the problem through spectral decomposition of the liouville operator @xmath94+{\cal l}_{\rm noise}\rho+{\cal l}_{\rm reset}\rho$ ] , but the expression for the corresponding matrix @xmath95 is very lengthy .
+one obtains shorter expressions if one does not solve all @xmath81 differential equations at once through the matrix exponential , but step by step , since not all differential equations are coupled .
+still , we have chosen to move the solution derived in this way to  [ appendix ] not to overburden the text with technical details .    for illustration
+, we will restrict the noise to the special case of a dephasing channel  ( [ dephasingchannel ] ) in the following .
++ _ dephasing channel _ + as pointed out above , the solution is given by the spectrum of the total liouville super - operator defined by @xmath96 and its corresponding eigenvectors .
+in the case of a dephasing channel one obtains the eigenvalues @xmath97 with multiplicities @xmath98 , respectively .
+the eigenvector belonging to the eigenvalue @xmath99 represents the density matrix in the steady state , and we will come back to this matrix in the next subsection . the full solution , derived by solving the differential equations in a step - by - step manner as explained above , is given in  [ appendix ] .    to demonstrate the time - evolution of an initial density matrix governed by the master equation we plot the entanglement between the two qubits as a function of time . note that figure  [ timedependence ] is based on the analytic solution given in  [ appendix ] , and the plot shows how the negativities of different initial states approach the final negativity of the steady state .
+we choose @xmath100 as unit timescale ( setting @xmath101 ) .
+the parameters @xmath102 , @xmath43 , @xmath44 here have the fixed values @xmath103 , @xmath104 , @xmath104 , respectively .
+the initial states are weighted graph states  @xcite with density matrix @xmath105 where @xmath106 . through the parameter @xmath107
+we can continuously tune the entanglement in the initial state from the product state @xmath92 for @xmath108 to the maximally entangled , bell - equivalent state for @xmath109 .
+states that are initially highly entangled are first driven into separable states before the steady - state entanglement value is approached from below .
+vice versa , an initial product state gets highly entangled first , before the steady - state value for the entanglement is reached from above .
+( 430,200 ) ( 0,0 ) ( a ) time development of entanglement for different initial states .
+the @xmath110-axis displays the entanglement as measured by the negativity .
+the initial states are weighted graph states , characterized by a parameter @xmath107 ( see text ) .
+the unit timescale is @xmath100 , @xmath111 is measured on this timescale , and the parameters of the master equation are @xmath112 , @xmath113 , @xmath114 .
+( b ) cut through the @xmath115d plot at @xmath108 ( orange curve ) and @xmath109 ( blue curve ) . , title="fig:",scaledwidth=60.0% ] ( 182,65 ) ( a ) time development of entanglement for different initial states .
+the @xmath110-axis displays the entanglement as measured by the negativity .
+the initial states are weighted graph states , characterized by a parameter @xmath107 ( see text ) .
+the unit timescale is @xmath100 , @xmath111 is measured on this timescale , and the parameters of the master equation are @xmath112 , @xmath113 , @xmath114 .
+( b ) cut through the @xmath115d plot at @xmath108 ( orange curve ) and @xmath109 ( blue curve ) .
+, title="fig:",scaledwidth=50.0% ]    as we said earlier , to display the full analytic solution of  ( [ generalme ] ) for more general noise channels would be quite space - consuming .
+we will not present it since we are primarily interested in the entanglement properties of the steady state . in the following
+we will discuss these properties for the master equation with general local noise channels .
+as we have seen , any initial state of the density matrix evolves exponentially fast into a steady state on a characteristic timescale given by the largest non - zero characteristic exponent ( or the smallest in absolute values since they are negative ) .
+the characteristic timescale thus depends on the parameters of the master equation , too .
+the steady state is also a function of these parameters .    to smooth the presentation ,
+we have again transferred the steady - state solution of  ( [ generalme ] ) with ising hamiltonian , local noise channels as in  ( [ localnoise ] ) and reset states @xmath116 to  [ appendix2 ] . here
+, we illustrate the solution with a plot .    in figure  [ qomeequstate ]
+we choose @xmath117 as unit timescale and fix the values @xmath118 , @xmath119 and the dimensionless parameter @xmath120 .
+then , for certain values of @xmath102 and @xmath43 , measured in units of @xmath11 , we see entanglement as measured by the negativity in the steady state .
+entanglement in the steady state of the master equation  ( [ generalme ] ) .
+the entanglement is measured by the negativity , the unit timescale is @xmath117 , the parameters @xmath102 and @xmath43 ( in units of @xmath11 ) are on the axes , while the other parameters are @xmath118 , @xmath119 , and @xmath120.,scaledwidth=70.0% ]    to get entangled steady states when @xmath43 becomes small , we have to go to higher reset rates @xmath102 . however , @xmath43 can not be arbitrarily small .
+there is a weak coupling threshold below which no reset rate can ensure entanglement in the steady state .
+this threshold depends on the parameters of the decoherence processes , and its existence is intuitively clear .
+if the decoherence processes simply dominate the entangling processes , then no entanglement can be created by any means . to see this better
+, we momentarily put @xmath121 for simplification .
+let us also turn our attention once more to the dephasing channel as a special case of the noise terms of the quantum - optical master equation .
+then , in the steady state , the anti - diagonal coefficients are all the same , namely @xmath122 , the other off - diagonal elements are @xmath123 , and the diagonal elements all have the values @xmath124 .
+all other matrix elements are given by the hermiticity of the density matrix .
+we compute from the above expressions for the density matrix the following analytic expression for the negativity in terms of the parameters @xmath43 ( hamiltonian interaction ) , @xmath125 ( strength of the dephasing channel ) , and @xmath102 ( reset rate ) : @xmath126}\}\ ] ] equation  ( [ negativity ] ) contains the full information about the entanglement properties of the two qubits .
+note that @xmath127 depends , in fact , only on two parameters , @xmath128 and @xmath129 .    in fig .
+[ toymodel](a ) we see a plot of the negativity function n. the key feature is the color - coded region in the @xmath102-@xmath43-plane with steady - state entanglement , where a darker color indicates higher entanglement .
+the entangled region is bounded by the red line given by one of the roots of the non - trivial part of equation  ( [ negativity ] ) .
+outside of this region , the state is separable ( white area ) .
+the entangled region approaches asymptotically the straights @xmath130 and @xmath131 plotted black in fig .  [ toymodel](a ) .
+the asymptotic line @xmath130 is independent of @xmath102 and simply tells us that , in the weak coupling regime , decoherence / noise will always triumph over the hamiltonian part that tries to create entanglement as pointed out before .
+that is , as a necessary condition , we need to be above this threshold to observe entanglement .
+three lines are marked in the colored , entangled region :    1 .
+the upper , white line is the maximum in @xmath43-direction ( at constant @xmath102 ) .
+the lower , white line is the maximum in @xmath102-direction ( at constant @xmath43 ) .
+the middle line in black is the straight @xmath132 . to this middle line
+the upper and lower white curves go asymptotically for large @xmath43 , @xmath102 .
+the global maximum of the negativity is on this middle line at infinity with a value of approximately @xmath133 , about 20% of the maximally possible value .
+the darkest , most entangled area in our plot has negativity approximately @xmath134 .
+[ toymodel](b ) shows a cut at @xmath113 through the color - plot .
+most notable is the existence of a threshold value for @xmath135 above which entanglement is present in the steady state .
+( 230,160 ) ( 0,0 ) ( a ) separable states ( white area ) and entangled states ( colored area ) in the @xmath102-@xmath43-plane , where @xmath102 is the rate of the reset process , and @xmath43 is the coupling strength in the ising hamiltonian , and we use @xmath136 as unit timescale .
+the color encodes the amount of entanglement measured by the negativity : the darker the area , the more entanglement is present . for a discussion of the other lines ,
+please see the text .
+( b ) the second plot shows a cut for constant @xmath113.,title="fig:",scaledwidth=60.0% ] ( 220,47 ) ( a ) separable states ( white area ) and entangled states ( colored area ) in the @xmath102-@xmath43-plane , where @xmath102 is the rate of the reset process , and @xmath43 is the coupling strength in the ising hamiltonian , and we use @xmath136 as unit timescale .
+the color encodes the amount of entanglement measured by the negativity : the darker the area , the more entanglement is present . for a discussion of the other lines ,
+please see the text .
+( b ) the second plot shows a cut for constant @xmath113.,title="fig:",scaledwidth=40.0% ]      in this part we want to compare steady - state entanglement that is due to the reset to entanglement that is due to a special combination of interaction hamiltonian and decoherence process as in subsection  [ mewithoutreset ] .
+there , the interaction hamiltonian is @xmath137 while the free hamiltonian are given by  ( [ atomichamiltonian ] ) .
+the decoherence process  ( [ localnoise ] ) is determined by the parameter choice @xmath41 . in  [ mewithoutreset ] , it has been established that the steady state is entangled , but only in a finite temperature range .
+if we add the reset mechanism to the master equation of this example we can show that the steady state is entangled for arbitrary temperatures .
+as reset states we choose the eigenstate @xmath138 of the pauli operator @xmath139 .
+the steady - state density matrix of the master equation has now the matrix elements @xmath140\right\}\nonumber\\ \fl c_{0011}=\frac{g ( 2 s b - b - r ) ( i ( b+2 r)+\omega ) } { ( b+r ) \omega ^2+(b+2 r ) \left(4 g^2+(b+r ) ( b+2 r)\right)}\end{aligned}\ ] ] while all other coefficients are zero or are given by hermiticity .
+the negativity of this density matrix is @xmath141    we plot the function  ( [ negwithandwithoutr ] ) in figure  [ variationofsandr ] ; see figure caption for details .
+we observe two features :    1 .   at @xmath142
+we are back to the situation of subsection  [ mewithoutreset ] , where entanglement vanishes above some temperature threshold ( remember : @xmath143 as @xmath144 ) .
+there is a threshold reset rate @xmath102 , above which an entangled steady state exists for arbitrary temperature .    from the coefficients of the steady - state density matrix  ( [ eswithandwithoutr ] ) we also see that the entanglement created by the reset stems from a different density matrix than the entanglement present without reset . in figure  [ variationofsandr
+] this is visible in the region of small @xmath102 , where the reset tends to destroy this latter entanglement .
+then , for larger @xmath102 , the effect of the reset mechanism kicks in .
+( 430,200 ) ( 0,0)(a ) negativity for @xmath145-qubit system with @xmath146 as a function of the reset rate @xmath102 and temperature - dependent parameter @xmath18 .
+the noise is described by the quantum - optical master equation  ( [ localnoise ] ) with @xmath147 . with @xmath117 as unit timescale
+the other parameters are given by @xmath148 and @xmath149 .
+the entanglement due to the reset mechanism exists for all temperatures , while the entanglement without reset mechanism ( @xmath142 ) vanishes above a certain temperature threshold .
+( b ) cut at constant @xmath150 ( orange curve , corresponding to zero temperature ) and @xmath151 ( blue curve , corresponding to infinite temperature).,title="fig:",scaledwidth=55.0% ] ( 204,38)(a ) negativity for @xmath145-qubit system with @xmath146 as a function of the reset rate @xmath102 and temperature - dependent parameter @xmath18 .
+the noise is described by the quantum - optical master equation  ( [ localnoise ] ) with @xmath147 . with @xmath117 as unit timescale
+the other parameters are given by @xmath148 and @xmath149 .
+the entanglement due to the reset mechanism exists for all temperatures , while the entanglement without reset mechanism ( @xmath142 ) vanishes above a certain temperature threshold .
+( b ) cut at constant @xmath150 ( orange curve , corresponding to zero temperature ) and @xmath151 ( blue curve , corresponding to infinite temperature).,title="fig:",scaledwidth=45.0% ]    up to now we studied rather special interaction hamiltonians . in the following we demonstrate the genericity of entanglement that is present in a steady state due to a reset mechanism .      in the previous example we have pointed out that entanglement , if present at all without reset , stems from a special combination of hamiltonian and decoherence process .
+one may ask whether adding a reset mechanism with special reset states is not just as artificial as the choice of special combinations of hamiltonians and decoherence processes .
+we are now going to show that one and the same reset with fixed reset states can lead to steady - state entanglement for many combinations of hamiltonians and decoherence processes .
+the reasoning was the opposite without reset , where only very few combinations of hamiltonians and decoherence processes lead to steady - state entanglement .
+we can also relax the condition that the reset states are pure states to a certain extent .
+hence , we show that we have found generic features by generalizing the system in various directions .
+\(i ) the qualitative behavior of the two - qubit model does not depend on the particular choice of the interaction hamiltonian or details of the decoherence model other than its local action on individual qubits .
+figure  [ variationofs ] shows e.g. steady - state entanglement for an xyz hamiltonian as function of reset rate @xmath102 , and decoherence described by the noise operator @xmath152 .
+the qualitative behavior is similar to figure  [ toymodel](b ) or figure  [ variationofsandr ] , and we observe steady - state entanglement even for infinite temperature of the bath .
+( 430,200 ) ( 0,0)(a ) negativity for two - qubit system with @xmath153 interaction and magnetic field , @xmath154 , as a function of the reset rate @xmath102 and temperature - related parameter @xmath18 .
+the noise is described by the quantum - optical master equation channel  ( [ localnoise ] ) with @xmath147 ( @xmath117 as unit timescale ) .
+the hamiltonian parameters are @xmath155 , @xmath156 .
+( b ) cut through the plot .
+the upper curve corresponds to zero temperature @xmath157 , the lower one to infinite temperature @xmath158 of the bath .
+curves for any finite temperature lie in between.,title="fig:",scaledwidth=55.0% ] ( 204,38)(a ) negativity for two - qubit system with @xmath153 interaction and magnetic field , @xmath154 , as a function of the reset rate @xmath102 and temperature - related parameter @xmath18 .
+the noise is described by the quantum - optical master equation channel  ( [ localnoise ] ) with @xmath147 ( @xmath117 as unit timescale ) .
+the hamiltonian parameters are @xmath155 , @xmath156 .
+( b ) cut through the plot .
+the upper curve corresponds to zero temperature @xmath157 , the lower one to infinite temperature @xmath158 of the bath .
+curves for any finite temperature lie in between.,title="fig:",scaledwidth=45.0% ]    \(ii ) the idealized reset mechanism we consider can be replaced by a more realistic imperfect reset mechanism . in this case ,
+fresh particles are in mixed states with sufficiently low entropy rather than in pure states ( with entropy 0 ) .
+still , the steady state turns out to be entangled . when we vary @xmath102 there is a new , third threshold .
+first , for very small @xmath102 , there can be an entangled steady state , which is not due to the reset and which is present only for a finite temperature range above zero .
+second , there is one threshold value for @xmath102 above which the steady state is entangled due to the reset mechanism ( for arbitrary temperature ) .
+third , whereas for pure reset states the entanglement goes down to zero again only in the limit @xmath159 ( permanent projection to the product of the reset states ) , the entanglement goes down to zero for some finite @xmath102 if the reset states are mixed states .
+this behavior is easy to understand , since it is more difficult for the interaction hamiltonian to create entangled states from mixed reset states .
+the higher the entropies of the reset states are , the smaller is the range of the reset rate @xmath102 for which there is entanglement in the steady state .
+this range can also become zero , so we must demand reset states of sufficiently low entropy .
+figure  ( [ variationofpimperfectprojection ] ) clearly shows this new threshold appearing for large reset rates .
+negativity for two - qubit system with @xmath153 interaction and parameters as in figure  ( [ variationofs ] ) .
+the temperature related parameter has the fixed value @xmath120 .
+now , the reset state is not the pure state @xmath160 but the mixed state @xmath161 .
+the three curves , from top to bottom , correspond to @xmath162 , @xmath163 , and @xmath164 . with a mixed reset state ,
+a third threshold for large but finite reset rate @xmath102 appears above which the state is not entangled in contrast to the case of pure reset states where the entanglement vanished only for @xmath159 ( topmost curve).,scaledwidth=60.0% ]    the picture that emerges from all these results is the following .
+entanglement can prevail in dissipative , open quantum systems that are far away from thermodynamic equilibrium . for gas - type systems treated in this section ,
+a reset mechanism can evoke steady - state entanglement even for infinite temperature of the environment generically , i.e. , independently of the specific form of the interaction hamiltonian or decoherence channel .    in the next section
+we show that steady - state entanglement appears also in strongly coupled systems with an appropriate reset mechanism .
+in gas - type systems , we can treat the local noise channels separately for each qubit as explained above .
+if these local channels correspond to a heat bath , they drive each qubit individually to the thermal state of the local , free hamiltonian , i.e. , they populate the eigenstates of the free hamiltonian according to the boltzmann factor .
+although the effective interaction hamiltonian in the master equations is represented as continuously acting , the physical interaction process in gas - type scenarios is viewed as a short collision event .
+hence , the interaction hamiltonian does not influence the energy spectrum considerably and does not modify this thermal state . in strongly coupled systems , on the other hand , interactions of quanta of the heat bath with the system qubits affect the system as a whole .
+in this sense , the decoherence process acts globally on the system , inducing transitions between joint eigenstates . in this section
+we will shortly discuss the master equation describing a strongly coupled spin system in contact with a thermal , photonic bath .
+we will see that the resulting equilibrium state , the thermal state , can be entangled below a certain temperature threshold if the ground state of the hamiltonian is entangled .
+when we add a reset mechanism we find that , in contrast to the gas - type scenario , entanglement in the steady state can exist only below a certain temperature threshold .
+however , the novel feature is that this threshold is typically much higher than for the thermal state .
+finally , we describe the influence of the master equation parameters on the respective steady state , and , with this insight , formulate a general condition under which a reset mechanism can lead to an entangled steady state .
++ let @xmath165 ( @xmath166 ) be momentary eigenstates of some non - degenerate system hamiltonian @xmath167 with eigenenergies @xmath168 ( @xmath169 ) throughout the paper . ] .
+we define @xmath170 with @xmath171 being the inverse temperature .
+often @xmath172 is written as @xmath173 , and we explained the connection to the parameter @xmath18 in the last section .
+the master equation for a spin system , coupled with strength @xmath125 to a heat bath consisting of photons , is  @xcite    @xmath174-\gamma\sum_{j , a , b}[n_{ba}|g_{ba}|^2|\langle a|\sigma_-^{(j)}|b\rangle|^2+(n_{ab}+1)|g_{ab}|^2|\langle b|\sigma_-^{(j)}|a\rangle|^2]\nonumber\\ \qquad\times\left\{|a\rangle\langle a|\rho+\rho|a\rangle\langle a|-2\langle a|\rho|a\rangle |b\rangle\langle b|\right\},\end{aligned}\ ] ]    here , @xmath175 is the spectral density , for which @xmath176 if @xmath177 and @xmath178 else . for small system one can justify to treat the spectral density as constant ( @xmath179 if @xmath177 ) and merely tune the overall coupling constant @xmath125  @xcite . observe that we did not include non - radiative contributions as opposed to the master equation  ( [ gasme ] ) with noise terms  ( [ localnoise ] ) .
+the master equation  ( [ mesolidstate ] ) drives any initial density matrix to the thermal state of inverse temperature @xmath180 .
+that means , the ground state and also the excited states are populated according to the canonical distribution .
+we will study the master equation  ( [ mesolidstate ] ) for an ising hamiltonian with transverse magnetic field , briefly discuss the solution without reset mechanism ( thermal state ) , and then turn to an analysis of the full master equation with reset mechanism .
+an ising hamiltonian with transverse magnetic field has the form @xmath181,\ ] ] and the eigenvalues are @xmath182,@xmath183,@xmath43,@xmath184 with corresponding eigenvectors , expressed in the standard basis , @xmath185 where @xmath186 provides normalization .
+we exclude the case @xmath187 where the ground state would be degenerate , a case not properly described by the master equation  ( [ mesolidstate ] ) .
+the ground state of this system is the first eigenvector in equation  ( [ eigenvectorhising+b ] ) .
+since this state is entangled , so is the thermal state below a certain temperature threshold .
+we see this directly from the negativity of the thermal state @xmath188 , which is @xmath189 for any fixed @xmath43 and @xmath190 , the non - trivial part in this formula goes to the value @xmath191 when @xmath192 , while it goes to @xmath193 for @xmath194 .
+the threshold value for @xmath180 , where the non - trivial part becomes exactly zero , can be easily computed numerically for any given parameters @xmath43 and @xmath190 . in terms of @xmath180 ,
+the thermal mixture of the eigenstates is separable below this threshold , which , in terms of @xmath195 , means that the mixture is separable above that critical temperature . from  [ strongly_coupled_neg_thermal_state ]
+one can see that the critical temperature grows linearly with @xmath43 and monotonously , but sub - linearly with @xmath190 .
+we keep the ising hamiltonian with transverse magnetic field as above , but extend the master equation  ( [ mesolidstate ] ) by the reset term @xmath196 with @xmath27 and reset state @xmath197 for both qubits .
+we solve the resulting master equation numerically . in figure  [ timedepsolidstate ]
+we see how the entanglement for different reset rates @xmath102 develops over time @xmath111 from the value zero in the initial product state @xmath198 to its final value in the steady state while all other parameters are kept fixed ( see figure caption ) .
+we notice that small , non - zero reset rates decrease the entanglement in the steady state until it is gone , while larger rates can bring entanglement back .      to explain this effect , recall that the master equation mimics the averaged density matrices that would be obtained from ( infinitely many ) simulation runs of the system .
+the reset rates of the master equation are related to probabilities that in a simulation a reset took place during a certain time interval .
+although our reset processes are strictly speaking local , let us assume for the sake of argumentation that the reset happens on both qubits simultaneously , thus effectively restarting the process again from the beginning whenever a reset occurs in a simulation . for small rates
+@xmath102 , i.e. , for small probabilities that a reset takes place in the simulation , the system can come close to its thermal equilibrium state before it is reset .
+when we average the density matrices over many simulation runs , we average matrices that are mostly close to the unique thermal equilibrium state , and hence also the mixture will still retain entanglement .
+when the rates get larger , the density matrices over which we average become more and more diverse since they will be far from equilibrium and fluctuations occur . as a consequence
+the average density matrix will have no entanglement .
+when the reset rate is above a certain threshold , we will find entanglement in the system again ( as we did in the gas - type systems ) because now the density matrices over which we average become similar again .
+now , they are close to the state that has unitarily evolved for a time of order @xmath199 from the initial reset state . in the limit @xmath159 the state is constantly kept in the initial product state with zero entanglement . in this way
+we can understand how the two entangled regions arise .
+the first is an artifact of the entangled thermal state that is more and more destroyed by the reset mechanism .
+this first region could also be present in a gas - type model .
+the second region is the one that is really created by the reset mechanism just as in the gas - type model .
+we can directly see in figure  [ timedepsolidstate ] that entanglement in a thermal state is a truly different effect from entanglement that is created by the reset mechanism .
+( a ) solution of the master equation  ( [ mesolidstate ] ) with reset term  ( [ reset_strongly_coupled_systems ] ) for a strongly coupled system .
+the unit timescale is @xmath100 and the time @xmath111 is plotted in these units .
+the temperature parameter was chosen as @xmath200 , and , at this low temperature , the steady state of  ( [ mesolidstate ] ) is entangled even without reset , the other parameters being @xmath201 and @xmath202 .
+when increasing the parameter @xmath102 of the reset mechanism , the steady - state density matrix changes , as explained in the text , fist becoming separable and then entangled again .
+( b ) cut through the same plot for different @xmath102.,scaledwidth=95.0% ]      although the two effects are truly different , this does not mean that for certain parameter regimes , the two regions can not overlap , see figure  [ couplingtobath ] .
+imagine the coupling to the photon bath , @xmath125 , is increased .
+this means that the system is driven towards thermal equilibrium faster than before .
+hence , following the arguments from above , the system can tolerate higher reset rates before the entanglement in the first region is destroyed .
+the stronger coupling to the photon bath suppresses the entanglement in the second region , and as an overall effect we see that the two regions need not be separate .
+note that the entanglement in the thermal state for @xmath142 is independent of @xmath125 because then it does not matter how fast equilibrium was approached .
+( a ) influence of the parameter @xmath125 , which describes the strength of the coupling to the photon bath . here ,
+we choose @xmath203 as unit time .
+the other parameters are @xmath204 and @xmath202 .
+( b ) cut through the same plot for different values of @xmath125.,scaledwidth=95.0% ]      the transverse magnetic field with relative strength @xmath190 splits up the energy levels of the hamiltonian ( we exclude the degenerate point @xmath187 ) .
+the ground state will contain less and less entanglement as @xmath190 increases ( and will approach the product state @xmath205 for @xmath206 ) .
+hence , at zero temperature , the entanglement in the equilibrium state for @xmath142 will go down for increasing @xmath190 ( see red line in figure  [ nvsbr](a ) ) . for a thermal state with @xmath207 ,
+i.e. , @xmath208 , the ground and exited states get mixed .
+when @xmath190 is small , the splitting between ground and first exited state is small , and the mixture will be close to a separable state . for increasing @xmath190 , the larger energy split leads to an increased population of the ground state relative to the exited states at the same temperature @xmath209 , and the entanglement will increase .
+when @xmath190 gets even larger , the thermal state will be close to the ground state , but we know , that the ground state for large @xmath190 is only weakly entangled
+. hence , there will be some @xmath190 for which the entanglement in the thermal state is maximal ( see red line in figure  [ nvsbr](b ) , and the identical line in figure  [ nvsbr](c ) ) .
+when we switch on the reset mechanism , we see that an increasing @xmath102 destroys the entanglement in the thermal state as before , but for increasing @xmath190 the regions one and two ( artifact of thermal state vs. true reset state entanglement ) quickly overlap .
+that is because the magnetic field tends to drive the state towards @xmath205 , whereas an increasing reset mechanism drives the state towards @xmath210 .
+if we choose the reset state as @xmath211 , the two effects do not compete and both drive the state towards an unentangled product state ( see light grey areas in figure  [ nvsbr](c ) and compare to the light grey areas in figure  [ nvsbr](b ) ) .
+how fast an increasing @xmath102 destroys the entanglement in the thermal state is almost independent of the entanglement in the thermal state . for larger @xmath102 the influence of @xmath190 plays less and less a role and there is almost no difference between figures  [ nvsbr](b),(c ) for large @xmath102 .     influence of the relative magnetic field @xmath190 .
+the unit timescale is given by @xmath100 and @xmath212 .
+plots ( a ) and ( b ) show the difference between ( almost ) zero temperature ( @xmath213 ) and some finite temperature ( @xmath214 ) . the behavior of the red curves , for @xmath142 , are explained in the text .
+plots ( b ) and ( c ) demonstrate the influence of different reset states in connection with the magnetic field @xmath190 . plot ( b ) has reset state @xmath215 , ( c ) has reset state @xmath211.,scaledwidth=98.0% ]      the coupling strength of the hamiltonian @xmath43 also splits the energy levels . hence with increasing @xmath43 there will be more entanglement in the thermal state at some finite temperature .
+again , the speed with which an increasing reset rate destroys the entanglement in the thermal state is almost independent of @xmath43 ( see figure  [ essolidstate](a ) ) .
+most interesting is the influence of the temperature @xmath209 .
+figures  [ essolidstate](a)-(c ) show plots which contain information about the equilibrium - state entanglement for different temperatures ( @xmath142 ) .
+we see how the thermal states get less and less entangled for increasing temperatures , so that region one vanishes quickly as expected .
+but , for the same temperatures , the reset rate @xmath102 can still produce entanglement in a steady state ! on the other hand , for fixed @xmath43 ,
+there is some temperature threshold above which no reset rate can produce entanglement .
+this threshold is in contrast to the case of gas - type systems .
+negativities for increasing temperature ( decreasing @xmath171 ) .
+the unit timescale is given by @xmath100 , the relative magnetic field by @xmath202 .
+the parameter region in the @xmath216 plane , where steady - state entanglement occurs , becomes smaller for increasing temperatures .
+however , the temperatures , for which entanglement can exist with reset mechanism , are much higher than the temperatures , for which the thermal state is entangled .
+the red line in ( c ) corresponds to the red line in figure  [ entcondition ] ( see that figure caption and the text ) and is drawn for comparison only.,scaledwidth=98.0% ]      this discrepancy between gas - type and strongly interacting systems raises the deeper question : what are the conditions under which the reset mechanism can create entanglement in the steady state ?
+we already see that the reset mechanism is different from a cold bath  equivalently the replacing of system particles by fresh , standard ones  because we would expect that some cold bath can always counteract the influence of the hot photon bath .
+the condition that the solution of the master equation ( a completely positive ( cp ) map ) at @xmath142 is entangling at some point in time is certainly necessary , since , as pointed out before , the reset mechanism does not introduce entanglement itself .
+the question is : is a solution of the master equation at @xmath142 that creates entanglement on some short time scale sufficient such that the solution for some @xmath217 is a cp - map with entangled steady state ?
+unfortunately this is not true .
+the reset rate @xmath102 itself can influence the solution of the master equation in such a way that although the solution for @xmath142 was entangling on some short time scale , the solution for larger @xmath102 need not be .
+the condition for steady - state entanglement is the following . if the solution of the master equation for some @xmath217 is entangling on a time scale of order @xmath199 then the steady state of this solution will also be entangled . for illustration
+, we think once more in terms of many hypothetical simulation runs . as stated above , the states over which we have to average will be close to the state that has unitarily evolved for a time @xmath199 from the initial reset state .
+when this state has a certain amount of entanglement , then so does the mixture of states close to it ( see figure  [ entcondition ] ) .
+illustration of the condition under which a reset mechanism can create entanglement in the steady state . at time @xmath218 the state is already close to the true steady state , so the red line corresponds to the red line in figure  [ essolidstate](c ) since @xmath219 in this plot , and the other parameters are the same as in figure  [ essolidstate](c )
+. the reset can create entanglement in the steady state if , for given @xmath102 , there is entanglement in the time - evolved state at time @xmath220 ( see text for details ) .
+the green curve is the curve @xmath221 illustrating this result .
+, scaledwidth=70.0% ]    the condition does not only hold for the specific hamiltonian or the specific heat bath chosen here .
+it is valid for a large class of hamiltonians ( with appropriately chosen reset states ) and baths .    in the next section
+we treat the multipartite case .
+for multipartite spin systems , we will show that the reset mechanism can create steady - state entanglement in a similar way .
+the parameter regions where this happens are comparable to the @xmath145-qubit case .
+the values of the negativity , or rather its generalization , the average negativity , stay almost constant with increasing system size .
+note , however , that larger systems could have larger negativities , so if we divide the actual ( constant ) negativity by the maximal possible negativity , then this quantity would go down for growing system size .
+we will also consider entanglement in reduced density matrices . since in a reduction from @xmath1 to , say , @xmath145 qubits the traced out @xmath222 qubits act as an additional noise source , it is not surprising that the parameter region where we find steady - state entanglement in the reduced systems shrinks with growing @xmath1 .
+if the number of particles fluctuates according to some distribution , our best description of a reduced density matrix is a mixture of reductions originating from different system sizes .
+it is remarkable that even in this case there is some parameter region , where steady - state entanglement is found .    in the following , we motivate and explain the entanglement measures we are using and
+then demonstrate the above features in both gas - type systems and strongly interacting systems .
+it is straightforward to generalize the master equation for the gas - type system , equation  ( [ generalme ] ) to @xmath223 qubits .
+the relevance of the entanglement quantities we are going to use needs to be motivated , though .
+we turn once more to the example of a spin gas .
+imagine that the spin gas is in a box of volume @xmath224 .
+this box has one semi - permeable wall through which particles can leave the box , and another through which particles from a  cold reservoir " can enter . by
+ cold reservoir " we mean that the quantum state of the particles in this reservoir is in some sufficiently pure standard state .
+the motional degrees of freedom of theses particles , on the other hand , are in thermal equilibrium with the outside environment just like the system particles in the box .
+assume that the density of the gas in the box is @xmath225 .
+then there are on average @xmath226 particles in the box .
+the distribution of the number of particles that are in the box is a poissonian @xmath227 .
+when we observe the spin gas after certain time intervals , which should be long enough such that the gas always reaches its equilibrium state , we sample the distribution and get information about the density matrices with a corresponding number @xmath228 of qubits .
+the density matrices we can reconstruct after we collected a certain , sufficient amount of information is close to the steady - state density matrix of the master equation for @xmath228 qubits .
+we are interested in the entanglement properties of the gas and we will look at different aspects of entanglement in the following .
+all these aspects of entanglement are quantified by measures that are based on the negativity or the average negativity .
+the average negativity @xmath229 is the negativity averaged over all possible bipartitions of the system  @xcite .
+non - zero average negativity ensures the presence of some form of entanglement in the system .    specifically , we study three types of entanglement :    1 .
+the average negativity of the density matrices with @xmath228 qubits , averaged over the poissonian distribution of the number of particles in the system : @xmath230 .
+the negativity of reduced @xmath145-qubit density matrices averaged over a renormalized , truncated poissonian distribution : @xmath231 .
+the negativity of averaged , reduced @xmath145-qubit density matrices : @xmath232 .
+now , we lay out , what these quantities mean , and which aspect of entanglement they describe .
++ ( i ) if we ask how much entanglement we find in the system on average we are led to the quantity @xmath230 , which is the expectation value of the average negativity of density matrices with different @xmath228 , where @xmath233 is the poissonian probability distribution for the number @xmath228 of particles in the system .
+observe that if we disallowed the fluctuation of the particle number in the system and introduced the reset mechanism by other means ( e.g. measurement and decay to standard state inside the box ) , the quantity of interest would simply be @xmath234 for fixed system size @xmath1 .
+\(ii ) when we look at subsystems we are led to slightly different quantities .
+let us fix the subsystem size to @xmath145 qubits .
+we call the reduced density matrices of originally @xmath228 qubits @xmath235 where we assume @xmath236 . in gas - type systems
+there can also be zero or one particle in the box ( especially if @xmath237 is small ) , and the entanglement is simply zero in these cases . since a  reduction " of a one or zero - qubit density matrix to a @xmath145-qubit density matrix makes no sense , we simply exclude these cases and rescale the truncated poissonian @xmath238 to the distribution @xmath239 .
+the quantity @xmath231 therefore tells us how much entanglement a subsystem of two qubits contains on average ( for @xmath145 qubits @xmath240 ) .
+\(iii ) when we look only at a subsystem of two qubits disregarding the number of particles @xmath228 in the system , then our best description of the @xmath145-qubit density matrix is the average density matrix @xmath241 with entanglement @xmath232 .
++ when we compare the three kinds of entanglement defined above we see that the conditions that one of these quantities be non - zero are increasingly stringent .
+to find entanglement in the reduced system is a more stringent condition since tracing out the other particles has the same effect as an additional noise source .
+also , to find entanglement in the averaged density matrix @xmath242 is a stricter condition since the averaging increases entropy , i.e. , tends to make the matrix more mixed .
+if we keep the particle number fixed , @xmath243 , there is just the quantity @xmath244 to describe the entanglement in the reduced state .    to compute
+the average negativity is a hard task .
+the system size , and hence the number of differential equations we must solve , and also the number of bipartitions scale exponentially . to simplify the computation
+, we consider a symmetric situation , where all qubits interact pairwise via ising interactions and are subject to dephasing noise  ( [ dephasingchannel ] ) . in figure  [ morequbits ]
+we plot the three entanglement measures @xmath230 ( blue , dashed curve ) , @xmath231 ( orange , solid curve ) , and @xmath232 ( black , dashed - dotted curve ) for @xmath245 and for a qubit number that fluctuates between two and five .
+since the meaning of these measures is different , one can not compare the absolute values represented by the curves directly with one exception .
+the points , where the curves become non - zero , must , from left to right , appear in the order explained in the previous paragraph , i.e. , blue first , representing measure ( i ) , orange next , representing ( ii ) , and black last , representing ( iii )
+.    measures @xmath230 ( blue , dashed ) , @xmath231 ( orange , solid ) , and @xmath232 ( black , dashed - dotted ) as functions of the reset rate @xmath135 .
+the particle number fluctuates between two and five , and the fluctuations are accounted for by a poissonian or truncated poissonian weighting with @xmath245 as explained in the text .
+the interaction strength of the ising interactions between all particles is @xmath246 , while the strength of the local , free hamiltonian  ( [ atomichamiltonian ] ) is @xmath247 .
+kinks in the orange curve stem from the averaging over negativities whith different supports ( see ( ii ) in the text).,scaledwidth=70.0% ]      eventually , we study equations  ( [ mesolidstate ] ) and  ( [ reset_strongly_coupled_systems ] ) in the multipartite case .
+we obtain similar results as in the case of gas - type systems underlining again how generic the reset mechanism is .
+although a fluctuation of particles may seem less natural in strongly coupled systems as compared to gas - type systems , we will look at the exact same entanglement quantities , so that the corresponding plots are directly related to each other .
+as hamiltonian , we choose a sum of pairwise ising interactions and magnetic fields in @xmath248 and @xmath110 direction according to @xmath249\ ] ] where the small gradient magnetic field in @xmath110 direction is introduced for technical reasons to lift degeneracies in the hamiltonian .
+figure  [ 5qubitsstronglycoupled ] shows a plot of the same entanglement measures as in the previous subsection . as in the gas - type scenario , the feature that entanglement can be created by a reset mechanism holds also in the multipartite case .
+while we have shown the genericity of the reset mechanism with respect to the hamiltonian and noise process already in previous sections , here we demonstrate that the reset mechanism is also generic with respect to system size .
+measures @xmath230 ( blue , dashed ) , @xmath231 ( orange , solid ) , and @xmath232 ( black , dashed - dotted ) as functions of the reset rate @xmath135 .
+the particle number fluctuates between two and five , and the fluctuations are accounted for by a poissonian or truncated poissonian weighting with @xmath245 .
+the other parameters of the hamiltonian  ( [ hisinggradientmagnfield ] ) are @xmath250 and @xmath202 .
+the inverse temperature is @xmath214 .
+kinks in the orange curve stem from the averaging over negativities whith different supports ( see ( ii ) in the text).,scaledwidth=70.0% ]
+we have shown that entanglement can be present in dissipative , open quantum systems far from thermodynamic equilibrium if we assume the existence of an additional mechanism that  resets " the particles , at a certain rate , into a single - particle , low - entropy state . for a @xmath145-qubit toy model of a gas - type system , we have analytically solved the master equation consisting of a hamiltonian part , a noise channel , and the proposed reset mechanism . for special cases
+we have been able to give closed expressions for the entanglement as a function of the parameters of the master equation .
+we have extended the analysis to similar models with other interaction hamiltonians , decoherence models , and imperfect reset mechanisms .
+we have treated the situation of strongly correlated systems by the same means and we have given conditions under which steady - state entanglement arises in this case .
+finally , we have shown that in systems consisting of more qubits , and even in systems with fluctuating particle number , steady - state entanglement can prevail .
+many systems are conceivable for an experimental realization of such dissipative , open quantum systems .
+for instance , one may consider ions in microtraps that interact via an induced dipole moment  @xcite leading effectively to a continuously operating ising interaction .
+decoherence , dominated by dephasing noise , appears naturally in such systems , and the reset mechanism may , e.g. , be achieved by periodically applying a @xmath251-pulse that couples the internal level @xmath252 to a metastable auxiliary level @xmath165 that decays rapidly to @xmath253 .
+the state afterwards is always @xmath253 , which can be mapped to @xmath215 by a subsequent hadamard operation
+.    for charge manipulated quantum dots , the exchange interaction leads to a continuously operating heisenberg interaction between neighboring electron spins by lowering the potential barrier  @xcite .
+the effect of surrounding nuclear spins may be described by dephasing noise , while the reset mechanism can consist in replacing an electron by a fresh one from the surrounding fermi sea , prepared in a suitable state ( e.g. , @xmath253 ) .
+atomic beams interacting via a cavity mode  @xcite may also serve as a toy example of such systems far from thermodynamic equilibrium .
+note that a reset mechanisms could be realized in many physical ways , including a measurement with subsequent preparation of the state , coupling or decay to metastable auxiliary states , as well as replacing a qubit by a fresh one .
+while these suggestions for implementations aim at demonstrating how a reset mechanism would be realized in experiments , the effect itself is generic and other realizations are conceivable
+. in particular , one might try to find such a reset mechanism in less controlled , maybe even biomolecular systems consisting of many particles .
+this work was supported by the austrian science foundation ( fwf ) , the european union ( olaqui , scala , qics ) and the aw through project apart ( w.d . ) .
+[ [ appendix ] ]    in this appendix we derive the solution of the master equation  ( [ gasme ] ) for the ising hamiltonian  ( [ isinghamiltonian ] ) explicitly . in the final formulae
+we restrict ourselves again to the dephasing channel  ( [ dephasingchannel ] ) .    instead of solving the master equation by spectral decomposition of the matrix @xmath85 associated with the liouville operator @xmath83 ( see section  [ solutionmegastype ] ) , we solve the system of linear differential equations step by step . since not all of the differential equations are coupled , this leads to simpler expressions .
+the disadvantage is , however , that the set of solutions contains @xmath254 integration constants that must be determined afterwards for given initial conditions .
+we expand the @xmath145-qubit density matrix @xmath68 in the standard basis @xmath255 with @xmath256 and @xmath257 .
+the expression for the density matrix becomes @xmath258 . inserting this expansion into the master equation , and defining the two functions @xmath259\\ & -&\textstyle\frac{b}{2}s[(1-(x^\prime\oplus1))+(1-(x\oplus1))]-\textstyle\frac{2c - b}{4}[1-(-1)^{x^\prime+x}],\\ f_2(x^\prime , x)&:=&bs(1-x^\prime)(1-x)+b(1-s)(1-(x^\prime\oplus1))(1-(x\oplus1)),\end{aligned}\ ] ] we get the following linear system of coupled differential equations @xmath260\nonumber\\ & -&i\omega/2 \left((-1)^{s_1^\prime}-(-1)^{s_1}+(-1)^{s_2^\prime}-(-1)^{s_2}\right)\nonumber\\ & + & f_1(s_1^\prime , s_1)+f_1(s_2^\prime , s_2)-2r\}c_{s_1^\prime s_2^\prime s_1s_2}\nonumber\\ & + & f_2(s_1^\prime , s_1)c_{(s_1^\prime\oplus1 ) s_2^\prime ( s_1\oplus1 ) s_2}+f_2(s_2^\prime , s_2)c_{s_1^\prime ( s_2^\prime\oplus1 ) s_1 ( s_2\oplus1)}\nonumber\\ & + & r/2\{c_{0 s_2^\prime 0 s_2}+c_{1 s_2^\prime 1 s_2}+c_{s_1^\prime 0 s_1 0}+c_{s_1^\prime 1 s_1 1}\}.\end{aligned}\ ] ] here
+, the operation @xmath261 means addition modulo @xmath145 .
+fortunately , these @xmath81 differential equations are not fully coupled .
+the coefficients @xmath262 , @xmath263 , @xmath264 , and @xmath265 on the diagonal of the density matrix are coupled only to themselves .
+once we have solved these equations , we can treat the diagonal coefficients as known inhomogeneities in the other equations .
+the off - diagonal coefficients @xmath266 and @xmath267 are coupled among themselves and to the diagonal , so we can solve them next .
+the same is true for the pair @xmath268 and @xmath269 . finally , the anti - diagonal coefficients @xmath270 and @xmath271 are coupled to @xmath266,@xmath267,@xmath268 , and @xmath269 , or to their complex conjugates .
+we solve these as a last step , and all other coefficients are given by the hermiticity of the density matrix .
+the solution is now straightforward in principle .
+however , the expressions for the matrix coefficients are still space - consuming , so we will give them only for the special case of the dephasing channel .
++ for the dephasing channel  ( [ dephasingchannel ] ) , the structure of the differential equations is still the same and not simplified , we save space only because we have fewer parameters and a symmetric situation .
+the solution for the diagonal elements then reads : @xmath272    the integration constants @xmath273 , @xmath274 , and @xmath275 accommodate the initial conditions . since @xmath276 is a constraint , there is no free constant @xmath277 .
+the off - diagonal elements are :    @xmath278    @xmath279    the coefficients @xmath268 , @xmath269 are very similar to @xmath266 , @xmath267 , except that @xmath280 must be replaced by @xmath281 , and the integration constants are @xmath282 , @xmath283 instead of @xmath284 , @xmath285 . finally , the elements on the anti - diagonal are    @xmath286    and @xmath287 all other coefficients follow from the hermiticity of the density matrix .
+the form of all matrix coefficients is similar .
+first , there are the parts with the integration constants that fall off exponentially with time . the characteristic exponents are the eigenvalues of the homogeneous parts of each linear differential equation or system of equations ( multiplied with time ) .
+as pointed out in  [ gastype_solutionising ] , these exponents are the spectrum of the total liouville super - operator defined by @xmath96 with values @xmath97 and multiplicities @xmath98 respectively .
+second , there always is a part independent of @xmath111 ( belonging to the eigenvalue @xmath99 ) that represents the value in the steady state .
+[ [ appendix2 ] ]    in this appendix we present the steady - state solution for the master equation  ( [ generalme ] ) with ising hamiltonian , local noise channels as in equation  ( [ localnoise ] ) and reset states @xmath116 to  [ appendix2 ] .
+the solution in form of the matrix coefficients in the computational basis is given by :    @xmath288    furthermore , @xmath289 , and @xmath290 are obtained from @xmath266 by replacing @xmath291 , @xmath292 in the numerator .
+the other coefficients are given by the hermiticity of the density matrix .
+observe that the dephasing and the depolarizing channels are included as special instances of the parameters @xmath293 in this analytic expression .
+the dephasing channel results from putting @xmath294 , @xmath18 drops out , and renaming @xmath23 .
+the depolarizing channel is given by @xmath16 , @xmath295 , and renaming @xmath296 .
+the plot in figure  [ qomeequstate ] is based on this solution .
+10 [ 1]`#1 ` [ 1 ] [ 2 ]

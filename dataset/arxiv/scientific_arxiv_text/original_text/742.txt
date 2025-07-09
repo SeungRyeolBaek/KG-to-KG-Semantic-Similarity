@@ -1,0 +1,371 @@
+to solve a conformal field theory ( cft ) amounts to finding its spectrum and 3-point correlation functions , since higher point functions may be obtained using the operator product expansion ( ope ) . in the former case
+this means finding the anomalous dimensions of the operators of the theory , while in the latter case it means finding the couplings in 3-point correlation functions , whose space - time dependence is otherwise fixed by conformal invariance . in the simplest case of scalar primary operators
+the 3-point function has the simple form _ a(0)o_b(x)o_c(y)= . where @xmath11 is the dimension of the operator @xmath2 , and so on .
+the definition of the couplings @xmath12 requires that the operators diagonalise the anomalous dimension matrix and depends on the choice of normalisation in the 2-point function of each operator .
+our main interest is to explore new methods to compute the couplings @xmath12 for certain single trace operators in @xmath4 sym . in recent years
+there have been great progresses in finding the spectrum of this theory , in the planar limit and for any value of the coupling constant , using integrability @xcite-@xcite .
+on the other hand , much remains to be done in the computation of the couplings @xmath12 . at weak coupling these
+may be evaluated , order by order in perturbation theory , by computing feynman diagrams @xcite-@xcite .
+although this approach is essential to uncover new structures and to verify new exact results , it is unpractical to obtain exact results for general operators .
+a more promising approach is to explore integrability of planar @xmath4 sym .
+however , how integrability will enter computations of the couplings @xmath12 remains unclear .
+one strategy to compute the couplings in a cft is to deform the theory from its fixed point with a marginal or irrelevant operator @xmath0 .
+we will show in section 2 that this deformation introduces new divergences in the renormalised operators of the critical theory , which are determined by the couplings @xmath1 .
+more precisely , to leading order in the deformation parameter , the entry of the deformed anomalous dimension matrix between operators @xmath2 and @xmath3 is determined by the coupling @xmath1 .
+thus , in planar @xmath4 sym , finding the action of such matrix on operators diagonalized by means of the bethe ansatz is a new method to compute the couplings @xmath1 . in practice
+, we will show in section 3 how to implement these ideas in the case of the coupling deformation , which is considerably easier since it is an exact deformation .
+another example , that is expected to work in a similar fashion is the @xmath13 deformation of @xmath4 @xcite .
+more general deformations may also be considered . whether this technique will be useful in unveiling new integrability structures in the perturbative computation of the couplings
+@xmath12 remains an open problem .    at strong t hooft coupling
+we may use the ads / cft duality @xcite to compute the couplings @xmath12 .
+the duality relates the @xmath14 string partition function , computed with suitable boundary condition , to the generating functional for correlation functions of the gauge theory @xcite .
+however , in practice this relation has been useful only to compute , at strong coupling , correlation functions of chiral operators that are dual to the supergravity fields @xcite .
+recently , a path integral approach to compute the string theory partition function for a heavy string state propagating between two boundary points has been developed @xcite ( see also @xcite ) . in this case
+the string path integral is dominated by a classical saddle point , giving a new method to compute at strong coupling the 2-point function of single trace operators with a large number of basic fields @xcite . in section 4
+we shall extend this computation to the case of a 3-point function with an additional chiral operator .
+the basic idea is that , taking into account the coupling between the heavy string worldsheet and the supergravity fields , the path integral giving the aforementioned 2-point function can be extended to include the interaction with light fields . in practice
+all one needs to do is to compute a witten diagram with a supergravity field propagating from the @xmath14 boundary to the heavy string worldsheet , which acts as a tadpole for this field .
+we will show how this computation works for the dilaton field and several heavy string configurations , obtaining couplings of the form @xmath15 , in complete agreement with the value predicted by renormalisation group arguments .
+we conclude in section 5 with comments and open problems .
+the goal of this section is to show how to relate the 3-point correlation function in a cft to the anomalous dimension matrix obtained from deforming the cft with a marginal or irrelevant operator @xmath0 of dimension @xmath16 at the cft fixed point .
+we emphasise that the results presented in this section are valid at a cft fixed point with coupling @xmath17
+. we shall explore basic ideas given in @xcite ( see also appendix in @xcite ) .
+the example that we have in mind , and that we will work in detail in the following sections , is @xmath4 sym , so we shall stick to four dimensions . in this case
+, the dimension @xmath16 of the operator @xmath0 satisfies @xmath18 . in the case of @xmath4 sym
+we have a line of cft s parameterised by the coupling constant @xmath17 , so we may wish to take the coupling to be finite and large , or to expand to arbitrary order in the coupling constant . we may also wish to consider an operator @xmath0 of protected dimension , but that is not necessary .    our starting point is a cft with action @xmath19 .
+we consider the deformed theory with action @xmath20 where @xmath21 is the dimensionless deformation parameter at the cut - off scale @xmath22 of dimension inverse length , and the operators that appear in this action are the renormalized operators of the undeformed theory .
+the beta function for the coupling @xmath21 has the form , @xmath23 where @xmath24 represents terms quadratic , or of higher powers , in the couplings to all operators around the fixed point . for what we are doing it will be sufficient to work to linear order in @xmath21 ,
+so we keep only the first term in the beta function @xmath25 with @xmath16 computed at the fixed point .
+sending the cut - off to infinity , the coupling @xmath26 at a fixed scale @xmath27 is constant for @xmath28 ( marginal deformation ) and vanishes for @xmath29 ( irrelevant deformation ) . for simplicity we shall consider the operator @xmath0 to be a scalar primary . but
+this can be generalised to more operators , for instance , @xmath0 could be the energy - momentum tensor , in which case @xmath21 would be a tensor valued deformation parameter .    for the sake of clarity
+, we shall consider in what follows the case of an operator @xmath0 with dimension @xmath28 at the fixed point .
+since we are interested in the case of @xmath4 sym at any value of the coupling , this means the operator has protected dimension . in the appendix
+we extend our results to the case of irrelevant deformations .
+we decided to separate the discussion because in the following sections we shall be working with the marginal case , therefore avoiding the duplication of formulae in the main text .    a final introductory word about notation
+, we shall use the label @xmath21 to denote quantities computed in the deformed cft with action given by ( [ deformedaction ] ) .
+quantities without the label @xmath21 are computed at the undeformed theory for which @xmath30 .
+we now analyse the divergences that appear in the deformed theory , in terms of renormalized quantities of the undeformed theory .
+let @xmath2 be any renormalized operator of the undeformed theory .
+we shall denote its full dimension ( classical + quantum ) , at the fixed point , by @xmath11 . when computing the correlation function of this operator with any other operators , we obtain in the deformed theory to linear order in @xmath21 , @xmath31 where the right hand side of this equation is computed in the undeformed theory .
+in general new divergences can appear in equation ( [ expansionn - pf ] ) , that can be cancelled by renormalizing the operators @xmath32 , and that come from the behaviour of the correlation function involving @xmath33 , when @xmath34 approaches any of the positions of the other operators .
+the form of this divergences is entirely determined by the ope in the undeformed theory of the operator @xmath0 with the operators appearing in the correlation function . for the operator @xmath35 we have @xmath36 where the constants @xmath1 are precisely the couplings appearing in the 3-point function @xmath37 .
+we remark that for now we assume that the complete basis of operators @xmath38 is diagonal with unit norm , i.e. @xmath39 the physically meaningful couplings @xmath1 are defined with respect to operators satisfying this normalisation .    using the ope expansion ( [ ope ] ) , we conclude that the divergence in the @xmath34 integral of ( [ expansionn - pf ] ) , arising from the region of integration @xmath40 , is given by @xmath41 hence , powerlike divergences arise from operators that enter the ope of @xmath2 and @xmath0 , and whose dimensions satisfy @xmath42 . by the unitarity bounds this is a finite number of operators , for instance
+, for scalar operators in four dimensions we must have @xmath43 .
+logarithmic divergences appear from operators in the ope with @xmath44 .
+we are now in position to define renormalized operators @xmath45 of the deformed theory , expressed in terms of renormalized operators of the undeformed theory , such that the general correlation function ( [ expansionn - pf ] ) is finite .
+this is quite simple , because there is a finite number of operators @xmath3 entering the ope ( [ ope ] ) and contributing to the divergences in ( [ divergences ] ) .
+we define the renormalized operators @xmath46 as usual , we see that operator mixing occurs for @xmath47 . in terms of bare operators of the undeformed theory , then , in a theory without dimensional couplings , mixing will only occur between operators of the same classical dimension , i.e. for @xmath48 .
+then , the last term in ( [ renormalized ] ) only concerns operators with different anomalous dimensions , since the power like divergence becomes logarithmic when expanding in the coupling @xmath17 . ] with this renormalization scheme , correlation functions @xmath49 computed at the fixed value of the coupling @xmath17 , and to linear order in @xmath21 for the theory with action ( [ deformedaction ] ) , are finite
+.    of particular importance to us will be the case of 2-point functions .
+for operators @xmath2 and @xmath3 with the same dimension in the undeformed theory , it is simple to see that @xmath50 for @xmath51 this gives @xmath52 if there are different operators @xmath2 and @xmath3 of equal dimension , we see that the effect of turning on the deformation is to induce operator mixing , since the above 2-point function is no longer diagonal .
+it is also simple to see that the 2-point function for operators @xmath2 and @xmath3 of different dimension still vanishes .
+we now wish to better understand the basis of renormalized operators introduced in the previous section , by defining a deformed anomalous dimension matrix . we will then verify the callan - symanzik equation for correlation functions in the deformed theory .
+let us start by defining renormalized operators of the deformed theory using the usual renormalization matrix @xmath53 where we omitted the summation in @xmath54 .
+from ( [ renormalized ] ) we can read the entries of this matrix , @xmath55 it is now simple to compute the anomalous dimension matrix associated to the deformation , defined by @xmath56 its non - vanishing entries are _ ab = u 2 ^ 2 a_dab ^_a-_b , [ deformedgamma ] for @xmath57 .
+we remark that the anomalous dimension matrix @xmath58 is defined with respect to renormalized operators of the undeformed theory with total dimension given by @xmath11 at the fixed point . if we order the operators in blocks with descending value of dimension , the non - diagonal top - right blocks of the anomalous dimension matrix @xmath59 have zero entries .
+it is then clear that its eigenvalues @xmath60 are independent of the cut - off @xmath22 , although the eigenvectors do depend in general on @xmath22 ( when there is mixing between operators of different dimension ) .
+thus , in the diagonal basis we have , as usual , @xmath61 .    an alternative way of deriving the relation between the anomalous dimension @xmath58 and the couplings @xmath62 is to verify the callan - symanzik equation .
+this is simpler for a marginal deformation , and to linear order in @xmath21 , because the beta function @xmath25 vanishes ( in the appendix we consider the case of irrelevant deformations ) . for the non - renormalized two - point function of the deformed theory , computed using renormalized operators of the cft at the fixed point
+, the callan - symanzik equation has the form @xmath63 using ( [ expansionn - pf ] ) and the form of the divergences given in ( [ divergences ] ) this equation is satisfied provided ( [ deformedgamma ] ) holds .    for practical perturbative computations it is useful to relate the couplings @xmath62 to the anomalous dimension matrix computed with respect to bare operators of the cft ( not renormalized ) .
+let us denote a basis of such operators by @xmath64 .
+now assume that we manage to diagonalize the anomalous dimension matrix of the critical theory , so that in the basis @xmath64 we have @xmath65 , where @xmath66 are the eigenvalues ( for instance , in @xmath4 sym we can use integrability techniques to do that quite effectively ) . in this basis , and denoting by @xmath67 the classical dimension of operators , it is simple to see that the renormalization matrix @xmath68 relating bare operators to the renormalized operators of the deformed theory in the usual way , @xmath69 , has entries @xmath70 the corresponding deformed anomalous dimension matrix has entries ^u_ab = _ ab _ a + u 2 ^ 2 a_dab ^^0_a-^0_b .
+[ deformedh ] note that these are the entries of the matrix @xmath71 in the basis @xmath64 that diagonalizes the anomalous dimension matrix of the critical theory .
+again , it is important to realize that the structure of the matrix @xmath71 , given by ( [ deformedh ] ) , implies that its eigenvalues are independent of the cut - off @xmath22 , although the eigenvectors may depend on @xmath22 .
+let us show explicitly how the knowledge of the deformed anomalous dimension @xmath71 allows to relate the couplings @xmath1 to the deformed anomalous dimensions and renormalized operators @xmath45 expressed in terms of the bare quantities .
+first we write the anomalous dimension matrix as @xmath72 where @xmath73 is the anomalous dimension matrix of the critical theory , and @xmath74 is the term arising from the deformation which we treat as a perturbation . for simplicity
+we assume that the operators @xmath65 and @xmath75 do not have the same anomalous dimension at the critical point ( they may or may not have the same classical dimension ) .
+then , writing the eigenvalues and eigenvectors of @xmath71 respectively as @xmath76 basic quantum mechanics formulae gives @xmath77 where the matrix elements are computed in the basis @xmath38 with unit normalised operators . from the explicit form of the deformed anomalous dimension matrix in the basis @xmath64 given in ( [ deformedh ] ) , we conclude that @xmath78 note that ( [ final2 ] ) has the correct dependence in the cut - off @xmath22 to relate operators @xmath2 and @xmath79 of different dimension , as required by ( [ quantummechanics ] ) .
+it is now clear that if we have a way of determining the action of the perturbation matrix @xmath80 on the bare operators , we may then compute the corresponding couplings using ( [ final ] ) and ( [ final2 ] )
+. this will be the case in the next section , where we consider coupling deformations of @xmath4 sym and the known form of the integrable anomalous dimension matrix at a given order in the coupling constant .
+we finish this section with a word on normalization of operators . in the next section
+it will actually be convenient to perform computations with operators that are not normalized to unit , i.e. after diagonalizing the eigenvectors of the undeformed theory we will have @xmath81 with this normalization , to obtain the physically meaningful couplings for the unit normalized operators , we need to divide the operators in equations ( [ final ] ) and ( [ final2 ] ) by their norm .
+in this section we consider the simplest case of @xmath4 sym deformed by the lagrangian operator , since this theory is actually a line of fixed points parametrised by the coupling constant .
+we shall use integrability to show how to compute the couplings in the 3-point function of the lagrangian with any two operators of the theory . for simplicity , we restrict our analysis to the @xmath82 scalar subsector , and consider in detail operators corresponding to two - magnon excitations in the spin chain language .
+we shall use the following convention for the @xmath4 sym action @xmath83 ^ 2 + { \rm fermions}\big)\ , , \label{action}\ ] ] where @xmath84 and the covariant derivative is defined by @xmath85 $ ] . all fields are in the adjoint representation and the @xmath86 generators are normalized with @xmath87 .
+we will be considering the @xmath82 sector with complex scalars @xmath88 now consider the theory at some fixed value of the t hooft coupling , defined by @xmath89 we will consider ( planar ) perturbation theory to some order in the coupling @xmath90 .
+we are therefore considering the cft at the fixed point with coupling @xmath90 .
+then , to deform the theory with @xmath91 , it is clear from ( [ action ] ) that we should write @xmath92 hence , making this replacement in the anomalous dimension matrix of @xmath4 , to a given order in @xmath90 , and then keeping only the linear terms in @xmath21 , we obtain the form of the deformed anomalous dimension matrix @xmath71 .
+we may then use the results ( [ final ] ) and ( [ final2 ] ) to compute the couplings .
+alternatively , we can also compute the derivative of @xmath93 or @xmath45 with respect to @xmath21 or , instead , the derivative @xmath94 of @xmath95 or @xmath2 to a given order in @xmath90 .
+finally , note that the two - point function of the lagrangian is ( dropping the @xmath96 correction ) @xmath97 we shall compute the couplings with respect to this normalization , but it is simple to re - scale with respect to the unit normalised lagrangean @xmath98 . in that case
+we would obtain that all the couplings @xmath99 computed in this paper are of order @xmath96 , for fixed t hooft coupling , as expected .
+as an example consider single trace operators made by @xmath100 fields of the @xmath82 sector and regard the fields @xmath101 as impurities in the vacuum state @xmath102 . for operators with @xmath103 impurities , we use the integers @xmath104 to indicate the position of the impurities in the corresponding spin chain , @xmath105
+the anomalous dimension matrix is that of an integrable spin chain and may be diagonalized by solving the bethe equations @xcite . then the operator @xmath2 , with anomalous dimension @xmath95 , is given by @xmath106 where the wave function @xmath107 is parameterized by the momenta @xmath108 of the magnons , which in general can be complex , sum to zero mod @xmath109 , and depend on the t hooft coupling .
+then , the contribution of the @xmath110-th magnon to the anomalous dimension of the operator @xmath2 is given by @xcite @xmath111 this formula is believed to be correct to all orders in the t hooft coupling , provided wrapping effects , that become important at order @xmath112 , are neglected .
+the interactions between magnons are responsible for the dependence of their momenta on the t hooft coupling .
+this effect appears in the computation of the anomalous dimension at two - loop order , while is appears at one - loop in the computation of the coupling @xmath113 .
+thus , neglecting wrapping effects , ( [ final ] ) gives the all - loop result @xmath114 where prime denotes derivative with respect to @xmath90 .
+we remark that the normalised coupling @xmath115 scales with @xmath96 as expected .
+we shall compute in the next section this coupling up to order @xmath116 , in the simple case of operators with two - magnons .
+next we consider the dilute limit of @xmath117 . in this limit
+the magnons propagate freely on the spin chain and their momentum is trivially quantised as @xmath118 in this case the second term in the numerator of ( [ alllooplaa ] ) can be dropped .
+one may now study both weak and strong coupling limits .
+the leading order term in @xmath90 , which comes from the 1-loop correction to the anomalous dimension of @xmath2 , is given by @xmath119 and can be derived simply by doing wick contractions between @xmath120 , @xmath2 and @xmath121 . on the other hand , at strong coupling and neglecting wrapping effects ,
+we have @xmath122 in section  [ sec : strongcoup ] we shall confirm this computation of the coupling @xmath113 , by directly computing this 3-point function using the ads / cft duality in the gravity limit .
+we shall now illustrate how one can use integrability techniques and the general results given in ( [ final ] ) and ( [ final2 ] ) to compute the couplings of two operators , each with two magnons , and the lagrangian .
+we will compute 1-loop corrections to these couplings , which correspond to diagonalizing the anomalous dimension matrix at two - loop order .
+the corresponding spin chain hamiltonian includes next to neighbour interactions @xcite , @xmath123 where @xmath124 is the permutation operator . at this order ,
+the bethe wave function includes a contact term and can be written in the following form @xcite @xmath125 with @xmath126 since for two magnons the total momentum vanishes , we have @xmath127
+. we shall now write the formulae for the contact function and for the s - matrix in this simpler case @xcite . for the contact function @xmath128
+, we have @xmath129 which satisfies @xmath130 .
+the s - matrix @xmath131 , can be written as @xmath132 with @xmath133 it is clear that @xmath134 .
+the momenta that solve the bethe equation @xmath135 are given by @xmath136 where @xmath137 is an integer .
+it is now a mechanical calculation to replace this expression in ( [ alllooplaa ] ) , to obtain @xmath138 + o(g^6)\ , .
+\label{twolooplaa}\ ] ]    next we consider the coupling @xmath139 , where @xmath2 is an operator with two magnons of momenta @xmath140 and @xmath141 , and @xmath3 is an operator with two magnons of momenta @xmath142 and @xmath143 .
+this amounts to computing the matrix element @xmath144 . using the two - loop anomalous dimension matrix given in ( [ anomalousdimmatrix ] ) we have @xmath145
+now we argue that the first two terms in this expression do not contribute to @xmath144 .
+first recall that @xmath146 and @xmath147 are eigenstates of @xmath73 , with terms of order @xmath148 and @xmath90 . since @xmath73 is diagonalized by these eigenstates , the contribution from the first term in @xmath80 vanishes .
+moreover , since the second term in @xmath80 starts at order @xmath116 , for this term we may consider the eigenstates @xmath146 and @xmath147 only at order @xmath148 .
+thus , this term is proportional to the hamiltonian @xmath73 at one - loop , and it will also give a vanishing contribution .
+we are therefore left with the contribution from the last term in ( [ derivativeh ] ) , which we can compute with the eigenstates @xmath146 and @xmath147 of order @xmath148 .
+a computation shows that @xmath149 since we are working with states with norm @xmath150 , after normalising to unit we obtain @xmath151    the example given in this section shows that one can use integrability of @xmath4 sym to compute quite effectively the couplings of operators to the lagrangian . of course one can try to compute these couplings to higher orders in the t hooft coupling @xmath90 , to consider operators with more magnons and also operators outside the @xmath82 sector .
+another generalization would be to consider the beta deformation of @xmath4 sym , computing the couplings involving the operator that generates such deformation .
+it would be very interesting to study the deformed anomalous dimension matrix associated to operators that are not exact , and whose deformation does not lead to an integrable theory .
+in particular , having a representation of @xmath80 acting on the spin chain associated to operators of the cft at the fixed point would allow for quite effective computations of the corresponding couplings .
+in this section we compute 3-point correlation functions of @xmath4 sym at strong coupling using the ads / cft duality .
+so far , computations of correlation functions in the gauge / gravity duality use the field theory limit of strings propagating in ads . in this case
+, the computation of witten diagrams involves only supergravity fields , giving correlation functions of chiral operators @xcite . on the other hand , here we shall compute 3-point correlation functions involving two insertions of an operator @xmath2 dual to a very massive string @xcite , with a chiral operator @xmath0 dual to a supergravity field .
+the corresponding witten diagram is given in figure [ wittendiagram ] , where a heavy string state propagates between boundary points at @xmath152 and @xmath153 , and interacts with a light field sourced at the boundary point @xmath34 .
+this computation can be done for the supergravity fields that couple to a heavy string worldsheet .
+clearly one can also generalise this computation to higher point functions with more supergravity fields .        to compute the string partition function
+we shall use different approaches to treat the heavy and light string fields . for
+the heavy string state we shall consider the action for a string ( or particle ) in the first quantised theory and compute its contribution to the partition function by summing over classical trajectories , while for the light fields we shall use the supergravity approximation .
+it is therefore convenient to represent the source for the operator @xmath2 dual to the heavy string field by @xmath154 , and the source for the chiral operators @xmath0 dual to the supergravity fields by @xmath155 .
+the gauge theory generating functional for diagrams with insertions of @xmath2 at @xmath152 and at @xmath153 can then be written as @xmath156 by varying with respect to the sources @xmath155 we may compute correlation functions with many chiral operators . in this section
+we are interested in the simplest case of taking one such derivative to compute the 3-point function @xmath157 for some chiral operator @xmath0 .    the ads / cft duality states that the gauge theory generating functional for correlation functions of local operators equals the string partition function with suitable boundary conditions @xcite . in particular , at strong coupling , the generating functional ( [ generatingfunctional ] ) can be approximated by @xmath158 +   s_{sugra}[\phi ] \right)}\ , , \label{stringgeneratingfunctional}\ ] ] where we use the string polyakov action @xmath159 to describe the propagation of the heavy string state . the corresponding worldsheet starts and ends very close to the boundary , i.e. in poincar coordinates @xmath160 it obeys the boundary conditions @xmath161 where @xmath162 is a regulator .
+the effect of these boundary conditions is to generate two functional derivatives with respect to the source @xmath154 of the heavy field , justifying the identification between ( [ generatingfunctional ] ) and ( [ stringgeneratingfunctional ] ) .
+the supergravity fields in ( [ stringgeneratingfunctional ] ) are represented by @xmath163 and approximate the gauge theory sources @xmath164 near the boundary , in the sense that @xmath165 as @xmath166 .
+the propagation of the light fields is determined by the supergravity action around the @xmath167 vacuum , which we denote below by @xmath168 .
+the vacuum value for the ten - dimensional einstein metric @xmath169 is given by @xmath170 where the ads radius satisfies @xmath171 .
+then , it is simple to show that the five - dimensional supergravity action in the einstein s frame has the form @xmath172 where @xmath24 represents terms in the action other than the metric and dilaton fields . the gravitational coupling is given by @xmath173 .
+the propagation of the heavy string state , and its coupling to the supergravity fields , is determined from the polyakov action s_p[x , , ] = - g d^2 ^ _ x^a _
+x^b g_ab e^/2 + , [ polyakov ] where @xmath169 is the ten - dimensional metric in the einstein frame , @xmath174 represents the fluctuations of the dilaton field and @xmath24 includes other terms like worldsheet fermions and other supergravity fields .
+the heavy string will have the worldsheet topology of a cylinder . working in the conformal gauge ,
+the integration over worldsheet metrics becomes simply an integration over the modular parameter @xmath175 of the cylinder , i.e. [ gammatos ] d^2 ^   _
+-s/2^s/2d_0 ^ 2 d^.    to compute the generating functional ( [ stringgeneratingfunctional ] ) it is convenient to perform first the path integral over the supergravity fields . we write ( [ stringgeneratingfunctional ] ) as @xmath176 } \int d\phi \,e^{i \left(s_{sugra}[\phi ]   + \int d^2\sigma\left .
+\frac{\delta s_{p}[x , s,\phi]}{\delta \phi}\right|_{\phi=0}\,\phi + \cdots\right ) }   \ , .
+\label{stringgeneratingfunctional2}\ ] ] for a fixed off - shell string worldsheet , the supergravity functional can be computed with witten diagrams , after boundary sources for the supergravity fields are specified .
+the new ingredient are the extra terms localized along the string worldsheet that add to the supergravity action .
+these terms determine the coupling between the light fields and the heavy string state . in ( [ stringgeneratingfunctional2 ] )
+we wrote just the leading term , which acts as a simple tadpole for the supergravity fields ( it comes from a cubic interaction in string field theory ) .
+these terms can be treated perturbatively and do not affect the free propagators of light fields .
+before computing diagrams with a supergravity field , let us recall the computation of the 2-point function for the operator @xmath2 dual to a heavy field , as done in @xcite . to obtain the correct scaling of the 2-point function
+it is necessary to convolute the generating functional ( [ stringgeneratingfunctional2 ] ) with the wave function of the classical field we are considering . in the wkb approximation this amounts to changing the measure in the string path integral such that the action determining the propagator of the heavy field is actually @xmath177 \ , , \label{newaction}\ ] ] where we use letters @xmath178 and @xmath179 respectively for the @xmath180 and @xmath181 indices .
+the worldsheet canonical momentum is @xmath182 , and @xmath183 and @xmath184 are the @xmath180 zero modes @xmath185 the arbitrariness in the definition of these zero modes requires a precise prescription . in @xcite
+it was proposed to use the embedding coordinates of @xmath180 , therefore preserving the @xmath186 symmetry of the conformal group . for a number of particular examples , it was shown in @xcite the following result , which is expected to be general , @xmath187 } \approx   \frac{p}{|x_i - x_f|^{2\delta_a}}\,,\ ] ] where we absorbed the cut - off dependence in the measure .
+the path integral is dominated by the classical saddle point , which yields the correct conformal dependence for the 2-point function of the operator @xmath2 . the pre - factor @xmath124 , which is associated to the integration of fluctuations of the classical solution ,
+will define the normalization of @xmath2 .
+since the 3-point function is defined with respect to unit normalized operators , we shall see below that to leading order we actually do not need to evaluate this pre - factor .
+next let us consider the 3-pt function @xmath188 , where @xmath189 is a chiral operator of dimension @xmath16 dual to some particular supergravity field @xmath190 .
+this field may have some tensor structure in @xmath180 and also some kk structure from the @xmath181 compactification .
+the functional integral for the supergravity fields in ( [ stringgeneratingfunctional2 ] ) can be computed using witten diagrams .
+if the field @xmath190 has a source at the boundary , ( [ stringgeneratingfunctional2 ] ) leads to [ 3pt - function ] .
+k_(x ( , ) ; y ) , [ i_integral ] and @xmath191 is the bulk - to - boundary propagator of the field @xmath190 .
+equation ( [ 3pt - function ] ) states that the 3-point function is simply the expectation value over the heavy string trajectories of the interaction term @xmath192 $ ] , weighted by the action @xmath193 .
+note that the measure used for the propagation of the heavy string is that defined by the computation of the 2-point function as described above , i.e. after the convolution with the heavy state wave function . on the other hand , the coupling @xmath192 $ ]
+is determined by the polyakov action @xmath159 . as usual , to compute this path integral one expands around the classical saddle point x ( , ) = |x ( , ) + ,  s=|s + s , where we rescaled the quantum fluctuations for @xmath194 so that the t hooft coupling @xmath90 does not enter in the quadratic terms arising from the expansion of the action @xmath193 around the saddle point solution @xmath195 .
+it is then clear that , after expanding the interaction term @xmath192 $ ] around this saddle point , the dominant contribution in ( [ 3pt - function ] ) for large @xmath196 is given by .
+i _ , where the pre - factor @xmath124 coincides precisely with that in the computation of the 2-point function of @xmath2 .
+thus , defining @xmath2 to have a unit normalised 2-point function , we conclude that at strong coupling [ result ] _
+a(x_i)o_a(x_f)d_(y ) . equation ( [ result ] ) is one of the main results of this paper .
+the approximations that led to ( [ result ] ) assume that the initial and final heavy string states are the same .
+this means that interactions with supergravity fields that change conserved charges of the heavy string , such as @xmath197-charge or @xmath14 spin , are not taken into account .
+it would be interesting to consider a heavy string with different initial and final boundary conditions and include the effect of the light supergravity field on the string saddle point .
+to fix our conventions let us remark that in the simple case of a scalar field @xmath190 , normalised such that @xmath198 its bulk - to - boundary propagator is given by @xmath199 in this simple case the normalisation of the 2-point function of the operator @xmath189 appearing in ( [ result ] ) is given by _
+( x)d_(y ) = .
+[ 2pt - functiond ]    in the remainder of this section we shall compute 3-point functions of the type @xmath200 .
+we will consider the simplest case where the operator @xmath0 is dual to the dilaton field , i.e. we will consider the operator @xmath201 .
+this will allow us to check our results since , as shown in sections 2 and 3 , this correlation function can be obtained from the derivative of @xmath202 with respect to the coupling constant .
+we need to be careful with normalisations , since the dilaton field in the sugra action has a factor of @xmath203 multiplying the canonical kinetic term . instead , we should compute the witten diagram with the canonically normalised field @xmath204 , whose propagator is given by ( [ kprop ] ) with @xmath28 .
+the final result should then be multiplied by @xmath205 , since @xmath206 . in practice
+, when computing @xmath207 in ( [ i_integral ] ) , this amounts to taking the derivative of the action @xmath159 with respect to @xmath174 , while using the normalised propagator @xmath208 as given in ( [ kprop ] ) . in what follows
+we shall refer to @xmath207 in ( [ i_integral ] ) with that abuse of notation .
+finally , let us remark that in our conventions the 2-point function of @xmath120 is given at large @xmath209 by ( [ normalisationl ] ) , which can also be verified at strong coupling using the duality .
+let us consider first the limit where the heavy string field dual to the operator @xmath2 can be approximated by a point - particle of mass @xmath210 . in the einstein frame ,
+the nambu - goto action for a particle coupled to the dilaton takes the form @xmath211= - m   \int_0 ^ 1 d\tau \ , e^{\phi/4 }   \sqrt { - \dot{x}^a \dot{x}^b g_{ab } }   \,,\ ] ] where dot denotes derivative with respect to the worldline parameter @xmath212 . on dimensional grounds
+one concludes that massive string states will have @xmath213 .
+we shall be working with the usual poincar coordinates @xmath214 and for simplicity assume only motion in the @xmath180 part of the space .
+the corresponding polyakov action , depending on both the particle trajectory and the einbein @xmath215 , is @xmath216=   \frac{1}{2 } \int_0 ^ 1 d\tau   \ , e^{\phi/4 } \left ( \frac{1}{{\rm e } } \,\dot{x}^a \dot{x}^b g_{ab } - { \rm e}\ , m^2 \right ) \,.\ ] ] the functional integration over the einbein @xmath215 can be substituted by a simple integration over the modular parameter @xmath175 , @xmath217=   \frac{1}{2 } \int_{-s/2}^{s/2 } d\tau   \ , e^{\phi/4 } \left(\dot{x}^a \dot{x}^b g_{ab } - m^2 \right ) \,,\ ] ] analogously to ( [ gammatos ] ) .
+we may now apply the procedure to obtain the 3-point function starting from ( [ stringgeneratingfunctional2 ] ) .    for spacelike separation on the boundary along a direction @xmath218
+, the particle action on the @xmath14 vacuum simplifies to [ spnodilaton ] s_p[x , s,=0 ] = _ -s/2^s/2 d ( - m^2 ) .
+the computation of the 2-point function for the point particle , using this action , was performed in @xcite .
+the procedure is as follows : ( i ) determine a solution @xmath219 to the particle equations of motion , @xmath220 ( ii ) impose that the endpoints of the motion approach the boundary , @xmath221 , which implies [ kappabc ] , where we have set @xmath222 and @xmath223 ; ( iii ) compute the action s_p[|x , s,=0 ] = ( ^2 - m^2 ) s ; ( iv ) perform the integration over the modular parameter @xmath175 by taking the saddle point , [ saddleparticle ] |s = - i , which corresponds to the `` virasoro constraint '' for the einbein .
+this computation leads to the correct dependence of the 2-point function , because at the saddle point e^i s_p[|x,|s,=0 ] = ( ) ^2_a , where we considered the large @xmath11 limit , for which @xmath224 .    to compute the 3-point function @xmath225
+, we need to evaluate @xmath226 $ ] , as given by ( [ i_integral ] ) . taking care of the correct normalization
+, we have i_= i _
+-s/2^s/2 d ( - m^2 ) ( ) ^4 . for small @xmath162 , at the saddle point trajectory ( [ xzparticle ] ) we obtain i_= . at the modular parameter saddle point ( [ saddleparticle ] ) , this expression becomes simply i_=- .
+we conclude from ( [ result ] ) that _
+a(0)o_a(x_f)l(y ) - .
+[ resultparticle ] this expression has the spacetime dependence required by conformal invariance . the coupling @xmath15 is determined for large @xmath11 , and it agrees with the expectation from the renormalization group result ( [ final ] ) . to see this , notice that since @xmath227 , we have 2 ^ 2 a_laa = - g^2 - . in agreement with ( [ resultparticle ] ) .
+the simplest example after the point particle is the circular rotating string with two equal spins @xcite , whose 2-point function was also computed in @xcite .
+we start with the polyakov action coupled to the metric and the dilaton field ( [ polyakov ] ) .
+the solution @xmath219 for the circular rotating string is given by ( [ xzparticle ] ) in the @xmath180 part of the geometry . in the @xmath181 part , with line element ds^2_s^5 = d^2 + ^2d_3
+^ 2 + ^2(d^2 + ^2d_1 ^ 2 + ^2 d_2 ^ 2 ) , it is given by = , _ 3=0 , = , _ 1=_2=. the conserved angular momenta of the solution are @xmath228 .
+this configuration is dual to an operator of the type @xmath229 .
+let us apply now the procedure in @xcite .
+we have @xmath230 & = g \int_{-s/2}^{s/2 } d\tau \int_{0}^{2\pi } d\sigma \left ( \frac{\dot{x}^2 + \dot{z}^2}{z^2 } - \psi'^2 + \cos^2 \psi \,\dot{\phi_1}^2 + \sin^2 \psi \,\dot{\phi_2}^2 \right ) \nonumber \\ & = 2 \pi g \left ( \frac{4}{s^2 } \log^2\frac{x_f}{\epsilon } + ( \omega^2 - 1 ) \right)s \,,\end{aligned}\ ] ] where prime denotes derivative with respect to @xmath231 , and we have imposed the relation ( [ kappabc ] ) . as detailed in @xcite , there is a subtlety in obtaining the string propagator , so that the classical solution for the cylinder coincides with the classical state .
+this amounts to considering ( [ newaction ] ) , _
+p[|x , s,=0 ] = 2 g ( ^2 -(1+^2 ) ) s .
+the saddle point in the modular parameter @xmath175 is given by [ saddlecircular ] |s = - i .
+looking at ( [ kappabc ] ) this implies the virasoro constraint @xmath232 .
+we conclude that at the saddle point , we have e^i _ p[|x,|s,=0 ] = ( ) ^8 g .
+this gives the correct dimension @xmath233 .
+now we will obtain the 3-point function .
+first we evaluate @xmath234 & = i\ , \frac{3\ , g}{\pi^2 } \int_{-s/2}^{s/2 } d\tau \int_{0}^{2\pi } d\sigma \left ( \frac{\dot{x}^2 + \dot{z}^2}{z^2 } - \psi'^2 + \cos^2 \psi \,\dot{\phi_1}^2 + \sin^2 \psi \,\dot{\phi_2}^2 \right ) \times \nonumber \\ & \hspace{5 cm } \times \left ( \frac{z}{z^2 + ( x - y)^2}\right)^4 \nonumber \\ & = i\,\frac{g}{4\pi}\ , \displaystyle { \frac{\left ( \frac{4}{s^2}\log^2\frac{x_f}{\epsilon}+(\omega^2 - 1)\right)s}{\log\frac{x_f}{\epsilon}}\ ; \frac{x_f^4}{y^4\,(x_f - y)^4 } }   \,,\end{aligned}\ ] ] at the saddle point ( [ saddlecircular ] ) , we have i_=- .
+therefore , we conclude that _
+a(0 ) o_a(x_f)l(y ) - .
+as happened in the point particle case , the spacetime dependence is the one required by conformal invariance .
+the coupling @xmath15 determined in this way agrees with the expectation , since 2 ^2 a_laa = - g^2 - g^2 2 = - , where we kept the angular momentum @xmath235 fixed when taking the derivative .
+following the same steps , we move to the more complicated case of the giant magnon where the string rotates on a @xmath236 subspace of @xmath237 @xcite .
+we remark that although an operator with a single magnon is not gauge invariant , we are implicitly computing the contribution of a single magnon to the 3-point coupling @xmath113 involving an operator @xmath2 in the dilute limit .
+since the contribution of a magnon to the 2-point function of some operator was not computed in @xcite , we will present first this calculation and then concentrate on the 3-point function .
+let us start by writing the solution in poincar coordinates .
+the @xmath14 part is the same as in the two previous cases given in .
+parametrizing the @xmath181 as ds^2_s^5 = d^2 + ^2d^2 + ^2 d_3 ^ 2 , the giant magnon has non - trivial worldsheet fields in the @xmath238 part , given by @xmath239 where @xmath240 and @xmath241 is the momentum of the magnon . the virasoro constraints , which we will not impose at this stage , require @xmath242 , where @xmath243 given in characterises the @xmath14 motion .
+then we have @xmath244 & = g \int_{-s/2}^{s/2 } d\tau \int_{-l}^{l } d\sigma \left ( \frac{\dot{x}^2 + \dot{z}^2}{z^2 } + ( \dot{\theta}^2 - \theta'^2 ) + \sin^2 \psi \,(\dot{\varphi}^2 - \varphi'^2 ) \right ) \nonumber \\ & = g \int_{-\frac{s}{2}}^{\frac{s}{2}}d\tau \int_{-l}^{l } d\sigma \left[\kappa^2 + \omega^2 - 2 \omega^2 \cosh^{-2 } ( \omega u)\right]\ , .
+\end{aligned}\ ] ] using we convolute with respect to the wave function of the rotating string state , which will change the @xmath181 action into its energy .
+we obtain @xmath245= g \int_{-\frac{s}{2}}^{\frac{s}{2}}d\tau \int_{-l}^{l } d\sigma \left(\kappa^2 - \omega^2 \right ) = 2\ , g \ , s \left(\kappa^2 - \omega^2 \right ) l \ , .\ ] ] taking into account the condition for @xmath243 , it is possible to perform the remaining integration over the modular parameter @xmath175 by saddle point , with the result [ saddle - gm ] |s = -i .
+again , this corresponds to the virasoro constraint , which in this case reads @xmath242 , and leads to [ conv - polyakov - gm ] _
+p[|x,|s,=0]= i 8 g l .
+it is convenient now to introduce the angular momentum , @xmath246 where we took the large @xmath100 approximation ( notice that the above saddle point defines a @xmath212 integration with @xmath247 real ) . substituting in and exponentiating
+, we obtain the expected behaviour for the 2-point function , [ 2p - gm ] e^i _ p[|x,|s,=0 ] = ( ) ^2 ( j + 4 g ) , in particular , @xmath248 , which agrees with ( [ gmall - loop ] ) .
+now it is straightforward to compute the 3-point function .
+we evaluate @xmath249 & = i\ , \frac{3\ , g}{\pi^2 } \int_{-\bar{s}/2}^{\bar{s}/2 } d\tau \int_{-l}^{l } d\sigma   \big ( \kappa^2 + \omega^2 - 2 \omega^2 \cosh^{-2 } ( \omega u ) \big )   \left ( \frac{z}{z^2 + ( x - y)^2}\right)^4   \nonumber \\ & = \frac{12\,g}{\pi^2 } \,\sin \frac{p}{2}\ , \int_{-\bar{s}/2}^{\bar{s}/2 } d\tau \ ; \frac { \sinh{\left(2 \omega l \csc{\frac{p}{2 } } \right ) } } { [ \cos{\left(2 \omega\ , i\tau \cot{\frac{p}{2}}\right ) } + \cosh{\left(2 \omega l \csc{\frac{p}{2}}\right ) } ] } \times\\ & \phantom{aaaaaaaaaaaaa } \times \frac{x_f^{4 } } { \left[(2y^2 - 2y\ , x_f + x_f^2 ) \cosh(\omega\ , i\tau)+(x_f^2 - 2y x_f)\sinh(\omega\,i\tau)\right]^4}\ , .
+\nonumber \end{aligned}\ ] ] taking the large @xmath100 approximation , as in ( [ jmagnon ] ) , we obtain i_= - .
+therefore , we conclude that the one - magnon contribution to the 3-point function is @xmath250 which agrees with the expected result 2 ^ 2 a_laa = - g^2 - 2 g .      the examples considered in the previous three sections only dealt with relatively simple string configurations with particle - like motion in the @xmath180 part .
+we are interested in testing our approach in a more general setup , where the bulk - to - boundary propagator for the supergravity field varies along the string worldsheet for fixed worlsheet time @xmath212 .
+we shall study the spinning string solution with angular momenta both in the @xmath181 and the @xmath180 factors @xcite , whose 2-point function was also computed in @xcite .
+the study of this solution is necessarily more intricate , because the way in which the string approaches the boundary depends non - trivially on the @xmath180 rotation . in this case
+it is convenient to use embedding coordinates .
+again , the starting point of this calculation is the polyakov action in the conformal gauge , coupled to the metric and dilaton , @xmath252 = -g \int_{-s/2}^{s/2 } d\tau \int_{0}^{2\pi } d\sigma\,e^{\phi/2}\,\big[\eta^{\alpha\beta } \partial_{\alpha } y^{a}\partial_{\beta } y^{b}g_{ab}+\eta^{\alpha\beta}\partial_{\alpha } x^{i } \partial_{\beta } x^{j}\ , g_{ij}+ \\ \tilde{\lambda } \,(y^2 + 1)+\lambda\ , ( x^2 - 1)\big]\,,\ \ \ \   \label{eq : embedding}\end{gathered}\ ] ] where , as before , we have set the @xmath180 length and the radius of the @xmath181 to unity and @xmath253 is the embedding metric .
+the classical solution representing a spinning string is given by @xmath254 , \nonumber \\   & y^2 + y^0= \cosh \rho _ 0 \left(\frac{r}{2}+\frac{e^{\kappa   \tau } } { r}\right)\,,\qquad y^3-y^4 = e^{\kappa   \tau } \cosh \rho _ 0\ , , \nonumber \\ & y^4 = \sinh \rho _ 0 \cos ( \tilde{\omega}\ , \tau+\sigma)\ , , \qquad y^1 = y^5 = 0\,,\qquad \tilde{\lambda } = -\kappa^2\ , , \nonumber\\ & x^1+i\ , x^2 = e^{i\ , ( \omega\,\tau-\sigma)}\ , , \qquad x^i = 0,\text { for } i > 2\ , , \qquad \lambda = \omega^2 - 1\,,\label{eq : tute}\end{aligned}\ ] ] where @xmath255 . the conserved charges of this solution can be readily obtained as functions of @xmath256 , @xmath257 and @xmath243 , and are given by @xmath258 , @xmath259 and @xmath260 , where @xmath235 , @xmath19 and @xmath261 are the angular momentum on the @xmath181 , angular momentum on the @xmath180 and energy , respectively .
+this solution has the required boundary conditions if we further identify @xmath262 and @xmath263 where , as in @xcite , we have conveniently absorbed a factor of @xmath264 in @xmath162 .    in order to calculate the 2-point function , we have to apply the procedure described in @xcite , which amounts to considering ( [ newaction ] ) instead of @xmath265 $ ] defined in ( [ eq : embedding ] ) .
+note , however , that the @xmath180 part in ( [ eq : tute ] ) also depends on @xmath231 , which will lead to non - zero values of the zero - modes defined in ( [ zeromodes ] ) .
+a computation shows that ( [ newaction ] ) becomes @xmath266= 4 \pi   g \left[\kappa-\frac{s \sqrt{1-\kappa ^2}}{2 \pi g\kappa } -\frac{1}{\kappa}\left(1+\frac{j^2}{16 \pi^2 g^2}\right)\right]\log\frac{x_f}{\epsilon}\,.\ ] ] it will be more convenient to evaluate the saddle point with respect to @xmath243 instead of the modular parameter @xmath175 .
+the saddle point in @xmath243 yields the following condition @xmath267 this condition is exactly the virasoro constraint for the spinning string ( [ eq : tute ] ) . at the saddle point
+we recover the usual 2-point function behaviour @xmath268 } = \left(\frac{\epsilon}{x_f}\right)^{8 \pi   g \left(\kappa _ s+\frac{s \kappa _ s}{4 \pi
+g \sqrt{\kappa _ s^2 + 1}}\right)}\,,\ ] ] which gives the correct scaling dimension @xmath269 , where we have defined @xmath270 . note that in the @xmath271 limit we recover the circular spinning string of section 4.2 , as we should .
+now we will obtain the 3-point function .
+first we need to evaluate ( [ i_integral ] ) .
+in contrast to the other cases , the integrand in this case strongly depends on @xmath231 , and the integrals might appear to be very complicated .
+however , because we are integrating @xmath231 from @xmath272 to @xmath109 we can rewrite our integral as an integral in the complex plane by considering the complex variable @xmath273 .
+the integral can then be computed using the residues theorem . for fixed wordsheet time @xmath212 , the integrand has two poles , one of which has zero residue and the other gives the relevant contribution .
+the intermediate steps are too cumbersome to be presented here , so we just state the final result @xmath274 = -\frac{\delta_a}{4\pi^2 \kappa_s^2 } \left(1+\frac{s}{2\pi g \tilde{\omega}}\right)\frac{x_f^4}{y^4(x_f - y)^4}\,.\ ] ] therefore , we conclude that , to leading order in @xmath196 , _
+a(0 ) o_a(x_f)l(y ) - . as happened in the previous cases ,
+the spacetime dependence is the one required by conformal invariance .
+moreover , to leading order in @xmath196 , the coupling @xmath15 determined in this way agrees with the rg expectation , since 2 ^2 a_laa = - g^2 - , where we kept the angular momenta @xmath19 and @xmath235 fixed when taking the derivative .
+we used ( [ eq : saddlerot ] ) to determine @xmath275 , which leads to @xmath276 .
+one of the present challenges in the gauge / gravity duality is to search for new techniques to compute correlation functions of single trace operators in @xmath4 sym , therefore leading to the exact solution of this theory possibly using integrability , at least in the planar limit .
+this paper is focused on such new search , both at weak and strong coupling .
+we started by presenting generic arguments based on the renormalization of operators when a cft is deformed by a marginal or irrelevant operator @xmath0 .
+these arguments were independent of the value of the coupling at the cft fixed point ( a fixed line in the case of @xmath4 sym ) .
+to linear order in the deformation parameter @xmath21 , we can write the anomalous dimension matrix as ^u = h + u h. we showed that the matrix element @xmath277 for two operators @xmath2 and @xmath3 is determined by the coupling @xmath1 .
+for @xmath4 sym and at weak t hooft coupling , we can start by diagonalizing @xmath73 using integrability to some order in the coupling .
+then the problem of computing @xmath1 amounts to determining the matrix elements @xmath277 .
+we saw how to implement these ideas for the simplest case of the exact lagrangian deformation , where the action of the matrix @xmath278 on the basis of operators represented as a spin chain is known ( it is just the derivative with respect to the coupling of the anomalous dimension matrix at the critical point ) . in this case
+one needs to compute the matrix elements of @xmath278 between bethe roots .
+a very interesting open problem is to extend this procedure to other deformations , therefore allowing for a systematic computation of the couplings @xmath1 in perturbation theory using integrability .
+when @xmath0 is a chiral operator in the same multiplet of the lagrangian , for example the energy - momentum tensor , we expect that the action of @xmath279 on the basis represented as a spin chain can be obtain acting with the supersymmetry algebra on @xmath278 .
+it would be very interesting to see how far one can go with this type of approach .
+the gauge / gravity duality can be used to compute @xmath4 sym correlation functions at strong coupling , but in practice one is limited to the supergravity approximation which only includes chiral operators .
+we have improved on this limitation , by including two insertions of an operator dual to a heavy string state , and then studied the case of 3-point correlation functions with one extra chiral operator .
+we considered specific examples with the lagrangian operator , checking agreement with the expected result from renormalization group arguments , since in this case the coupling @xmath15 is simply related to the derivative with respect to the t hooft coupling of @xmath11 .
+this is an important check , since it gives confidence that the method can be applied to other chiral operators .
+our computation of the string theory partition function is based on a saddle point approximation to the string path integral that describes the propagation of the heavy state , generalising the analysis of the 2-point function introduced in @xcite .
+other chiral operators can be included because the heavy string acts as a tadpole for the supergravity fields , which may then propagate to the boundary of @xmath14 if sources are present therein .
+an alternative way to think of this computation is to realise that the supergravity fields act as sources in the equations of motion for the worldsheet fields of the heavy string worldsheet , therefore deforming it .
+in fact , the same occurs in the case of three large operators , whose 3-point function at strong coupling ought to be determined by a string worldsheet with fixed boundary condition on three points in the boundary of @xmath14 . in @xcite
+this was shown to yield the correct conformal dependence of the 3-point function on the boundary points , but the evaluation of the coupling @xmath12 , related to the area of the string worlsheet minimal surface , is still an open problem .
+it is expected that such computation will show a direct relation with integrability , but that remains to be seen .    * acknowledgements *    the authors are grateful to joo penedones and pedro vieira for helpful discussions .
+we also thank konstantin zarembo for sharing with us a draft of his work @xcite , which has some overlap with section 4 of this article . m.s.c . wishes to thank nordita for hospitality during the programme _ integrability in string and gauge theories ; ads / cft duality and its applications_. d.z .
+is funded by the fct fellowship sfrh / bpd/62888/2009 .
+this work was partially funded by the research grants ptdc / fis/099293/2008 and cern / fp/109306/2009 .
+centro de fsica do porto _ is partially funded by fct .
+in this appendix we re - write the formulae of section 2 for the case of irrelevant deformations .
+the main results for the renormalization of operators are essentially the same , so we shall be brief .
+the first modification is that we must be careful with the running of the coupling @xmath21 , so that correlation functions involving a renormalized operator of the undeformed theory @xmath2 become @xmath280 where we work to linear order in the deformation parameter @xmath21 , as defined at the cut - off scale @xmath22 . using the ope expansion between @xmath0 and @xmath2 given in ( [ ope ] ) , we conclude that the region of integration @xmath40 contributes with @xmath281 for @xmath57 .
+we renormalize the operators of the deformed theory according to @xmath282 so that the correlation functions @xmath283 are finite . with this prescription
+the two - point function between operators @xmath284 remains the same .
+this is expected because the deformation is irrelevant and therefore , to leading order in @xmath21 , it is not expected to change the anomalous dimension of operators .
+we remark that the constant renormalization in ( [ irr_renormalized ] ) for @xmath44 guarantees that this two - point function remains diagonal and with the same normalization .
+the above renormalization scheme corresponds to a renormalization matrix ( [ rmatrix ] ) with entries z_ab = _ ab + u 2 ^ 2 a_dab .
+the corresponding anomalous dimension matrix @xmath58 defined in ( [ gamma ] ) is the same as for the marginal case given in ( [ deformedgamma ] ) .
+the callan - symanzik equation will now include the running of the coupling @xmath21 .
+for example , for 2-point functions we have @xmath285 with @xmath286 .
+this equation is verified provided ( [ deformedgamma ] ) holds .    finally , it is useful to define the renormalized operators starting from the undeformed bare theory . in this case
+the renormalization matrix @xmath68 has entries _
+ab = _ ab _ a+ u 2 ^ 2 a_dab .
+the anomalous dimension matrix again has entries given by ( [ deformedh ] ) .
+the relation between the entries of the deformed anomalous dimension matrix @xmath80 , computed in a diagonal basis of the anomalous dimension matrix of the critical theory , and the couplings @xmath1 is as for the marginal case presented at the end of section 2 .
+i.  bena , j.  polchinski and r.  roiban , phys .
+d * 69 * ( 2004 ) 046002 [ arxiv : hep - th/0305116 ] .
+j.  a.  minahan and k.  zarembo , jhep * 0303 * ( 2003 ) 013 [ arxiv : hep - th/0212208 ] .
+v.  a.  kazakov , a.  marshakov , j.  a.  minahan and k.  zarembo , jhep * 0405 * ( 2004 ) 024 [ arxiv : hep - th/0402207 ] .
+n.  beisert , v.  dippel and m.  staudacher , jhep * 0407 * , 075 ( 2004 ) [ arxiv : hep - th/0405001 ] . g.  arutyunov , s.  frolov and m.  staudacher , jhep * 0410 * ( 2004 ) 016 [ arxiv : hep - th/0406256 ] .
+n.  beisert and m.  staudacher , nucl .
+b * 727 * ( 2005 ) 1 [ arxiv : hep - th/0504190 ] .
+n.  beisert , adv .
+* 12 * ( 2008 ) 945 [ arxiv : hep - th/0511082 ] .
+r.  a.  janik , phys .
+d * 73 * ( 2006 ) 086006 [ arxiv : hep - th/0603038 ] .
+n.  beisert , r.  hernandez and e.  lopez , jhep * 0611 * ( 2006 ) 070 [ arxiv : hep - th/0609044 ] .
+n.  beisert , b.  eden and m.  staudacher , j.  stat .
+mech .   * 0701 * ( 2007 ) p021 [ arxiv : hep - th/0610251 ] . g.  arutyunov and s.  frolov , jhep * 0903 * ( 2009 ) 152 [ arxiv:0901.1417 [ hep - th ] ] .
+n.  gromov , v.  kazakov and p.  vieira , phys .
+* 103 * ( 2009 ) 131601 [ arxiv:0901.3753 [ hep - th ] ] .
+d.  bombardelli , d.  fioravanti and r.  tateo , j.  phys .
+a * 42 * ( 2009 ) 375401 [ arxiv:0902.3930 [ hep - th ] ] .
+n.  gromov , v.  kazakov , a.  kozak and p.  vieira , lett .
+* 91 * ( 2010 ) 265 [ arxiv:0902.4458 [ hep - th ] ] . g.  arutyunov and s.  frolov , jhep * 0905 * ( 2009 ) 068 [ arxiv:0903.0141 [ hep - th ] ] .
+g.  arutyunov , s.  frolov and r.  suzuki , jhep * 1005 * ( 2010 ) 031 [ arxiv:0911.2224 [ hep - th ] ] . c.  kristjansen , j.  plefka , g.  w.  semenoff and m.  staudacher , nucl .
+b * 643 * , 3 ( 2002 ) [ arxiv : hep - th/0205033 ] .
+n.  r.  constable , d.  z.  freedman , m.  headrick , s.  minwalla , l.  motl , a.  postnikov and w.  skiba , jhep * 0207 * , 017 ( 2002 ) [ arxiv : hep - th/0205089 ] .
+n.  beisert , c.  kristjansen , j.  plefka , g.  w.  semenoff and m.  staudacher , nucl .
+b * 650 * , 125 ( 2003 ) [ arxiv : hep - th/0208178 ] . k.  okuyama and l.  s.  tseng , jhep * 0408 * , 055 ( 2004 ) [ arxiv : hep - th/0404190 ]
+. l.  f.  alday , j.  r.  david , e.  gava and k.  s.  narain , jhep * 0509 * ( 2005 ) 070 [ arxiv : hep - th/0502186 ] .
+y.  casteill , r.  a.  janik , a.  jarosz and c.  kristjansen , jhep * 0712 * ( 2007 ) 069 [ arxiv:0710.4166 [ hep - th ] ] .
+g.  georgiou , v.  l.  gili and r.  russo , jhep * 0910 * ( 2009 ) 009 [ arxiv:0907.1567 [ hep - th ] ] .
+a.  grossardt and j.  plefka , arxiv:1007.2356 [ hep - th ] .
+r.  g.  leigh and m.  j.  strassler , nucl .
+b * 447 * ( 1995 ) 95 [ arxiv : hep - th/9503121 ] .
+j.  m.  maldacena , adv .
+theor .  math .
+* 2 * , 231 ( 1998 ) [ int .
+j.  theor .
+phys .   * 38 * , 1113 ( 1999 ) ] [ arxiv : hep - th/9711200 ] .
+s.  s.  gubser , i.  r.  klebanov and a.  m.  polyakov , phys .
+b * 428 * , 105 ( 1998 ) [ arxiv : hep - th/9802109 ] .
+e.  witten , adv .
+* 2 * , 253 ( 1998 ) [ arxiv : hep - th/9802150 ] .
+d.  z.  freedman , s.  d.  mathur , a.  matusis and l.  rastelli , nucl .
+b * 546 * , 96 ( 1999 ) [ arxiv : hep - th/9804058 ] .
+s.  lee , s.  minwalla , m.  rangamani and n.  seiberg , adv .
+* 2 * , 697 ( 1998 ) [ arxiv : hep - th/9806074 ] .
+g.  arutyunov and s.  frolov , phys .
+d * 61 * , 064009 ( 2000 ) [ arxiv : hep - th/9907085 ]
+. s.  lee , nucl .
+b * 563 * ( 1999 ) 349 [ arxiv : hep - th/9907108 ] .
+r.  a.  janik , p.  surowka and a.  wereszczynski , jhep * 1005 * ( 2010 ) 030 [ arxiv:1002.4613 [ hep - th ] ] .
+e.  i.  buchbinder and a.  a.  tseytlin , jhep * 1008 * ( 2010 ) 057 [ arxiv:1005.4516 [ hep - th ] ] .
+s.  s.  gubser , i.  r.  klebanov and a.  m.  polyakov , nucl .
+b * 636 * ( 2002 ) 99 [ arxiv : hep - th/0204051 ] . s.  frolov and a.  a.  tseytlin , nucl .
+b * 668 * ( 2003 ) 77 [ arxiv : hep - th/0304255 ] ; jhep * 0206 * ( 2002 ) 007 [ arxiv : hep - th/0204226 ] .
+a.  a.  tseytlin , [ arxiv : hep - th/0311139 ] .
+k.  zarembo , jhep * 1009 * ( 2010 ) 030 .
+[ arxiv:1008.1059 [ hep - th ] ] .
+d.  z.  freedman , m.  headrick and a.  lawrence , phys .
+d * 73 * , 066015 ( 2006 ) [ arxiv : hep - th/0510126 ] .
+d.  e.  berenstein , j.  m.  maldacena and h.  s.  nastase , jhep * 0204 * ( 2002 ) 013 [ arxiv : hep - th/0202021 ] .
+d.  j.  gross , a.  mikhailov and r.  roiban , annals phys .
+* 301 * ( 2002 ) 31 [ arxiv : hep - th/0205066 ] .
+a.  santambrogio and d.  zanon , phys .
+b * 545 * ( 2002 ) 425 [ arxiv : hep - th/0206079 ] .
+n.  beisert , c.  kristjansen and m.  staudacher , nucl .
+b * 664 * ( 2003 ) 131 [ arxiv : hep - th/0303060 ] .
+m.  staudacher , jhep * 0505 * , 054 ( 2005 ) [ arxiv : hep - th/0412188 ] .
+a.  a.  tseytlin , phys .
+b * 251 * ( 1990 ) 530 .
+d.  m.  hofman and j.  m.  maldacena , j.  phys .
+a * 39 * , 13095 ( 2006 ) [ arxiv : hep - th/0604135 ] .
+g.  arutyunov , j.  russo and a.  a.  tseytlin , phys .
+d * 69 * ( 2004 ) 086009 [ arxiv : hep - th/0311004 ] .

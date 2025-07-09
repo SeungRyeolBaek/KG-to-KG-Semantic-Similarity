@@ -1,0 +1,168 @@
+quantized control problems have been an active research topic in the past two decades .
+discrete - level actuators / sensors and digital communication channels are typical in practical control systems , and they yield quantized signals in feedback loops .
+quantization errors lead to poor system performance and even loss of stability .
+therefore , various control techniques to explicitly take quantization into account have been proposed , as surveyed in @xcite .    on the other hand ,
+switched system models are widely used as a mathematical framework to represent both continuous and discrete dynamics . for example , such models are applied to dc - dc converters @xcite and to car engines @xcite .
+stability and stabilization of switched systems have also been extensively studied ; see , e.g. , the survey @xcite , the book @xcite , and many references therein .    in view of the practical importance of both research areas and common technical tools to study them , the extension of quantized control to switched systems
+has recently received increasing attention .
+there is by now a stream of papers on control with limited information for discrete - time markovian jump systems @xcite .
+moreover , our previous work @xcite has analyzed the stability of sampled - data switched systems with static quantizers .    in this paper , we study the stabilization of continuous - time switched linear systems with quantized output feedback .
+our objective is to solve the following problem : given a switched system and a controller , design a quantizer to achieve asymptotic stability of the closed - loop system .
+we assume that the information of the currently active plant mode is available to the controller and the quantizer . extending the quantizer in @xcite for the non - switched case to the switched case
+, we propose a lyapunov - based update rule of the quantizer under a slow - switching assumption of average dwell - time type @xcite .
+the difficulty of quantized control for switched systems is that a mode switch changes the state trajectories and saturates the quantizer . in the non - switched case @xcite , in order to avoid quantizer saturation , the quantizer is updated so that the state trajectories always belong to certain invariant regions defined by level sets of a lyapunov function .
+however , for switched systems , these invariant regions are dependent on the modes .
+hence the state may not belong to such regions after a switch . to keep the state in the invariant regions
+, we here adjust the quantizer at every switching time , which prevent quantizer saturation .
+the same philosophy of emphasizing the importance of quantizer updates after switching has been proposed in @xcite for sampled - data switched systems with quantized state feedback .
+subsequently , related works were presented for the output feedback case @xcite and for the case with bounded disturbances @xcite .
+the crucial difference lies in the fact that these works use the quantizer based on @xcite and investigates propagation of reachable sets for capturing the measurement .
+this approach also aims to avoid quantizer saturation , but it is fundamentally disparate from our lyapunov - based approach .    this paper is organized as follows . in section
+ii , we present the main result , theorem [ thm : stability_theorem ] , after explaining the components of the closed - loop system .
+section iii gives the update rule of the quantizer and is devoted to the proof of the convergence of the state to the origin . in section iv , we discuss lyapunov stability
+. we present a numerical example in section v and finally conclude this paper in section vi .
+the present paper is based on the conference paper @xcite . here
+we extend the conference version by addressing state jumps at switching times .
+we also made structural improvements in this version .
+_ notation :  _ let @xmath0 and @xmath1 denote the smallest and the largest eigenvalue of @xmath2 .
+let @xmath3 denote the transpose of @xmath4 .
+the euclidean norm of @xmath5 is denoted by @xmath6 .
+the euclidean induced norm of @xmath4 is defined by @xmath7 .    for a piecewise continuous function @xmath8 , its left - sided limit at @xmath9
+is denoted by @xmath10 .
+for a finite index set @xmath11 , let @xmath12 be a right - continuous and piecewise constant function .
+we call @xmath13 a _ switching signal _ and the discontinuities of @xmath13 _ switching times_. let us denote by @xmath14 the number of discontinuities of @xmath13 on the interval @xmath15 $ ] .
+let @xmath16 be switching times , and consider a switched linear system @xmath17 with the jump @xmath18 where @xmath19 is the state , @xmath20 is the control input , and @xmath21 is the output .
+assumptions on the switched system are as follows .
+[ ass : system ]    _ for every @xmath22 , @xmath23 is stabilizable and @xmath24 is observable .
+we choose @xmath25 and @xmath26 so that @xmath27 and @xmath28 are hurwitz . _
+furthermore , the switching signal @xmath13 has an average dwell time  @xcite , i.e. , there exist @xmath29 and @xmath30 such that @xmath31    we need observability rather than detectability , because we reconstruct the state by using the observability gramian .      in this paper
+, we use the following class of quantizers proposed in @xcite .
+let @xmath32 be a finite subset of @xmath33 .
+a quantizer is a piecewise constant function @xmath34 .
+this implies geometrically that @xmath35 is divided into a finite number of the quantization regions @xmath36 @xmath37 . for the quantizer @xmath38 ,
+there exist positive numbers @xmath39 and @xmath40 with @xmath41 such that @xmath42 the former condition gives an upper bound of the quantization error when the quantizer does not saturate .
+the latter is used for the detection of quantizer saturation .
+we place the following assumption on the behavior of the quantizer near the origin .
+this assumption is used for lyapunov stability of the closed - loop system .
+[ @xcite ] [ ass : near origin ] _ there exists @xmath43 such that @xmath44 for every @xmath45 with @xmath46 .
+_    we use quantizers with the following adjustable parameter @xmath47 : @xmath48 in , @xmath49 is regarded as a `` zoom '' variable , and @xmath50 is the data on @xmath51 transmitted to the controller at time @xmath52 .
+we need to change @xmath49 to obtain accurate information of @xmath53 .
+the reader can refer to @xcite for further discussions .
+the quantized output @xmath54 may chatter on boundaries among quantization regions .
+hence if we generate the input @xmath55 by @xmath54 , the solutions of must be interpreted in the sense of filippov  @xcite .
+however , this generalization does not affect our lyapunov - based analysis as in @xcite , because we will use a single quadratic lyapunov function between switching times .
+similarly to @xcite , we construct the following dynamic output feedback law based on the standard luenberger observers : @xmath56 where @xmath57 is the state estimate .
+the estimate also jumps at each switching times @xmath58 : @xmath59 then the closed - loop system is given by @xmath60 if we define @xmath61 and @xmath62 by @xmath63 then we rewrite in the form @xmath64 the state @xmath61 of the closed - loop system jumps at each switching time @xmath58 : @xmath65 where @xmath66 we see from assumption [ ass : system ] that @xmath67 is hurwitz for each @xmath22 . for every positive - definite matrix @xmath68 ,
+there exist a positive - definite matrix @xmath69 such that @xmath70 we define @xmath71 , @xmath72 , @xmath73 , and @xmath74 by @xmath75          \underline \lambda_q   : =           { \displaystyle \min_{p \in \mathcal{p } } \lambda_{\min}(q_p ) } ,          \quad          c_{\max } : =           { \displaystyle \max_{p \in \mathcal{p}}\|c_p\|}.      \end{array}\end{aligned}\ ] ] fig .
+[ fig : cssqof ] shows the closed - loop system we consider .      by adjusting the `` zoom '' parameter @xmath49
+, we can achieve global asymptotic stability of the closed - loop system .
+this result is a natural extension of theorem 5 in @xcite to switched systems .    _
+[ thm : stability_theorem ] define @xmath76 by @xmath77 and let @xmath39 be large enough to satisfy @xmath78 if the average dwell time @xmath79 in is larger than a certain value , then there exists a right - continuous and piecewise - constant function @xmath49 such that the closed - loop system has the following two properties for every @xmath80 and every @xmath81 : _    _
+( i )  convergence to the origin :  _ @xmath82 .    _
+( ii )  lyapunov stability :  _ to every @xmath83 , there corresponds @xmath84 such that @xmath85    we shall prove convergence to the origin and lyapunov stability in sections iii and iv , respectively .
+we also present an update rule of the `` zoom '' parameter @xmath49 in section 3 . the sufficient condition on @xmath79
+is given by in theorem [ lem : convergence_to_origin ] below .
+define @xmath86 and @xmath87 by @xmath88 we split the proof into two stages : the `` zooming - out '' and `` zooming - in '' stages .
+since the initial state @xmath89 is unknown to the quantizer , we have to capture the state @xmath61 of the closed - loop system by `` zooming out '' , i.e. , increasing the `` zoom '' parameter @xmath49 .
+we first see that @xmath61 can be captured if we have a time - interval with a given length that has no switches .
+[ lem : capture_non_switched ] _ consider the closed - loop system . set the control input @xmath90 .
+choose @xmath91 , and define @xmath92 and the observability gramian @xmath93 assume that there exists @xmath94 such that we can observe @xmath95 for all @xmath96 .
+let the `` zoom '' parameter @xmath49 be piecewise continuous and monotone increasing in @xmath97 .
+if we set the state estimate @xmath98 at @xmath99 by @xmath100 and if we choose @xmath101 so that @xmath102 then @xmath103 .
+_    since no switch occurs by , we can easily obtain this result by extending theorem 5 in @xcite for the non - switched case .
+we therefore omit the proof ; see also the conference version @xcite .
+it follows from theorem [ lem : capture_non_switched ] that in order to capture the state @xmath61 , it is enough to show the existence of @xmath94 satisfying and for all @xmath104 . to this end , we use the following lemma on average dwell time @xmath79 :    [ lem : adt_upperbound ] _ fix an initial time @xmath105 .
+suppose that @xmath13 satisfies the average dwell - time assumption .
+let @xmath106 . if we choose @xmath107 so that @xmath108 then there exists @xmath109 $ ] such that @xmath110 .
+_    let us denote the switching times by @xmath16 , and fix @xmath107 .
+suppose that @xmath111 for all @xmath109 $ ] .
+then we have @xmath112 indeed , if @xmath113 for some @xmath114 and if we let @xmath115 be the smallest such integer , then we obtain @xmath116 and @xmath117 .
+this contradicts with @xmath118 $ ] .
+thus we have .    from
+, we see that for @xmath119 , @xmath120 it follows from that @xmath121 therefore @xmath122 satisfies the following inequality : @xmath123 since @xmath124 was arbitrary , is equivalent to @xmath125 thus we have shown that if holds for all @xmath109 $ ] , then @xmath126 satisfies .
+the contraposition of this statement gives a desired result .
+[ thm : non_switch_interval ] _ consider the closed - loop system with average dwell - time property
+. set the control input @xmath90 .
+fix @xmath127 , @xmath128 , and @xmath106 .
+increase @xmath49 in the following way : @xmath129 for @xmath130 , @xmath131 for @xmath132 and @xmath133 .
+then there exists @xmath94 such that and hold for all @xmath104 . _
+if @xmath134 switches occur in the interval @xmath135 $ ] , then we have @xmath136 since @xmath137 , it follows from that @xmath138 clearly , this inequality holds in the case when no switches occur .
+since shows that @xmath139 and since the growth rate of @xmath140 is larger than that of @xmath141 , there exists @xmath142 such that @xmath143 in conjunction with , this implies that holds for every @xmath144 .
+let @xmath122 be an integer satisfying .
+then lemma [ lem : adt_upperbound ] guarantees the existence of @xmath145 $ ] such that holds for every @xmath96 .
+this completes the proof .
+it follows from theorems [ lem : capture_non_switched ] and [ thm : non_switch_interval ] that if we update the `` zoom '' parameter @xmath49 as in and if we set the state estimate @xmath98 by , then the state @xmath61 of the closed - loop system can be captured .
+[ rem : brief_remark_for_lyap ] if the initial state @xmath89 is sufficiently small , then @xmath146 in is zero . in this situation
+, we can capture @xmath61 by @xmath147 for all switching signal with average dwell - time property .
+we use this fact for the proof of lyapunov stability ; see section 4 .
+next we drive the state @xmath61 of the closed - loop system to the origin by `` zooming - in '' , i.e. , decreasing the `` zoom '' parameter @xmath49 . since @xmath49 increases at each switching time during this stage , the term `` zooming - in stage '' may be misleading .
+however , @xmath49 decreases overall under a certain average dwell - time assumption , so we use the term `` zooming - in '' as in @xcite .
+let us first consider a fixed `` zoom '' parameter @xmath49 .
+the following lemma shows that if no switches occur , then the state trajectories move from a large level set to a small level set of the lyapunov function @xmath148 in a finite time that is independent of the mode @xmath149
+:    [ lem : fix_zoom_parameter ] _ define @xmath67 and @xmath150 as in and , respectively .
+fix @xmath22 , and consider the non - switched system @xmath151 choose @xmath152 . if @xmath39 satisfies @xmath153 where @xmath71 , @xmath72 @xmath74 , and @xmath76 are defined by and , then the following two level sets of the lyapunov function @xmath154 are invariant regions for every trajectory of : @xmath155 furthermore , if @xmath156 for all @xmath157 $ ] , then @xmath158 for every @xmath22 . hence if @xmath159 satisfies @xmath160 then every trajectory of with an initial state @xmath161 satisfies @xmath162 _
+since the mode @xmath22 is fixed , this lemma is a trivial extension of lemma  5 in @xcite for single - modal systems .
+we therefore omit its proof ; see also the conference version @xcite .    using lemma [ lem : fix_zoom_parameter ]
+, we obtain an update rule of the `` zoom '' parameter @xmath49 to drive the state @xmath61 to the origin .    [
+lem : convergence_to_origin ] _ consider the system under the same assumptions as in lemma [ lem : fix_zoom_parameter ] .
+assume that @xmath163 .
+for each @xmath164 with @xmath165 , the positive definite matrices @xmath166 and @xmath167 in the lyapunov equation satisfy @xmath168 for some @xmath169 .
+define @xmath170 and @xmath171 by @xmath172 @xmath173 fix @xmath174 so that is satisfied , and set the `` zoom '' parameter @xmath175 for all @xmath176 and @xmath177 $ ] in the following way : if no switches occur in the interval @xmath178 $ ] , then @xmath179 otherwise , @xmath180 where @xmath181 are the switching times in the interval @xmath178 $ ] .
+then @xmath182 for all @xmath183 .
+furthermore , if @xmath79 satisfies @xmath184 then @xmath185 .
+_    to prove that @xmath182 for all @xmath183 , it is enough to show that if @xmath186 , then @xmath187    let us first investigate the case without switching on the interval @xmath188 $ ] .
+we see from lemma [ lem : fix_zoom_parameter ] that @xmath182 for all @xmath189 and that @xmath190 .
+since @xmath191 , a routine calculation shows that @xmath192 .
+we now study the switched case .
+let @xmath193 be the switching times in the interval @xmath188 $ ] .
+let us define @xmath194 for simplicity of notation .
+lemma [ lem : fix_zoom_parameter ] implies that @xmath195 ( @xmath196 ) are invariant sets for all @xmath197 , @xmath198 . moreover , by , if @xmath199 , then @xmath200 ( @xmath196 ) for all @xmath201 .
+hence @xmath202 leads to @xmath203    to obtain @xmath204 we show that @xmath205 .
+assume , to reach a contradiction , that @xmath206 since @xmath207 is an invariant region for all @xmath208 , we also have @xmath209 define a lyapunov function @xmath148 for each @xmath22 .
+since a filippov solution is ( absolutely ) continuous , @xmath210 exists for each @xmath211 . from , we obtain @xmath212    on the other hand , since @xmath213 for all @xmath214 $ ] , gives @xmath215 and hence we have from @xmath216 that @xmath217
+if we repeat this process and use , then @xmath218 which contradicts . thus we obtain @xmath219 and hence holds .    from and , we derive the desired result , because @xmath220 .
+finally , since @xmath221 , gives @xmath222 for every @xmath223 and @xmath224 . if @xmath225 , that is , if the average dwell time @xmath79 satisfies , then @xmath226 .
+since @xmath182 for all @xmath183 , we obtain @xmath227 .
+( a )   we can compute @xmath228 by linear matrix inequalities . moreover , if the jump matrix @xmath229 in is invertible , then lemma 13 of @xcite gives an explicit formula for @xmath228 .
+( b )   the proposed method is sensitive to the time - delay of the switching signal at the `` zooming - in '' stage .
+if the switching signal is delayed , a mode mismatch occurs between the plant and the controller .
+here we do not proceed along this line to avoid technical issues .
+see also @xcite for the stabilization of asynchronous switched systems with time - delays .
+( c )   we have updated the `` zoom '' parameter @xmath49 at each switching time in the `` zooming - in '' stage .
+if we would not , switching could lead to instability of the closed - loop system .
+in fact , since the state @xmath61 may not belong to the invariant region @xmath230 without adjusting @xmath49 , the quantizer may saturate .
+( d )   similarly , `` pre - emptively '' multiplying @xmath49 at time @xmath231 by @xmath232 does not work , either .
+this is because such an adjustment does not make @xmath230 invariant for the state trajectories .
+for example , consider the situation where the state @xmath61 belongs to @xmath233 at @xmath234 due to this pre - emptively adjustment .
+then @xmath61 does not converge to the origin .
+let @xmath235 be a switching time .
+since @xmath236 may not be a subset of @xmath237 , it follows that @xmath61 does not belong to the invariant region @xmath230 at @xmath238 in general .
+let us denote by @xmath239 the open ball with center at the origin and radius @xmath240 in @xmath241 . in what follows , we use the same letters as in the previous section and assume that the average dwell time @xmath79 satisfies .
+the proof consists of three steps :    1 .
+obtain an upper bound of the time @xmath242 at which the quantization process transitions from the `` zoom - out '' stage to the `` zoom - in '' stage .
+2 .   show that there exists a time @xmath243 such that the state @xmath61 satisfies @xmath244 for all @xmath245 .
+3 .   set @xmath84 so that if @xmath246 , then @xmath244 for all @xmath247 .
+we break the proof of lyapunov stability into the above three steps .
+\1 ) let @xmath126 satisfy and let @xmath84 be small enough to satisfy @xmath248 we see from the state bound that @xmath249 for @xmath250 $ ] from assumption [ ass : near origin ] .
+as we mentioned in remark [ rem : brief_remark_for_lyap ] briefly , lemma [ lem : adt_upperbound ] implies that the time @xmath242 , at which the stage changes from `` zooming - out '' to `` zooming - in '' , satisfies @xmath251 for every switching signal with the average dwell - time assumption .
+\2 ) fix @xmath252 . by , @xmath253 , and
+hence we see from that @xmath254 achieving @xmath186 can be chosen so that @xmath255 where @xmath256 is defined by @xmath257 note that @xmath256 is independent of switching signals .
+let @xmath258 be the smallest integer satisfying @xmath259 define @xmath260 .
+since @xmath221 and @xmath225 , and give @xmath261 for all @xmath262 and @xmath224 . since @xmath263 satisfies
+, it follows that that @xmath264 lies in @xmath239 for all @xmath245 .
+recall that @xmath265 and that @xmath264 is an invariant region for all @xmath183 from theorem [ lem : convergence_to_origin ] .
+thus we have @xmath266    \3 ) define @xmath267 since @xmath268 , it follows from , and that @xmath269 for all @xmath270 $ ] .
+set @xmath84 so that @xmath271 since @xmath272 , by , , , and , assumption [ ass : near origin ] gives @xmath273 in the interval @xmath274 $ ] , so @xmath275 and @xmath276 in the same interval . combining this with ,
+we obtain @xmath277 for all @xmath247 .
+thus @xmath278 from and , we see that lyapunov stability can be achieved .
+consider the continuous - time switched system with the following two modes : @xmath280 with jump matrices @xmath281 . as the feedback gain and the observer gain of each mode ,
+we take @xmath282 let @xmath38 be a uniform - type quantizer with parameters @xmath283 , @xmath284 the parameters @xmath285 in the `` zooming - out '' stage are @xmath286 , @xmath287 , and @xmath288 . also , define @xmath289 and @xmath290 in and @xmath291 in by @xmath292 , @xmath293 @xmath294 , where @xmath295 means a diagonal matrix whose diagonal elements starting in the upper left corner are @xmath296
+. then we obtain @xmath297 in , @xmath298 in , @xmath299 in , and @xmath300 in .
+figure [ fig : cont_simulation ] ( a ) and ( b ) show that the euclidean norm of the state @xmath301 and the estimate @xmath98 , and the `` zoom '' parameter @xmath49 , respectively , with initial condition @xmath302^{\top}$ ] and @xmath303 .
+the vertical dashed - dotted line indicates the switching times @xmath304 . in this example ,
+the `` zooming - out '' stage finished at @xmath305 .
+we see the non - smoothness of @xmath306 and the increase of @xmath49 at the switching times @xmath304 because of switches and quantizer updates . not surprisingly , the adjustments of @xmath49 in and are conservative .
+we have proposed an update rule of dynamic quantizers to stabilize continuous - time switched systems with quantized output feedback .
+the average dwell - time property has been utilized for the state reconstruction in the `` zooming - out '' stage and for convergence to the origin in the `` zooming - in '' stage .
+the update rule not only periodically decreases the `` zoom '' parameter to drive the state to the origin , but also adjusts the parameter at each switching time to avoid quantizer saturation .
+future work involves designing the controller and the quantizer simultaneously , and addressing more general systems by incorporating disturbances and nonlinear dynamics .

@@ -1,0 +1,298 @@
+equations that describe ideal fluid and plasma dynamics in terms of eulerian variables are hamiltonian in terms of noncanonical poisson brackets , degenerate brackets in noncanonical coordinates .
+because of degeneracy , such poisson brackets possess casimir elements , invariants that have been used to construct variational principles for equilibria and stability .
+however , early on it was recognized that typically there are not enough casimir elements to obtain all equilibria as extremal points of these variational principles . in @xcite
+it was noted that this casimir deficit is attributable to rank changing of the operator that defines the noncanonical poisson bracket .
+thus , a mathematical study of the kernel of this operator is indicated , and this is the main purpose of the present article .    recognizing a hamiltonian flow as a differential operator , the point where the rank of the poisson bracket changes is a singularity , from which singular ( or intrinsic ) solutions stem .
+when we consider a hamiltonian flow on a function space , the problem is an infinite - dimension generalization of the theory of singular differential equations ; the derivatives are functional derivatives , and the construction of singular casimir elements amounts to integration in an infinite - dimension space . in order to facilitate this study ,
+it is necessary to place the noncanonical hamiltonian formalism on a more rigorous footing , and this subsidiary purpose is addressed in the context of euler s equation of fluid mechanics , although the ideas presented are of more general applicability than this particular example .
+we start by reviewing finite - dimensional canonical and noncanonical hamiltonian mechanics , in order to formulate our problem .
+these dynamical system have the form @xmath0 where @xmath1 denotes a set of phase space coordinates , @xmath2 is the hamiltonian function with @xmath3 its gradient , and the @xmath4 matrix @xmath5 ( variously called e.g.  the cosymplectic form , poisson tensor , or symplectic operator ) is the essence of the poisson bracket and determines important lie algebraic properties@xcite ( see also remark[remark : lie - poisson ] ) .
+for canonical hamiltonian systems of dimension @xmath6 the matrix @xmath5 has the form @xmath7 _ noncanonical _ hamiltonian systems allow a @xmath8-dependent @xmath9 ( assumed here to be a holomorphic function ) to have a kernel , i.e.   @xmath10 may be less than @xmath11 and may change as a function of @xmath12 .    from ( [ hamilton_eq_1 ] )
+it is evident that equilibrium points of the dynamics , i.e.  points for which @xmath13 , satisfy @xmath14 however , in the noncanonical case these may not be the only equilibrium points of a given hamiltonian @xmath15 , because degeneracy gives rise to _ casimir elements _
+@xmath16 , nontrivial ( nonconstant ) solutions to the differential equation @xmath17 given such a @xmath16 , replacement of the hamiltonian by @xmath18 does not change the dynamics .
+thus , an extremal point of @xmath19=0 \label{stationary_points}\ ] ] will also give an equilibrium point .
+note , in light of the homogeneity of ( [ casmir-1 ] ) an arbitrary multiplicative constant can be absorbed into @xmath20 and so ( [ stationary_points ] ) can give rise to families of equilibrium points .
+if @xmath21 , ( [ casmir-1 ] ) has only the trivial solution @xmath22 constant .
+if @xmath23 and @xmath24 is constant , then ( [ casmir-1 ] ) has @xmath25 functionally independent solutions ( lie - darboux theorem ) .
+the problem becomes more interesting if there is a _
+singularity _ where @xmath10 changes : in this case we have a singular ( hyperfunction ) casimir element ( see fig.[fig : foliation ] ) .
+for example , consider the one - dimensional system where @xmath26 ( @xmath27 ) . at
+@xmath28 @xmath29 drops to 0 , and this point is a singular point of the differential equation @xmath30 .
+the singular casimir element is @xmath31 , where @xmath32 is the heaviside step function .
+the codimension of the casimir foliation changes , resulting in a singular casimir leaf ( with the determining casimir element being a _ hyperfunction _ ) . in the figure
+the codimension of the casimir leaf at the singular point is two , hence the singular point is an equilibrium point . in higher - dimensional ( infinite - dimensional ) phase space ,
+a singular point may have far richer structure . in sec .
+[ sec : casimirs ] , we delineate how a singular point is created in an infinite - dimensional phase space by examining an infinite - dimensional hamiltonian system of eulerian fluid ( to be formulated in sec .
+[ sec : euler_equation ] ) . in sec .
+[ sec : equilibrium ] , we will study the structure of the singular point ( which is still infinite - dimensional ) by examining equilibrium points.,scaledwidth=80.0% ]    we generalize ( [ hamilton_eq_1 ] ) further to include infinite - dimension systems .
+let @xmath33 be the state variable , where for now @xmath34 is some unspecified function space , @xmath35 be a linear antisymmetric operator in @xmath34 that generally depends on @xmath36 ( for a fixed @xmath36 , @xmath35 may be regarded as a linear operator @xmath37  see remark [ remark : j_operator ] below ) , and @xmath38 be a functional @xmath39 . introducing an appropriate functional derivative ( gradient ) @xmath40 , we consider evolution equations of the form @xmath41 where @xmath42 .
+a casimir element @xmath43 ( a functional @xmath39 ) is a nontrivial solution to @xmath44 we may solve ( [ casmir-2 ] ) by two steps :    1 .
+find the kernel of @xmath35 , i.e. , solve a `` linear equation '' ( cf .
+remark [ remark : j_operator ] ) @xmath45 to determine @xmath46 for a given @xmath36 , which we write as @xmath47 .
+2 .   `` integrate '' @xmath47 with respect to @xmath36 to find a functional @xmath43 such that @xmath48 .    as evident in the above finite - dimension example , _
+step-1 _ should involve `` singular solutions '' if @xmath35 has _
+singularities_. then , _ step-2 _ will be rather nontrivial  for _ singular casimir elements _ , we will need to generalize the notion of _ functional derivative_. as mentioned above , the present paper is devoted to such an extension of the notion of casimir elements in infinite - dimensional noncanonical hamiltonian systems .
+specifically , we invoke the euler equation of ideal fluid mechanics as an example , but much carries over to other systems since many fluid and plasma systems share the same operator @xmath49 . in sec .
+[ sec : euler_equation ] , we will describe the hamiltonian form of euler s equation , which places on a more rigorous footing the formal calculations of @xcite . in sec .
+[ subsec : kernel ] , we will analyze the kernel of the corresponding poisson operator @xmath35 and its singularity .
+a singular casimir element and its appropriate generalized functional derivative ( gradient ) will be given in sec .
+[ subsec : casimirs ] .
+the relation between the ( generalized ) casimir elements and equilibrium points ( stationary ideal flows ) will be discussed in sec .
+[ sec : equilibrium ] . generalizing ( [ stationary_points ] ) to an infinite - dimensional space
+, we may find an extended set of equilibrium points by solving @xmath50=0 .
+\label{stationary_points2}\ ] ] we note , however , it is still uncertain whether or not every equilibrium point can be obtained from casimir elements in this way .
+for example , let us consider a simple hamiltonian @xmath51 ( in appendix  a , the hamiltonian of the euler equation is given in terms of the velocity field @xmath52 , which here corresponds to the state variable @xmath36 ) .
+then , @xmath53 and ( [ hamilton_eq_2 ] ) reads @xmath54 the totality of nontrivial equilibrium points is @xmath55 . for @xmath56 to be characterized by ( [ stationary_points2 ] ) , which now simplifies to @xmath57 , we encounter the `` integration problem , '' i.e.
+, we have to construct @xmath43 such that @xmath48 for every @xmath58  this may not be always possible . on the other hand , even for a given @xmath43 , the `` nonlinear equation '' @xmath57 does not necessarily have a solution  in sec.[subsec : no - solution ] we will show some examples of no - solution equations . while we leave this question ( the `` integrability '' of all equilibrium points ) open ,
+the present effort shows it is sometimes possible and provides a more complete understanding of the stationary states of infinite - dimensional dynamical systems . in sec .
+[ sec : conclusion ] we give some concluding remarks .    [
+remark : lie - poisson ] we endow the phase space @xmath34 of state variable @xmath36 ( @xmath12 if @xmath34 is finite - dimensional ) with an inner product @xmath59 .
+let @xmath60 be an arbitrary smooth functional ( function if @xmath34 is finite - dimensional ) . if @xmath36 obeys ( [ hamilton_eq_2 ] ) in a hilbert space ( or ( [ hamilton_eq_1 ] ) for finite - dimensional systems ) , the evolution of @xmath61 obeys @xmath62 $ ] , where @xmath63 = ( \partial_{{u } } f({u}),\mathcal{j}({{u } } ) \partial_{{u } } h({u}))\ ] ] is an antisymmetric bilinear form .
+if this bracket @xmath64 $ ] satisfies the jacob identity , it defines a poisson algebra , a lie algebra realization on functionals .
+a casimir element @xmath20 is a member of the _ center _ of the poisson algebra , i.e. , @xmath65=0 $ ] for all @xmath66 .
+the bracket defined by the poisson operator of sec.[subsec : poisson ] satisfies the jacobi s identity @xcite .
+the jacobi identity is satisfied for all lie - poisson brackets , a class of poisson brackets that describe matter that are built from the structure constants of lie algebras ( see , e.g. , @xcite ) . for finite - dimensional systems
+there is a beautiful geometric interpretation of such brackets where phase space is the dual of the lie algebra and surfaces of constant casimirs , coadjoint orbits , are symplectic manifolds .
+unfortunately , in infinite - dimensions , i.e. , for nonlinear partial differential equations , there are functional analysis challenges that limit this interpretation ( see , e.g. , @xcite ) .
+( for example , for the incompressible euler fluid equations the group is that of volume preserving diffeomorphisms . ) in terms of this interpretation , the analysis of the present paper can be viewed as a local probing of the coadjoint orbit .
+[ remark : j_operator ] in ( [ hamilton_eq_2 ] ) , the operator @xmath35 must be evaluated at the common @xmath36 of @xmath67 , thus @xmath68 is a nonlinear operator with respect to @xmath36 .
+however , the application of @xmath35 ( or @xmath69 ) may be regarded as a linear operator in the sense that @xmath70 or @xmath71 = a\mathcal{j}(u)\partial_{u } f(u)+b\mathcal{j}(u)\partial_{u } g(u).\ ] ] note that @xmath72 ( for @xmath73 ) is _ not _ @xmath74 .
+investigation of the hamiltonian form of ideal fluid mechanics has a long history .
+its essence is contained in lagrange s original work @xcite that described the fluid in terms of the `` lagrangian '' displacement .
+important subsequent contributions are due to clebsch@xcite and kirchhoff @xcite . in more recent times , the formalism has been addressed in various ways by many authors ( e.g.@xcite ) . here
+we follow the noncanonical poisson bracket description as described in @xcite .
+analysis of the kernel of @xmath75 requires careful definitions . for this reason we review rigorous results about euler s equation in sec .
+[ subsec : vorticity_equation ] , followed by explication of various aspects of the hamiltonian description in secs .
+[ subsec : hamiltonian ]  [ subsec : hamiltonian - form ] .
+this places aspects of the noncanonical poisson bracket formalism of@xcite on a more rigorous footing ; of particular interest , of course , is the poisson operator @xmath75 that defines the poisson bracket .
+euler s equation of motion for an incompressible inviscid fluid is @xmath76 where @xmath77 is a bounded domain in @xmath78 ( @xmath79 or 3 ) with a sufficiently smooth ( @xmath80-class ) boundary @xmath81 , @xmath82 is the unit vector normal to @xmath81 , @xmath52 is an @xmath24-dimensional vector field representing the velocity field , and @xmath83 is a scalar field representing the fluid pressure ( or specific enthalpy ) ; all fields are real - valued functions of time @xmath84 and the spatial coordinate @xmath85
+.    we may rewrite ( [ euler-1 ] ) as @xmath86 where @xmath87 is the vorticity and @xmath88 is the total specific energy .
+the curl derivative of ( [ euler-2 ] ) gives the _ vorticity equation _
+we prepare basic function spaces pertinent to the mathematical formulation of the euler equation .
+let @xmath90 be the hilbert space of lebesgue - measurable and square - integrable real vector functions on @xmath77 , which is endowed with the standard inner product @xmath91 and norm @xmath92 .
+we will also use the standard notation for sobolev spaces ( for example , see@xcite ) .
+we define @xmath93 where @xmath94 denotes the trace of the normal component of @xmath52 onto the boundary @xmath95 , which is a continuous map from @xmath96 to @xmath97 .
+we have an orthogonal decomposition @xmath98 every @xmath99 satisfies the conditions ( [ incompressibility ] ) and ( [ bc ] ) , thus we will consider ( [ euler-2 ] ) to be an evolution equation in the function space @xmath100 ( cf
+.   appendix a ) .
+hereafter , we assume that the spatial domain has dimension @xmath101 , and @xmath102 is a smoothly bounded and simply connected ( genus=0 ) region . from @xmath103 ,
+i.e.   express @xmath104 , where the dimension of the subspace @xmath105 is equal to the genus of @xmath77 .
+then , the projection of @xmath52 , which obeys ( [ euler-1])-([bc ] ) , is shown to be constant throughout the evolution , whence we may regard ( [ euler-2 ] ) as an evolution equation in @xmath106 . ] for convenience in formulating equations , we immerse @xmath102 in @xmath107 by adding a `` perpendicular '' coordinate @xmath8 , and we write @xmath108 .    [
+lemma : clebsch_representation ] every two - dimensional vector field @xmath52 satisfying the incompressibility condition ( [ incompressibility ] ) and the vanishing normal boundary condition ( [ bc ] ) can be written as @xmath109 with a single - value function @xmath110 such that @xmath111 , i.e. , @xmath112    for the convenience of the reader , we sketch the proof of this frequently - used lemma . is sometimes called a clebsch potential . to represent an incompressible flow of dimension @xmath24
+, we need @xmath113 _ clebsch potentials _
+@xmath114 , where each @xmath115 does not have a uniquely determined boundary condition@xcite .
+hence , the vorticity representation is not effective in higher dimensions . in appendix
+a , we invoke another method to eliminate the pressure term and formulate the problem in an alternative form , which applies in general space dimension .
+see e.g.  @xcite for discussions of various potential representations .
+] evidently , @xmath116=0 $ ] , and @xmath117 if @xmath118 .
+thus , the linear space @xmath119 is contained in @xmath100 . and , the orthogonal complement of @xmath34 in @xmath103 contains only the zero vector : suppose that @xmath120 satisfies @xmath121 by the generalized stokes formula , we find @xmath122 . since @xmath123 has only the @xmath124 component , ( [ clebsch-1 ] ) implies @xmath125 . since @xmath120
+, we also have @xmath126 and @xmath127 . in a simply connected @xmath77 ,
+the only such @xmath52 is the zero vector .
+hence , we have ( [ clebsch_representation ] ) .    using the representation ( [ clebsch_2form ] )
+, we may formally calculate @xmath128 the vorticity equation ( [ vorticity_eq ] ) simplifies to a single @xmath124-component equation : , the two - dimensional vorticity equation ( [ vorticity_eq-2d ] ) has the form of a nonlinear liouville equation .
+the corresponding hamiltonian equations ( characteristic odes ) are given in terms of a streamfunction @xmath110 as @xmath129 . by the boundary condition @xmath130
+, the characteristic curves are confined in @xmath77 .
+hence , we do not need ( or , can not impose ) a boundary condition on @xmath131 , and the single equation ( [ vorticity_eq-2d ] ) determines the evolution of @xmath131 and the velocity field is obtained from @xmath132 . ]
+@xmath133 where @xmath134 and @xmath135 is the inverse map of @xmath136 with the dirichlet boundary condition , i.e. , @xmath137 gives the solution of the laplace equation @xmath138 as is well - known , @xmath139 is a self - adjoint compact operator . for @xmath118 , we define @xmath140 as a member of @xmath141 , the dual space of @xmath142 with respect to the inner - product of @xmath90 .
+the inverse map ( weak solution ) , then , defines @xmath143 .
+[ lemma : weak ] we regard the vorticity equation ( [ vorticity_eq-2d ] ) as an evolution equation in @xmath141 , i.e. , we consider the weak form : @xmath144 by the relations @xmath145 , @xmath146 , and @xmath147 , ( [ vorticity_eq-2d - math ] ) is equivalent to the euler equation ( [ euler-2 ] ) as an evolution equation in @xmath103 .    in the topology of @xmath103 , the euler equation ( [ euler-2 ] ) reads as @xmath148 by ( [ decomposition_of_l2 ] ) , the left - hand side of ( [ euler-2 ] ) reduces to @xmath149 . by lemma[lemma : clebsch_representation ] , we may put @xmath150 with @xmath151 .
+finally , plugging this representation into ( [ euler-2 ] ) , we obtain @xmath152 hence , ( [ euler-2 ] ) is equivalent to ( [ vorticity_eq-2d - math ] ) .
+now we consider the hamiltonian form of the vorticity equation ( [ vorticity_eq-2d ] )  to be precise , its `` weak form '' ( [ vorticity_eq-2d - math ] ) ( cf .
+appendix a which treats the euler equation of ( [ euler-2 ] ) ) .
+first we note that the natural choice for the hamiltonian is @xmath153 , the `` energy '' of the flow @xmath52 . using @xmath146 ,
+we may rewrite @xmath154 . selecting the vorticity @xmath131 as the state variable ,
+we define ( by relating @xmath145 ) @xmath155 which is a continuous functional on @xmath141 .
+this is equivalent to the square of the norm of @xmath141 , i.e. , the _ negative norm _ induced by @xmath142 .
+next , we consider the gradient of a functional in function space .
+let @xmath156 be a functional defined on a hilbert space @xmath34 .
+a small perturbation @xmath157 ( @xmath158 , @xmath159 ) will induce a variation @xmath160 . if there exists a @xmath161 such that @xmath162 for every @xmath163
+, then we define @xmath164 , and call it the gradient of @xmath156 . evidently , the variation @xmath165 is maximized , at each @xmath36 , by @xmath166 . the notion of gradient
+will be extended for a class of `` rugged '' functionals , which will be used to define singular casimir elements in sec.[subsec : casimirs ] . as for the hamiltonian ,
+however , we may assume it to be a smooth functional .
+the pertinent hilbert space is @xmath90 , on which the hamiltonian @xmath167 is differentiable ; using the self - adjointness of @xmath135 , we obtain @xmath168 note that the gradient @xmath169 may be evaluated for every @xmath170 with the value in @xmath142 .      finally , we describe the noncanonical poisson operator @xmath171 of @xcite .
+formally , we have @xmath172 \psi = \
+{ \omega , \psi \}\ , , \label{vorticity_eq - j}\ ] ] which indicates @xmath131 must be a `` differentiable '' function .
+however , we will need to reduce this regularity requirement on @xmath131 .
+thus , we turn to the _ weak formulation _ that is amenable to the interpretation of the evolution in @xmath141 ( see lemma[lemma : weak ] ) .
+formally , we may calculate @xmath173 with the right - hand - side finite ( well - defined ) for @xmath174 and @xmath175 .
+in fact , @xmath176 where @xmath177 . hence , we may consider the right - hand - side of ( [ j - operator-1 ] ) to be a bounded linear functional of @xmath151 , with @xmath131 and @xmath178 acting as two parameters .
+we denote this by @xmath179 . by this functional ,
+we `` define '' @xmath180 on the left - hand - side of ( [ j - operator-1 ] ) as a member of @xmath181 , i.e. , we put @xmath182    for a given @xmath174 , we may consider that @xmath171 is a bounded linear map operating on @xmath178 , i.e. , @xmath183 .
+evidently , @xmath184 , i.e. , @xmath171 is antisymmetric .      combining the above definitions of the hamiltonian @xmath167 , the gradient @xmath185 , and the noncanonical poisson operator @xmath171 , we can write the vorticity equation ( [ vorticity_eq-2d ] ) in the form @xmath186 as remarked in lemma[lemma : weak ] , ( [ vorticity_eq-2dh ] ) is an evolution equation in @xmath141 ( cf .
+appendix a for the @xmath187 formulation ) .    for every fixed @xmath174
+, @xmath171 may be regarded as a bounded linear map of @xmath188 , where the bound changes as a function of @xmath131 .
+and @xmath169 is a bounded linear map of @xmath189 .
+hence , each element composing the right - hand side ( generator ) of the evolution equation ( [ vorticity_eq-2dh ] ) is separately regular .
+however , their nonlinear combination can create a problem : as noted in remark [ remark : j_operator ] , we must evaluate the operator @xmath171 at the common @xmath131 of @xmath169 . while @xmath169 can be evaluated for every @xmath170 with its range @xmath190 = domain of @xmath171 ,
+_ if _ @xmath171 is defined ; however , we can define the operator @xmath171 only for @xmath174 .
+the difficulty of this nonlinear system is now delineated by the singular behavior of the poisson operator @xmath171 as a function of @xmath131  if the orbit @xmath191 ( in the function space @xmath141 ) runs away so as to increase @xmath192 , the evolution equation ( [ vorticity_eq-2dh ] ) will breakdown .    to match the combination of @xmath171 and @xmath169 , the domain of the total generator @xmath193
+must be restricted in @xmath194 .
+fortunately , this domain is not too small ; the regular ( classical ) solutions for an appropriate initial condition lives in this domain , i.e. , if a sufficiently smooth initial condition is given , the orbit stays in the region where @xmath192 is bounded @xcite .
+we begin with a general representation of the kernel of the noncanonical poisson operator @xmath171 , which will be a subset of its domain @xmath142 ( see sec .
+[ subsec : poisson ] ) .
+[ lemma : kernel ] for a given @xmath174 , @xmath195 is an element of @xmath196 , iff there is @xmath197 such that @xmath198 this implies that @xmath199    by the definition ( [ vorticity_eq - j ] ) , @xmath200 implies @xmath201 in the topology of @xmath141 , i.e. , @xmath202 by lemma[lemma : clebsch_representation ] , ( [ kernel ] ) implies that @xmath203 remembering ( [ decomposition_of_l2 ] ) , we obtain ( [ kernel - general ] ) and ( [ kernel - general ] ) .    to construct a casimir element from @xmath204 , we will need a more `` explicit '' relation between @xmath131 and @xmath178 .
+we will show how such a relation is available for a sufficiently regular @xmath131 .
+let us start by assuming @xmath205 .
+then , we may evaluate @xmath180 as @xmath206 .
+therefore , @xmath195 belongs to @xmath207 , iff @xmath208 .
+\label{kernel - general''}\ ] ] equation ( [ kernel - general  ] ) implies that two vectors @xmath209 and @xmath210 must align almost everywhere in @xmath77 , excepting any  region " in which one of them is zero .
+such a relationship between @xmath131 and @xmath178 can be represented , by invoking a certain scalar @xmath211 , as @xmath212 the simplest solution is given by @xmath213 ( i.e. , @xmath214 identity ) . in later discussion
+, we shall invoke a nontrivial @xmath215 to represent a wider class of solutions .
+we note that the condition @xmath195 implies the boundary condition @xmath216 . if @xmath217 constant on some @xmath218 , integrating ( [ kernel - general  ] ) with this boundary condition yields @xmath219 along every contour of @xmath131 which intersects @xmath220 [ the contours of @xmath131 are the cauchy characteristics of ( [ kernel - general  ] ) , and @xmath221 poses a non - characteristic _ initial condition _ ] .
+we denote by @xmath222 the largest region in @xmath77 ( not necessarily a connected set ) which is bounded by a level set ( contour ) of @xmath131 .
+see fig .
+[ fig : schematic ] . if @xmath223 constant , @xmath222 is smaller than @xmath77 , and then , every level set of @xmath131 in @xmath224 intersects @xmath95 . hence , @xmath225 closure of @xmath226 .
+we shall assume that @xmath227 for the existence of nontrivial @xmath204 .
+, the largest subset of @xmath77 bounded by an @xmath131 level set .
+note , the complement of @xmath222 contains level sets that intersect @xmath81 .
+also depicted is the plateau set @xmath228 , a region where @xmath131=constant .
+, scaledwidth=50.0% ]    now we make a moderate generalization about the regularity : suppose that @xmath131 is lipschitz continuous , i.e. , @xmath229 .
+then , @xmath131 has a classical gradient @xmath230 almost everywhere in @xmath77 ( see e.g.  @xcite ) , and @xmath231 is bounded .
+note , @xmath131 may fail to have a classical @xmath230 on a measure - zero subset @xmath232 , but for @xmath233 we may define a set - valued _ generalized gradient _ ( see @xcite ) . with a lipschitz continuous function
+@xmath234 we can solve ( [ kernel - general ] ) by @xmath235 where @xmath236 . to meet the boundary condition @xmath216 , @xmath237 must satisfy @xmath238    however , the solution ( [ kernel-1 ] ) omits a different type of solution that emerges with a _ singularity _ of @xmath171 : if @xmath131 has a `` plateau , '' i.e. , @xmath239 ( constant ) in a finite region @xmath240 ( see fig .  [
+fig : schematic ] ) , the operator @xmath171 trivializes as @xmath241 in @xmath242 ( i.e. , the `` rank '' drops to zero ; recall the example of sec .  [
+sec : introduction ] ) , and within @xmath242 we can solve ( [ kernel - general ] ) by an arbitrary @xmath178 with @xmath243 .
+notice that the solution ( [ kernel-1 ] ) restricts @xmath244 = constant in @xmath242 . to remove this degeneracy ,
+we abandon the continuity of @xmath237 and , for simplicity , assume that @xmath131 has only a single plateau .
+first we invoke the reversed form [ cf .
+( [ kernel - general-solution ] ) ] : @xmath245 where we assume that @xmath215 is a lipschitz continuous monotonic function . denoting @xmath246 , we may write @xmath247 , where the gradients on both sides evaluate classically almost everywhere in @xmath77 if @xmath178 is lipschitz continuous .
+if the function @xmath248 is flat on some interval , @xmath249 = constant for @xmath250 , a plateau appears in the distribution of @xmath131 .
+see figs .
+[ fig : schematic ] and [ fig : plateau](a ) .
+since the present mission is to find @xmath178 for a given @xmath131 , we transform ( [ kernel-2 ] ) back to ( [ kernel-1 ] ) with the definition @xmath251 .
+( in sec .
+[ sec : equilibrium ] , however , we will seek an equilibrium @xmath131 that is characterized by a casimir element , and then , the form ( [ kernel-2 ] ) will be invoked again ) . a plateau in the graph of @xmath215
+will , then , appear as a `` jump '' in the graph of @xmath237 .
+see fig .
+[ fig : plateau](b ) .     and @xmath131 .
+( a ) the relation @xmath252 with the plateau singularity .
+( b ) the singular ( discontinuous ) function @xmath213 illustrating the kernel element that stems from a plateau of @xmath131 .
+, scaledwidth=80.0% ]    we now allow the function @xmath253 to have a jump at @xmath254 .
+formally we write @xmath255 , with @xmath256 a lipschitz continuous function , @xmath257 the step function , and @xmath258 a constant determining the width of the jump .
+we connect the graph of the step function by filling the gap between @xmath259 and @xmath260 .
+see fig .
+[ fig : plateau](b ) .
+since @xmath253 is multi - valued at @xmath239 , @xmath261 is arbitrary in the range of @xmath262 $ ] , i.e.  in @xmath242 . choosing a sufficiently smooth @xmath178 in @xmath242
+, we may assume @xmath263 .
+summarizing the above discussions ( and making an obvious generalization ) , we have    [ theorem : kernel2 ] suppose that @xmath229 and @xmath227 .
+then @xmath207 contains nontrivial elements , and a part of them can be represented as @xmath264 where @xmath265 is an arbitrary function that satisfies the boundary condition ( [ kernel - summary - b ] ) and such that @xmath266 where @xmath267 denotes the height of a plateau of @xmath131 , @xmath268 is the `` filled '' step function , and @xmath269 is a constant .    [
+remark : singular_casimir ] notice that @xmath207 is enlarged by the singular components @xmath270 stemming from @xmath131 ( the singular point in the phase space @xmath141 ) that has plateaus @xmath271 .
+away from the singular point , the plateaus shrink to zero - measure sets in @xmath77 and , then , @xmath213 can no longer be a member of the domain of @xmath171 .
+however , it is still a `` hyperfunction solution '' of @xmath272 , since @xmath230 parallels the delta - function @xmath273 at @xmath271 .
+the corresponding casimir element , to be constructed in sec .
+[ subsec : casimirs ] , is what we call a `` singular casimir element '' ( remember the elementary example discussed in sec .
+[ sec : introduction ] ; see also fig .  [
+fig : foliation ] ) .
+[ remark : j_operator-2 ] in ( [ g - form ] ) , the function @xmath265 may be chosen arbitrarily to define an infinite number of kernel elements @xmath213 satisfying ( [ kernel - general ] ) . to find kernel elements ( and in the following step of finding casimir elements ) ,
+we solve a linear equation @xmath274 ( and @xmath275 ) for a given @xmath131 ; see remark[remark : j_operator ] . in the analysis of `` equilibrium points '' ( sec.[sec : equilibrium ] ) ,
+however , we will relate @xmath204 and @xmath131 by another defining relation @xmath276 so as to make @xmath178 the clebsch potential of @xmath131 ( see ( [ operator - k ] ) ) .
+then , @xmath265 is provided as a data specifying a casimir leaf on which we seek an equilibrium point .
+[ remark : more_general_solutions ] clearly the form ( [ g - form ] ) of @xmath253 is rather restrictive :    \(i ) in the plateau region , ( [ kernel - general ] ) has a wider class of solutions .
+in fact , @xmath178 may be an arbitrary @xmath277-class function whose range may exceed the interval @xmath262 $ ] . in this case , the graph of @xmath253 has a `` thorn '' at @xmath278 , and we may not integrate such a function to define a casimir element @xmath279 .
+( see sec .
+[ subsec : casimirs ] . )
+\(ii ) in ( [ g - form ] ) , we restrict the continuous part @xmath280 to be lipschitz continuous , by which @xmath213 ( @xmath229 ) is assured of lipschitz continuity ( thus , @xmath263 ) .
+however , this condition may be weakened , depending on the specific @xmath131 , i.e. , it is only required that @xmath281 .
+our next mission is to `` integrate '' the kernel element @xmath204 as a function of @xmath131 , and define a casimir element @xmath282 , i.e. , to find a functional @xmath282 such that @xmath283 . to this end , the parameterized @xmath178 of ( [ kernel - summary ] )
+will be used , where the function @xmath253 may have singularities as described in theorem[theorem : kernel2 ] .
+the central issue of this section , then , will be to consider an appropriate `` generalized functional derivative '' by which we can define `` singular casimir elements '' pertinent to the singularities of the noncanonical poisson operator @xmath171 .
+let us start by considering a _ regular _ casimir element generated by @xmath284 : @xmath285 where @xmath286 .
+the gradient of this functional can be readily calculated with the definition of sec .
+[ subsec : gradient ] : perturbing @xmath131 by @xmath287 results in @xmath288 hence , we obtain @xmath289 , proving that @xmath290 of ( [ omega - casimir ] ) is the casimir element corresponding to @xmath291 .
+now we construct a _ singular _ casimir element corresponding to a general @xmath253 that may have `` jumps '' at the singularity of @xmath171 , i.e. , the plateaus of @xmath131 . the formal primitive function @xmath292 of such a @xmath265 has `` kinks '' where the classical differential does not apply this problem leads to the requirement of an appropriately generalized gradient of the functional @xmath293 generated by a kinked @xmath292 .    here
+we invoke the _ _
+clarke gradient__@xcite , which is a generalized gradient for lipschitz - continuous functions or functionals .
+specifically , if @xmath294 , then the clarke gradient of @xmath295 at @xmath296 , denoted by @xmath297 , is defined to be the convex hull of the set of limit points of the form @xmath298 evidently , @xmath297 is equivalent to the classical gradient , @xmath299 , if @xmath300 is continuously differentiable in the neighborhood of @xmath296 .
+also , it is evident that a `` kink '' in @xmath295 yields @xmath297 with a graph that has a `` jump '' with the gap filled as depicted in fig .
+[ fig : plateau](b ) .
+when @xmath61 is a convex functional on a hilbert space @xmath34 , i.e.  @xmath301 , then @xmath302 is equal to the _ sub - differential _ : @xmath303 which gives the _ maximally monotone _
+( i.e. , the gap - filled ) function @xcite . for the purpose of sec .
+[ sec : equilibrium ] , a monotonic @xmath304 will be sufficient .    from the above ,
+the following conclusion is readily deducible :    [ corollary : casimir ] suppose that @xmath229 and @xmath227 .
+by @xmath265 satisfying ( [ kernel - summary - b ] ) and ( [ g - form ] ) , we define @xmath292 such that @xmath304 . then , @xmath305 is a generalized casimir element , i.e. , @xmath306 .
+the casimir element @xmath290 naturally extends the set of extremal equilibrium points , the set of solutions of the dynamical system ( [ vorticity_eq-2dh ] ) that are both equilibrium solutions and energy - casimir extremal points .
+this is done by including extremal points satisfying [ cf .
+( [ stationary_points2 ] ) ] @xmath307 \ni 0 , \label{fixed_ponit}\ ] ] which explicitly gives @xmath308 here we assume that @xmath304 is a monotonic function , i.e. , @xmath292 is convex .
+then , we may define a single - valued continuous function @xmath309 and rewrite ( [ kernel-1-fided_point ] ) , denoting @xmath145 , as @xmath310 if @xmath311 , ( [ kernel-2-fixed_point ] ) will determine a nontrivial ( @xmath312 ) equilibrium extremal point .
+notice that @xmath313 ( or @xmath314 or @xmath315 ) is a given function that specifies a casimir leaf on which we seek an equilibrium point ( see remark [ remark : j_operator-2 ] ) .
+here we prove the following existence theorem :    [ theorem : fixed - point ] there exists a finite positive number @xmath316 , determined only by the geometry of @xmath77 , such that if @xmath317 then ( [ kernel-2-fixed_point ] ) has a solution @xmath118 .
+we show the existence of the solution by schauder s fixed - point theorem ( see for example @xcite and @xcite ) .
+first we rewrite ( [ kernel-2-fixed_point ] ) as @xmath318 where @xmath135 is a compact operator on @xmath90 ( cf .
+( [ operator - k ] ) ) . since @xmath319
+, @xmath320 is a continuous compact map on @xmath90 .
+we consider a closed convex subset @xmath321 where @xmath322 is the norm of @xmath90 and the parameter @xmath323 will be determined later .
+we show that the compact map @xmath320 has a fixed point in @xmath324 . by poincar s inequality , we have , for @xmath325 , @xmath326 where @xmath327 is a positive number that is determined by the geometry of @xmath77 . for @xmath328 , we have @xmath329 where @xmath330 is also a positive number determined by the geometry of @xmath77 . here
+@xmath331 and @xmath332 .
+hence , denoting @xmath333 , we have @xmath334 by sobolev s inequality , we have @xmath335 where @xmath336 is again a positive number determined by the geometry of @xmath77 . summarizing these estimates
+, we have , for @xmath337 , @xmath338 for an arbitrary positive number @xmath339 , there is a finite number @xmath340 such that @xmath341 .
+if we choose @xmath342 , then by the monotonicity of @xmath343 , we find @xmath344 and , upon denoting @xmath345 , we obtain @xmath346 where @xmath347 if @xmath348 , we estimate @xmath349 , and thus @xmath320 maps @xmath324 into @xmath324 .
+therefore , @xmath320 has a fixed - point in @xmath324 .
+if @xmath324 contains a fixed point , then an arbitrary @xmath350 with @xmath351 contains a fixed - point . since @xmath339 is arbitrary
+, @xmath352 is the sufficient condition for the existence of a fixed point .    [
+corollary : fixed - point ] if @xmath353 for some finite @xmath340 , then we may assume @xmath354 in ( [ estimate-1 ] ) , and the solvability condition ( [ fixed - point_condition ] ) can be modified to be @xmath355 .
+the bound @xmath316 defined by ( [ estimate - m ] ) is related to the eigenvalue of @xmath356 . on the other hand ,
+the constant @xmath357 defined by ( [ fixed - point_condition ] ) is a property of the casimir element . as noted above , because of the homogeneity of ( [ casmir-1 ] ) , there is at least a one - parameter family of casimir elements and the choice of a multiplicative constant reciprocally scales @xmath357 .
+this provides an arbitrary parameter multiplying the casimir element in the determining equation ( [ fixed_ponit ] ) , and such a parameter may be considered to be an `` eigenvalue '' characterizing the stationary point .
+the no - solution example of the next section will reveal the `` nonlinear property '' of this eigenvalue problem .      here
+we present a class of examples that violate the solvability condition proposed in theorem[theorem : fixed - point ] .
+this demonstrates that finding casimir elements that generalize the extremal equation ( [ kernel-2-fixed_point ] ) , does not automatically extend the set of extremal equilibria , since the resulting elliptic equation may not have a solution .
+this is demonstrated by the following two propositions .
+[ proposition : nosolution ] let @xmath358 have the form @xmath359 where @xmath360 is the first eigenvalue of @xmath356 and @xmath361 . then , ( [ kernel-2-fixed_point ] ) does not have a solution .
+we denote by @xmath362 the eigenfunction corresponding to the eigenvalue @xmath360 . upon taking the inner product of ( [ kernel-2-fixed_point ] ) with @xmath362 ,
+we obtain @xmath363 the left - hand - side of ( [ ipdel ] ) satisfies @xmath364 , which cancels the first term on the right - hand - side , leaving @xmath365 .
+however , this is a contradiction , because @xmath366 ( or @xmath367 if otherwise normalized ) on @xmath77 be a bounded domain and @xmath368 the eigenvalues of @xmath136 with zero dirichlet boundary condition .
+it is well - known that the eigenvalues have the order @xmath369 , with @xmath370 as @xmath371 , and @xmath360 is the unique eigenvalue with corresponding eigenfunction that does not change sign on @xmath77 , i.e. , it is strictly positive or strictly negative on the whole of @xmath77 .
+furthermore , the dimension of the eigenspace associated with @xmath360 is one . ] and , by the assumption , @xmath372 .
+the above result is easily generalized as follows :    [ proposition : nosolution2 ] suppose that @xmath373 where @xmath374 is any eigenvalue of @xmath136 and @xmath375 , for some @xmath376 and @xmath377 .
+let @xmath378 be the eigenfunction corresponding to @xmath374 .
+since @xmath378 may not have a definite sign in @xmath77 , we divide @xmath77 into @xmath379 and @xmath380 , and define @xmath381 if @xmath382 , ( [ kernel-2-fixed_point ] ) does not have a solution for some ranges of @xmath376 and @xmath377 .    as shown in the proof of proposition[proposition : nosolution2 ] , a solution of ( [ kernel-2-fixed_point ] ) must satisfy @xmath383 by assumption , we have @xmath384 hence , the inequalities @xmath385 must hold , i.e. , @xmath386 however , if @xmath387 , and @xmath376 and @xmath377 are such that @xmath388 , then there is a contradiction with ( [ contradiction1 ] ) .
+similarly , if @xmath389 , and @xmath376 and @xmath377 are such that @xmath390 , then there is a contradiction with ( [ contradiction2 ] ) .
+after establishing some mathematical facts about the hamiltonian form of the euler equation of two - dimensional incompressible inviscid flow , we studied the center of the poisson algebra , i.e. , the kernel of the noncanonical poisson operator @xmath171 .
+casimir elements @xmath282 were obtained by `` integrating '' the `` differential equation '' @xmath391 for finite - dimensional systems with phase space coordinate @xmath8 , this amounts to an analysis of @xmath392 , a linear partial differential operator , and nontriviality can arise from a _ singularity _ of @xmath393 , whence an inherent structure emerges .
+recall the simple example given in sec .
+[ sec : introduction ] where @xmath394 was seen to generate the _ hyperfunction _ casimir @xmath395 . for finite - dimensional systems
+the theory naturally finds its way to algebraic analysis : in the language of d - module theory , casimir elements constitute @xmath396 , where @xmath397 is the ring of partial differential operators and @xmath295 is the function space on which @xmath393 operates , and @xmath398 is the d - module corresponding to the equation @xmath399 . however , in the present study @xmath131 is a member of an infinite - dimensional hilbert space , thus @xmath393 may be regarded as an infinite - dimensional generalization of linear partial differential operators . from the singularity of such an infinite - dimensional ( or _ functional _ )
+differential operator @xmath400 , we unearthed _ singular _ casimir elements , and to justify the operation of @xmath393 on singular elements , we invoked a generalized functional derivative ( clarke differential or sub - differential ) that we denoted by @xmath401 .    for infinite - dimensional systems ,
+we can not `` count '' the dimensions of @xmath402 and @xmath403 .
+it is , however , evident that @xmath404 , if @xmath75 has singularities , i.e. , singularities create `` nonintegrable '' elements of @xmath403 . as shown in theorem[theorem : kernel2 ] , a _ plateau _ in @xmath131 causes a singularity of @xmath171 and generates new elements of @xmath207 , which can be integrated to produce singular casimir elements ( corollary[corollary : casimir ] ) .
+however , as noted in remark [ remark : more_general_solutions](i ) , more general elements of @xmath207 that are _ not integrable _ may stem from a plateau singularity . moreover , we had to assume lipschitz continuity for @xmath131 to obtain an explicit relation between @xmath204 and @xmath131  otherwise we could not _ integrate _
+@xmath178 with respect to @xmath131 to construct a casimir element . in the general definition of @xmath171 ,
+however , @xmath131 may be nondifferentiable ( we assumed only continuity ) , and then , a general @xmath204 may not have an integrable relation to @xmath131 ( see lemma [ lemma : kernel ] ) .    in sec .
+[ sec : equilibrium ] we solved the equation @xmath405
+\ni 0\ ] ] for @xmath131 , where the solution @xmath131 gave an equilibrium point of the dynamics induced by a hamiltonian @xmath167 .
+a singular ( kinked ) casimir yielded a multivalued ( set - valued ) gradient @xmath406 , encompassing an infinite - dimensional solution stemming from the plateau singularity .
+this arose because in the plateau of @xmath131 , @xmath204 is freed from @xmath131 and may distribute arbitrarily .
+the component @xmath256 of the casimir @xmath282 of ( [ g - form ] ) represents explicitly the regular  dimensions " of @xmath207 .
+in contrast , the undetermined dimensions pertinent to the singularity @xmath239 are `` implicitly '' included in the step - function component of ( [ g - form ] ) , or in the kink of @xmath282 . however , for a given hamiltonian @xmath167 , i.e.  a given dynamics , a specific relation between @xmath407 and @xmath131 emerges .
+theorem [ theorem : fixed - point ] of sec .
+[ subsec : fixed - points ] and the nonexistence examples of sec .
+[ subsec : no - solution ] may not be new results in the theory of elliptic partial differential equations , but they do help delineate the relationship between hamiltonians and casimir elements , viz .   that casimir elements alone do not determine the extent of the set of equilibrium points . in the present paper ,
+we did not discuss the bifurcation of the equilibrium points ; the reader is referred to @xcite for a presentation of the actual state of the studies of semilinear elliptic problems and several techniques in nonlinear analysis ( see also @xcite and @xcite ) .
+we also note that we have excluded nonmonotonic @xmath253 that will make @xmath358 multivalued or , more generally , equations like @xmath408 ; cf .
+( [ kernel - general-solution ] ) .
+for fully nonlinear elliptic partial differential equations , the reader is referred to @xcite .
+the authors acknowledge informative discussions with yoshikazu giga and are grateful for his suggestions .
+zy was supported by grant - in - aid for scientific research ( 23224014 ) from mext , japan .
+pjm was supported by u.s .
+dept .  of energy contract # de - fg05 - 80et-53088 .
+here we formulate the euler equation , for both @xmath101 and 3 , as an evolution equation in @xmath100 ( see sec.[subsec : vorticity_equation ] ) , and discuss the poisson operator @xmath409 in this space .
+this differs from the formulation of sec .
+[ sec : euler_equation ] in that the state variable here is the velocity field @xmath99 instead of the vorticity @xmath131 . as noted in sec.[subsec : vorticity_equation ] , @xmath100 is a closed subspace of @xmath90 , and we have the orthogonal decomposition ( [ decomposition_of_l2 ] ) .
+we denote by @xmath410 the orthogonal projection onto @xmath100 . upon applying @xmath410 to the both sides of ( [ euler-2 ] )
+, we obtain @xmath411 which is interpreted as the evolution equation in @xmath103 , where the incompressibility condition ( [ incompressibility ] ) and the boundary condition ( [ bc ] ) are implied by @xmath120 .    for @xmath120 , the hamiltonian is , of course , the kinetic energy @xmath412 fixing a sufficiently smooth @xmath52 acting as a parameter , viz .
+@xmath413 , we define for @xmath414 the following the noncanonical poisson operator : @xmath415 as a linear operator ( recall remark [ remark : j_operator ] of sec .  [
+sec : introduction ] ) , @xmath416 consists of the vector multiplication by @xmath417 followed by projection with @xmath410 .
+evidently , @xmath409 is antisymmetric : @xmath418 in fact , for every fixed smooth @xmath52 , @xmath419 is a self - adjoint bounded operator in @xmath103 .
+assuming @xmath101 , which we do henceforth , by lemma [ lemma : clebsch_representation ] we may put @xmath423 and @xmath140 with @xmath424 .
+fixing @xmath174 as a parameter , and putting @xmath425 with @xmath426 , we may write @xmath427 = -p_\sigma \left[\omega \nabla\psi\right].\ ] ] by ( [ decomposition_of_l2 ] ) , @xmath428 iff @xmath429 which is equivalent to ( [ kernel - general ] ) .
+arguing just like in sec .
+[ subsec : kernel ] , we find solutions of ( [ kernel - u ] ) of the form @xmath430    the casimir element constructed from ( [ kernel-1-u ] ) is @xmath431 perturbing @xmath52 by @xmath432 and restricting @xmath433 on @xmath95 yields @xmath434 , and @xmath435 hence , upon denoting @xmath436 we obtain @xmath437 by ( [ kernel-1-u ] ) , it is evident that @xmath438 = 0 $ ] , confirming that @xmath439 .
+v. i. arnold , on an a priori estimate in the theory of hydrodynamic stability , _ amer . math . soc .
+* 19 * ( 1969 ) , 267269 . v. i. arnold ,
+sur la gometrie diffrentielle des groupes de lie de dimension infinie et ses applications  lhydrodynamique des fluides parfaits , _ ann .
+( grenoble ) * 16 * ( 1966 ) , 319361 .
+p. j. morrison , hamiltonian field description of two - dimensional vortex fluids an guiding center plasmas , princeton university plasma physics laboratory report , pppl-1783 ( 1981 ) ; available as american institute of physics document no .
+paps - pfbpe-04 - 771 - 24 .
+p. j. morrison , hamiltonian field description of one - dimensional poisson - vlasov equation , princeton university plasma physics laboratory report , pppl-1788 ( 1981 ) ; available as american institute of physics document no .
+paps - pfbpe-04 - 771 - 14 .
+p. j. morrison , in _ mathematical methods in hydrodynamics and integrability in related dynamical systems _
+, aip conference proceedings no . * 88 * , edited by m. tabor and y. treve ( aip , new york , 1982 ) , p.  13 .

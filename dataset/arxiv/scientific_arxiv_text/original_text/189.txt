@@ -1,0 +1,264 @@
+in high energy physics ( hep ) , unfolding ( also called unsmearing ) is a general term describing methods that attempt to take out the effect of smearing resolution in order to obtain a measurement of the true underlying distribution of a quantity .
+typically the acquired data ( distorted by detector response , inefficiency , etc . )
+are binned in a histogram .
+the result of some unfolding procedure is then a new histogram with estimates of the true mean bin contents prior to smearing and inefficiency , along with some associated uncertainties .
+it is commonly assumed that such unfolded distributions are useful scientifically for comparing data to one or more theoretical predictions , or even as quantitative measurements to be propagated into further calculations .
+since an important aspect of the scientific enterprise is to test hypotheses , we can ask : `` should unfolded histograms be used to test hypotheses ? '' if the answer is yes , then one can further ask if there are limitations to the utility of testing hypotheses using unfolded histograms . if the answer is no , then the rationale for unfolding would seem to be limited .
+in this note we illustrate an approach to answering the title question with a few variations on a toy example that captures some of the features of real - life unfolding problems in hep .
+the goal of the note is to stimulate more interest in exploring what one of us ( rc ) has called a _ bottom - line test _ for an unfolding method : _ if the unfolded spectrum and supplied uncertainties are to be useful for evaluating which of two models is favored by the data ( and by how much ) , then the answer should be materially the same as that which is obtained by smearing the two models and comparing directly to data without unfolding _
+this is a different emphasis for evaluating unfolding methods than that taken in studies that focus on intermediate quantities such as bias and variance of the estimates of the true mean contents , and on frequentist coverage of the associated confidence intervals .
+while the focus here is on comparing two models for definiteness , the basic idea of course applies to comparing one model to data ( i.e. , goodness of fit ) , and to more general hypothesis tests .
+recently zech  @xcite has extended the notion of the bottom - line test to parameter estimation from fits to unfolded data , and revealed failures in the cases studied , notably in fits to the width of a peak .
+we adopt the notation of the monograph _ statistical data analysis _ by glen cowan @xcite ( suppressing for simplicity the background contribution that he calls @xmath0 ) :    @xmath1 is a continuous variable representing the _ true _ value of some quantity of physical interest ( for example momentum ) .
+it is distributed according to the pdf @xmath2 .
+@xmath3 is a continuous variable representing the _ observed _ value of the same quantity of physical interest , after detector smearing effects and loss of events ( if any ) due to inefficiencies .
+@xmath4 is the resolution function of the detector : the conditional pdf for observing @xmath3 , given that the true value is @xmath1 ( and given that it was observed somewhere ) .
+@xmath5 contains the expectation values of the bin contents of the _ true _
+( unsmeared ) histogram of @xmath1 ;    @xmath6 contains the bin contents of the _ observed _ histogram ( referred to as the _ smeared histogram _ , or occasionally as the _ folded _
+histogram ) of @xmath3 in a single experiment ;    @xmath7 contains the expectation values of the bin contents of the _ observed _ ( smeared ) histogram of @xmath3 , including the effect of inefficiencies : @xmath8 $ ] ;    @xmath9 is the response matrix that gives the probability of an event in true bin @xmath10 being observed in bin @xmath11 after smearing : @xmath12 ;    @xmath13 contains the point estimates of @xmath14 that are the output of an unfolding algorithm .
+@xmath15 is the covariance matrix of the estimates @xmath16 : @xmath17 $ ] .
+the estimate of @xmath15 provided by an unfolding algorithm is @xmath18 .
+thus we have @xmath19 as discussed by cowan and noted above , @xmath9 includes the effect of the efficiency @xmath20 , i.e. , the effect of events in the true histograms not being observed in the smeared histogram .
+the only efficiency effect that we consider here is that due to events being smeared outside the boundaries of the histogram .
+( that is , we do not consider an underflow bin or an overflow bin . )
+the response matrix @xmath9 depends on the resolution function and on ( unknown ) true bin contents ( and in particular on their true densities @xmath2 _ within _ each bin ) , and hence @xmath9 is either known only approximately or as a function of assumptions about the true bin contents .
+the numbers of bins @xmath21 and @xmath22 need not be the same .
+( @xmath23 is often suggested , while @xmath24 leaves the system of equations under - determined . ) for the toy studies discussed here , we set @xmath25 , so that @xmath9 is a square matrix that typically has an inverse .    in the smeared space , we take the observed counts @xmath26 to be independent observations from the underlying poisson distributions : @xmath27 the unfolding problem is then to use @xmath9 and @xmath26 as inputs to obtain estimates @xmath16 of @xmath14 , and to obtain the covariance matrix @xmath15 of these estimates ( or rather an estimate of @xmath15 , @xmath18 ) , ideally taking in account uncertainty in @xmath9 .
+when reporting unfolded results , authors report @xmath16 , ideally along with @xmath18 .
+( if only a histogram of @xmath16 with `` error bars '' is displayed , then only the diagonal elements of @xmath18 are communicated , further degrading the information . )
+the `` bottom line test '' of an application of unfolding is then whether hypothesis tests about underlying models that predict @xmath14 can obtain meaningful results if they take as input @xmath16 and @xmath18 .
+for the null hypothesis @xmath28 , we consider the continuous variable @xmath1 to be distributed according the true pdf @xmath29 where @xmath30 is known , and @xmath31 is a normalization constant . for the alternative hypothesis @xmath32 , we consider @xmath1 to be distributed according the true pdf @xmath33 where @xmath30 is the same as in the null hypothesis , and where @xmath34 is a pdf that encodes a departure from the null hypothesis . in this note
+, we assume that both @xmath34 and @xmath35 are known , and lead to potentially significant departures from the null hypothesis at large @xmath1 .
+the constant @xmath35 controls the level of such departures .
+figure  [ truepdfs ] displays the baseline pdfs that form the basis of the current study , for which we take @xmath36 to be a normalized gamma distribution , @xmath37 and @xmath38 .
+is represented by @xmath39 , shown in red .
+the alternative hypothesis @xmath32 has an additional component shown in dashed blue , with the sum @xmath40 in solid blue .
+, title="fig:",scaledwidth=49.0% ]   is represented by @xmath39 , shown in red .
+the alternative hypothesis @xmath32 has an additional component shown in dashed blue , with the sum @xmath40 in solid blue .
+, title="fig:",scaledwidth=49.0% ]    for each hypothesis , the true bin contents @xmath14 are then each proportional to the integral of the relevant @xmath2 over each bin . for both hypotheses ,
+we take the smearing of @xmath3 to be the gaussian resolution function , @xmath41 where @xmath42 is known .    for baseline plots
+, we use the values shown in table  [ baseline ] , and the study the effect of varying one parameter at a time . for both @xmath3 and @xmath1
+, we consider histograms with 10 bins of width 1 spanning the interval [ 0,10 ] .
+the default @xmath42 is half this bin width .
+the quantities @xmath14 , @xmath9 , and @xmath43 are then readily computed as in ref .
+figure  [ histos ] displays @xmath14 and @xmath43 ( in solid histograms ) , while fig .
+[ responsepurity ] displays the response matrix as well as the source bin of events that are observed in each bin . in each simulated experiment ,
+the total number of events is sampled from a poisson distribution with mean given in table  [ baseline ] .
+.values of parameters used in the baseline unfolding examples [ cols="<,<,<",options="header " , ]      and smeared @xmath43 , for ( left ) the null hypothesis @xmath28 and ( right ) the alternative hypothesis @xmath32 .
+data points : in mc simulation a set @xmath44 of true points is chosen randomly and then smeared to be the set @xmath45 .
+the three points plotted in each bin are then the bin contents when @xmath1 and @xmath3 are binned , followed by the unfolded estimate for bin contents . ,
+title="fig:",scaledwidth=49.0% ]   and smeared @xmath43 , for ( left ) the null hypothesis @xmath28 and ( right ) the alternative hypothesis @xmath32 .
+data points : in mc simulation a set @xmath44 of true points is chosen randomly and then smeared to be the set @xmath45 .
+the three points plotted in each bin are then the bin contents when @xmath1 and @xmath3 are binned , followed by the unfolded estimate for bin contents . , title="fig:",scaledwidth=49.0% ]     for default parameter values in table  [ baseline ] .
+( right ) for each bin in the measured @xmath1 value , the fraction of events that come from that bin ( dominant color ) and from nearby bins .
+, title="fig:",scaledwidth=49.0% ]   for default parameter values in table  [ baseline ] .
+( right ) for each bin in the measured @xmath1 value , the fraction of events that come from that bin ( dominant color ) and from nearby bins .
+, title="fig:",scaledwidth=49.0% ]    boundary effects at the ends of the histogram are an important part of a real problem . in our simplified toy problems ,
+we use the same smearing for events near boundaries as for all events ( hence not modeling correctly some physical situations where observed values can not be less than zero ) ; events that are smeared to values outside the histogram are considered lost and contribute to the inefficiencies included in @xmath9 .
+these toy models capture some important aspects of real problems in hep . for example
+, one might be comparing event generators for top - quark production in the standard model .
+the variable @xmath1 might be the transverse momentum of the top quark , and the two hypotheses might be two calculations , one to higher order
+.    another real problem might be where @xmath1 represents transverse momentum of jets , the null hypothesis is the standard model , and the alternative hypothesis is some non - standard - model physics that turns on at high transverse momentum .
+( in this case , it is typically not the case that amplitude @xmath35 of additional physics is known . )
+in a typical search for non - standard - model physics , the hypothesis test of @xmath28 vs.  @xmath32 is formulated in the smeared space , i.e. , by comparing the histogram contents @xmath26 to the mean bin contents @xmath43 predicted by the true densities @xmath2 under each hypothesis combined with the resolution function and any efficiency losses .
+the likelihood @xmath46 for the null hypothesis is the product over bins of the poisson probability of obtaining the observed bins counts : @xmath47 where the @xmath48 are taken from the null hypothesis prediction .
+likelihoods for other hypotheses , such as @xmath49 , are constructed similarly .    for testing goodness of fit
+, it can be useful  @xcite to use the observed data to construct a third hypothesis , @xmath50 , corresponding the _ saturated model _  @xcite , which sets the predicted mean bin contents to be exactly those observed .
+thus @xmath51 is the upper bound on @xmath52 for any hypothesis , given the observed data .
+the negative log - likelihood ratio @xmath53 is a goodness - of - fit test statistic that is asymptotically distributed as a chisquare distribution if @xmath28 is true .
+similarly one has @xmath54 for testing @xmath32 .
+an alternative ( in fact older ) goodness - of - fit test statistic is pearson s chisquare  @xcite , @xmath55 yet another alternative , generally less favored , is known as neyman s chisquare  @xcite , @xmath56 ref .
+@xcite argues that eqn .
+[ baker ] is the most appropriate gof statistic for poisson - distributed histograms , and we use it as our reference point in the smeared space .
+figure  [ nullgofsmeared ] shows the distributions of @xmath57 and @xmath58 , and their difference , for histograms generated under @xmath28 .
+both distributions follow the expected @xmath59 distribution with 10 degrees of freedom ( dof ) .
+in contrast , the histogram of @xmath60 ( figure  [ nullgofsmeared ] ( bottom left ) ) has noticeable differences from the theoretical curve .
+, in the smeared space with default value of gaussian @xmath42 , histograms of the gof test statistics : ( top left ) @xmath57 , ( top right ) @xmath58 , and ( bottom left ) @xmath60 .
+the solid curves are the chisquare distribution with 10 dof .
+( bottom right ) histogram of the event - by - event difference in the two gof test statistics @xmath58 and @xmath57 . , title="fig:",scaledwidth=49.0% ] , in the smeared space with default value of gaussian @xmath42 , histograms of the gof test statistics : ( top left ) @xmath57 , ( top right ) @xmath58 , and ( bottom left ) @xmath60 .
+the solid curves are the chisquare distribution with 10 dof .
+( bottom right ) histogram of the event - by - event difference in the two gof test statistics @xmath58 and @xmath57 . , title="fig:",scaledwidth=49.0% ] , in the smeared space with default value of gaussian @xmath42 , histograms of the gof test statistics : ( top left ) @xmath57 , ( top right ) @xmath58 , and ( bottom left ) @xmath60 .
+the solid curves are the chisquare distribution with 10 dof .
+( bottom right ) histogram of the event - by - event difference in the two gof test statistics @xmath58 and @xmath57 .
+, title="fig:",scaledwidth=49.0% ] , in the smeared space with default value of gaussian @xmath42 , histograms of the gof test statistics : ( top left ) @xmath57 , ( top right ) @xmath58 , and ( bottom left ) @xmath60 .
+the solid curves are the chisquare distribution with 10 dof .
+( bottom right ) histogram of the event - by - event difference in the two gof test statistics @xmath58 and @xmath57 . ,
+title="fig:",scaledwidth=49.0% ]    for testing @xmath28 vs.  @xmath32 , a suitable test statistic is the likelihood ratio @xmath61 formed from the probabilities of obtaining bin contents @xmath26 under each hypothesis : @xmath62 where the second equality follows from eqn .
+[ baker ] .
+figure  [ lambdah0h1 ] shows the distribution of @xmath63 for events generated under @xmath28 and for events generated under @xmath32 , using the default parameter values in table  [ baseline ] .     for events generated under @xmath28 ( in blue ) and @xmath32 ( in red ) . ,
+scaledwidth=49.0% ]    we would assert that these results obtained in the smeared space are the `` right answers '' for chisquare - like gof tests of @xmath28 and @xmath32 ( if desired ) , and in particular for the likelihood - ratio test of @xmath28 vs @xmath32 in fig .  [ lambdah0h1 ] . given a particular observed data set ,
+such histograms can be used to calculate @xmath64-values for each hypothesis , simply by integrating the appropriate tail of the histogram beyond the observed value of the relevant likelihood ratio  @xcite . in frequentist statistics , such @xmath64-values
+are typically the basis for inference , especially for the simple - vs - simple hypothesis tests considered here .
+( of course there is a vast literature questioning the foundations of using @xmath64-values , but in this note we assume that they can be useful , and are interested in comparing ways to compute them . )
+we compare @xmath65 , @xmath58 , @xmath60 , and the generalization of eqn .
+[ chisq ] including correlations in various contexts below . for poisson - distributed data , arguments in favor of @xmath65 when it is available are in ref .
+@xcite .      in the usual @xmath59 gof test with ( uncorrelated )
+estimates @xmath66 having _ gaussian _ densities with standard deviations @xmath67 , one would commonly have @xmath68 although not usually mentioned , this is equivalent to a likelihood ratio test with respect to the saturated model , just as in the poisson case .
+the likelihood is @xmath69 where for @xmath46 one has @xmath48 predicted by @xmath28 , and for the saturated model , one has @xmath70 .
+thus @xmath71 and hence @xmath72 ( it is sometimes said loosely and incorrectly that for the gaussian model , @xmath73 , but clearly the ratio is necessary to cancel the normalization factor . )    there is also a well - known connection between the usual gaussian @xmath59 of eqn .
+[ chisq ] and pearson s chisquare in eqn .
+[ pearson ] : since the variance of a poisson distribution is equal to its mean , a naive derivation of eqn .
+[ pearson ] follows immediately from eqn .
+[ chisq ] .
+if one further approximates @xmath48 by the estimate @xmath74 , then one obtains neyman s chisquare in eqn .
+[ neyman ] .
+if one unfolds histograms and then compares the unfolded histograms @xmath16 to ( never smeared ) model predictions @xmath75 , even informally , then one is implicitly assuming that the comparison is scientifically meaningful .
+for this to be the case , we would assert that the results of comparisons should not differ materially from the `` right answers '' obtained above in the smeared space . here
+we explore a few test cases .    given the observed histogram contents @xmath26 , the likelihood function for the unknown @xmath76 follows from eqn .
+[ poisprob ] and leads to the maximum likelihood ( ml ) estimates @xmath77 , i.e. , @xmath78 one might then expect that the ml estimates of the unknown means @xmath14 can be obtained by substituting @xmath66 for @xmath26 in eqn .  [ nurmu ] .
+if @xmath9 is a square matrix , as assumed here , then this yields @xmath79 these are indeed the ml estimates of @xmath14 as long as @xmath9 is invertible and the estimates @xmath80 are positive  @xcite , which is generally the case in the toy problem studied here .
+the covariance matrix of the estimates @xmath16 in terms of @xmath9 and @xmath76 is derived in ref .
+@xcite : @xmath81 where @xmath82 .
+since the true values @xmath76 are presumed unknown , it is natural to substitute the estimates from eqn .  [ nun ] , thus obtaining an estimate @xmath18 .
+consequences of this approximation are discussed below .    in all cases ( even when matrix inversion fails ) , the ml estimates for @xmath14 can be found to desired precision by the iterative method variously known as @xcite expectation maximization ( em ) , lucy - richardson , or ( in hep ) the iterative method of dagostini  @xcite . because the title of ref .
+@xcite mentions bayes theorem , in hep the em method is unfortunately ( and wrongly ) referred to as `` bayesian '' , even though it is a fully frequentist algorithm  @xcite .
+as discussed by cowan  @xcite , the ml estimates are unbiased , but the unbiasedness can come at a price of large variance that renders the unfolded histogram unintelligible to humans .
+therefore there is a vast literature on `` regularization methods '' that reduce the variance at the price of increased bias , such that the mean - squared - error ( the sum of the bias squared and the variance ) is ( one hopes ) reduced .
+the method of regularization popularized in hep by dagostini  @xcite ( and studied for example by bohm and zech  @xcite ) is simply to stop the iterative em method before it converges to the ml solution .
+the estimates @xmath83 then retain some memory of the starting point of the solution ( typically leading to a bias ) and have lower variance .
+the uncertainties ( covariance matrix ) also depend on when the iteration stops .    our studies in this note focus on the ml and truncated iterative em solutions , and
+use the em implementation ( unfortunately called roounfoldbayes ) in the roounfold  @xcite suite of unfolding tools .
+this means that for the present studies , we are constrained by the policy in roounfold to use the `` truth '' of the training sample to be the starting point for the iterative em method ; thus we have not studied convergence starting from , for example , a uniform distribution .
+useful studies of the bias of estimates are thus not performed .
+other popular methods in hep include variants of tikhonov regularization , such as `` svd '' method advocated by hocker and kartvelishvili  @xcite , and the implementation included in tunfold  @xcite .
+the relationship of these methods to those in the professional statistics literature is discussed by kuusela  @xcite .
+figure  [ histos ] shows ( in addition to the solid histograms mentioned above ) three points with error bars plotted in each bin , calculated from a particular set of simulated data corresponding to one experiment .
+the three points are the bin contents when the sampled values of @xmath1 and @xmath3 are binned , followed by that bin s components of the set of unfolded estimates @xmath16 .
+figure  [ matricesinvert](left ) shows the covariance matrix @xmath18 for the estimates @xmath16 obtained for the same particular simulated data set , unfolded by matrix inversion ( eqn .
+[ nurmuinv ] ) to obtain the ml estimates .
+figure  [ matricesinvert ] ( right ) shows the corresponding correlation matrix with elements @xmath84 .
+figure  [ matricesiterative ] shows the corresponding matrices obtained when unfolding by the iterative em method with default number of iterations . for the ml solution ,
+adjacent bins are negatively correlated , while for the em solution with default ( 4 ) iterations , adjacent bins are positively correlated due to the implicit regularization .     for unfolded estimates , as provided by the ml estimates ( matrix inversion ) .
+( right ) the correlation matrix corresponding to @xmath18 , with elements @xmath84 . , title="fig:",scaledwidth=49.0% ]   for unfolded estimates , as provided by the ml estimates ( matrix inversion ) .
+( right ) the correlation matrix corresponding to @xmath18 , with elements @xmath84 . ,
+title="fig:",scaledwidth=49.0% ]     for unfolded estimates , as provided by the default iterative em method .
+( right ) the correlation matrix corresponding to @xmath18 , with elements @xmath84 . ,
+title="fig:",scaledwidth=49.0% ]   for unfolded estimates , as provided by the default iterative em method .
+( right ) the correlation matrix corresponding to @xmath18 , with elements @xmath84 . ,
+title="fig:",scaledwidth=49.0% ]    figure  [ converge ] shows an example of the convergence of iterative em unfolding to the ml solution for one simulated data set . on the left is the fractional difference between the em and ml solutions , for each of the ten histogram bins , as a function of the number of iterations , reaching the numerical precision of the calculation . on the right
+is the covariance matrix @xmath18 after a large number of iterations , showing convergence to that obtained by matrix inversion in fig .
+[ matricesinvert](left ) .
+, title="fig:",scaledwidth=49.0% ] ( left ) .
+, title="fig:",scaledwidth=49.0% ]
+although the ml solution for @xmath16 may be difficult for a human to examine visually , if the covariance matrix @xmath15 is well enough behaved , then a computer can readily calculate a chisquare gof test statistic in the unfolded space by using the generalization of eqn .
+[ chisq ] , namely the usual formula for gof of gaussian measurements with correlations  @xcite , @xmath85    if unfolding is performed by matrix inversion ( when equal to the ml solution ) , then substituting @xmath86 from eqn .
+[ nurmuinv ] , @xmath87 from eqn .
+[ nurmu ] , and @xmath88 from eqn .
+[ covmu ] , yields @xmath89 so for @xmath82 as assumed by cowan , this @xmath90 calculated in the unfolded space is equal to pearson s chisquare ( eqn .
+[ pearson ] ) in the smeared space .
+if however one substitutes @xmath91 for @xmath43 as in eqn .
+[ nun ] , then @xmath90 in the unfolded space is equal to neyman s chisquare in the smeared space !
+this is the case in the implementation of roounfold that we are using , as noted below in the figures .    for events unfolded with the ml estimates ,
+figure  [ nulgofunfoldedinvert ] ( top left ) shows the results of such a @xmath90 gof test with respect to the null hypothesis using same events used in fig .
+[ nullgofsmeared ] . as foreseen , the histogram is identical ( apart from numerical artifacts ) with the histogram of @xmath60 in fig .
+[ nullgofsmeared ] ( bottom left ) .
+figure  [ nulgofunfoldedinvert ] ( top right ) show the event - by - event difference of @xmath90 and pearson s @xmath59 in the smeared space , and figure  [ nulgofunfoldedinvert ] ( bottom ) is the difference with respect to @xmath57 in the smeared space .
+figure  [ nulgofunfolded ] shows the same quantities calculated after unfolding using the iterative em method with default iterations .    for these tests using ml unfolding ,
+the noticeable difference between the gof test in the smeared space with that in the unfolded space is directly traced to the fact that the test in the unfolded space is equivalent to @xmath60 in the smeared space , which is an inferior gof test compared to the likelihood ratio test statistic @xmath92 .
+it seems remarkable that , even though unfolding by matrix inversion would appear not to lose information , in practice the way the information is used ( linearizing the problem via expressing the result via a covariance matrix ) already results in some failures of the bottom - line test of gof .
+this is without any regularization or approximate em inversion .
+that tests for compatibility with @xmath28 in the unfolded space , for the same events generated under @xmath28 as those used in the smeared - space test of fig .
+[ nullgofsmeared ] .
+( top right ) for these events , histogram of the difference between @xmath90 in the unfolded space and @xmath58 in the smeared space .
+( bottom ) for these events , histogram of the difference between @xmath90 in the unfolded space and the gof test statistic @xmath92 in the smeared space .
+, title="fig:",scaledwidth=49.0% ]   that tests for compatibility with @xmath28 in the unfolded space , for the same events generated under @xmath28 as those used in the smeared - space test of fig .
+[ nullgofsmeared ] .
+( top right ) for these events , histogram of the difference between @xmath90 in the unfolded space and @xmath58 in the smeared space .
+( bottom ) for these events , histogram of the difference between @xmath90 in the unfolded space and the gof test statistic @xmath92 in the smeared space .
+, title="fig:",scaledwidth=49.0% ]   that tests for compatibility with @xmath28 in the unfolded space , for the same events generated under @xmath28 as those used in the smeared - space test of fig .
+[ nullgofsmeared ] .
+( top right ) for these events , histogram of the difference between @xmath90 in the unfolded space and @xmath58 in the smeared space .
+( bottom ) for these events , histogram of the difference between @xmath90 in the unfolded space and the gof test statistic @xmath92 in the smeared space . , title="fig:",scaledwidth=49.0% ]    , here calculated after unfolding using the iterative em method with default ( four ) iterations . ,
+title="fig:",scaledwidth=49.0% ] , here calculated after unfolding using the iterative em method with default ( four ) iterations . ,
+title="fig:",scaledwidth=49.0% ] , here calculated after unfolding using the iterative em method with default ( four ) iterations .
+, title="fig:",scaledwidth=49.0% ]    for the histogram of each simulated experiment , the gof statistic @xmath90 is calculated with respect to the prediction of @xmath28 and also with respect to the prediction of @xmath32 .
+the difference of these two values , @xmath93 , is then a test statistic for testing @xmath28 vs.  @xmath32 , analogous to the test statistic @xmath63 .
+figure  [ delchi ] shows , for the same events as those used in fig .
+[ lambdah0h1 ] , histograms of the test statistic @xmath93 in the unfolded space for events generated under @xmath28 and under @xmath32 , with @xmath9 calculated using @xmath28 and using @xmath32 . for the default problem studied here ,
+the dependence on @xmath9 is not large .
+thus unless otherwise specified , all other plots use @xmath9 calculated under @xmath28 .    , histogram of the test statistic @xmath93 in the unfolded space , for events generated under @xmath28 ( in blue ) and @xmath32 ( in red ) , with
+@xmath9 calculated using @xmath28 .
+( right ) for the same events , histograms of the test statistic @xmath93 in the unfolded space , with @xmath9 calculated using @xmath32 . ,
+title="fig:",scaledwidth=49.0% ] , histogram of the test statistic @xmath93 in the unfolded space , for events generated under @xmath28 ( in blue ) and @xmath32 ( in red ) , with @xmath9 calculated using @xmath28 .
+( right ) for the same events , histograms of the test statistic @xmath93 in the unfolded space , with @xmath9 calculated using @xmath32 . , title="fig:",scaledwidth=49.0% ]    figure  [ deldel ] shows , for the events in figs .
+[ lambdah0h1 ] and in [ delchi ] , histograms of the event - by - event difference of @xmath63 and @xmath93 .
+the red curves correspond to events generated under @xmath28 , while the blue curves are for events generated under @xmath32 .
+the unfolding method is ml on the left and iterative em on the right .
+this is an example of a _ bottom - line test _ : does one obtain the same answers in the smeared and unfolded spaces ? there are differences apparent with both unfolding techniques .
+since the events generated under both @xmath28 and @xmath32 are shifted in the same direction , the full implications are not immediately clear .
+thus we turn to roc curves or equivalent curves from neyman - pearson hypothesis testing .     and in [ delchi](left ) , histogram of the event - by - event difference of @xmath63 and @xmath93 . in the left histogram , ml unfolding
+is used , while in the right histogram , iterative em unfolding is used . ,
+title="fig:",scaledwidth=49.0% ]   and in [ delchi](left ) , histogram of the event - by - event difference of @xmath63 and @xmath93 . in the left histogram , ml unfolding
+is used , while in the right histogram , iterative em unfolding is used . ,
+title="fig:",scaledwidth=49.0% ]    we can investigate the effect of the differences apparent in fig .  [ deldel ] by using the language of neyman - pearson hypothesis testing , in which one rejects @xmath28 if the value of the test statistic ( @xmath63 in the smeared space , or @xmath93 in the unfolded space ) is above some critical value  @xcite .
+the type i error probability @xmath94 is the probability of rejecting @xmath28 when it is true , also known as the `` false positive rate '' .
+the type ii error probability @xmath95 is the probability of accepting ( not rejecting ) @xmath28 when it is false .
+the quantity @xmath96 is the _ power _ of the test , also known as the `` true positive rate '' .
+the quantities @xmath94 and @xmath95 thus follow from the cumulative distribution functions ( cdfs ) of histograms of the test statistics . in classification problems outside hep
+is it common to make the roc curve of true positive rate vs.  the false positive rate , as shown in fig .
+figure  [ alphabeta ] shows the same information in a plot of @xmath95 vs. @xmath94 , i.e. , with the vertical coordinate inverted compared to the roc curve .
+figure  [ alphabetaloglog ] is the same plot as fig .
+[ alphabeta ] , with both axes having logarithmic scale .
+the result of this `` bottom line test '' does not appear to be dramatic in this first example , and appear to be dominated by the difference between the poisson - based @xmath63 and @xmath93 already present in the ml unfolding solution , rather than by the additional differences caused by truncating the em solution .
+unfortunately no general conclusion can be drawn from this observation , since as mentioned above the em unfolding used here starts from the true distribution as the first estimate .
+it is of course necessary to study other initial estimates .     and [ delchi](left ) , roc curves for classification performed in the smeared space ( blue curve ) and in the unsmeared space ( red curve ) .
+( left ) unfolding by ml , and ( right ) unfolding by iterative em .
+, title="fig:",scaledwidth=49.0% ]   and [ delchi](left ) , roc curves for classification performed in the smeared space ( blue curve ) and in the unsmeared space ( red curve ) .
+( left ) unfolding by ml , and ( right ) unfolding by iterative em .
+, title="fig:",scaledwidth=49.0% ]     and [ delchi](left ) , plots of @xmath95 vs. @xmath94 , for classification performed in the smeared space ( blue curve ) and in the unsmeared space ( red curve ) .
+( left ) unfolding by ml , and ( right ) unfolding by iterative em .
+, title="fig:",scaledwidth=49.0% ]   and [ delchi](left ) , plots of @xmath95 vs. @xmath94 , for classification performed in the smeared space ( blue curve ) and in the unsmeared space ( red curve ) .
+( left ) unfolding by ml , and ( right ) unfolding by iterative em . , title="fig:",scaledwidth=49.0% ]     vs.  @xmath94 as in fig .  [ alphabeta ] , here with logarithmic scale on both axes .
+, title="fig:",scaledwidth=49.0% ]   vs.  @xmath94 as in fig
+.  [ alphabeta ] , here with logarithmic scale on both axes .
+, title="fig:",scaledwidth=49.0% ]      with the above plots forming a baseline , we can ask how some of the above plots vary as we change the parameters in table  [ baseline ] .
+figure  [ sigmaparam ] shows , as a function of the gaussian smearing parameter @xmath42 , the variation of the gof results shown for @xmath97 in 1d histograms in figs .
+[ nulgofunfoldedinvert ] ( top left ) and [ nulgofunfoldedinvert ] ( bottom ) .
+the events are generated under @xmath28 .
+used in smearing ( vertical axis ) .
+the horizontal axes are the same as those in the 1d histograms in figs .
+[ nulgofunfoldedinvert ] ( top left ) and [ nulgofunfoldedinvert ] ( bottom ) , namely @xmath90 in the unfolded space ; and the difference with respect to @xmath57 in the smeared space ; for gof tests with respect to @xmath28 using events generated under @xmath28 . ,
+title="fig:",scaledwidth=49.0% ]   used in smearing ( vertical axis ) .
+the horizontal axes are the same as those in the 1d histograms in figs .
+[ nulgofunfoldedinvert ] ( top left ) and [ nulgofunfoldedinvert ] ( bottom ) , namely @xmath90 in the unfolded space ; and the difference with respect to @xmath57 in the smeared space ; for gof tests with respect to @xmath28 using events generated under @xmath28 . , title="fig:",scaledwidth=49.0% ]    figure  [ deldelsigma ] shows the variation of the 1d histogram in fig  [ deldel ] with the gaussian @xmath42 used in smearing , for both ml and em unfolding
+.     used in smearing ( vertical axis ) of the 1d histogram in fig  [ deldel ] of the event - by - event difference of @xmath63 and @xmath93 .
+( right ) the same quantity for iterative em unfolding .
+, title="fig:",scaledwidth=49.0% ]   used in smearing ( vertical axis ) of the 1d histogram in fig  [ deldel ] of the event - by - event difference of @xmath63 and @xmath93 .
+( right ) the same quantity for iterative em unfolding .
+, title="fig:",scaledwidth=49.0% ]    figures  [ deldelb ] and [ deldelbiter ] show , for ml and em unfolding respectively , the result of the bottom - line test of fig .  [ deldel ] as a function of the amplitude @xmath35 of the extra term in @xmath98 in eqn .
+[ altp ] .     as a function of the amplitude @xmath35 of the extra term in @xmath98 in eqn .
+[ altp ] , for ( left ) @xmath9 derived from @xmath28 and ( right ) @xmath9 derived from @xmath32 ; for ml unfolding .
+, title="fig:",scaledwidth=49.0% ]   as a function of the amplitude @xmath35 of the extra term in @xmath98 in eqn .
+[ altp ] , for ( left ) @xmath9 derived from @xmath28 and ( right ) @xmath9 derived from @xmath32 ; for ml unfolding .
+, title="fig:",scaledwidth=49.0% ]    , for iterative em unfolding .
+, title="fig:",scaledwidth=49.0% ] , for iterative em unfolding .
+, title="fig:",scaledwidth=49.0% ]    figure  [ deldelnummeas ] shows , for ml and em unfolding , the result of the bottom - line test of fig .
+[ deldel ] as a function of the mean number of events in the histogram of @xmath26 .     as a function of the number of events on the histogram of @xmath26 , for ( left ) ml unfolding and ( right ) iterative em unfolding .
+, title="fig:",scaledwidth=49.0% ]   as a function of the number of events on the histogram of @xmath26 , for ( left ) ml unfolding and ( right ) iterative em unfolding . ,
+title="fig:",scaledwidth=49.0% ]    figure  [ deldelreg ] shows , for iterative em unfolding , the result of the bottom - line test of fig .
+[ deldel ] as a function of the number of iterations .     as a function of number of iterations in ( left ) linear vertical scale and ( right ) logarithmic vertical scale .
+, title="fig:",scaledwidth=49.0% ]    as a function of number of iterations in ( left ) linear vertical scale and ( right ) logarithmic vertical scale .
+, title="fig:",scaledwidth=49.0% ]
+this note illustrates in detail some of the differences that can arise with respect to the smeared space when testing hypotheses in the unfolded space . as the note focuses on a particularly simple hypotheses test , and looks only at the ml and em solutions ,
+no general conclusions can be drawn , apart from claiming the potential usefulness of the `` bottom line tests '' . even within the limitations of the roounfold software used here ( in particular that the initial estimate for iterating is the presumed truth ) , we see indications of dangers of testing hypotheses after unfolding . perhaps the most interesting thing to note thus far is that unfolding by matrix inversion ( and hence no regularization ) yields , in the implementation studied here , a generalized @xmath93 test statistic that is identical to @xmath60 in the smeared space , which is intrinsically inferior to @xmath63 .
+the potentially more important issue of bias due to regularization affecting the bottom line test remains to be explored .
+such issues should be kept in mind , even in informal comparisons of unfolded data to predictions from theory . for quantitative comparison ( including the presumed use of unfolded results to evaluate predictions in the future from theory )
+, we believe that extreme caution should be exercised , including performing the bottom - line - tests with various departures from expectations .
+this applies to both gof tests of a single hypothesis , and comparisons of multiple hypotheses .
+more work is needed in order to gain experience regarding what sort of unfolding problems and unfolding methods yield results that give reasonable performance under the bottom - line - test , and which cases lead to bad failures .
+as often suggested , reporting the response matrix @xmath9 along with the smeared data can facilitate comparisons with future theories in the folded space , in spite of the dependence of @xmath9 on the true pdfs .
+we are grateful to pengcheng pan , yan ru pei , ni zhang , and renyuan zhang for assistance in the early stages of this study .
+rc thanks the cms statistics committee and gnter zech for helpful discussions regarding the bottom - line test .
+this work was partially supported by the u.s .
+department of energy under award number de  sc0009937 .
+louis lyons , `` unfolding : introduction , '' in proceedings of the phystat 2011 workshop on statistical issues related to discovery claims in search experiments and unfolding , edited by h.b .
+prosper and l. lyons , ( cern , geneva , switzerland , 17 - 20 january 2011 ) + https://cds.cern.ch/record/1306523 ( see end of section 5 . )
+olive et al .
+( particle data group ) , chin .
+c * 38 * 090001 ( 2014 ) and 2015 update .
+the likelihood - ratio gof test with saturated model is eqn .
+the @xmath59 test for gaussian data with correlations is eqn .
+pearson s @xmath59 is eqn .
+38.48 .
+mikael kuusela , `` introduction to unfolding in high energy physics , '' lecture at advanced scientific computing workshop , eth zurich ( july 15 , 2014 ) + http://mkuusela.web.cern.ch/mkuusela/eth_workshop_july_2014/slides.pdf        t. adye , `` unfolding algorithms and tests using roounfold , '' , in proceedings of the phystat 2011 workshop on statistical issues related to discovery claims in search experiments and unfolding , edited by h.b . prosper and l. lyons , ( cern , geneva , switzerland , 17 - 20 january 2011 ) https://cds.cern.ch/record/1306523 , p. 313 .
+we used version 1.1.1 from + http://hepunx.rl.ac.uk/~adye/software/unfold/roounfold.html , accessed dec .

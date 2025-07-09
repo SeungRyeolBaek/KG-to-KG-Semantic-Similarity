@@ -1,0 +1,92 @@
+data compression is performed in all types of data requiring storage and transmission .
+it preserves space , energy and bandwidth , while representing the data in most efficient way [ 1 - 4 ] .
+there are numerous coding algorithms used for compression in various applications [ 1 - 3,5 - 18 ] .
+some of them are optimal [ 4,19 ] in all cases , whereas others are optimal for a specific probability distribution of the source symbols .
+all of these algorithms are mostly applied on @xmath0-ary data source .
+however , most of the universal compression algorithms substantially increase their coding complexity and memory requirements when the data changes from binary to @xmath0-ary source .
+for instance , in arithmetic coding , the computational complexity difference between the encoder and decoder increases with the number of source symbols [ 2 ] .
+therefore , it would be beneficial if binarization is perfomed on @xmath0-ary data source before compression algorithms are applied on it .
+the process where binarization is followed by compression is most notably found in context - based adaptive binary arithmetic coding ( cabac ) [ 20 ] which is used in h.264/avc video coding standard [ 21 ] , high efficiency video coding ( hevc ) standard [ 22 ] , dynamic 3d mesh compression [ 23 ] , audio video coding standard ( avs ) [ 24 ] , motion compensated - embedded zeroblock coding ( mc - ezc ) in scalable video coder [ 25 ] , multiview video coding [ 26 ] , motion vector encoding [ 27 - 28 ] , and 4d lossless medical image compression [ 29 ] .
+there are many binary conversion techniques which are , or can be used for the binarization process .
+the most common among all is binary search tree [ 30 - 32 ] . in this
+, huffman codeword is used to design an optimal tree [ 18 ] . however , there are two limitations to it .
+first , the probability of all the symbols should be known prior to encoding that may not be possible in all the applications .
+although there are methods to overcome the above problem , they come at an additional cost of complexity . for example , binary search tree is updated with the change in incoming symbol probabilities .
+second , as with the huffman coding , the optimality is achieved only when the probability distribution of symbols are in the powers of two .
+apart from binary search tree , there are other binarization schemes like unary binarization scheme [ 20 ] , truncated unary binarization scheme [ 20 ] , fixed length binarization scheme [ 20 ] , golomb binarization scheme [ 9,20,33 - 34 ] , among many [ 5 - 13,20,30 - 34 ] .
+all of them are optimal for only certain type of symbol probability distributions , and hence , can only conserve the entropy of the data for that probability distribution of the source symbols .
+currently , there is no binarization scheme that is optimal for all probability distributions of the source symbols which would result in achieving overall optimal data compression .
+this paper presents a generalized optimal binarization algorithm .
+the novel binarization scheme conserves the entropy of the data while converting the @xmath0-ary source data into @xmath1 binary strings .
+moreover , the binarization technique is independent of the data type and can be used in any field for storing and compressing data .
+furthermore , it can efficiently represent data in the fields which require data to be easily written and read in binary form .
+the paper is organized as follows .
+section 2 describes the binarization and de - binarization process that will be carried out at the encoder and decoder , respectively .
+the optimality proof of the binarization scheme is provided in section 3 . in section 4 , the complexity associated with the binarization process is discussed .
+lastly , section 5 concludes by stating the advantages of the presented binarization scheme over others , and its applications .
+the binarization of the source symbols is carried out at the encoder using the following two steps :    1 .
+a symbol is chosen , and a binary data stream is created by assigning 1 where the chosen symbol is present and 0 otherwise , in the uncompressed data .
+the uncompressed data is rearranged by removing the symbol chosen in step 1 .
+the two steps are iteratively applied for @xmath1 symbols .
+it needs to be explicitly emphasized that the binarization of symbol occurs on the previously rearranged uncompressed data and not on the original uncompressed data . here , the algorithm reduces the uncompressed data size with the removal of binarized symbols from the data , leading to the conservation of entropy .
+after binarizing every symbol , there are @xmath1 binary data streams corresponding to @xmath0 source symbols .
+it is because the @xmath2 binary string would represent @xmath2 and @xmath3 symbols as 1 and 0 , respectively .
+the binarization scheme demostrated here is optimal i.e. , the overall entropy of binarized data streams is equal to the entropy of original data containing @xmath0-ary source .
+the proof of optimality is provided in section 3 .
+after binarization , the binarized data streams can be optimally compressed using any universal compression algorithm , including the algorithms that optimally compress only binary data ( for example : binary arithmetic coding ) .    [ cols="^,^,^,^ " , ]     table 1 shows the binarization process through an example . a sample input data aabcbacbbaccabacb is considered for the process and as can be seen , it contains three source symbols a
+, b , and c. in table 1 , binarization order states the sequence in which the symbols are binarized .
+for instance , in abc binarization order , a is binarized first , followed by b , and then finally by c. the row data shows the uncompressed data available to be binarized after each iteration . below the data row
+is the binarized value of each symbol .
+as can be seen in each first iteration , the symbol that has be binarized is marked 1 , while others are marked 0. in the next iteration , the symbol that was binarized in the current step is removed from the uncompressed data .
+although shown in table 1 , the binarization process does not require to binarize last symbol , because the resultant string contains all 1 s that provide no additional information and is redundant .
+it also needs to be noted that each binarization order results in different sets of binary strings .    at the decoder ,
+the decoding of the compressed data is followed by de - binarization of @xmath0-ary source symbol .
+the order of decoding follows the order of encoding for perfect reconstruction at minimum complexity . with the encoding order information ,
+the de - binarization can be perfectly reconstructed in multiple ways other than the encoding order , but the reordering of sequence after every de - binarization will increase the time as well as the decoder complexity .
+the de - binarization of the source symbols is also carried out in two steps shown below , and these steps are recursively applied to all the binary data streams representing @xmath0-ary source symbols :    1 .
+replace 1 with the source symbol in the reconstructed data stream .
+2 .   assign the values of the next binary data stream in sequence to the 0 s in the reconstructed data stream .
+an example of de - binarization process is shown in table 2 .
+the de - binarization order follows the same order as of binarization process . in table 2
+, the row data represents the reconstructed data at each iteration .
+the value 1 is replaced by the symbol to be de - binarized in the respective iteration , while 0 s are replaced by the binary string of the next symbol to be de - binarized . finally , after the last iteration
+, the original input data aabcbacbbaccabacb is losslessly recovered for all binarization and de - binarization order .
+let the data source be @xmath4 , and @xmath5 be the binary source for each source symbol .
+the entropy of a @xmath0-ary source @xmath6 is defined as , @xmath7 where @xmath8 is the probability of @xmath9 source symbol .
+subsequently , the entropy of @xmath0-ary data source @xmath6 with length @xmath10 is @xmath11 .
+similarly , @xmath12 is the entropy of binary source with data length @xmath10 .
+as explained in the binarization algorithm , the uncompressed data is rearranged after the binarization of the previous symbol / s to @xmath13 data length i.e. , the length of the original data subtracted by the length of all the previously binarized source symbols .
+hence , the overall entropy of the @xmath0 binarized strings is @xmath14 . here ,
+@xmath0 binary strings are considered for mathematical convenience .    to achieve the optimal binarization of @xmath0-ary source ,
+the entropy of @xmath0-ary source data must equal the total entropy of binary strings .
+therefore ,    rcl h(y^n ) & = & _ i=1^m h(x_i^n(1-_j=1^i-1p(y_i ) ) ) + n h(y ) & = & _ i=1^m n(1-_j=1^i-1 p(y_i ) ) h(x_i )    the probability distribution of the binary source @xmath15 is the probability distribution of @xmath0-ary source @xmath16 when the first @xmath17 source symbols have already been binarized i.e. , removed from the original data .
+thus , @xmath18 can be rewritten in terms of @xmath16 in the following way :    rcl h(y ) & = & _ i=1^m ( 1-_j=1^i-1 p(y_j ) ) h ( ) + h(y ) & = & -_i=1^m ( 1-_j=1^i-1 p(y_j ) ) ( ) + & & ( ) - _ i=1^m ( 1-_j=1^i-1 p(y_j ) ) + & &    rcl h(y ) & = & -_i=1^m p(y_i ) ( ) + & & - _ i=1^m ( 1 - _ j=1^ip(y_j ) ) ( )    rcl h(y ) & = & -_i=1^m p(y_i ) ( ) + & & - _ i=1^m ( _ j = i+1^mp(y_j ) ) ( )    rcl h(y ) & = & -_i=1^m ( p(y_i ) p(y_i ) - p(y_i ) ( _ j = i^mp(y_j ) ) ) + & & - _ i=1^m ( _ j = i+1^mp(y_j ) ) ( _ j = i+1^mp(y_j ) ) + & & + _ i=1^m ( _ j = i+1^mp(y_j ) ) ( _ j = i^mp(y_j ) )    rcl h(y ) & = & -_i=1^m p(y_i ) p(y_i ) + & & - _ i=1^m ( _ j = i+1^mp(y_j ) ) ( _ j = i+1^mp(y_j ) ) + & & + _ i=1^m ( _ j = i^mp(y_j ) ) ( _ j = i^mp(y_j ) )    rcl h(y ) & = & -_i=1^m p(y_i ) p(y_i ) + & & + ( _ j=1^mp(y_j ) ) ( _ j=1^mp(y_j ) ) + h(y ) & = & -_i=1^m p(y_i ) p(y_i ) + 1 1 + h(y ) & = & -_i=1^m p(y_i ) p(y_i )    the reduction of equation 2 to equation 12 ( also equation 1 ) proves that the binarization scheme preserves entropy for any @xmath0-ary data source .
+the computational complexity of the presented method is the linear function of the input data length .
+the binarization and de - binarization process only acts as a filter , assigning or replacing 0 s and 1 s , respectively , for an occurrence of a source symbol without any additional table or calculation , that is created or performed for the other binarization techniques .
+suppose , the length of input data is @xmath10 , @xmath0 is the number of source symbols , and @xmath6 is the source .
+for the first symbol , the length of the binary string would be @xmath10 .
+the length of binary string for the second symbol would be the length of all the symbols , except the first symbol ( see table 1 ) .
+likewise , the length of @xmath19 binary string would be the length all symbols yet to be binarized .
+mathematically , the length can be written as @xmath20 , where @xmath8 is the probability of @xmath19 symbol .
+the total number of binary assignment would be @xmath21 .
+as can be seen , the computational complexity of the binarization and de - binarization process is linear in terms of the input data length .
+the proposed binarization scheme has the following advantages over others .
+firstly , it is optimal for every data set . as proved and shown in this paper , the binarization scheme conserves entropy of @xmath0-ary data source .
+secondly , the proposed method eliminates the need for knowing the source symbols at all .
+it works optimally without the knowledge of source because the binarization of the source symbols can occur in any order as shown table 1 , and all orders conserve @xmath0-ary source entropy , which can be inferred from the derivation shown in section 3 .
+thirdly , adding to the previous point , the coding is independent of the occurrence of the source symbols .
+in other words , any source symbol can be encoded in any order subject to the constraint that decoding is performed in the same order .
+the optimality is independent of the source order in the data set .
+fourthly , unlike variable length codes , there is no need to know the probability distribution of the source symbols beforehand .
+it can be updated as the symbols occur . however , even without the knowledge of probability distribution , the presented method is optimal .
+lastly , it has low complexity that is feasible for practical data compression .
+one of the immediate usage of the presented binarization technique is in cabac used in video and image compression .
+in addition , cabac with the proposed binarization scheme can potentially replace context - based adaptive arithmetic coding used in various image compression standards [ 35 ] , including jpeg2000 [ 36 ] .
+furthermore , the binarization scheme can be applied to all the universal compression algorithms that have less complexity and resource requirements for binary data , than @xmath0-ary data .
+v.  sanchez , p.  nasiopoulos , r.  abugharbieh , efficient 4d motion compensated lossless compression of dynamic volumetric medical image data , in : proc .
+conf . on acoustics , speech and signal process . ,
+las vegas , nevada , usa , 2008 , pp .
+549552 .
+k.  ong , w.  chang , y.  tseng , y.  lee , c.  lee , a high throughput low cost context - based adaptive arithmetic codec for multiple standards , in : proc .
+symp . on circuits and syst .
+, vol .  1 , 2002 , pp .

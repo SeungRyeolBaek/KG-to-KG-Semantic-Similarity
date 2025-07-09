@@ -1,0 +1,202 @@
+crosslinked polymer hydrogels are completely interconnected polymer networks that combine high water content with high porosity , forming macroscopic molecules that have applications in many fields .
+their wide range of pore sizes makes such gels ideal for separation of biological macromolecules by electrophoresis or chromatography @xcite .
+the crosslinking process induces a reorganization of the polymer structure , resulting in inhomogeneities in the spatial density @xcite .
+these inhomogeneities affect the surface configurations of the gels , but only in recent years have advances in atomic force microscopy ( afm ) made possible the imaging of soft material surfaces in an aqueous environment @xcite .
+the effects of the crosslinking density , temperature , pressure , and sample thickness on the surface topography have been studied by suzuki _
+et al_. @xcite .
+their results indicate that the structural features of the surface on both the micrometer and nanometer scales depend on these factors .
+it has been suggested @xcite that control of the characteristic length scale of the gel surface using external stimuli may have applications in a variety of fields , such as regulation of adsorption and release of specific molecules by the intermolecular forces between the surface and the molecule .
+thus , gel surfaces provide a unique opportunity to explore the interplay between phenomena on the macroscopic and nanoscopic scales .    templated polyacrylamide gels are formed by polymerizing acrylamide with a crosslinker in the presence of a surfactant .
+the surfactant molecules form monodisperse micelles of a size roughly comparable with the crosslinker separation , and the presence of these micelles alters the gel pore structure , enhancing the gel s separation properties @xcite . in a recent work the surface morphology of templated polyacrylamide gels was extensively studied by afm and scaling analysis of the resulting images @xcite .
+this study indicates that the gel surfaces are self - affine on short length scales , with roughness ( hurst ) exponents on the order of 0.81 . in the absence of surfactant
+a cross - over length , above which the surface is no longer self - affine , was estimated to be on the order of 300  nm , and the saturation value of the interface width was on the order of 1  nm .
+both values increased dramatically with the introduction of surfactant .
+detailed kinetic lattice models of the polymerization of crosslinked polymer gels have previously been constructed @xcite .
+however , they emphasize the kinetics of polymerization and are extremely computationally intensive . inspired by the experiments reported in ref .
+@xcite , the aim of the present work is rather to construct and study a simple continuum model that can reproduce some of the observed scaling characteristics of the templated gel surfaces at a more modest ( but still substantial ) computational cost by concentrating on the elastic structure of the gel .
+some preliminary results were presented in ref .
+@xcite .
+the remainder of this paper is organized as follows . in sec .
+[ sec : model ] we introduce the model and detail some aspects of the numerical calculations . in sec .
+[ sec : scal ] we recall some scaling concepts associated with the analysis of surfaces . in sec .
+[ sec : results ] we show the results of our calculations , in particular the scaling properties of the surface width and increment correlation function along with their dependence on the size of the sample
+. we also comment on the relevance of our results for the interpretation of recent afm experiments . finally , in sec .
+[ sec : conc ] we present our conclusions .
+the model consists of a two - dimensional network of nodes interconnected by massless springs .
+the nodes represent crosslinker molecules , and the connecting springs represent polymer chains .
+the network topology consists of a triangular lattice of nodes , each of which is connected by harmonic springs to its six nearest neighbors ( except at the top and bottom surfaces , where each node has only four connections ) .
+the model has no excluded - volume interactions .
+a triangular lattice was chosen to ensure geometrical stability in two dimensions without introducing bond - angle constraints .
+the corresponding unrealistically high crosslinker functionality should not significantly influence our results .
+the network has periodic boundary conditions in the horizontal ( @xmath0 ) direction , free boundary conditions at the top ( @xmath3 ) layer , and the nodes in the bottom layer are fixed at @xmath4 , corresponding to bonding to a rigid substrate .
+there are @xmath5 nodes in the horizontal direction and @xmath6 nodes in the vertical direction .
+the total energy of the network is @xmath7 , where @xmath8 , @xmath9 , and @xmath10 , are the spring constant , the actual length , and the equilibrium length under zero external force of the @xmath11th spring , respectively .
+( all quantities in this paper are given in dimensionless units . )
+the equilibrium length of each spring is independent of the other springs and is randomly chosen with probability density function ( pdf ) @xmath12 where @xmath13 is proportional to the inverse of the average number of monomers between crosslinkers .
+this pdf corresponds to the case that the equilibrium distance between crosslinkers is proportional to the square root of an exponentially distributed number of monomers .
+it is consistent with the picture that crosslinkers are distributed randomly along the polymer chains , and that a spring of equilibrium length @xmath10 corresponds to a polymer of the same average end - to - end distance in the random - coil collapsed phase @xcite .
+the average equilibrium length of a spring is @xmath14 . in agreement with a mean - field spin - chain approximation for the elastic properties of a collapsed polymer chain @xcite
+, we require that the elastic constant of the @xmath11th spring should be inversely proportional to its equilibrium length , @xmath15 in our dimensionless units .    with the above distribution of equilibrium lengths ,
+the pdf for the force @xmath16 exerted by a spring of length @xmath17 is @xmath18 \label{eq : fprob}\ ] ] for @xmath19 , while it vanishes for @xmath20 .
+the average force exerted by a spring of length @xmath17 is then @xmath21    initially , springs with equilibrium lengths drawn independently according to @xmath22 are placed on the bonds of a regular triangular lattice of unit lattice constant , such that all of them are stretched or compressed to a length of one . in order
+that this initial configuration should not be globally stressed , we impose the condition that the average force exerted by a spring of unit length should be zero . by eq .
+( [ eq : avgf ] ) , this is satisfied for @xmath23 .
+however , the initial configuration is _ locally _ stressed , since @xmath24 for all @xmath11 while @xmath25 .
+the system is frustrated in the sense that there is no configuration that can simultaneously minimize the energies of all the springs . as a result
+there is a large number of configurations corresponding to local energy minima with similar energies .
+the network was relaxed using the limited - memory broyden - fletcher - goldfarb - shanno ( l - bfgs ) quasi - newton minimization algorithm @xcite until a locally stable configuration was reached , corresponding to a local minimum in the global energy landscape . by minimizing several statistically equivalent realizations of the random spring configuration
+, we checked that the local minima reached by this procedure are representative of typical relaxed configurations .
+although the total energies of different relaxed configurations were not completely identical , all the structural results were the same to within our numerical accuracy .    the l - bfgs subroutine requires the calculation of the total energy and its gradients , i.e. , the local forces in the vertical and horizontal directions for each node . by monitoring the total energy and the absolute value of the force we found that the subroutine must be called about @xmath26 times to ensure that the system reaches a local minimum
+since each relaxation step requires a new evaluation of the total energy and the local forces , the l - bfgs algorithm is quite computationally intensive , taking about 1 - 2 days on a current 600  mhz dual - processor pentium iii pc with 512  mb of shared memory to relax a typical system with about @xmath27 degrees of freedom .
+however , it was far more efficient for our application than a nave steepest - descent method , requiring about an order of magnitude less computer time while leading to essentially equivalent final energies and structures .
+after relaxation , we examined the bulk and surface properties of the network .
+images of a typical relaxed network are shown in figs .
+[ fig : zooms ] and  [ fig : bulk ] .
+inhomogeneities in the spatial crosslinker density are evident in these figures .
+the scaling properties associated with the height fluctuations of rough surfaces have been the object of a great deal of interest .
+vapor deposition , epitaxial growth , polymer growth , and many other phenomena exhibit scale invariance @xcite . in a statistical sense ,
+the height of a single - valued self - affine random surface , @xmath1 , satisfies the scaling relation @xmath28 where @xmath29 is a dimensionless scaling parameter and @xmath30 is the so - called hurst exponent , which in this case is identical to the roughness exponent @xcite .
+consequently , the increment correlation function @xmath31 of a translationally invariant , self - affine surface scales as @xmath32 ^ 2 \rangle \sim x^{2h}\ ; , \label{eq : cx}\ ] ] where the average is taken over @xmath33 .
+many surfaces present a mixed behavior characterized by @xmath34 where @xmath35 is a cross - over length scale separating the two behaviors .
+however , there exist surfaces for which the scaling can not be described by a single exponent ; instead an infinite hierarchy of characteristic exponents has to be introduced .
+these surfaces are called multi - affine , and they are occasionally observed in nature @xcite .
+molecular - beam epitaxy ( mbe ) models @xcite , polished metal surfaces @xcite , geomorphological features @xcite , and time series of financial data @xcite provide some examples of multi - affine scaling .
+the characteristic exponents of a multi - affine function can be calculated from the @xmath36th - order increment correlation function , defined as @xmath37 with the generalized hurst exponent @xmath38 depending continuously on @xmath36 , at least in some region of @xmath36 values .
+thus @xmath39 is identical to the usual increment correlation function @xmath31 defined in eq .
+( [ eq : cx ] ) . like self - affine surfaces
+, multi - affine surfaces can show a cross - over to scale - independent behavior , analogous to eq .
+( [ eq : cross ] ) .    in the next section we present our results on the structure of the bulk and the scaling behavior of the surface , calculated after the spring network has been relaxed to a representative local energy minimum .
+we analyzed spring networks of sizes @xmath40 . in order to simulate experimental measurements of the scaling behavior of surfaces of gels in which pores have been introduced by polymerizing acrylamide plus a crosslinker templated with surfactants that are later removed @xcite , we created voids in the networks .
+the voids were introduced by selecting a proportion of the nodes at random and removing these nodes and the springs associated with them .
+next , the hoshen - kopelman algorithm @xcite was applied to identify and discard clusters that were not connected to the fixed substrate .
+this last step is particularly important near the site - percolation limit , which for the triangular lattice is at a vacancy concentration of 50% @xcite .
+note that by  vacancy concentration " we always mean the initial concentration of vacant nodes before removal of the disconnected clusters .
+the total volume fraction of the void structure resulting from the cluster removal is of course larger .
+we define the one - dimensional surface as the set of surface heights , @xmath41 , at equally spaced discrete points , @xmath42 , considering the polymer chains as straight line segments between nearest - neighbor connected nodes . to calculate the surface height at @xmath43
+, we first identify the set of all springs which intersect a vertical line at @xmath43 . from this set of springs , we define @xmath44 } , \label{eq : surfdef}\ ] ] where @xmath45 is the vertical location of the intersection of the @xmath11th spring at @xmath43 .
+we use the sign convention that @xmath4 for the fixed bottom nodes and the free surface is located at positive values of @xmath46 . in fig .
+[ fig : zooms ] we show details of the bulk and free surface of systems with vacancy concentrations of @xmath47% , @xmath48% , and @xmath49% , while in fig .
+[ fig : bulk ] we show a magnified view of a section of the bulk of a vacancy - free system .    to obtain an estimate of the finite - size effects and select an appropriate system size for the production runs , we first considered vacancy - free spring networks of sizes @xmath50 , with @xmath51 , 1024 , and @xmath52 , and @xmath53 , 384 , 512 , 640 , and @xmath54 .
+we calculated the root - mean - square width of the surface ( also known as the rms roughness ) on a length scale @xmath55 , @xmath56 , by recursively subdividing the surface into @xmath57 nonoverlapping segments of length @xmath58 , with @xmath57 an integer between 2 and @xmath59 .
+the mean - square width of the @xmath60th segment is @xmath61 where @xmath62 denotes averaging within the segment .
+the rms width is defined as the square root of the average of @xmath63 over the @xmath57 segments , @xmath64 .
+the statistical errors in @xmath56 were estimated in the usual way from the standard deviation of @xmath63 .    at this point
+we emphasize that the order in which the average and the square root are taken in the definition of @xmath56 is important . for a simple self - affine surface it is irrelevant whether the square root is taken before or after the average
+; in either case one obtains the same exponent .
+however , for a multi - affine surface the results are quite different . in this case
+the exponent obtained from @xmath56 is equal to that calculated from the increment correlation function @xmath65 only when the average is calculated _ before _ taking the square root , as it is done here .
+the results for @xmath56 , averaged over four independent configurations for each system size , are shown in fig .
+[ fig : size ] .    the data shown in fig .
+[ fig : size ] indicate that , for the values of @xmath5 and @xmath6 considered , @xmath56 is independent of the system size . however , when comparing the average height for the @xmath66th layer in the relaxed system , @xmath67 , with its original value in the regular triangular lattice , we found a slight contraction limited to approximately the top 250 layers . to minimize finite - size effects due to interference of the finite thickness @xmath6 with this skin effect , while maintaining @xmath5 as large as possible so as to reach large horizontal length scales and reduce statistical uncertainties in the estimates of @xmath56 , we chose a system size of @xmath68 for the production runs .
+both the bulk and surface structures were analyzed as discussed in the following two subsections .      in this subsection
+, we discuss the bulk properties of the spring network far from both the fixed and free surfaces .
+we only present results for a gel without vacancies . for gels with high vacancy concentrations ,
+it is difficult to define a bulk region , since the width of the surface region increases with increasing vacancy concentration . to study the bulk structure in this case , simulations with periodic boundary conditions
+would be preferable .
+the presence of inhomogeneities in the spatial crosslinker distribution , where the crosslinkers and the polymer chains ( shown as line segments ) have greater densities in some regions ( clumps ) , can be seen in fig .
+[ fig : zooms ] and fig .
+[ fig : bulk ] .
+the effect is more pronounced for higher vacancy concentrations .
+this is a desirable feature of the model since static inhomogeneities are characteristic of crosslinked polyacrylamide gels and have been related to a freezing - in of the topological structure during polymerization @xcite . for gels without vacancies , fig .
+[ fig : zooms](a ) , the clumping is not as obvious to the eye .
+thus , we show in fig .  [
+fig : bulk ] a magnified image of a small region of the bulk of a vacancy - free system , in which the clumping can be clearly seen . to quantify the clumping
+, we characterize the bulk scaling properties of the gel by a method analogous to the width - scaling method of eq .
+( [ eq : rmsdef ] ) .
+we define @xmath69 to be the density of nodes at a particular point @xmath70 of the bulk . here
+@xmath71 is the two - dimensional dirac delta function , and the sum runs over all nodes @xmath72 in the system .
+we calculate the mean and the variance of the number of nodes inside a box of side @xmath55 , @xmath73 and @xmath74 , respectively , by averaging @xmath75 over non - overlapping boxes . when there are no correlations within the gel , corresponding to a purely random distribution of node positions , the number of nodes in a box obeys a poisson distribution .
+this yields @xmath76 .
+however , when the nodes have a more regular distribution , the denominator is reduced and the ratio increases . in fig .
+[ fig : avgbulk ] @xmath77 , averaged over eight independent realizations of the system , is shown vs @xmath55 from @xmath78 to @xmath79 . for small @xmath55
+, the function tends to zero , indicating that nodes which are very close together are essentially randomly placed .
+the function goes through a maximum near the average spring length ( @xmath80 ) , corresponding to a more regular distribution of the nodes on this scale .
+we calculated the @xmath36th root of the @xmath36th - order increment correlation function , @xmath81 , for @xmath82 , 1 , 1.5 , 2 , and @xmath83 .
+the results for systems with @xmath47% , @xmath48% , and @xmath49% vacancies are shown in fig .
+[ fig : q0](a ) , ( b ) , and ( c ) , respectively . for each of the two lower vacancy concentrations
+the data were averaged over ten independent realizations of the system , while thirteen realizations were used for the highest concentration .
+for all three vacancy concentrations , the surface is seen to be multi - affine with @xmath36-dependent slopes for @xmath55 below a crossover length , @xmath35 .
+[ for the highest vacancy concentration ( fig .  [ fig : q0](c ) ) , two scaling regimes with different , nonzero @xmath38 are seen for @xmath84 . ] for @xmath85 , @xmath86 reaches a saturation value @xmath87 .
+both of these length scales , @xmath35 and @xmath87 , depend on the vacancy concentration and @xmath36 in ways that are discussed below .    by numerically calculating the logarithmic derivatives of the correlation functions with respect to @xmath55 we determine
+the scaling exponents , @xmath88 effective values for @xmath38 for different @xmath55 and @xmath36 were estimated as two - point derivatives over intervals corresponding to a doubling of @xmath55 .
+the results are shown in fig .
+[ fig : dq0](a ) , ( b ) , and ( c ) for systems with @xmath47% , @xmath48% , and @xmath49% vacancies , respectively . the figures clearly indicate that on length scales below @xmath35 , the surfaces are multi - affine with @xmath36-dependent scaling exponents @xmath38 . in this scaling regime
+the effective exponents are approximately independent of @xmath55 .
+scaling exponents @xmath38 for different values of the vacancy concentration are presented in table  [ tab : exp ] .
+the exponents shown in this table were obtained from eq .
+( [ eq : hq ] ) at fixed @xmath89 , in the small-@xmath55 scaling regime . in fig .
+[ fig : hq ] we show how these values of @xmath38 change with @xmath36 and the vacancy concentration . for @xmath90 ,
+@xmath38 decreases with increasing vacancy concentration , while it increases for @xmath91 . for @xmath92 ,
+@xmath38 is slightly below unity and independent of the vacancy concentration to within our numerical accuracy .
+multi - affinity is relatively rare in natural surfaces , and , in fact , it is not observed in the experimental system that inspired the present study @xcite .
+it is therefore reasonable to inquire about the source of the multi - affinity observed in our model system .
+we find that it is caused by the finite density of discontinuities , which result from overhangs in the simulated surfaces ( see fig .
+[ fig : zooms ] ) .
+this effect is illustrated in two ways in fig .
+[ fig : discont ] . in fig .
+[ fig : discont](a ) we show on a log - log scale @xmath93 for different values of @xmath36 for surfaces generated by fitting linear line segments of unit length to self - affine surfaces with a hurst exponent of 0.75 , which were generated by the method of successive additions @xcite .
+these surfaces are seen to be self - affine with a hurst exponent which crosses over from near unity to approximately 0.75 at about @xmath94 . in the same figure
+we also show ( by thin curves ) the corresponding generalized increment correlation functions for surfaces generated from the above ones by the insertion of a finite density of vertical discontinuities .
+in contrast to the result for the original surfaces , the slopes of the latter curves depend on @xmath36 , indicating that the discontinuous surfaces are multi - affine .
+conversely , in fig .  [
+fig : discont](b ) we illustrate the effect of removing the discontinuities from a surface generated by our model with 0% vacancies .
+while the original surface is multi - affine ( signified by the @xmath36-dependent slopes ) , the surface from which the discontinuities are removed is self - affine with a hurst exponent of approximately 0.98 , corresponding to the straight line segments used to represent the polymer chains .
+these numerical results clearly show that the multi - affinity in our model surfaces is due to the vertical discontinuities caused by the overhangs .
+possible methods to improve the agreement of the scaling behavior of the model surfaces with that of the experimental system by removing the discontinuities are discussed in sec .
+[ sec : conc ] .
+the large-@xmath55 saturation values , @xmath95 , are summarized in fig .
+[ fig : sat ] . for a fixed concentration of vacancies , the saturation value increases with increasing @xmath36 .
+the saturation value also increases with the vacancy concentration , quite dramatically so when the concentration approaches the site - percolation limit of 50% .
+figure  [ fig : sat](a ) shows @xmath96 vs the vacancy concentration on a linear - log scale , while fig .
+[ fig : sat](b ) shows the same quantity vs the relative distance from the percolation limit , @xmath97 , on a log - log scale . the straight line in fig .
+[ fig : sat](b ) is proportional to @xmath98 with @xmath99 being the exact value for the connectivity - length exponent @xcite .
+the figure indicates that @xmath96 appears to be coupled to the connectivity length for vacancy percolation in the bulk , at least for @xmath100 .
+for a given vacancy concentration , all the curves in fig .
+[ fig : dq0 ] coincide for @xmath101 , indicating that the surface structure is not scale - dependent on these large length scales .
+due to the difficulty in obtaining a precise estimate for @xmath35 , we chose to define it as the value of @xmath55 at which @xmath102 .
+this value is shown vs the vacancy concentration in fig .
+[ fig : lcross ] which , like fig .
+[ fig : sat ] , is divided into two parts . in fig .
+[ fig : lcross](a ) @xmath103 is shown vs the vacancy concentration on a linear - log scale , while in fig .
+[ fig : lcross](b ) it is shown vs @xmath104 on a log - log scale .
+the increase in the vicinity of the percolation threshold is similar to that of @xmath95 in fig .
+[ fig : sat ] , except that @xmath103 has a significant background value which dominates at and below a vacancy concentration of 40% ( @xmath105 ) .
+thus our data indicate that both these characteristic surface lengths are coupled to the bulk connectivity length as percolation is approached
+. similar behavior to that observed for the saturation value of @xmath106 is also seen for the saturation value of @xmath56 .    in the templated polyacrylamide gels studied in ref .
+@xcite , a strong increase in the crossover length and surface width at surfactant concentrations above 20% by weight coincides with a change from an optically clear material to a white , opaque one .
+such a change in the light scattering intensity is consistent with an increase in the bulk correlation length from much smaller than , to on the order of the wavelength of visible light . considering the numerical and experimental evidence together ,
+we conclude that the dramatic increases in the surface - related length scales that occur with increasing volume fraction of voids are related to a percolation transition in the system of vacancies in the bulk , both in our model and in the experimental system by which it was inspired .
+in this paper we have proposed and studied a simple frustrated spring - network model which , with a relatively modest computational effort , reproduces aspects of the scaling behavior of the surfaces of surfactant - templated polyacrylamide gels , recently observed in afm experiments @xcite .
+these results suggest that simple models that incorporate elastic properties of the gel can provide a useful framework for understanding the structural characteristics of these materials , which are otherwise extremely difficult to simulate due to their complexity .
+the main similarities and differences between the surface structures of the model and the experimental system are as follows . _
+the main similarity _ is a nontrivial scaling behavior corresponding to a power - law form of the increment correlation function at small and intermediate length scales .
+this power - law behavior terminates at a crossover length scale , above which the rms surface width and the increment correlation functions both reach saturation values that appear to be independent of the system size . the origin of this crossover behavior is explained in terms of the structural inhomogeneities of the gel . on large
+length scales the scaling behavior reflects the average network structure , while on small length scales the microscopic density fluctuations of the gel network play the most important role .
+the quantitative dependence of the crossover on the bulk vacancy concentration is discussed further below . _ the main difference _ between the model and the experimental surfaces lies in the details of the scaling behavior at length scales below the crossover length : the model surfaces are multi - affine , while the experimental surfaces are self - affine .
+the multi - affinity in the model is caused by the finite density of vertical discontinuities in the simulated surfaces ( see fig .  [
+fig : zooms ] ) , which are not seen in the experimental system ( see fig .  7 of ref .
+the discontinuities in the simulated surfaces as they are defined here result from overhangs in the spring configuration at the surface , and modification of the model to improve the detailed agreement with the scaling behavior of the experimental system should aim at eliminating these overhangs .
+( it is also possible that overhangs do in fact exist in the undisturbed experimental surfaces , but are so mechanically weak that they are smoothed out by the force of the afm tip . ) in the model , the number and size of overhangs could be reduced or eliminated in several ways .
+one possibility is to simulate the smoothing action of the afm tip , _
+e.g. _ , by a running - average method .
+another possibility is to include a weak gravitational field ( the specific gravity of the polymers is greater than that of water ) , which would bend overhanging sections down into the main part of the interface .
+it should also be noted that the larger coordination number in three dimensions most likely would reduce the importance of overhangs in a three - dimensional version of the model , even without further modifications .
+( extension to three dimensions would also reduce the number of disconnected pieces , which are partly responsible for the large overhangs seen in the case of high vacancy densities .
+however , the computational cost would be large . )
+a more exhaustive numerical and analytical study of the influence of discontinuities on surface scaling behavior is currently underway @xcite .
+the experimental surfactant templating was simulated by introducing a nonzero volume fraction of voids in the network through deleting lattice nodes and their associated springs .
+both the horizontal crossover length and the vertical surface thickness ( as measured by the saturation values of both the rms surface width and the generalized increment correlation functions ) increase dramatically as the vacancy concentration approaches the site - percolation limit of @xmath107% .
+an analogous increase of the characteristic horizontal and vertical length scales with surfactant concentration is observed in the experimental system , where it coincides with a dramatic increase in the optical opacity .
+the numerical results for our model thus support the hypothesis that this increase in the experimental system is caused by a percolation transition of the voids created by removal of the surfactants .    in conclusion , despite the differences in the details of the scaling behavior at small and intermediate length scales , our simplified random - spring model successfully mimics several of the surface characteristics of an important new class of porous media , including the dramatic increase in surface roughness that occurs with increasing surfactant concentration .
+efforts to further improve the agreement between the small - scale scaling behavior of our theoretical model and that of the experimental system by which it was inspired are left for future study .
+these efforts should in particular involve investigations of the dependence of the scaling properties of the model on external forces due to gravity or the afm tip , as well as on the statistics of the local spring distribution and the dimensionality of the model .
+we acknowledge useful conversations with m.  chakrapani , s.  p.  lewis , p.  meakin , m.  a.  novotny , r.  h.  swendsen , and d.  h.  van winkle .
+we thank i.  m.  navon for bringing to our attention the l - bfgs algorithm and ref .
+@xcite , and j.  cardy for telling us about ref .
+this work was supported in part by national science foundation grant no .
+dmr-9981815 , and by florida state university through the center for materials research and technology and the school of computational science and information technology .
+the computer simulations were performed on the florida state university physics department s beowulf cluster .
+g.  m.  buenda , s.  j.  mitchell , and p.  a.  rikvold , in _
+computer simulation studies in condensed matter physics xiv _ , edited by d.  p.  landau , s.  p.  lewis , and h .- b .
+schttler ( springer , berlin , 2002 ) .
+e.  g.  richards and c.  j.  temple , nature physical science * 230 * , 92 ( 1971 ) .

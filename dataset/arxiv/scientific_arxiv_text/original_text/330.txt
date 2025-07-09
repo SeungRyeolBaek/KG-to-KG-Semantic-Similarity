@@ -1,0 +1,425 @@
+coordinated networks of mobile robots are already in use for environmental monitoring and warehouse logistics . in the near future
+, autonomous robotic teams will revolutionize transportation of passengers and goods , search and rescue operations , and other applications .
+these tasks share a common feature : the robots are asked to provide service over a space .
+one question which arises is : when a group of robots is waiting for a task request to come in , how can they best position themselves to be ready to respond ?
+the distributed _ environment partitioning problem _ for robotic networks consists of designing individual control and communication laws such that the team divides a large space into regions .
+typically , partitioning is done so as to optimize a cost function which measures the quality of service provided over all of the regions . _ coverage control _ additionally optimizes the positioning of robots inside a region as shown in fig
+.  [ fig : cover_example ] .
+this paper describes a distributed partitioning and coverage control algorithm for a network of robots to minimize the expected distance between the closest robot and spatially distributed events which will appear at discrete points in a non - convex environment .
+optimality is defined with reference to a relevant `` multicenter '' cost function . as with all multirobot coordination applications ,
+the challenge comes from reducing the communication requirements : the proposed algorithm requires only short - range  gossip " communication , i.e. , asynchronous and unreliable communication between nearby robots .
+territory partitioning and coverage control have applications in many fields . in cyber - physical systems , applications include automated environmental monitoring  @xcite , fetching and delivery  @xcite , construction  @xcite , and other vehicle routing scenarios  @xcite . more generally , coverage of discrete sets is also closely related to the literature on data clustering and @xmath0-means  @xcite , as well as the facility location or @xmath0-center problem  @xcite . partitioning of graphs is its own field of research , see @xcite for a survey .
+territory partitioning through local interactions is also studied for animal groups , see for example  @xcite .
+a broad discussion of algorithms for partitioning and coverage control in robotic networks is presented in  @xcite which builds on the classic work of lloyd  @xcite on optimal quantizer selection through  centering and partitioning . "
+the lloyd approach was first adapted for distributed coverage control in  @xcite . since this beginning ,
+similar algorithms have been applied to non - convex environments  @xcite , unknown density functions  @xcite , equitable partitioning  @xcite , and construction of truss - like objects  @xcite .
+there are also multi - agent partitioning algorithms built on market principles or auctions , see  @xcite for a survey .
+while lloyd iterative optimization algorithms are popular and work well in simulation , they require synchronous and reliable communication among neighboring robots . as robots with adjacent regions may be arbitrarily far apart , these communication requirements are burdensome and unrealistic for deployed robotic networks . in response to this issue , in  @xcite the authors have shown how a group of robotic agents can optimize the partition of a convex bounded set using a lloyd algorithm with gossip communication .
+a lloyd algorithm with gossip communication has also been applied to optimizing partitions of non - convex environments in  @xcite , the key idea being to transform the coverage problem in euclidean space into a coverage problem on a graph with geodesic distances .
+distributed lloyd methods are built around separate partitioning and centering steps , and they are attractive because there are known ways to characterize their equilibrium sets ( the so - called centroidal voronoi partitions ) and prove convergence .
+unfortunately , even for very simple environments ( both continuous and discrete ) the set of centroidal voronoi partitions may contain several sub - optimal configurations .
+we are thus interested in studying ( discrete ) gossip coverage algorithms for two reasons : ( 1 ) they apply to more realistic robot network models featuring very limited communication in large non - convex environments , and ( 2 ) they are more flexible than typical lloyd algorithms meaning they can avoid poor suboptimal configurations and improve performance .
+there are three main contributions in this paper .
+first , we present a discrete partitioning and coverage optimization algorithm for mobile robots with unreliable , asynchronous , and short - range communication .
+our algorithm has two components : a _ motion protocol _ which drives the robots to meet their neighbors , and a _ pairwise partitioning rule _ to update territories when two robots meet .
+the partitioning rule optimizes coverage of a set of points connected by edges to form a graph .
+the flexibility of graphs allows the algorithm to operate in non - convex , non - polygonal environments with holes .
+our graph partition optimization approach can also be applied to non - planar problems , existing transportation or logistics networks , or more general data sets .
+second , we provide an analysis of both the convergence properties and computational requirements of the algorithm . by studying a dynamical system of partitions of the graph s vertices , we prove that almost surely the algorithm converges to a pairwise - optimal partition in finite time .
+the set of pairwise - optimal partitions is shown to be a proper subset of the well - studied set of centroidal voronoi partitions .
+we further describe how our pairwise partitioning rule can be implemented to run in anytime and how the computational requirements of the algorithm can scale up for large domains and large teams .
+third , we detail experimental results from our implementation of the algorithm in the player / stage robot control system .
+we present a simulation of 30 robots providing coverage of a portion of a college campus to demonstrate that our algorithm can handle large robot teams , and a hardware - in - the - loop experiment conducted in our lab which incorporates sensor noise and uncertainty in robot position . through numerical analysis
+we also show how our new approach to partitioning represents a significant performance improvement over both common lloyd - type methods and the recent results in  @xcite .
+the present work differs from the gossip lloyd method  @xcite in three respects .
+first , while  @xcite focuses on territory partitioning in a convex continuous domain , here we operate on a graph which allows our approach to consider geodesic distances , work in non - convex environments , and maintain connected territories .
+second , instead of a pairwise lloyd - like update , we use an iterative optimal two - partitioning approach which yields better final solutions .
+third , we also present a motion protocol to produce the sporadic pairwise communications required for our gossip algorithm and characterize the computational complexity of our proposal .
+preliminary versions of this paper appeared in  @xcite and @xcite .
+compared to these , the new content here includes : ( 1 ) a motion protocol ; ( 2 ) a simplified and improved pairwise partitioning rule ; ( 3 ) proofs of the convergence results ; and ( 4 ) a description of our implementation and a hardware - in - the - loop experiment .
+in section  [ sec : prelim ] we review and adapt coverage and geometric concepts ( e.g. , centroids , voronoi partitions ) to a discrete environment like a graph .
+we formally describe our robot network model and the discrete partitioning problem in section  [ sec : algorithm ] , and then state our coverage algorithm and its properties .
+section  [ sec : convergence ] contains proofs of the main convergence results . in section  [ sec : results ] we detail our implementation of the algorithm and present experiments and comparative analysis .
+some conclusions are given in section  [ sec : conclusion ] .    in our notation
+, @xmath1 denotes the set of non - negative real numbers and @xmath2 the set of non - negative integers .
+given a set @xmath3 , @xmath4 denotes the number of elements in @xmath3 .
+given sets @xmath5 , their difference is @xmath6 . a set - valued map , denoted by @xmath7 , associates to an element of @xmath3 a subset of @xmath8 .
+we are given a team of @xmath9 robots tasked with providing coverage of a finite set of points in a non - convex and non - polygonal environment . in this section
+we translate concepts used in coverage of continuous environments to graphs .
+let @xmath10 be a finite set of points in a continuous environment .
+these points represent locations of interest , and are assumed to be connected by weighted edges .
+let @xmath11 be an ( undirected ) weighted graph with edge set @xmath12 and weight map @xmath13 ; we let @xmath14 be the weight of edge @xmath15 .
+we assume that @xmath16 is connected and think of the edge weights as distances between locations .
+[ rem : discretization ] for the examples in this paper we will use a coarse _ occupancy grid map _ as a representation of a continuous environment . in an occupancy grid  @xcite , each grid cell is either free space or an obstacle ( occupied ) . to form a weighted graph , each free cell becomes a vertex and free cells are connected with edges if they border each other in the grid .
+edge weights are the distances between the centers of the cells , i.e. , the grid resolution .
+there are many other methods to discretize a space , including triangularization and other approaches from computational geometry  @xcite , which could also be used .    in any weighted graph @xmath16
+there is a standard notion of distance between vertices defined as follows .
+a _ path _ in @xmath17 is an ordered sequence of vertices such that any consecutive pair of vertices is an edge of @xmath17 .
+the _ weight of a path _ is the sum of the weights of the edges in the path .
+given vertices @xmath18 and @xmath0 in @xmath17 , the _ distance _ between @xmath18 and @xmath0 , denoted @xmath19 , is the weight of the lowest weight path between them , or @xmath20 if there is no path .
+if @xmath17 is connected , then the distance between any two vertices in @xmath17 is finite . by convention , @xmath21 if @xmath22 .
+note that @xmath23 , for any @xmath24 .
+we will be partitioning @xmath10 into @xmath9 connected subsets or regions which will each be covered by an individual robot .
+to do so we need to define distances on induced subgraphs of @xmath16 .
+given @xmath25 , the _ subgraph induced by the restriction of @xmath17 to @xmath26 _ , denoted by @xmath27 , is the graph with vertex set equal to @xmath26 and edge set containing all weighted edges of @xmath17 where both vertices belong to @xmath26 . in other words ,
+we set @xmath28 .
+the induced subgraph is a weighted graph with a notion of distance between vertices : given @xmath29 , we write @xmath30 note that @xmath31    we define a _ connected subset of @xmath10 _ as a subset @xmath32 such that @xmath33 and @xmath34 is connected .
+we can then partition @xmath10 into connected subsets as follows .
+[ def : conpartitions ] given the graph @xmath35 we define a _ connected @xmath36partition of @xmath10 _ as a collection @xmath37 of @xmath9 subsets of @xmath10 such that    1 .
+@xmath38 ; 2 .
+@xmath39 if @xmath40 ; 3 .
+@xmath41 for all @xmath42 ; and 4 .
+@xmath43 is connected for all @xmath42 .
+let @xmath44 to be the set of connected @xmath36partitions of @xmath10 .    property ( ii ) implies that each element of @xmath10 belongs to just one @xmath43 , i.e. , each location in the environment is covered by just one robot .
+notice that each @xmath45 induces a connected subgraph in @xmath16 .
+in subsequent references to @xmath43 we will often mean @xmath46 , and in fact we refer to @xmath47 as the _ dominance subgraph _ or _ region _ of the @xmath48-th robot at time @xmath49 .    among the ways of partitioning @xmath10 ,
+there are some which are worth special attention . given a vector of distinct points @xmath50 ,
+the partition @xmath51 is said to be a _ voronoi partition of q generated by c _ if , for each @xmath43 and all @xmath52 , we have @xmath53 and @xmath54 , @xmath55 .
+note that the voronoi partition generated by @xmath56 is not unique since how to apportion tied vertices is unspecified .      for our gossip algorithms
+we need to introduce the notion of adjacent subgraphs .
+two distinct connected subgraphs @xmath43 , @xmath57 are said to be _ adjacent _ if there are two vertices @xmath58 , @xmath59 belonging , respectively , to @xmath43 and @xmath57 such that @xmath60 .
+observe that if @xmath43 and @xmath57 are adjacent then @xmath61 is connected .
+similarly , we say that robots @xmath48 and @xmath62 are adjacent or are neighbors if their subgraphs @xmath43 and @xmath57 are adjacent .
+accordingly , we introduce the following useful notion .    for @xmath63 , we define the _ adjacency graph _ between regions of partition @xmath64 as @xmath65 , where @xmath66 if @xmath43 and @xmath57 are adjacent .
+note that @xmath67 is always connected since @xmath16 is .
+we define three coverage cost functions for graphs : @xmath68 , @xmath69 , and @xmath70 .
+let the _ weight function _ @xmath71 assign a relative weight to each element of @xmath10 .
+the _ one - center function _
+@xmath68 gives the cost for a robot to cover a connected subset @xmath32 from a vertex @xmath72 with relative prioritization set by @xmath73 : @xmath74 a technical assumption is needed to solve the problem of minimizing @xmath75 : we assume from now on that a _ total order _ relation , @xmath76 , is defined on @xmath10 , i.e. , that @xmath77 . with this assumption
+we can deterministically pick a vertex in @xmath3 which minimizes @xmath68 as follows .
+[ def : centroid ] let @xmath10 be a totally ordered set , and let @xmath32 .
+we define the set of generalized centroids of @xmath3 as the set of vertices in @xmath3 which minimize @xmath68 , i.e. , @xmath78 further , we define the map @xmath79 as @xmath80 .
+we call @xmath81 the _ generalized centroid _ of @xmath3 .    in subsequent use
+we drop the word  generalized " for brevity .
+note that with this definition the centroid is well - defined , and also that the centroid of a region always belongs to the region . with a slight notational abuse ,
+we define @xmath82 as the map which associates to a partition the vector of the centroids of its elements .
+we define the _ multicenter function _ @xmath69 to measure the cost for @xmath9 robots to cover a connected @xmath9-partition @xmath64 from the vertex set @xmath83 : @xmath84 we aim to minimize the performance function @xmath69 with respect to both the vertices @xmath56 and the partition @xmath64 .
+we can now state the coverage cost function we will be concerned with for the rest of this paper .
+let @xmath85 be defined by @xmath86 in the motivational scenario we are considering , each robot will periodically be asked to perform a task somewhere in its region with tasks appearing according to distribution @xmath73 .
+when idle , the robots would position themselves at the centroid of their region . by partitioning @xmath17
+so as to minimize @xmath70 , the robot team would minimize the expected distance between a task and the robot which will service it .
+we introduce two notions of optimal partitions : centroidal voronoi and pairwise - optimal .
+our discussion starts with the following simple result about the multicenter cost function .
+[ prop : optimal - for - hgeneric ] let @xmath63 and @xmath50 .
+if @xmath87 is a voronoi partition generated by @xmath56 and @xmath88 is such that @xmath89 , then @xmath90 the second inequality is strict if any @xmath91 .    proposition  [ prop : optimal - for - hgeneric ] implies the following necessary condition : if @xmath92 minimizes @xmath69 , then @xmath93 and @xmath64 must be a voronoi partition generated by  @xmath56 .
+thus , @xmath70 has the following property as an immediate consequence of proposition  [ prop : optimal - for - hgeneric ] : given @xmath63 , if @xmath94 is a voronoi partition generated by @xmath95 then @xmath96 this fact motivates the following definition .
+@xmath63 is a _
+centroidal voronoi partition _ of @xmath10 if there exists a @xmath97 such that @xmath64 is a voronoi partition generated by @xmath56 and @xmath98 .
+the set of _ pairwise - optimal partitions _ provides an alternative definition for the optimality of a partition : a partition is pairwise - optimal if , for every pair of adjacent regions , one can not find a better two - partition of the union of the two regions .
+this condition is formally stated as follows .
+@xmath63 is a _ pairwise - optimal partition _ if for every @xmath66 , @xmath99    the following proposition states that the set pairwise - optimal partitions is in fact a subset of the set of centroidal voronoi partitions .
+the proof is involved and is deferred to appendix  [ sec : appendix_c ] .
+see fig .
+[ fig : voronoi ] for an example which demonstrates that the inclusion is strict .
+[ prop : optpair ] let @xmath51 be a _
+pairwise - optimal partition_. then @xmath64 is also a _ centroidal voronoi partition_.    for a given environment @xmath10 , a pair made of a centroidal voronoi partition @xmath64 and the corresponding vector of centroids @xmath56 is locally optimal in the following sense : @xmath70 can not be reduced by changing either @xmath64 or @xmath56 independently .
+a pairwise - optimal partition achieves this property and adds that for every pair of neighboring robots @xmath100 , there does not exist a two - partition of @xmath101 with a lower coverage cost . in other words , positioning the robots at the centroids of a centroidal voronoi partition ( locally ) minimizes the expected distance between a task appearing randomly in @xmath10 according to relative weights @xmath73 and the robot who owns the vertex where the task appears .
+positioning at the centroids of a pairwise - optimal partition improves performance by reducing the number of sub - optimal solutions which the team might converge to .
+we aim to partition @xmath10 among @xmath9 robotic agents using only asynchronous , unreliable , short - range communication . in section  [ sec : model ]
+we describe the computation , motion , and communication capabilities required of the team of robots , and in section  [ sec : problemformulation ] we formally state the problem we are addressing . in section  [ sec : algorithm ] we propose our solution , the _ discrete gossip coverage algorithm _ , and in [ sec : illustrative ] we provide an illustration . in sections
+[ sec : convprop ] and [ sec : computation ] we state the algorithm s convergence and complexity properties .
+our discrete gossip coverage algorithm requires a team of @xmath9 robotic agents where each agent @xmath42 has the following basic computation and motion capabilities :    1 .
+agent @xmath48 knows its unique identifier @xmath48 ; 2 .
+agent @xmath48 has a processor with the ability to store @xmath16 and perform operations on subgraphs of @xmath102 ; and 3 .
+agent @xmath48 can determine which vertex in @xmath10 it occupies and can move at speed @xmath103 along the edges of @xmath16 to any other vertex in @xmath10 .
+the localization requirement in ( c3 ) is actually quite loose .
+localization is only used for navigation and not for updating partitions , thus limited duration localization errors are not a problem .    the robotic agents are assumed to be able to communicate with each other according to the _ range - limited gossip communication model _ which is described as follows :    1 .   given a communication range @xmath104 , when any two agents reside for some positive duration at a distance @xmath105 , they communicate at the sample times of a poisson process with intensity @xmath106 .
+recall that an homogeneous poisson process is a widely - used stochastic model for events which occur randomly and independently in time , where the expected number of events in a period @xmath107 is @xmath108 .
+[ rem : comm ] ( 1 )  this communication capability is the minimum necessary for our algorithm , any additional capability can only reduce the time required for convergence .
+for example , it would be acceptable to have intensity @xmath109 depend upon the pairwise robot distance in such a way that @xmath110 for @xmath105 .
+( 2)we use distances in the graph to model limited range communication .
+these graph distances are assumed to approximate geodesic distances in the underlying continuous environment and thus path distances for a diffracting wave or moving robot .
+assume that , for all @xmath111 , each agent @xmath42 maintains in memory a connected subset @xmath47 of environment @xmath10 .
+our goal is to design a distributed algorithm that iteratively updates the partition @xmath112 while solving the following optimization problem : @xmath113 subject to the constraints imposed by the robot network model with range - limited gossip communication from section  [ sec : model ] .      in the design of an algorithm for the minimization problem
+there are two main questions which must be addressed .
+first , given the limited communication capabilities in ( c4 ) , how should the robots move inside @xmath10 to guarantee frequent enough meetings between pairs of robots ?
+second , when two robots are communicating , what information should they exchange and how should they update their regions ?    in this section
+we introduce the _ discrete gossip coverage algorithm _ which , following these two questions , consists of two components :    1 .
+the _ random destination & wait motion protocol _ ; and 2 .
+the _ pairwise partitioning rule_.    the concurrent implementation of the random destination & wait motion protocol and the pairwise partitioning rule determines the evolution of the positions and dominance subgraphs of the agents as we now formally describe .
+we start with the random destination & wait motion protocol .    ' '' ''    width height .4pt
+* random destination & wait motion protocol *    ' '' ''    width height .4pt
+each agent @xmath114 determines its motion by repeatedly performing the following actions :    agent @xmath48 samples a _ destination vertex _
+@xmath58 from a uniform distribution over its dominance subgraph @xmath43 ;    agent @xmath48 moves to vertex @xmath58 through the shortest path in @xmath43 connecting the vertex it currently occupies and @xmath58 ; and    agent @xmath48 waits at @xmath58 for a duration @xmath115 .    ' '' ''    width height .4pt
+if agent @xmath48 is moving from one vertex to another we say that agent @xmath48 is in the _ moving _ state while if agent @xmath48 is waiting at some vertex we say that it is in the _ waiting _ state .
+the motion protocol is designed to ensure frequent enough communication between pairs of robots . in general ,
+any motion protocol can be used which meets this requirement , so @xmath48 could select @xmath58 from the boundary of @xmath43 or use some heuristic non - uniform distribution over @xmath43 .    if any two agents @xmath48 and @xmath62 reside in two vertices at a graphical distance smaller that @xmath116 for some positive duration , then at the sample times of the corresponding communication poisson process the two agents exchange sufficient information to update their respective dominance subgraphs @xmath43 and @xmath57 via the pairwise partitioning rule .    ' '' ''    width height .4pt
+* pairwise partitioning rule *    ' '' ''    width height .4pt    assume that at time @xmath111 , agent @xmath48 and agent @xmath62 communicate .
+without loss of generality assume that @xmath117 .
+let @xmath47 and @xmath118 denote the current dominance subgraphs of @xmath48 and @xmath62 , respectively
+. moreover , let @xmath119 denote the time instant just after @xmath49 .
+then , agents @xmath48 and @xmath62 perform the following tasks :    agent @xmath48 transmits @xmath47 to agent @xmath62 and vice - versa initialize @xmath120 , @xmath121 , @xmath122 , @xmath123 compute @xmath124 and an ordered list @xmath125 of all pairs of vertices in @xmath126 compute the sets + @xmath127 + @xmath128 * if  * @xmath129 + @xmath130 *  then * @xmath131 @xmath132    ' '' ''    width height .4pt    some remarks are now in order .
+( 1 )   the pairwise partitioning rule is designed to find a minimum cost two - partition of @xmath126 .
+more formally , if list @xmath125 and sets @xmath133 and @xmath134 for @xmath135 are defined as in the pairwise partitioning rule , then @xmath133 and @xmath134 are an optimal two - partition of @xmath126 .
+\(2 ) while the loop in steps 4 - 7 must run to completion to guarantee that @xmath133 and @xmath134 are an optimal two - partition of @xmath126 , the loop is designed to return an intermediate sub - optimal result if need be .
+if @xmath43 and @xmath57 change , then @xmath70 will decrease and this is enough to ensure eventual convergence .
+( 3)we make a simplifying assumption in the pairwise partitioning rule that , once two agents communicate , the application of the partitioning rule is instantaneous .
+we discuss the actual computation time required in section  [ sec : computation ] and some implementation details in section  [ sec : results ] .
+( 4)notice that simply assigning @xmath133 to @xmath48 and @xmath134 to @xmath62 can cause the robots to `` switch sides '' in @xmath126 .
+while convergence is guaranteed regardless , switching may be undesirable in some applications . in that case ,
+any smart matching of @xmath133 and @xmath134 to @xmath48 and @xmath62 may be inserted .
+( 5)agents who are not adjacent may communicate but the partitioning rule will not change their regions . indeed , in this case @xmath133 and @xmath134 will not change from @xmath47 and @xmath118 .
+some possible modifications and extensions to the algorithm are worth mentioning .    in case
+the robots have heterogeneous dynamics , line 5 can be modified to consider per - robot travel times between vertices .
+for example , @xmath136 could be replaced by the expected time for robot @xmath48 to travel from @xmath137 to @xmath138 while @xmath139 would consider robot @xmath62 .    here
+we focus on partitioning territory , but this algorithm can easily be combined with methods to provide a service in @xmath10 as in  @xcite .
+the agents could split their time between moving to meet their neighbors and update territory , and performing requested tasks in their region .
+the simulation in fig .
+[ fig : sim_four ] shows four robots partitioning a square environment with obstacles where the free space is represented by a @xmath140 grid . in the initial partition shown in the left panel ,
+the robot in the top right controls most of the environment while the robot in the bottom left controls very little .
+the robots then move according to the random destination & wait motion protocol , and communicate according to range - limited gossip communication model with @xmath141 ( four edges in the graph ) .
+the first pairwise territory exchange is shown in the second panel , where the bottom left robot claims some territory from the robot on the top left .
+a later exchange between the two robots on the top is shown in the next two panels .
+notice that the cyan robot in the top right gives away the vertex it currently occupies .
+in such a scenario , we direct the robot to follow the shortest path in @xmath16 to its updated territory before continuing on to a random destination .
+after 9 pairwise territory exchanges , the robots reach the pairwise - optimal partition shown at right in fig .  [
+fig : sim_four ] .
+the expected distance between a random vertex and the closest robot decreases from @xmath142 down to @xmath143 .
+the strength of the discrete gossip coverage algorithm is the possibility of enforcing that a partition will converge to a pairwise - optimal partition through pairwise territory exchange . in theorem
+[ th : main ] we summarize this convergence property , with proofs given in section  [ sec : convergence ] .
+[ th : main ] consider a network of @xmath9 robotic agents endowed with computation and motion capacities ( c1 ) , ( c2 ) , ( c3 ) , and communication capacities ( c4 ) .
+assume the agents implement the _ discrete gossip coverage algorithm _ consisting of the concurrent implementation of the _ random destination & wait motion protocol _ and the _ pairwise partitioning rule_. then ,    a.   [ item : well - posedness ] the partition @xmath144 remains connected and is described by @xmath145 and b.   [ item : convergence ] @xmath144 converges almost surely in finite time to a pairwise - optimal partition .    by definition ,
+a pairwise - optimal partition is optimal in that @xmath70 can not be improved by changing only two regions in the partition .    for simplicity
+we assume uniform robot speeds , communication processes , and waiting times .
+an extension to non - uniform processes would be straightforward .      in this subsection
+we explore the computational requirements of the discrete gossip coverage algorithm , and make some comments on implementation .
+cost function @xmath146 is the sum of the distances between @xmath18 and all other vertices in @xmath43 .
+this computation of one - to - all distances is the core computation of the algorithm . for most graphs of interest
+the total number of edges @xmath147 is proportional to @xmath148 , so we will state bounds on this computation in terms of @xmath149 .
+computing one - to - all distances requires one of the following :    * if all edge weights in @xmath16 are the same ( e.g. , for a graph from an occupancy grid ) , a breadth - first search approach can be used which requires @xmath150 in time and memory ; * otherwise , dijkstra s algorithm must be used which requires @xmath151 in time and @xmath150 in memory .
+let @xmath152 be the time to compute one - to - all distances in @xmath43 , then computing @xmath146 requires @xmath153 in time .
+[ prop : computation ] the motion protocol requires @xmath150 in memory , and @xmath153 in computation time .
+the partitioning rule requires @xmath154 in communication bandwidth between robots @xmath48 and @xmath62 , @xmath154 in memory , and can run in any time .
+we first prove the claims for the motion protocol .
+step 2 is the only non - trivial step and requires finding a shortest path in @xmath43 , which is equivalent to computing one - to - all distances from the robot s current vertex .
+hence , it requires @xmath153 in time and @xmath155 in memory .
+we now prove the claims for the partitioning rule . in step 1 , robots @xmath48 and @xmath62 transmit their subgraphs to each other , which requires @xmath154 in communication bandwidth . for step 3 , the robots determine @xmath156 , which requires @xmath154 in memory to store .
+step 4 is the start of a loop which executes @xmath157 times , affecting the time complexity of steps 5 , 6 and 7 .
+step 5 requires two computations of one - to - all distances in @xmath126 which each take @xmath158 .
+step 6 involves four computations of @xmath68 over different subsets of @xmath126 , however those for @xmath133 and @xmath134 can be stored from previous computation . since @xmath159 and @xmath160 are strict subsets of @xmath126 , step 5 takes longer than step 6 .
+step 7 is trivial , as is step 8 .
+the total time complexity of the loop is thus @xmath161 .
+however , the loop in steps 4 - 7 can be truncated after any number of iterations . while it must run to completion to guarantee that @xmath133 and @xmath134 are an optimal two - partition of @xmath126 , the loop is designed to return an intermediate sub - optimal result if need be .
+if @xmath43 and @xmath57 change , then @xmath70 will decrease .
+our convergence result will hold provided that all elements of @xmath125 are eventually checked if @xmath43 and @xmath57 do not change .
+thus , the partitioning rule can run in any time with each iteration requiring @xmath158 .
+all of the computation and communication requirements in proposition  [ prop : computation ] are independent of the number of robots and scale with the size of a robot s partition , meaning the discrete gossip coverage algorithm can easily scale up for large teams of robots in large environments .
+this section is devoted to proving the two statements in theorem  [ th : main ] .
+the proof that the pairwise partitioning rule maps a connected @xmath9-partition into a connected @xmath9-partition is straightforward .
+the proof of convergence is more involved and is based on the application of lemma  [ lem : finite - lasalle ] in appendix  [ sec : appendix_a ] to the discrete gossip coverage algorithm .
+lemma  [ lem : finite - lasalle ] establishes strong convergence properties for a particular class of set valued maps ( set - valued maps are briefly reviewed in appendix  [ sec : appendix_a ] ) .
+we start by proving that the pairwise partitioning rule is well - posed in the sense that it maintains a connected partition .
+to prove the statement we need to show that @xmath162 satisfies points ( i ) through ( iv ) of definition  [ def : conpartitions ] . from the definition of the pairwise partitioning rule , we have that @xmath163 and @xmath164 .
+moreover , since @xmath165 and @xmath166 , it follows that @xmath167 and @xmath168 .
+these observations imply the validity of points ( i ) , ( ii ) , and ( iii ) for @xmath162 .
+finally , we must show that @xmath169 and @xmath170 are connected , i.e. , @xmath162 also satisfies point ( iv ) .
+to do so we show that , given @xmath171 , any shortest path in @xmath172 connecting @xmath138 to @xmath173 completely belongs to @xmath133 .
+we proceed by contradiction .
+let @xmath174 denote a shortest path in @xmath175 connecting @xmath138 to @xmath173 and let us assume that there exists @xmath176 such that @xmath177 .
+for @xmath178 to be in @xmath134 means that @xmath179 .
+this implies that @xmath180 this is a contradiction for @xmath171 .
+similar considerations hold for @xmath134 .
+the rest of this section is dedicated to proving convergence .
+our first step is to show that the evolution determined by the discrete gossip coverage algorithm can be seen as a set - valued map . to this end , for any pair of robots @xmath181 , @xmath182 , we define the map @xmath183 by @xmath184 where @xmath185 and @xmath186 .
+if at time @xmath187 the pair @xmath100 and no other pair of robots perform an iteration of the pairwise partitioning rule , then the dynamical system on the space of partitions is described by @xmath188 we define the set - valued map @xmath189 as @xmath190 observe that   can then be rewritten as @xmath191 .
+the next two propositions state facts whose validity is ensured by lemma  [ lemma : onmotionprotocol ] of appendix  [ sec : appendix_b ] which states a key property of the random destination & wait motion protocol .
+[ prop : tk ] consider  @xmath9 robots implementing the discrete gossip coverage algorithm .
+then , there almost surely exists an increasing sequence of time instants @xmath192 such that @xmath193 for some @xmath194 .
+the proof follows directly from lemma  [ lemma : onmotionprotocol ] which implies that the time between two consecutive pairwise communications is almost surely finite .
+the existence of time sequence @xmath192 allows us to to express the evolution generate by the discrete gossip coverage algorithm as a discrete time process .
+let @xmath195 and @xmath196 ,
+then @xmath197 where @xmath189 is defined as in  .    given @xmath198 , let @xmath199 denote the information which completely characterizes the state of discrete gossip coverage algorithm just after the @xmath0-th iteration of the partitioning rule , i.e. , at time @xmath200 .
+specifically , @xmath199 contains the information related to the partition @xmath201 , the positions of the robots at @xmath200 , and whether each robot is in the _ waiting _ or _ moving _ state at @xmath200 .
+the following result characterizes the probability that , given @xmath199 , the @xmath202-th iteration of the partitioning rule is governed by any of the maps @xmath203 , @xmath204 .
+[ prop : pi ] consider a team of @xmath9 robots with capacities ( c1 ) , ( c2 ) , ( c3 ) , and ( c4 ) implementing the discrete gossip coverage algorithm .
+then , there exists a real number @xmath205 , such that , for any @xmath206 and @xmath204 @xmath207\geq \bar{\pi}.\ ] ]    assume that at time @xmath208 one pair of robots communicates .
+given a pair @xmath209 , we must find a lower bound for the probability that @xmath210 is the communicating pair .
+since all the poisson communication processes have the same intensity , the distribution of the chance of communication is uniform over the pairs which are `` able to communicate , '' i.e. , closer than @xmath116 to each other .
+thus , we must only show that @xmath210 has a positive probability of being able to communicate at time @xmath208 , which is equivalent to showing that @xmath210 is able to communicate for a positive fraction of time with positive probability .
+the proof of lemma  [ lemma : onmotionprotocol ] implies that with probability at least @xmath211 any pair in @xmath212 is able to communicate for a fraction of time not smaller than @xmath213 where @xmath214 and @xmath107 are defined in the proof of lemma  [ lemma : onmotionprotocol ] .
+hence the result follows .    the property in proposition  [ prop : pi ]
+can also be formulated as follows .
+let @xmath215 be the stochastic process such that @xmath216 is the communicating pair at time @xmath0 .
+then , the sequence of pairs of robots performing the partitioning rule at time instants @xmath192 can be seen as a realization of the process @xmath217 , which satisfies @xmath218 \geq \bar{\pi}\ ] ] for all @xmath204 .
+next we show that the cost function decreases whenever the application of @xmath219 from changes the territory partition .
+this fact is a key ingredient to apply lemma  [ lem : finite - lasalle ] .
+[ lemma : tdecr ]    let @xmath220 and let @xmath221 . if @xmath222 , then @xmath223
+.    without loss of generality assume that @xmath100 is the pair executing the pairwise partitioning rule .
+then @xmath224 according to the definition of the pairwise partitioning rule we have that if @xmath225 , @xmath226 , then @xmath227 from which the statement follows .
+we now complete the proof of the main result , theorem  [ th : main ] .
+note that the algorithm evolves in a finite space of partitions , and by theorem  [ th : main ] statement ( [ item : well - posedness ] ) , the set @xmath44 is strongly positively invariant .
+this fact implies that assumption  ( i ) of lemma  [ lem : finite - lasalle ] is satisfied . from lemma  [ lemma : tdecr ]
+it follows that assumption ( ii ) is also satisfied , with @xmath70 playing the role of the function @xmath126 .
+finally , the property in   is equivalent to the property of _ persistent random switches _ stated in assumption  ( iii ) of lemma  [ lem : finite - lasalle ] , for the special case @xmath228 .
+hence , we are in the position to apply lemma  [ lem : finite - lasalle ] and conclude convergence in finite - time to an element of the intersection of the equilibria of the maps @xmath203 , which by definition is the set of the pairwise - optimal partitions .
+to demonstrate the utility and study practical issues of the discrete gossip coverage algorithm , we implemented it using the open - source player / stage robot control system @xcite and the boost graph library ( bgl ) @xcite .
+all results presented here were generated using player 2.1.1 , stage 2.1.1 , and bgl 1.34.1 . to compute distances in uniform edge weight graphs we extended the bgl breadth - first search routine with a distance recorder event visitor .      to evaluate the performance of our gossip coverage algorithm with larger teams , we tested 30 simulated robots partitioning a map representing a @xmath229 portion of campus at the university of california at santa barbara .
+as shown in fig .
+[ fig : large_sim ] , the robots are tasked with providing coverage of the open space around some of the buildings on campus , a space which includes a couple open quads , some narrower passages between buildings , and a few dead - end spurs . for this large environment
+the simulated robots are @xmath230 on a side and can move at @xmath231 .
+each territory cell is @xmath232 .    in this simulation
+we handle communication and partitioning as follows .
+the communication range is set to @xmath233 ( 10 edges in the graph ) with @xmath234 .
+the robots wait at their destination vertices for @xmath235 .
+this value for @xmath236 was chosen so that on average one quarter of the robots are waiting at any moment .
+lower values of @xmath236 mean the robots are moving more of the time and as a result more frequently miss connections , while for higher @xmath236 the robots spend more time stationary which also reduces the rate of convergence . with the goal of improving communication , we implemented a minor modification to the motion protocol : each robot picks its random destination from the cells forming the open boundary is the set of vertices in @xmath43 which are adjacent to at least one vertex owned by another agent . ] of its territory . in our implementation
+, the full partitioning loop may take @xmath237 seconds for the largest initial territories in fig .
+[ fig : large_sim ] . we chose to stop the loop after a quarter second for this simulation to verify the anytime computation claim
+the 30 robots start clustered in the center of the map between engineering ii and broida hall , and an initial voronoi partition is generated from these starting positions .
+this initial partition is shown on the left in fig .
+[ fig : large_sim ] with the robots positioned at the centroids of their starting regions .
+the initial partition has a cost of @xmath238 .
+the team spends about 27 minutes moving and communicating according to the discrete gossip coverage algorithm before settling on the final partition on the right of fig .
+[ fig : large_sim ] . the coverage cost of the final equilibrium improved by @xmath239 to @xmath240 .
+visually , the final partition is also dramatically more uniform than the initial condition .
+this result demonstrates that the algorithm is effective for large teams in large non - convex environments .     over time for the simulation in fig .
+[ fig : large_sim].,height=125 ]    fig .
+[ fig : large_sim_cost ] shows the evolution of @xmath70 during the simulation .
+the largest cost improvements happen early when the robots that own the large territories on the left and right of the map communicate with neighbors with much smaller territories .
+these big territory changes then propagate through the network as the robots meet and are pushed and pulled towards a lower cost partition .
+we conducted an experiment to test the algorithm using three physical robots in our lab , augmented by six simulated robots in a synthetic environment extending beyond the lab .
+our lab space is @xmath241 on a side and is represented by the upper left portion of the territory maps in fig .
+[ fig : experiment ] .
+the territory graph loops around a center island of desks .
+we extended the lab space through three connections into a simulated environment around the lab , producing a @xmath242 environment .
+the map of the environment was specified with a @xmath243 bitmap which we overlayed with a @xmath244 resolution occupancy grid representing the free territory for the robots to cover .
+the result is a lattice - like graph with all edge weights equal to @xmath244 .
+the @xmath244 resolution was chosen so that our physical robots would fit easily inside a cell .
+additional details of our implementation are as follows .
+we use erratic mobile robots from videre design , as shown in fig .
+[ fig : robot ] .
+the vehicle platform has a roughly square footprint @xmath245 , with two differential drive wheels and a single rear caster .
+each robot carries an onboard computer with a 1.8ghz core 2 duo processor , 1 gb of memory , and 802.11 g wireless communication . for navigation and localization , each robot
+is equipped with a hokuyo urg-04lx laser rangefinder .
+the rangefinder scans @xmath246 points over @xmath247 at @xmath248 with a range of @xmath249 meters .
+our mixed physical and virtual robot experiments are run from a central computer which is attached to a wireless router so it can communicate with the physical robots .
+the central computer creates a simulated world using stage which mirrors and extends the real space in which the physical robots operate .
+the central computer also simulates the virtual members of the robot team .
+these virtual robots are modeled off of our hardware : they are differential drive with the same geometry as the erratic platform and use simulated hokuyo urg-04lx rangefinders .
+we use the ` amcl ` driver in player which implements adaptive monte - carlo localization  @xcite .
+the physical robots are provided with a map of our lab with a @xmath250 resolution and told their starting pose within the map .
+we set an initial pose standard deviation of @xmath251 in position and @xmath252 in orientation , and request localization updates using @xmath253 of the sensor s range measurements for each change of @xmath254 in position or @xmath255 in orientation reported by the robot s odometry system .
+we then use the most likely pose estimate output by ` amcl ` as the location of the robot .
+for simplicity and reduced computational demand , we allow the virtual robots access to perfect localization information .
+each robot continuously executes the random destination & wait motion protocol , with navigation handled by the ` snd ` driver in player which implements smooth nearness diagram navigation  @xcite .
+for ` snd ` we set the robot radius parameter to @xmath256 , obstacle avoidance distance to @xmath257 , and maximum speeds to @xmath258 and @xmath259 .
+the ` snd ` driver is a local obstacle avoidance planner , so we feed it a series of waypoints every couple meters along paths found in @xmath16 .
+we consider a robot to have achieved its target location when it is within @xmath260 and it will then wait for @xmath235 . for the physical robots the motion protocol and navigation processes run on board , while there are separate threads for each virtual robot on the central computer .
+as the robots move , a central process monitors their positions and simulates the range - limited gossip communication model between both real and virtual robots .
+we set @xmath141 and @xmath261 .
+these parameters were chosen so that the robots would be likely to communicate when separated by at most four edges , but would also sometimes not connect despite being close .
+when this process determines two robots should communicate , it informs the robots who then perform the pairwise partitioning rule .
+our pairwise communication implementation is blocking : if robot @xmath48 is exchanging territory with @xmath62 , then it informs the match making process that it is unavailable until the exchange is complete .
+the results of our experiment with three physical robots and six simulated robots are shown in figs .
+[ fig : experiment ] and [ fig : exp_cost ] . the left column in fig .
+[ fig : experiment ] shows the starting positions of the team of robots , with the physical robots , labeled 1 , 2 , and 3 , lined up in a corner of the lab and the simulated robots arrayed around them .
+the starting positions are used to generate the initial voronoi partition of the environment .
+the physical robots own the orange , blue , and lime green territories in the upper left quadrant .
+we chose this initial configuration to have a high coverage cost , while ensuring that the physical robots will remain in the lab as the partition evolves .    in the middle column , robots
+1 and 2 have met along their shared border and are exchanging territory . in the territory map , the solid red line indicates 1 and 2 are communicating and their updated territories are drawn with solid orange and blue , respectively .
+the camera view confirms that the two robots have met on the near side of the center island of desks .    the final partition at right in fig .
+[ fig : experiment ] is reached after @xmath262 minutes .
+all of the robots are positioned at the centroids of their final territories .
+the three physical robots have gone from a cluster in one corner of the lab to a more even spread around the space .    .
+the total cost @xmath70 is shown above in black , while @xmath68 for each robot is shown below in the robot s color . ]
+[ fig : exp_cost ] shows the evolution of the cost function @xmath70 as the experiment progresses , including the costs for each robot .
+as expected , the total cost never increases and the disparity of costs for the individual robots shrinks over time until settling at a pairwise - optimal partition .    in this experiment
+the hardware challenges of sensor noise , navigation , and uncertainty in position were efficiently handled by the ` amcl ` and ` snd ` drivers .
+the coverage algorithm assumed the role of a higher - level planner , taking in position data from ` amcl ` and directing ` snd ` .
+by far the most computationally demanding component was ` amcl ` , but the position hypotheses from ` amcl ` are actually unnecessary : our coverage algorithm only requires knowledge of the vertex a robot occupies .
+if a less intensive localization method is available , the algorithm could run on robots with significantly lower compute power .      in this subsection
+we present a numerical comparison of the performance of the discrete gossip coverage algorithm and the following two lloyd - type algorithms .
+this method is from @xcite and @xcite , we describe it here for convenience . at each discrete time
+instant @xmath263 , each robot @xmath48 performs the following tasks : ( 1 ) @xmath48 transmits its position and receives the positions of all adjacent robots ; ( 2 ) @xmath48 computes its voronoi region @xmath43 based on the information received ; and ( 3 ) @xmath48 moves to @xmath264 .
+this method is from @xcite .
+it is a gossip algorithm , and so we have used the same communication model and the random destination & wait motion protocol to create meetings between robots . say robots @xmath48 and @xmath62 meet at time @xmath49
+, then the pairwise lloyd partitioning rule works as follows : ( 1 ) robot @xmath48 transmits @xmath47 to @xmath62 and vice versa ; ( 2 ) both robots determine @xmath265 ; ( 3 ) robot @xmath48 sets @xmath169 to be its voronoi region of @xmath126 based on @xmath266 and @xmath267 , and @xmath62 does the equivalent .    for both lloyd algorithms we use the same tie breaking rule when creating voronoi regions as is present in the pairwise partitioning rule :
+ties go to the robot with the lowest index .
+our first numerical result uses a monte carlo probability estimation method from  @xcite to place probabilistic bounds on the performance of the two gossip algorithms .
+recall that the chernoff bound describes the minimum number of random samples @xmath268 required to reach a certain level of accuracy in a probability estimate from independent bernoulli tests . for an accuracy @xmath269 and confidence @xmath270 ,
+the number of samples is given by @xmath271 for @xmath272 and @xmath273 , at least 116 samples are required .
+figure  [ fig : bad_start ] shows both the initial territory partition of the extended laboratory environment used and also a histogram of the final results for the following monte carlo test .
+the environment and robot motion models used are described in section  [ sec : implementation ] .
+starting from the indicated initial condition , we ran 116 simulations of both gossip algorithms .
+the randomness in the test comes from the sequence of pairwise communications .
+these sequences were generated using : ( 1 ) the random destination & wait motion protocol with @xmath58 sampled uniformly from the open boundary of @xmath43 and @xmath235 ; and ( 2 ) the range - limited gossip communication model with @xmath141 and @xmath261 .    the cost of the initial partition in fig .
+[ fig : bad_start ] is @xmath274 , while the best known partition for this environment has a cost of just under @xmath275 .
+the histogram in fig .
+[ fig : bad_start ] shows the final equilibrium costs for 116 simulations of the discrete gossip coverage algorithm ( black ) and the gossip lloyd algorithm ( gray ) .
+it also shows the final cost using the decentralized lloyd algorithm ( red dashed line ) , which is deterministic from a given initial condition .
+the histogram bins have a width of @xmath276 and start from @xmath277 . for the discrete gossip coverage algorithm ,
+@xmath278 out of @xmath279 trials reach the bin containing the best known partition and the mean final cost is @xmath280 .
+the gossip lloyd algorithm reaches the lowest bin in only @xmath237 of @xmath279 trials and has a mean final cost of @xmath281 .
+the decentralized lloyd algorithm settles at @xmath282 .
+our new gossip algorithm requires an average of @xmath283 pairwise communications to reach an equilibrium , whereas gossip lloyd requires @xmath284 .
+based on these results , we can conclude with @xmath285 confidence that there is at least an @xmath286 probability that 9 robots executing the discrete gossip coverage algorithm starting from the initial partition shown in fig .
+[ fig : bad_start ] will reach a pairwise - optimal partition which has a cost within @xmath287 of the best known cost .
+we can further conclude with @xmath285 confidence that the gossip lloyd algorithm will settle more than @xmath287 above the best known cost at least @xmath288 of the time starting from this initial condition .     comparing discrete gossip coverage algorithm ( black bars ) , gossip lloyd algorithm ( gray bars ) , and
+decentralized lloyd algorithm ( red dashed line ) .
+for the gossip algorithms , 116 simulations were performed with different sequences of pairwise communications .
+the decentralized lloyd algorithm is deterministic given an initial condition so only one final cost is shown .
+the initial cost for each test is drawn with the green dashed line . ]
+figure  [ fig : multi_compare ] compares final cost histograms for @xmath289 different initial conditions for the same environment and parameters as described above .
+each initial condition was created by selecting unique starting locations for the robots uniformly at random and using these locations to generate an initial voronoi partition . the initial cost for each test
+is shown with the green dashed line . in 9 out of 10 tests
+the discrete gossip coverage algorithm reaches the histogram bin with the best known partition in at least @xmath290 of @xmath279 trials .
+the two lloyd methods get stuck in sub - optimal centroidal voronoi partitions more than @xmath287 away from the best known partition in more than half the trials in 7 of 10 tests .
+we have presented a novel distributed partitioning and coverage control algorithm which requires only unreliable short - range communication between pairs of robots and works in non - convex environments . the classic lloyd approach to coverage optimization involves iteration of separate centering and voronoi partitioning steps . for gossip algorithms , however , this separation is unnecessary computationally and we have shown that improved performance can be achieved without it .
+our new discrete gossip coverage algorithm provably converges to a subset of the set of centroidal voronoi partitions which we labeled pairwise - optimal partitions . through numerical comparisons we demonstrated that this new subset of solutions avoids many of the local minima in which
+lloyd - type algorithms can get stuck .
+our vision is that this partitioning and coverage algorithm will form the foundation of a distributed task servicing setup for teams of mobile robots .
+the robots would split their time between servicing tasks in their territory and moving to contact their neighbors and improve the coverage of the space .
+our convergence results only require sporadic improvements to the cost function , affording flexibility in robot behaviors and capacities , and offering the ability to handle heterogeneous robotic networks . in the bigger picture ,
+this paper demonstrates the potential of gossip communication in distributed coordination algorithms .
+there appear to be many other problems where this realistic and minimal communication model could be fruitfully applied .
+given a set @xmath291 , a set - valued map @xmath292 is a map which associates to an element @xmath293 a subset @xmath294 a set - valued map is non - empty if @xmath295 for all @xmath296 .
+given a non - empty set - valued map @xmath219 , an evolution of the dynamical system associated to @xmath219 is a sequence @xmath297 where @xmath298 for all @xmath299 a set @xmath300 is _ strongly positively invariant _ for @xmath219 if @xmath301 for all @xmath302 .
+[ lem : finite - lasalle ] let @xmath303 be a finite metric space . given a collection of maps @xmath304 , define the set - valued map @xmath292 by @xmath305 . given a stochastic process @xmath306 ,
+consider an evolution @xmath307 of @xmath219 satisfying @xmath308 assume that :    1 .
+there exists a set @xmath309 that is strongly positively invariant for @xmath219 ; 2 .
+there exists a function @xmath310 such that @xmath311 , for all @xmath312 and @xmath313 ; and 3 .
+there exist @xmath314 and @xmath315 such that , for all @xmath316 and @xmath317 , there exists @xmath318 such that @xmath319 \geq p.      $ ]    for @xmath320 , let @xmath321 be the set of fixed points of @xmath322 in @xmath323 , i.e. , @xmath324 .
+if @xmath325 , then the evolution @xmath307 converges almost surely in finite time to an element of the set @xmath326 , i.e. , there exists almost surely @xmath327 such that , for some @xmath328 , @xmath329 for @xmath330        [ lemma : onmotionprotocol ] consider @xmath9 robots implementing the discrete gossip coverage algorithm starting from an arbitrary @xmath51 .
+consider @xmath187 and let @xmath144 denote the partition at time @xmath49 .
+assume that at time @xmath49 no two robots are communicating .
+then , there exist @xmath331 and @xmath332 , independent of @xmath144 and the positions and states of the robots at time @xmath49 , such that , for every @xmath333 , @xmath334\ge \alpha.$ ]      our goal is to lower bound the probability that @xmath48 and @xmath62 will communicate within the interval @xmath340 . to do
+so we construct _ one _ sequence of events of positive probability which enables such communication .
+consider the following situation : @xmath48 is in the _ moving _ state and needs time @xmath341 to reach its destination @xmath58 , whereas robot @xmath62 is in the _ waiting _ state at vertex @xmath59 and must wait there for time @xmath342 .
+we denote by @xmath343 ( resp .
+@xmath344 ) the time needed for @xmath48 ( resp .
+@xmath62 ) to travel from @xmath58 ( resp .
+@xmath59 ) to @xmath137 ( resp .
+@xmath345 ) . let @xmath346 be the event such that @xmath48 performs the following actions in @xmath347 without communicating with any robot @xmath348 :            next , we lower bound the probability that event @xmath355 occurs . recall the definition of @xmath356 from sec .  [
+sec : model ] .
+since a robot can have at most @xmath357 neighbors , the probability that ( i ) of @xmath355 happens is lower bounded by @xmath358 for ( ii ) , the probability that @xmath48 chooses @xmath137 is @xmath359 , which is lower bounded by @xmath360 .
+then , in order to spend at least @xmath361 at @xmath137 , @xmath48 must choose @xmath137 for @xmath362 consecutive times .
+finally , the probability that during this interval @xmath48 will not communicate with any robot other than @xmath62 is lower bounded by @xmath363 the probability that ( ii ) occurs is thus lower bounded by @xmath364 combining the bounds for ( i ) and ( ii ) , it follows that @xmath365\geq \bigl(\tfrac{1}{{\left|q\right|}}\bigr)^{\lceil \frac{\delta}{\tau } \rceil } e^{-{{\lambda_{\textup{comm}}}}(\delta+\tau ) n}.\ ] ] the same lower bound holds for @xmath366 $ ] , meaning that @xmath367&={\mathbb{p}}\left[e_{i}\right]\ , { \mathbb{p}}\left[e_{j}\right ] \geq   \bigl(\tfrac{1}{{\left|q\right|}}\bigr)^{2 \lceil \frac{\delta}{\tau } \rceil } e^{-2 { { \lambda_{\textup{comm}}}}(\delta+\tau ) n}.\end{aligned}\ ] ]    if event @xmath368 occurs , then robots @xmath48 and @xmath62 will be at adjacent vertices for an amount of time during the interval @xmath347 equal to @xmath369 since @xmath343 and @xmath344 are no more than @xmath370 , we can conclude that @xmath48 and @xmath62 will be within @xmath116 for at least @xmath236 . conditioned on @xmath368 occurring , the probability that @xmath48 and @xmath62 communicate in @xmath347 is lower bounded by @xmath371 .
+a suitable choice for @xmath214 from the statement of the lemma is thus @xmath372 it can be shown that this also constitutes a lower bound for the other possible combinations of initial states : robot @xmath48 is _ waiting _ and robot @xmath62 is _ moving _ ; robots @xmath48 and @xmath62 are both _ moving _ ; and robots @xmath48 and @xmath62 are both _
+waiting_.        to create a contradiction , assume that @xmath51 is a pairwise - optimal partition but not a centroidal voronoi partition .
+in other words , there exist components @xmath43 and @xmath57 in @xmath64 and an element @xmath138 of one component , say @xmath373 , such that @xmath374 choose @xmath57 such that for all @xmath375 @xmath376    let @xmath377 be a shortest path in @xmath17 connecting @xmath137 to @xmath345 and let @xmath378 be the first element of the path starting from @xmath379 which is not in @xmath57 .
+let @xmath380 be such that @xmath381 .          in the first case
+, we again have a contradiction using the same logic above with @xmath178 in place of @xmath138 . in the second case
+, we must further consider whether there exists a @xmath389 such that every vertex in @xmath389 is also in @xmath390 .
+if there is not such a path , then @xmath391 and we again have a contradiction as above . if there is such a path , then we can instead repeat this analysis using using @xmath380 in place of @xmath62 and considering the path formed by this @xmath389 and the vertices in @xmath383 after @xmath178 . since the next vertex playing the role of @xmath178
+must be closer to @xmath138 , we will eventually find a vertex which creates a contradiction .
+r.  smith , j.  das , h.  heidarsson , a.  pereira , f.  arrichiello , i.  cetnic , l.  darjany , m .- e .
+garneau , m.  howard , c.  oberg , m.  ragan , e.  seubert , e.  smith , b.  stauffer , a.  schnetzer , g.  toro - farmer , d.  caron , b.  jones , and g.  sukhatme , `` usc cinaps builds bridges , '' _ ieee robotics & automation magazine _ , vol .
+17 , no .  1 ,
+pp .  2030 , 2010 .
+s.  yun , m.  schwager , and d.  rus , `` coordinating construction of truss structures using distributed equal - mass partitioning , '' in _ international symposium on robotics research _ , ( lucerne , switzerland ) , aug .
+2009 .
+l.  c.  a. pimenta , v.  kumar , r.  c. mesquita , and g.  a.  s. pereira , `` sensing and coverage for a network of heterogeneous robots , '' in _ ieee conf .  on decision and control
+_ , ( cancn , mxico ) , pp .  39473952 , dec .
+2008 .
+r.  cortez , h.  tanner , and r.  lumia , `` distributed robotic radiation mapping , '' in _ experimental robotics _
+( o.  khatib , v.  kumar , and g.  pappas , eds . ) , vol .
+54 of _ springer tracts in advanced robotics _ , pp .  147156 , springer , 2009 .
+f.  bullo , r.  carli , and p.  frasca , `` gossip coverage control for robotic networks : dynamical systems on the the space of partitions , '' _ siam journal on control and optimization _ , aug
+available at http://motion.me.ucsb.edu/pdf/2008u-bcf.pdf .
+j.  w. durham , r.  carli , p.  frasca , and f.  bullo , `` discrete partitioning and coverage control with gossip communication , '' in _ asme dynamic systems and control conference _ , ( hollywood , ca , usa ) , pp .  225232 ,
+j.  w. durham , r.  carli , and f.  bullo , `` pairwise optimal coverage control for robotic networks in discretized environments , '' in _ ieee conf .  on decision and control
+_ , ( atlanta , ga , usa ) , pp .  72867291 , dec .
+2010 .
+b.  gerkey , r.  t. vaughan , and a.  howard , `` the player / stage project : tools for multi - robot and distributed sensor systems , '' in _ int .
+conference on advanced robotics _ , ( coimbra , portugal ) , pp .
+317323 , june 2003 .

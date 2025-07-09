@@ -1,0 +1,99 @@
+an electron incident on a superconductor from a normal metal , with an energy smaller than the superconducting energy gap , can not propagate into the superconductor and thus should be perfectly reflected .
+however , andreev discovered a mechanism for transmission , in which an electron may form a cooper pair with another electron and be transmitted across the superconductor .
+as a consequence of charge conservation a hole must be left behind , which , as a result of momentum conservation , should propagate in a direction opposite to that of the incident electron .
+this process is termed andreev reflection  @xcite .    apart
+from providing a confirmation for the existence of cooper pairs and superconductor energy gaps  @xcite , this process may also have applications in spintronics .
+it has been suggested that point contact andreev reflection can be used to probe spin polarization of ferromagnets by fabricating ferromagnet - superconductor nanojunctions  @xcite .
+materials - specific modelling of such experiments , however , is complex and so far it has been somehow unsatisfactory . for instance
+tight - binding based scattering theory  @xcite and green s functions theory  @xcite calculations found poor fits to the experimental data for ferromagnet - superconductor junctions , while produced excellent fitting to normal metal - superconductor junctions results . based on this observation
+, xia and co - workers suggested that there may be an interaction between the ferromagnet and superconductor which is not accounted for in the blonder - tinkham - klapwijk ( btk ) model  @xcite .
+consequently , the simple interpretation and two - parameter btk model fitting of experimental data to extract the spin polarization of various ferromagnets , was also called into question .
+more recently , chen , tesanovic and chien proposed a unified model for andreev reflection at a ferromagnet - superconductor interface  @xcite .
+this is based on a partially polarized current , where the andreev reflection is limited by minority states and the excess majority carriers provide an evanescent contribution .
+however , this model has also been called into doubt by eschrig and co - workers  @xcite .
+in particular , they pointed out that the additional evanescent component is introduced in an _ ad - hoc _ manner , and that the resulting wavefunction violates charge conservation .
+so , the debate about the correct model to describe andreev reflection at a ferromagnet - superconductor junction seems far from being settled .    among other mesoscopic systems ,
+andreev reflection has also been measured in carbon nanotubes ( cnts )  @xcite .
+there has been a theoretical study of normal metal - molecule - superconductor junction from density functional theory based transport calculations  @xcite . in this study
+it was shown that the presence of side groups in the molecule can lead to fano resonances in andreev reflection spectra .
+topological insulators , a very recent and exciting development in condensed matter physics , have also been shown to be characterized by perfect andreev reflection  @xcite .
+wang and co - authors have recently suggested performing a self - consistent calculation of the scattering potential to study andreev reflection at normal metal - superconductor junctions  @xcite .
+they calculated the conductance for carbon chains sandwiched between a normal and a superconducting al electrode and found different values depending on whether or not the calculation was carried out self - consistent over the hartree and exchange - correlation potential .
+however , the theoretical justification for such a self - consistent procedure is at present not clear .
+in particular , it is difficult to argue that the variational principle , which underpins the hohenberg - kohn theorems , is still obeyed when a pairing energy is added _ by hand _ to the kohn - sham potential . in principle a rigorous self - consistent treatment should use the superconducting version of density functional theory  @xcite , which probably remains computationally too expensive for calculating the interfaces needed to address a scattering problem
+. given such theoretical landscape and the fact that a non self - consistent approach to density functional theory based transport calculations has shown excellent agreement to experimental results for normal metal - superconductor junctions , we follow this methodology in the present work .    in this paper
+, we study andreev reflection in normal - superconductor junctions , including all - metal junctions and carbon nanotubes sandwiched between normal and superconducting electrodes .
+we take into account the atomistic details of the junction by using density functional theory to obtain the underlying electronic structure , and then employ an extended btk model to solve the normal - superconductor scattering problem .
+our transverse momentum resolved calculations allow identifying the contributions to conductance from different parts of the brillouin zone .
+we also study the variation of conductance as a function of an applied potential difference between the electrodes for various normal metal - superconductor junctions , by performing approximate finite bias calculations .    after this introduction
+, the rest of our paper is organized as follows : in section  [ formulation ] we summarize the extended btk model and beenakker s formula , which we employ in this work . in the subsequent section  [ results ] ,
+we present our results for cu - pb , co - pb and au - al junctions , as well as al - cnt - al junctions .
+we also include the computational details in each of these subsections .
+finally , we conclude and summarize our findings in section  [ conclusions ] .
+for the sake of completeness , here we briefly summarize the extended btk model  @xcite that we use to study andreev reflection at a normal metal - superconductor interface . following refs .
+[ ] , we begin with the bogoliubov - de gennes equation @xmath0 where @xmath1 is the single particle hamiltonian for majority ( @xmath2 ) and minority ( @xmath3 ) spins , @xmath4 is the pairing potential and @xmath5 and @xmath6 are respectively the electron and hole wavefunctions .
+the energy @xmath7 sets the reference to the fermi energy , @xmath8 .
+we follow the approach of beenakker consisting in inserting a layer of superconductor in its normal state between the metal - superconductor interface .
+this ensures that at the fictitious normal metal - superconductor interface the only scattering process is andreev scattering .    , indicated by the arrow .
+self - energies are used to simulate the effect of semi - infinite leads attached to the edge of the scattering region . ]
+other scattering processes are accounted for at the junction between the normal metal the and superconductor in its normal state . at this interface
+the scattering matrix can be written as @xmath9 here the superscripts @xmath10 and @xmath11 denote the right- and left - going states and the subscripts @xmath12 and @xmath13 refer to the normal and fictitious normal metal regions , respectively .
+the normal state scattering matrix reads @xmath14    now at the fictitious normal metal - superconductor interface @xmath15 where the factor @xmath16 is @xmath17 , \quad |\varepsilon|<\delta \nonumber \\ & = & \frac{1}{\delta}[\varepsilon-\mathrm{sign}(\varepsilon)\sqrt{\varepsilon^{2}-\delta^{2 } } ] , \quad |\varepsilon|>\delta\:.\end{aligned}\ ] ] the states in the normal metal are given by @xmath18    then the reflection coefficients for the complete system are @xmath19 and @xmath20    finally the conductance of the system is given by @xmath21 the implicit assumptions in the above derivation are that the superconducting order parameter is switched on abruptly as a step function ( i.e. , there are no proximity effects ) and the order parameter is much smaller than the fermi energy ( the so - called andreev approximation ) .
+a great simplification occurs if one considers scattering at fermi energy , namely @xmath22 , and the presence of time reversal symmetry , i.e. , the normal metal is not a ferromagnet .
+the above expression for conductance reduces to @xmath23 where the eigenvalues of the transmission matrix product @xmath24 are @xmath25 .
+this is the beenakker s formula  @xcite .
+notice that all the dependence on the superconductor pairing has dropped out and the conductance depends on the normal state transmission eigenvalues . in this case superconductivity enters implicitly in the form of a boundary condition . in our first - principles transport code smeagol
+@xcite , we construct the full scattering matrix and then use the expressions in equations  ( [ ree ] ) and  ( [ rhe ] ) to evaluate the conductance from equation  ( [ gnsfull ] ) .
+for the special case of @xmath26 , we construct the transmission matrix , @xmath24 .
+it is then straightforward to obtain its eigenvalues by numerical diagonalization .
+these are then interted into the beenakker s formula [ equation  ( [ gnsbeenakker ] ) ] to obtain @xmath27 , while a direct summation of the eigenvalues yields @xmath28 .
+to compute the current , @xmath29 , at a bias @xmath30 , we use @xmath27 from equation  ( [ gnsfull ] ) and calculate @xmath31g(\varepsilon)\:,\ ] ] and the finite bias conductance is evaluated from @xmath32 here @xmath33 can either be the normal state conductance , @xmath34 , or the normal metal - superconductor conductance , @xmath27 , and @xmath35 is the fermi function .
+we begin by presenting our results for cu - pb junctions , which have also been investigated experimentally in the past  @xcite .
+we choose cu @xmath36 and @xmath37 and pb @xmath38 and @xmath39 as valence electrons and the effect of other core electrons are described by troullier - martins norm - conserving pseudopotentials . the local density approximation with the ceperley - alder parametrization
+was employed for the exchange - correlation functional .
+we choose an energy cutoff of 400 rydberg for the real space mesh , and a double-@xmath40 polarized basis set .
+the lattice constants of cu ( @xmath41 ) and pb ( @xmath42 ) are quite different , however a matching is obtained by rotating cu unit cell by a @xmath43 angle . in this geometry a small strain ( @xmath44% ) exists on both cu ( compressive ) and pb ( tensile ) . for the self - consistent calculation we use a @xmath45 in plane monkhorst - pack grid , while transport quantities are evaluated over a much denser @xmath46 @xmath47 grid .    , between cu and pb .
+note that @xmath48 remains positive for all the distances investigated here . ]
+plane ( orthogonal to transport direction , @xmath49 ) periodic boundary conditions are employed . ]
+the scattering region for a cu - pb junction is shown in fig .
+[ cu - pb - setup ] .
+we use periodic boundary conditions in the plane orthogonal to the transport direction , and open boundary conditions along the direction of transport .
+we plot the available channels for both electrodes resolved over the brillouin zone ( bz ) at the fermi energy in fig .
+[ cu - pb - kp](a ) . for the left electrode ( cu )
+four channels are available in quadrants centered at the edge of the bz , with a residual region around the zone center in which either three or two channels are available . for the right electrode ( pb ) around the bz center
+there exists a rectangular region with three open channels , while at the bz corners there are small pockets of reduced available channels , which even drop down to zero .
+the normal conductance , @xmath34 , is large over almost the entire bz , along with small pockets of lower transmission at the edges of the bz , which are inherited from the reduced channel pockets in the pb electrode , as shown in fig .
+[ cu - pb - kp](b ) . another small conductance pocket is present at the zone center , which originates from the distribution of open channels across the bz in the cu electrode .
+the overall conductance remains largely unchanged as the cu - pb distance is increased from @xmath50  1.5 to 3.0  .
+next we show the normal metal - superconductor junction conductance , @xmath27 , in fig .
+[ cu - pb - kp](c ) . at @xmath50 1.5  ,
+the pockets of small conductance at the zone edges are more prominent , as compared to @xmath34 . moreover , the region around @xmath51 , with reduced conductance is also larger . on increasing the distance to 2  ,
+these low conductance pockets shrink in size and the overall conductance increases . at larger distances , a broader region of low conductance develops and this reduces overall @xmath27 . in table
+[ cu - pb - tab ] , we provide the @xmath47-averaged value of the conductance above ( @xmath34 ) and below ( @xmath27 ) the pb superconducting temperature . for both quantities a maximum is obtained at @xmath50 2  .
+we also tabulate the ratio @xmath52 , which is the quantity expressing the zero - bias suppression due to andreev reflection . for a single channel btk model describing an ideal interface
+this ratio is exactly two , however when one takes into account the band structure mismatch and the underlying electronic structure of the electrodes a much lower value for this ratio can be obtained . for the cu - pb equilibrium distance ( @xmath53  )
+we find @xmath52 close to 1.4 , which is in excellent agreement with the experimental value of 1.38 reported in ref .  .
+, between the two constituents . ]
+.cu - pb junction : normal conductance , @xmath34 , normal - superconductor conductance , @xmath27 , and their ratio at different cu / pb distances . [ cols="^,^,^,^,^ " , ]     finally , we study the variation of normalized conductance as a function of an applied bias , which is plotted in fig .
+[ al - cnt - bias ] . at low bias , for al - cnt(3,0)-al junction
+the normal metal - superconductor conductance is greater than the normal conductance .
+interestingly , the situation is reversed at a voltage of 0.1  mv .
+in contrast , for al - cnt(4,0)-al junction , the normalized conductance remains negative for voltages less than the superconducting gap .
+in conclusion , we have studied andreev reflection in normal - superconductor junctions using density functional theory based transport calculations .
+this approach allowed us to include the atomistic details of the junction electronic structure in the extended blonder - tinkham - klapwijk model .
+we studied au - al and cu - pb all metal junctions and calculated the normal and normal - superconductor conductances for different separations of the two materials at the interface .
+our transverse momentum resolved analysis has allowed us to identify contributions to these quantities from different parts of the brillouin zone .
+we found that the conductances for junctions in the superconducting state follows a similar @xmath47-point dependence as the normal state conductance .
+in other words , andreev reflection is higher in brillouin zone regions , where transmission is also high .
+we have also investigated co - pb ferromagnet - superconductor junctions . in this case , while at zero bias , our results satisfactorily match the experimental reports , a discrepancy was revealed at a finite bias , particularly at voltages close to the superconductor gap .
+this could possibly be attributed to stray magnetic fields from the ferromagnet or to proximity effects , both causes which are not included in the extended blonder - tinkham - klapwijk model .
+we further studied andreev reflection from carbon nanotubes sandwiched between normal metal and superconducting electrodes and found @xmath52 ratios to lie on opposite sides of unity for @xmath54 ( higher than one ) and @xmath55 ( lesser than one ) carbon nanotubes .
+this highlights the sensitivity of such calculations to details and the need for a truly atomistic theory for tackling this problem .
+concerning the potential outlook for future studies , our work provides a stepping stone for analyzing with first - principles methods the experimental setups needed to investigate and detect majorana fermions .
+these particles , which are their own anti - particles , are expected to play a crucial role in topological quantum computing and have recently garnered significant attention in the condensed matter community .
+after several theoretical proposals , signatures of this particle were found experimentally in large spin - orbit nanowires in proximity with superconductors  @xcite . however , a number of issues remain unresolved and important questions need to be answered to confirm that indeed majoranas were observed
+. our implementation of the phenomenology of andreev reflection in a first - principles approach can be quite useful to study such a setup , in particular , by taking into account the underlying electronic structure of the nanowires . when combined with the order-@xmath56 implementation of our smeagol code  @xcite , which allows us treating thousands of atoms
+, it opens the opportunity of recreating theoretically the aforementioned experiments in an _ ab inito _ manner , which till now have been modelled empirically .
+an is financially supported by irish research council under the embark initiative . ir and
+ss acknowledge additional support by kaust ( acrab project ) .
+the computational resources have been provided by trinity centre for high performance computing .

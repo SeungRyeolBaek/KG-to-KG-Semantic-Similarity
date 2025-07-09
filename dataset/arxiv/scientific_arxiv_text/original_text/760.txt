@@ -1,0 +1,247 @@
+the complexity of a large variety of systems , from infrastructures to the cell , is rooted in a network of interactions between their constituents @xcite .
+quantifying the robustness of complex networks is one of the main challenges of network of networks with implications in fields as different as biology or policy making and risk assessment .    in the last fifteen years
+it has been shown @xcite that the structure of a single network is strictly related to its robustness .
+but only recently @xcite , attention has been drawn toward a previously neglected aspects of complex systems , namely the interactions between several complex networks .
+rarely single networks are isolated , while it is usually the case that several networks are interacting and interdependent on each other .
+for example , in infrastructures , the banking systems are interdependent with the internet and the electric power - grid , public transport , such as subway , is dependent on the power - grid , which relies on its turn on the water supply system to cool the power - plants , etc . in the cell
+the situation is much similar : all cellular networks , such as the metabolic networks , the protein - protein interaction networks , the signaling networks , and the gene transcription networks are all dependent on each other , and the cell is only alive if all these networks are functional
+. these are examples of network of networks , i.e. , networks formed by several interdependent networks .    a special class of network of networks
+are multiplex networks @xcite , which are multilayer structures in which each layer is formed by the same set of nodes @xmath3 interconnected by different kinds of links for different layers . in other words , these are graphs with all nodes of one kind and with links of different colors .
+multiplex networks are attracting great interest as they represent a large variety of systems such as social networks where people can be linked by different types of relationships ( friendship , family tie , collaboration , citations , etc . ) or , for example , in transportation networks , where different places can be linked by different types of transportation ( train , flight connections , flight connection of different airline companies , etc . ) .
+multiplex network datasets @xcite are starting to be analysed , several modelling framework for these networks have been proposed @xcite and the characterization of a large variety of dynamical processes is getting a momentum @xcite . at this point
+we emphasize the principal difference between the interdependent and so - called interconnected networks .
+this difference is not about structural organization of connections between these networks but rather about the function of these interlinks .
+interlinks connecting different interdependent networks ( interdependencies ) show the pairs of nodes that can not exist without each other . in the present paper we consider variations of this kind of complex networks . on the other hand , in the interconnected networks @xcite , the interlinks play the same role as links in single networks , enabling one to consider , e.g. , various percolation problems , disease spreading , etc .
+a major progress in understanding the robustness of multilayer interdependent networks has been made in a series of seminal papers @xcite , where it has been proposed that a natural measure for evaluating the robustness of these structures to random failure is the size of a mutually connected giant component .
+the mutually connected giant component is the component that remains after breakdowns propagate back and forth between different interdependent networks ( layers ) generating a cascade of failure events .
+a node is in the mutually connected component of a multilayer network if all the nodes on which it depends are also in the mutually connected network and if at least one neighbor node in its own network ( layer ) belongs to the mutually connected component @xcite .
+clearly , the giant mutually connected component naturally generalizes the giant connected component ( percolation cluster ) in a single network .
+the robustness properties of multiplex networks have been right now well understood @xcite , including effects of degree correlations , the overlap of the links or antagonistic effects in this novel type of percolation problem @xcite . as the fraction of @xmath4 of removed nodes``igniters''increases ,
+multiplex networks are affected by cascading failures , until they reach a point for @xmath5 where the network abruptly collapses , and the size of the mutually connected component shows a discontinuous transition @xcite . in this case if a small fraction @xmath6 of nodes in the multiplex are not interdependent , then the transition can change from discontinuous to continuous @xcite . although the issue of interest in the present article is the giant mutually connected component , other special giant components can be introduced for these networks . here
+we mention only the so - called giant viable cluster @xcite between each two nodes of which , there is a complete set of interconnecting paths running through every layer .
+it is easy to see that the viable cluster is a subgraph of the mutual component .    .
+interdependencies ( interlinks between nodes from different levels ) are shown by the black dashed lines .
+intralinks between nodes within layers are shown as solid red lines . in each individual layer ( label @xmath7 ) , all nodes ( @xmath8 ) have the same number of interlinks ( superdegree @xmath9 ) .
+interlinks connect only nodes with the same label @xmath10 in different layers , forming @xmath3 `` local supernetworks '' @xmath11 .
+each of these local supernetworks is an uncorrelated random graph with a given superdegree sequence @xmath12 , @xmath13 , defined as the standard configuration model ( uniformly random interconnections for a given sequence of superdegrees ) . ]
+several works have considered afterwards a more general ( than multiplex ) case of a network of networks in which the layers are formed by the same number of nodes , where each node has a replica node in each other network and might depend only on its replica nodes . despite the major interest on the topic @xcite , only recently the following key circumstance become clear @xcite . when the interdependencies between the nodes are such that if a network depends on another network , all its nodes depend on the replica nodes of the other network , it turns out that the mutually connected component coincides with that in the corresponding fully connected network of networks , which is actually a particular case of a multiplex network .    here
+we show , nevertheless , that the situation changes if the interdependence links are distributed between layers more randomly , i.e. , if we remove the above constraint that all nodes in each layer are dependent on their replicas in the same set of other layers .
+we consider the situation in which a superdegree @xmath1 is assigned to each layer @xmath0 , so that each node of the network depends only on other @xmath1 replica nodes , but now these replica nodes are chosen randomly and independently from different layers , see fig .
+we call this construction the configuration model of a network of networks .
+the reason for this term is that for each set of nodes with given @xmath10 , consisting of nodes @xmath14 in all the layers @xmath13 , our definition provides the standard configuration model of a random network with a given sequence of superdegrees @xmath9 , @xmath13 , ( `` local supernetwork '' @xmath10 ) .
+let us compare this construction to the model of ref .  @xcite .
+while in ref .
+@xcite , all @xmath3 `` local supernetworks '' coincided , in the configuration model of network of networks defined in the present work , the `` local supernetworks '' differ from each other ; only their superdegrees @xmath9 coincide in the particular case of @xmath15 .
+depending on the superdegree sequence , `` local supernetworks '' can contain a set of finite connected components and a giant one .
+we consider specifically the case in which all the layers have the same internal degree distribution @xmath16 and where the superdegree distribution is @xmath17 .
+we derive equations for the order parameter of this problem . solving them numerically and analytically we show for this network of networks that if @xmath15 , the layers with increasing superdegree @xmath18 have a percolation transition at different values of @xmath19 , where @xmath19 is the fraction of not damaged nodes in the network , see fig .
+[ fig : fig1a ] . in other words , as @xmath19 increases , in layers with higher and higher @xmath18 , giant clusters of the mutual component emerge progressively , or , one can also say , the mutual component expands to layers with higher @xmath18 , see fig .
+all these transition are abrupt but also they are characterized by a singularity of the order parameter . finally we show that for @xmath20 , i.e. when interlinks between layers are removed with probability @xmath6 , each of these transitions involving the layers with @xmath21 can become continuous for @xmath22 . in the case of @xmath20
+, nodes in the same layer have different number of interlinks to other layers , which essentially generalizes the problem .
+a network of networks is formed by @xmath23 networks ( layers ) , @xmath24 , each formed by @xmath3 nodes , @xmath25 , where @xmath3 is infinite .
+in fact , in this work we also set @xmath26 , which enables us to use an analytical technique developed for the standard configuration model .
+these calculations exploit the locally tree - like structure of infinite uncorrelated networks .
+a more realistic case of a finite @xmath23 is a challenging problem .
+every node @xmath14 is connected with a number of nodes @xmath27 in the same layer and with a number of its `` replica nodes '' @xmath28 in other layers . for two layers ,
+this framework was proposed in ref .
+it was generalized to an arbitrary number of layers in refs .
+we consider the situation in which each layer @xmath0 is interdependent on @xmath1 other networks , so that each node @xmath10 in layer @xmath0 has exactly @xmath9 interlinks , which connect node @xmath10 only to its replica nodes in @xmath9 of other layers .
+we call @xmath1 the superdegree of the nodes of layer @xmath0 .
+we stress that the superdegree is associated with the nodes of a layer , and each node @xmath14 in a layer has the same superdegree @xmath9 .
+interlinks connecting replica nodes within different sets , say , interlink @xmath29 and interlink @xmath30 are assumed to be independent ( uncorrelated ) .
+for example , if a node @xmath14 of layer @xmath0 is interdependent on node @xmath28 of layer @xmath31 , then although another node @xmath27 of layer @xmath0 may in principle occur interdependent on node @xmath32 , in general , it depends on @xmath1 replica nodes @xmath33 sitting in any @xmath1 layers . following refs .
+@xcite , we define the network of networks with a super - adjacency matrix of elements @xmath34 if there is a link between node @xmath14 and node @xmath32 and zero otherwise . in these networks
+we have always @xmath35 if both @xmath36 and @xmath37 . for each node @xmath10 and all its replicas ,
+we introduce a `` local supernetwork '' , whose nodes are the layers and the links are interdependencies within this set of replicas . this network was discussed in refs .
+this local supernetwork is determined by the adjacency matrix @xmath38 parametrized by the node @xmath10 .
+this network may consist of a number of connected components .
+connected components from different local supernetworks are connected with each other through links within individual layers . in this work
+we explore this complicated system of interconnected components , which is necessary to describe the emergence of the giant mutually connected component and its expansion ( percolation ) over different layers .
+we define the mutually connected component as the following .
+each node @xmath14 is in the mutually connected component if it has at least one neighbor @xmath27 which belongs to the mutually connected component and if all the linked nodes @xmath28 in the interdependent networks are also in the mutually connected component . in these problems ,
+the giant ( i.e. , containing a finite fraction of nodes ) mutually connected component is single
+. it immediately follows from this definition that , remarkably , within each connected component of any local supernetwork , all its replica nodes either together belong to the mutually connected component or not . in our considerations
+, we will essentially exploit this strong consequence .
+given a network of networks it is easy to construct a message passing algorithm @xcite determining if node @xmath14 is in the mutually connected component .
+let us denote by @xmath39 the message within a layer , from node @xmath14 to node @xmath27 and indicating ( @xmath40 ) if node @xmath14 is in the mutually connected component when we remove the link @xmath41 in network @xmath0 .
+furthermore , let us denote by @xmath42 the message between the `` replicas '' @xmath14 and @xmath28 of node @xmath10 in layers @xmath0 and @xmath31 .
+the message @xmath43 indicates if the node @xmath14 is in the mutually connected component when we remove the link between node @xmath14 and node @xmath28 .
+in addition to that we assume that the node @xmath14 can be damaged and permanently removed from the network .
+this removal will launch an avalanche of failures ( removals of nodes ) spreading over the layers .
+note that , of course , the node removal retains its interdependence links .
+we indicate with @xmath44 a node that is damaged , otherwise we have @xmath45 .
+the message passing equations for these messages are given by _
+ij&=&s_i__i()s_ii + & & , + s_ii&=&s_i__i()s_ii + & & , [ mp1 ] where @xmath46 indicates the set of nodes @xmath47 which are neighbors of node @xmath10 in network @xmath0 , and @xmath48 indicates the layers @xmath31 such that the nodes @xmath28 are interdependent on the node @xmath14 . finally @xmath49 indicates if a node @xmath14 is in the mutually interdependent network ( @xmath50 ) and this indicator function can be expressed in terms of the messages as s_i&=&s_i__i()s_ii + & & .
+[ s ] the solution of the message passing equations is given by the following closed expression , _
+ij&= & _ ( i,)\{s_i } + & & s_i , [ mesf ] where @xmath51 is the connected cluster of the `` local supernetwork '' of node @xmath10 , i.e. , the network between layers determined by the adjacency matrix @xmath38 parametrized by the node @xmath10 .
+finally @xmath49 is given by s_i&=&s_i_(i , ) .
+[ s2 ] for detailed derivation and explanation of this solution see our work @xcite and appendix .
+we assume here that each network ( layer ) @xmath0 is generated from a configuration model with the same degree distribution @xmath52 , and that each node @xmath14 is connected to @xmath1 other `` replica '' nodes @xmath28 chosen uniformly randomly .
+moreover we assume that the degree sequence in each layer is @xmath53 and that the degrees of the replicas of node @xmath10 are uncorrelated .
+this implies that we are considering a network of networks ensemble , such that every network of networks with a super - adjacency matrix @xmath54 has a probability @xmath55 given by p(*a*)&=&_=1^m_i=1^n\{(k^_i,_j=1^na_i , j)(q_,_=1^ma_i , i ) .
++ & & . } , [ pa ] where @xmath56 indicates the kronecker delta and @xmath57 is a normalization constant .
+moreover we assume that nodes @xmath14 are removed with probability @xmath4 , i.e. , we consider the following expression for the probability @xmath58 of the variables @xmath59 p(\{s_i})=_=1^m_i=1^n p^s_i(1-p)^1-s_i .
+[ ps ] in order to quantify the expected size of the mutually connected component in this ensemble , we can average the messages over this ensemble of the network of networks .
+the message passage equations for this problem are given by eqs .
+( [ mesf ] ) .
+therefore the equations for the average message within a layer are given in terms of the parameter @xmath60 and the generating functions @xmath61 given by g_0^k(z)=_k p(k ) z^k ,   & g_1^k(z)=_k z^k-1 , + g_0^q(z)=_q p(q ) z^q ,   & g_1^q(z)=_q z^q-1 .
+in particular , if we indicate by @xmath62 the average messages within a layer @xmath0 of degree @xmath21 we obtain _ q&=&p_sp(s|q)^s-1 + & & , [ sq ] where @xmath63 indicates the probability that a node @xmath10 in layer @xmath0 with @xmath21 is in a connected component @xmath51 of the local supernetwork of cardinality ( number of nodes ) @xmath64 . similarly , the probability that a node @xmath10 in a layer @xmath0 with superdegree @xmath21 is in the mutually connected component @xmath65 is given by s_q&=&p_sp(s|q)^s-1 + & & .
+[ sq ] equations  ( [ sq ] ) and ( [ sq ] ) are valid for any network of networks ensemble described by eqs .
+( [ pa])([ps ] ) . in the following we study in particular the limiting case
+in which the number of layers @xmath26 , and the local supernetwork is sparse . in order to find a solution for eqs .
+( [ sq ] ) , we define @xmath66 as b= p _ q [ 1-g_0(1-_q ) ] . inserting this expression in eq .
+( [ sq ] ) we get _ q&=&p _ sp(s|q)b^s-1 [ 1-g_1(1-_q ) ] .
+[ sq2 ] from the definition of @xmath66 we see that @xmath67 and that @xmath68 only if both @xmath69 and @xmath70 .
+this implies that in all the cases in which the layers are not all formed by a single giant component or in which @xmath71 , we have @xmath72 .
+moreover if @xmath72 , we can neglect in eq .
+( [ sq ] ) the contribution coming from the giant component of the local supernetworks in the large @xmath23 limit .
+therefore in eq .
+( [ sq2 ] ) we can replace @xmath63 with the probability @xmath73 that a node of degree @xmath18 belongs to a finite component of size @xmath74 in the supernetwork . note that in our model , the statistics of all local supernetworks coincide .
+let us consider the quantity @xmath75p_f(s|q)$ ] .
+since @xmath76 only depends on the distribution of finite components , we have p(s)=_q_s_1,s_2, 
+s_q_=1^qp(s_)(_=1^qs_,s-1 ) . therefore @xmath76 has the generating function @xmath77 that satisfies the equation h(z)=z g^q_1(h(z ) ) . moreover , since p_f(s|q)=_s_1,s_2, 
+s_q_=1^qp(s_)(_=1^qs_,s-1 ) , we find _ sp_f(s|q)b^s-1=[h(b)]^q
+. therefore eqs .
+( [ sq ] ) become _ q&=&p [ h(b)]^q [ 1-g_1^k(1-_q ) ] , + h(z)&=&zg^q_1(h(z ) ) , + b&= & p_q [ 1-g_0^k(1-_q ) ] .
+[ e150 ] putting @xmath78 , we can express eqs .
+( [ sq ] ) and eqs .
+( [ sq ] ) in the following simplified way , _
+q&=&p()^q[1-g_1^k(1-_q ) ] , + s_q&=&p()^q[1-g_0^k(1-_q ) ] , + & = & + & & _ q()^q-1 . [ e160 ] therefore , given a configuration model of a network of networks , the parameter @xmath79 determines both @xmath62 and @xmath80 for any value of the superdegree @xmath18 .
+for this reason we can call @xmath79 the order parameter for the entire network of networks .
+let us consider for simplicity the case in which each layer is formed by a poisson network with average degree @xmath81 .
+in this situation the previous equations become _ q & = & s_q= p ( ) ^q(1-e^-c_q ) , + & & = _ q()^q-1 . [ ps ]    in particular , if the local supernetwork is regular , i.e. , @xmath82 we have @xmath83 satisfying , = p^q/2(1-e^-c ) .
+this special random regular network of interdependent poisson networks was recently considered in ref .
+@xcite . in the general case of an arbitrary @xmath17 distribution
+the problem defined in eqs .
+( [ ps ] ) continues to have a single order parameter given by @xmath79 .
+in fact the first equation in eqs .
+( [ ps ] ) has a solution expressed in terms of the principal value of the lambert function @xmath84 , which is given by _
+q=. inserting this solution back into the equation for @xmath79 in eqs .
+( [ ps ] ) we find    = g_1^q ( ) .
+[ op ]    this equation can be written as @xmath85 . by imposing both @xmath85 and @xmath86
+we can find the set of critical points @xmath5 in which discontinuities ( jumps ) of the function @xmath87 take place .
+the equation @xmath86 reads as = _
+q(1-e^-c_q)_q ^q-2+cp g_1^q()_q < q_max e^-c_q , [ e220 ]    with @xmath88 $ ] .
+here @xmath89 $ ] stands for the integer part .
+analysing eq .
+( [ op ] ) for the order parameter we can show that , in addition to a jump , the order parameter @xmath79 has a singularity at each @xmath90 where both @xmath91 and @xmath92 . for every topology of the network of network , we have -_c(p - p_c)^1/2 , similarly to multiplex networks @xcite .    in the special situation
+in which the minimal superdegree @xmath93 of the local supernetworks is greater or equal to 2 , i.e. , @xmath94 , each local supernetwork only has a giant connected component and does not have finite components .
+therefore in this case we found that in the limit @xmath26 the only viable solution for the order parameter is @xmath95 for any @xmath19 and @xmath96 and any superdegree distribution @xmath17 . in another special case in which @xmath97 there are layers that are not interacting ( @xmath98 ) with other layers .
+these layers can be treated separately without losing the generality of the treatment .
+therefore the only non - trivial case is the case of @xmath99 , which we explore in detail .
+( fraction of nodes in a layer of superdegree @xmath18 , belonging to the mutual component ) vs. @xmath19 for different values @xmath100 in the configuration model of the network of networks having a poisson @xmath16 distribution with average @xmath101 and a scale - free @xmath17 distribution with @xmath102 , minimal superdegree @xmath99 and maximal superdegree @xmath103 . for each value of @xmath100 , @xmath62 emerges discontinuously , with a jump , which becomes smaller and smaller with increasing @xmath18 .
+the emergence of @xmath104 is accompanied by a discontinuity of @xmath105 .
+the emergence of @xmath106 is accompanied by discontinuities of @xmath105 and @xmath107 .
+these curves are obtained by solving numerically eq .
+( [ op ] ) and substituting the result into eq .
+( [ e160 ] ) . ]
+we solve numerically eq .
+( [ op ] ) for the order parameter using various superdegree distributions @xmath17 and a poisson distribution @xmath16 for connections within layers .
+this gives @xmath87 , from which we find the observable fraction @xmath108 of the vertices in layers characterising by superdegree @xmath18 that belong to the mutual component .
+since the distribution @xmath16 is poissonian , @xmath109 according to eq .
+( [ e160 ] ) . in fig .
+[ fig : fig1a ] we show the resulting order parameter @xmath79 vs. @xmath19 for a configuration model with a poisson @xmath16 distribution with @xmath110 and a scale - free distribution @xmath111 for @xmath112 $ ] with @xmath102 and @xmath113 , minimal superdegree @xmath99 and maximal superdegree @xmath103 .
+the supernetwork with @xmath102 is above the ordinary percolation phase transition in the supernetwork ( i.e. , it has a giant component ) while the supernetwork with @xmath113 is below the ordinary percolation phase transition ( i.e. , it consists only of finite components ) .
+notice that if the supernetwork has no giant component , then @xmath114 , otherwise , @xmath115 .
+the order parameter displays a series of discontinuous jumps corresponding to the transitions in which layers with increasing values of @xmath18 start to percolate . in other words , in layers with higher and higher superdegree @xmath18 ,
+giant clusters of the mutually connected component emerge progressively . in order to see this
+, we observe that @xmath116 for all values of @xmath79 such that @xmath117 ( note that for power - law superdegree distributions the minimal degree is always @xmath118 ) . in fig .
+[ fig : fig1a ] we plot the maximal superdegree of the percolating layers as @xmath119 $ ] , where in this expression @xmath120 $ ] indicates the integer part . from fig .
+[ fig : fig1a ] it is clear that the discontinuities in the curve @xmath121 correspond to the percolation transitions of layers of increasing superdegree @xmath122 . for @xmath102 the first , second and third transitions occur at @xmath123 , @xmath124 , and @xmath125 .
+we found these values by solving numerically eqs .
+( [ op ] ) and ( [ e220 ] ) .
+one can see that for @xmath113 the activations of layers of increasing superdegree @xmath122 become much more rapid .
+for these parameters the first , transitions occur at @xmath126 . for the case of @xmath102 , which we discussed above
+, we plot the observables @xmath127 ( fraction of nodes in a layer of superdegree @xmath18 , belonging to the mutual component ) vs. @xmath19 for different values of @xmath18 , see fig .
+this figure demonstrates how giant clusters of the mutually connected component emerge progressively in layers with higher and higher @xmath18 as we increase the control parameter @xmath19 .
+note that , as is natural , each discontinuous emergence of a fraction of the mutual component nodes in layers of superdegree @xmath18 is accompanied by discontinuities of the dependencies @xmath128 for all smaller superdegrees @xmath129 .    as a second example of the configuration model
+, we have taken a network of networks ensemble with a poisson @xmath16 distribution characterized by @xmath81 and a poisson distribution @xmath130 , where we take @xmath131 $ ] , excluding the layers with @xmath98 that are not interacting , and using the superdegree cutoff @xmath103 for performing the numerical calculations .
+solving numerically eq .
+( [ op ] ) we obtained the following results . in fig .
+[ fig : fig2a ] we have chosen @xmath132 and @xmath133 as examples of the supernetwork below ( @xmath134 ) and above ( @xmath135 ) the ordinary percolation phase transition in the poisson supernetwork . in order to see at which value of @xmath19 the layers with superdegree @xmath122 become percolating , in fig .  [
+fig : fig2a ] we also plot the maximal superdegree of the percolating layers @xmath136 $ ] vs. @xmath19 .
+the transition points and the corresponding values of the order parameter are obtained by solving numerically eqs .
+( [ op ] ) and ( [ e220 ] ) .
+for @xmath134 the first transitions are @xmath137 , @xmath138 , and @xmath139 .
+for @xmath135 the first transitions are @xmath140 , @xmath141 , and @xmath142 . for a range of the network of networks parameters ,
+the giant mutual component is absent at any value of @xmath19 , including @xmath69 . in fig .
+[ fig : fig3a ] we plot the phase diagram containing a phase in which @xmath95 ( white region ) and a phase in which @xmath143 ( shaded region ) for @xmath69 .
+this phase diagram was obtained by numerical analysis of the equation for the order parameter . in particular , the phase diagram @xmath144 is plotted for a scale - free supernetwork with power - law exponent @xmath145 and superdegrees @xmath112 $ ] with @xmath99 and @xmath103 and the phase diagram @xmath146 is plotted for a poisson supernetwork with average superdegree @xmath147 and the minimal and maximal superdegrees given respectively by @xmath148 . as is natural , figs .
+[ fig : fig1a ] and [ fig : fig2a ] correspond to points within the shaded areas in fig .
+[ fig : fig3a ] .
+in this section we consider an interesting variation of the percolation problem in the configuration model of the network of networks .
+in particular we assume that the superdegree adjacency matrix @xmath54 has probability @xmath55 given by eq .
+( [ pa ] ) , while the probability of @xmath58 is given by eq .
+( [ ps ] ) .
+in addition to that we assume that an interlink between replicas @xmath14 and @xmath28 is damaged and permanently removed with probability @xmath6 .
+in this case the nodes in a layer @xmath0 with superdegree @xmath21 can be interdependent on @xmath149 $ ] other randomly chosen layers . in this case
+the message passing equations are given by _
+( i,)\{s_i } + & & s_i , where @xmath51 is the connected cluster of the local supernetwork of node @xmath10 when we consider only interdependencies , i.e. , only the interlinks that are not damaged .
+we can therefore indicate by @xmath62 the average messages within a layer @xmath0 of degree @xmath21 , obtaining _ q&=&p_s_n=0^qr^n(1-r)^q - np(s|n)b^s-1 + & & .
+[ sqpr ] here , @xmath150 indicates the probability that a node @xmath10 in layer @xmath0 with @xmath21 and @xmath151 interdependent layers is in a connected component @xmath51 of the local supernetwork of interdependent layers of cardinality @xmath64 .
+moreover , @xmath66 is defined as b= p_q [ 1-g_0^k(1-_q ) ] .
+[ b2 ] similarly , the probability that a node @xmath10 in a layer @xmath0 with superdegree @xmath21 is in the mutually connected component @xmath152 is given by s_q&=&p_s_n=0^qr^n(1-r)^q - n p(s|n)b^s-1 + & & .
+[ sqpr ] if the layers are not all formed by a single giant component or if @xmath71 we have @xmath72 , and therefore we can neglect in eqs .
+( [ sqpr])([sqpr ] ) the contribution coming from the giant component of the local supernetworks in the large @xmath23 limit .
+therefore in eq .
+( [ sqpr ] ) we can replace @xmath63 with the probability @xmath73 that a node of degree @xmath18 belongs to a finite component of size @xmath74 in the supernetwork . let us consider the quantity @xmath153 \sum_{n=0}^q\binom{q}{n}r^q ( 1-r)^{q - n}p_f(s|n)$ ] . since @xmath76 only depends on the distribution of finite components we have p(s)&=&_q_n=0^qr^q ( 1-r)^q - n + & & _ s_1,s_2,  s_n_=1^np(s_)(_=1^qs_,s-1 ) .
+therefore @xmath76 has a generating function @xmath77 that satisfies the equation h(z)=z g^q_1(rh(z)+1-r ) .
+[ hr ] moreover , since p_f(s|n)=_s_1,s_2, 
+s_n_=1^np(s_)(_=1^ns_,s-1 ) . we find & & _ s_n=0^qr^q ( 1-r)^1-np_f(s|n)b^s-1 + & & = [ rh(b)+1-r]^q
+. therefore eqs .
+( [ sqpr ] ) , ( [ hr ] ) , and ( [ b2 ] ) have the form _
+q&=&p [ rh(b)+(1-r)]^q [ 1-g_1^k(1-_q ) ] , + h(z)&=&zg^q_1(rh(z)+1-r ) , + b&= & p_q [ 1-g_0^k(1-_q ) ] .
+putting @xmath78 we find that eqs .
+( [ sq ] ) and eqs .
+( [ sq ] ) become _
+q&=&p(r+1-r)^q[1-g_1^k(1-_q ) ] , + s_q&=&p(r+1-r)^q[1-g_0^k(1-_q ) ] , + & = & + & & _ q(r+1-r)^q-1 .
+let us consider for simplicity the case in which each layer is formed by a poisson network with average degree @xmath81 .
+then the previous equations become _ q & = & s_q = p(r+1-r)^q(1-e^-c_q ) , + & = & + & & _ q(r+1-r)^q-1 . [ psp ] in the case in which the local supernetwork is regular , i.e. @xmath82 , we have @xmath154\sigma_m=\sigma$ ] satisfying the following equation = p^q(1-e^-c ) . for an arbitrary distribution @xmath17 , the problem defined in eqs .
+( [ ps ] ) still has a single order parameter @xmath79 . as in section  [ s3 ] , the first equation in eqs .
+( [ ps ] ) has solution expressed in terms of the principal value of the lambert function @xmath84 , namely ,    _ q = .
+inserting this solution back in the equation for @xmath79 in eqs .
+( [ ps ] ) we find = g_1^q(r+1-r ) .
+[ op2 ] similarly to section  [ s3 ] , we write this equation as @xmath155 . by imposing @xmath155 and @xmath156 we can find the set of critical points @xmath5 at which the function @xmath87 turns out to be discontinuous .
+the equation @xmath156 reads as = _ q(1-e^-c_q)_q [ r1-r]^q-2 + cp g_1^q(r1-r ) _ q < q_max e^-c_q .    where @xmath157 $ ] .
+note that in contrast to the case of @xmath15 , for @xmath158 all values of the minimal superdegree @xmath159 provide non - trivial network of networks .
+indeed , for @xmath160 , even if @xmath161 , local supernetworks have finite connected components .
+in addition to the abrupt phase transitions , this model displays also a set of continuous phase transition for different @xmath18 , where the order parameter @xmath62 acquires a non - zero value .
+these transitions occur at p = p_c=. these transitions are only stable for @xmath2 below some special value @xmath162 , and at @xmath163 they become discontinuous .
+the value @xmath162 can be obtained by solving simultaneously the following set of equations & = & p , + f_2(,p , r)&=&0 , + & = & 0 .
+in this paper we have characterized the robustness properties of the configuration model of network of networks by evaluating the size of the mutually connected component when a fraction @xmath4 of nodes have been damaged and removed .
+the configuration model of network of networks is an ensemble of multilayer networks in which each layer is formed by a network of @xmath3 nodes , and where each node might depend only on its `` replica nodes '' on the other layers .
+we assign to each layer @xmath0 a superdegree @xmath1 indicating the number of interdependent nodes of each individual node @xmath14 of the layer @xmath0 and take these @xmath1 `` replica nodes '' in @xmath1 uniformly randomly chosen layers , independently for each node @xmath14 .
+we have shown that percolation in this ensemble of networks of networks demonstrate surprising features . specifically , for low values of @xmath19 , only the layers with low enough value of the superdegree are percolating , and as we raise the value of @xmath19 several discontinuous transition can occur in which layers of increasing value of superdegree @xmath18 begin percolate .    here
+we observe a sharp contrast to ordinary percolation in which nodes of high degree belong to the giant connected component ( percolation cluster ) with higher probability .
+this principal difference is explained by the definition of the mutual component according to which a node is in a mutual component only if all the nodes interdependent with this node belong to the mutual component .
+this condition makes more difficult the entrance into the mutual component for layers with a high superdegree .
+the non - trivial point here is that a layer of each given degree enters the mutual component not smoothly but through a discontinuous transition .
+the networks of networks which we considered in this paper differ from those we studied in our previous work  @xcite in one key aspect . in the present work ,
+interdependence links of different nodes of a layer are not lead to the same other layers as in ref .
+@xcite , but they are distributed over the other layers essentially more randomly , independently for different nodes of a layer . we have found that this additional randomness dramatically change results and leads to new effects . we obtained our results assuming that the number @xmath23 of layers in the network is infinite .
+a more realistic case of finite @xmath23 is a challenging problem .
+we would also like to stress that multiple discontinuous phase transitions in models for complex networks is a rear but not unique phenomenon .
+for example , multiple discontinuous transitions were recently reported in another network model @xcite .
+one should note that interlinking of only `` replica nodes '' is actually a great , very convenient simplification which has enabled us to solve the problem analytically .
+moreover , we have first assumed that all nodes in the same layer have equal superdegree ( number of interdependencies ) , which is a strong constraint . on the next step ,
+we however have removed this restriction by introducing the probability @xmath6 that an interdependence link is removed .
+we found that when a fraction @xmath164 of interdependent links are removed , each of these specific transitions can change from discontinuous to continuous .    in summary ,
+we have found novel percolation phenomena in a more general model of a network of networks than the network models which were considered previously .
+the multiple transitions , accompanying the expansion of mutual component over the layers of such a network of networks , are in dramatic contrast to ordinary percolation and to more simple interdependent and multiplex networks , e.g. , for a pair of interdependent networks . we suggest that our findings should be valid even for more general networks of networks .
+_ note added in proof _ we recently considered a network of networks in which interlinks between each two layers connect randomly selected nodes and not only `` replica nodes''.remarkably , it turned out that the results for this model are exactly the same as in the present article .
+this work was partially supported by the fct project ptdc / mat/114515/2009 and the fet proactive ip project multiplex number 317532 .
+in ref .  @xcite the percolation transition in a network of network in which all the local adjacency matrices are the same , i.e. , @xmath165 , was considered , implying that the local supernetwork is the same for every node @xmath10 . in this
+setting , the percolation properties are determined by the message passing eqs .
+( [ mp1 ] ) with @xmath166 indicating the set of layers @xmath31 which are neighbors of layer @xmath0 in any local supernetwork . for this network of networks , it was shown in ref .
+@xcite that eqs .
+( [ mp1 ] ) can be written as + s_ii & = & _ ( ) \{s_i } , + _ ij&= & _ ( ) \{s_i } + & & s_i , [ msfa ] where @xmath167 indicates the connected component of the supernetwork to which layer @xmath0 belongs .
+moreover in ref .  @xcite it has been shown that @xmath49 is given by s_i&=&s_i _
+( ) . [ s2a ]
+now we observe that all the steps performed in ref .
+@xcite to obtain eqs .
+( [ msfa ] ) and ( [ s2a ] ) are in fact only operations acting in the local supernetwork of node @xmath10 .
+it follows immediately that for the network of networks coming from the configuration models , the same equations should be valid , where we replace @xmath167 with the connected component of the local supernetwork @xmath51 of node @xmath10 passing through layer @xmath0 .
+therefore for the configuration model of a network of networks the solution to the message passing eqs .
+( [ mp1 ] ) and ( [ s ] ) is given by eqs .
+( [ mesf ] ) and eqs .
+( [ s2 ] ) .

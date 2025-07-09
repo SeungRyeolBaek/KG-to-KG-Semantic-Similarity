@@ -1,0 +1,174 @@
+threshold nets are obtained by assigning a weight @xmath1 , from a distribution @xmath2 , to each of @xmath3 nodes and connecting any two nodes @xmath4 and @xmath5 whose combined weights exceed a certain threshold , @xmath6 : @xmath7  @xcite .
+threshold nets can be produced of ( almost ) arbitrary degree distributions , including scale - free , by judiciously choosing the weight distribution @xmath2 and the threshold @xmath6 , and they encompass an astonishingly wide variety of important architectures : from the star graph ( a simple  cartoon " model of scale - free graphs  consisting of a single hub ) with its low density of links , @xmath8 , to the complete graph .
+studied extensively in the graph - theoretical literature  @xcite , they have recently come to the attention of statistical and non - linear physicists due to the beautiful work of hagberg , swart , and schult  @xcite .    , and ( b )  its box representation , highlighting modularity .
+nodes are added one at a time from bottom to top , @xmath9 s on the left and @xmath10 s on the right.,scaledwidth=35.0% ]    hagberg _ et al_. , exploit the fact that threshold graphs may be more elegantly encoded by a two - letter sequence , corresponding to two types of nodes , @xmath9 and @xmath10  @xcite .
+as new nodes are introduced , according to a prescribed sequence , nodes of type @xmath9 connect to none of the existing nodes , while nodes of type @xmath10 connect to all of the nodes , of either type : @xmath11 and @xmath12 . in fig .
+[ graph_box](a ) we show an example of the threshold graph obtained from the sequence @xmath13 .
+note the _ modular _ structure of threshold graphs : a subsequence of @xmath14 consecutive @xmath10 s gives rise to a @xmath15-clique , while nodes in a subsequence of @xmath9 s connect to @xmath10 nodes thereafter , but not among one another .
+we highlight this modularity with a diagram of boxes ( similar to  @xcite ) : oval boxes enclose nodes of type @xmath9 , that are not connected among themselves , while rectangular boxes enclose @xmath16-cliques of @xmath10-nodes  @xcite .
+a link between two boxes means that all of the nodes in one box are connected to all of the nodes in the other , fig .
+[ graph_box](b ) .    given the sequence of a threshold net ,
+there exist fast algorithms to compute important structural benchmarks , besides its modularity , such as degree distribution , triangles , betweenness centrality , and the spectrum and eigenvectors of the graph laplacian  @xcite .
+the latter are a crucial determinant of dynamics and synchronization and have applications to graph partitioning and mesh processing  @xcite .
+perhaps more importantly , it becomes thus possible to _ design _ threshold nets with a particular degree distribution , spectrum of eigenvalues , etc .
+,  @xcite .    despite their malleability ,
+threshold nets are limited in some obvious ways , for example their diameter is 1 or 2 , regardless of the number of nodes @xmath3 .
+our idea consists of studying the broader class of nets that can be constructed from a sequence ( formed from two or more letters ) by deterministic rules of connectivity on their own right .
+it is truly this property that gives the nets all their desired attributes : modularity ( as in everyday life complex nets ) , easily computable structural measures  including the possibility of design  and a high degree of compressibility . roughly speaking
+, each additional letter to the alphabet allows for an increase of one link in the nets diameter , so that the three - letter nets possess diameter 3 or 4 ( some of the new types of two - letter nets have diameter 3 ) .
+this modest increase is very significant , however , in view of the fact that the diameter of many everyday life complex nets is not much larger than that  @xcite .
+sequence nets gain us much latitude in the types of nets that can be described in this elegant fashion , while retaining much of the analytical appeal of threshold nets .
+another unusual property of sequence nets is that any ensemble of sequence nets admits a natural ordering ; simply list them alphabetically according to their sequences .
+one may use this ordering for exploring eigenvalues and other structural properties of sequence nets .    in this paper
+, we make a first stab at the general class of _ sequence nets_. in section  [ two - letter ] we explore systematically all of the possible rules for creating connected sequence nets from a two - letter alphabet . applying symmetry arguments
+, we find that threshold nets are only one of three equivalence classes , characterized by the highest level of symmetry .
+we then discuss the remaining two classes , showing that also then there is a high degree of modularity and that various structural properties can be computed easily .
+curiously , the new classes of two - letter sequence nets can be related to a generalized form of threshold nets , where the difference @xmath17 , rather than the sum of the weights , is the one compared to the threshold @xmath6 .    in section
+[ three - letter ] we derive all possible forms of connected three - sequence nets . symmetry arguments lead us to the discovery of 30 distinct equivalence classes . among these classes ,
+we identify a natural extension of threshold nets to three - letter sequence nets . despite the enlarged alphabet , 3-letter sequence nets do retain many of the desirable properties of threshold and 2-letter sequence nets .
+we also show that at least some of the 3-letter sequence nets can be mapped into threshold nets with _ two _ thresholds , instead of one . we conclude with a summary and discussion of open problems in section  [ conclude ] .
+consider graphs that can be constructed from sequences @xmath18 of the two letters @xmath9 and @xmath10 .
+we can represent any possible rule by a @xmath19 matrix * r * whose elements indicate whether nodes of type @xmath4 connect to nodes of type @xmath5 : @xmath20 if the nodes connect , and 0 otherwise ( @xmath21 stands for @xmath22 , respectively ) .
+[ graph_box ] gives an example of the graph obtained from the sequence @xmath13 , applying the _ threshold _ rule @xmath23 .
+since each element can be @xmath24 or @xmath25 independently of the others , there are @xmath26 possible rules .
+we shall disregard , however , the four rules that fail to connect between @xmath9 and @xmath10 , @xmath27 for they yield simple _ disjoint _ graphs of the two types of nodes : @xmath28 yields isolated nodes only , @xmath29 yields one complete graph of type @xmath9 and one of type @xmath10 , @xmath30 yields a complete graph of type @xmath9 and isolated nodes of type @xmath10 , etc .     applied to the sequence @xmath13  ( a ) , and from @xmath31 applied to the reverse - inverted sequence @xmath32  ( b ) , are identical.,scaledwidth=35.0% ]    the list of remaining rules can be shortened further by considering two kinds of symmetries : ( a )  permutation , and ( b )  time reversal .
+_ permutation _ is the symmetry obtained by permuting between the two types of nodes , @xmath33 .
+thus , a permuted rule ( @xmath34 and @xmath35 ) acting on a permuted sequence ( @xmath36 ) yields back the original graph  @xcite .
+_ time reversal _ is the symmetry obtained by reversing the arrows (  time " ) in the connectivity rules , or taking the transpose of @xmath37 .
+the transposed rule acting on the reversed sequence @xmath38 yields back the original graph .
+the two symmetry operations are their own inverse and they form a symmetry group . in particular , one may combine the two symmetries : a rule with @xmath34 applied on a reversed sequence with inverted types @xmath39 yields back the original graph , see fig .
+[ time_reversal ] .
+all of the four rules @xmath40 are equivalent and generate threshold graphs .
+@xmath41 is the rule for threshold graphs exploited by hagberg et al . ,  @xcite , and @xmath42 is equivalent to it by permutation .
+@xmath31 is obtained from @xmath41 by time reversal and permutation ( fig .
+[ time_reversal ] ) , and @xmath43 is obtained from @xmath41 by time reversal .
+the two rules @xmath44 are equivalent , by either permutation or time reversal , and generate non - trivial bipartite graphs that are different from threshold nets ( fig .  [ abgraphs ] ) .
+the rule @xmath45 generates complete bipartite graphs .
+however , the complete bipartite graph @xmath46 can also be produced by applying @xmath47 to the sequence @xmath48 of @xmath49 @xmath9 s followed by @xmath50 @xmath10 s , so the rule @xmath51 is a `` degenerate '' form of @xmath47 .
+one could see that this is the case at the outset , because of the symmetrical relations @xmath52 , @xmath11 : these render the ordering of the @xmath9 s and @xmath10 s in the graph s sequence irrelevant . by the same principle ,
+@xmath53 and @xmath54 are degenerate forms of @xmath41 and @xmath42 , respectively .
+they yield threshold graphs with segregated sequences of @xmath9 s and @xmath10 s
+.    the two rules @xmath55 are equivalent , by either permutation or time reversal , and generate non - trivial graphs different from threshold graphs and graphs produced by @xmath47 ( fig .  [ abgraphs ] ) . finally ,
+the rule @xmath56 is a degenerate form of @xmath57 ( or @xmath58 ) and yields only complete graphs ( which are threshold graphs , so @xmath59 is subsumed also in @xmath60 ) .
+, applying rules @xmath47  ( a ) , @xmath41  ( b ) , and @xmath57  ( c ) . note the figure - background symmetry of ( a ) and ( c ) : the graphs are the inverse , or complement of one another ( see text ) .
+the inverse of the threshold graph ( b ) is also a ( two - component ) threshold graph , obtained from the same sequence and applying the rule @xmath42 ( @xmath41 s complement).,scaledwidth=47.0% ]    to summarize , @xmath41 , @xmath47 , and @xmath57 are the only two - letter rules that generate different classes of non - trivial connected graphs .
+there is yet another amusing type of symmetry : applying @xmath47 and @xmath57 to the same sequence yields _ complement _ , or _
+inverse _ graphs
+ nodes are adjacent in the inverse graph if and only if they are _ not _ connected in the original graph .
+the figure - background symmetry manifest in the rules @xmath47 and @xmath57 ( @xmath61 ) is also manifest in the graphs they produce ( fig .
+[ abgraphs]a , c ) . on the other hand ,
+the inverse of threshold graphs are also threshold graphs . also , the complement of a threshold rule applied to the complement ( inverted ) sequence yields back the original graph . in this sense , threshold graphs have maximal symmetry .
+@xmath47-graphs are typically less dense , and @xmath57-graphs are typically denser than threshold graphs
+.     possible connections between nodes of type @xmath9 and @xmath10 .
+( b )  three equivalent representations of the threshold rule @xmath41 .
+the second and third diagram are obtained by label permutation and time - reversal , respectively .
+( c )  diagrams for @xmath47 and @xmath57 .
+note how they complement one another to the full set of connections in part ( a).,scaledwidth=25.0% ]    the connectivity rules have an additional useful interpretation as directed graphs , where the nodes represent the letters of the sequence alphabet , a directed link , e , g .
+, from @xmath9 to @xmath10 indicates the rule @xmath52 , and a connection of a type to itself is denoted by a self - loop ( fig .
+[ graph_notation ] ) .
+because the rules are the same under permutation of types , there is no need to actually label the nodes : all graph isomorphs represent the same rule .
+likewise , time - reversal symmetry means that graphs with inverted arrows are equivalent as well .
+note that the direction of self - loops is irrelevant in this respect , so we simply take them as undirected .
+we shall make use of this notation , extensively , for the analysis of 3-letter sequence nets in section  [ three - letter ] .
+a very special property of sequence nets is the fact that any arbitrary ensemble of such nets possesses a natural ordering , simply listing the nets alphabetically according to their sequences .
+in contrast , think for example of the ensemble of erds - rnyi random graphs of @xmath3 nodes , where links are present with probability @xmath49 : there is no natural way to order the @xmath62 graphs in the ensemble  @xcite .    plotting a structural property against the alphabetical ordering of the ensemble reveals some inner structure of the ensemble itself , yielding new insights into the nature of the nets . as an example , in fig .
+[ eigs_2threshold ] we show @xmath63 , the second smallest eigenvalue , for the ensemble of connected threshold nets containing @xmath64 nodes ( there are @xmath65 graphs in the ensemble , since their sequences must all start with the letter @xmath9 ) .
+notice the beautiful pattern followed by the eigenvalues plotted in this way , which resembles a fractal , or a cayley tree : the values within the first half of the graphs in the @xmath1-axis repeat in the second half , and the pattern iterates as we zoom further into the picture .
+nodes , plotted against their alphabetical ordering.,scaledwidth=45.0% ]      structural properties of the new classes of two - letter sequence nets , @xmath47 and @xmath57 , are as easily derived as for threshold nets .
+here we focus on @xmath47 alone , which forms a subset of bipartite graphs .
+the analysis for @xmath57 is very similar and often can be trivially obtained from the complementary symmetry of the two classes .
+all connected sequence nets in the @xmath47 class must begin with the letter @xmath9 and end with the letter @xmath10 .
+a sequence of this sort may be represented more compactly  @xcite by the numbers of @xmath9 s and @xmath10 s in the alternating layers , @xmath66 .
+we assume that there are @xmath3 nodes and @xmath14 layers ( @xmath14 is even ) .
+we also use the notation @xmath67 and @xmath68 for the total number of @xmath9 s and @xmath10 s , as well as @xmath69 and likewise for @xmath70 . finally , since all the nodes in a layer have identical properties we denote any @xmath9 in the @xmath4-th layer by @xmath71 and any @xmath10 in the @xmath5-th layer by @xmath72 . with this notation in mind
+we proceed to discuss several structural properties .    :
+since @xmath9 s connect only to subsequent @xmath10 s ( and @xmath10 s only to preceding @xmath9 s ) the degree @xmath73 of the nodes is given by @xmath74    : there are no triangles in @xmath47 nets so the clustering of all nodes is zero .    :
+every @xmath9 is connected to the last @xmath10 , so the distance between any two @xmath9 s is 2 .
+every @xmath10 is connected to the first @xmath9 in the sequence , so the distance between any two @xmath10 s is also 2 .
+the distance between @xmath75 and @xmath76 is 1 if @xmath77 ( they connect directly ) , and 3 if @xmath78 ( @xmath75 links to @xmath79 , that links to @xmath80 , that links to @xmath76 ) .    : because of the time - reversal symmetry between @xmath9 and @xmath10 , it suffices to analyze @xmath10 nodes only .
+the result for @xmath9 can then be obtained by simply reversing the creation sequence and permuting the letters .
+the vertex betweenness @xmath81 of a node @xmath82 is defined as : @xmath83 where @xmath84 is the number of shortest paths from node @xmath85 to @xmath86 ( @xmath87 ) , excluding the cases that @xmath88 or @xmath89 .
+@xmath90 is the number of shortest paths from @xmath85 to @xmath86 that goes through @xmath82 .
+the factor @xmath91 appears for undirected graphs since each pair is counted twice in the summation .
+the betweenness of @xmath10 s can be calculated from lower layers to higher layers recursively . in the first b - layer @xmath92 and @xmath93 for @xmath94 . the second term on the rhs accounts for the shortest paths from layer @xmath95 to itself and all previous layers of @xmath9 , and the third term corresponds to paths from @xmath95 to @xmath72 to @xmath71 ( @xmath96 ) to @xmath97 .
+although this recursion can be solved explicitly it is best left in this form , as it thus highlights the fact that the betweenness centrality increases from one layer to the next . in other words ,
+the networks are _ modular _ , where each additional @xmath10-layer dominates all the layers below .    :
+unlike threshold nets , for @xmath47 nets the eigenvalues are _ not _ integer , and there seems to be no easy way to compute them .
+instead , we focus on the second smallest and largest eigenvalues , @xmath63 and @xmath98 , alone , for their important dynamical role : the smaller the ratio @xmath99 the more susceptible the network is to synchronization  @xcite .
+consider first @xmath63 .
+for @xmath47 it is easy to show that both the _ vertex _ and _ edge connectivity _ are equal to @xmath100 .
+then , following an inequality in  @xcite , @xmath101 the upper bound seems stricter and is a reasonable approximation to @xmath63 ( see fig .  [ l2bounds ] ) .
+nets with @xmath64 against their alphabetical ordering ( solid curve ) , and their upper and lower bounds ( broken lines).,scaledwidth=40.0% ]    for @xmath98 , using theorem 2.2 of  @xcite one can derive the bounds @xmath102 but they do not seems very useful , numerically . playing with various structural properties of the nets , plotted against their alphabetical ordering ,
+we have stumbled upon the approximation @xmath103 where @xmath104 is the average degree of the graph , see fig .  [ l2approx ] .
+the approximation is exact for bipartite _ complete _ graphs ( @xmath105 ) and the relative error increases slowly with @xmath3 ; it is roughly at 10% for @xmath106 .     nets with @xmath64 against their alphabetical ordering ( solid curve ) , and its approximated value ( broken line).,scaledwidth=40.0% ]      in
+@xcite it was shown that threshold graphs have a mapping to a sequence net , with a unique sequence ( under the  threshold rule " @xmath41 ) ; and conversely , for any @xmath41-sequence net there exists a set of weights @xmath107 of the nodes ( not necessarily unique ) , such that connecting any two nodes that satisfy @xmath7 reproduces the sequence net .
+here we establish a similar relation between @xmath47- ( or @xmath57- ) sequence nets and a different kind of threshold net , where connectivity is decided by the difference @xmath17 rather than the sum of the weights .
+we begin with the mapping of a weighted set of nodes to a @xmath47-sequence net .
+let a set of @xmath3 nodes have weights @xmath107 ( @xmath108 ) , taken from some probability density , and we assume @xmath109 , without loss of generality .
+denote nodes with @xmath110 as type @xmath9 and nodes with @xmath111 as type @xmath10 .
+finally , connect any two nodes @xmath4 and @xmath5 that satisfy @xmath112 .
+the resulting graph can be constructed by a unique sequence under the rule @xmath47 , obtained as follows .
+for convenience , rewrite the set of weights as @xmath113 where the first @xmath114 weights correspond to @xmath9-nodes and the rest to @xmath10-nodes . denote the creation sequence by @xmath18 and determine the @xmath115 by the algorithm ( in pseudo - code ) :    set @xmath116 , @xmath117    for @xmath118 , do :    0.4 cm if @xmath119    0.8 cm set @xmath120 and @xmath121    0.4 cm else    0.8 cm set @xmath122 and @xmath123    end .
+it is understood that if the @xmath124 are exhausted before the end of the loop , the remainder @xmath10-nodes are automatically affixed to the end of the sequence ( and similarly for the @xmath125 ) .
+for example , using this algorithm we find that the  difference - threshold " graph resulting from the set of weights @xmath1261,2,3,5,7,16,17,20@xmath127 and @xmath128 , can be reproduced from the sequence @xmath13 , with the rule @xmath47 .
+consider now the converse problem : given a graph created from the sequence @xmath18 with the rule @xmath47 , we derive a ( non - unique ) set of weights @xmath129 such that connecting any two nodes with @xmath112 results in the same graph .
+rewrite first the creation sequence into its compact form @xmath130 , and assign weights @xmath131 for nodes @xmath9 in layer @xmath131 , weights @xmath132 for nodes @xmath10 in layer @xmath0 , and set the threshold at @xmath133 .
+for example , the sequence @xmath13 has a compact representation @xmath134 , with @xmath135 layers , so the three @xmath9 s in layer @xmath25 have weights @xmath25 , the two @xmath10 s in layer @xmath136 have weights @xmath137 , the two @xmath9 s in layer @xmath138 have weights @xmath138 , and the single @xmath10 in layer @xmath139 has weight @xmath140 .
+the weights @xmath141 , with connection threshold @xmath142 , reproduce the original graph .
+sequence graphs obtained from the rule @xmath57 can be also mapped to difference threshold graphs in exactly the same way , only that the criterion for connecting two nodes is then @xmath143 , instead of @xmath112 , as for @xmath47 .
+the mapping of sequence nets to generalized threshold graphs may be helpful in the analysis of some of their properties , for example , for finding the _ isoperimetric number _ of a sequence graph  @xcite .
+with a three - letter alphabet , @xmath144 , there are at the outset @xmath145 possible rules .
+again , these can be reduced considerably , due to symmetry .
+because the rule matrix has 9 entries ( an odd number ) no rule can be identical to its complement .
+thus , we can limit ourselves to rules with no more than 4 non - zero entries and apply symmetry arguments to reduce their space  at the very end we can then add the complements of the remaining rules .    in fig .
+[ 3nets ] we list all possible three - letter rules with two , three , and four interactions .
+rules that lead to disconnected graphs , and symmetric rules ( by label permutation or time - reversal ) have been omitted from the figure .     and @xmath146 ) , and rules 3 , 12 , 13 , and 14 are degenerate cases of rules 2 , 6 , 7 , and 6 , respectively .
+this leaves us with fifteen distinct three - letter rules ( underlined ) , and their fifteen complements , for a total of 30 different classes of three - letter sequence nets.,scaledwidth=40.0% ]    rule 2  @xcite is in fact not new : identifying nodes of type @xmath9 and @xmath146 ( as marked in rule 1 of the figure ) we can easily see that the rule is identical to the two - letter rule 8 . in the same fashion ,
+rule 7 is the same as the two - letter threshold rule 4 .
+rule 3 is a degenerate form of 2 : because of the double connection @xmath147 and @xmath148 , the order at which @xmath10 and @xmath146 appear in the sequence relative to one another is inconsequential .
+( on the other hand , the order of the @xmath10 s relative to @xmath9 s _ is _ important , since @xmath9 s connect only to those @xmath10 s that appear earlier in the sequence . )
+then , given a sequence one can rearrange it by moving all the @xmath146 s to the end of the list .
+if we now apply 2 , @xmath52 and @xmath148 , then we get the same graph as from the original sequence under the rule 3 .
+the same consideration applies to rules , and , that are degenerate forms of 6 , 7 and 8 ( or 6 ) , respectively .
+we are thus left with only 15 distinct rules with fewer than 5 connections . to these one should add their complements , for a total of 30 distinct three - letter rules .
+note the resemblance of , , and to two - letter threshold nets .
+seems like a particularly symmetrical generalization and we will focus on it in much of our discussion below .
+while one can easily establish wether a graph is connected or not , _ a posteriori _ , with a burning algorithm that requires @xmath149 steps , it is useful to have shortcut rules that tell us how to avoid bad sequences at the outset : knowing that two - letter threshold graphs are connected if and only if their sequence ends with @xmath10 , deals with the question most effectively .
+analogous criteria exist for three - letter sequence graphs but they are a bit more complicated .
+for example , three - letter sequences interpreted with lead to connected graphs if and only if they satisfy : _ ( 1 )  the first a and the first c in the sequence appear before the last b. ( 2 )  the sequence does not start with b_. ( we assume that the sequence contains all three letters . ) for 1the requirements are : _ ( 1 )  the first a in the sequence must appear after the first b. ( 2 )  the last c in the sequence must appear before the last b. ( 3 )  the last a in the sequence must appear after the first c , and there ought to be at least one b between the two .
+_ similar criteria exist for all other three - letter rules and can be found by inspection .
+structural properties of three - letter sequence nets are analyzed as easily as those of two - letter nets , here we list , as an example , a few basic attributes of sequence nets .
+we use a notation similar to that of section  [ new_classes ] .    :
+@xmath9 and @xmath146 nodes form complete subgraphs , while @xmath10 nodes connect to all preceding @xmath9 s and @xmath146 s .
+thus the degree of the nodes are : @xmath150    : since the @xmath9 nodes make a subset complete graph @xmath151 , and likewise for @xmath146 , @xmath152 .
+the @xmath10 s do not connect among themselves , but they all connect to the nodes in the first layer ( which does not consist of @xmath10 s ) , so @xmath153 .
+for the distance of @xmath9 nodes from @xmath10 , we have @xmath154 where @xmath155 is the index of the first @xmath9-layer and @xmath156 is the index of the last @xmath10-layer .
+the first line follows since @xmath10 s are directly connected to preceding @xmath9 s and @xmath146 s .
+the second , and third and fourth lines are illustrated in fig .
+[ distance]a and b , respectively .
+the distance @xmath157 follows the very same pattern . finally , inspecting all different cases one finds @xmath158     in nets .
+( a )  if @xmath159 and the first @xmath9 is below @xmath72 the distance is 2 .
+( b )  if the first @xmath9 is above @xmath72 , then the first @xmath146 must be below ( @xmath10 ca nt start the sequence ) ; in that case if @xmath71 is below the last @xmath10 the distance is 3 , and otherwise the distance is 4 .
+only the relevant parts of the complete net are shown.,scaledwidth=40.0% ]    : we have found no obvious way to compute the eigenvalues , despite the similarities between nets and two - letter threshold nets .
+however , plots of the eigenvalues against the alphabetical ordering of the nets once again reveals intriguing fractal patterns , and one can hope that these might be exploited at the very least to produce good bounds and approximations . in fig .
+[ r_r18 ] we plot the ratio @xmath160 for nets with @xmath161 against their alphabetical ordering .
+the @xmath1-axis includes sequences of nets that are not connected : in this case @xmath162 and synchronization is not possible .
+these cases show as gaps in the plot , for example , the big gap in the center corresponds to disconnected sequences that start with the letter @xmath10 ( see section  [ connect ] ) .     for nets consisting of @xmath161 nodes , against their alphabetical ordering .
+note the gap near the center , which corresponds to sequences of disconnected graphs .
+note also the mirror symmetry  this is due to the mirror symmetry of the rule itself.,scaledwidth=40.0% ]      some of the three - letter sequence nets can be mapped to generalized forms of threshold nets .
+for example , the following scheme yields a _
+two_-threshold net , equivalent to three - letter sequence nets generated by the rule .
+let the nodes be assigned weights @xmath163 , from a random distribution , and connect any two nodes @xmath4 and @xmath5 that satisfy @xmath164 or @xmath165 . identifying nodes with weight @xmath166 with @xmath9 , nodes with @xmath167 with @xmath10 , and nodes with @xmath168 with @xmath146 , we see that all @xmath9 s connect to one another and all @xmath146 s connect to one another but the @xmath10 s do not , and @xmath9 s and @xmath146 s do not connect ; nodes of type @xmath9 and @xmath10 may or may not connect , and likewise for nodes of type @xmath146 and @xmath10 . to reflect the actual connections , the nodes of type @xmath9 and @xmath10 may be arranged in a sequence according to the algorithm in  @xcite , for the threshold rule .
+also the nodes of type @xmath146 and @xmath10 may be arranged in a sequence , to reflect the actual connections , with the very same algorithm . because there are no connections between @xmath9 and @xmath146 the two results may be trivially merged .
+note , however , that once the @xmath9-@xmath10 sequence is established the order of the @xmath10 s is set , so the direction of connections between @xmath146 and @xmath10 ( @xmath169 or @xmath170 ) is _ not _ arbitrary . in our example , the mapping is possible to but not to .
+we have introduced a new class of nets , sequence nets , obtained from a sequence of letters and fixed rules of connectivity .
+two - letter sequence nets contain threshold nets , and in addition two newly discovered classes .
+the class can be mapped to a  difference - threshold " net , where nodes @xmath4 and @xmath5 are connected if their weights difference satisfies @xmath143 . this type of net may be a particularly good model for social nets , where the weights might measure political leaning , economical status , number of offspring , etc . , and
+agents tend to associate when they are closer in these measures .
+we have shown that the structural properties of the new classes of two - letter sequence nets can be analyzed with ease , and we have introduced an ordering in ensembles of sequence nets that is useful in visualizing and studying their various attributes .
+we have fully classified 3-letter sequence nets , and looked at a few examples , showing that they too can be analyzed simply .
+the diameter of sequence nets grows linearly with the number of letters in the alphabet and for a 3-letter alphabet it is already 3 or 4 , comparable to many everyday life complex nets .
+realistic diameters might be achieved with a modest expansion of the alphabet .
+there remain numerous open questions : applying symmetry arguments we have managed to reduce the class of 3-leter nets to just 30 types , but we have not ruled out the possibility that some overlooked symmetry might reduce the list further ; the question of which sequences lead to connected nets can be studied by inspection for small alphabets , but we have no comprehensive approach to solve the problem in general ; we have shown how to map sequence nets to generalized types of threshold nets , in some cases  is such a mapping always possible ?
+is there a systematic way to find such mappings for any sequence rule ? ; what kinds of nets would result if the connectivity rules applied only to the @xmath50 preceding letters , instead of to _ all _ preceding letters ? etc .
+we hope to tackle some of these questions in future work .

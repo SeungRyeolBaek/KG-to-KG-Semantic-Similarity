@@ -1,0 +1,163 @@
+if a word @xmath0 can be written as @xmath10 , then words @xmath11 , @xmath12 , and @xmath13 are called the prefix , factor , and suffix of @xmath0 , respectively .
+a word @xmath0 over @xmath14 is called a de  bruijn sequence of order @xmath1 , if each word in @xmath15 appears exactly once in @xmath0 as a factor .
+for example , @xmath16 is a binary de  bruijn sequence of order @xmath17 since each binary word of length two appears in it exactly once as a factor : @xmath18 .
+the de  bruijn sequence can be understood by the following game .
+suppose there are infinite supplies of balls , each of which is labeled by a letter in @xmath14 , and there is a glass pipe that can hold balls in a vertical line .
+on the top of that pipe is an opening , through which one can drop balls into that pipe , and on the bottom is a trap - door , which can support the weight of at most @xmath1 balls .
+when there are more than @xmath1 balls in the pipe , the trap - door opens and those balls at the bottom drop off until only @xmath1 balls remain .
+if we put balls as numbered as in a de  bruijn sequence on the alphabet @xmath14 of order @xmath1 , then every @xmath1 ball sequence will appear exactly once in the pipe .
+it is easy to see that a de - bruijn sequence of order @xmath1 , if exists , is of length @xmath19 and its suffix of length @xmath20 is identical to its prefix of length @xmath20 .
+so , sometimes a de - bruijn sequence is written in a circular form by omitting the last @xmath20 letters , which can be viewed as the equivalence class of words under the conjugate relation .
+the de  bruijn sequence is also called the de  bruijn - good sequence , named after de  bruijn  @xcite and good  @xcite who independently studied the existence of such words over binary alphabet ; the former also provided a formula @xmath21 for the total number of those words of order @xmath1 .
+the study of the de  bruijn sequence , however , dates back at least to 1894 , when flye  sainte - marie  @xcite studied the words and provided the same formula @xmath21 . for an arbitrary alphabet @xmath14 , van  aardenne - ehrenfest and de  bruijn   provided the formula @xmath22 for the total number of de  bruijn sequences of order @xmath1 .
+besides the total number of de  bruijn sequences , another interesting topic is how to generate a de  bruijn sequence ( arbitrary one , lexicographically least one , lexicographically largest one ) . for generating de  bruijn sequences ,
+see the surveys  @xcite .
+the de  bruijn sequence is some times called the full cycle  @xcite , and has connections to the following concepts : feedback shift registers  @xcite , normal words  @xcite , generating random binary sequences  @xcite , primitive polynomials over a galois field  @xcite , lyndon words and necklaces  , euler tours and spanning trees  .    in this paper
+, we consider a generalization of the de  bruijn sequence . to understand the concept , let us return to the glass pipe game presented at the beginning .
+now the trap - door can support more weight .
+when there are @xmath23 or more balls in the pipe , the trap - door opens and the balls drop off until there are only @xmath1 balls in the pipe .
+is there an arrangement of putting the balls such that every @xmath1 ball sequence appears exactly once in the pipe ?
+the answer is `` yes '' for arbitrary positive integers @xmath24 .
+the solution represents a multi - shift de  bruijn sequence .
+we will discuss the existence of the multi - shift de  bruijn sequence , the total number of multi - shift de  bruijn sequences , generating a multi - shift de  bruijn sequence , and the application of the multi - shift de  bruijn sequence in the frobenius problem in a free monoid .
+let @xmath25 be the _ alphabet _ and let @xmath26 be a word over @xmath14 .
+the _ length _ of @xmath0 is denoted by @xmath27 and the _ factor _ @xmath28 of @xmath0 is denoted by @xmath29 . if @xmath30 for some non - negative integer @xmath31 , we say factor @xmath32 appears in @xmath0 at _ a modulo @xmath2 position_. the set of all words of length @xmath1 is denoted by @xmath15 and the set of all finite words is denoted by @xmath33 , where @xmath34 is the _
+empty word_. the concatenation of two words @xmath35 is denoted by @xmath36 , or simply @xmath37 .
+a word @xmath0 over @xmath14 is called a _ multi - shift de  bruijn sequence _ of shift @xmath2 and order @xmath1 , if each word in @xmath15 appears exactly once in @xmath0 as a factor at a modulo @xmath2 position .
+for example , one of the @xmath17-shift de  bruijn sequence of order @xmath38 is @xmath39 , which can be verified as follows : @xmath40 the multi - shift de  bruijn sequence generalizes the de  bruijn sequence in the sense de  bruijn sequences are exactly @xmath41-shift de  bruijn sequences of the same order .
+it is easy to see that the length of each @xmath2-shift de  bruijn sequence of order @xmath1 , if exists , is equal to @xmath42 . by the definition of multi - shift de  bruijn sequence , the following proposition holds .
+[ lemma : circular ] let @xmath0 be one @xmath2-shift de  bruijn sequence @xmath0 of order @xmath1 , @xmath43 . then the suffix of length @xmath44 of @xmath0 is identical to the prefix of length @xmath44 of @xmath0 .
+let @xmath0 be one @xmath2-shift de  bruijn sequence @xmath0 of order @xmath1 over @xmath14 and let @xmath45 .
+write @xmath46 such that @xmath47 .
+if @xmath48 , then we compare the set of all factors @xmath49 and the set of all factors @xmath50 for @xmath51 .
+the former covers factors @xmath52 and the latter covers factors @xmath53 for every @xmath54 . since the two are identical , we have @xmath55 .
+now we assume @xmath56 .
+consider the set of all factors @xmath57 and the set of all factors @xmath58 for @xmath51 and @xmath59 . by the same argument
+, we have @xmath60 for @xmath61 .
+finally , comparing the set of all @xmath62 and the set of all @xmath63 for @xmath51 , we have the equality @xmath64 .
+therefore , we have the equality @xmath65 .    from proposition  [ lemma : circular ] , we know that when @xmath43 , every multi - shift de  bruijn sequence can be written as a circular word and the discussion on multi - shift de  bruijn sequences of the two different forms are equivalent . in this paper , we discuss the multi - shift de  bruijn sequence in the form of ordinary words .    a _ ( non - strict ) directed graph _ , or _ digraph _ for short , is a triple @xmath66 consisting of a set @xmath67 of _ vertices _ , a set @xmath68 of _ arcs _ , and an _ incidence function _ @xmath69 .
+here we do not take the convention @xmath70 , since we allow a digraph contains self - loops and multiple arcs regarding the same pair of vertices .
+when @xmath71 , we say the arc @xmath9 joins @xmath32 to @xmath72 , where vertex @xmath73 and vertex @xmath74 are called _ tail _ and _ head _ , respectively .
+the indegree @xmath75 ( outdegree @xmath76 , respectively ) of a vertex @xmath72 is the number of arcs with @xmath72 being the head ( the tail , respectively ) .
+a _ walk _ in @xmath77 is a sequence @xmath78 such that @xmath79 for each @xmath80 .
+the walk is _ closed _ , if @xmath81 .
+two closed walks are regarded as identical if one is the circular shift of the other . an _
+euler tour _ is a closed walk that traverses each arc exactly once .
+hamilton cycle _ is a closed walk that traverses each vertex exactly once
+. an _ ( spanning ) arborescence _ is a digraph with a particular vertex , called the _ root _
+, such that it contains every vertices of @xmath77 , its number of arcs is exactly one less than the number of vertices , and there is exactly one walk from the root to any other vertex .
+we denote the total number of euler tours , hamilton cycles , and arborescence of @xmath77 by @xmath82 , @xmath83 , and @xmath84 , respectively .
+an _ ( undirected ) graph _ is defined as a digraph such that for any pair of vertices @xmath85 , there is an arc @xmath9 , @xmath86 , if and only if there is a corresponding arc @xmath87 , @xmath88 . in this case
+, we write @xmath89 and a spanning arborescence is just a _ spanning tree_.    the arc - graph @xmath90 of @xmath66 is defined as @xmath91 such that for every pair of arcs @xmath92 , @xmath93 , there is an arc @xmath94 , @xmath95 and those arcs are the only arcs in @xmath96 .
+euler tours exist in a graph @xmath77 if and only if hamilton cycles exist in the arc - graph @xmath90 .
+we define the word graph @xmath97 by @xmath98 , where @xmath99 for @xmath100 . then by definition , the following lemmas are straightforward .
+[ lemma : arcgraph ] the digraph @xmath101 is the digraph @xmath102 .    by definition , @xmath103 where @xmath104 , and @xmath105 so for every pair of arcs @xmath106 of @xmath97 with @xmath107 , there is an arc @xmath108 of @xmath102 ; and for every arc @xmath109 of @xmath102 , @xmath110 hence , by definition , @xmath102 is the arc - graph of @xmath97 .
+[ lemma : equivalent ] suppose @xmath111 .
+( 1 ) there is a @xmath112-to-@xmath41 mapping from the set of @xmath2-shift de  bruijn sequences of order @xmath1 onto the set of hamilton cycles in @xmath97 .
+( 2 ) there is a @xmath112-to-@xmath41 mapping from the set of @xmath2-shift de  bruijn sequences of order @xmath1 onto the set of euler tours in @xmath113 .
+let @xmath114 .
+( 1 ) notice that any hamilton cycle @xmath115 together with a starting arc @xmath116 uniquely determines one @xmath2-shift de  bruijn sequences of order @xmath1 specified by @xmath117 and vice versa .
+so the @xmath118-to-@xmath41 mapping exists .
+( 2 ) applying lemma  [ lemma : arcgraph ] , this part follows from ( 1 ) .    [
+theorem : existence ] for any alphabet @xmath14 , positive integers @xmath24 , the @xmath2-shift de  bruijn sequences of order @xmath1 over @xmath14 exist .
+first we assume @xmath119 .
+let @xmath120 be any permutation of the words in @xmath15 for @xmath114 .
+then the word @xmath121 is one @xmath2-shift de  bruijn sequence of order @xmath1 over @xmath14 .
+now we assume @xmath122 and prove there exists an euler tour in @xmath113 .
+then by lemma  [ lemma : equivalent ] , the existence of @xmath2-shift de  bruijn sequences of order @xmath1 over @xmath14 is ensured . to show the existence of an euler tour , we only need to verify that @xmath113 is connected and that @xmath123 for every vertex @xmath72 , both of which are straightforward : for every vertex @xmath72 in @xmath113 , @xmath72 is connected to the vertex @xmath124 in both directions and @xmath125 .
+since @xmath2-shift de  bruijn sequence of order @xmath1 exists , in this section we discuss the total number of different @xmath2-shift de  bruijn sequence of order @xmath1 , and we denote the number by @xmath126 .
+first , we study the degenerated case .
+[ lemma : countnlesm ] for @xmath6 , @xmath127 , where @xmath45 .
+let @xmath45 . by the definition of the multi - shift de  bruijn sequence , in the case @xmath6 , @xmath2-shift de  bruijn sequences of order @xmath1
+are exactly those of the form @xmath128 , where @xmath129 and @xmath120 is a permutation of all words in @xmath15 .
+therefore , the total number of such words is @xmath5 .    to study the case @xmath8
+, we need a theorem by van  aardenne - ehrenfest and de  bruijn  , which describes the relation between the number of euler tours in a particular type of digraph and the number of euler tours in its arc - graph .    [
+theorem : ehrenfestbruijn ] let @xmath66 be a digraph such that @xmath130 for every @xmath131
+. then @xmath132 .
+the digraph @xmath97 satisfies the conditions in theorem  [ theorem : ehrenfestbruijn ] with @xmath133 .
+so , by the relation between the multi - shift de  bruijn sequences and the euler tours in the word graph @xmath97 , we have the following recursive expression on @xmath126 .
+[ lemma : recursion ] for @xmath134 , @xmath135 , where @xmath45 , @xmath136 .
+let @xmath45 , @xmath136 . by lemma  [ lemma :
+equivalent ] , @xmath137    to finish the last step of obtaining @xmath126 for @xmath8 , we again need two theorems , which are often used in the literature to count the number of euler tours in various types of digraphs .    [
+theorem : best ] in a digraph @xmath66 , @xmath138 .
+[ theorem : kirchhoff ] in a graph @xmath66 , the number of spanning trees is equal to any cofactor of the laplacian matrix of @xmath77 , which is the diagonal matrix of degrees minus the adjacency matrix .
+[ lemma : countnles2 m ] for @xmath139 , @xmath140 , where @xmath45 .
+let @xmath141 and @xmath45 .
+then @xmath142 . by definition ,
+so from any vertex to any vertex , there are @xmath144-many arcs in @xmath77 .
+we convert @xmath77 into a undirected graph @xmath145 by omitting all self - loops ; there are @xmath144-many of them for each vertex .
+since for every pair of vertices @xmath85 there are @xmath144-many arcs joins @xmath146 to @xmath147 and correspondingly there are @xmath144-many arcs joins @xmath147 to @xmath146 , the graph @xmath145 is indeed an undirected graph by our definition .
+each vertex in @xmath145 is of degree @xmath148 .
+then the laplacian matrix of @xmath145 is @xmath149 by theorem  [ theorem : kirchhoff ] , the number of arborescence @xmath150 is equal to the cofactor of @xmath151 , which is @xmath152
+. then by theorem  [ theorem : best ] , the number of euler tours in digraph @xmath77 is @xmath153 .
+finally , by lemma  [ lemma : equivalent ] , the number of @xmath2-shift de  bruijn sequence of order @xmath1 is @xmath154 .
+[ theorem : count ] for @xmath6 , @xmath127 , and for @xmath155 , @xmath140 , where @xmath45 .    for @xmath6 , the equality @xmath127 is shown in lemma  [ lemma : countnlesm ] .
+now we assume @xmath156 .
+let @xmath136 .
+then by lemmas  [ lemma : recursion],[lemma : countnles2 m ] , we have @xmath157 .
+in this section , we study the problem of generating one @xmath2-shift de  bruijn sequence of order @xmath1 for arbitrary alphabet and positive integers @xmath24 . when @xmath6 , a @xmath2-shift de  bruijn sequence of order @xmath1 is easy to construct as given in theorem  [ theorem : existence ] .
+now we consider the case @xmath158 .
+we will present two algorithms for generating a @xmath2-shift de  bruijn sequence of order @xmath1 .
+we claim that @xmath2-shift de  bruijn sequences of order @xmath159 can be generated using the ordinary de  bruijn sequence generating algorithm , such as described by fredricksen  @xcite .
+to do this , we first generate a de  bruijn sequence @xmath0 of order @xmath160 over the alphabet @xmath161 .
+then we replace each letter of @xmath0 in @xmath162 by the corresponding word of length @xmath2 over @xmath14 .
+it is easy to see that the new word is a @xmath2-shift de  bruijn sequence of order @xmath159 .
+the first algorithm of generating multi - shift de  bruijn sequence is to generate @xmath163-shift de  bruijn sequences of order @xmath164 for @xmath165 before rearranging the words to obtain an arbitrary @xmath2-shift de  bruijn sequence of order @xmath1 .
+let @xmath166 be two integers , and @xmath46 , where @xmath136 .
+the case @xmath167 is already discussed and the case @xmath168 is trivial .
+so we assume @xmath169 and @xmath170 .
+we define @xmath171 , @xmath172 and generate @xmath173 such that @xmath174 is a @xmath175-shift de  bruijn sequence of order @xmath176 and @xmath177 ; and define @xmath178 , @xmath179 and generate @xmath180 such that @xmath181 is a @xmath182-shift de  bruijn sequence of order @xmath183 and @xmath184 .
+let @xmath45 , @xmath185 , @xmath186 .
+we define @xmath187 , @xmath188 , @xmath189 , @xmath190 .
+then the following word @xmath191 is one @xmath2-shift de  bruijn sequence of order @xmath1 , where @xmath192 and @xmath193 .    to show the correctness
+, we claim that every word in @xmath194 appears in @xmath195 as a factor at a modulo @xmath2 position exactly once .
+furthermore , since @xmath196 , every word in @xmath197 appears in @xmath198 as a factor at a modulo @xmath2 position exactly once .
+therefore , the generated word is indeed a @xmath2-shift de  bruijn sequence of order @xmath1 .
+now , we will see an example .
+consider generating a @xmath17-shift de  bruijn sequence of order @xmath199 .
+then @xmath200 and we can obtain two words @xmath201 , which is @xmath202 , and @xmath203 , which is @xmath204 .
+so one @xmath17-shift de  bruijn sequence of order @xmath199 is as follows @xmath205 where the subscripts @xmath41 and @xmath17 denote whether the letter is from the word @xmath206 ( words @xmath207 ) or from the word @xmath208 ( words @xmath209 ) .
+now we present the second algorithm , which uses the same idea of `` prefer one '' algorithm  @xcite for generating ordinary de  bruijn sequences .
+let @xmath24 be two positive integers .
+the following algorithm generates a @xmath2-shift de  bruijn sequence of order @xmath1 :    1 .
+start the sequence @xmath0 with @xmath1 zeros ; 2 .
+append to the end of current sequence @xmath0 the lexicographically largest word of length @xmath2 such that the suffix of length @xmath1 of new sequence has not yet appeared as factor at a modulo @xmath2 position ; 3 .   repeat the last step until no word can be added .    to show the correctness
+, first we claim that when the algorithm stops , the suffix @xmath32 of length @xmath44 of @xmath0 contains only zeros . to see this ,
+suppose @xmath32 is not @xmath124 .
+since no word can be added , all @xmath210 words of length @xmath1 with prefix @xmath32 appear in @xmath0 and thus @xmath32 appears in @xmath0 as a factor at a modulo @xmath2 position @xmath211 times .
+so there are @xmath211 words of length @xmath1 with suffix @xmath32 that appear in @xmath0 at a modulo @xmath2 position , which contradicts the definition of the multi - shift de  bruijn sequence . therefore , @xmath212
+furthermore , word @xmath124 appears in @xmath0 as a factor at a modulo @xmath2 position @xmath211 times and thus all words in @xmath213 appear in @xmath0 as a factor at a modulo @xmath2 position . by the algorithm
+, no word of length @xmath1 can appear twice in @xmath0 at a modulo position .
+so , in order to prove the correctness of the algorithm , it remains to show every word of length @xmath1 appears in @xmath0 as a factor at a modulo @xmath2 position .
+suppose a word @xmath72 does not appear in @xmath0 at a modulo @xmath2 position .
+then @xmath214 and the word @xmath215 does not appear in @xmath0 as a factor at a modulo @xmath2 position as well ; otherwise , there are @xmath216 appearance of @xmath217 in @xmath0 at a modulo @xmath2 position , which means @xmath72 appears in @xmath0 as a factor at a modulo @xmath2 position .
+repeat this procedure , none of the words @xmath215 ,
+@xmath218 , @xmath219 , @xmath220 appears in @xmath0 as a factor at a modulo @xmath2 position . but
+for @xmath221 , we proved that @xmath222 appears in @xmath0 as a factor at a modulo @xmath2 position , a contradiction .
+therefore , every word of length @xmath1 appears at a modulo @xmath2 position .
+now , we use the algorithm to generate one @xmath17-shift de  bruijn sequence of order @xmath199 . starting from @xmath223 , since @xmath224 does not appear as a factor at a modulo @xmath17 position , we append @xmath225 to the current sequence @xmath223 . repeating this procedure and appending words
+@xmath225 , @xmath225 , @xmath226 , @xmath225 ,  , finally we obtain the word : @xmath227    if we circularly move the prefix @xmath228 to the end , the sequence generated by the second algorithm is the lexicographically largest @xmath2-shift de  bruijn sequence of order @xmath1 .
+the study of multi - shift de  bruijn sequences is inspired by a problems of words , called the frobenius problem in a free monoid . given @xmath160 integers @xmath229 , such that @xmath230 , then there are only finitely many positive integers that _ can not _ be written as a non - negative integer linear combination of @xmath229 .
+the integer _
+frobenius problem _ is to find the largest such integer , which is denoted by @xmath231 .
+for example , @xmath232 .    if words @xmath229 , instead of integers , are given such that there are only finitely many words that _ can not _ be written as concatenation of words from the set @xmath233 , the _ frobenius problem in a free monoid _
+@xcite is to find the longest such words .
+if all @xmath229 are of length either @xmath2 or @xmath1 , @xmath234 , there is an upper bound : the length of the longest word that can not be written as concatenation of words from the set @xmath233 is less than or equal to @xmath235 , where @xmath236 .
+@xcite furthermore , the upper bound is tight and the construction is based on the multi - shift de  bruijn sequences .
+we denote the set of all words that can be written as concatenation of words in @xmath237 , including the empty word , by @xmath238 .
+@xcite there exists @xmath239 , @xmath234 , such that @xmath240 is finite and the longest words in @xmath240 constitute exactly the language @xmath241 , where @xmath242 is a @xmath2-shift de  bruijn sequence of order @xmath44 .
+for example , for any set of words @xmath243 such that @xmath244 is finite , the longest words in @xmath244 are of length less than or equal to @xmath245 . to construct @xmath237 to reach the upper bound ,
+we first choose an anbitrary @xmath38-shift de  bruijn sequence of order @xmath246 as @xmath247 . then based on @xmath242
+, we construct the set @xmath248 @xmath249 , @xmath250 , @xmath251 , @xmath252 , @xmath253 , @xmath254 , @xmath255 , @xmath256 , @xmath257 , @xmath258 , @xmath259 , @xmath260 , @xmath261 , @xmath262 , @xmath263 @xmath264 .
+we have @xmath265 and one of the longest words in @xmath151 of length exactly @xmath266 is given below : @xmath267
+in this paper , we generalized the classic de  bruijn sequence to a new multi - shift setting .
+a word @xmath0 is a @xmath2-shift de  bruijn sequence @xmath268 of order @xmath1 , if each word of length @xmath1 appears exactly once as a factor at a modulo @xmath2 position .
+an ordinary de  bruijn sequence is a @xmath41-shift de  bruijn sequence .
+we showed the total number of distinct @xmath2-shift de  bruijn sequences of order @xmath1 is @xmath269 for @xmath6 and is @xmath140 for @xmath8 , where @xmath45 .
+this result generalizes the formula @xmath270 for the number of ordinary de  bruijn sequences  .
+here we use an ordinary word form ; if counting the sequences in a circular form , then the number is to be divided by @xmath271 .
+we provided two algorithms for generating a @xmath2-shift de  bruijn sequence of order @xmath1 .
+the first algorithm is to rearrange factors from two simpler multi - shift de  bruijn sequences , where the order is a multiple of the shift .
+the second is the analogue of the `` prefer one '' algorithm ( for example , see  ) for generating ordinary de  bruijn sequence .
+the multi - shift de  bruijn sequence has application in the frobenius problem in a free monoid by providing constructions of examples
+. it will be interesting to see that this generalized concept of the de  bruijn sequence can help in other fields of theoretical computer science and discrete mathematics .

@@ -1,0 +1,58 @@
+jet observables , event shapes and jet rates , revealed themselves as one of the richest laboratories to explore qcd .
+being infrared and collinear safe ( irc ) , they can be predicted with perturbative ( pt ) techniques , but their high sensitivity to low energy emissions allows us to investigate the fairly unknown non - perturbative regime .
+most discriminatory studies make use of distributions . in integrated distributions
+@xmath0 one requires that the value of the observable @xmath1  a function of all secondary final state momenta @xmath2 and of the born momenta after recoil from the emissions @xmath3  be less than a fixed value @xmath4 @xmath5 the inclusive phase space region , where @xmath6 , is dominated by events with hard jets , which move the value of the observable far away from its born value , @xmath7 .
+these events can be described with fixed order pt expansions , however they are quite rare , every additional jet being suppressed by an additional factor of @xmath8 .
+more common events are characterised by a large number of soft - collinear emissions which modify only slightly the value of the observable from its born value , so that @xmath9 . here
+fixed order predictions fail since every power of @xmath8 is accompanied by up to two large logarithms @xmath10 of the value of the observable . a reorganization of the pt expansion is then needed in order to resum all leading ( ll , @xmath11 ) and next - to - leading ( nll , @xmath12 ) logarithmic terms .
+in the past few years the analytical resummation for a variety of observables have been presented in @xmath13-collision@xcite and dis@xcite .
+the matching of resummed predictions with fixed order results allowed tests of qcd , measures of the coupling constant and studies of non - perturbative corrections@xcite .
+however , the need for a separate analytical calculation for every observable has limited the experimental use of resummed predictions .
+when dealing with multi - jet observables , analytical calculations become quite unfeasible , involving many integral transforms in order to write the distribution in a factorized form@xcite . also in some cases it turns out not to be possible to resum the observable analytically@xcite .
+we present then here a general approach to resummation based on a preliminary automated analysis of the observable , to establish its relevant properties with respect to soft - collinear emissions ; in a subsequent step this information is used as an input of a general master formula .
+we start by considering a born event consisting of @xmath14 hard partons ( ` legs ' ) , @xmath15 of which are incoming , with momenta @xmath16 .
+we resum @xmath17-jet observables in the @xmath14-jet limit .
+the ( positive defined ) observable should then    1 .
+vanish smoothly as a single extra ( @xmath14+@xmath18 ) parton of momentum @xmath19 is made soft and collinear to a leg @xmath20 , with the functional dependence @xmath21 here @xmath22 is a hard scale of the process and the secondary emission @xmath19 is defined in terms of its transverse momentum @xmath23 and rapidity @xmath24 with respect to leg @xmath20 , and where relevant , by an azimuthal angle @xmath25 relative to a born event plane . by requiring the functional form ( in practise , almost always valid ) , the problem of analyzing the observable reduces in part to identifying , for each leg @xmath20 , the coefficients @xmath26 , @xmath27 , @xmath28 and the function @xmath29 .
+irc safety demands @xmath30 .
+2 .   be _ recursively _ irc safe , i.  e.  given an ensemble of arbitrarily soft and collinear emissions , the addition of a relatively much softer or more collinear emission should not significantly alter the value of the observable , condition required for exponentiation of the leading logarithms .
+observables like jet - rates in the jade algorithm are then excluded , and many other examples of non - exponentiating irc safe observables exist@xcite .
+3 .   be continuously global@xcite  this means that for a single soft emission , the observable s parametric dependence on the emission s transverse momentum ( with respect to the nearest leg ) should be independent of the emission direction . in practice
+this is perhaps the most restrictive of the conditions .
+it implies @xmath31 .    to enable our computer program caesar ( computer automated expert semi - analytical resummation ) to establish these properties with the desired degree of reliability and precision ,
+we have found it useful to make use of multiple - precision arithmetic@xcite .      given the above conditions
+, one can derive the following nll master resummation formula for the distribution @xmath0@xcite
+\nonumber \\    & & + \sum_{\ell=1}^{n_i } \ln \frac{f_\ell(x_\ell , v^{\frac{2}{a+b_\ell } }      { \mu_\textsc{f}}^2)}{f_\ell(x_\ell , { \mu_\textsc{f}}^2 ) }     + \ln s\left(t(l / a\right ) )     + \ln { { \cal{f}}}(c_1 r_1',\ldots , c_n r_n ' ) , \end{aligned}\ ] ] where @xmath33 is the color factor associated with born leg @xmath20 , and @xmath34 is its energy , @xmath35 is @xmath36 for quarks and @xmath37 for gluons , @xmath38 , and for incoming legs , @xmath39 are the parton densities .
+we note that is independent of the frame in which one determines the @xmath28 and ( to nll accuracy ) of the choice of hard scale @xmath22 .    the functions @xmath40 , which contain all the ll ( and some nll ) terms , are @xmath41 here @xmath8 , in the bremsstrahlung scheme@xcite , runs at two - loop order .
+@xmath42 and @xmath43 are relevant only at nll level @xmath44    the process dependence associated with large - angle soft radiation is described by @xmath45 , whose form depends on the number @xmath14 of legs . for @xmath46 @xmath47
+\,,\ ] ] where @xmath48 and @xmath49 , @xmath50 and @xmath51 denote the ( anti)-quarks and gluon .
+the simpler case @xmath52 can be read from setting @xmath53 .
+the @xmath54 formulae apply then to @xmath13 , dis and drell - yan production , while a process such as @xmath55 involves simply different color factors .
+the ( more involved ) @xmath56 case needed to describe hadronic dijet production can be found in@xcite .
+we examine now the factor @xmath57 . without it ,
+.   corresponds essentially to the probability of vetoing all emissions @xmath19 with @xmath58 .
+however at nll subtle effects enter : a simple veto on _ single emissions _ turns out to be insufficient , since events might have @xmath59 though all emissions separately had @xmath60 , or vice versa .
+this _ multiple emission _ effect , encoded in @xmath57 , is connected to how all secondary emission coherently determine the value of the observable and can be computed in a general way in@xcite .    while this talk concentrates on the method ,
+new results obtained with it were presented at this conference in@xcite ( and other results can be found in@xcite ) .
+this project started with the development of an algorithm to numerically compute the non - trivial nll terms associated with multiple emissions .
+it was initially applied by hand to three new observables [ 6 ] .
+progress since then includes the derivation of a general master formula , together with a precise , automatically verifiable list of conditions on the observable for the resummation to be valid at nll and the full numerical implementation of this . though no human intervention is needed , results have the quality of analytic nll predictions , so that any hadronisation model can be applied , studies of renormalization and factorization scale dependence can be carried out and a matching with fixed order is feasible .
+the most import results obtained up to now are the first resummations in hadronic dijet production , for a variety of observable at a time .
+we now aim at automating the matching with fixed order results@xcite , this will open up the possibility to carry out a vast amount of phenomenological studies .
+i thank the organizers of dis2003 , in particular yuri dokshitzer , for the friendly atmosphere at the conference , and for the opportunity to visit a wonderful town .
+0 s.  catani , l.  trentadue , g.  turnock and b.  r.  webber , nucl .
+b * 407 * ( 1993 ) 3 ; s.  catani , g.  turnock , b.  r.  webber and l.  trentadue , phys .
+b * 263 * ( 1991 ) 491 .
+s.  catani , b.  r.  webber and g.  marchesini , nucl .
+b * 349 * ( 1991 ) 635 ; + y.  l.  dokshitzer , v.  a.  khoze and s.  i.  troian , phys .
+d * 53 * ( 1996 ) 89 .
+m.  dasgupta and g.  p.  salam , phys .
+b * 512 * , 323 ( 2001 ) ; jhep * 0208 * ,
+032 ( 2002 ) and references therein . s.  bethke , j.  phys .
+g * 26 * , r27 ( 2000 ) , p.  a.  movilla fernandez , s.  bethke , o.  biebel and s.  kluth , eur .  phys .
+j.  c * 22 * , 1 ( 2001 ) , s.  kluth et al .
+j.  c * 21 * , 199 ( 2001 ) and references therein .
+a.  banfi , g.  marchesini , yu .
+l.  dokshitzer and g.  zanderighi , jhep * 0007 * , 002 ( 2000 ) ; jhep * 0105 * , 040 ( 2001 ) .
+a.  banfi , g.  p.  salam and g.  zanderighi , jhep * 0201 * , 018 ( 2002 ) .
+a.  banfi , g.  p.  salam and g.  zanderighi , arxiv : hep - ph/0304148 and in preparation .

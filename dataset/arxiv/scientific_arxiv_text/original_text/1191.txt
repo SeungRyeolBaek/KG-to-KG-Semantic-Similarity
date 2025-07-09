@@ -1,0 +1,115 @@
+in this paper we present a novel algorithm to parallelize the direct summation method for astrophysical @xmath1-body problems , either with and without the individual timestep algorithm .
+the proposed algorithm works also with the ahmad - cohen neighbor scheme @xcite , or with grape special - purpose computers for @xmath1-body problems @xcite .
+our algorithm is designed to offer better scaling of the communication - computation ratio on distributed - memory multicomputers such as beowulf pc clusters @xcite compared to traditional algorithms .
+this paper will be organized as follows . in section 2
+we describe the traditional algorithms to parallelize direct summation method on distributed - memory parallel computers , and the scaling of communication time and computational time as functions of the number of particles @xmath1 and number of processor @xmath2 . it will be shown that for previously known algorithms the calculation time scales as @xmath10 , while communication time is @xmath11 .
+thus , even with infinite number of processors the total time per timestep is still @xmath12 , and we can not use more than @xmath12 processors without losing efficiency .
+@xmath12 sounds large , but the coefficient is rather small .
+thus , it was not practical to use more than 10 processors for systems with a few thousand particles , on typical beowulf clusters .    in section 3
+we describe the basic idea of our new algorithm .
+it will be shown that in this algorithm the communication time is @xmath13 .
+thus , we can use @xmath0 processors without losing efficiency .
+this implies a large gain in speed for relatively small number of particles such as a few thousands . we also briefly discuss the relation between our new algorithm and the hyper - systolic algorithm @xcite . in short , though the ideas behind the two algorithms are very different , the actual communication patterns are quite similar , and therefore the performance is also similar for the two algorithms .
+our algorithm shows a better scaling and also is much easier to extend to individual timestep and ahmad - cohen schemes .    in section 4
+we discuss the combination of our proposed algorithm and individual timestep algorithm and the ahmad - cohen scheme . in section 5
+, we present examples of estimated performance . in section 6 we discuss the combination of our algorithm with grape hardwares . in section 7
+we sum up .
+the parallelization of the direct method has been regarded simple and straightforward [ see , for example , @xcite ] . however , it is only so if @xmath14 and if we use simple shared - timestep method . in this section ,
+we first discuss the communication - calculation ratio of previously known algorithms for the shared timestep method , and then those for individual timestep algorithm with and without the ahmad - cohen scheme .
+most of the textbooks and papers discuss the ring algorithm .
+suppose we calculate the force on @xmath1 particles using @xmath2 processors .
+we connect the processors in a one dimensional ring , and distribute @xmath1 particles so that each processor has @xmath15 particles(figure [ fig : ring ] ) . here and hereafter
+, we assume that @xmath1 is integer multiple of @xmath2 , to simplify the discussion .
+the ring algorithm calculates the forces on @xmath1 particles in the following steps .    1 .
+each processor calculates the interactions between @xmath15 particles within it .
+calculation cost of this step is @xmath16 , where @xmath17 is the time to calculate interaction between one pair of particles .
+each processor sends all of its particles to the same direction .
+here we call that direction `` right '' .
+thus all processors sends its particles to their right neighbors .
+the communication cost is @xmath18 , where @xmath19 is the time to send one particle to the neighboring processor and @xmath20 is the startup time for communication .
+each processor accumulates the force from particles they received to its own particles .
+calculation cost is @xmath21 .
+if force from all particles is accumulated , go to step 5 .
+each processor then sends the particles it received in the previous step to its right neighbor , and goes back to previous step .
+force calculation completed .
+= 8 cm    the time for actual calculation is given by @xmath22 and the communication time @xmath23    the total time per one timestep of this algorithm is @xmath24 here , we neglect small correction factors of order @xmath25
+.    for fixed number of particles , the calculation cost ( first term in equation [ eq : tring ] ) scales as @xmath26 while communication cost _ increases_. therefore , for large @xmath2 we see the decrease in the efficiency .
+here we define efficiency as @xmath27 which reduces to @xmath28 thus , to achieve the efficiency better than 50% , the number of processor @xmath2 must be smaller than @xmath29    equation ( [ eq : phalfring ] ) can be simplified in the two limiting cases @xmath30 in most of distributed - memory multicomputers , @xmath31 .
+for example , with a 1 gflops processor , we have @xmath32 . if this processor is connected to other processor with the communication link of the effective speed of 10mb / s , @xmath33 .
+the value of @xmath20 varies depending on both networking hardware and software .
+table 1 gives the order - of - magnitude values for these coefficients for several platforms .
+.time coefficients in seconds [ cols="<,^,^,^,^,^",options="header " , ]     even so , the number of processors we can use with this 2d algorithm is significantly larger than that for 1d ring , for any value of @xmath1 .
+if @xmath34 , we can use @xmath0 processors .
+even if @xmath35 , we can still use @xmath36 processors .    in this 2d ring algorithm , the @xmath37 term in the communication cost limits the total performance .
+we can reduce this term by using the extension of the copy algorithm to 2d .
+= 8 cm    instead of using the ring algorithm in the first stage , processors @xmath38 broadcast their data to all other processors in the same row . after this broadcast processor @xmath39
+has both group @xmath40 and group @xmath41 .
+then each processor calculates the force on particles they received ( group @xmath40 ) from particles they originally have ( group @xmath41 ) . in this scheme ,
+the communication cost is reduced to @xmath42 if the network switch supports the broadcast .
+if the network does not support the broadcast , the cost varies between @xmath43 for the case of a ring network and @xmath44 for a full crossbar .    in the second stage ,
+summation is now taken over the processors in the same row . here ,
+result for row @xmath40 must be obtained on processor @xmath38 , which then broadcasts the forces to all processors in the same column .
+after this broadcast , all processors have the forces on all particles in them .
+they can then use this forces to integrate the orbits of particles .    in this algorithm , the time integration calculation
+is duplicated over @xmath45 processors in the same column , but in most cases this does not matter .
+one alternative is that processor @xmath38 performs the time integration and broadcasts the updated data of particles to other processor in the same column .
+yet another possibility is to let each of @xmath45 processor to integrate @xmath46 particles , which each of them then broadcasts within the column .
+which approach is the best depends on the ratio between calculation speed , communication speed and communication startup overhead .
+the total time per one timestep of this algorithm is @xmath47    for the number of processors @xmath48 for which the efficiency is 50% , we have a cubic equation .
+for the two limiting cases , the solution is given as    @xmath49 & ( $ n > n_{\rm c,2dbcast}$ ) , } \label{eq : p2dbcast}\ ] ]    where @xmath50 is defined as @xmath51 the critical value of @xmath1 , @xmath50 , is larger than that for the 2d ring version of the algorithm .
+this is because we reduced the @xmath52 term in the communication cost to @xmath53 . more importantly , even for @xmath54
+, @xmath55 is only logarithmically smaller than @xmath0 .
+thus , with this broadcast version of the algorithm we can really use @xmath0 processors and still achieve high efficiency .      now the relation between our algorithm and the hyper - systolic algorithm @xcite must be obvious .
+the `` regular bases '' version of the hyper - systolic algorithm applied to @xmath56 processors works in the essentially the same way as the ring version of our algorithm works , though in order to derive our algorithm we do not need to use any complex concepts like @xmath57-range problem or additive number theory . to put things in a slightly different way ,
+the hyper - systolic algorithm is a complex way to reconstruct combination of rowwize ring and columwize summation on a 2d network by a sequence of shift operations in 1-d ring network .
+thus , as far as the @xmath58 term is small , our algorithm and the hyper - systolic algorithm show the same scaling .
+however , since @xmath58 term would almost always limit the scaling , the broadcast version of our algorithm is almost always better than the hyper - systolic algorithm .
+in addition , our algorithm is by far easier to understand and implement .
+this simplicity of our algorithm makes it possible to extend our algorithm to the individual timestep scheme and even to the ahmad - cohen scheme , which will be discussed in the following sections .
+if we use the broadcast version as the base , the extension to the individual timestep method is trivial . instead of broadcasting all particles in the first stage
+, we broadcast only the particles in the current block . in the following steps
+, we always send only data related with the particles in the current block .
+everything else is the same as in the case of the shared timestep algorithm . using the same assumption of @xmath59 , we have @xmath60 and @xmath61 where @xmath62 is now given by the following implicit equation @xmath63    for the example values in table 1 , the value of @xmath62 is fairly small .
+so we can use only @xmath64 processors .
+however , this is still much larger than the number of processors that can be used with 1d implementation of the individual timestep algorithm .
+the same load - balance problem as we have discussed in the case of the copy algorithm occurs with this method .
+we need some load - balancing strategy to actually use this method .
+the difference from the individual timestep scheme is that the neighbor list is created / used to calculate the forces .
+the neighbor list for forces from particles in group @xmath41 to particles in group @xmath40 is created , stored and used only by processor @xmath39 .
+therefore , there is no increase in the communication cost , except for the summation of the number of neighbors . the total calculation time and the 50% efficiency processor count
+are given by : @xmath65 and @xmath66 where @xmath67 is now given by the following implicit equation @xmath68    note that , in this case , whether or not @xmath69 makes very small difference for the number of processors , since the difference is only of the order of @xmath70 .
+thus , practically we can say that we can use @xmath71 processors with the 2d version of the ahmad - cohen scheme .
+in this section , we present the theoretical comparison of the proposed algorithm and the traditional one - dimensional algorithm .
+first we show the result for the case of myrinet - like fast network .
+figures [ fig : n3 ] to [ fig : n5 ] show the efficiencies for three different values of @xmath1 as the function of the number of processors @xmath2 .
+it is clear that 2d algorithms allow us to use much larger number of processors compared to their 1d counterparts .
+the gain is larger for larger @xmath1 , but becomes smaller as we use more advanced algorithms .
+the gain for individual timestep is smaller than that for shared timestep , and that for the ahmad - cohen scheme is even smaller .
+even so , the gain in the processor count is more than a factor of 5 , for the case of the ahmad - cohen scheme and @xmath72 .
+we believe this is quite a large gain in the parallel efficiency .
+= 8 cm    = 8 cm    = 8 cm    figure [ fig : n5fe ] shows the efficiencies for the case of the fast ethernet . with the 2d algorithm we can use more than 500 processors even with ahmad cohen scheme , for @xmath73 .
+pc clusters with inexpensive networks seem to be very attractive platforms to implement parallel version of the ahmad - cohen scheme .
+the only thing grape does is to greatly reduce the value of @xmath17 .
+thus , the same 2d network of processors each with one grape processor works fine , if the cost of the frontend is less than that of a grape processor .
+grape-6 achieves essentially the same effect as this 2d processor grid , but using only @xmath45 hosts and @xmath56 grape processors connected with a rather elaborate multistage networks . in hindsight , such an elaborate network is unnecessary , if the fast network is available for a low cost .    from the point of view of the scaling relations , what a grape hardware changes is simply @xmath17 .
+if we attach a 1tflops grape hardware to a 1 gflops host , we reduce @xmath17 by a factor of @xmath74 .
+this means that the limiting factor for the number of processors is almost always @xmath19 and not @xmath20 .
+thus , for a parallel grape system , high - throughput , high - latency network such as gigabit ethernet is a practical choice .
+figures [ fig : n5g6 ] and [ fig : n6g6 ] shows the efficiencies for grape-6 system .
+since @xmath17 is much smaller , the number of processors we can use becomes much smaller .
+of course , in the case of 1d algorithms , the actual speed we can achieve does not depend on @xmath17 , since the total speed is @xmath75 and @xmath55 is proportional to @xmath17 .
+figure [ fig : n6g6 ] indicates that we can achieve the speed of multiple petaflops with currently available technology , by configuring several thousand grape-6 boards into a 2d network .
+= 8 cm    = 8 cm
+we described a new two - dimensional algorithm to implement the direct summation method on distributed - memory parallel computers .
+the basic idea of the new algorithm is to organize processors to @xmath76 2d network , and let the data be shared both rowwize and columnwize . in this way , we can reduce the communication cost from @xmath12 of the previously know algorithms to @xmath77 .    for the case of the shared timestep algorithm
+, the new algorithm behaves in essentially the same as the `` regular bases '' version of the hyper - systolic algorithm does .
+however , with the broadcast version of our algorithm the communication overhead is reduced , which resulted in the better scaling . also , our algorithm is much simpler , which helped us to extend our algorithm to individual timestep and the ahmad - cohen scheme , as well as combination with grape hardwares .    for all cases , compared to the previously known algorithm
+, the number of processors we can use without losing efficiency is almost _
+squared_. this is a quite large improvement in the efficiency of a parallel algorithm .
+usually , a paper which proposes a new parallel algorithm should offer the verification of the concept , by means of the timing measurement of actual implementation . in this paper
+we omit this verification , because we believe it s important to let those who working on hyper - systolic algorithms be aware of simpler alternatives .    in this paper
+, we assumed a network with full connectivity .
+this assumption is okay with small pc clusters , but not true on large mpps . in this case ,
+parallel efficiency of 1d algorithm is significantly reduced , and relative gain of 2d algorithm would become much larger .
+i thank rainer spurzem and yoko funato for valuable discussions .
+this work is supported in part by the research for the future program of japan society for the promotion of science ( jsps - rftp97p01102 ) .

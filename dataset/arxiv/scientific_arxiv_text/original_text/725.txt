@@ -1,0 +1,186 @@
+multiple sequence alignment ( msa ) is one of the most fundamental tasks in bioinformatics .
+while there are many attempts to handle comparative sequence analyses without relying on msa , it still represents a starting point for most evolutionary biology methods .
+pairwise sequence alignment has been conceptualized as early as the 1970 s , starting with global alignments that attempt to align entire sequences  @xcite and then introducing a decade later local alignments that focus on the identification of subsequences sharing high similarity  @xcite .
+the standard computational formulation of both tasks is to maximize a scoring function obtained as the sum of the score for each aligned pair of residues ( nucleotides or amino acids , the highest scores being attributed to pairs of residues with highest similarity ) , minus some gaps penalties . since these seminal works
+, an abundant literature has flourished exploring this topic in many different directions , from the pairwise problem to the more complex task of aligning more than 3 sequences  ( one of the very first attempts appearing in * ? ? ?
+* ) , from exact solutions that scale exponentially with sequence lengths to faster heuristic approaches used in the most common tools , and from the scoring formulation of the alignment problem that requires to choose the scoring parameters to probabilistic formulations in which those parameters are estimated  @xcite .
+however , manually refined alignments continue to be superior to purely automated methods and there is a continuous effort to improve the accuracy of msa tools  @xcite .
+we refer the reader to the reviews  @xcite for more details on msa . + dynamic time warping ( dtw ) is a general version of the dynamic programing algorithm that solves exactly the pairwise biological sequence alignment problem .
+it is a well - known and general technique to find an optimal alignment between two given ( time - dependent ) sequences . in time
+series analysis , dtw is used for constructing an optimal alignment of two sequences with possible different lengths by stretching or contracting time intervals  @xcite . in functional data analysis ,
+the time warping approach consists in modeling a set of curves exhibiting time and amplitude variation with respect to a common continuous process  @xcite .
+thus , time warping techniques are used in many different areas concerned by sequence or curve comparisons , one of its most famous successes being on human - speech recognition  @xcite .    here , we propose a simple and fast procedure for msa , inspired from recent techniques of curve synchronization developed in the context of functional data analysis  @xcite . in this setup
+, one often observes a set of curves which are modeled as the composition of an amplitude process governing their common behavior , and a warping process inducing time distortion among the individuals .
+specifically , @xmath0 , @xmath1 $ ] , @xmath2 , are observed , with @xmath3 being i.i.d .
+realisations of the amplitude process @xmath4 , and @xmath5 strictly monotone functions such that @xmath6 and @xmath7 being i.i.d .
+realisations of the warping process @xmath8 .
+aligning pairs of curves ( that is eliminating time variation , which comes to estimating the warping functions @xmath5 ) is a first step before estimating the common amplitude process .
+these authors proposed to first estimate pairwise warping functions between all possible trajectories pairs which are then used to create estimators of the underlying individual warping functions in a second step .
+sample means or more robust median - based estimates come into play to solve this second step .
+this procedure is an alternative to the widely used approach of template registration , that consists in aligning every observed curve to some given template , which should be a good estimate of the mean amplitude process .
+the drawback of this methodology is that it heavily relies on the choice of the template , which is not straightforward .
+now , in the msa context , the warping process is the insertion - deletion ( or indel ) process that stretches or contracts the initial sequence , while the amplitude process is the substitution process that modifies the value of the sequence base .
+the equivalent of template registration in the msa context would be the alignment of every sequence to some estimate of the ancestral sequence , which is , of course , not available .
+however , exploiting the previous ideas , we show how pairwise alignments can be combined with a simple median - based approach to obtain an estimate of the multiple alignment of the sequences .
+our aim is to establish a proof of concept that our new method could be an interesting ingredient to include into refined msa techniques .
+indeed , the method is able to align a large number @xmath9 of sequences ( that are assumed to share a common ancestor ) in a quite simple and fast manner , although a bit rough w.r.t . accuracy .
+we would like to stress that we do not claim to be competitive with actual aligners .
+let us recall that there already exist many competitors to solve the msa problem whose respective performances have been largely explored  ( see for e.g * ? ? ? * and the references therein ) . here , we would rather like to point out to recent developments from curve synchronization that could open the way to new improvements in msa . while we do not pretend to propose a most accurate method , it is important to note that our approach could be used as a starting point in an iterative refinement strategy  @xcite .
+those strategies , included in many widely used tools such as ` probcons `  @xcite , ` muscle `  @xcite , ` mafft `  @xcite or ` mummals `  @xcite , mostly consist in repeatedly dividing the set of aligned sequences into two random groups and realign those groups by optimizing an objective function .
+thus , our simple and fast procedure could be combined with similar refinement strategies that would improve its efficiency .
+an advantage of our method is that it only uses pairwise comparison but ( unlike progressive aligners ) is not sensitive to any order on which we consider the sequence pairs . indeed , progressive aligners rely on a guiding tree and progressively build @xmath10 pairwise alignments from the union of the initial set of @xmath9 sequences with consensus sequences built at the internal nodes of the tree . as such ,
+the consensus sequences heavily depend on the guiding tree and the sequences ordering which impacts the resulting msa . moreover , progressive aligners are known to tend to propagate errors appearing at the early stages of the method . for instance , ` clustalw `  @xcite is criticized for being responsible of the heuristic rule once a gap , always a gap that makes errors in pairwise alignments to propagate through msa .
+the method proposed here is not sensitive to that issue because a gap in an alignment pair will not necessarily be selected for the msa .
+the manuscript is organized as follows .
+section  [ sec : model ] first recalls concepts coming from the pairwise alignment and time warping problems ( section  [ sec : rappels ] ) , sets our framework ( section  [ sec : msa ] ) and describes our procedure ( section  [ sec : estim ] ) .
+then section  [ sec : results ] presents our experiments , starting with synthetic datasets ( section  [ sec : synthetic ] ) , then relying on a benchmark dataset ( section  [ sec : balibase ] ) , namely the balibase dataset  @xcite and concludes with possible extensions of our approach ( section  [ sec : ext ] ) .
+in what follows , we first introduce some ideas around pairwise alignment and the time warping problem .
+we then explain how to use these concepts in the context of multiple sequence alignment .      for any two sequences @xmath11 and @xmath12 with values in a finite alphabet @xmath13 , any ( global ) pairwise alignment of @xmath4 and @xmath14 corresponds to an increasing path in the grid @xmath15\times [ 0,m]$ ] composed by three elementary steps @xmath16 , as shown in figure  [ fig : pairwise_align ] . note that for biological reasons , such path is often restricted to never contain two consecutive steps in @xmath17 ( a gap in one sequence may not be followed by a gap in the other sequence ) .
+we do not use that constraint in what follows but a post - processing step could be applied to any alignment in order to satisfy it ( the simplest way is then to replace those 2 successive gaps with a ( mis)-match move ; from a graphical point of view a horizontal+vertical or vertical+horizontal move is replaced by a diagonal one ) . for notational convenience , we extend the path to @xmath18\times [ -\epsilon , m]$ ] for some small @xmath19 .
+now , any such path may be viewed as an increasing function @xmath20 \to [ -\epsilon , m]$ ] with the convention that it is cd - lg ( continuous on the right , limit on the left ) . by letting @xmath21
+denote the left limit of @xmath22 at @xmath23 , we moreover impose that @xmath24 and @xmath25 .
+note that we can define a unique generalized inverse function @xmath26 \to [ -\epsilon , n]$ ] constrained to be cd - lg and such that @xmath27 ( the identity function ) . from a graphical point of view
+, the path corresponding to @xmath28 is obtained as the symmetric of the path corresponding to @xmath29 with respect to the diagonal line @xmath30 ( see figure  [ fig : pairwise_align ] ) .
+functions @xmath31 may be viewed as time warping functions that describe the homology ( and thus also the indels ) between sequences @xmath32 obtained from their alignment .
+let us first explain this idea on a simple example .
+consider an alignment between @xmath33 and @xmath34 given as follows @xmath35 ( this alignment corresponds exactly to the thick and blue path depicted in figure  [ fig : pairwise_align ] ) . in this alignment ,
+any character from one sequence may be associated to a unique character from the other sequence as follows : when the position corresponds to a _
+match _ or a _ mismatch _ , the character is associated to the ( mis)-matching character ( in the other sequence ) while at positions corresponding to indels , we ( arbitrarily ) associate it to the character in the previous ( mis)-matching position in the other sequence . in order to deal with the case where no such previous ( mis)-matching position exists ( namely when the alignment begins with an indel ) , we introduce extra artificial characters ( @xmath36 ) at the beginning of each sequence , these two artificial characters being aligned with each other . in other words
+, we consider the alignment @xmath37 the bare alignment ( the alignment without specification of nucleotides ) of these two sequences is as follows @xmath38 here @xmath39 stands for _ base _ and we do not specify to which character it corresponds .
+the bare alignment naturally appears to separate the indel process from the substitution process  ( see for e.g. * ? ? ?
+* ; * ? ? ?
+given the sequences , the knowledge of the bare alignment is sufficient to recover the corresponding full alignment . in this context , the time warping process is exactly the indel process that stretches or contracts an initial sequence , while the amplitude process is the substitution process that modifies the value of the sequence .
+we focus on the time warping process encoded in the bare alignment .
+let @xmath40 denote this ( asymmetric ) relation induced by the bare alignment . in our example ,
+we have that @xmath41 is associated to the artificial character @xmath42 and we denote @xmath43 . in the same way , @xmath44 , @xmath45 , @xmath46 , @xmath47 , @xmath48 , @xmath49 and @xmath50 . note that no position of @xmath4 is associated to @xmath51 ( this is because of a discontinuity of the function @xmath29 at @xmath52 where @xmath53 and @xmath54 ) .
+more importantly , these associations are exactly encoded in the mapping @xmath29 as we have @xmath55 if and only if @xmath56 .
+more generally , for any real value @xmath57 $ ] , letting @xmath58 denote the smallest integer larger or equal to @xmath23 , we set @xmath59 ( and similarly for sequence @xmath14 ) . from the ( bare ) pairwise alignment of @xmath32 , we obtain a time warping function @xmath29 such that this alignment is entirely described by the association @xmath60 . in what follows
+, we denote this functional association by @xmath61 .
+note that we equivalently have @xmath62 .
+we also mention that when the pairwise alignment between @xmath32 is extracted from a multiple sequence alignment containing at least 3 sequences , say @xmath63 , the above relation @xmath40 should be associative in the sense that whenever @xmath64 and @xmath65 , we should also have @xmath66 .
+this property will be used in the next section .      in this section ,
+we consider a set of sequences @xmath67 with values in a finite alphabet @xmath13 and respective lengths @xmath68 and we assume that they all share some latent ancestor sequence @xmath69 with values in @xmath13 and length @xmath70 .    a multiple sequence alignment of the set of sequences @xmath67 is given by the knowledge of _ homologous _ positions as well as _ inserted _ positions .
+to fix the ideas , let us consider for example the following multiple alignment of 3 sequences @xmath71 where the first line indicates homologous positions ( h ) while the other are inserted positions .
+homologous positions describe the characters that derived from the ancestor sequence , so that there are exactly @xmath70 homologous positions in the alignment ( whenever an ancestral position was deleted in all the sequences , this can not be reconstructed and such position would not appear in our reconstructed ancestral sequence ) . for each homologous position , there is at most one character in sequence @xmath72 that is associated to it .
+this means that homologous columns in the multiple sequence alignment may contain matches , mismatches and even gaps ( when the corresponding ancestral position has been deleted in that particular sequence ) . between two consecutive homologous positions
+, each sequence might have a certain number of characters that are inserted .
+these characters do not derive from an ancestral position .
+note that these insert runs are not aligned in the sense that the choice of how to put the letters in the insert regions is arbitrary and most msa implementations simply left - justify insert regions .
+now , given the set of sequences , this multiple alignment may be completely encoded through the knowledge of the homologous positions in the sequences ( see section  [ sec : algo ] ) .
+our goal is to estimate the alignment of each @xmath72 to the ancestor @xmath69 and thus the global alignment of the set of sequences @xmath67 , by relying on the set of pairwise alignments of each @xmath72 to all the other sequences @xmath73 . to do this
+, we will implicitly assume that a ) the multiple sequence alignment of all the sequences @xmath72 is well approximated by the alignment we would obtain from all the sequences @xmath74 ; b ) all the pairwise alignments of @xmath75 are good approximations to the extracted pair alignments from the multiple alignment of all sequences @xmath74 .
++ first , any sequence @xmath72 is derived from the common ancestor sequence @xmath69 through an evolutionary process that can be encoded in the alignment of these two sequences .
+this alignment induces a time warping process @xmath76 \to [ -\epsilon , n]$ ] such that we have @xmath77 . for the moment , we assume that the warping functions @xmath78 s are i.i.d .
+realisations of the same random process @xmath79 . for identifiability reasons , we constrain @xmath79 such that @xmath80 ( see for example @xcite ) .
+moreover , note that assuming the @xmath78 s are i.i.d .
+realisations of the same process boils down to considering a star tree leading from the ancestor sequence to any observed sequence @xmath72 . in the case of an ultra - metric tree
+, we would obtain non independent but identically distributed realisations .
+we will discuss later how to handle more realistic setups .
+since the ancestral sequence @xmath69 is not observed , the idea of @xcite is to estimate the warping function @xmath78 from all the pairwise alignments of @xmath72 with the other sequences .
+more precisely , when considering the pairwise alignment of @xmath72 with @xmath81 , we obtain a warping function @xmath82 satisfying @xmath83 as a consequence , relying on the desired associative property of @xmath40 , we should have @xmath84 so that we can estimate the warping function @xmath85 from a pairwise alignment of @xmath86 .
+note that since pairwise alignment of @xmath86 does not depend on the order of the sequences , the proposed estimators satisfy @xmath87 .
+then , we want to combine these estimates @xmath88 to obtain an estimate of @xmath78 . in  @xcite ,
+the authors use the empirical mean and notice that this makes sense since @xmath89 and under the assumption @xmath90  ( see also * ? ? ?
+let us recall that these works come from functional data analysis where the functions @xmath78 s are real - valued functions .
+here , we are dealing with discrete sequences and the empirical mean of a set of paths @xmath85 would not give a proper path and thus would not correspond to an alignment of @xmath72 to the ancestor @xmath69 .
+that is why instead of using empirical mean , we will rather rely on median values .
+note that  in general 
+medians have the advantage of being more robust than mean values .    from an algorithmic perspective , a global alignment of @xmath11 and @xmath12 may be encoded trough the sequence of coordinates @xmath91 , where @xmath92 is the length of the alignment , @xmath93 and for any @xmath94 , we have @xmath95 .
+we let @xmath96 be the set of possible alignments between @xmath4 and @xmath14 .
+the link between the path sequence @xmath97 and the warping function @xmath29 is as follows @xmath98 now , considering a median path boils down to computing median coordinates of points @xmath99 as explained in the next section .      in this section ,
+we explain how for each sequence @xmath72 , we combine the set of pairwise alignments of @xmath72 with @xmath81 ( @xmath100 ) to obtain an estimate of the warping function @xmath78 .
+we thus fix a sequence @xmath72 of length @xmath101 and consider its pairwise alignments with all the other sequences @xmath81 ( @xmath100 ) , including itself ( the alignment path is then the identical function from @xmath102 $ ] to @xmath102 $ ] ) .
+we first define an estimate of the true number @xmath70 of homologous positions in our msa ( that is positions that were present in the ancestral sequence @xmath69 , which are the only positions of @xmath69 that may be recovered ) , as a median value ( constrained to be an integer number ) of the set of lengths @xmath103 , namely @xmath104 more precisely , as a convention and for the rest of this work , we set the median of a sequence of integers @xmath105 with ordered values @xmath106 as follows . whenever @xmath9 is even and the mean value @xmath107 between the ordered statistics @xmath108)}$ ] and @xmath108 + 1)}$ ] is not an integer , we ( arbitrarily ) set the median as @xmath109 .
+now , we aim at defining a path from @xmath102 $ ] to @xmath110 $ ] by using all the estimated paths @xmath111 obtained by aligning @xmath112 . for any position @xmath113
+, we consider the character @xmath114 throughout all the pairwise alignments .
+the character @xmath114 may either be aligned with another character @xmath115 or to a gap after position @xmath116 in sequence @xmath81 , as may be viewed in figure  [ fig : pos_k ] ( left part ) .
+as already explained , each pairwise alignment of @xmath117 with @xmath81 corresponds to a sequence of coordinates @xmath118 as defined above , see equation  .
+note that we dropped the index @xmath119 on which the sequence @xmath120 also depends .
+now , for each value @xmath121 , there is a unique time point @xmath122 and two integers @xmath123 such that @xmath124 in practice , either @xmath125 when @xmath114 is aligned to a character or @xmath126 when @xmath114 is aligned to a gap .
+we then compute two median points @xmath127 which gives the part of the median path that concerns character @xmath128 ( figure  [ fig : pos_k ] , left part ) .
+note that at this step , we did not take into account the possible vertical steps in the alignments @xmath129 .
+we consider this now . indeed ,
+the concatenation of the positions @xmath130 is almost what we wanted , namely the median path that gives our estimate of the alignment between @xmath72 and ancestral sequence @xmath69 .
+however one should notice that for each value @xmath131 , we either have @xmath132 in the first case ( @xmath133 ) , one of the two points @xmath134 or @xmath135 is redundant and should be removed to obtain a proper path in @xmath136 .
+otherwise , vertical movements are included in the median path and we keep both values @xmath134 and @xmath135 .
+let us note that at the last position @xmath137 , we have @xmath138 so that the median path correctly ends at @xmath139 .
+we now combine the different steps to obtain our global alignment procedure as explained in pseudocode in algorithm  [ algo : msa ] .
+this algorithm outputs a set of homologous positions ( hom ) as well as a set of inserted positions ( ins ) .
+let us recall that in each sequence , homologous positions correspond to positions that are aligned with an ancestor position @xmath140 ( @xmath141 ) .
+then two homologous positions may be separated by insert runs which are not aligned .
+we use a table @xmath142 with @xmath9 rows and @xmath143 columns .
+each entry @xmath144 with @xmath145 of this table contains the number of insertions in @xmath72 between two homologous positions with respective ancestor positions @xmath146 and @xmath147 , while entry @xmath148 ( resp .
+entry @xmath149 ) is the number of insertions before first ( resp .
+after last ) homologous position .
+we also use a table @xmath150 with @xmath9 rows and @xmath151 columns .
+each entry @xmath144 of this table contains the position in sequence @xmath72 that is homologous to ancestor position @xmath140 .
+when there is no such position ( a deletion in sequence @xmath72 ) , the entry is set to @xmath152 .    for instance , going back to the example of a multiple sequence alignment of section  [ sec : msa ] , we may describe this alignment with the following tables @xmath153 note that the information contained in table @xmath142 is redundant with that in table @xmath150 but we use it for convenience .
+indeed , it is helpful to output the final alignment whose size ( i.e. total number of columns ) depends on the number of homologous positions plus the number of inserted positions .    now for each sequence @xmath72 with @xmath154 we reconstruct its alignment with ancestral sequence @xmath69 as follows . for each position
+@xmath155 , we compute the coordinates @xmath156 from equation  .
+we update the quantity path(@xmath119 ) that stores the alignment of sequence @xmath72 to ancestor @xmath69 up to position @xmath23 . then we either update the table @xmath142 if an inserted position has been obtained ( case @xmath157=   \tilde z_2(u)[2]$ ] where @xmath158 $ ] is the second coordinate of vector @xmath4 ) or the table @xmath150 otherwise .    with respect to the algorithmic complexity of the proposed procedure
+, we can assume that the @xmath9 sequences have average length similar to @xmath70 .
+then , the time complexity of the msa from median warping ( once the pairwise alignments are given ) is @xmath159 since we need @xmath160 iterations in which we compute ( twice ) a median over @xmath9 values ( the complexity of the median calculation being @xmath161 relying for e.g. on the ` quickselect ` algorithm  @xcite ) .
+we provide running time comparisons with ` mafft ` on the ` balibase ` dataset at the end of section  [ sec : balibase ] .
+in this section , we propose a simple synthetic experiment in order to assess the performances of our approach .
+we start with an ancestral sequence @xmath69 on the set of nucleotides @xmath162 with length @xmath163 . from this ancestral sequence ,
+we simulate i.i.d .
+sequences @xmath164 as follows .
+we rely on the simple thorne - kishino - felsenstein  ( * ? ? ?
+* hereafter tkf ) model that includes an insertion - deletion process and that can be combined with any substitution process . here
+we set parameters for tkf @xmath165 and use the jukes - cantor substitution model  ( see for e.g. * ? ? ?
+* ) with substitution rate @xmath166 ( all nucleotide frequencies being set to @xmath167 ) .
+that is , we are simulating @xmath9 nucleotide sequences related by a star tree and whose branch lengths are set to be equal , as done for instance in  @xcite .
+we repeat this experiment @xmath168 times for each @xmath9 , and we let the number of sequences vary in @xmath169 .    to obtain multiple alignments with our procedure , we first conduct all the pairwise alignments between pairs of sequences through the needleman - wunsch algorithm for global alignment @xcite as implemented in the ` pairwisealignment ` function of the r ` biostrings ` library @xcite .
+we set the parameters for the pairwise alignment as : gap opening penalty equal to @xmath170 , gap extension penalty equal to @xmath171 , nucleotide substitution matrix with diagonal values equal to @xmath172 and non - diagonal values equal to @xmath173 .
+these are commonly used as default parameter values for the global alignment of dna sequences .
+that is , we do not look at optimising the alignment parameters , but just at showing that our procedure can produce reasonable results under general conditions .    in order to assess the performance of the method
+, we compute for each alignment two scores that measure its overall concordance with the simulated one , sp ( sum of pairs ) and tc ( total column ) scores ( see next section for details ) , and we compare them to the scores obtained by two well established multiple alignment softwares , namely ` clustalw `  @xcite in its ` 2.1 ` version and ` t - coffee `  @xcite in its ` 10.00.r1613 ` version .
+both softwares are run under default parameter values .
+finally , we also run our procedure on the reference pairwise alignments , that is , those extracted from the simulated multiple alignment for each pair of sequences .
+this is done to assess the performance of the method in the best case scenario , as a way to validate the proposed algorithm for combining pairwise alignments .
+results are presented in figure  [ fig.sim ] .
+the first thing to notice is that our method , when used with the reference pairwise alignments , reaches the maximum score possible in almost every case .
+although these are not realistic results since reference pairwise alignments are unknown in practice , they confirm the soundness of our method that combines pairwise alignments from median warping .
+with respect to the other three methods , in all the scenarios ` t - coffee ` always provides the best performance . in general , tc scores tend to get worse as the number of sequences increases whereas sp scores are more stable .
+however , when comparing our procedure ( with estimated pairwise alignments ) and ` clustalw ` ( which is a widely used software ) , we see that ` clustalw ` is better for a small number of sequences , but from @xmath174 , the performance of our method is superior .
+msa methods are typically benchmarked on sets of reference alignments , the most widely used being the ` balibase `  @xcite .
+it is a large scale benchmark specifically designed for multiple sequence alignment .
+it contains test cases based on 3d structural superpositions of protein sequences that are manually refined to ensure the correct alignment of conserved residues .
+it is organized into several reference sets , designed to represent real multiple alignment problems .
+reference 1 contains alignments of equidistant sequences with 2 different levels of conservation ( rv11 and rv12 ) ; reference 2 ( rv20 ) contains families aligned with one or more highly divergent orphan sequences ; reference 3 ( rv 30 ) contains divergent subfamilies ; reference 4 ( rv 40 ) contains sequences with large n / c - terminal extensions ; and finally reference 5 ( rv 50 ) contains sequences with large internal insertions .
+in addition , three separate reference sets ( 68 ) , are devoted to the particular problems posed by sequences with transmembrane regions , repeats , and inverted domains  @xcite . these last 3 sets are rarely included in benchmark analyses and we exclude them from ours . for each reference set among the first five ones , except for rv 40 ,
+two versions of the same multiple alignments are provided : one with the original sequences ( which is noted bb ) , and one with a shorter version of the sequences contained in the alignment ( which is noted bbs ) .
+in general , bbs alignments should be easier to recover than the original ones , since the less alignable parts of the original sequences have been removed .
+the ` balibase ` dataset comes with a function called ` baliscore ` used to assess the quality of a msa .
+two different criteria are used to score an alignment : sp ( sum of pairs ) and tc ( total column ) scores  @xcite .
+these criteria only use core blocks of the alignment .
+sp score is the percentage of the correctly aligned residue pairs in the alignment . it is defined as the number of correctly aligned residue pairs found in the test alignment divided by the total number of aligned residue pairs in core blocks of the reference alignment .
+tc score is the percentage of the correct columns in the alignment .
+it is defined as the number of correctly aligned columns found in the test alignment divided by the total number of aligned columns in core blocks of the reference alignment .    in order to assess the performance of the method on the balibase data sets , we proceed as for the simulated alignments of the preceding section .
+the only differences being that we now consider blosum62 as the default substitution matrix for pairwise alignments ( since we now have protein sequences ) and that for the last two reference sets ( rv40 and rv50 ) we consider overlap pairwise alignments instead of global ones . indeed , these two sets are characterized by large differences in sequences lengths so it is convenient to allow for gaps at the beginning and the end of pairwise alignments . in this section
+we also report the results of ` clustalw ` and ` t - coffee ` for reference .
+we refer to @xcite for a full comparison of available methods on balibase .
+figure  [ fig.balibase ] shows that while our method is less performant than ` clustalw ` and ` t - coffee ` , it still provides reasonable results .
+these results should be put in perspective with the level of complexity of the method that is exceptionally low ( only pairwise alignments are needed as input and a simple median path is computed ) . moreover , as it was the case for the simulated alignments , the scores based on the reference pairwise alignments are almost always equal to @xmath175 in all sets for both sp and tc scores .
+again , these are not realistic results since the pairwise alignments extracted from the reference multiple alignment might be far from the optimal pairwise alignment between the two sequences for which no extra information on the remaining sequences is available .
+nevertheless , these results are encouraging since once again they serve to validate our method from a theoretical point of view in the sense that the median warping approach provides sound results
+.    finally , let us give an idea of the running times .
+we ran both ` mafft ` ( in its version 7 with default values , * ? ? ?
+* ) , which is a very fast and widely used tool , and our procedure on the whole ` balibase ` dataset .
+on a computer with intel core i7 at frequency 3.5 ghz and 16 go ram ( on only one run ) , we obtained the alignments in 1m23.759s with ` mafft ` and 1m32.932s with our procedure . though our algorithm runs on ` r ` with no optimization of any sort and ` mafft ` was run through a command line ( outside ` r ` environment ) , these running times ( which are not exactly comparable ) are roughly the same , which confirms that our procedure is indeed very fast .      in this work
+, we propose a proof of concept that a simple method derived from recent techniques of curve synchronization in the context of functional data analysis could be of potential interest to msa .
+our method is able to align a large number of sequences in a quite simple and fast manner , although a bit rough w.r.t . accuracy .
+while we do not claim to be competitive with actual aligners , we believe that our procedure could be successfully included ( for e.g. as a starting point ) in more refined msa techniques .
+while it is out of the scope of the current work to provide such a refined tool , our simulations as well as the use of the balibase dataset establish that the method has good potential , particularly when looking at the almost perfect results obtained by relying on the ( unknown ) reference pairwise alignments ( that is , the pairwise alignments extracted from the msa ) .
+in particular , while our experiments rely here on exact scoring alignment with default parameter values , the method could be combined with more refined pairwise alignments , such as probabilistic methods that automatically select optimal scoring parameters for the sequences at stake .    while the method implicitly assumes that a star ultra - metric tree describes the evolution of the sequences from their common ancestor ,
+it could be improved to gain in robustness w.r.t .
+this assumption .
+in particular , let us assume that additional to the sequences one has access to a non ultra - metric guide tree describing the common evolution of these sequences . then
+, we propose to weight the sequences in a way inversely proportional to their distance to the root .
+let @xmath176 denote the evolutionary distance ( i.e. branch length ) from sequence @xmath72 to root and @xmath177 .
+we fix @xmath19 and set the weight values to @xmath178 then our method could be generalized to the computation of a weighted median path , namely relying on weighted median values instead of simple ones . in such a way , sequences farther from the ancestor will have a lower weight in the msa .
+we leave this for later investigation .
+j.  d. thompson , d.  g. higgins , and t.  j. gibson .
+: improving the sensitivity of progressive multiple sequence alignment through sequence weighting , position - specific gap penalties and weight matrix choice . , 22(22):46734680 , 1994 .
+for any pair of sequences @xmath112 , compute their pairwise alignment align(@xmath189 ) .
+@xmath190 @xmath191 @xmath192 table of @xmath152 s with @xmath9 rows and @xmath193 columns @xmath194 table of @xmath152 s with @xmath9 rows and @xmath151 columns nbins[@xmath195 \leftarrow \max _ { i=1 , \dots , k } { \text{ins}}[i,\cdot]$ ] @xmath196 nbins[@xmath197 $ ] @xmath198 table with @xmath9 rows and @xmath199 columns filled with gaps symbols insert the homologous positions from table @xmath150 at correct positions in table @xmath92 insert the inserted positions from table @xmath142 at correct positions in table @xmath92 return(t )

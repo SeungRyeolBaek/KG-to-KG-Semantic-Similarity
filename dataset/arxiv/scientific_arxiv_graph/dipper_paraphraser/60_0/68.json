@@ -1,0 +1,486 @@
+{
+  "nodes": [
+    {
+      "id": "Open Connectome Project",
+      "type": "Project",
+      "properties": {}
+    },
+    {
+      "id": "3D Volume Of Neural Data",
+      "type": "Data",
+      "properties": {}
+    },
+    {
+      "id": "Connectome",
+      "type": "Diagram",
+      "properties": {}
+    },
+    {
+      "id": "Brain Data",
+      "type": "Data",
+      "properties": {}
+    },
+    {
+      "id": "Axoplasmic Reticula",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Gradient Domain Image Stitching Techniques",
+      "type": "Technique",
+      "properties": {}
+    },
+    {
+      "id": "Laplacian Filter",
+      "type": "Filter",
+      "properties": {}
+    },
+    {
+      "id": "Pixel",
+      "type": "Element",
+      "properties": {}
+    },
+    {
+      "id": "Intensity",
+      "type": "Property",
+      "properties": {}
+    },
+    {
+      "id": "Neighbours",
+      "type": "Element",
+      "properties": {}
+    },
+    {
+      "id": "Filtered Image",
+      "type": "Image",
+      "properties": {}
+    },
+    {
+      "id": "Edges",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Dark Features",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Annotations",
+      "type": "Verification",
+      "properties": {}
+    },
+    {
+      "id": "Volume",
+      "type": "Data",
+      "properties": {}
+    },
+    {
+      "id": "Dark Pixels",
+      "type": "Element",
+      "properties": {}
+    },
+    {
+      "id": "Threshold",
+      "type": "Property",
+      "properties": {}
+    },
+    {
+      "id": "Algorithm",
+      "type": "Algorithm",
+      "properties": {}
+    },
+    {
+      "id": "Transversely Sliced Axoplasmic Reticula",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Precision",
+      "type": "Measure",
+      "properties": {}
+    },
+    {
+      "id": "Recall",
+      "type": "Measure",
+      "properties": {}
+    },
+    {
+      "id": "Morphological Region Acquiring Algorithm",
+      "type": "Algorithm",
+      "properties": {}
+    },
+    {
+      "id": "Dilated Axoplasmic Reticula",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Tracking System",
+      "type": "System",
+      "properties": {}
+    },
+    {
+      "id": "Kalman",
+      "type": "Filter",
+      "properties": {}
+    },
+    {
+      "id": "Particle-Filtering",
+      "type": "Filter",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Open Connectome Project",
+        "type": "Project",
+        "properties": {}
+      },
+      "target": {
+        "id": "3D Volume Of Neural Data",
+        "type": "Data",
+        "properties": {}
+      },
+      "type": "ANNOTATE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "3D Volume Of Neural Data",
+        "type": "Data",
+        "properties": {}
+      },
+      "target": {
+        "id": "Connectome",
+        "type": "Diagram",
+        "properties": {}
+      },
+      "type": "COMPUTE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Brain Data",
+        "type": "Data",
+        "properties": {}
+      },
+      "target": {
+        "id": "Gradient Domain Image Stitching Techniques",
+        "type": "Technique",
+        "properties": {}
+      },
+      "type": "COLOR_CORRECT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Brain Data",
+        "type": "Data",
+        "properties": {}
+      },
+      "target": {
+        "id": "Axoplasmic Reticula",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "IDENTIFY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Axoplasmic Reticula",
+        "type": "Feature",
+        "properties": {}
+      },
+      "target": {
+        "id": "Neighbours",
+        "type": "Element",
+        "properties": {}
+      },
+      "type": "FACILITATE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Brain Data",
+        "type": "Data",
+        "properties": {}
+      },
+      "target": {
+        "id": "Laplacian Filter",
+        "type": "Filter",
+        "properties": {}
+      },
+      "type": "USE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Pixel",
+        "type": "Element",
+        "properties": {}
+      },
+      "target": {
+        "id": "Intensity",
+        "type": "Property",
+        "properties": {}
+      },
+      "type": "COMPUTE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Pixel",
+        "type": "Element",
+        "properties": {}
+      },
+      "target": {
+        "id": "Neighbours",
+        "type": "Element",
+        "properties": {}
+      },
+      "type": "SURROUND",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Filtered Image",
+        "type": "Image",
+        "properties": {}
+      },
+      "target": {
+        "id": "Pixel",
+        "type": "Element",
+        "properties": {}
+      },
+      "type": "ADD",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Filtered Image",
+        "type": "Image",
+        "properties": {}
+      },
+      "target": {
+        "id": "Original Image",
+        "type": "Image",
+        "properties": {}
+      },
+      "type": "COMPARE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Filtered Image",
+        "type": "Image",
+        "properties": {}
+      },
+      "target": {
+        "id": "Edges",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "HIGHLIGHT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Dark Features",
+        "type": "Feature",
+        "properties": {}
+      },
+      "target": {
+        "id": "Axoplasmic Reticula",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "INCLUDE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Annotations",
+        "type": "Verification",
+        "properties": {}
+      },
+      "target": {
+        "id": "Volume",
+        "type": "Data",
+        "properties": {}
+      },
+      "type": "VERIFY",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Annotations",
+        "type": "Verification",
+        "properties": {}
+      },
+      "target": {
+        "id": "Axoplasmic Reticula",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "FIND",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Filtered Image",
+        "type": "Image",
+        "properties": {}
+      },
+      "target": {
+        "id": "Dark Pixels",
+        "type": "Element",
+        "properties": {}
+      },
+      "type": "ITERATE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Dark Pixels",
+        "type": "Element",
+        "properties": {}
+      },
+      "target": {
+        "id": "Threshold",
+        "type": "Property",
+        "properties": {}
+      },
+      "type": "COMPARE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Dark Pixels",
+        "type": "Element",
+        "properties": {}
+      },
+      "target": {
+        "id": "Intensity",
+        "type": "Property",
+        "properties": {}
+      },
+      "type": "DROP",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Dark Pixels",
+        "type": "Element",
+        "properties": {}
+      },
+      "target": {
+        "id": "Axoplasmic Reticula",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "CHECK",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Algorithm",
+        "type": "Algorithm",
+        "properties": {}
+      },
+      "target": {
+        "id": "Transversely Sliced Axoplasmic Reticula",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "ADAPT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Algorithm",
+        "type": "Algorithm",
+        "properties": {}
+      },
+      "target": {
+        "id": "Precision",
+        "type": "Measure",
+        "properties": {}
+      },
+      "type": "DETECT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Algorithm",
+        "type": "Algorithm",
+        "properties": {}
+      },
+      "target": {
+        "id": "Recall",
+        "type": "Measure",
+        "properties": {}
+      },
+      "type": "DETECT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Morphological Region Acquiring Algorithm",
+        "type": "Algorithm",
+        "properties": {}
+      },
+      "target": {
+        "id": "Dilated Axoplasmic Reticula",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "FIND",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Morphological Region Acquiring Algorithm",
+        "type": "Algorithm",
+        "properties": {}
+      },
+      "target": {
+        "id": "Tracking System",
+        "type": "System",
+        "properties": {}
+      },
+      "type": "ADAPT",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Tracking System",
+        "type": "System",
+        "properties": {}
+      },
+      "target": {
+        "id": "Kalman",
+        "type": "Filter",
+        "properties": {}
+      },
+      "type": "USE",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Tracking System",
+        "type": "System",
+        "properties": {}
+      },
+      "target": {
+        "id": "Particle-Filtering",
+        "type": "Filter",
+        "properties": {}
+      },
+      "type": "USE",
+      "properties": {}
+    }
+  ]
+}

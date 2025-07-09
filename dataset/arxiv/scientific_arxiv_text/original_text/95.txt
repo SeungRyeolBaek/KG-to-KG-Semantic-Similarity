@@ -1,0 +1,233 @@
+frustration is one of the interesting subjects in statistical physics , mainly because it can induce additional symmetry and lead the system to display rich low - temperature structures .
+the so - called two - dimensional ( 2d ) fully frustrated xy models have attracted an extensive investigation in the last two decades @xcite . due to the frustration the systems possess additional discrete reflection symmetry @xmath7 , apart from the global spin rotation symmetry @xmath8 .
+the breakdown of these symmetries are the onset of two types of phase transitions , namely one corresponding to the magnetic transition of kosterlitz - thouless ( kt ) type @xcite and the other to the chiral transition . whether these transitions are decoupled or occur at the same temperature has long been a controversy @xcite .
+another debated issue is whether the universality class of the chiral ordering belongs to the ising universality class or not @xcite .
+the system has a corresponding physical realization on a planar arrays of coupled josephson junctions in a transverse magnetic field @xcite and discotic liquid crystals @xcite . as a 2d frustrated xy system ,
+two lattice systems are frequently studied numerically .
+the first one is the square lattice where the interactions can be a regular mixture of ferromagnetic ( f ) and antiferromagnetic ( af ) couplings ( villain model ) @xcite .
+the second one is the af xy model on the triangular lattice @xcite .
+as for the 2d xy model , the effect of the @xmath9-fold symmetry - breaking fields is an interesting subject @xcite ; that is essentially the same as treating the @xmath9-state clock model , where only the discrete values are allowed for the angle of the xy spins .
+the @xmath8 symmetry of the xy model is replaced by the discrete @xmath10 symmetry in the @xmath9-state clock model .
+it was shown @xcite that the 2d @xmath9-state clock model has two phase transitions of kt type at @xmath11 and @xmath0 ( @xmath12 ) for @xmath13 .
+there is an intermediate xy - like phase between a low - temperature ordered phase ( @xmath14 ) and a high - temperature disordered phase ( @xmath15 ) .
+it is quite interesting to investigate the effect of the @xmath9-fold symmetry - breaking fields in the case of the fully frustrated xy model .
+quite recently , noh _ et al . _
+@xcite studied the af six - state clock model on the triangular lattice using the metropolis monte carlo simulation because of the experimental relevance to cf@xmath16br monolayers physisorbed on graphite @xcite .
+however , they did not pay attention to the lower temperature phase transition of kt type .
+it is to be noticed that the existing controversy involves very fine values .
+most studies claiming single transition scenario still do not exclude the possibility of two very close critical temperatures .
+meanwhile , the studies in favor of double transition scenario always found that two critical phase transitions occur at slightly different temperatures .
+therefore , it is desirable to obtain precise numerical information . recently , much progress has been made in the development of efficient algorithms of monte carlo simulation .
+especially , several attempts have been proposed for the monte carlo algorithms to calculate the energy density of states ( dos ) directly .
+examples are the multicanonical method @xcite , the broad histogram method @xcite , the flat histogram method @xcite , and the wang and landau method @xcite .
+all of these algorithms use the random walk in the energy space .    in this paper
+we report our monte carlo study on the af six - state clock model on the triangular lattice .
+the ground state ( gs ) of the af six - state clock model on the triangular lattice has the same structure as the af xy model ; therefore this model is regarded as a commensurate discrete model for the fully frustrated xy model . on the other hand , the six - state clock model on the square lattice ( villain model )
+has different gs configurations since there exist extra degeneracies .
+the presence of such extra degeneracy may bring about another interest in the fully frustrated six - state clock model .
+however , we will not cover such possibility in the present study .
+the xy villain and the eight - state clock villain models are commensurate because they have the same gs configuration .    for the monte carlo method
+, we employ the wang - landau algorithm @xcite , and the energy dos is refined by the use of the broad histogram relation @xcite .
+the fact that the energy of the six - state clock model is represented by the multiple of @xmath17 , where @xmath18 is the coupling constant , is another supporting factor for the study of the six - state clock model ; it is convenient to treat discrete energy in the monte carlo simulation of calculating the dos directly .
+the rest of the present paper is organized as follows : in the next section we define the model and briefly explain the simulation method .
+details of the calculation and results will be presented in sec .
+the last section is devoted to the concluding remarks .
+the xy spin model is written with the hamiltonian @xmath19 where @xmath20 denotes the summation over nearest neighbor interactions , @xmath21 a unit planar spin vector occupying the @xmath22-th site , and @xmath23 the angle associated with the @xmath22-th spin . here
+, we mainly study the six - state clock model ; therefore the angle takes discrete values , @xmath24 with @xmath25 .
+the frustration is conveyed by @xmath26 . for the villain model on the square lattice
+this can be set by taking regular mixture of f and af couplings .
+for the triangular lattice on the other hand , @xmath26 are simply set to be uniform af couplings , @xmath27 , so that the system becomes fully frustrated .
+the hamiltonian ( [ ham ] ) is invariant under the symmetries of the global spin rotation @xmath8 and the global spin reflection @xmath7 .
+the breaking of these symmetries is expected to cause two kinds of ordering , which respectively correspond to magnetic ordering and chiral ordering .
+the gs configuration is well known as @xmath28-configuration , where two neighboring spins align in @xmath28 difference in angle , which is shown in fig .
+[ gsconf ] .
+we decompose the lattice into three interpenetrating sublattices for studying magnetic order .
+a site in a triangle belongs to one of the sublattices , @xmath29 or @xmath30 .
+we assign the magnetic order parameter as @xmath31 where @xmath32 is the magnetization of sublattice @xmath33 , and @xmath34 is the number of spins ; @xmath35 and @xmath36 follow the same definitions for the sublattices @xmath37 and @xmath30 .    .
+spins are represented by arrows .
+sites belonging to the same sublattice have the same orientation of spins .
+the @xmath38 and @xmath39 signs indicate the handedness of the local chiralities .
+the ground state has 12-fold degeneracy . ]    to discuss the global spin reflection @xmath7 , we deal with the chirality .
+the local chirality on the elementary triangle is defined as @xmath40}_z    = \frac{2}{3\sqrt 3 } \sum_{j , k \in { \triangle}}\sin(\theta_k-\theta_j),\ ] ] where the @xmath41 component of the vector chirality is considered . the numerical factor in eq .
+( [ chiral ] ) is chosen such that the maximum of the absolute value is one . in the gs configuration
+depicted in fig .
+[ gsconf ] , the local chirality takes a checkerboard pattern of the right - handed ( positive ) orientation and the left - handed ( negative ) orientation .
+then , the staggered chirality @xmath42 becomes the order parameter for the @xmath7 symmetry breaking transition .
+the gs configuration has @xmath43-fold degeneracy which is induced by the discrete global spin rotation symmetry @xmath44 with @xmath45-fold and by @xmath7 symmetry with @xmath46-fold .
+the number of this degeneracy is used as one of the check conditions in the calculation of energy dos .
+we use the monte carlo method to calculate the energy dos directly to obtain precise numerical information .
+first , we briefly describe the wang - landau algorithm @xcite .
+this algorithm is similar to the multicanonical method ( entropic sampling ) of lee @xcite , the broad histogram method @xcite and the flat histogram method @xcite ; the idea is based on the observation that performing a random walk in energy space with a probability proportional to the reciprocal of the dos , @xmath47 , will result in a flat histogram of energy distribution .
+the wang - landau method introduces a modification factor to accelerate the diffusion of the random walk in the early stage of the simulation .
+since the dos is not known at the beginning , it is simply set @xmath48 for all energy @xmath49 . the transition probability from energy @xmath50 to @xmath51 reads @xmath52 , \label{trans}\ ] ] and the dos @xmath53 is iteratively updated as @xmath54 every time the state is visited .
+the modification factor @xmath55 is gradually reduced to unity by checking the ` flatness ' of the energy histogram ; the histogram for all possible @xmath49 is not less than some value of the average histogram , say , 0.80 .
+we also use the broad histogram relation for getting a refined dos . in proposing the broad histogram method , oliveira _ et al .
+_  @xcite paid attention to the number of potential moves , or the number of the possible energy change , @xmath56 , for a given state @xmath57 .
+the total number of moves is @xmath58 for a single spin flip process of the ising model simulation .
+the energy dos is related to the number of potential moves as @xmath59 where @xmath60 denotes the microcanonical average with fixed @xmath49 .
+this relation is shown to be valid on general grounds @xcite , and we call eq .
+( [ bhr ] ) the broad histogram relation .
+we measure the average of the potential move , @xmath61 , and use this information for getting a better estimate of the energy dos .
+it was stressed @xcite that @xmath56 is a macroscopic quantity , which is the advantage of using the number of potential moves .
+we should also note that the broad histogram relation does not depend on the particular dynamic rule one adopts , and the microcanonical averages of the potential moves can be obtained by any rule of monte carlo dynamics . in order to reduce calculation time for larger system sizes ,
+we break simulation into several energy windows and perform random walk in each different range of energy . the resultant pieces of the dos are joined together and used to produce the thermal average with the inverse temperature @xmath62 through the standard relation @xmath63 using the parallel machine , we perform the measurements of the physical quantity @xmath64 up to @xmath65 monte carlo steps .
+also , we perform 10 independent runs for each system size in order to get better statistics and to evaluate statistical errors .
+here we present the results for the af six - state clock model on the triangular lattice .
+we have treated the system with the linear sizes @xmath66 = 24 , 36 , 48 , 60 , and 72 .
+we apply the periodic boundary conditions .
+we normalize the dos by using the condition @xmath67 , and the degeneracy in the gs energy , @xmath68 , is checked in order to confirm the accuracy of the calculation . in fig .
+[ ds48 ] , we show the energy dos of system size @xmath69 as an example . here , the energy is represented in units of @xmath17 , and the gs energy is given by @xmath70 .    .
+the energy is represented in units of @xmath17 . ]
+the energy - dependent data of quantity @xmath71 are used to calculate the thermal average @xmath72 by using eq .
+( [ ave ] ) .
+we calculate the specific heat per spin through the relation @xmath73,\ ] ] where @xmath74 is the boltzmann constant .
+= 24 , 36 , 48 , 60 , and 72 . ]
+we show the temperature dependence of specific heat for different lattice sizes in fig .
+the divergent peak around @xmath75 in units of @xmath76 gives a clear sign of the existence of second - order phase transition .
+we also observe a hump on the lower temperature side around @xmath77 , which may be related to the transition of kt type .
+however , we should study the magnetic and chiral orders for the detailed analysis of the phase transition .
+the critical behavior and the transition temperature can be investigated more precisely from the evaluation of the order parameter or its corresponding correlation function .
+the magnetic and chirality correlation functions are defined as the following : @xmath78 where @xmath79 is the fixed distance between spins . precisely , the distance @xmath79 is a vector , but we have used a simplified notation .
+two of the present authors @xcite showed that the ratio of the correlation functions with different distances is a useful estimator for the analysis of the second - order phase transition as well as for the kt transition , and this correlation ratio can be used for the generalization of the probability - changing cluster algorithm @xcite .    at the critical point or on the critical line
+, the correlation function @xmath80 for an infinite system decays as a power of @xmath79 , @xmath81 where @xmath82 is the spatial dimension and @xmath83 the decay exponent . for a finite system in the critical region ,
+the correlation function depends on two length ratios , @xmath84 where @xmath85 is the correlation length .
+then , the ratio of the correlation functions with different distances has a finite - size scaling ( fss ) form with a single scaling variable , @xmath86 if we fix two ratios , @xmath87 and @xmath88 .    in the present work
+, we set @xmath89 and @xmath90 for two distances .
+thus , we evaluate the correlation ratios @xmath91 and @xmath92 , where @xmath93 and @xmath94 are referred respectively to eqs .
+( [ magchi1 ] ) and ( [ magchi2 ] ) .
+it is important for two correlated spins to belong to the same sublattice ; since the fixed distances are set as @xmath89 and @xmath95 , we choose the system size as a multiple of @xmath43 .
+we show the correlation ratios both for the ( a ) magnetic and ( b ) chiral correlations in fig .
+[ corf ] . from the temperature dependence of the magnetic correlation ratio plotted in fig .
+[ corf](a ) , we observe that the curves of different sizes merge in the intermediate temperature range ( @xmath96 ) , and spray out for the low - temperature and high - temperature ranges .
+this behavior is the same as that for the unfrustrated six - state clock model @xcite , which suggests that there are two phase transitions of kt type at @xmath11 and @xmath0 .
+the hump on the lower temperature side in the specific heat , fig .
+[ spht ] , may correspond to the lower temperature kt transition at @xmath11 .
+the higher temperature kt transition at @xmath0 is not obvious from the specific heat plot as it is veiled by the divergent peak due to the chiral transition .
+we can make a fss analysis based on the kt form of the correlation length , @xmath97 , where @xmath98 .
+the @xmath66 dependence of @xmath99 is given by @xmath100 using the data of the magnetic correlation ratio @xmath101 for different sizes , we estimate two kt transition temperatures . we consider the size - dependent temperature that gives the constant @xmath102 . in fig .
+[ t12 ] , we plot @xmath99 as a function of @xmath103 with @xmath104 for the best - fitted parameters in eq .
+( [ t_kt ] ) . for a fitting function
+we have used a quadratic function in @xmath103 to include correction terms .
+the value of @xmath102 has been set to be 0.86 , 0.88 and 0.90 for the determination of @xmath0 , whereas @xmath102 has been set to be 0.99 , 0.985 and 0.98 for @xmath11 .
+the data with different @xmath102 are represented by different marks in fig .
+[ t12 ] , but they are collapsed on a single curve in this plot , which means that @xmath105 depends on @xmath102 in eq .
+( [ t_kt ] ) and the difference of @xmath102 can be absorbed in the @xmath102 dependence of @xmath105 .
+we estimate the kt temperatures of the magnetic order using eq .
+( [ t_kt ] ) as @xmath106 where the numbers in the parentheses denote the uncertainty in the last digits .
+the estimate of @xmath0 is slightly lower than the estimate by noh _
+@xcite , @xmath107 .
+it is due to the fact that the moment ratio was used in ref .
+@xcite , and the estimate of the kt temperature becomes higher because of large corrections to fss @xcite .     and
+( b ) @xmath108 of the af six - state clock model on the triangular lattice for @xmath66 = 24 , 36 , 48 , 60 , and 72 , where @xmath109 .
+the data for @xmath102=0.86 , 0.88 and 0.90 are shown by different marks in ( a ) , and those for @xmath102=0.99 , 0.985 and 0.98 in ( b ) .
+, title="fig : " ] +   and ( b ) @xmath108 of the af six - state clock model on the triangular lattice for @xmath66 = 24 , 36 , 48 , 60 , and 72 , where @xmath109 .
+the data for @xmath102=0.86 , 0.88 and 0.90 are shown by different marks in ( a ) , and those for @xmath102=0.99 , 0.985 and 0.98 in ( b ) .
+, title="fig : " ]    next we consider the decay exponent @xmath83 .
+we first look at the constant value of correlation ratio @xmath102 for different sizes and find the associate correlation function @xmath110 .
+we give attention to the power - law dependence of the correlation function on the system size , @xmath111 , which can be seen from eq .
+( [ corr_finite ] ) and @xmath82 is set to be 2 .
+we plot @xmath110 versus @xmath66 for various @xmath102 s in logarithmic scale in fig .
+[ slope ] .
+the value of @xmath83 is obtained as the slope of the best - fitted line for each constant of correlation ratio .
+the multiplicative logarithmic corrections for the kt transition @xcite were shown to be small compared to statistical errors .
+we plot @xmath83 thus determined with respect to the fixed correlation ratio @xmath102 in fig .
+[ eta ] . in the kt phase , @xmath102 is directly related to the temperature .
+we should note that the exponent @xmath83 is meaningful only in the temperature range @xmath112 on the fixed line .
+we show the values of @xmath102 s which give @xmath11 and @xmath0 by arrows in fig .
+as can be seen , the decay exponent @xmath83 behaves like a typical kt transition ; that is , the exponent @xmath83 continuously changes with the temperature in the kt phase . since @xmath83 is almost constant for larger @xmath102 in fig .
+[ eta ] , the exponent at the lower kt temperature @xmath11 is estimated as @xmath113 for smaller @xmath102 ( higher temperature ) side , @xmath83 depends on @xmath102 due to corrections in fig .  [ eta ] .
+using the fact that the fitted value of @xmath105 in eq .
+( [ t_kt ] ) reflects on the difference from the transition point , that is , @xmath114 , we estimate the exponent @xmath83 at the higher kt temperature @xmath0 by extrapolation .
+the obtained @xmath83 and @xmath105 are , for example , 0.310 and 1.76 for @xmath115 , 0.298 and 2.18 for @xmath116 , and 0.284 and 3.25 for @xmath117 .
+plotting the @xmath83 s as a function of @xmath118 , and extrapolating to @xmath119 , we obtain @xmath120 of course , other dependences such as @xmath121 are possible ; such an ambiguity is included in the error . in fig .
+[ eta ] we show the value of @xmath102 which gives @xmath0 by the arrow .
+the @xmath83 at this @xmath102 is consistent with the estimated value , @xmath122 . for the unfrustrated six - state clock model , the exponents @xmath123 and @xmath124
+were predicted as 1/4 and 1/9 respectively @xcite , and they were confirmed numerically @xcite .
+the present results suggest that the exponents associated with the kt transitions are universal even for the frustrated model , which the previous work @xcite failed to show .     versus @xmath66 . here
+the slope of the best - fit straight line of each corresponding @xmath102 is the value of exponent @xmath83 . ]     of kt phase as a function of magnetic coefficient ratio @xmath102 .
+line is just guide to the eyes . ]
+the temperature dependence of the chiral correlation ratio was also plotted in fig .
+[ corf](b ) . the existence of chiral phase transition can be clearly observed . in the figure
+, there is a single crossing point which indicates the second - order phase transition ; it corresponds to the divergent peak in the specific heat plot . by using the fss plot of chirality correlation ratio , as shown in fig .
+[ nu1 ] , we can estimate the critical temperature and exponent @xmath125 of chiral ordering .
+the estimates are @xmath126 our result exhibiting that the chiral transition occurs at slightly higher than @xmath0 of kt transition is consistent with most studies in favor of double transition scenario .
+quite recently , korshunov @xcite has discussed that the phase transition associated with the unbinding of vortex pairs takes place at a lower temperature than the other phase transition associated with proliferation of the ising - type domain walls .
+our estimate for the exponent @xmath125 is consistent with the results by lee and lee @xcite and by ozeki and ito @xcite , but contradicts with the result by olsson @xcite ; that is , the critical phenomena are not governed by the ising universality class .
+we have not observed an appreciable size dependence of the estimated @xmath125 up to our maximum system size , @xmath127 .
+olsson @xcite argued that corrections to the scaling are important in the fully frustrated xy model , and the data are consistent with @xmath128 .
+et al . _ also postulated that only for large enough system the ising - like behavior is observed .
+however , using nonequilibrium relaxation study for large enough systems up to @xmath129 , ozeki and ito @xcite recently obtained the @xmath130 , which suggests that the corrections to fss are not so serious .
+thus , more careful calculations will be needed for the critical phenomena of chiral transition .    .
+in summary , we have investigated the af six - state clock model on the triangular lattice using the wang - landau method combined with the broad histogram relation . the model is closely related to the 2d fully frustrated xy model .
+we have found that the system possesses two orderings , spin ordering and chiral ordering .
+the former undergoes the kt transition while the latter indicates the second - order transition .
+we have also observed the lower temperature kt transition due to the discrete symmetry of the clock model .
+our estimates of the higher kt temperature @xmath0 and the critical temperature of chiral ordering @xmath1 , that is , @xmath2 and @xmath3 , support the double transition scenario .
+the lower kt temperature is estimated as @xmath4 .
+two decay exponents of kt transitions are estimated as @xmath5 and @xmath6 , which suggests that the exponents associated with the kt transitions are universal even for the frustrated model .    for the critical phenomena of the chiral transition ,
+our estimate of the exponent @xmath125 , that is , @xmath131 , suggests that the model does not belong to the ising universality class , but more detailed study is still required .
+the authors wish to thank n. kawashima , h. otsuka , c. yamaguchi , m. suzuki , and y. ozeki for valuable discussions .
+one of the authors ( ts ) gratefully acknowledges the fellowship provided by the ministry of education , science , sports and culture , japan .
+this work was supported by a grant - in - aid for scientific research from the japan society for the promotion of science .
+the computation of this work has been done using computer facilities of tokyo metropolitan university and those of the supercomputer center , institute for solid state physics , university of tokyo .
+s. teitel and c. jayaprakash , phys .
+b * 27 * , 598 ( 1983 ) .
+e. granato , j. m. kosterlitz , j. lee and m. p. nightingale , phys .
+lett . * 66 * , 1090 ( 1991 ) .
+g. ramirez - santiago and j. v. jose , phys .
+b * 49 * , 9567 ( 1994 ) .
+s. lee and k - c .
+lee , phys .
+b * 49 * , 15184 ( 1994 ) .
+p. olsson , phys .
+lett . * 75 * , 2758 ( 1995 ) ; phys .
+lett . * 77 * , 4850 ( 1996 ) ; phys .
+b * 55 * , 3585 ( 1997 ) .
+m. benakli , h. zheng and g. gabay , phys . rev .
+b * 55 * , 278 ( 1997 )
+. h. j. luo , l. sch@xmath132lke , and b. zheng , phys .
+lett . * 81 * , 180 ( 1998 ) .
+e. h. boubcheur and h. t. diep , phys .
+b * 58 * , 5163 ( 1998 ) .
+y. ozeki and n. ito , phys .
+b * 68 * , 054414 ( 2003 ) .    s. miyashita and h. shiba , j. phys
+. soc . jpn .
+* 53 * , 1145 ( 1984 ) .
+d. h. lee and j. d. joannopoulous , j. w. negele and d. p. landau , phys .
+lett . * 52 * , 433 ( 1984 ) ; phys .
+b * 33 * , 450 ( 1986 ) .
+e. van himbergen , phys .
+b * 33 * , 7857 ( 1986 ) .
+j. lee , e. granato and j. m. kosterlitz , phys .
+b * 44 * , 4819 ( 1991 ) ; phys . rev .
+b * 43 * , 11531 ( 1991 ) .
+xu and b. w. southern , j. phys .
+a * 29 * l133 ( 1996 ) .
+s. lee and k - c .
+lee , phys .
+b * 57 * , 8472 ( 1998 ) .
+d. j. resnick , j. c. garland , j. t. boyd , s. shoemaker , r. s. newrock , phys .
+lett . * 47 * , 1542 ( 1981 ) . b. j. van wees , h. s. j. van der zant , and j. e. mooij , phys .
+b * 35 * , 7291 ( 1987 ) .
+h. eikmans , j. e. van himbergen , h. j. f. knops and j. m. thijssen , phys .
+b * 39 * , 11759 ( 1989 ) . v.
+i. marconi and d. dominguez , phys .
+. lett . * 87 * , 017004 ( 2001 ) .          b. a. berg and t. neuhaus , phys
+b * 267 * , 249 ( 1991 ) ; phys .
+lett . * 68 * , 9 ( 1992 ) .
+j. lee , phys .
+lett . * 71 * , 211 ( 1993 ) .
+m. c. de oliveira , t. j. p. penna , and h. j. herrmann , braz .
+* 26 * , 677 ( 1996 ) ; eur .
+j. b * 1 * , 205 ( 1998 ) .
+j. s. wang , eur .
+j. b. * 8 * , 287 ( 1998 ) .
+j. s. wang and l. w. lee , comput .
+phys . commun . * 127 * , 131 ( 2000 ) ; j. s. wang , physica a * 281 * , 147 ( 2000 ) .
+f. wang and d. p. landau , phys .
+lett . * 86 * , 2050 ( 2001 ) ; phys .
+e * 64 * , 056101 ( 2001 ) .
+p. m. c. de oliveira , eur .
+j. b * 6 * , 111 ( 1998 ) .
+b. a. berg and u. h. e. hansmann , eur .
+j. b * 6 * , 395 ( 1998 ) .

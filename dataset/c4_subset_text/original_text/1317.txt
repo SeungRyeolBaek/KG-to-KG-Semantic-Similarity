@@ -1,0 +1,5 @@
+Cloudflare presents a primer on "anti-patterns" that have transformed IoT devices into ghastly security nightmares.
+This JSON request  instructs the alarm clock on every “alarmSound” event to send a HTTP request to the coffee machine. Whilst this may seem a simple and effective way of implementing the Pub/Sub pattern in HTTP, this poses a significant security risk.
+By not being able to validate if the receiver of the subscribed message wants the message or not, there is effectively a DDOS vulnerability. An attacker with the ability to set subscriptions on the alarm clock can effectively send HTTP messages to any device or internet property they want. If this is done across enough devices, a DDOS vulnerability is created.
+Toast popping out of a toaster or a car driving across a road traffic sensor could be the trigger of a future large scale DDOS against a web property.
+Vasile Savu is accused of walking into a Western Union in Hollywood, Florida and asking the clerk to print out his flight itinerary, a pretense he used to get the clerk to insert a thumb-drive loaded

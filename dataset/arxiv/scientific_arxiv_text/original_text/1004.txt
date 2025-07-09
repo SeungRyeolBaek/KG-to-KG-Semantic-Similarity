@@ -1,0 +1,257 @@
+microarray technology is an important tool to monitor gene - expression in bio - medical studies @xcite .
+a common experimental design is to compare two sets of samples with different phenotypes , e.g. diseased and normal tissue , with the goal of discovering differentially expressed genes @xcite .
+statistical testing procedures , such as such as the t - test and significance analysis of microarrays @xcite , have been extensively studied and widely used .
+subsequently , multiple testing corrections are usually applied @xcite .
+a comprehensive review of such approaches are presented in @xcite .
+differential expression analysis based on univariate statistical tests has several well - known limitations .
+first , due to the low sample size , high dimensionality and the noisy nature of microarray data , individual genes may not meet the threshold for statistical significance after a correction for multiple hypotheses testing @xcite .
+second , the lists of differentially expressed genes discovered from different studies on the same phenotype have little overlap @xcite .
+these limitations motivated the creation of gene set enrichment analysis gsea @xcite , which discovers collections of genes , for example , known biological pathways @xcite , that show moderate but coordinated differentiation . for example , subramanian and tamayo et al .
+@xcite report that the p53 hypoxial pathway contains many genes that show moderate differentiation between two lung cancer sample groups with different phenotypes . although the genes in the pathway are not individually significant after multiple hypothesis correction @xcite , the pathway is . for those familiar with gsea and
+its output , figure [ fig : pnas2005toy ] shows the gsea results for the p53 hypoxial pathway .
+gsea also has the advantages of better interpretability and better consistency between the results obtained by different studies on the same phenotype @xcite .
+ackermann and strimmer presented a comprehensive review of different gsea variations in @xcite .
+unfortunately , gsea and related techniques may be ineffective if many individual genes in a phenotype - related gene set have weak discriminative power .
+a potential solution to this problem is to search for combinations of genes that are highly differentiating even when individual genes are not . for this approach ,
+the targets are groups of genes that show much stronger discriminative power when combined together @xcite .
+for example , figure [ fig : gb2005toy1 ] illustrates one type of differentially expressed gene combination discovered in @xcite .
+the two genes have weak individual differentiation indicated by the overlapping class symbols on both the two axes .
+in contrast , these two genes are highly discriminative in a joint manner indicated by the different correlation structure in the two - dimensional plot , i.e. they are correlated along the blue and red dashed line respectively in the triangle and circle class .
+such a joint differentiation may indicate that the interaction of the two genes is associated with the phenotypes even though the two genes , individually , are not .
+figure [ fig : gb2005toy2 ] illustrates another type of phenotype - associated gene combination discovered in @xcite , usually named differential coexpression @xcite , in which the correlation of the two genes are high in one class but much lower in the other class . as discussed in @xcite , existing multivariate tests such as hotelling s @xmath0 @xcite , dempster s t1 @xcite are not suitable to detect such ` complementary ' gene combinations because they only screen for differences in the multivariate mean vectors , and thus will favor pairs that consist of genes with strong marginal effects by themselves but not the genes like the four in fig .
+[ fig : gb2005toy12 ] . for clarification
+, we use differential gene combination search ( denoted as dgcs ) to refer to the multivariate data analyses that are designed to detect the complementarity of different genes , rather than those designed to model the correlation structure of different genes ( such as hotelling s @xmath0 and dempster s t1 test ) .
+a variety of other dgcs measures for complementary gene combination search are proposed for gene pairs @xcite in addition to the two illustrated in figure [ fig : gb2005toy12 ] .
+several measures are designed for higher - order gene combination beyond pairs @xcite .
+these approaches can provide biological insights beyond univariate gene analysis as shown in @xcite .
+the limitations of gsea and the capabilities of dgcs motivate a gsea approach using gene combinations in which the score of a gene set is based on both the scores of individual genes in the set and the scores from the gene combinations in which these genes participate .
+unfortunately , gene combination techniques have not been used with the gsea approach in any significant way because of two key challenges .    1 .   * finding a technique to reduce the vast number of gene combinations .
+* there are exponentially more gene combinations than individual genes , i.e. in addition to the @xmath1 univariate genes , there are @xmath2 gene - pairs , @xmath3 gene - triplets , etc
+. many variations of gsea are based on a ranked list of the @xmath1 individual genes as illustrated in figure [ fig : pnas2005toy ] . including combinations in the ranked list
+might work for size-2 combinations @xcite , but would not be feasible for handling gene combinations of larger sizes .
+furthermore , this explosion in the number of gene combinations negatively impacts false discovery rates .
+thus , by adding so many gene combinations , we run the risk that neither groups of genes nor individual genes will show statistically significant differentiation .
+* combining results from the heterogeneous measures used to score different size gene combinations . * furthermore , because a gene can be associated with the phenotype either as an univariate variable or together with other genes as a combination , the importance of a gene set should be based on both the univariate gene scores and the gene combination based scores of its set members . however , different measures have a different nature , scale and significance , and thus are not directly comparable ( to be detailed in section [ sec : score2pv ] ) . indeed , differences exist even between gene combinations of the same measure but of different sizes .
+therefore , the challenge lies in how to design a framework to combine different measures ( a univariate measure plus one or more dgcs measures ) together within the gsea framework .    to the best of our knowledge
+, no existing work has sufficiently addressed these two challenges , although recent work presented in @xcite have made initial efforts at adding gsea capabilities to gene combination search .
+more specifically , two approaches are proposed in @xcite to help the study of a specific type of size-2 differential combinations as illustrated in [ fig : gb2005toy2 ] .
+the experiments in these two studies provide some evidence about the benefits of the integration .
+however , a more general framework is needed that can also handle other types of size-2 differential combinations as illustrated in figure [ fig : gb2005toy1 ] , higher order differential combinations ( e.g. sdc@xcite and the n - statistic @xcite ) , and multiple types of differential combinations .
+* contributions : * in this paper , we propose a general framework to address the above challenges for the effective integration of dgcs and gsea .
+specific contributions are as follows :    1 .   * a gene - combination - to - gene score summarization procedure ( procedure _ a _ ) that is designed to handle the exponentially increasing number of gene combinations . * first , for a given gene combination measure and a certain @xmath4 , the score of a size-@xmath4 combination is partitioned into @xmath4 equal parts which are assigned to each of the @xmath4 genes in the combination .
+because each gene can participate in up to @xmath5 size-@xmath4 combinations , each gene will be assigned with a score from each of these combinations .
+secondly , an aggregation statistic , e.g. , maximum absolute value is used to summarize the different scores for a gene .
+with such a procedure , scores for all the size-@xmath4 gene combinations are summarized to @xmath1 scores for @xmath1 genes .
+this procedure can effectively retain the @xmath6 length of the ranked list while handling gene combinations of size-@xmath4 ( @xmath7 ) .
+* a score - to - pvalue transformation and summarization procedure ( procedure _ b _ ) that is designed to integrate the scores contributed ( in procedure @xmath8 ) from different gene combination measures and from gene combinations of different sizes .
+* the transformation is based on p - values obtained from scores derived from phenotype permutations .
+such a transformation enables the comparison of scores from different measures ( either univariate or gene combination measures ) and scores from the gene combinations of different sizes .
+subsequently , among all the p - values of a gene , the best is used as an integrated score of statistical significance .
+* integration of the above two procedures with gsea * more specifically , after procedures _ a _ and _ b _ , each gene has a single integrated score . unlike traditional univariate scores
+, these @xmath1 integrated scores are based on both the univariate statistic and the gene combination measures . for the type of gsea variations that depend on phenotype permutation test ,
+@xmath9 lists of @xmath1 integrative scores are computed , one for the real class labels and the other for the @xmath10 permutations . for the type of gsea variations that are based on gene - set permutation test , only the list of integrated scores for the real class labels are needed .
+an independent matlab implementation of the proposed framework is available for download , which allows most existing gsea frameworks @xcite to directly utilize the proposed framework to handle gene combinations with almost - zero modification .
+* experimental results that illustrate the effectiveness of the proposed framework .
+* we integrated three gene combination measures and the gsea approach presented in @xcite and produced experimental results from four gene expression datasets .
+these results demonstrate that the integrative framework can discover gene sets that would have been missed without the consideration of gene combinations .
+this includes statistically significant gene sets with moderate differential gene combinations whose individual genes have very weak discriminative power .
+thus , a gene combination assisted gsea approach can improve traditional gsea approaches by discovering additional disease - associated gene sets .
+indeed , the integrative approach also improve traditional dgcs since most gene combinations are not statistically significant by themselves .
+furthermore , we also show that the biologically relevant gene sets discovered by the integrative framework share several common biological processes and improve the consistency of the results among the three lung cancer data sets .
+* overview : * the rest of the paper is organized as follow . in section [ sec : measures ] , we describe three gene combination measures used in the following discussion and experiments . in section [ sec : methods ] , we present the technical details of the two procedures of the general integrative framework . experimental design and results
+are presented in section [ sec : exp ] , followed by conclusions and discussions in section [ sec : discssion ] .
+in this section , we describe three dgcs measures for use in the following discussion and experiments .
+let @xmath11 and @xmath12 be two phenotypic classes of samples of size @xmath13 and @xmath14 respectively . for each sample in @xmath8 and @xmath15 , we have the expression value of @xmath1 genes @xmath16 .
+first , we have the following two measures ( denoted as @xmath17 and @xmath18 ) defined for a pair of genes as presented in @xcite :    @xmath19    @xmath20    where @xmath21 and @xmath22 are two genes , and @xmath23 represents the correlation of @xmath21 and @xmath22 over the samples in set @xmath24 .
+as discussed in @xcite , @xmath17 and @xmath18 can detect the joint differential expression of two genes as illustrated in figure [ fig : gb2005toy1 ] and figure [ fig : gb2005toy2 ] respectively . @xmath17 and @xmath18
+are used as two representative measures for gene pairs .
+other options for gene combination measures for gene pairs have been investigated in @xcite .
+we use the subspace differential coexpression measure ( denoted as @xmath25 ) proposed in @xcite as the representative for measures for size-@xmath4 gene combinations , where @xmath4 can be any integer ( @xmath7 ) .    @xmath26    where @xmath27 is a set of genes such that @xmath28 and @xmath29 .
+@xmath30 and @xmath31 respectively represent the fraction of samples in @xmath8 and @xmath15 over which the genes in @xmath27 are coexpressed .
+@xmath25 is a generalization of @xmath18 for detecting the differential coexpression of @xmath4 genes ( @xmath7 ) , i.e. the @xmath4 genes are highly coexpressed over many samples in one class but over far fewer samples in the other .
+other options for size - k combinations include the _ n - statistic _
+@xcite , _ supmaxpair _
+@xcite , etc .
+signal - to - noise ratio ( denoted as @xmath32 ) is used as the representative of traditional univariate statistics as in @xcite .
+@xmath33    where @xmath34 and @xmath35 are the mean expression of @xmath21 in class @xmath8 and @xmath15 respectively , and @xmath36 and @xmath37 are the standard deviation of the expression of @xmath21 in class @xmath8 and @xmath15 respectively .
+many other univariate statistics can be found in @xcite .    in this paper , these four measures are used as representatives of each category for the illustration of the proposed integrative framework .
+however , the framework is general enough to handle other measures from each of these categories .
+in section [ sec : intro ] , we motivated the integration of dgcs with gsea , discussed two challenges associated with this integration , and briefly described two main procedures in the proposed framework . in this section
+, we present the technical details of the two procedures and their integration with gsea .
+there are two steps in procedure @xmath8 . in step @xmath38 , for each dgcs measure and each size-@xmath4 gene combination , its score is divided into @xmath4 equal parts and assigned to each of the @xmath4 genes in the combination . in step @xmath39 , the scores assigned to a gene from all the size - k combinations in which the gene participates are summarized into a single score by an aggregation functions such as @xmath40 .
+note that , for most univariate statistic and dgcs measures which can be either positive or negative ( e.g. the four measures described in section [ sec : measures ] ) , the maximum is taken over the absolute values of the scores , and the sign of the score with the highest absolute value is recorded for later use .
+other simple statistics such as mean or median , or sophisticated ones such as weighted summation @xcite can also be used . since
+the focus of this paper is the overall integrative framework , we use @xmath40 for simplicity .    we provide a conceptual example of procedure @xmath8 for a gene @xmath41 with a certain dgcs measure @xmath17 .
+this example considers gene combinations up to size @xmath42 for illustration purpose .
+the gene is associated with scores assigned from gene combinations of size 2 , 3 and 4 ( denoted as @xmath43 , @xmath44 and @xmath45 respectively ) in which @xmath41 participates . in step @xmath39 , the scores from @xmath43 , @xmath44 and @xmath45 are summarized by three maximum values , respectively
+. please refer to the appendix section for the illustration of this example .
+procedure @xmath8 serves as a general approach to summarize the @xmath46 scores of all the size-@xmath4 combinations into @xmath1 scores for the @xmath1 genes .
+if we want to integrate gsea with one dgcs measure and a specific size-@xmath4 , procedure @xmath8 by itself can enable most existing variations of gsea to search , with almost - zero modification , for statistically significant gene sets with moderate but coordinated gene combinations of size-@xmath4 .
+such a gsea approach can collectively consider the gene combinations affiliated with a gene set , and may provide better statistical power and better interpretability for dgcs , as will be shown in the experiments .
+the hypothesis tested when one dgcs measure , say @xmath47 , is integrated with gsea ( by procedure @xmath8 ) is that , whether a gene set includes significantly many genes with highly positive ( or highly negative ) combination - based scores measured by @xmath47 .
+an extended hypothesis can be whether a gene set includes significantly many genes with highly positive ( or highly negative ) scores , either univariate or combination - based scores measured by different dgcs measures .
+the biological motivation of this extended hypothesis is that , a gene can be associated with the phenotype either as an univariate variable or together with other genes as a combination . to test this extended hypothesis
+, we design a second procedure ( _ b _ ) that can integrate the scores of a gene from different measures .    before describing the steps in this procedure .
+we first discuss in detail the challenges of integrating heterogeneous scores from different dgcs measures and combinations of different sizes .    1 .   * the different nature of different measures * : different measures are designed to capture different aspects of the discriminative power of a gene or a gene combination between the two phenotypic classes .
+signal - to - noise ratio ( @xmath32 ) , a univariate gene - level statistic , measures the difference between the means of the expression of a gene in the two classes .
+in contrast , @xmath18 , a differential coexpression measure for a pair of genes describes the difference of the correlations of a gene - pair in the two classes .
+thus , for a gene , the score of itself measured by @xmath32 and the score assigned and summarized from the @xmath48 size-2 gene combinations measured by @xmath18 are not directly comparable .
+similarly , the scores of different dgcs measures can also have a different nature , e.g. @xmath17 and @xmath18 as illustrated in figure [ fig : gb2005toy12 ] .
+* the different scales of different measures * : different measures also have different ranges of values . for example , the range of @xmath32 , @xmath17 , @xmath18 , and @xmath25 are @xmath49 $ ] , @xmath50 $ ] , @xmath51 $ ] and @xmath52 $ ] respectively . thus , they are not directly comparable .
+* differences in significance between different measures * : even after we normalize the scores of different measures to a single range , say @xmath52 $ ] , they are still not comparable because the scores of different measures have different statistical significance . for example , a normalized @xmath32 score of @xmath53 may be less significant than a normalized @xmath17 score of 0.5 , if there are many genes with normalized @xmath32 score greater than @xmath53 in the permutation test @xcite , but very few genes with normalized @xmath17 score greater than @xmath54 in the permutation test .
+note that , such differences in statistical significance also exists between gene combinations of different sizes , even for the same measure .
+take the subspace differential coexpression measure @xmath25 as an example
+. a score of @xmath54 for a size-2 combination may not be as significant as a score of @xmath54 for a size-3 combination as discussed in @xcite .
+to handle the above heterogeneity , we propose a score - to - pvalue transformation and summarization procedure that can enable the comparison and integration of the scores of different measures and combinations of different sizes .
+there are three major steps in procedure @xmath15 .     in procedure @xmath15 ( score - to - pvalue transformation ) for gene @xmath21 and measure @xmath18.,scaledwidth=95.0% ]      consider a concrete example . for a gene @xmath21 and a measure @xmath18 , procedure @xmath8 computes a single summarized score . in this step
+, the original phenotype class labels are permutated say @xmath56 times , and for each permutation , the same procedure @xmath8 is applied , and a corresponding score for @xmath21 and @xmath18 is computed .
+we denote the score of @xmath21 and @xmath18 summarized with the original label as @xmath57 , where @xmath58 is the gene index , and @xmath59 indicates the measure and @xmath60 means it is the score based on the original label .
+similarly , we denote the scores computed in each of the permutation as @xmath61 , where @xmath62 .
+these @xmath63 scores are organized in the table on the left in figure [ fig : tabmerge2measures ] .
+the @xmath56 scores computed in the @xmath56 permutations can be considered as the null - distribution for gene @xmath21 and measure @xmath18 , and a p - value can be estimated for @xmath57 .
+specifically , if @xmath57 is positive , the p - value is the ratio of the number of scores that are greater or equal to @xmath57 and the number of scores that are positive .
+similarly if @xmath57 is negative , the p - value is computed as the ratio of the number of scores which are less or equal to @xmath57 and the number of scores which are negative .
+note that , such a score - to - pvalue transformation is done for both @xmath57 and each of @xmath61 ( @xmath62 ) , if the gsea approach to be integrated is based on phenotype permutation test @xcite .
+otherwise , only @xmath57 needs to be transformed to p - value and will be used by the gsea approaches that are based on gene - set permutation @xcite . in this paper
+, we illustrate the proposed framework using the gsea approach presented by subramanian and tamayo et al .
+@xcite which is based on phenotype permutation test
+.    essentially , step @xmath55 transforms the heterogeneous scores of a gene measured by different measures into their corresponding significance values , which are comparable to each other although their original values are not .
+suppose that there are @xmath64 different measures to be integrated , one of which is a univariate statistic , and the others are different dgcs measures for which we consider combinations of sizes up to @xmath65 .
+after step @xmath55 , each gene has a p - value for the univariate measure and up to @xmath65 p - values for each size of gene combination for each measure . in step @xmath59 ,
+the best transformed p - value ] p - value associated with a gene is selected as the integrated significance .
+essentially , procedure @xmath15 integrates the scores of different dgcs measures for a gene and the univariate statistic of the gene into a single p - value .
+such a statistical significance - based integration of heterogeneous scores enables the comparison and thus the ranking of all the @xmath1 genes .
+however , this ranked list does not maintain the original directionality of the integrated scores of each gene .
+in particular , most univariate statistics and dgcs measures ( e.g. all the four measures described in section [ sec : measures ] ) can be either positive or negative .
+such directionality information is lost in step @xmath55 and @xmath59 because the p - value is non - negative .
+next , we describe a third step to maintain the directionality in the integration .
+in the simple case , the measures to be integrated capture the same type of differentiation between the two phenotype classes , e.g. @xmath18 and @xmath25 .
+suppose there are two genes @xmath21 and @xmath22 , whose integrated p - values are transformed respectively from two scores measured by @xmath18 and @xmath25 in step @xmath59 .
+the signs of these two scores are comparable to each other , because both @xmath18 and @xmath25 capture the change of coexpression of a combination of genes .
+thus , we simply use the signs of these two scores as the signs associated with the integrated p - values of @xmath21 and @xmath22 . similarly , we associate a sign to all the @xmath1 integrated p - values .
+and these @xmath1 p - values with associated signs can be used to rank the @xmath1 genes based on their significance as well as their direction of differentiation ,
+i.e. p - values associated with positive signs are ranked with descending significance , and afterwards , p - values associated with negative signs are ranked with increasing significance .    in the other case , if the measures to be integrated capture different types of differentiation between the two phenotype classes , the directionality can not be fully maintained .
+for example , suppose there are two genes @xmath21 and @xmath22 , whose integrated p - values are transformed respectively from two scores measured by @xmath32 and @xmath18 in step @xmath59 .
+the signs of these two scores are not comparable , because @xmath32 captures the change of mean expression , and @xmath18 captures the change of coexpression of a combination of genes .
+specifically , up - regulation of @xmath21 can be associated with either high or low coexpression of another gene - combination in which @xmath22 participates .
+thus , it is not reasonable to follow the same strategy to associate signs to the @xmath1 integrated p - values .
+if we know the correspondence of the signs of different genes in advance , e.g. the up - regulation of @xmath41 is associated with the low coexpression of @xmath67 and @xmath68 , then the signs can be maintained .
+however , because it is not realistic to assume such prior knowledge , we propose the following heuristic approach which has proved a workable solution for our initial experiments . specifically , since the focus of step @xmath15 is to integrate different dgcs measures in addition to the univariate statistic @xmath32 , we considered @xmath32 as the base measure . for the integrated p - values that are transformed from scores measured by @xmath32 in step @xmath59 ( say there are @xmath69 of them ) , we use the signs of these @xmath69 @xmath32 scores for the @xmath69 integrated p - values . for the signs of the other @xmath70 genes , we assign positive signs to all of them once and negative signs to all of them a second time .
+correspondingly , we have two ranked lists similar to the simple case described above .
+note that , if the directionality of differential measures can be preserved , the power of this approach will be enhanced . to deal with the situation where
+signs are not comparable , other approaches will be explored .      from the above description of procedure @xmath8 and @xmath15 , we know that , if only one dgcs measure is used in the gsea framework , only procedure @xmath8 is needed .
+if one or multiple dgcs measures are integrated together with the univariate statistic @xmath32 in the gsea framework , procedure @xmath15 is needed in addition . in the first case , the integrative framework outputs a ranked list of @xmath1 scores with associated signs for the original class label , and @xmath56 lists corresponding to the @xmath56 permutation tests . in the second case
+, we have two sets of @xmath63 lists respectively for the two rounds of maintaining directionality in step @xmath66 in procedure @xmath15 .    in either case , the @xmath63 ranked lists along with the appropriate parameter settings and specification of gene sets can be used to run gsea .
+the only modification to gsea is the elimination of the initial gsea step to generate the scores , simulated and actual , that measure the level of differentiation between genes across different phenotypes .
+the proposed integrative framework is implemented as a matlab function ( available at http://vk.cs.umn.edu/icg/ ) , independently from the gsea framework to be integrated in this paper @xcite . as summarized by ackermann and strimmer @xcite ,
+hundreds of variations of gsea are being used by different research groups .
+this independently implemented integrative framework can be easily applied to other variations of gsea .      in our experiments , in order to have a fair comparison , we transform the @xmath63 ranked lists into the exact sample distribution as the original lists corresponding to @xmath71gsea .
+specifically , we only use the ranking information in the @xmath63 integrated ranked lists and map to them to the values in the original lists based on @xmath71gsea . essentially , the values in the ranked list passed to the gsea framework are exactly the same among @xmath71gsea , @xmath72gsea , @xmath73gsea , @xmath74gsea and @xmath75gsea , while the only difference is that the @xmath1 genes have different ranks in the lists .
+such a mapping ensures that the additionally discovered gene sets are because of the integration of gene - combinations in addition to univariate statistic , rather than simply the different value distributions in the @xmath63 lists .
+in this section , we present the experimental design and results for the evaluation of the proposed integrative framework .
+we first provide a brief description of the data sets and parameters used in the experiments .
+second , we describe and discuss the comparative experiments to study whether the integration of dgcs and gsea ( denoted as dgcs@xmath76gsea ) improves both dgcs and gsea .
+the two major evaluation criteria are the statistical power to discover ( additional ) significant results , and the consistency of the results across different datasets for the study of the same phenotype classes .
+the four datasets used in the experiments are described as follows :    1 .
+three lung cancer datasets respectively denoted as boston  @xcite , michigan  @xcite and standford  @xcite : all the three data sets consist of gene - expression profiles in tumor samples from respectively 62 , 86 and 24 patients with lung adenocarcinomas and provide clinical outcomes ( classified as `` good '' or `` poor '' outcome ) .
+the two phenotypic classes in these three datasets are denoted as @xmath8 and @xmath24 as in @xcite .
+2 .   a data set from the nci-60 collection of cancer cell lines for the study of p53 status @xcite ( denoted as @xmath77 data set ) : the mutational status of the p53 gene has been reported for 50 of the nci-60 cell lines , with 17 being classified as normal and 33 as carrying mutations in the gene .
+the two phenotypic classes in this dataset are denoted as @xmath78 and @xmath79 as in @xcite .
+all four datasets were downloaded from the gsea website@xcite , and were already preprocessed as described in the supplementary file of @xcite .
+for all four data sets , we use the gene sets from @xmath43 in msigdb@xmath80 as in @xcite , as well as the same parameters .
+we consider one univariate statistic ( @xmath32 ) , and three gene - combination measures ( @xmath17 , @xmath18 and @xmath25 ) in our experiments .
+these four measures are described in section [ sec : measures ] .
+@xmath17 and @xmath18 are defined only for size-2 combinations . for @xmath25 , we considered gene - combinations of size-@xmath59 and size-@xmath66 for the illustration of concept .
+.number of with fdr less than @xmath81 discovered from the four data sets by each combination measure [ cols="<,<,<,<,<",options="header " , ]     in this section , we study whether the question ( q1 ) of whether integration of dgcs and gsea can improve traditional dgcs . for this comparison , we consider the integration of dgcs and gsea as a gsea - assisted dgcs approach .
+we first apply the traditional dgcs approaches on the four datasets to find statistically significant gene - combinations .
+we denote the three dgcs approaches respectively with the names of the three measures , i.e. @xmath17 , @xmath18 and @xmath25 .
+second , we apply the integrative framework , in which gsea is integrated respectively with the three dgcs measures , to find statistically significant gene sets with moderate but coordinated differential gene - combinations .
+we denote the three instances of the integrative approach respectively as @xmath82gsea , @xmath83gsea and @xmath84gsea .
+then , we compare the results of @xmath17 , @xmath18 and @xmath25 , respectively with the results of @xmath82gsea , @xmath83gsea and @xmath84gsea .
+table 1 lists the number of statistically significant gene combinations discovered respectively by the three measures on each of the four datasets , with an fdr threshold of @xmath81 .
+table 1 lists the number of statistically significant gene sets discovered by integrating gsea respectively with the three dgcs measures on each of the four datasets , also with the same fdr threshold of @xmath81 .
+three major observations can be made by comparing the two tables :      table 1 shows that , in most cases , traditional dgcs discovers very few ( less than 3 ) statistically significant gene combinations ( although @xmath18 and @xmath25 have @xmath85 and @xmath86 gene - combinations on the boston data set , none of them have fdr lower than @xmath87 ) .
+in contrast , table 2 shows that the integration of gsea with the three combination measures discover multiple significant gene sets in most of the cases .
+this difference implies that the discovered statistically significant gene sets include many moderate but coordinated differential gene combinations , even though the combinations are not significant by themselves as shown in table 1 .
+this comparison demonstrates that traditional dgcs , similar to univariate gene analysis , has limited statistical power , and dgcs@xmath76gsea can increase that power .
+we further compare dgcs and dgcs@xmath76gsea by studying the consistency of their results on the first three data sets that are all from lung cancer studies , as done in @xcite .
+for dgcs , @xmath17 discovered @xmath59 genes on michigan but nothing from boston and stanford ; @xmath18 discovered @xmath85 combinations on boston but only 1 and 2 from michigan and stanford , respectively , and there are no common ones between the 645 , 1 , and 2 gene combinations ; @xmath25 discovered @xmath86 genes on boston but only @xmath55 gene on michigan and nothing from stanford , and the 10 and 1 combinations do not overlap .
+the inconsistent results make the follow - up biological interpretation very difficult .    in contrast ,
+when the three dgcs measures are integrated with gsea , several consistent themes can be observed : ( i ) apoptosis related pathways ( marked by @xmath8 in table 2 ) : @xmath82gsea discovered four gene sets on boston , three of which are known to be closely related to cancer and specifically to apoptosis , i.e. _ nfkbpathway _ , _ st - gaq - pathway _ and _ tnf - pathway_. this apoptosis theme is shared by the gene sets discovered by @xmath17-gsea from michigan and stanford , i.e. _ monocyte - ad - pathway _ , _ hivnefpathway _ , _ deathpathway _ and _ caspasepathway_. these apoptosis related pathways are enriched with the lung cancer samples with good outcome , which makes sense biologically and also corresponds to the proliferation theme supported by the gene sets enriched with the samples with poor outcome as reported in @xcite .
+several other examples of the result consistency , as indicated by other superscripts in table 2 , are in the technical report .
+this comparison demonstrates that traditional dgcs , like univariate gene analysis , has poor result consistency across the three lung cancer data sets , and dgcs@xmath76gsea can improve its consistency by integrating dgcs measures with gsea .
+the number of significant gene sets discovered by the three versions of gsea varies , i.e. @xmath82gsea and @xmath83gsea discovered a bit larger number of significant gene sets than @xmath84gsea .
+however , @xmath84gsea still discovered several gene sets that are not discovered by @xmath82gsea or @xmath83gsea , e.g. one gene set from the michigan data set and three from the stanford data set .
+this indicates that @xmath82gsea , @xmath83gsea and @xmath84gsea have complementary perspectives , i.e. different combination measures capture different aspects of the difference between the phenotype classes ( recall the two types of combinations in figure [ fig : gb2005toy12 ] ) .
+this also demonstrates the proposed framework is general enough to integrate any type of dgcs with gsea .      in this section ,
+we want to answer the question ( q2 ) of whether the integration of dgcs and gsea can improve traditional gsea . for this comparison ,
+we consider the integration of dgcs and gsea as a dgcs - assisted gsea approach .
+we design three sets of comparisons .
+firstly , we compare the traditional univariate - statistic based gsea ( denoted as @xmath71gsea ) with the integrative framework where one gene - combinations measure is used instead of @xmath32 .
+specifically , we compare the gene sets discovered by @xmath71gsea with the gene sets discovered by @xmath82gsea , @xmath83gsea and @xmath84gsea .
+then , we compare @xmath71gsea with the integrative framework where one gene - combinations measure is used in addition to @xmath32 , i.e. @xmath72gsea , @xmath73gsea and @xmath74gsea . furthermore , we also study the integration of multiple gene - combinations measure in addition to @xmath32 , e.g. @xmath75gsea .    figure [ fig : bigtable12312009half ] displays the statistically significant gene sets discovered with different ( combinations of ) measures respectively from the four datasets .
+an fdr threshold of @xmath81 is used as in @xcite for comparison purpose .
+the results presented in @xcite are exactly reproduced , i.e. the gene sets listed in the rows corresponding to @xmath71gsea . in each of these four figures ,
+we consider the traditional univariate - statistic based gsea ( @xmath88gsea ) as the baseline , and compare it with the rows corresponding to @xmath89gsea , @xmath90gsea , @xmath91gsea , @xmath72gsea , @xmath73gsea , @xmath74gsea and @xmath92gsea . from these comparisons , the following observations can be made .
+gsea ) is considered as the baseline .
+for the other rows , we only list a gene set if it is only discovered by the integrative approach ( with bolded name ) , or it has a non - trivially decreased fdr when it is discovered by the integrative approach ( with bolded fdr ) .
+please refer to the appendix section for the complete tables . ]
+first , we compare the rows corresponding to @xmath89gsea , @xmath90gsea , @xmath91gsea with the rows corresponding to @xmath88gsea .
+we bolded the additional gene sets that are only discovered by @xmath89gsea , @xmath90gsea , @xmath91gsea .
+for example , with @xmath71gsea , no statistically significant gene sets have been enriched with class a in the boston data set .
+in contrast , @xmath82gsea discovered @xmath42 gene sets , three out of which ( discussed in @xmath93 ) are related to apoptosis which is consistent with the results on michigan and stanford . on the michigan dataset
+, @xmath83gsea discovered a gene set _ beta - alanine - metabolism _ that is not discovered by @xmath71gsea .
+this gene set is related to the responses of hypoxia , which is consistent with the results on boston and stanford .
+it is worth noting that , although most studies did not report statistically significant gene sets on the stanford dataset due to the very small sample size , @xmath89gsea , @xmath90gsea , @xmath91gsea respectively discovered 4 , 4 and 3 significant gene sets .
+these additional gene sets were discovered because the three dgcs measures capture different types of the differentiation between the two phenotype classes , compared to the traditional univariate differential expression - based gsea .
+second , we compare the rows corresponding to @xmath72gsea , @xmath73gsea , @xmath74gsea with the rows corresponding to @xmath88gsea .
+we bolded the additional gene sets that are only discovered by the integrative approach .
+for example , on the boston data set , @xmath32 based gsea discovered 8 gene sets .
+in addition , @xmath72gsea discovered the _
+gene set , and @xmath73gsea discovered the _ p53-signaling _ gene set .
+both ubiquitin - proteasome pathway and p53-signaling pathway are well - known cancer - related pathways that are also specifically related to lung cancer @xcite .
+( additional examples are in the technical report . )
+the gene sets that are discovered by dgcs - assisted gsea but not by @xmath94-gsea illustrate the benefits of using dgcs to assist gsea .
+next , we also observed that integrating multiple dgcs measures can further discover statistically significant gene sets . for illustration purpose , we compare the rows corresponding to @xmath72gsea , @xmath73gsea , @xmath74gsea with the rows corresponding to @xmath75gsea .
+@xmath75gsea discovers the _
+g2pathway _ gene set and the _
+gsk3pathway _ gene set , respectively from the boston and the michigan dataset .
+neither of these two pathways are discovered by @xmath88gsea , @xmath72gsea , @xmath73gsea and @xmath74gsea .
+the curated gene set _ g2pathway _ contains the genes related to the g2/m transition , which is shown to be regulated by p53 @xcite , a well - known cancer - related gene .
+the curated gene set _ gsk3pathway _ is the signaling pathway of gsk-3-@xmath95 , which has been shown to be related to different types of cancer@xcite .
+these two cancer - related pathways are discovered by @xmath75gsea but not by @xmath88gsea , @xmath72gsea , @xmath73gsea and @xmath74gsea .
+this indicates that different members of these two pathways are differential between the two phenotype groups in different manners , i.e. the differentiation of some genes is captured by @xmath32 , some by @xmath17 , some by @xmath18 and some by @xmath25 .
+these two pathways can be discovered to be statistically significant only when these measures are used together in the integrative framework .
+this demonstrates the benefits of the proposed framework for integrating multiple dgcs measures with a univariate measure .
+it is worth noting that , the gene sets discovered by the integrative framework with multiple measures are not necessarily a superset of those discovered by integrating each individual measure with gsea since , when different dgcs measures are integrated with gsea , the null - hypotheses tested in the gsea framework are correspondingly different .
+the highlight of the integrative framework is that , additional gene sets can be discovered when different dgcs measures are used to assist the traditional univariate statistic - based gsea . in practice , these different versions of gsea should be used collectively .      :    even when a gene set is discovered both before and after a dgcs measure is integrated into the framework , we can observe several interesting cases where the fdr of a gene set becomes much lower after the integration .
+we bolded the fdrs that significantly decreased when they are discovered by the integrative approach .
+for example , @xmath75-gsea , in which @xmath32 , @xmath17 , @xmath18 and @xmath25 are integrated together , discovers _
+p53hypoxialpathway _ with an much lower fdr of @xmath96 , two - order lower than @xmath32-gsea .
+this example indicates that several members of _
+p53hypoxialpathway _ have weak individual differentiation measured by @xmath32 , but have more significant differentiation when they are measured by @xmath25 .
+this and other similar examples demonstrates the benefits of the proposed framework for integrating multiple dgcs measures .
+as presented in @xcite , @xmath71gsea discovered @xmath97 and @xmath98 gene sets respectively from the boston and michigan data sets , and 5 of the 8 in boston and 6 of the 11 in michigan are common .
+the three unmatched gene sets that are discovered in boston but not in michigan are _ glut - down _ , _ leu - down _ and _ cellcyclecheckpoint_. interestingly , the latter two are discovered from both the boston and the michigan data sets by @xmath72gsea .
+such observations suggest that dgcs - assisted gsea also provides new insights to the consistency between different data sets .      because different combinations of measures are used in the integrative framework , additional issues of multiple hypothesis testing arise , even though multiple hypothesis testing has been addressed for each measure via the phenotype permutation test procedure in the gsea framework proposed in @xcite .
+to investigate this , we designed experiments with 4 of the @xmath99@xmath100 possibilities of integrations , i.e. @xmath72gsea , @xmath73gsea , @xmath74gsea and @xmath75gsea . even using a collective ( meta - level ) multiple hypothesis correction , many discovered gene sets would still be significant . for examples
+, @xmath75gsea discovers _
+p53hypoxialpathway _ from the boston data set with a low fdr of @xmath96 , and @xmath75gsea discovers _ deathpathway _ from the michigan data set with a lower fdr of @xmath101 .
+we also did additional permutation tests , in which we generate random gene sets with the same sizes as the sets in msigdb @xmath43 , and do the same set of experiments as shown in figure [ fig : bigtable12312009half ] .
+the fdr values of the random gene sets computed in the integrative framework are mostly insignificant ( higher than @xmath81 ) .
+in this paper we motivated the integration of differential gene - combination search and gene set enrichment analysis for bi - directional benefits on both them .
+we proposed a general integrative framework that can handle gene - combinations of different sizes ( @xmath7 ) and different gene - combination measures in addition to an univariate statistic used in traditional gsea .
+the experimental results demonstrated that , on one hand , gsea - assisted dgcs has better statistical power and result consistency than traditional dgcs . on the other hand , dgcs - assisted gsea can discover additional statistically significant gene sets that are ignored by traditional gsea and further improve the result consistency of the traditional gsea .
+the proposed framework can be extended in several ways .
+different variations of gsea will be considered . along these lines
+, we note that the proposed integrative framework is general enough to integrate most existing variations of gsea approaches summarized in @xcite with minimal amount of modification . also , it should be possible to integrate dgcs and gene - subnetwork discovery . both gsea and gene - subnetwork discovery @xcite can discover collections of genes , either known gene sets @xcite or subnetworks in a molecular network ( e.g. protein interaction network ) , that show moderate but coordinated differentiation . in this paper
+, we integrate dgcs and gsea as an illustration of the general framework for integrating scores from different gene - combination measures and gene - combinations of different sizes , in addition to the traditional univariate statistic , but the same framework also applies to the integration of dgcs and gene subnetwork discovery . another direction is the use of this framework for the analysis of ( gwas ) snp data , by following the methodology proposed in recently work on pathway / network based analysis of gwas datasets @xcite .
+finally , it may be possible to use constraints on gene - combinations to improve our framework . in procedure @xmath8
+, for each gene - combination measure and an integer @xmath4 , the score of a gene is assigned from all the @xmath5 possible gene - combinations . a further extension of procedure @xmath8 is to only consider the gene combinations , in which the @xmath4 genes appear in a common gene set , e.g. a pathway .
+such gene - set - based constraints may better control false positive gene combinations and improve the statistical power of the whole integrative framework .
+due to the space limit , table 2 and figure [ fig : bigtable12312009half ] are both summarized from the four complete tables that are available at http://vk.cs.umn.edu / icg/. specifically , table 2 is a high - level summary of the number of gene sets discovered and the biological processes associated with each of the gene sets . in figure
+[ fig : bigtable12312009half ] , we listed the complete results for @xmath71gsea ( the baseline ) , while for the other rows , we only list a gene set if it is only discovered by the integrative approach ( with bolded name ) , or it has a non - trivially decreased fdr when it is discovered by the integrative approach ( with bolded fdr ) .
+g.  fang , g.  pandey , m.  gupta , m.  steinbach , and v.  kumar . mining low - support discriminative patterns from dense and high - dimensional data .
+technical report 09 - 011 , department of computer science , university of minnesota , 2009 .
+k.  wang , m.  narayanan , h.  zhong , m.  tompa , e.  e. schadt , and j.  zhu .
+meta - analysis of inter - species liver co - expression networks elucidates traits associated with common human diseases . , 5(12):e1000616 , 2009 .

@@ -1,0 +1,429 @@
+the information contained by an individual finite object ( like a finite binary string ) is objectively measured by its kolmogorov complexity  the length of the shortest binary program that computes the object .
+such a shortest program contains no redundancy : every bit is information ; but is it meaningful information ? if we flip a fair coin to obtain a finite binary string , then with overwhelming probability that string constitutes its own shortest program .
+however , also with overwhelming probability all the bits in the string are meaningless information , random noise . on the other hand ,
+let an object @xmath0 be a sequence of observations of heavenly bodies .
+then @xmath0 can be described by the binary string @xmath1 , where @xmath2 is the description of the laws of gravity , and the observational parameter setting , while @xmath3 is the data - to - model code accounting for the ( presumably gaussian ) measurement error in the data . this way we can divide the information in @xmath0 into meaningful information @xmath2 and data - to - model information @xmath3 .
+the main task for statistical inference and learning theory is to distil the meaningful information present in the data .
+the question arises whether it is possible to separate meaningful information from accidental information , and if so , how .    in statistical theory ,
+every function of the data is called a `` statistic '' of the data . the central notion in probabilistic statistics is that of a `` sufficient '' statistic , introduced by the father of statistics r.a .
+fisher  @xcite : `` the statistic chosen should summarise the whole of the relevant information supplied by the sample .
+this may be called the criterion of sufficiency @xmath4 in the case of the normal curve of distribution it is evident that the second moment is a sufficient statistic for estimating the standard deviation . '' for traditional problems , dealing with frequencies over small sample spaces , this approach is appropriate .
+but for current novel applications , average relations are often irrelevant , since the part of the support of the probability density function that will ever be observed has about zero measure .
+this is the case in , for example , complex video and sound analysis .
+there arises the problem that for individual cases the selection performance may be bad although the performance is good on average .
+there is also the problem of what probability means , whether it is subjective , objective , or exists at all .    to simplify matters , and because all discrete data can be binary coded , we consider only data samples that are finite binary strings .
+the basic idea is to found statistical theory on finite combinatorial principles independent of probabilistic assumptions , as the relation between the individual data and its explanation ( model ) .
+we study extraction of meaningful information in an initially limited setting where this information be represented by a finite set ( a model ) of which the object ( the data sample ) is a typical member . using the theory of kolmogorov complexity
+, we can rigorously express and quantify typicality of individual objects .
+but typicality in itself is not necessarily a significant property : every object is typical in the singleton set containing only that object .
+more important is the following kolmogorov complexity analog of probabilistic minimal sufficient statistic which implies typicality : the two - part description of the smallest finite set , together with the index of the object in that set , is as concise as the shortest one - part description of the object .
+the finite set models the regularity present in the object ( since it is a typical element of the set ) .
+this approach has been generalized to computable probability mass functions .
+the combined theory has been developed in detail in @xcite and called `` algorithmic statistics . ''    here we study the most general form of algorithmic statistic : recursive function models . in this setting the issue of meaningful information versus accidental information is put in its starkest form ; and in fact , has been around for a long time in various imprecise forms unconnected with the sufficient statistic approach : the issue has sparked the imagination and entered scientific popularization in @xcite as `` effective complexity '' ( here `` effective '' is apparently used in the sense of `` producing an effect '' rather than `` constructive '' as is customary in the theory of computation ) .
+it is time that it receives formal treatment .
+formally , we study the minimal length of a total recursive function that leads to an optimal length two - part code of the object being described .
+( `` total '' means the function value is defined for all arguments in the domain , and `` partial '' means that the function is possibly not total . ) this minimal length has been called the `` sophistication '' of the object in @xcite in a different , but related , setting of compression and prediction properties of infinite sequences . that treatment is technically sufficiently vague so as to have no issue for the present work .
+we develop the notion based on prefix turing machines , rather than on a variety of monotonic turing machines as in the cited papers . below we describe related work in detail and summarize our results .
+subsequently , we formulate our problem in the formal setting of computable two - part codes .
+kolmogorov in 1974 @xcite proposed an approach to a non - probabilistic statistics based on kolmogorov complexity .
+an essential feature of this approach is to separate the data into meaningful information ( a model ) and meaningless information ( noise ) .
+cover  @xcite attached the name `` sufficient statistic '' to a model of which the data is a `` typical '' member . in kolmogorov
+s initial setting the models are finite sets . as kolmogorov himself pointed out , this is no real restriction : the finite sets model class is equivalent , up to a logarithmic additive term , to the model class of computable probability density functions , as studied in @xcite .
+related aspects of `` randomness deficiency '' were formulated in  @xcite and studied in  @xcite . despite its evident epistemological prominence in the theory of hypothesis selection and prediction ,
+only selected aspects of the theory were studied in these references .
+recent work @xcite can be considered as a comprehensive investigation into the sufficient statistic for finite set models and computable probability density function models .
+here we extend the approach to the most general form : the model class of total recursive functions .
+this idea was pioneered by @xcite who , unaware of a statistic connection , coined the cute word `` sophistication . ''
+the algorithmic ( minimal ) sufficient statistic was related to an applied form in @xcite : the well - known `` minimum description length '' principle @xcite in statistics and inductive reasoning .    in another paper @xcite ( chronologically following the present paper )
+we comprehensively treated all stochastic properties of the data in terms of kolmogorov s so - called structure functions .
+the sufficient statistic aspect , studied here , covers only part of these properties .
+the results on the structure functions , including ( non)computability properties , are valid , up to logarithmic additive terms , also for the model class of total recursive functions , as studied here .
+it will be helpful for the reader to be familiar with initial parts of @xcite . in @xcite
+, kolmogorov observed that randomness of an object in the sense of having high kolmogorov complexity is being random in just a `` negative '' sense .
+that being said , we define the notion of sophistication ( minimal sufficient statistic in the total recursive function model class ) .
+it is demonstrated to be meaningful ( existence and nontriviality ) .
+we then establish lower and upper bounds on the sophistication , and we show that there are objects the sophistication achieves the upper bound .
+in fact , these are objects in which all information is meaningful and there is ( almost ) no accidental information .
+that is , the simplest explanation of such an object is the object itself . in the simpler
+setting of finite set statistic the analogous objects were called `` absolutely non - stochastic '' by kolmogorov .
+if such objects have high kolmogorov complexity , then they can only be a random outcome of a `` complex '' random process , and kolmogorov questioned whether such random objects , being random in just this `` negative '' sense , can occur in nature .
+but there are also objects that are random in the sense of having high kolmogorov complexity , but simultaneously are are typical outcomes of `` simple '' random processes .
+these were therefore said to be random in a `` positive '' sense @xcite .
+an example are the strings of maximal kolmogorov complexity ; those are very unsophisticated ( with sophistication about 0 ) , and are typical outcomes of tosses with a fair coin  a very simple random process .
+we subsequently establish the equivalence between sophistication and the algorithmic minimal sufficient statistics of the finite set class and the probability mass function class .
+finally , we investigate the algorithmic properties of sophistication : nonrecursiveness , upper semicomputability , and intercomputability relations of kolmogorov complexity , sophistication , halting sequence .
+a _ string _ is a finite binary sequence , an element of @xmath5 .
+if @xmath0 is a string then the _ length _ @xmath6 denotes the number of bits in @xmath0 .
+we identify @xmath7 , the natural numbers , and @xmath5 according to the correspondence @xmath8 here @xmath9 denotes the _
+empty word_. thus , @xmath10 .
+the emphasis is on binary sequences only for convenience ; observations in any alphabet can be so encoded in a way that is ` theory neutral ' . below we will use the natural numbers and the strings interchangeably .
+a string @xmath11 is a _ proper prefix _ of a string @xmath0 if we can write @xmath12 for @xmath13 .
+a set @xmath14 is _ prefix - free _ if for any pair of distinct elements in the set neither is a proper prefix of the other .
+a prefix - free set is also called a _ prefix code _ and its elements are called _
+code words_. an example of a prefix code , that is useful later , encodes the source word @xmath15 by the code word @xmath16 this prefix - free code is called _ self - delimiting _ , because there is fixed computer program associated with this code that can determine where the code word @xmath17 ends by reading it from left to right without backing up . this way a composite code message can be parsed in its constituent code words in one pass , by the computer program .
+( this desirable property holds for every prefix - free encoding of a finite set of source words , but not for every prefix - free encoding of an infinite set of source words . for a single finite computer program to be able to parse a code message the encoding needs to have a certain uniformity property like the @xmath18 code . )
+since we use the natural numbers and the strings interchangeably , @xmath19 where @xmath0 is ostensibly an integer , means the length in bits of the self - delimiting code of the string with index @xmath0 . on the other hand , @xmath20 where @xmath0 is ostensibly a string , means the self - delimiting code of the string with index the length @xmath6 of @xmath0 . using this code we define the standard self - delimiting code for @xmath0 to be @xmath21 .
+it is easy to check that @xmath22 and @xmath23 .
+let @xmath24 denote a standard invertible effective one - one encoding from @xmath25 to a subset of @xmath7 .
+for example , we can set @xmath26 or @xmath27 .
+we can iterate this process to define @xmath28 , and so on .      for definitions , notation , and an introduction to kolmogorov complexity ,
+see @xcite .
+informally , the kolmogorov complexity , or algorithmic entropy , @xmath29 of a string @xmath0 is the length ( number of bits ) of a shortest binary program ( string ) to compute @xmath0 on a fixed reference universal computer ( such as a particular universal turing machine ) .
+intuitively , @xmath29 represents the minimal amount of information required to generate @xmath0 by any effective process .
+the conditional kolmogorov complexity @xmath30 of @xmath0 relative to @xmath11 is defined similarly as the length of a shortest program to compute @xmath0 , if @xmath11 is furnished as an auxiliary input to the computation . for technical reasons we use a variant of complexity , so - called prefix complexity , which is associated with turing machines for which the set of programs resulting in a halting computation is prefix free .
+we realize prefix complexity by considering a special type of turing machine with a one - way input tape , a separate work tape , and a one - way output tape .
+such turing machines are called _ prefix _ turing machines . if a machine @xmath31 halts with output @xmath0 after having scanned all of @xmath2 on the input tape , but not further , then @xmath32 and we call @xmath2 a _ program _ for @xmath31 .
+it is easy to see that @xmath33 is a _
+prefix code_.    a function @xmath34 from the natural numbers to the natural numbers is _ partial recursive _ , or _
+, if there is a turing machine @xmath31 that computes it : @xmath35 for all @xmath0 for which either @xmath34 or @xmath31 ( and hence both ) are defined .
+this definition can be extended to ( multi - tuples of ) rational arguments and values .
+let @xmath36 be a standard enumeration of all prefix turing machines with a binary input tape , for example the lexicographical length - increasing ordered syntactic prefix turing machine descriptions , @xcite , and let @xmath37 be the enumeration of corresponding functions that are computed by the respective turing machines ( @xmath38 computes @xmath39 ) .
+these functions are the partial recursive functions of effectively prefix - free encoded arguments .
+the kolmogorov complexity of @xmath0 is the length of the shortest binary program from which @xmath0 is computed by such a function .
+the _ prefix kolmogorov complexity _ of @xmath0 is @xmath40 where the minimum is taken over @xmath41 and @xmath42 . for the development of the theory
+we actually require the turing machines to use _ auxiliary _ ( also called _ conditional _ ) information , by equipping the machine with a special read - only auxiliary tape containing this information at the outset .
+then , the _ conditional version _ @xmath43 of the prefix kolmogorov complexity of @xmath0 given @xmath11 ( as auxiliary information ) is is defined similarly as before , and the unconditional version is set to @xmath44 .    from now on
+, we will denote by @xmath45 an inequality to within an additive constant , and by @xmath46 the situation when both @xmath45 and @xmath47 hold .
+let @xmath48 be the standard enumeration of turing machines , and let @xmath49 be a standard universal turing machine satisfying @xmath50 for all indices @xmath51 and programs @xmath2 .
+we fix @xmath49 once and for all and call it the _ reference universal prefix turing machine_. the shortest program to compute @xmath0 by @xmath49 is denoted as @xmath52 ( if there is more than one of them , then @xmath52 is the first one in standard enumeration ) .
+it is a deep and useful fact that the shortest effective description of an object @xmath0 can be expressed in terms of a _ two - part code _ : the first part describing an appropriate turing machine and the second part describing the program that interpreted by the turing machine reconstructs @xmath0 .
+the essence of the theory is the invariance theorem , that can be informally stated as follows : for convenience , in the sequel we simplify notation and write @xmath53 for @xmath54 .
+rewrite @xmath55 here the minima are taken over @xmath56 and @xmath57 .
+the last equalities are obtained by using the universality of @xmath58 with @xmath59 . as consequence , @xmath60
+thus , @xmath29 and @xmath61 differ by at most an additive constant depending on the choice of @xmath49 .
+it is standard to use @xmath62 instead of as the definition of _ prefix kolmogorov complexity _ , @xcite .
+however , we highlighted definition to bring out the two - part code nature . by universal logical principles ,
+the resulting theory is recursively invariant under adopting either definition or definition , as long as we stick to one choice .
+if @xmath31 stands for a literal description of the prefix turing machine @xmath31 in standard format , for example the index @xmath63 when @xmath64 , then we can write @xmath65 .
+the string @xmath66 is a shortest self - delimiting program of @xmath67 bits from which @xmath49 can compute @xmath63 , and subsequent execution of the next self - delimiting fixed program @xmath68 will compute @xmath69 from @xmath63 . altogether , this has the effect that @xmath70 . if @xmath71 minimizes the expression above , then @xmath72 , and hence @xmath73 , and @xmath74 .
+it is straightforward that @xmath75 , and therefore we have @xmath76 .
+altogether , @xmath77 . replacing the minimizing @xmath78 by the minimizing @xmath79 and @xmath80 by @xmath81 , we can rewrite the last displayed equation as @xmath82      expression emphasizes the two - part code nature of kolmogorov complexity : using the regular aspects of @xmath0 to maximally compress .
+suppose we consider an ongoing time - series @xmath83 and we randomly stop gathering data after having obtained the initial segment @xmath84 we can encode this @xmath0 by a small turing machine representing `` the repeating pattern is 01 , '' and which computes @xmath0 , for example , from the program `` 13 . '' intuitively , the turing machine part of the code squeezes out the _ regularities _ in @xmath0 .
+what is left are irregularities , or _ random aspects _ of @xmath0 relative to that turing machine .
+the minimal - length two - part code squeezes out regularity only insofar as the reduction in the length of the description of random aspects is greater than the increase in the regularity description . in this setup
+the number of repetitions of the significant pattern is viewed as the random part of the data .
+this interpretation of @xmath29 as the shortest length of a two - part code for @xmath0 , one part describing a turing machine , or _ model _
+, for the _ regular _ aspects of @xmath0 and the second part describing the _ irregular _ aspects of @xmath0 in the form of a program to be interpreted by @xmath31 , has profound applications .
+the `` right model '' is a turing machine @xmath31 among the ones that halt for all inputs , a restriction that is justified later , and reach the minimum description length in ( [ eq.kcmdl ] ) .
+this @xmath31 embodies the amount of useful information contained in @xmath0 .
+it remains to decide which such @xmath31 to select among the ones that satisfy the requirement .
+following occam s razor we opt here for the shortest one  a formal justification for this choice is given in @xcite .
+the main problem with our approach is how to properly define a shortest program @xmath52 for @xmath0 that divides into parts @xmath85 such that @xmath2 represents an appropriate @xmath31 .
+the following central notions are used in this paper .
+the _ information in @xmath0 about @xmath11 _ is @xmath86 . by the symmetry of information ,
+a deep result of @xcite , @xmath87 rewriting according to symmetry of information we see that @xmath88 and therefore we call the quantity @xmath89 the _ mutual information _ between @xmath0 and @xmath11 .
+instead of the model class of finite sets , or computable probability density functions , as in @xcite , in this work we focus on the most general form of algorithmic model class : total recursive functions .
+we define the different model classes and summarize the central notions of `` randomness deficiency '' and `` typicality '' for the canonical finite set models to obtain points of reference for the related notions in the more general model classes .
+the model class of _ finite sets _ consists of the set of finite subsets @xmath90 .
+the _ complexity of the finite set _
+@xmath91 is @xmath92the length ( number of bits ) of the shortest binary program @xmath2 from which the reference universal prefix machine @xmath49 computes a listing of the elements of @xmath91 and then halts .
+that is , if @xmath93 , then @xmath94 .
+the _ conditional complexity _
+@xmath95 of @xmath0 given @xmath91 , is the length ( number of bits ) in the shortest binary program @xmath2 from which the reference universal prefix machine @xmath49 , given @xmath91 literally as auxiliary information , computes @xmath0 . for every finite set @xmath96 containing @xmath0 we have @xmath97 indeed , consider the selfdelimiting code of @xmath0 consisting of its @xmath98 bit long index of @xmath0 in the lexicographical ordering of @xmath91
+this code is called _ data - to - model code_. its length quantifies the maximal `` typicality , '' or `` randomness , '' data ( possibly different from @xmath0 ) can have with respect to this model .
+the lack of typicality of @xmath0 with respect to @xmath91 is measured by the amount by which @xmath95 falls short of the length of the data - to - model code , the _ randomness deficiency _ of @xmath0 in @xmath91 , defined by @xmath99 for @xmath100 , and @xmath101 otherwise .
+data @xmath0 is _ typical with respect to a finite set _
+@xmath91 , if the randomness deficiency is small . if the randomness deficiency is close to 0 , then there are no simple special properties that single it out from the majority of elements in @xmath91 .
+this is not just terminology .
+let @xmath102 . according to common viewpoints in probability theory , each property represented by @xmath91 defines a large subset of @xmath91 consisting of elements having that property , and , conversely , each large subset of @xmath91 represents a property . for probabilistic ensembles we take high probability subsets as properties ;
+the present case is uniform probability with finite support .
+for some appropriate fixed constant @xmath103 , let us identify a property represented by @xmath91 with a subset @xmath104 of @xmath91 of cardinality @xmath105 .
+if @xmath106 is close to 0 , then @xmath0 satisfies ( that is , is an element of ) _ all _ properties ( that is , sets ) @xmath107 of low kolmogorov complexity @xmath108 . the precise statements and quantifications are given in @xcite , and we do not repeat them here .      the model class of _ computable probability density functions _ consists of the set of functions @xmath109 $ ] with @xmath110 .
+`` computable '' means here that there is a turing machine @xmath111 that , given @xmath0 and a positive rational @xmath112 , computes @xmath113 with precision @xmath112 .
+the ( prefix- ) complexity @xmath114 of a computable ( possibly partial ) function @xmath115 is defined by @xmath116      the model class of _ total recursive functions _
+consists of the set of functions @xmath117 such that there is a turing machine @xmath31 such that @xmath118 and @xmath119 , for every @xmath120 .
+the ( prefix- ) complexity @xmath121 of a total recursive function @xmath34 is defined by @xmath122 if @xmath123 is a shortest program for computing the function @xmath34 ( if there is more than one of them then @xmath123 is the first one in enumeration order ) , then @xmath124 .    in the definitions of @xmath114 and @xmath121 ,
+the objects being described are functions rather than finite binary strings . to unify the approaches
+, we can consider a finite binary string @xmath0 as corresponding to a function having value @xmath0 for argument 0 .
+note that we can upper semi - compute @xmath52 given @xmath0 , but we can not upper semi - compute @xmath125 given @xmath115 ( as an oracle ) , or @xmath123 given @xmath34 ( again given as an oracle ) , since we should be able to verify agreement of a program for a function and an oracle for the target function , on all infinitely many arguments .
+to explain typicality for general model classes , it is convenient to use the distortion - rate @xcite approach for individual data recently introduced in @xcite . modeling the data can be viewed as encoding the data by a model : the data are source words to be coded , and models are code words for the data . as before , the set of possible data is @xmath126 .
+let @xmath127 denote the set of non - negative real numbers .
+for every model class @xmath128 ( particular set of code words ) we choose an appropriate recursive function @xmath129 defining the _ distortion _
+@xmath130 between data @xmath0 and model @xmath131 .
+the choice of distortion function is a selection of which aspects of the data are relevant , or meaningful , and which aspects are irrelevant ( noise ) .
+we can think of the distortion as measuring how far the model falls short in representing the data .
+distortion - rate theory underpins the practice of lossy compression .
+for example , lossy compression of a sound file gives as `` model '' the compressed file where , among others , the very high and very low inaudible frequencies have been suppressed .
+thus , the distortion function will penalize the deletion of the inaudible frequencies but lightly because they are not relevant for the auditory experience .
+[ ex.11 ] let us look at various model classes and distortion measures :    \(i ) the set of models are the finite sets of finite binary strings .
+let @xmath90 and @xmath132 .
+we define @xmath133 if @xmath100 , and @xmath101 otherwise .
+\(ii ) the set of models are the computable probability density functions @xmath115 mapping @xmath5 to @xmath134 $ ] .
+we define @xmath135 if @xmath136 , and @xmath101 otherwise .
+\(iii ) the set of models are the total recursive functions @xmath34 mapping @xmath5 to @xmath7 .
+we define @xmath137 , and @xmath101 if no such @xmath3 exists .
+if @xmath128 is a model class , then we consider _ distortion balls _ of given radius @xmath138 centered on @xmath139 : @xmath140 this way , every model class and distortion measure can be treated similarly to the canonical finite set case , which , however is especially simple in that the radius not variable .
+that is , there is only one distortion ball centered on a given finite set , namely the one with radius equal to the log - cardinality of that finite set .
+in fact , that distortion ball equals the finite set on which it is centered .
+let @xmath128 be a model class and @xmath3 a distortion measure .
+since in our definition the distortion is recursive , given a model @xmath139 and diameter @xmath138 , the elements in the distortion ball of diameter @xmath138 can be recursively enumerated from the distortion function . giving the index of any element @xmath0 in that enumeration we can find the element .
+hence , @xmath141 .
+on the other hand , the vast majority of elements @xmath11 in the distortion ball have complexity @xmath142 since , for every constant @xmath103 , there are only @xmath143 binary programs of length @xmath144 available , and there are @xmath145 elements to be described .
+we can now reason as in the similar case of finite set models . with data
+@xmath0 and @xmath146 , if @xmath147 , then @xmath0 belongs to every large majority of elements ( has the property represented by that majority ) of the distortion ball @xmath148 , provided that property is simple in the sense of having a description of low kolmogorov complexity .
+the _ randomness deficiency _ of @xmath0 with respect to model @xmath131 under distortion @xmath3 is defined as @xmath149 data @xmath0 is _ typical _ for model @xmath139 ( and that model `` typical '' or `` best fitting '' for @xmath0 ) if @xmath150    if @xmath0 is typical for a model @xmath131 , then the shortest way to effectively describe @xmath0 , given @xmath131 , takes about as many bits as the descriptions of the great majority of elements in a recursive enumeration of the distortion ball .
+so there are no special simple properties that distinguish @xmath0 from the great majority of elements in the distortion ball : they are all typical or random elements in the distortion ball ( that is , with respect to the contemplated model ) .    continuing example  [ ex.11 ] by applying to different model classes :    \(i ) _ finite sets : _ for finite set models @xmath91 , clearly @xmath151 .
+together with we have that @xmath0 is typical for @xmath91 , and @xmath91 best fits @xmath0 , if the randomness deficiency according to satisfies @xmath152 .
+\(ii ) _ computable probability density functions : _ instead of the data - to - model code length @xmath153 for finite set models , we consider the data - to - model code length @xmath154 ( the shannon - fano code ) .
+the value @xmath154 measures how likely @xmath0 is under the hypothesis @xmath115 . for probability models
+@xmath115 , define the conditional complexity @xmath155 as follows .
+say that a function @xmath156 approximates @xmath115 if @xmath157 for every @xmath11 and every positive rational @xmath112 .
+then @xmath158 is defined as the minimum length of a program that , given @xmath159 and any function @xmath156 approximating @xmath115 as an oracle , prints @xmath0 .
+clearly @xmath160 .
+together with , we have that @xmath0 is typical for @xmath115 , and @xmath115 best fits @xmath0 , if @xmath161 .
+the right - hand side set condition is the same as @xmath162 , and there can be only @xmath163 such @xmath11 , since otherwise the total probability exceeds 1 . therefore , the requirement , and hence typicality , is implied by @xmath164 . define the randomness deficiency by @xmath165 altogether , a string @xmath0 is _
+typical for a distribution _ @xmath115 , or @xmath115 is the _ best fitting model _ for @xmath0 , if @xmath166 .
+\(iii ) _ total recursive functions : _ in place of @xmath153 for finite set models we consider the data - to - model code length ( actually , the distortion @xmath167 above ) @xmath168 define the conditional complexity @xmath169 as the minimum length of a program that , given @xmath170 and an oracle for @xmath34 , prints @xmath0 .
+clearly , @xmath171 . together with , we have that @xmath0 is typical for @xmath34 , and @xmath34 best fits @xmath0 , if @xmath172 .
+there are at most @xmath173- many @xmath11 satisfying the set condition since @xmath174 .
+therefore , the requirement , and hence typicality , is implied by @xmath175 .
+define the randomness deficiency by @xmath176 altogether , a string @xmath0 is _
+typical for a total recursive function _
+@xmath34 , and @xmath34 is the _ best fitting recursive function model _ for @xmath0 if @xmath177 , or written differently , @xmath178 note that since @xmath170 is given as conditional information , with @xmath179 and @xmath180 , the quantity @xmath181 represents the number of bits in a shortest _ self - delimiting _ description of @xmath3 .
+we required @xmath170 in the conditional in .
+this is the information about the radius of the distortion ball centered on the model concerned .
+note that in the canonical finite set model case , as treated in @xcite , every model has a fixed radius which is explicitly provided by the model itself . but in the more general model classes of computable probability density functions , or total recursive functions , models can have a variable radius .
+there are subclasses of the more general models that have fixed radiuses ( like the finite set models ) .
+\(i ) in the computable probability density functions one can think of the probabilities with a finite support , for example @xmath182 for @xmath183 , and @xmath184 otherwise .
+\(ii ) in the total recursive function case one can similarly think of functions with finite support , for example @xmath185 for @xmath186 , and @xmath187 for @xmath188 .
+the incorporation of te radius in the model will increase the complexity of the model , and hence of the minimal sufficient statistic below .
+a _ statistic _ is a function mapping the data to an element ( model ) in the contemplated model class . with some sloppiness of terminology
+we often call the function value ( the model ) also a statistic of the data .
+the most important concept in this paper is the sufficient statistic . for an extensive discussion of this notion for specific model classes
+see @xcite .
+a statistic is called sufficient if the two - part description of the data by way of the model and the data - to - model code is as concise as the shortest one - part description of @xmath0 .
+consider a model class @xmath128 .
+a model @xmath139 is a _
+sufficient statistic _ for @xmath0 if @xmath189    [ lem.v2 ] if @xmath131 is a sufficient statistic for @xmath0 , then @xmath190 , that is , @xmath0 is typical for @xmath131 .
+we can rewrite @xmath191 .
+the first three inequalities are straightforward and the last equality is by the assumption of sufficiency . altogether , the first sum equals the second sum , which implies the lemma .
+thus , if @xmath131 is a sufficient statistic for @xmath0 , then @xmath0 is a typical element for @xmath131 , and @xmath131 is the best fitting model for @xmath0 .
+note that the converse implication , `` typicality '' implies `` sufficiency , '' is not valid .
+sufficiency is a special type of typicality , where the model does not add significant information to the data , since the preceding proof shows @xmath192 . using the symmetry of information
+this shows that @xmath193 this means that :    \(i ) a sufficient statistic @xmath131 is determined by the data in the sense that we need only an @xmath194-bit program , possibly depending on the data itself , to compute the model from the data .
+\(ii ) for each model class and distortion there is a universal constant @xmath103 such that for every data item @xmath0 there are at most @xmath103 sufficient statistics .    _
+finite sets : _ for the model class of finite sets , a set @xmath91 is a sufficient statistic for data @xmath0 if @xmath195    _ computable probability density functions : _ for the model class of computable probability density functions , a function @xmath115 is a sufficient statistic for data @xmath0 if @xmath196    for the model class of _ total recursive functions _ , a function @xmath34 is a _ sufficient statistic _ for data @xmath0 if @xmath197    following the above discussion , the meaningful information in @xmath0 is represented by @xmath34 ( the model ) in @xmath121 bits , and the meaningless information in @xmath0 is represented by @xmath3 ( the noise in the data ) with @xmath180 in @xmath198 bits .
+note that @xmath199 , since the two - part code @xmath200 for @xmath0 can not be shorter than the shortest one - part code of @xmath29 bits , and therefore the @xmath3-part must already be maximally compressed . by lemma  [ lem.v2 ] , @xmath201 , @xmath0 is typical for @xmath34 , and hence @xmath202 .
+consider the model class of total recursive functions . a _
+minimal sufficient statistic _ for data @xmath0 is a sufficient statistic for @xmath0 of minimal prefix complexity .
+its length is known as the _ sophistication _ of @xmath0 , and is defined by @xmath203 .
+recall that the _ reference _ universal prefix turing machine @xmath49 was chosen such that @xmath204 for all @xmath31 and @xmath3 .
+looking at it slightly more from a programming point of view , we can define a pair @xmath205 to be a _ description _ of a finite string @xmath0 , if @xmath206 prints @xmath0 and @xmath31 is a turing machine computing a function @xmath34 so that @xmath180 . for the notion of minimal sufficient statistic to be nontrivial , it should be impossible to always shift , if @xmath180 and @xmath207 with @xmath208 , always information information from @xmath34 to @xmath3 and write , for example , @xmath209 with @xmath210 with @xmath211 .
+if the model class contains a fixed universal model that can mimic all other models , then we can always shift all model information to the data - to-(universal ) model code .
+note that this problem does nt arise in common statistical model classes : these do not contain universal models in the algorithmic sense . first we show that the partial recursive recursive function model class , because it contains a universal element , does not allow a straightforward nontrivial division into meaningful and meaningless information .
+assume for the moment that we allow all partial recursive programs as statistic .
+then , the sophistication of all data @xmath0 is @xmath212 .
+let the index of @xmath49 ( the reference universal prefix turing machine ) in the standard enumeration @xmath48 of prefix turing machines be @xmath213 .
+let @xmath214 be a turing machine computing @xmath34 .
+suppose that @xmath215 .
+then , also @xmath216 .
+this shows that unrestricted partial recursive statistics are uninteresting .
+naively , this could leave the impression that the separation of the regular and the random part of the data is not as objective as the whole approach lets us hope for . if we consider complexities of the minimal sufficient statistics in model classes of increasing power : finite sets , computable probability distributions , total recursive functions , partial recursive functions , then the complexities appear to become smaller all the time eventually reaching zero .
+it would seem that the universality of kolmogorov complexity , based on the notion of partial recursive functions , would suggest a similar universal notion of sufficient statistic based on partial recursive functions .
+but in this case the very universality trivializes the resulting definition : because partial recursive functions contain a particular universal element that can simulate all the others , this implies that the universal partial recursive function is a universal model for all data , and the data - to - model code incorporates all information in the data .
+thus , if a model class contains a universal model that can simulate all other models , then this model class is not suitable for defining two - part codes consisting of meaningful information and accidental information .
+it turns out that the key to nontrivial separation is the requirement that the program witnessing the sophistication be _
+total_. that the resulting separation is non - trivial is evidenced by the fact , shown below , that the amount of meaningful information in the data does not change by more than a logarithmic additive term under change of model classes among finite set models , computable probability models , and total recursive function models .
+that is , very different model classes all result in the same amount of meaningful information in the data , up to negligible differences .
+so if deterioration occurs in widening model classes it occurs all at once by having a universal element in the model class .
+apart from triviality , a class of statistics can also possibly be vacuous by having the length of the minimal sufficient statistic exceed @xmath29 .
+our first task is to determine whether the definition is non - vacuous .
+we will distinguish sophistication in different description modes :    [ lem.exists ] for every finite binary string @xmath0 , the sophistication satisfies @xmath217 .    by definition of the prefix complexity
+there is a program @xmath52 of length @xmath218 such that @xmath219 .
+this program @xmath52 can be partial .
+but we can define another program @xmath220 where @xmath221 is a program of a constant number of bits that tells the following program to ignore its actual input and compute as if its input were @xmath9 . clearly , @xmath222 is total and is a sufficient statistic of the total recursive function type , that is , @xmath223 .
+the previous lemma gives an upper bound on the sophistication .
+this still leaves the possibility that the sophistication is always @xmath212 , for example in the most liberal case of unrestricted totality . but this turns out to be impossible .
+[ h - sophi ] ( i ) for every @xmath0 , if a sufficient statistic @xmath34 satisfies @xmath224 , then @xmath225 and @xmath226 .
+\(ii ) for @xmath0 as a variable running through a sequence of finite binary strings of increasing length , we have @xmath227    \(iii ) for every @xmath228 , there exists an @xmath0 of length @xmath228 , such that every sufficient statistic @xmath34 for @xmath0 that satisfies @xmath224 has @xmath229 .
+\(iv ) for every @xmath228 there exists an @xmath0 of length @xmath228 such that @xmath230 .
+\(i ) if @xmath34 is a sufficient statistic for @xmath0 , then @xmath231 since @xmath224 , given an @xmath194 bit program @xmath232 we can retrieve both @xmath170 and and also @xmath233 from @xmath123 .
+therefore , we can retrieve @xmath234 from @xmath235 .
+that shows that @xmath236 .
+this proves both the first statement , and the second statement follows by ( [ eq.pd ] ) .
+\(ii ) an example of very unsophisticated strings are the individually random strings with high complexity : @xmath0 of length @xmath237 with complexity @xmath238 .
+then , the _ identity _ program @xmath239 with @xmath240 for all @xmath3 is total , has complexity @xmath241 , and satisfies @xmath242 .
+hence , @xmath239 witnesses that @xmath243 .
+this shows ( [ eq.liminf ] ) .
+\(iii ) consider the set @xmath244 .
+by @xcite we have @xmath245 .
+let @xmath246 .
+since there are @xmath247 strings of length @xmath228 , there are strings of length @xmath228 not in @xmath248 .
+let @xmath0 be any such string , and denote @xmath249 .
+then , by construction @xmath250 and by definition @xmath251
+. let @xmath34 be a sufficient statistic for @xmath0 .
+then , @xmath252 . by assumption
+, there is an @xmath194-bit program @xmath232 such that @xmath253 .
+let @xmath3 witness @xmath170 by @xmath180 with @xmath198 .
+define the set @xmath254 . clearly , @xmath255 . since @xmath0 can be retrieved from @xmath34 and the lexicographical index of @xmath3 in @xmath256 , and @xmath257 , we have @xmath258 .
+since we can obtain @xmath256 from @xmath235 we have @xmath259 . on the other hand ,
+since we can retrieve @xmath0 from @xmath256 and the index of @xmath3 in @xmath256 , we must have @xmath260 , which implies @xmath261 .
+altogether , therefore , @xmath262 .
+we now show that we can choose @xmath0 so that @xmath263 , and therefore @xmath229 . for every length @xmath228
+, there exists a @xmath264 of complexity @xmath265 such that a minimal sufficient finite set statistic @xmath91 for @xmath264 has complexity at least @xmath266 , by theorem iv.2 of @xcite .
+since @xmath267 is trivially a sufficient statistic for @xmath264 , it follows @xmath268 .
+this implies @xmath269 .
+therefore , we can choose @xmath270 for a large enough constant @xmath271 so as to ensure that @xmath272 .
+consequently , we can choose @xmath0 above as such a @xmath264 .
+since every finite set sufficient statistic for @xmath0 has complexity at least that of an finite set minimal sufficient statistic for @xmath0 , it follows that @xmath263 .
+therefore , @xmath229 , which was what we had to prove .
+\(iv ) in the proof of ( i ) we used @xmath273 . without using this assumption , the corresponding argument yields @xmath274 .
+we also have @xmath275 and @xmath276 . since we can retrieve @xmath0 from @xmath256 and its index in @xmath256 , the same argument as above shows @xmath277 , and still following the argument above , @xmath278 . since @xmath279 we have @xmath280 .
+this proves the statement .
+the useful ( [ eq.pcondx ] ) states that there is a constant , such that for every @xmath0 there are at most that constant many sufficient statistics for @xmath0 , and there is a constant length program ( possibly depending on @xmath0 ) , that generates all of them from @xmath52 .
+in fact , there is a slightly stronger statement from which this follows :    there is a universal constant @xmath103 , such that for every @xmath0 , the number of @xmath281 such that @xmath282 and @xmath283 , is bounded above by @xmath103 .
+let the prefix turing machine @xmath214 compute @xmath34 . since @xmath215 and @xmath284 , the combination @xmath285 ( with self - delimiting @xmath123 ) is a shortest prefix program for @xmath0 . from @xcite ,
+exercise 3.3.7 item ( b ) on p. 205 , it follows that the number of shortest prefix programs is upper bounded by a universal constant .
+previous work studied sufficiency for finite set models , and computable probability mass functions models , @xcite .
+the most general models that are still meaningful are total recursive functions as studied here .
+we show that there are corresponding , almost equivalent , sufficient statistics in all model classes .
+[ lem.explimpl ]    \(i ) if @xmath91 is a sufficient statistic of @xmath0 ( finite set type ) , then there is a corresponding sufficient statistic @xmath115 of @xmath0 ( probability mass function type ) such that @xmath286 , @xmath287 , and @xmath288 .
+\(ii ) if @xmath115 is a sufficient statistic of @xmath0 of the computable total probability density function type , then there is a corresponding sufficient statistic @xmath34 of @xmath0 of the total recursive function type such that @xmath289 , @xmath290 , and @xmath291 .
+\(i ) by assumption , @xmath91 is a finite set such that @xmath100 and @xmath292 .
+define the probability distribution @xmath293 for @xmath294 and @xmath295 otherwise . since @xmath91 is finite , @xmath115 is computable . since @xmath296 , and @xmath297
+, we have @xmath298 .
+since @xmath115 is a computable probability mass function we have @xmath299 , by the standard shannon - fano code construction @xcite that assigns a code word of length @xmath300 to @xmath0 .
+since by ( [ eq.soi ] ) we have @xmath301 it follows that @xmath302 . hence , @xmath303 .
+therefore , by ( [ eq.soi ] ) , @xmath304 and , by rewriting @xmath305 in the other way according to ( [ eq.soi ] ) , @xmath288 .
+\(ii ) by assumption , @xmath115 is a computable probability density function with @xmath136 and @xmath306 .
+the witness of this equality is a shortest program @xmath125 for @xmath115 and a code word @xmath307 for @xmath0 according to the standard shannon - fano code , @xcite , with @xmath308 .
+given @xmath115 , we can reconstruct @xmath0 from @xmath307 by a fixed standard algorithm .
+define the recursive function @xmath34 from @xmath115 such that @xmath309 .
+in fact , from @xmath125 this only requires a constant length program @xmath232 , so that @xmath310 is a program that computes @xmath34 in the sense that @xmath311 for all @xmath3 .
+similarly , @xmath115 can be retrieved from @xmath34 .
+hence , @xmath289 and @xmath312 .
+that is , @xmath34 is a sufficient statistic for @xmath0 . also , @xmath34 is a total recursive function .
+since @xmath313 we have @xmath314 , and @xmath314 .
+this shows that @xmath315 , and since @xmath0 can by definition be reconstructed from @xmath123 and a program of length @xmath316 , it follows that equality must hold .
+consequently , @xmath317 , and hence , by ( [ eq.soi ] ) , @xmath318 and @xmath291 .
+we have now shown that a sufficient statistic in a less general model class corresponds directly to a sufficient statistic in the next more general model class .
+we now show that , with a negligible error term , a sufficient statistic in the most general model class of total recursive functions has a directly corresponding sufficient statistic in the least general finite set model class .
+that is , up to negligible error terms , a sufficient statistic in any of the model classes has a direct representative in any of the other model classes .
+let @xmath0 be a string of length @xmath228 , and @xmath34 be a total recursive function sufficient statistic for @xmath0 .
+then , there is a finite set @xmath319 such that @xmath320 .    by assumption
+there is an @xmath194-bit program @xmath232 such that @xmath253 . for each @xmath321 ,
+let @xmath322 .
+define @xmath323 .
+we can compute @xmath91 by computation of @xmath324 , on all arguments @xmath51 of at most @xmath325 bits , since by assumption @xmath34 is total .
+this shows @xmath326 . since @xmath327 , we have @xmath328 .
+moreover , @xmath329 . since @xmath100 , @xmath330 , where we use the sufficiency of @xmath34 to obtain the last inequality
+we investigate the recursion properties of the sophistication function . in @xcite
+, gcs gave an important and deep result ( [ eq.gacs ] ) below , that quantifies the uncomputability of @xmath29 ( the bare uncomputability can be established in a much simpler fashion ) .
+for every length @xmath228 there is an @xmath0 of length @xmath228 such that : @xmath331 note that the right - hand side holds for every @xmath0 by the simple argument that @xmath332 and hence @xmath333 .
+but there are @xmath0 s such that the length of the shortest program to compute @xmath29 almost reaches this upper bound , even if the full information about @xmath0 is provided .
+it is natural to suppose that the sophistication function is not recursive either .
+the following lemma s suggest that the complexity function is more uncomputable than the sophistication .
+the function @xmath334 is not recursive .
+given @xmath228 , let @xmath335 be the least @xmath0 such that @xmath336 . by theorem  [ h - sophi ] we know that there exist @xmath0 such that @xmath337 for @xmath338 , hence @xmath335 exists
+. assume by way of contradiction that the sophistication function is computable .
+then , we can find @xmath335 , given @xmath228 , by simply computing the successive values of the function .
+but then @xmath339 , while by lemma  [ lem.exists ] @xmath340 and by assumption @xmath341 , which is impossible .
+the _ halting sequence _
+@xmath342 is the infinite binary characteristic sequence of the halting problem , defined by @xmath343 if the reference universal prefix turing machine @xmath49 halts on the @xmath51th input : @xmath344 , and 0 otherwise .
+[ lem.compks ] let @xmath123 be a total recursive function sufficient statistic of @xmath0 .
+\(i ) we can compute @xmath29 from @xmath123 and @xmath0 , up to fixed constant precision , which implies that @xmath345 .
+\(ii ) if also @xmath346 , then we can compute @xmath29 from @xmath123 , up to fixed constant precision , which implies that @xmath347 .
+\(i ) since @xmath34 is total , we can run @xmath348 on all strings @xmath349 in lexicographical length - increasing order .
+since @xmath34 is total we will find a shortest string @xmath350 such that @xmath351 .
+set @xmath352 . since @xmath353 , and by assumption , @xmath354 ,
+we now can compute @xmath355 .
+\(ii ) follows from item ( i ) .
+given an oracle that on query @xmath0 answers with a sufficient statistic @xmath123 of @xmath0 and a @xmath356 as required below .
+then , we can compute the kolmogorov complexity function @xmath357 and the halting sequence @xmath358 .    by lemma  [ lem.compks ]
+we can compute the function @xmath29 , up to fixed constant precision , given the oracle ( without the value @xmath359 ) in the statement of the theorem .
+let @xmath359 in the statement of the theorem be the difference between the computed value and the actual value of @xmath29 . in @xcite ,
+exercise 2.2.7 on p. 175 , it is shown that if we can solve the halting problem for plain turing machines , then we can compute the ( plain ) kolmogorov complexity , and _
+vice versa_. the same holds for the halting problem for prefix turing machines and the prefix turing complexity .
+this proves the theorem .
+[ lem.chisoph ] there is a constant @xmath103 , such that for every @xmath0 there is a program ( possibly depending on @xmath0 ) of at most @xmath103 bits that computes @xmath360 and the witness program @xmath34 from @xmath361 .
+that is , @xmath362 . with some abuse of notation
+we can express this as @xmath363 .
+by definition of sufficient statistic @xmath123 , we have @xmath364 . by ( [ eq.pcondx ] ) the number of sufficient statistics for @xmath0 is bounded by an independent constant , and we can generate all of them from @xmath0 by a @xmath212 length program ( possibly depending on @xmath0 ) . then , we can simply determine the least length of a sufficient statistic , which is @xmath360 .
+there is a subtlety here : lemma  [ lem.chisoph ] is nonuniform .
+while for every @xmath0 we only require a fixed number of bits to compute the sophistication from @xmath361 , the result is nonuniform in the sense that these bits may depend on @xmath0 . given a program , how do we verify if it is the correct one ? trying all programs of length up to a known upper bound , we do nt know if they halt or if they halt they halt with the correct answer .
+the question arising is if there is a single program that computes the sopistication and its witness program for all @xmath0 . in @xcite
+this much more difficult question is answered in a strong negative sense : there is no algorithm that for every @xmath0 , given @xmath361 , approximates the sophistication of @xmath0 to within precision @xmath365 .    for every @xmath0 of length @xmath228 , and @xmath123 the program that witnesses the sophistication of @xmath0
+, we have @xmath366 . for every length @xmath228 , there are strings @xmath0 of length @xmath228 , such that @xmath367 .
+let @xmath123 witness the @xmath360 : that is , @xmath364 , and @xmath368 . using the conditional version of ( [ eq.soi ] ) ,
+see @xcite , we find that @xmath369 @xmath370 in lemma  [ lem.compks ] , item ( i ) , we show @xmath371 , hence also @xmath372 . by lemma  [ lem.chisoph ] , @xmath373 ,
+hence also @xmath374 .
+substitution of the constant terms in the displayed equation shows @xmath375    this shows that the shortest program to retrieve @xmath123 from @xmath0 is essentially the same program as to retrieve @xmath52 from @xmath0 or @xmath29 from @xmath0 . using , this shows that @xmath376 since @xmath123 is the witness program for @xmath368 , we have @xmath377 .
+a function @xmath34 from the rational numbers to the real numbers is _ upper semicomputable _ if there is a recursive function @xmath378 such that @xmath379 and @xmath380 .
+here we interprete the total recursive function @xmath381 as a function from pairs of natural numbers to the rationals : @xmath382 .
+if @xmath34 is upper semicomputable , then @xmath383 is _
+lower semicomputable_. if @xmath34 is both upper - a and lower semicomputable , then it is _ computable_.    recursive functions are computable functions over the natural numbers . since @xmath384 is upper semicomputable , @xcite , and from @xmath384 we can compute @xmath360 , we have the following :    \(i ) the function @xmath360 is not computable to any significant precision .
+\(ii ) given an initial segment of length @xmath385 of the halting sequence @xmath342 , we can compute @xmath360 from @xmath0 .
+that is , @xmath386 .
+\(i ) the fact that @xmath360 is not computable to any significant precision is shown in @xcite .
+\(ii ) we can run @xmath387 for all ( program , argument ) pairs such that @xmath388 .
+( not @xmath6 since we are dealing with self - delimiting programs . )
+if we know the initial segment of @xmath358 , as in the statement of the theorem , then we know which ( program , argument ) pairs halt , and we can simply compute the minimal value of @xmath389 for these pairs .
+`` sophistication '' is the algorithmic version of `` minimal sufficient statistic '' for data @xmath0 in the model class of total recursive functions .
+however , the full stochastic properties of the data can only be understood by considering the kolmogorov structure function @xmath390 ( mentioned earlier ) that gives the length of the shortest two - part code of @xmath0 as a function of the maximal complexity @xmath68 of the total function supplying the model part of the code .
+this function has value about @xmath6 for @xmath68 close to 0 , is nonincreasing , and drops to the line @xmath29 at complexity @xmath391 , after which it remains constant , @xmath392 for @xmath393 , everything up to a logarithmic addive term .
+a comprehensive analysis , including many more algorithmic properties than are analyzed here , has been given in @xcite for the model class of finite sets containing @xmath0 , but it is shown there that all results extend to the model class of computable probability distributions and the model class of total recursive functions , up to an additive logarithmic term .
+the author thanks luis antunes , lance fortnow , kolya vereshchagin , and the referees for their comments
+.    99 a.r .
+barron , j. rissanen , and b. yu , the minimum description length principle in coding and modeling , _ ieee trans .  inform .  theory _ , it-44:6(1998 ) , 27432760 .
+cover , kolmogorov complexity , data compression , and inference , pp .
+2333 in : _ the impact of processing techniques on communications _ , j.k .
+skwirzynski , ed . ,
+martinus nijhoff publishers , 1985 .
+t.m . cover and j.a .
+thomas , _ elements of information theory _ , wiley , new york , 1991 .
+r. a. fisher , on the mathematical foundations of theoretical statistics , _ philosophical transactions of the royal society of london , ser .
+a _ , 222(1922 ) , 309368 .
+p. gcs , on the symmetry of algorithmic information , _
+soviet math .
+_ , 15 ( 1974 ) 14771480 .
+correction : ibid .
+, 15 ( 1974 ) 1480 .
+p. gcs , j. tromp , and p. vitnyi , algorithmic statistics , _ ieee trans .
+inform . theory _
+, 47:6(2001 ) , 24432463 .
+q. gao , m. li and p.m.b .
+vitnyi , applying mdl to learn best model granularity , _ artificial intelligence _ , 121(2000 ) , 129 .
+m. gell - mann , _ the quark and the jaguar _ , w. h. freeman and company , new york , 1994 .
+grnwald and p.m.b .
+vitnyi , shannon information and kolmogorov complexity , manuscript , cwi , december 2003 .
+kolmogorov , three approaches to the quantitative definition of information , _ problems inform . transmission _ 1:1 ( 1965 )
+complexity of algorithms and objective definition of randomness .
+a talk at moscow math .
+meeting 4/16/1974 .
+abstract in _ uspekhi mat .
+nauk _ 29:4(1974),155 ( russian ) ; english translation in @xcite .
+kolmogorov , on logical foundations of probability theory , pp .
+15 in : _ probability theory and mathematical statistics _ ,
+notes math .
+1021 , k. it and yu.v .
+prokhorov , eds .
+, springer - verlag , heidelberg , 1983 .
+kolmogorov and v.a .
+uspensky , algorithms and randomness , _ siam theory probab
+. appl . _ , 32:3(1988 ) , 389412 .
+m. koppel , complexity , depth , and sophistication , _ complex systems _ , 1(1987 ) , 10871091    m. koppel , structure , _ the universal turing machine : a half - century survey _ , r. herken ( ed . ) , oxford univ . press , 1988 , pp .
+435452 .
+m. li and p. vitanyi , _ an introduction to kolmogorov complexity and its applications _ , springer - verlag , new york , 1997 ( 2nd edition ) .
+the mathematical theory of communication .
+, 27:379423 , 623656 , 1948 .
+coding theorems for a discrete source with a fidelity criterion . in _ ire
+national convention record , part 4 _ , pages 142163 , 1959 .
+shen , the concept of @xmath394-stochasticity in the kolmogorov sense , and its properties , _
+soviet math .
+_ , 28:1(1983 ) , 295299 .
+shen , discussion on kolmogorov complexity and statistical analysis , _ the computer journal _ , 42:4(1999 ) , 340342 .
+vereshchagin and p.m.b .
+vitnyi , kolmogorov s structure functions and model selection , _ ieee trans .
+_ , to appear .
+vereshchagin and p.m.b .
+vitnyi , rate distortion theory for individual data , draft , cwi , 2004 .
+vitnyi and m. li , minimum description length induction , bayesianism , and kolmogorov complexity , _ ieee trans .
+inform . theory _ ,
+it-46:2(2000 ) , 446464 .    v.v .
+vyugin , on the defect of randomness of a finite object with respect to measures with given complexity bounds , _ siam theory probab . appl .
+_ , 32:3(1987 ) , 508512 .    v.v .
+vyugin , algorithmic complexity and stochastic properties of finite binary sequences , _ the computer journal _ , 42:4(1999 ) , 294317 .
+paul m.b . vitnyi is a fellow of the center for mathematics and computer science ( cwi ) in amsterdam and is professor of computer science at the university of amsterdam .
+he serves on the editorial boards of distributed computing ( until 2003 ) , information processing letters , theory of computing systems , parallel processing letters , international journal of foundations of computer science , journal of computer and systems sciences ( guest editor ) , and elsewhere .
+he has worked on cellular automata , computational complexity , distributed and parallel computing , machine learning and prediction , physics of computation , kolmogorov complexity , quantum computing .
+together with ming li they pioneered applications of kolmogorov complexity and co - authored `` an introduction to kolmogorov complexity and its applications , '' springer - verlag , new york , 1993 ( 2nd edition 1997 ) , parts of which have been translated into chinese , russian and japanese .

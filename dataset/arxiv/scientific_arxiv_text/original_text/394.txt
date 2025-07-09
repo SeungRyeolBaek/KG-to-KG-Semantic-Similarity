@@ -1,0 +1,53 @@
+spatial indexes has always been an important issue for multi dimensional data sets in relational databases ( dbs ) , in particular for those dealing with spherical coordinates , e.g. latitude / longitude for earth locations or ra / dec for celestial objects .
+some db servers offer built - in capabilities to create indexes on these ( coordinate ) columns which consequently speed up the execution of queries involving them .
+however 1 . the use of these facilities could be not easy , 2 .
+they typically use a syntax quite different from the astronomical one , 3 .
+their performance is inadequate for the astronomical use .    within the mcs library project ( calderone & nicastro 2007 ; nicastro & calderone 2006 , 2007 ; ) we have implemented the dif package , a tool which performs and manages in a fully automatic way the sky pixelisation with both the htm ( kunszt et al .
+2001 ) and healpix ( grski et al .
+2005 ) schema . using a simple tool ,
+any db table with sky coordinates columns can be easily indexed .
+this is achieved by using the facilities offered by the mysql db server ( which is the only server mcs supports at the moment ) , i.e. triggers , views and plugins . having a table with sky coordinates ,
+the user can make it fully indexed in order to perform quick queries on rectangular and circular regions ( cone ) or to create an healpix map file . an sql query to select objects in a cone will look like this : ` select * from mycatalogue where ` ` entriesincone(20 , 30 , 5 ) ` , where ( 20,30 ) are the coordinates of the center in degrees and 5 is the radius in arcmin .
+the important thing to note is that the db manager needs to supply only a few parameters in the configuration phase , whereas the generic user does not need to know anything about the sky pixelisation either for ` select ` or ` insert ` or ` update ` queries .
+it also demonstrates that there is no need to extend standard sql for astronomical queries ( see adql ) , at least if mysql is used as db server .
+in terms of db table indexing , mapping a sphere with a pixel scheme means transforming a 2d into a 1d space , consequently a standard b  tree index can be created on the column with the pixel ids . on a large astronomical table , depending on the `` depth '' of the pixelisation , this could lead to a gain of a 45 orders of magnitude in search efficiency .
+the htm and healpix schema are widely used in astronomy and are now well mature to be considered as candidates for indexing tables containing astronomical data .
+they are both open source and distributed as c++ libraries .
+htm uses triangular pixels which can recursively be subdivided into four pixels .
+the base pixels are 8 , 4 for each hemisphere .
+these `` trixels '' are not equal - area but the indexing algorithm is very efficient for selecting point sources in catalogues .
+healpix uses equal - area pseudo - square pixels , particularly suitable for the analysis of large - scale spatial structures .
+the base pixels are 12 . using a 64 bit long integer to store the index ids leads to a limit for the pixels size of about 7.7 and 0.44 milli - arcsec on a side for htm and healpix , respectively . being able to quickly retrieve the list of objects in a given sky region is crucial in several projects .
+for example hunting for transient sources like grbs requires fast catalogues lookup so to quickly cross match known sources with the detected objects .
+the ir / optical robotic telescope rem ( nicastro & calderone 2006 ) uses htm indexed catalogues to get the list of objects in @xmath0 regions . in this case accessing one billion objects catalogues like the gsc2.3 takes some 10 msec . having a fully automatic htm and healpix indexing would be crucial for the management of the dbs of future large missions like gaia .
+also the virtual observatory project would greatly benefit from adopting a common indexing scheme for all the various types of archive it can manage .
+the relevant parameters for the two pixelisations are :    max res .
+( @xmath1 ) : = @xmath2 $ ] =   = @xmath3 ( where @xmath4 )    * htm * * healpix
+* + @xmath5 : @xmath6 @xmath3 ( where @xmath4 ) + i d range : @xmath7 $ ] @xmath8 $ ] + max @xmath9 : @xmath10 @xmath11 + max res .
+( @xmath1 ) : @xmath12 @xmath13 ( @xmath14 ) +    ' '' ''     + @xmath15 ( depth ) : @xmath16 $ ] ;   @xmath17 ( order @xmath18 resolution parameter ) : @xmath19 $ ] +    as mentioned the maximum resolution is related to the usage of 64 bit integers and it is intrinsic to the htm and healpix c++ libraries .
+mcs is a set of c++ high level classes aimed at implementing an application server , that is an application providing a service over the network .
+mcs provides classes to interact with , manage and extend a mysql db server .
+the included myro package allows a per row management of db grants whereas the dif package allows the automatic management of sky pixelisation with the htm and healpix schema .
+see the for more information .
+to enable dif , when installing mcs it is enough to give to the configure script the two options ` --enable - dif --with - mysql - source = path ` where ` path ` is the path to the mysql source directory .
+the htm and healpix c++ libraries are included in the dif package .
+a db named ` dif ` will be created containing an auxiliary table ` tbl ` and a _ virtual _ table ` dif ` which is dynamically managed by the dif db engine .
+now let s assume one has a db ` mydb ` with a table ` mycat ` containing the two coordinates column ` racs ` and ` deccs ` representing the centi - arcsec converted j2000 equatorial coordinates ( this requires 4 bytes instead of the 8 necessary for a double value ) . to make the table manageable using both the htm and healpix pixelisation schema it is enough to give the command :      where ` dif
+` is the name of the script used to perform administrative tasks related to dif - handled tables , 6 is the htm depth and 8 is the healpix order whereas the 0 ( 1 ) selects the ring ( nested ) scheme .
+the last two parameters are the sql expressions which convert to degrees the coordinate values contained in the table fields ` racs ` and ` deccs ` .
+if the coordinates where already degrees , then it would have been enough to give their names , e.g. ` dif ... ra dec ` .
+the mysql root password is needed . in a future release we ll add the possibility to perform simple cross matching between ( dif managed ) catalogues .
+having an htm indexed catalogue , the query string to obtain the list of objects in a circular region centred on @xmath20 and @xmath21 with radius @xmath22 will be : + `   select * from mycat_htm where dif_htmcircle(60,30,40 ) ; ` + note the table name ` _ htm ` suffix which is needed to actually access the view handled by dif . for a rectangle with the same centre and sides @xmath23 along the @xmath24 axis and @xmath25 along the @xmath26 axis
+: + `   select * from mycat_htm where dif_htmrect(60,30,50,20 ) ; ` + giving only three parameters would imply a square selection . having chosen to use both htm and healpix indexing ,
+one could request all the healpix ids of the objects in a @xmath23 square by using an htm function : + `   select healpid from mycat_htm where dif_htmrect(60,30,50 ) ; ` + to simply get the ids of the pixels falling into a circular / rectangular region one can simply ` select i d from dif.dif where ... ` , i.e. no particular dif managed table is required . to obtain the order 10 ids in ring scheme one
+can calculate them on the fly : + `   select dif_healplookup(0,10,racs/3.6e5,deccs/3.6e5 ) ` + `          from mycat_htm where dif_htmcircle(60,30,20 ) ; ` + giving 1 instead of 0 would give nested scheme ids . having ` ra ` and ` dec ` in degrees one would simply type ` ( 0,10,ra , dec ) ` . if one has just the healpix ids then entries on a circular region can be selected like in : + `   select * from mycat_healp where dif_healpcircle(60,30,40 ) ; ` + note the table name ` _ healp ` suffix .
+rectangular selections for only - healpix indexed tables will be available in the future .
+the current list of functions is : + ` dif_htmcircle ` , ` dif_htmrect ` , ` dif_htmrectv ` , ` dif_healpcircle ` , + ` dif_htmlookup ` , ` dif_healplookup ` , ` dif_sphedist ` .
++ ` dif_htmrectv ` accepts the four corners of a rectangle which can then have any orientation in the sky . `
+dif_sphedist ` calculates the angular distance of two points on the sphere by using the haversines formula .
+a first version of idl user contributed library and demo programs aimed at producing healpix maps from the output of sql queries is available at the .
+calderone , g. , & nicastro , l.  2006 , in neutron stars and pulsars , mpe - report no .
+291 , astro - ph/0701102 nicastro , l. , & calderone , g.  2006 , in neutron stars and pulsars , mpe - report no .
+291 , astro - ph/0701099 nicastro , l. , & calderone , g.  2007 , grski k.  m. , et al .
+2005 , , 622 , 759 kunszt p.  z. , szalay a.  s. , & thakar a.  r.  2001 , in mining the sky : proc . of the mpa / eso / mpe workshop , ed .
+a.  j.  banday , s.  zaroubi , m.  bartelmann , 631

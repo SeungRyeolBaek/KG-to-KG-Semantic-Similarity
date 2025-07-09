@@ -1,0 +1,372 @@
+in this work we consider the mechanical response of an amorphous solid quenched at zero temperature .
+our formalism permits dealing explicitly with finite size systems : it rests on the idea that , during a quench at zero temperature , any finite size system relaxes toward one of many local minima in the potential energy landscape .
+@xcite being at zero temperature , the system is then prescribed to lie at this minimum at all times .
+small external perturbations are then expected to induce continuous changes in the local minimum .
+large external perturbations may induce the vanishing of the local minimum occupied by the system : this vanishing occurs when the basin of attraction of this minimum reduces to a single point , that is when the minimum collides with at least one saddle point .
+@xcite    the difference between small , continuous changes of the local configuration and        catastrophic events is exemplified figure  [ fig : strain ] where the response of an amorphous system is shown as a function of shear .
+the parameter @xmath0 measures the total shear deformation from a quenched state . in this picture ,
+continuous segments are associated with shear - induced changes of local minima and discontinuities to their vanishing . after a minimum has disappeared , the system , coupled to a zero temperature thermal bath , relaxes in search of a new minimum in the potential energy landscape .
+@xcite    the separation of continuous changes of the local minimum and catastrophic events is , of course , not limited to shear deformation . in a more general context ,
+suppose that we denote by @xmath0 the amplitude of any external drive applied to the system .
+suppose that the system lies at a minimum which , for @xmath1 , is far from any catastrophe .
+let us denote @xmath2 the amplitude of a perturbation of the external drive around @xmath3 .
+if we were to slowly increase the amplitude of the perturbation from 0 , the system would smoothly follow a trajectory @xmath4 in configuration space for all amplitudes @xmath5 such that the basin of the local minimum remains non - vanishing .
+if the hessian is non - degenerate , this trajectory @xmath6 is unique .
+if we now stop the perturbation at some @xmath7 then revert the drive down to @xmath8 , the system would simply follow the trajectory @xmath4 from @xmath9 to @xmath3 , backward . in this sense
+we will say that the continuous segments are microscopically reversible .
+when the system is driven quasi - statically along these continuous segments , no energy is dissipated .
+the reason is that at each point along these segments , the system is at mechanical equilibrium : the force applied to any particle is exactly zero and zero forces do no work .
+the quasi - static response corresponds to the thermodynamically reversible , elastic , part of the mechanical response .
+we will see , however , that energy is dissipated when the system is driven at finite deformation rates along these continuous segments .
+this dissipation results from the fact that finite deformation rates induce non - zero forces which dissipate energy via the coupling with the zero temperature thermal bath
+.      we shall let underline and double - underlines respectively indicate vectors and tensors referred to a fixed cartesian system @xmath10 .
+we shall also use the convention that greek indices refer to cartesian components of vectors or tensors , while roman indices refer to the particle numbers .
+bold type denotes fields which are defined on every particle in the material : @xmath11 dots and double dots indicate matrix products and summation convention is always applied on repeated ( greek and latin ) indices . by convention , we also write : @xmath12 the superscript @xmath13 indicates the transpose of a matrix , @xmath14 its inverse , and @xmath15 the inverse of its transpose .
+the identity matrix is denoted @xmath16 , and its components @xmath17 .      in this work , utilizing the formalism underlying the andersen - parrinello - rahman theory  @xcite we shall focus on the situation where a system of particles is contained in a periodic simulation cell .
+the formalism we describe can easily be adapted to study the deformation of a material confined between walls : to do so , it is sufficient to embed the whole system  confined particles plus walls in the cell and mandate that the particles constituting the walls affinely follow its deformation .
+the shape of the simulation cell ( which is , by construction , a parallelepiped ) is represented by the set of @xmath18 or @xmath19 bravais vectors : @xmath20 or @xmath21 ; its volume is @xmath22 .
+we consider a system of @xmath23 particles , with positions @xmath24 in real space .
+the interaction potential @xmath25 depends on the positions of the particles but also on the shape of the simulation cell which enforces boundary conditions .
+`` macroscopic '' deformations of the sample are performed by changing the bravais vectors .
+since we are concerned with variations of the local minimum around some reference configuration , we will often use a _ reference _ configuration @xmath26 of the cell and compare it with a _ current _ value @xmath27 . following ray and rahman ,  @xcite
+we introduce a transformation of particle coordinates which maps any vector @xmath28 onto a cubic reference cell : @xmath29 with @xmath30 $ ] .
+if we change the cell coordinate from @xmath26 to @xmath27 and require that all particles affinely follow the deformation of the cell , any particle at point @xmath31 is mapped onto @xmath32 .
+we denote @xmath33 which , in the usual language of elasticity , is the deformation gradient tensor .
+@xcite once the reference frame @xmath26 is specified , any configuration @xmath34 of the system can be parameterized by a pair @xmath35 , with the convention that : @xmath36 . in this parameterization
+, changes in @xmath37 correspond to affine transformations of all the particles following the cell shape , while changes in @xmath38 correspond to the non - affine part of the displacement of the particles .    at zero temperature ,
+an infinitesimal deformation of the system is often performed in two steps .
+first , starting from a local minimum @xmath39 at @xmath26 , the particle coordinates affinely follow the change of the cell coordinate from @xmath26 to @xmath27 .
+the @xmath39 remain constant .
+the real - space position of particle @xmath40 is thus mapped from @xmath38 onto @xmath41 .
+second , the particles are allowed to relax to the nearest equilibrium position , @xmath27 being fixed .
+they reach new positions @xmath42 which differ in general from @xmath43 .
+the non - affine part of the deformation is then characterized by the displacements as viewed in the reference frame , @xmath44 . for small displacements ,
+the particles continuously follow changes of local minima .
+the real space positions of the particles at equilibrium are thus a continuous function of @xmath27 ( on some interval of strains ) , and we could denote these equilibria as @xmath45 . likewise , the continuous changes of local minima are most readily studied by monitoring changes in the _ reference _ co - ordinates : @xmath46 .      by definition ,
+elastic constants are second order derivatives of the energy with respect to strain .
+since strain is characterized by second order tensors , the elastic constants are fourth order tensors . before presenting the details of the tensorial formalism , however , it seemed pedagogically sounder to us to first consider the simple situation where the shape of the cell can be parameterized by a single degree of freedom .
+suppose then that we prescribe the tensor @xmath47 as a function of a scalar parameter @xmath0 . for varying @xmath0 ,
+so long as the local minimum does not vanish , the system follows a continuous trajectory in configuration space as illustrated on figure  [ fig : strain ] . given a reference cell @xmath48 at @xmath3 , the energy functional
+can be written either as a function of @xmath49 and @xmath0 : @xmath50 ; or as a function of @xmath51 and @xmath0 : @xmath52 .
+we introduce the notation @xmath53 to emphasize that  contrarily to @xmath54this function is defined after a choice of reference cell with bravais matrix @xmath26 .
+changing @xmath0 for fixed @xmath39 corresponds to performing an affine strain of the whole system  the particles and the boundary .
+when particles are constrained to follow deformation - induced changes of a local minimum , their real - space positions @xmath55 and the corresponding non - affine displacements @xmath56 are now one - parameter functions of @xmath0 . an equation of motion for the non - affine displacement fields derives from a straightforward application of the implicit function theorem : the trajectory is specified by the condition that the system is always at mechanical equilibrium : @xmath57 note that the second equality is a property of the point derivatives of any observable of the form , @xmath58 : @xmath59 and is derived in appendix  a. differentiating the condition @xmath60 once with respect to @xmath0 leads to : @xmath61 where the symbol @xmath62 is introduced to indicate derivatives which are taken under the constraints of mechanical equilibrium .
+this equation is formally valid for all @xmath63 , even though it will primarily be used in the limit @xmath64 ( i.e. @xmath65 ) .    using equation  ( [ eqn : deriv : point ] )
+, we see that in the limit @xmath64 , equation  ( [ eqn : motion : gamma ] ) involves the hessian : @xmath66 and the field of virtual forces , @xmath67 in semi - condensed notation , equation  ( [ eqn : motion : gamma ] ) reads : @xmath68    in order to solve equation  ( [ eqn : motion : gamma:0 ] ) we need to take care to eliminate the zero modes of the hessian .
+generically there are @xmath69 zero modes for a system in @xmath69 dimension : those correspond to translation invariance ; their existence indicates that a solution to equation  ( [ eqn : motion : gamma:0 ] ) can only be defined up to global translations of the particles .
+there are no zero modes associated with rotations because the geometry of the simulation cell ( a parallelepiped ) breaks the invariance of the problem under global rotations of the particles ( at fixed cell boundaries ) .
+the zero modes can thus be eliminated in the standard way by subtracting off the projection onto uniform translations from any particular solution . up to this invariance
+, the solution of  ( [ eqn : motion : gamma:0 ] ) reads : @xmath70 the numerical practice which consist in , first affinely deforming the simulation cell , then letting the system relax toward the displaced minimum , provides a direct physical interpretation for this equation .
+@xmath71 is the field of forces which would result from an elementary affine deformation of all the particles .
+equation  ( [ eqn : dr:0 ] ) shows that the non - affine displacements are just the linear response of the system to these extra forces .
+examples for the fields @xmath71 and @xmath72 in simple     ( left ) and @xmath73 ( right ) as defined in the text for a typical atomistic system .
+the deformation mode is simple shear .
+note the random character of @xmath74 and the strong correlations in @xmath73 , title="fig : " ]   ( left ) and @xmath73 ( right ) as defined in the text for a typical atomistic system .
+the deformation mode is simple shear .
+note the random character of @xmath74 and the strong correlations in @xmath73 , title="fig : " ]    shear and pure compression are shown figure  [ fig : fields ] and  [ fig : fields : c ] .
+( the details of the numerical simulation will be given in section 1.5 . )
+we observe that the short - range randomness of the vector @xmath75 contrasts with the large vortex - like structures displayed by the non - affine `` velocity '' fields @xmath76 .
+we will later use the apparent disorder of the field @xmath77 to construct a statistical treatment of the contributions of these non - affine displacement to the elastic constants . for now , let us move on to study how these non - affine fields enter microscopic equations for the elastic constants .
+( left ) and @xmath73 ( right ) in pure compression . ,
+title="fig : " ]   ( left ) and @xmath73 ( right ) in pure compression .
+, title="fig : " ]    upon deformation , the first and second derivative of the energy @xmath78 are related to the components of the stress and the elastic constant respectively .
+we will later enter a full tensorial derivation of the equations to specify this relation .
+for now , we can simply differentiate @xmath79 with respect to @xmath0 . at first order
+, we obtain a projection of the stress : @xmath80 where the second equality holds because of mechanical equilibrium .
+the partial derivative which appears at the rightmost side of these equalities corresponds to the projection of stress which would be inferred from the assumption that all the particles undergo affine displacements .
+since the total derivative of the energy as a function of @xmath0 ( while enforcing the condition of mechanical equilibrium ) is identical to the partial derivative , it means that non - affine displacements do not contribute to the _ first _ derivative of energy with respect to @xmath0 , _
+i.e. _ the projected stress .
+the situation , however , is different when the second derivative of the energy is considered . indeed , we have : @xmath81 the first term in the right hand side of this equation , @xmath82 , corresponds to energy changes associated with strictly affine displacements of the particles .
+it is the born approximation for the second derivative of the energy with respect to @xmath0 .
+the last term introduces a correction to the born approximation which results from the existence of non - affine displacements .
+since @xmath83 is positive definite , the corrective term is negative : non - affine displacements reduce the second order derivative of the energy from its born approximation .
+this is another statement of the idea that non - affine displacement are associated with further minimization of the energy of the system from a tentative homogeneous deformation .
+this property holds for any mode of deformation @xmath47 .
+it means , for example , that the non - affine corrections to the shear and compression moduli must be negative .      in the preceding section
+, we considered the non - affine displacements in response to some prescribed mode of deformation parameterized by a scalar parameter , @xmath0 .
+we now proceed to study the tensorial form of the above equations : derivatives of the energy functional with respect to the components of the strain tensor will provide analytical expressions for stress and elastic constants .    the calculations can be simplified by noting that the number of independent components of the strain tensor is reduced by symmetry .
+in particular , a useful symmetry property holds under the general assumption that  @xcite the interaction potential can be written as a function of the full set of distances between pairs of interacting particles : @xmath84 , where the index @xmath85 runs overs all pairs of particles , and for each pair , @xmath86 modulo the periodic boundary conditions .
+( note that for a periodic simulation cell , the distance between two points depends on their positions relative to the boundaries of the cell : the way distances are calculated thus depends on the shape of the cell , hence , on @xmath27 . )
+we stress that the ability to write the energy functional in this way is not restricted to potentials involving only pair interactions : it also holds for _ e.g. _ three body interactions which depends on bond angles , as used for silicon  @xcite , or embedded atom potentials  @xcite , as used for metals .
+this formalism does not apply , however , to situations when rotational degrees of freedom must be taken into account as , for instance , in cosserat approaches to granular materials  @xcite or to model anisotropic objects like nematics .  @xcite we expect a similar formal treatment to be possible in these situations , but it will require using a slightly more general formalism that we do not wish to address here .    let us consider a reference configuration @xmath26 and a current configuration @xmath27 .
+suppose that @xmath87 and @xmath31 are the difference between the positions of two particles in both these systems of coordinates .
+they are related by @xmath88 , whence : @xmath89 with the green - saint  venant strain tensor :  @xcite @xmath90 we want to write the energy functional after the change of variable where any configuration @xmath34 of the system is mapped onto @xmath91 . under the general assumption that the potential energy can be written as a function of the distances @xmath92 only , equation  ( [ eqn : stretch ] ) can be used to write : @xmath93 where it appears that the energy of the system is a function of @xmath94 and @xmath95 only .
+@xcite the notation @xmath53 is introduced here to emphasize that this functional of @xmath94 and @xmath95 is defined after a choice of reference cell with bravais matrix @xmath26 ( whereas the functional @xmath25 does not depend on this choice ) .
+a choice of @xmath26 being made , however , the energy functional depends on the current cell coordinates only _ via _ the symmetric tensor @xmath96 , but not _ via _ the whole tensor @xmath27 .
+we recover the separation of coordinates : changing @xmath96 for fixed @xmath39 corresponds to performing an affine strain of the whole system  the particles and the boundary ; changing @xmath39 in the reference cell corresponds to performing non - affine displacements of the particles .
+we are now in a position to derive equations of motion for non - affine displacement fields in a fully tensorial form . in any configuration , the force acting on particle @xmath40 is : @xmath97 and mechanical equilibrium reads : @xmath98 the derivatives are taken here for fixed cell coordinates . the equation of motion for @xmath39 ,
+is now obtained by differentiation of  ( [ eqn : mechanical ] ) with respect to the components of @xmath96 : @xmath99 with the usual summation convention of repeated ( greek and latin ) indices .
+as above , the symbol @xmath62 denotes partial derivatives with respect to some tensorial components while enforcing mechanical equilibrium  ( [ eqn : mechanical ] ) . in the limit @xmath100 , equation  ( [ eqn : motion ] ) involves the hessian : @xmath101 and the field of third order tensors , @xmath102 in semi - condensed notation ,
+equation  ( [ eqn : motion ] ) reads : @xmath103 provided standard caution in the inversion of the hessian , we then get , up to translation modes : @xmath104 which is the non - affine displacement field in response to elementary deformation along @xmath105 .    to get further insight into the correction term in equation  ( [ eqn : c : xi ] ) , and on the physical interpretation of @xmath77 , let us write
+: @xmath106 this equality comes after differentiation of equation  ( [ eqn : force ] ) with respect to @xmath96 and use of mechanical equilibrium ( equation  ( [ eqn : mechanical ] ) ) . as in our pedagogical example of one - parameter strain , the field @xmath107 ,
+can be interpreted as the forces which would result from an elementary affine displacement of all particles in the strain direction @xmath105 .
+( more specifically , @xmath108 , with no summation on the greek indices , is the force resulting from a small affine transformation by @xmath109 ; @xmath107 is the tangent direction to the changes of forces upon affine transformations . )
+we see that @xmath110 can be seen as the fluctuation of the force @xmath111 in response to an elementary strain .
+this interpretation emphasizes the random character of field @xmath107 : local forces are , by definition zero at mechanical equilibrium ; however , their variation under an elementary strain depends on the configuration of the particles with which particle @xmath40 interacts ; in particular , @xmath110 should be zero if the conformation of particles surrounding @xmath40 is symmetric  which is the case of a bravais crystal .
+@xmath107 is thus a measure of the local asymmetry of particle configurations .
+equation  ( [ eqn : dr ] ) further states that the non - affine displacement is nothing but the linear response of the particles to these extra forces .
+let us now derive microscopic equations for the stress and elastic constants . because the total potential energy is a function of @xmath96 and @xmath51 only it is sufficient to characterize the elastic response of a material using the derivatives of the potential energy with respect to the components of @xmath96 .
+we note , however , that the usual definition of the cauchy stress and elastic stiffnesses involves derivatives with respect to the components of the deformation gradient tensor @xmath37 .
+derivatives with respect to the components of @xmath96 provide the so - called thermodynamic tension and elastic constants ( or also thermodynamic stiffnesses ) .
+the definitions of thermodynamic tension , cauchy stress , elastic constants , elastic stiffnesses and their relation are given in appendix a.    by definition , the thermodynamic tension is the derivative of the energy functional with respect to the components of @xmath96 : @xmath112 since @xmath96 is a symmetric tensor , we can conclude without further examination that thermodynamic tension is also symmetric . using mechanical equilibrium
+, we next have : @xmath113 as in our pedagogical example of one - parameter strain , we see here that the thermodynamic tension is equal to the partial derivative of @xmath53 ( here , with respect to @xmath96 ) .
+this partial derivative corresponds to changes in energy during a strictly affine displacement of the particles : we see that the existence of non - affine displacement fields does not appear in the expression for the thermodynamic tension .
+expression  ( [ eqn : xi : tension ] ) is valid for any finite strain : this will allow us to later differentiate this expression a second time and obtain elastic constants .
+often , though , we will use it in the limit @xmath100 .
+note that this expression for the thermodynamic tension provides another interpretation of the field @xmath77 .
+we can write : @xmath114 from the definitions of @xmath115 and @xmath77 .
+this expression is to compare with equation  ( [ eqn : xi : cauchy ] ) .
+we see that @xmath110 can be seen as a fluctuation of stress ( or tension ) in response to an elementary displacement of particle @xmath40 .
+this interpretation was noted in  @xcite .
+the elastic constants are second derivatives of the energy functional with respect to the green - saint venant strain tensor : @xmath116 the derivative is here `` total '' since this is the second derivative of the energy following deformation - induce changes of a minimum .
+as we can permute the order of derivatives , elastic constants verify @xmath117 , and since @xmath118 is symmetric , @xmath119 . to obtain an analytical expression for the elastic constants , it suffices to differentiate expression  ( [ eqn : xi : tension ] ) once and take the limit @xmath100 afterwards : @xmath120 using equation  ( [ eqn : dr ] ) and the definition of @xmath121 , it then comes : @xmath122 we recognize the first term in equation  ( [ eqn : c : xi ] ) as the born approximation @xmath123 .
+the contraction of the inverse of the hessian on components of @xmath121 provides the correction terms .      here
+, we illustrate these ideas with numerical simulations of a two - dimensional bidisperse mixture of particles interacting through a shifted lennard - jones potential .  @xcite particle sizes @xmath125 and a number ratio @xmath126 are used to prevent crystallization .
+the system is prepared via an initial quench from an infinite temperature state .
+further details regarding the numerical protocols will be found in our forthcoming dedicated numerical study  @xcite .
+the interaction potential is pair - wise additive : @xmath127 . in this case ,
+formal expressions for the fields @xmath110 and the born approximation for the elastic constants can be related directly to the derivatives of @xmath128 .
+these expressions ( ( [ eqn : xi : micro : pair ] ) and  ( [ eqn : born : micro : pair ] ) ) are derived in appendix b. we just recall here equation  ( [ eqn : born : micro : pair ] ) : @xmath129 where we have introduced the normalized vector between pairs of particles : @xmath130 , as well as the bond tensions and stiffnesses : @xmath131    the material is expected to be isotropic so that the elastic constants take only two independent values under permutations of indices : @xmath132 , which define the lam constants , @xmath133 and @xmath134 .
+using equation  ( [ eqn : born : micro : pair:0 ] ) we observe that the born term is identical for the two lam constants @xmath133 and @xmath134 .
+introducing the notation @xmath135 , we find : @xmath136    to calculate the lam constants , it suffices to consider two modes of deformation and the associated non - affine fields .
+we thus consider @xmath137 and @xmath138 which are associated with pure shear and pure compression respectively .
+plots of @xmath139 and @xmath140 , and their corresponding displacement fields were given on figure  [ fig : fields ] and  [ fig : fields : c ] respectively .
+pure shear grants access to the sum : @xmath141 .
+pure compression grants access to the sum : @xmath142 , where @xmath143 is  in two dimensions the compression modulus . with the fields @xmath139 and @xmath140 , we can directly construct the non - affine correction to @xmath134 : @xmath144 ; and to @xmath145 : @xmath146 .
+we recall that since the hessian is positive definite , these corrections are necessarily negative .
+we thus have in all generality that for an isotropic material , @xmath147 and @xmath148 .
+using these fields , we find in this sample , for the shear and compression moduli : @xmath149 , @xmath150 , whence @xmath151 and @xmath152 , @xmath153 , whence @xmath154 .
+all moduli are reported in dimensionless stress units .
+these values compare to the highest density systems studied by tanguy et al  @xcite .
+we note that the correction term to the compression modulus appears to be small .
+this can be understood to arise from a simple property .
+let us consider the case when the potential is pairwise additive , and is homogeneous in the sense that the force between each pair of particles is a homogeneous function of their distance : @xmath155 .
+a pure compression corresponds to a global scaling of all distances : if the forces are homogeneous , a global scaling of the distances preserves a state of mechanical equilibrium .
+in other word , whenever the forces are homogeneous functions of the distances , the fluctuating force field associated with pure compression , @xmath156 , vanishes identically . hence , the correction to the born approximation vanishes for the compression modulus : @xmath157 . for a compressed lennard - jones system , if the total energy is dominated by the pairs of particles which are at close distance , the interaction is thus dominated by the repulsive power - law divergence of the potential .
+since this power - law leads to forces which are homogeneous functions of the distances , this repulsive part of the lennard - jones potential leads to vanishing corrections to the born approximation . as a result
+the overall amplitude of the field @xmath140 is small , hence the small correction to @xmath145 . in particular , this is consistent with the data from tanguy et al  @xcite and explains why the corrections induce important changes in both @xmath133 and @xmath134 but smaller changes in their sum .
+in expression  ( [ eqn : c : xi ] ) , the correction to elastic constants involves a contraction of the hessian on the fields @xmath121 .
+since the hessian is positive definite  we are perturbing around a local minimum 
+it acts as a scalar product in expressions such as : @xmath158 .
+this form of the corrections to elasticity suggests that further insight may be gained from a normal mode decomposition of the fields @xmath107 .
+we denote the eigenvectors of the hessian by @xmath159 and the associated eigenvalues by @xmath160 .
+we introduce a particle mass to correctly scale eigenvalues and eigenfrequencies and write @xmath161 .
+( in our numerical simulations , the mass is taken to be unity . )
+the vector @xmath107 is written as : @xmath162 with @xmath163 . using this decomposition and equation  ( [ eqn : dr ] ) ,
+the non - affine displacement fields read : @xmath164 the non - affine contribution to elasticity reads : @xmath165    as we saw from figures  [ fig : fields ] and  [ fig : fields : c ] , the fields @xmath77 display a very random character .
+the randomness of the fields @xmath71 can be further assessed by studying fluctuations of the weights of their normal mode decomposition . to examine this question ,
+we report , in figure  [ fig : xiscatter ] , all values of @xmath166 , with @xmath167 corresponding to pure shear deformation and pure compression .
+these quantities are obtained by calculating the fields @xmath168 and performing a full diagonalization of the hessian .
+we see that within a frequency shell @xmath169 $ ] , the values of @xmath166 are scattered , so that they can indeed be interpreted as random variables . on the scatter plot , it is apparent that the distributions of @xmath166 are symmetric with respect to the horizontal axis , hence that the @xmath166 s have zero mean : this property is enforced by symmetry since each of the eigenvectors of the hessian is defined up to a sign convention .
+the width of the distributions of @xmath166 seem to depend smoothly on @xmath170 and increase with @xmath170 for the most part . at high frequencies the scatter plots thin out because there are fewer and fewer eigenvectors to sample the density of states close to its upper cut - off .
+on the basis of this observation , we make the assumption that the random fields , @xmath107 , and in particular their projections on normal modes , @xmath171 , are self - averaging quantities .
+we thus introduce the correlators on frequency shells : @xmath172}\ ] ] in this definition , the average is performed for all the projections of @xmath121 and @xmath107 on eigenvectors with eigenfrequency @xmath169 $ ] . the assumption that @xmath171 are
+self - averaging means that the quantities @xmath173 are expected to converge toward well - defined functions of @xmath170 in the thermodynamic limit : either when a large ensemble of systems of a given size is considered , or when one single system of a large size is considered .    from their definition
+, we observe that functions @xmath173 verify the same symmetries as the elastic constants , namely : @xmath174 in the thermodynamic limit , we can finally rewrite equation  ( [ eqn : c : xi ] ) as : @xmath175 where @xmath176 is the density of states   is , somewhat unconventionally , normalized to the number of degrees of freedom per unit volume . ] .
+this equation is a sum rule : it relates elastic constants to the integral of a correlator between microscopic fields .     versus the corresponding eigenfrequencies of the hessian ( with @xmath177 in shear ( top ) and @xmath178 in compression ( bottom ) ) .
+@xmath166 is the projection of the field @xmath179 onto the eigenmode @xmath180 with frequency @xmath181 .
+this set of data has been obtained using one typical system of size @xmath182 .
+each point makes a contribution to the non - affine corrections to the elastic constants as described in the text . ]    like the elastic constants , @xmath183 are tensorial quantities .
+therefore , if the material is isotropic  given the symmetry property  ( [ eqn : gamma : sym]) these functions can take only two independent values corresponding to the two lam constants @xmath133 and @xmath134 : @xmath184 in this case , the two correlators , @xmath185 and @xmath186 provide a complete description of the non - affine corrections to the lam constants according to equation  ( [ eqn : sum ] )
+.    to illustrate this discussion , we return to our two - dimensional numerical study of two modes of deformation , simple shear and pure compression .
+this protocol suffices to measure the two lam constants of our system .
+the vector fields @xmath139 and @xmath140 grant direct access to the quantities @xmath187 for @xmath167 . elementary algebra ,
+similar to the calculations of section  1.5 , shows that these quantities also verify : @xmath188 and @xmath189 .
+we report , in figure  [ fig : dos ] ,    $ ] , as described in the text .
+results were obtained as ensemble averages over 20 systems of sizes @xmath190 with @xmath191 : 20  circles ( black ) , 25  squares ( red ) , and 30  diamonds ( green ) .
+convergence of the curves demonstrates that finite size effects are small .
+( a ) density of states .
+( b , c ) magnitude of `` noise '' field , @xmath192 , for simple shear ( b ) and compression ( c ) .
+( d , e ) net contribution to elasticity , @xmath193 , of each frequency band for shear ( d ) and compression ( e ) .
+, title="fig : " ] + $ ] , as described in the text .
+results were obtained as ensemble averages over 20 systems of sizes @xmath190 with @xmath191 : 20  circles ( black ) , 25  squares ( red ) , and 30  diamonds ( green ) .
+convergence of the curves demonstrates that finite size effects are small .
+( a ) density of states .
+( b , c ) magnitude of `` noise '' field , @xmath192 , for simple shear ( b ) and compression ( c ) .
+( d , e ) net contribution to elasticity , @xmath193 , of each frequency band for shear ( d ) and compression ( e ) .
+, title="fig : " ] $ ] , as described in the text .
+results were obtained as ensemble averages over 20 systems of sizes @xmath190 with @xmath191 : 20  circles ( black ) , 25  squares ( red ) , and 30  diamonds ( green ) .
+convergence of the curves demonstrates that finite size effects are small .
+( a ) density of states .
+( b , c ) magnitude of `` noise '' field , @xmath192 , for simple shear ( b ) and compression ( c ) .
+( d , e ) net contribution to elasticity , @xmath193 , of each frequency band for shear ( d ) and compression ( e ) .
+, title="fig : " ] $ ] , as described in the text .
+results were obtained as ensemble averages over 20 systems of sizes @xmath190 with @xmath191 : 20  circles ( black ) , 25  squares ( red ) , and 30  diamonds ( green ) .
+convergence of the curves demonstrates that finite size effects are small .
+( a ) density of states .
+( b , c ) magnitude of `` noise '' field , @xmath192 , for simple shear ( b ) and compression ( c ) .
+( d , e ) net contribution to elasticity , @xmath193 , of each frequency band for shear ( d ) and compression ( e ) .
+, title="fig : " ] $ ] , as described in the text .
+results were obtained as ensemble averages over 20 systems of sizes @xmath190 with @xmath191 : 20  circles ( black ) , 25  squares ( red ) , and 30  diamonds ( green ) .
+convergence of the curves demonstrates that finite size effects are small .
+( a ) density of states .
+( b , c ) magnitude of `` noise '' field , @xmath192 , for simple shear ( b ) and compression ( c ) .
+( d , e ) net contribution to elasticity , @xmath193 , of each frequency band for shear ( d ) and compression ( e ) .
+, title="fig : " ]    the density of states @xmath194 , the correlators @xmath195 , @xmath196 , and the quantities @xmath197 ( with @xmath198 ) which measure the total contribution of the shell @xmath199 $ ] to the non - affine corrections .
+three system sizes have been used in this plot : @xmath200 and @xmath201 , where @xmath191 is the length of the square simulation cell in dimensionless units . for each size ,
+an ensemble of 20 system was used to provide statistical accuracy .
+the functions @xmath202 and @xmath203 measure the variance of the distributions of @xmath204 and @xmath205 respectively , which appear on the scatter plot of figure  [ fig : xiscatter ] .
+we see that that these functions are roughly increasing as was suggested from the observation of the scatter plot .
+important fluctuations of @xmath186 and @xmath206 at high frequencies result from the lack of statistical representation in the region where the density of states vanishes and where the scatter plots thin out . for their main part , however , the curves lie on top of one another for the three system sizes we have used : this is evidence that the continuous limit has already been reached .
+this observation is consistent with the numerics of tanguy et al  @xcite since the values of the elastic constants they measured did not vary much for the different sizes they studied , from @xmath207 to @xmath208 .
+we believe that the good convergence of these measurements results from the decorrelation of the fluctuating forces @xmath209 at very short distances : because the correlation length is short , the finite sizes of the systems considered here provide enough sampling of the distribution of @xmath209 .    the density of states , and the @xmath210 s exhibit rather complicated functional forms .
+in contrast , it is striking to us that for simple shear and pure compression @xmath211 seems rather featureless ; particularly in comparison with both the density of states and the functions @xmath212 .
+we have observed this for different numerical models and different densities .
+@xcite the monotonous decay of @xmath213 and @xmath214 seems to indicate that a simple physical mechanism  like a transfer of elasticity from low to high frequency phonons  governs the non - affine corrections .
+this reminds us of an analysis by radjai and roux of quasi - static deformation of granular materials  @xcite in which the authors suggested that the non - affine velocity field could exhibit statistical properties similar to turbulence .
+this sound like an appealing suggestion , although , at present , we have no evidence to further test the existence of turbulent - like energy transfers from large to small scales .
+in the above formalism , we assumed that deformation was very slowly forced upon a piece of material , so that the relaxation of the system toward an inherent structure was always faster than the changes induced by the external drive .
+this guaranteed that the system followed an energy minimum in configuration space .
+our analysis , however , is essentially based on a second order expansion of the energy functional : it assumes small displacements , but may , in principle , apply to situations when the timescale of the external drive becomes relevant .
+we consider here oscillatory perturbations of small amplitude , and assume that the system remains in the linear response regime around some energy minimum , far away from any catastrophic event .
+we expect this situation to be of relevance to questions such as _ e.g. _ acoustic damping in granular materials  @xcite or viscoelasticity in dense emulsions and foams  @xcite . near a minimum , but not exactly _ at _ mechanical equilibrium , the particles are subjected to non - zero forces : an oscillatory external forcing at finite rate thus works on the system of particles .
+energy is injected into the system and is lost in dissipative mechanisms at the microscopic scale ( friction between grains or viscous dissipation between bubbles ) .
+we will follow the usual practice of characterizing energy transfers in the linear response regime using the components of the complex stress response , that is the storage and loss moduli , @xmath215 and @xmath216 .
+@xcite we insist that we focus here on features of @xmath215 and @xmath216 that arise merely from the existence of non - affine displacement fields _ around a single minimum_. in an experiment 
+think , for example , of a foam  it is unclear whether sufficiently small strain amplitudes can be achieved so as to stay within the basin of attraction of a single equilibrium configuration .
+thus measured values of @xmath215 and @xmath216 would also receive contributions from plasticity in addition to the microscopic visco - elasticity studied here : transitions between distinct inherent structures would become a relevant mechanism of energy dissipation  @xcite .
+it s only after a careful study of the contribution of linear response that we will be in a position to characterize the relative importance of these various dissipative mechanisms .
+the present work is a preliminary step in this direction .      in order to work at finite strain rates ,
+we need to use newton s equations coupled with the deformation of our simulation cell . in order to prevent the system from heating up
+, a microscopic mechanism must be specified for energy dissipation .
+dissipative mechanisms vary from system to system . in granular packings ,
+dissipation involves the deformation of asperities at contact between grains . in foams ,
+dissipation involves fluid flow inside a liquid phase : it is modeled by durian  @xcite by viscous terms involving velocity differences between neighboring bubbles . in numerical simulations of structural glasses and supercooled liquids , the coupling with an external bath is modeled either by a nos - hoover  @xcite thermostat , by use of a lagrange multiplier  @xcite , or by a berendsen thermostat  @xcite .
+it thus appears , after examination of these different systems , that energy dissipation often arises as some sort of viscous damping at the microscopic level .
+we will thus limit our present discussion to the situation where dissipation enters via a viscous drag force applied on individual particles .
+below , we give some rule - of - thumb estimates for what the value of this viscosity might be in the case of dense emulsions . in the sllod algorithm , the viscous term is generally taken to be proportional to the peculiar velocity ,  @xcite that is the velocity @xmath217 of the particle minus its velocity corresponding to the affine flow @xmath218 .
+similarly , in foams or granular materials , the viscous damping does not depend on the velocity in real space but on the difference between the particles velocity and their surrounding environment .
+we thus first write the equations of motion as : @xmath219 in term of @xmath39 , it follows that : @xmath220 we see here that a term @xmath221 arises which depends on the position of the particle in the simulation cell .
+another term of similar flavor would be @xmath222 : it does not appear in equation  ( [ eqn : motion : r00 ] ) because it has already been eliminated by the above assumption that the viscous dissipation applies to the _ peculiar _ velocities .
+such terms introduce a spatially dependent coupling between particular motion and the cell coordinates : they can not be allowed to enter the equations of motion if we want to enforce translation invariance .
+this was originally noted by andersen  @xcite and later by ray and rahman  @xcite . within the formalism of souza and martins  @xcite , an equation of motion with no spatially dependent terms
+can be derived systematically from a lagrangian .
+it relies on the idea that the distance traveled by a particle should be calculated while removing a component of rigid rotation .
+we do not wish to detail this formalism here , but simply recall that adding appropriate terms in the lagrangian of the system ( particles plus simulation cell ) permits eliminating space - dependent terms from equation  ( [ eqn : motion : r00 ] ) .
+following these authors , we eliminate the term @xmath221 and focus on translation invariant equations of motion for an athermal system in sllod dynamics .
+these equations read : @xmath223 we want to account for the dynamics of the system when it is submitted to small amounts of strain @xmath224 .
+to do so , we write a perturbative expansion of equation  ( [ eqn : motion : r0 ] ) around a known equilibrium state @xmath39 .
+this expansion is written in terms of the displacements @xmath225 , which are also of order @xmath226 . at first order in @xmath226 ,
+the perturbed equations of motion read : @xmath227 using the definition of @xmath228 and @xmath229 ( equations  ( [ eqn : h:2 ] ) and  ( [ eqn : xi:2 ] ) ) it follows that : @xmath230 this equation governs the linear response of our system around a single minimum . starting from this equation ,
+various limits allow us to recover more usual expressions .
+for example , taking @xmath231 and canceling the term on the right hand side yields the equation governing the vibration modes of the system ; canceling @xmath232 and @xmath233 yields the equations which governs quasi - static response and defines the non - affine displacement fields .    to solve equation  ( [ eqn : lin ] ) , we perform two transformations : a fourier transform of the time domain , and a normal mode decomposition of the displacement field .
+the fourier components @xmath234 are the responses to perturbations of the form @xmath235 .
+they are further decomposed onto normal modes as : @xmath236 and @xmath237 . with these notations ,
+we find : @xmath238 which is solved by : @xmath239    the perturbed stress is then obtained by writing at first order in @xmath226 : @xmath240 using  ( [ eqn : x : sol ] ) , the complex stress response in the frequency domain thus reads : @xmath241 it can thus be recast in the form : @xmath242 with : @xmath243    taking the thermodynamic limit , we can furthermore introduce the functions @xmath173 defined in equation  ( [ eqn : gamma ] ) . equation  ( [ eqn : g ] ) can then be written as an integral in frequency domain : @xmath244 it is then an easy task to extract the real and imaginary part of the stress response .
+observe that we recover the born approximation and the true elastic constants in the high and low frequency limits respectively .
+the response moduli are often studied in the overdamped limit , when the kinetic energy remains small compared to the elastic energy .
+@xcite in this case , the term @xmath245 is negligible before @xmath246 and equation  ( [ eqn : moduli ] ) can be given a simpler form .
+to do so , we introduce the timescales : @xmath247 and write equation  ( [ eqn : moduli ] ) as : @xmath248 where @xmath249 the complex modulus @xmath250 is thus naturally written as a sum of maxwell elements . by definition ,
+@xcite the function @xmath251 is the relaxation spectrum of the system .
+it is the product of the density of states with the correlator @xmath183 .
+the specific forms of this relation associated with a given experimental geometry pure shear or pure compression  derive trivially from these tensorial expressions .    :
+20  circles ( black ) , 25  squares ( red ) , and 30  diamonds ( green ) . ]    we plot the shear relaxation spectrum for our model system in figure  [ fig : relaxationspectrum ] , again for each of the three ensembles of systems with lengths 20,25 , and 30 , demonstrating the system size independence of the results .
+since the true microscopic mechanisms of dissipation in real structural glasses remain somewhat poorly understood , we focus here on the case of a dense emulsion or foam , where the system is overdamped by construction . to make a semi - quantitative comparison with experiments on such systems , we need to give a rough estimate for the values of the coefficient of viscosity , @xmath233 , and the overall stiffness scale , @xmath252 , in our model .
+a truly quantitative connection with experiment is somewhat beyond the scope of the present work and will be explored in our dedicated numerical study  @xcite .
+we should also remind the reader that the data presented in this work for illustrative purposes is taken from a compressed system with lennard - jones interactions ... clearly not sufficient for a fully quantitative comparison .
+however , the hope is that there is a good deal of qualitative similarity in the structure of the hessian matrix for these various classes of disordered systems , and we proceed to dimensionalize @xmath252 and @xmath233 in order to make a semi - quantitative comparison with experiments on packings of emulsified droplets .    a series of experiments , simulations , and theoretical works on such a system was carried out by mason and coworkers  @xcite .
+the surface tension of the droplets was found to be about @xmath253 , which , for well - compressed systems , should set the average scale of the interparticle stiffnesses . for crystalline systems ,
+the scale of interparticle stiffness is characterized by the maximum eigenvalue of the system ( corresponding to eigenvectors which are plane waves with periodicity equal to one reciprocal lattice vector ) , thus we scale the eigenvalues of the hessian matrix of our system such that the maximum eigenvalues are roughly @xmath254 .
+those maximum eigenvalues of the hessian matrix , as can be read off from the density of states , are about 5000 in our dimensionless units of stiffness , so we must have @xmath255}{[l]}=\frac{10}{5000}=2.10^{-3}{\text{dyne}/\text{cm}}$ ] .
+this sets the scales of the second derivatives of the potential .
+the order of magnitude of elastic constants then comes out by dividing @xmath256 by the average interparticule distance , that is by the diameter of droplets in the case of an emulsion .
+taking a droplet radius of a micron , this sets the scale of elastic constants as @xmath257=10~\text{dyne}/\text{cm}^2 $ ] .
+our measurement of elastic constants in the range of 100 , thus corresponds to values of order @xmath258 .
+following durian  @xcite , we ought to choose a value for @xmath233 such that the drag force , @xmath259 , between two droplets sliding past each other with relative velocity @xmath260 generates a stress in the film which is equal to the strain rate in the film times the effective viscosity , so we must have : @xmath261 where @xmath262 is the typical lateral extent of the film ( which , following durian , we take to be of the order of the droplet radius itself ) , and @xmath263 is the width of the film gap .
+we can now dimensionalize our units of time , @xmath264=\nu/\bar{\lambda}$ ] , using the estimate of liu _ et .
+al . _ for the effective viscosity in the film at the droplet interface of @xmath265cp , a droplet radius of a micron , and a film thickness of a nanometer , yielding : @xmath264=5\text{s}$ ] .
+from the plot of the relaxation spectrum in figure  [ fig : relaxationspectrum ] , we expect the viscoelastic effects and the crossover to affine deformation to appear in the range of frequencies from around 1hz up to about 1khz in these systems .
+in this article , we have studied molecular displacements associated with deformation - induced , continuous changes of a minimum in the potential energy landscape of an amorphous solid . for small amounts of deformation ,
+the trajectory followed by the particles is smooth , and the tangent displacements  analogous to a velocity , with strain playing the role of an effective time  involve affine and non - affine fields .
+both fields enter at first order in the equation of motion of the particles during quasi - static deformation .
+the non - affine fields can be calculated by inverting the hessian on a fluctuating force field @xmath266 , which is formally a third order tensor . for every component @xmath267 of the deformation , @xmath121 is the field of forces resulting on every particle from the _ affine _ motion of its neighborhood .
+the non - affine displacement fields and the corrections they induce on elastic constants , can be expressed solely in terms of the hessian and of various tensorial components of the field @xmath121 .
+we next observe that the field @xmath121 is weakly correlated in space , so that it can essentially be considered as a random vector field .
+this randomness is confirmed by the scattered values for the projections of @xmath121 on the eigenmodes of the hessian .    the normal - mode analysis of the field @xmath121 grants access to the contribution of each frequency shell to non - affine corrections to elasticity .
+our numerical calculations indicate that the correlation function @xmath268}$ ] converges toward a smooth function in the thermodynamic limit : this means that the contribution of each frequency shell to non - affine corrections to elasticity is self - averaging . in our view , the existence of a well - defined limit for the elastic properties of amorphous structures , as observed by tanguy _
+et al _ , rest on this self - averaging property .
+we moreover observed that the contribution of frequency shells seems to be a rather simple function of the frequency , as opposed to both @xmath173 and the density of states .
+this simple form of corrections to elasticity suggests that an elementary mechanism of transfer of energy between frequency shells may be at work and determines corrections to elastic constants .
+this is reminiscent of the observation by radjai and roux of turbulent like features of non - affine displacement fields ,  @xcite although we have not determined whether turbulent - like scalings arise in our non - affine fields .
+a better understanding of the mechanism underlying this transfer through frequency shells should in principle permit construction of approximations for the elastic constants of amorphous materials .    after studying elastic properties of an amorphous solid in response to quasi - static deformation , we considered the case when the deformation rate is finite .
+this required us to introduce both a molecular mass and a damping term to provide equations of motions which correspond to a molecular system in contact with a bath at low or zero temperature .
+we have shown that the visco - elastic response of the solid can be written in the form of a sum of elementary damped oscillators . the frequency spectrum  that is the distribution of timescales of elementary vibration modes is directly related to the function @xmath173 .
+it thus appears , that a broad spectrum of timescales arise at linear order solely from the structure of any particular energy minimum in a high dimensional configuration space .
+the system remains solid since it resides in the neighborhood of a local minimum in configuration space at all times : this is different from the usual idea that visco - elastic response is associated with transitions between minima in the energy landscape  @xcite . in a real system , this type of dissipation may occur simultaneously with other mechanisms : energy transport via phonons , dissipation resulting from anharmonic terms , or transitions between various energy minima ( _ i.e. _ true plasticity ) .
+the estimation of these various contributions and their interplay seem to us an exciting direction for future research
+. it will require the construction of models , close to the experiments , where various dissipative mechanisms can be estimated quantitatively .
+finally , we stress that the corrections to elastic constants involve @xmath269 factors as in equation  ( [ eqn : sum ] ) : the convergence of the integral in equation  ( [ eqn : sum ] ) thus depends on the low frequency behavior of the functions @xmath183 and of the density of states .
+this becomes a problem when the system develops low frequency eigenmodes which have a non - zero scalar product with the field @xmath266 : a quick inspection of equation  ( [ eqn : munormal ] ) indeed shows that such localized low frequency phonons would lead to diverging terms in the non - affine corrections to the born approximation .
+we can identify two situations when this occurs : ( i ) a localized eigenvector with a vanishing frequency is involved whenever the local minimum occupied by the system reaches a catastrophe .
+@xcite this property enabled us to obtain universal scalings for the elastic moduli close to a shear induced catastrophe ,  @xcite and observe the divergence of the non - affine corrections at these points .
+( ii ) eigenmodes seem to drift toward the low frequency part of the spectrum when the system approaches the unjamming point of liu and nagel .
+@xcite a divergence of the non - affine corrections to elasticity could thus arise around this point . in this case
+, we expect the divergence of the non - affine corrections to elasticity to control the unjamming transition around the @xmath270 point .
+al received support from the william .
+m. keck foundation , the mrsec program of the nsf under award no .
+dmr00 - 80034 , the james . s. mcdonnell foundation , nsf grant no .
+dmr-9813752 , the lucile packard foundation , the mitsubishi corporation , and the national science foundation under grant no .
+phy99 - 07949 .
+cm was supported under the auspices of the u.s .
+department of energy by the university of california , lawrence livermore national laboratory under contract no .
+w-7405-eng-48 and would like to acknowledge the guidance and support of v.  v. bulatov and j.  s. langer and the hospitality of the llnl university relations program .
+stresses are first derivatives of an energy functional with respect to strains .
+@xcite since there are different definitions of the strain tensors ( @xmath96 or @xmath37 or @xmath271 or @xmath272 ) , there are different ways to take this derivative . moreover , this derivative can be lagrangian or eulerian .
+we thus have various choices , which leads to a number of possible definitions .
+two definitions of the stress are most important : the thermodynamic tension is the lagrangian derivative with respect to @xmath96 ; the true stress is the eulerian derivative with respect to the deformation gradient tensor @xmath37 .
+let us consider some energy functional , parameterized by the cell coordinates : @xmath273 .
+this functional can represent different objects : for example , it can be the energy @xmath274 for fixed @xmath39 : its strain derivatives were denoted as partial derivatives in the previous discussion ; it can also be the energy @xmath275 , provided constraints which enforce a relation @xmath276 .
+the formalism developed here does not depend on any specific definition of this energy functional but only on the existence of some function @xmath273 .
+the value of @xmath277 in a given reference configuration is denoted @xmath278 .
+we saw the important role played by the green - saint  venant strain tensor @xmath96 : it accounts for the mapping of distances after an affine transformation ( see equation  ( [ eqn : stretch ] ) ) .
+this property permits writing the strain - dependence of the energy functional _ via _ @xmath96 only , whenever the energy is a function of the set of distances @xmath92 between the particles .
+@xcite by definition , the thermodynamic tension  @xcite is conjugate to the green - saint  venant strain tensor : @xmath279 where @xmath280 is the volume of the reference cell .
+the thermodynamic tension @xmath281 is defined after a choice of a reference configuration : it is a lagrangian derivative .
+it identifies , in the continuum limit , with the second piola - kirchhoff stress tensor .
+@xcite this object is known , in general , not to have a simple mechanical interpretation : it can not be interpreted as the tensor generating forces on surface elements .
+the cauchy stress corresponds to the usual definition of a stress : it gives surface forces when contracted on a vector normal to a surface which is prescribed in the physical space .
+it can be shown that the cauchy stress can be written as a derivative of the energy with respect to the deformation gradient tensor : @xmath282 unlike the second piola - kirchoff stress ( i.e. the thermodynamic tension ) the cauchy stress does not depend on the choice of a reference state .
+this equality holds in the limit @xmath283 : in this sense it is an eulerian derivative of the energy .
+as we will show below , the second piola - kirchoff stress becomes identical to the cauchy stress in the limit where the current and reference configuration are identified .    in order to relate these two definitions of the stress tensor
+, we need to be able to switch between @xmath96- and @xmath37-derivatives . from the definition  ( [ eqn : epsilon ] ) of the green - saint  venant strain tensor , infinitesimal displacements read : @xmath284 since @xmath118 is symmetric , in a @xmath69-dimensional problem , it has only @xmath285 independent components , while @xmath37 has @xmath286 .
+the rotational degrees of freedom are taken into account by considering the antisymmetric infinitesimal displacements :  @xcite @xmath287 which is the generator of infinitesimal rotations , and has @xmath288 independent components . from equations  ( [ eqn : depsilon ] ) and  ( [ eqn : domega ] ) , it comes : @xmath289    using this relation , the differential form of an arbitrary function of @xmath37 , @xmath290 , reads :
+@xmath291 using the property that the contraction of a symmetric with an antisymmetric tensor vanishes and the fact that @xmath96 is symmetric , we see that the derivative of a function @xmath292 with respect to @xmath96 is : @xmath293\ ] ] incidentally , we also find from the preceding calculation that iff @xmath292 only depends on @xmath96 , hence does not vary under infinitesimal rotations , it verifies : @xmath294    with these formulae in hand , let us come back to the definition  ( [ eqn : cauchy : def ] ) of the cauchy stress . taking the limit @xmath283 ( or @xmath100 ) , in equation  ( [ eqn : deriv : sym ] ) and
+looking at equation  ( [ eqn : cauchy : def ] ) we see that @xmath295 is symmetric .
+using equation  ( [ eqn : deriv : eta ] ) , it appears that it equals the thermodynamic tension _ in this limit _ , yet in this limit only .
+we emphasize here that the symmetry of the stress tensor results directly from the invariance of the interaction potential under elementary rotations : the energy functional is expected to be a function of @xmath296 and @xmath96 only : its derivatives with respect to the components of @xmath297 vanish .
+this is not , however , equivalent to the energy functional being invariant under global rotations ( the bravais cell  being a parallelepiped  is not ) .
+we note , however , that in general @xmath298 ( evaluated off the reference configuration ) need not be symmetric : this may explain the observation of non - symmetric stresses in  @xcite .
+barron and klein  @xcite provide the following relation between the cauchy stress and the thermodynamic tension : @xmath299 this relation holds for finite deformations .
+it can be obtained , following these authors , after a taylor expansion of the energy versus the different strain tensors .
+we provide here a different derivation which relies on an interesting property concerning the transport of derivatives .    as usual , a reference configuration @xmath26 is given and the system is strained to a current configuration @xmath27 . in order to define the cauchy stress around the configuration @xmath27 , we will need to consider @xmath27 as a new reference configuration @xmath300 and also consider a new current configuration @xmath301 .
+we thus have three different sets of cell coordinates :    @xmath26 , @xmath302 and @xmath301 .
+we need to define strain tensors between each pair of these configuration : the deformation gradient tensors are denoted @xmath303 , @xmath304 and @xmath305 .
+these transformations are illustrated schematically in figure  [ fig : framescartoon ] .
+likewise , the green - saint  venant tensors are denoted : @xmath306 , @xmath307 and @xmath96 .
+we have the property : @xmath308 . for any arbitrary function @xmath290 , and for
+@xmath37 , we can write : @xmath309 whence , @xmath310 using this and equation  ( [ eqn : deriv : eta ] ) it is then an easy check that : @xmath311 this relation simply means that the tensorial derivative with respect to @xmath96 transforms as a tensor under a change of reference configuration .
+we just saw in equation  ( [ eqn : deriv : f ] ) that this is not true of the derivative with respect to @xmath37 .
+going back to the definition of the cauchy stress ( equation  ( [ eqn : cauchy : def ] ) ) and taking the limit @xmath312 , we have @xmath313 and using equation  ( [ eqn : deriv : transport ] ) in the limit @xmath314 ( or @xmath315 ) , we recover equation  ( [ eqn : cauchy ] ) .
+it is useful to `` specialize '' the previous expressions for the situations when the energy , or any observable can be parameterized as @xmath316 .
+we first have : @xmath317 the factor 1/2 results from the fact that each pair is counted twice with the convention of implicit summation over repeated indices .
+plugging equation  ( [ eqn : deriv : f : micro ] ) ( and its transpose ) into equation  ( [ eqn : deriv : eta ] ) we immediately obtain , @xmath318 we see from equation  ( [ eqn : deriv : transport ] ) that this expression consist of a reference - independent formula , which is transported backward in the reference configuration as in equation  ( [ eqn : deriv : transport ] ) .    specializing the functional @xmath292 to @xmath319
+, we can now provide an expression for the cauchy stress tensor , using either equation  ( [ eqn : cauchy ] ) and  ( [ eqn : deriv : eta : micro ] ) or alternatively  ( [ eqn : cauchy : def ] ) and  ( [ eqn : deriv : f : micro ] ) .
+it reads : @xmath320 this is a generalization of the kirkwood formula to the case of an arbitrary n - body interaction potential .
+note that specialization to systems with pairwise interactions immediately yields the standard expression .    specializing the function @xmath292 to @xmath321
+, we can furthermore obtain a useful formula .
+indeed , in the limit @xmath283 , equation  ( [ eqn : deriv : eta : micro ] ) reduces to : @xmath322      by definition , elastic _
+constants _ are second derivatives of the energy functional with respect to the green - saint  venant strain tensor : @xmath323 in this expression , the energy functional @xmath277 can be any given function of the tensor , @xmath118 .
+for example , it can be the energy functional of an atomistic system @xmath324 for fixed positions of the particles in a reference configuration .
+derivatives of such a functional were denoted as partial derivatives of @xmath53 throughout the text .
+but @xmath277 could also be defined as the energy of an atomistic system following deformation induced changes of a given minimum . in this case
+the partial derivatives of @xmath277 would correspond to total derivatives for the energy functional @xmath53 .
+the algebra presented here does not depend on these considerations but only on the existence of a function @xmath325 .    since we can commute the order of the derivatives , the elastic constants verify @xmath117 , and since @xmath118 is symmetric , @xmath119 .
+the second order expansion of the energy with respect to the components of @xmath96 thus reads : @xmath326 where @xmath327 is the stress in the reference configuration . using  ( [ eqn : tension ] ) and  ( [ eqn : second ] ) , we find for the thermodynamic tension : @xmath328    the elastic constant should not be confounded with the quantities which enter the stress - strain relations  hence , the wave equation .
+these are the elastic stiffnesses , @xmath329 , and appear in the expansion of the energy with respect to tensor @xmath330 :  @xcite @xmath331 the relation of the elastic stiffnesses to the elastic constants is obtained by replacing the definition  ( [ eqn : epsilon ] ) of @xmath96 in equation  ( [ eqn : second ] ) and expanding in terms of @xmath332 :  @xcite @xmath333 note that this expression indicates that elastic stiffnesses do not enjoy the full symmetry of the elastic constants . instead , they verify :  @xcite @xmath334    the cauchy stress can now be obtained from  ( [ eqn : tension : exp ] ) by use of equations  ( [ eqn : cauchy ] ) and  ( [ eqn : stiffness ] ) :  @xcite @xmath335    before proceeding to the derivation of an expression for the born term , let us derive a general formula for second derivatives with respect to the components of @xmath96 .
+we first write equation  ( [ eqn : deriv : eta ] ) with indices explicitly expressed : @xmath336\ ] ] the derivative of this expression with respect to @xmath267 reads : @xmath337\ ] ] we then use the property that in the limit @xmath100 , @xmath338 by definition , whence we see that @xmath339 after application of equation  ( [ eqn : deriv : eta ] ) . in the limit @xmath100 , we thus have for the second derivatives , after a further application of equation  ( [ eqn : deriv : eta ] ) : @xmath340\end{aligned}\ ] ]    we can now provide microscopic expressions for the born approximation to elastic constants .
+we take the energy functional @xmath277 to be the energy @xmath53 for some fixed positions of the particles in a reference frame . using equation  ( [ eqn : deriv : eta : micro ] ) and  ( [ eqn : deriv : f : micro ] )
+it is an easy task to write the born term as : @xmath341    in order to obtain a similar expression for @xmath110 , it is convenient to write : @xmath342 with @xmath343 the pair contributions @xmath344 are then easily expressed in terms of pair contributions to the hessian : @xmath345 then , either using equation  ( [ eqn : deriv : rij ] ) or applying equation  ( [ eqn : deriv : eta : micro ] ) on @xmath111 , we find for @xmath344 an expression which is analogous to kirkwood s formula for the stress : @xmath346 this general formula permits relating @xmath110 to elementary contributions @xmath347 of pairs to the hessian .
+we furthermore notice the similarity between equation  ( [ eqn : xi : micro ] ) and equation  ( [ eqn : born : micro ] ) .
+it allows writing the following expression for the born term : @xmath348
+we provide here specific expressions for the case when the interaction potential can be written as : @xmath349 in this case , the force on individual bonds reads : @xmath350 with , @xmath351 introducing the bond tensions and stiffnesses , @xmath352 the components of the hessian @xmath353 can be expressed in terms of : @xmath354 the elements of the hessian are then , @xmath355 for the off - diagonal terms and @xmath356 for the diagonal terms .    to obtain an expression for the field @xmath107 , we write : @xmath357 with ( no implicit sum on @xmath40 and @xmath358 ) : @xmath359 whence , @xmath360 inserting this expression in the sum  ( [ eqn : xii : xiij ] ) , the second term disappears because the system is at mechanical equilibrium .
+this yields : @xmath361

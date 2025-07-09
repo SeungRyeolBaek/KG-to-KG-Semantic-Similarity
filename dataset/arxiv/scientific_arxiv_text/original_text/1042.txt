@@ -1,0 +1,78 @@
+the internet has become a near indispensable tool with both private individuals and organizations becoming increasingly dependent on internet - based software services , downloadable resources like books and movies , online shopping and banking , and even social networking sites .
+the issue of network security has become significant due to the prevalence of software with malicious or fraudulent intent .
+malware is the general term given to a broad range of software including viruses and worms designed to infiltrate a computer system without the owner s permission @xcite@xcite .
+cohen s conclusion in his 1987 paper that computer viruses are potentially a severe threat to computer systems @xcite is still valid in real networks today @xcite@xcite@xcite .
+current security systems do little to control the spread of malicious content throughout an entire network @xcite@xcite .
+most security systems are designed to protect a single computer unit .
+these properly protected units make up only a fraction of online computers .
+these highlight the necessity of examining the dynamics of the spread of malware in order to be able to develop proper control strategies .
+studies on the spread of malware in computer networks date back to the late 1980s @xcite and are generally based on the mathematical approach to the spread of diseases in biological populations .
+math models developed for spread of malware within a computer network such as the kephart - white model and other models adapted from it are based on the kermack - mckendrick model .
+these models have an implicit assumption that all nodes in the network are always available for `` contact '' @xcite@xcite
+. however , it is a basic limitation of malware that it can only be passed on to another computer if there is a path through which information can be passed @xcite , so the states of the nodes of the network  whether they are online or offline  have an effect on the dynamics of the spread .    in this work , we model the spread of malware utilizing an ising system to represent an isolated computer network .
+the state of each node is a composite of its connection status and health .
+the spin state of a node defines its connection status to be either online or offline .
+connections are established with the premise that autonomous networks configure themselves @xcite .
+the health status describes whether a node has been infected or not , and infection can propagate only among online nodes .
+the ising model was originally intended for simulating the magnetic domains of ferromagnetic materials .
+its versatility has allowed it to be applied to other systems wherein the behavior of individuals are affected by their neighbors @xcite@xcite@xcite .
+it has been applied to networks and network - like systems @xcite such as neural networks @xcite@xcite , cooperation in social networks , and analysing trust in a peer - to - peer computer network @xcite .
+a computer network is modeled by an @xmath0 ising spin system . associated with each node
+is a spin @xmath1 corresponding to two possible states : @xmath2 for online and @xmath3 for offline .
+the local interaction energy is given by    @xmath4    the interaction parameter , @xmath5 , determines the degree and type of dependence of @xmath1 on its neighbors .
+the nearest neighbors or local neighborhood are defined according to the network topology and are usually von neumann or moore neighborhoods @xcite@xcite . summing up all local energies gives the total energy , @xmath6 , of the system .
+global energy , @xmath6 , is associated with network efficiency and more efficient networks are characterized by lower energies .
+note that while interaction energies are explicitly dependent on the nearest neighbors , the state of each node is implicitly dependent on the state of the entire system .
+a node will change its configuration provided that the new energy of the system is lower than the previous .
+if the resulting energy is higher , the new configuration is accepted with probability    @xmath7    in the standard ising procedure , @xmath8 is the change in energy , @xmath9 is temperature , and @xmath10 is the boltzmann constant . here , @xmath9 relates to network traffic .    to model the spread of infection , each node
+is assigned a health status separate from its spin .
+the health status is either infected or susceptible .
+every online susceptible has a probability @xmath11 of becoming infected , where    @xmath12    offline nodes do not transmit or receive data .
+hence , they do not participate in the infection part .
+[ [ program - specifics ] ] program specifics + + + + + + + + + + + + + + + + +    the computer network is a @xmath13 lattice .
+nearest neighbors are defined to be the four adjacent nodes .
+the interaction parameters are all set to @xmath14 .
+eq.[generalising ] becomes    @xmath15    for the interaction energy calculations , circular boundary conditions are imposed .
+parameters are scaled such that @xmath16 .
+initially , all nodes are offline ( @xmath17 ) .
+every time step , the entire system is swept in a left - to - right top - to - bottom fashion , evaluating each node for a possible change in state .
+the mean energy per node @xmath18 of each configuration is stored and averaged at the end of the run .
+the spread of infection begins with a single infective . at @xmath19 ,
+one node is selected at random and infected . as the infection spreads , the number of susceptibles , @xmath20 , and infectives , @xmath21 , for each time step are stored . because no means for removal of infection is provided , all nodes eventually become infected .
+it is at this time that the program is terminated .
+the model was tested for @xmath9-values ranging from @xmath22 to @xmath23 .
+the infection curves of five trials were averaged for each @xmath9 .
+the average infection curve was normalized by dividing it by the total number of nodes to get the fraction of infectives @xmath24 . because it can no longer be assumed that nodes are always available for connection , a regular decay equation is used to model the fraction of infectives curve .
+a system with @xmath25 nodes has @xmath20 susceptibles and @xmath21 infectives at time @xmath26 . within the time - frame @xmath27
+, the number of susceptibles being converted to infectives is @xmath28 .
+as time passes , @xmath28 decreases as the population of susceptibles is exhausted .
+thus , the probability of conversion , given by @xmath29 decreases with time . in equation form , this is    @xmath30    where @xmath31 is the decay constant .
+the solution to eq.[decayeq ] is    @xmath32    where @xmath33 , the initial number of susceptibles , is just the total number of units in the system . using these , the expression for the number of infectives , @xmath21 may be written as    @xmath34    this may be normalized to    @xmath35    note that the actual rate of spread varies with time , and @xmath31 provides a measure of the average rate of spread .
+the fits were made using the unweighted levenberg - marquardt algorithm of gnuplot ver.4.2 @xcite initialized with @xmath36 . for consistency , because some runs terminate very rapidly , we consider only the first 50 time - steps .     during the first 50 iterations _ : the rate of spread of the infection increases with @xmath9 . for the above graphs , the resulting decay constants are:@xmath37 , @xmath38 , @xmath39 ,
+@xmath40 , @xmath41 , and @xmath42 , width=240 ]    from fig.[allcompare ] , it appears that the spread of infection becomes faster as @xmath9 increases . for @xmath43 and @xmath44 ,
+the rates of spread are very slow , neither reaching @xmath45-infected at the last iteration .
+particularly , for @xmath43 , no new infectives were produced .
+these low - traffic systems are not dynamic as nodes have a low probability of coming online from their initial offline state .
+the network is also very efficient , @xmath46 and @xmath47 , which may be interpreted as information exchange being limited to necessary transactions .
+for this reason , there is little information exchange and hence a slow spread .
+for very high @xmath9 , as in @xmath48 and @xmath23 , the spread is rapid and nearly @xmath49 infection is reached .
+this suggests that very high traffic means a large volume of information exchange that leads to a faster spread of infection .
+the system is also inefficient at very high @xmath9 , with @xmath50 .
+it is worth mentioning that the average infection curves of @xmath51 and @xmath52 nearly coincide indicating rates of spread that are very similar .
+-dependence of rates _ : the increase in the rate of infection corresponds with the decrease in efficiency in the network .
+note that @xmath6-values are negative.,width=240 ]    the observations are supported by the calculated decay constants .
+the calculated @xmath31 initially increases with traffic but is capped off at very high @xmath9 where it becomes constant .
+this behavior is similar to the saturation region in a traffic network where flux saturates at high densities .
+the saturation region indicates that information exchange is no longer freely flowing and that some kind of congestion has occurred @xcite . in fig .
+[ exponents ] , there is an evident transition that occurs in both the average rate of spread and the efficiency of the network . at the `` congested '' region ,
+the efficiency of the network is very low ; while at the `` free flow '' region , the efficiency of the network is comparatively high .
+congestion occurs because networks can only handle a limited amount of traffic  in the form of data packets . when there is too much traffic , the network is forced to store or drop packets making it inefficient @xcite@xcite .
+an increase in packet loss with increasing data traffic is reflected by the decrease in efficiency at the congestion region .
+the congestion is most likely a result of the limited size of the network and the `` finite - size effect '' may be confirmed by testing a larger network@xcite .
+our ising model approach accounts for the connection status of nodes in an infected network . unlike most epidemic models where
+all nodes are assumed to be always connected , the model allows malware propagation only among online nodes .
+we found that the rate of infection becomes faster in less efficient networks with higher data traffic and saturates as the network becomes congested .
+deepayan chakrabarti , yang wang , chenxi wang , jurij leskovec , and christos faloutsos .
+, `` epidemic thresholds in real networks '' , _ acm transactions on information and systems security _ , vol . 10 , no .
+4 , january 2008 , article 13      jeffrey o. kephart , et al .
+`` biologically inspired defenses against computer viruses '' _ proceedings of the 14th international joint conference on artificial intelligence _ vol . 1 , montreal , quebec , canada , 1995 , pp.985 - 996

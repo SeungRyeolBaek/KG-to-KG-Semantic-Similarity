@@ -1,0 +1,253 @@
+when imperative programmers think of lists , they commonly choose doubly linked lists , instead of the singly linked lists that logic and functional programmers use . in the same way ,
+it is extremely common for trees to be given parent links , whether they are really needed or not .
+a typical c example might be    .... typedef int datum ;    typedef struct treerec * treeptr ; struct treerec {      treeptr left , right , up , down ;      datum datum ; } ; ....    where ` down ' points to the first child of a node , ` up ' to its parents , and the children of a node form a doubly linked list with ` left ' and ` right ' pointers .
+essentially this representation is required by the document object model @xcite , for example .
+cyclically linked trees in imperative languages such as java provide constant time navigation in any of the four directions ( up , down , left , right ) and also constant time and constant space editing ( insert , delete , replace ) .
+they do so at a price : each element is rigidly locked into place , so that any kind of space sharing ( such as hash consing ) is made impossible .
+some logic programming languages have been designed to support cyclically linked terms . that does provide constant time navigation , but not editing .
+the locking into place that is a nuisance in imperative languages is a very serious difficulty in logic programming languages .
+additionally , reasoning about the termination of programs that traverse cyclic graphs is harder than reasoning about programs that traverse trees , whether in prolog dialects or in lazy functional languages , so it is useful to get by with trees if we can .
+this article has two parts .
+in the first part , i present `` fat pointers '' that can be used to navigate around pure trees .
+the tree itself remains unmodified throughout .
+the main predicates i define have the form from_to(from , to ) . if one of the arguments is ground and the other is uninstantiated , the time and space cost is o(1 ) per solution .    in the second part , i present `` edit pointers '' that can be used to navigate around trees and edit them , in o(1 ) amortised time and space per step and edit .    the type declarations are mycroft / okeefe @xcite type declarations using the syntax of mercury @xcite .
+the predicate declarations are also mycroft / okeefe declarations giving argument types and modes .
+the code has been type - checked by the mercury compiler .
+the clauses are edinburgh prolog .
+this paper provides evidence that using different definitions for different modes is useful , but that is difficult in mercury , so the modes were not converted to mercury syntax and the code does not pass mercury mode - checking .
+this is a generalisation of a method for o(1 ) left and right navigation in a list shown to me by david h.  d.  warren in 1983 , in a text editor he wrote in prolog .
+a companion paper @xcite presents this technique in a functional context .
+it was rejected on the grounds that the data structure had already been published by huet as the zipper in @xcite
+. however , the two data structures described in this paper and in @xcite are different from the zipper , and the issues discussed here are different .
+the key idea is to distinguish between a tree and a pointer into a tree .
+the usual c / java approach blurs this distinction , and that has misled some logic programmers into thinking that cyclically linked trees are necessary in order to obtain a certain effect in pointers .
+a tree just has to represent certain information ; a pointer has to know how to move .
+a suitable data type for trees is    .... : - type tree(datum )     --- > node(datum , list(tree(datum ) ) ) .
+: - pred tree_datum(tree(d ) , d ) .
+tree_datum(node(datum , _ ) , datum ) .
+: - pred tree_children(tree(d ) , list(tree(d ) ) ) .
+tree_children(node(_,children ) , children ) .
+....    like a c pointer , a `` fat pointer '' points to a specific ( sub)tree ; unlike a c pointer , a `` fat pointer '' carries a context : the ( sub)tree s left siblings ( ordered from nearest to furthest ) , its right siblings ( ordered from nearest to furthest ) , and a parent fat pointer , if this is not the root .    .... : - type pointer(d )     --- > ptr(tree(d ) , list(tree(d ) ) , list(tree(d ) ) , pointer(d ) )        ; no_ptr .
+....    the predicates we define will never be true of a ` no_ptr ' argument .
+.... : - pred top_pointer(tree(d ) , pointer(d ) ) .
+top_pointer(tree , ptr(tree,[],[],no_ptr ) ) .
+: - pred pointer_tree(pointer(d ) , tree(d ) ) .
+pointer_tree(ptr(tree , _ , _ , _ ) , tree ) .
+: - pred pointer_datum(pointer(d ) , d ) .
+pointer_datum(ptr(tree , _ , _ , _ ) , datum ) : -      tree_datum(tree , datum ) .
+: - pred at_left(pointer ( _ ) ) .
+at_left(ptr ( _ , [ ] , _ , _ ) ) .
+: - pred at_right(pointer ( _ ) ) .
+at_right(ptr ( _ , _ , [ ] , _ ) ) .
+: - pred at_top(pointer ( _ ) ) .
+at_top(ptr(_,_,_,no_ptr ) ) .    :
+- pred at_bottom(pointer ( _ ) ) .
+at_bottom(ptr(tree , _ , _ , _ ) ) : -      tree_children(tree , [ ] ) .
+: - pred left_right(pointer(d ) , pointer(d ) ) .
+left_right(ptr(t , l,[n|r],a ) , ptr(n,[t|l],r , a ) ) .
+: - pred up_down_first(pointer(d ) , pointer(d ) ) .
+up_down_first(p , ptr(t,[],r , p ) ) : -    % p = ptr(tree(_,[t|r ] ) , _ , _ , _ ) .
+p = ptr(tree , _ , _ , _ ) ,      tree_children(tree , [ t|r ] ) . ....    the ` top_pointer/2 ' predicate may be used to make a fat pointer from a tree , or to extract a tree from a fat pointer positioned at_top .
+the ` at_/1 ' predicates recognise whether a fat pointer is positioned at a boundary .
+the query ` left_right(left , right ) ' is true when left and right are pointers to adjacent siblings , left on the left , and right on the right .
+the query ` up_down_first(up , down ) ' is true when up is a pointer and down is a pointer to up s first child ; it is o(1 ) time and space in either direction provided that the list of children of a node is stored in that node and not recomputed .
+the query ` up_down(up , down ) ' is to be true when up is a pointer and down is a pointer to any of up s children .
+it uses mode - dependent code .    .... : - pred up_down(pointer(d ) , pointer(d ) ) .
+up_down(p , ptr(t , l , r , a ) ) : -      (    var(p ) - >          a = ptr ( _ , _ , _ , _ ) , % not no_ptr , that is .
+p = a      ;    a = p ,          p = ptr(tree , _ , _ , _ ) ,          tree_children(tree , children ) ,          % split children++ [ ] into reverse(l)++[t]++r          split_children(children , [ ] , l , t , r )      ) .
+: - pred split_children(list(t ) , list(t ) , list(t ) , t , list(t ) ) .
+split_children([t|r ] , l , l , t , r ) .
+split_children([x|s ] , l0 , l , t , r ) : -      split_children(s , [ x|l0 ] , l , t , r ) . ....    we could write this clearly enough as    ....
+up_down_specification(p , ptr(t , l , r , p ) ) : -      p = ptr(tree(_,children ) , _ , _ , _ ) ,      split_children(children , [ ] , l , t , r ) .
+....    but then the cost of moving up would not be o(1 ) .
+this is an interesting predicate , because getting efficient behaviour in multiple modes is not just a matter of subgoal ordering . in the ( + , - ) mode
+, it is acceptable to call ` split_children/5 ' , because that will be o(1 ) space and time per solution . in the ( -,+ ) mode ,
+we must bypass that call .
+if the code is encapsulated in a module and type checked , it is clear that the bypassed call must succeed , but that would not be obvious to a compiler .
+queries in sgml and xml often ask for ( not necessarily adjacent ) preceding or following siblings of a node . testing
+whether one node is a following sibling of another does not require mode - dependent code .
+however , in order to prevent unbounded backtracking in the reverse direction , the code below uses the technique of passing a variable ( l2 ) twice : once for its value , and once so that its length can act as a depth bound .    .... : - pred siblings_before_after(pointer(d ) , pointer(d ) ) .
+siblings_before_after(ptr(t1,l1,r1,a ) , ptr(t2,l2,r2,a ) ) : -      right_move([t1|l1 ] , r1 , l2 , [ t2|r2 ] , l2 ) .
+: - pred right_move(list(t ) , list(t ) , list(t ) , list(t ) , list(t ) ) .
+right_move(l , r , l , r , _ ) .
+right_move(l1 , [ x|r1 ] , l2 , r2 , [ _ |b ] ) : -      right_move([x|l1 ] , r1 , l2 , r2 , b ) .
+....    moving from left to right , this costs @xmath0 per following sibling . moving from right to left , it costs @xmath1 per preceding sibling because the second clause builds up patterns of @xmath1 average length and the first clause unifies them against the known lists for each solution .
+the ` left_right_star/2 ' predicate below fixes this using mode - dependent code .
+i do not know whether @xmath0 cost per solution can be obtained with bidirectional code .
+next we have transitive ( _ plus ) and reflexive transitive ( _ star ) closures of the basic predicates . once again
+, we want to execute different code for the ( + , - ) and ( -,+ ) modes of the ` * _ plus/2 ' predicates .    .... : - pred left_right_star(pointer(d ) , pointer(d ) ) .
+left_right_star(l , r ) : -      (    l = r      ;    left_right_plus(l , r )      ) .
+: - pred left_right_plus(pointer(d ) , pointer(d ) ) .
+left_right_plus(l , r ) : -      (    var(l ) - >          left_right(x , r ) ,          left_right_star(l , x )      ;    left_right(l , x ) ,          left_right_star(x , r )      ) .
+: - pred up_down_star(pointer(d ) , pointer(d ) ) .
+up_down_star(a , d ) : -      (    a = d      ;    up_down_plus(a , d )      ) .
+: - pred up_down_plus(pointer(d ) , pointer(d ) ) .
+up_down_plus(a , d ) : -      (    var(a ) - >          up_down(x , d ) ,          up_down_star(a , x )      ;    up_down(a , x ) ,          up_down_star(x , d )      ) .
+a simple benchmark is to build a large tree and traverse it .    .... : - pred run .
+run : -      mk_tree(10 , t ) ,      time((direct_datum(t , x ) , atom(x ) ) ) ,      time((any_pointer_datum(t , x ) , atom(x ) ) ) ,          time(labels(t , _ ) ) ,      time(collect(t , _ ) ) .
+: - pred mk_tree(integer , tree(integer ) ) .
+mk_tree(d , node(d , c ) ) : -      (    d > 0 - >          d1 is d - 1 ,          c = [ t , t , t , t ] ,          mk_tree(d1 , t )      ;    c = [ ]      ) .
+: - pred direct_datum(tree(d ) , d ) .
+direct_datum(node(d , _ ) , d ) .
+direct_datum(node(_,c ) , d ) : -      member(n , c ) ,      direct_datum(n , d ) .
+: - pred any_pointer_datum(tree(d ) , d ) .
+any_pointer_datum(t , d ) : -      top_pointer(t , p ) ,      up_down_star(p , n ) ,      pointer_datum(n , d ) .
+: - pred labels(tree(d ) , list(d ) ) .
+labels(tree , labels ) : -      labels(tree , labels , [ ] ) .
+: - pred labels(tree(d ) , list(d ) , list(d ) ) .
+labels(node(label , children ) ) -- >      [ label ] , labels_list(children ) .
+: - pred labels_list(list(tree(d ) ) , list(d ) , list(d ) ) .
+labels_list ( [ ] ) -- > [ ] . labels_list([tree|trees ] ) -- >
+labels(tree ) , labels_list(trees ) .    :
+- pred collect(tree(d ) , list(d ) ) .
+collect(tree , labels ) : -      top_pointer(tree , ptr ) ,      collect(ptr , labels , [ ] ) .
+: - pred collect(pointer(d ) , list(d ) , list(d ) ) .
+collect(ptr , [ datum|labels1 ] , labels ) : -      pointer_datum(ptr , datum ) ,      (    at_bottom(ptr ) - > labels1 = labels2      ;    up_down_first(ptr , child ) ,          collect(child , labels1 , labels2 )      ) ,      (    at_right(ptr ) - > labels2 = labels      ;    left_right(ptr , sibling ) ,          collect(sibling , labels2 , labels )      ) . ....    this builds a tree with 1,398,101 nodes , and traverses it using a backtracking search ( both directly and using `` fat pointers '' ) , and by building a list ( both directly and using `` fat pointers '' ) .
+.traversal times in seconds , by methods and languages [ cols= " > , > , > , > ,
+< " , ]     table [ traversal - table ] shows the times for this benchmark , as measured on an 84  mhz sparcstation 5 .
+the last two rows of table [ traversal - table ] refer to lazy functional languages : haskell ( ghc ) , and clean ( clm ) .
+both of those compilers use whole - program analysis , inlining , and strong type information , unlike the incremental , direct , and untyped prolog compilers .
+the first draft of this article included measurements for findall/3 .
+they were horrifying .
+this data structure is bad news for findall/3 and its relatives . to understand why ,
+let s consider three queries :    .... q1(p , l ) : - findall(q , p1(p , q ) , l ) .
+q2(p , l ) : - findall(t , p2(p , t ) , l ) .
+q3(p , l ) : - findall(d , p3(p , d ) , l ) .
+p1(p , q ) : - up_down_star(p , q ) .
+p2(p , t ) : - p1(p , q ) , q = ptr(t , _ ) .
+p3(p , d ) : - p1(p , q ) , pointer_datum(q , d ) . ....    for concreteness ,
+suppose that p points to a complete binary tree with @xmath2 nodes , and that the node data are one - word constants .
+query q3 requires @xmath1 space to hold the result .
+query q2 requires @xmath3 space to hold the result .
+this is because fragments of the tree are repeatedly copied .
+query q1 requires at least @xmath4 space to hold the result .
+every pointer holds the entire tree to simplify movement upwards , so the entire tree and its fragments are repeatedly copied .
+if findall/3 copied terms using some kind of hash consing , the space cost could be reduced to @xmath1 , but not the time cost , because it would still be necessary to test whether a newly generated solution could share structure with existing ones .
+one referee suggested that mercury s ` solutions/2 ' would be cleverer . a test in the 0.10 release showed that it is not yet clever enough .
+this is related to the problem of costly pointer unification : a fat pointer contains the entire original tree and many of its fragments as well as the fragment it directly refers to .
+but that is only a problem when you try to copy a fat pointer or unify it with something .
+the ` siblings_before_after/2 ' predicate is efficient if one of the arguments is ground and the other uninstantiated . with two ground arguments ,
+it is expensive , because because testing whether two fat pointers are the same fat pointer is expensive in this representation .
+two fat pointers are the same if and only if they unify , but that may involve comparing the source tree with itself ( and its subtrees with themselves , perhaps repeatedly ) .    after reading an earlier draft of this ,
+thomas conway @xcite suggested a variant in which unifying fat pointers would be @xmath1 instead of @xmath4 .
+i have not adopted his code , because it makes moving up take more time and turn over more memory .
+he stores just enough of a parent to reconstruct it , given the child , instead of the entire parent .
+conway s code is very nearly huet s zipper @xcite .
+thomas conway @xcite has pointed out that it would be useful to form sets of ( pointers to ) nodes , and that fat pointers are not suitable for that because they are so costly to unify .
+sets of nodes are required for the hytime query language and by other query languages , including xpath @xcite .
+when one wants to form a set of subtrees , one might want a set of tree values , or a set of occurrences of tree values .    using a pointer
+forces you to work with occurrences rather than values , and that is not always appropriate .
+the comparison of subtrees can be made more efficient by preprocessing the main tree so that every node contains a hash code calculated from its value .
+preprocessing the main tree so that every node has a unique number would make pointer comparison fast too .
+the ` pair ' type here is standard in mercury , tracing back to ` keysort/2 ' in dec-10 prolog .    .... : - type ntree(d )     = tree(pair(integer , d ) ) .
+: - type npointer(d ) = pointer(pair(integer , d ) ) .
+: - pred number_tree(tree(d ) , ntree(d ) ) .
+number_tree(tree , numbered ) : -      number_tree(tree , numbered , 0 , _ ) .
+: - pred number_tree(tree(d ) , ntree(d ) , integer , integer ) .
+number_tree(node(datum , children ) ,              node(n0-datum , numberedchildren ) , n0 , n ) : -      n1 is 1 + n0 ,      number_children(children , numberedchildren , n1 , n ) .
+: - pred number_children(list(tree(d ) ) , list(ntree(d ) ) ,                          integer , integer ) . number_children ( [ ] , [ ] , n , n ) .
+number_children([c|cs ] , [ d|ds ] , n0 , n ) : -      number_tree(c , d , n0 , n1 ) ,      number_children(cs , ds , n1 , n ) .
+: - pred same_pointer(npointer(d ) , npointer(d ) ) .
+same_pointer(p1 , p2 ) : -      pointer_datum(p1 , n- _ ) ,      pointer_datum(p2 , n- _ ) .
+: - pred compare_pointers(order , npointer(d ) , npointer(d ) ) .
+compare_pointers(o , p1 , p2 ) : -      pointer_datum(p1 , n1- _ ) ,      pointer_datum(p2 , n2-
+_ ) ,      compare(o , n1 , n2 ) . ....
+prolog , having no type classes , would require special purpose set operations for sets of fat pointers using this technique .
+mercury , having type classes , would not require special code .
+the data structure described in the previous section implements pointers that point at particular nodes in trees , may exist in large numbers , and may be stepped in any direction at o(1 ) cost .
+it is useful for navigating around trees that are not to be changed .
+if you are writing an editor , it is a blunder to try to point _ at _ nodes .
+instead , it is advisable to point _ between _ nodes , as emacs does .
+we need a different data structure , and different operations .
+the real challenge , as huet understood well in @xcite , is to show that declarative languages can handle editing effectively .
+the title of this article promised @xmath0 reversible navigation ; it did not promise @xmath0 reversible editing .
+reversible editing is attainable , and so is @xmath0 editing .
+my attempts to discover a data structure that supports @xmath0 reversible editing have so far failed .    because these operations are not reversible
+, i show input ( + ) and output ( - ) modes in the : - pred@xcite declarations .    the normal way in prolog to `` change '' a node at depth @xmath5 in a tree is to build a new tree sharing as much as possible with the old one ; that takes @xmath6 time and space . the trick that permits @xmath0 cost edit operations is not to rebuild the new tree at once , but to interleave rebuilding with editing and navigation .
+an ` edit_ptr ` records the subtrees to either side of the current position , whether the sequence at this level has been edited , and what the parent position was .    to `` change '' trees ,
+we need a new operation that creates a new node with the same information as an old one , except for a new list of children .    .... : - pred tree_rebuild(+list(tree(d ) ) , + tree(d ) , -tree(d ) ) .
+tree_rebuild(c , node(d , _ ) , node(d , c ) ) . ....    the ` extract/2 ' predicate extracts the edited tree from an ` edit_ptr ` .    since these predicates are not reversible , mode information is shown in the : -pred declarations .
+.... : - type nlr(p )     --- > no_parent          % this is the root        ; left_parent(p )     % came down on the left        ; right_parent(p ) .
+% came down on the right .
+: - type changed     --- >
+n        ; y.    : - type edit_ptr(d )     --- > edit_ptr(list(tree(d ) ) , list(tree(d ) ) ,                   changed , nlr(edit_ptr(d ) ) ) .
+....    an edit pointer contains a list of the nodes preceding the current position ( in near - to - far order ) , a list of the nodes following the current position ( in near - to - far order ) , a ` changed ' flag , and a parent pointer tagged so that we know whether we came down on the left or the right .
+one of the differences between this data structure and the zipper @xcite is that the zipper builds new retained structure as it moves , while this data structure uses a ` changed ' flag to revert to the original structure if nothing has happened but movement .    .... : - pred start(+tree(d ) , -edit_ptr(d ) ) .
+start(t , edit_ptr([],[t],n , no_parent ) ) .
+: - pred at_top(+edit_ptr ( _ ) ) .
+at_top(edit_ptr(_,_,_,no_parent ) ) .    :
+- pred at_left(+edit_ptr ( _ ) ) .
+at_left(edit_ptr ( [ ] ,    _ , _ , _ ) ) .
+: - pred left_datum(+edit_ptr(d ) , ?
+left_datum(edit_ptr([t| _ ] , _ , _ , _ ) , d ) : - tree_datum(t , d ) .
+: - pred left(+edit_ptr(d ) , -edit_ptr(d ) ) .
+left(edit_ptr([t|l],r , c , p ) , edit_ptr(l,[t|r],c , p ) ) .
+: - pred left_insert(+tree(d ) , + edit_ptr(d ) , -edit_ptr(d ) ) .
+left_insert(t , edit_ptr(l , r,_,p ) , edit_ptr([t|l],r , y , p ) ) .
+: - pred left_delete(-tree(d ) , + edit_ptr(d ) , -edit_ptr(d ) ) .
+left_delete(t , edit_ptr([t|l],r,_,p ) , edit_ptr(l , r , y , p ) ) .    :
+- pred left_replace(+tree(d ) , + edit_ptr(d ) , -edit_ptr(d ) ) .
+left_replace(t , edit_ptr([_|l],r,_,p ) , edit_ptr([t|l],r , y , p ) ) .    : - pred left_down(+edit_ptr(d ) , -edit_ptr(d ) ) .
+left_down(p , edit_ptr([],k , n , left_parent(p ) ) ) : -      p = edit_ptr([t| _ ] , _ , _ , _ ) ,      tree_children(t , k ) .    : - pred left_promote_children(+edit_ptr(d ) , -edit_ptr(d ) ) .
+left_promote_children(edit_ptr([t|l],r,_,p ) ,                        edit_ptr(l1,r , y , p ) ) : -      tree_children(t , k ) ,      reverse_append(k , l , l1 ) .
+: - pred reverse_append(+list(t ) , + list(t ) , -list(t ) ) .
+reverse_append ( [ ] , r , r ) .
+reverse_append([x|s ] , r0 , r ) : -      reverse_append(s , [ x|r0 ] , r ) .
+: - pred at_right(+edit_ptr ( _ ) ) .
+at_right(edit_ptr ( _ , [ ] , _ , _ ) ) .
+: - pred right_datum(+edit_ptr(d ) , -d ) .
+right_datum(edit_ptr(_,[t| _ ] , _ , _ ) , d ) : - tree_datum(t , d ) .
+: - pred right(+edit_ptr(d ) , -edit_ptr(d ) ) .
+right(edit_ptr(l,[t|r],c , p ) , edit_ptr([t|l],r , c , p ) ) .
+: - pred right_insert(+tree(d ) , + edit_ptr(d ) , -edit_ptr(d ) ) .
+right_insert(t , edit_ptr(l , r,_,p ) , edit_ptr(l,[t|r],y , p ) ) .
+: - pred right_delete(-tree(d ) , + edit_ptr(d ) , -edit_ptr(d ) ) .
+right_delete(t , edit_ptr(l,[t|r],_,p ) , edit_ptr(l , r , y , p ) ) .
+: - pred right_replace(+tree(d ) , + edit_ptr(d ) , -edit_ptr(d ) ) .
+right_replace(t , edit_ptr(l,[_|r],_,p ) , edit_ptr(l,[t|r],y , p ) ) .
+: - pred right_down(+edit_ptr(d ) , -edit_ptr(d ) ) .
+right_down(p , edit_ptr([],k , n ,
+right_parent(p ) ) ) : -      p = edit_ptr(_,[t| _ ] , _ , _ ) ,      tree_children(t , k ) .
+: - pred right_promote_children(+edit_ptr(d ) , -edit_ptr(d ) ) .
+right_promote_children(edit_ptr(l,[t|r],_,p ) ,                         edit_ptr(l , r1,y , p ) ) : -      tree_children(t , k ) ,      append(k , r , r1 ) .
+: - pred up(+edit_ptr(d ) , -edit_ptr(d ) ) .
+up(edit_ptr(_,_,n , left_parent(p ) ) , p ) .
+up(edit_ptr(_,_,n , right_parent(p ) ) , p ) .
+up(edit_ptr(x , y , y , left_parent(edit_ptr([t|l],r,_,p ) ) ) ,     edit_ptr([n|l],r , y , p ) ) : -      reverse_append(x , y , k ) ,      tree_rebuild(k , t , n ) .
+up(edit_ptr(x , y , y , right_parent(edit_ptr(l,[t|r],_,p ) ) ) ,     edit_ptr(l,[n|r],y , p ) ) : -      reverse_append(x , y , k ) ,      tree_rebuild(k , t , n ) .
+: - pred extract(+edit_ptr(d ) , -tree(d ) ) .
+extract(edit_ptr(_,[t|_],_,no_parent ) , tree ) : - ! , tree = t. extract(p , tree ) : - up(p , p1 ) , extract(p1 , tree ) . ....
+it is easy to see that each of these operations except ` up ' and ` extract ' requires @xmath0 time and @xmath0 space , assuming that ` tree_children ' is @xmath0 .
+moving ` up ' from a position with @xmath7 nodes to its left takes @xmath1 time and space , but that position must have been reached by a minimum of @xmath7 ` right/2 ' and/or ` left_insert/3 ' operations , so in the single - threaded case all the basic operations are @xmath0 amortised time and space .
+essentially , because the editing operations destroy information . we can easily reverse the operations `` move right '' or `` move down '' , because the only thing that has changed is the position , and the name of the predicate tells us what the old position must have been .
+suppose , however , we tried to make insertion and deletion the same operation :    .... : - pred indel_right(d , edit_ptr(d ) , edit_ptr(d ) ) .
+indel_right(t , edit_ptr(l , r , fs , p ) , edit_ptr(l,[t|r],fw , p ) ) : -      ?
+....    we would not know how to define fs and fw .
+the edit_pointer data structure may not have reversible operations , but it is a persistent data structure , so that an editor using it can easily support unbounded undo .
+imagine an application to html , where we might have    .... : - type html_info     --- > element(atom , list(pair(atom , string ) ) )        ; pcdata(string ) .
+: - type html_tree = = tree(html_info ) .
+....    the ` < font > ` tag is almost always misused , and is not allowed in `` strict '' html4 or xhtml .
+so we might want to replace every ` < font > ` element by its contents .    .... : - pred unfont(+html_tree , -html_tree ) .
+unfont(html0 , html ) : -      start(html0 , ptr0 ) ,      unfont_loop(ptr0 , ptr ) ,      extract(ptr , html ) .
+: - pred unfont_loop(+edit_ptr(html_info ) , -edit_ptr(html_info ) ) .
+unfont_loop(p0 , p ) : -      (    at_right(p0 )
+- > p = p0      ;    right_datum(p0 , element(font , _ ) ) - >          right_promote_children(p0 , p1 ) ,          unfont_loop(p1 , p )      ;    right_down(p0 , p1 ) ,          unfont_loop(p1 , p2 ) ,                  up(p2 , p3 ) ,          right(p3 , p4 ) ,          unfont_loop(p4 , p )      ) . ....
+we do nt need cyclic links or mutable objects in declarative languages to support efficient multiway traversal and editing of trees , including models of xml .    4 conway ,  t. , ( 2000 ) . private communication .
+huet ,  g. ( 1997 ) .
+functional pearl : `` the zipper '' , _ j. functional programming _ * 7 * ( 5 ) : pp .
+549554 , september 1997 .
+mycroft ,  a. and okeefe ,  r.  a. ( 1984 ) a polymorphic type system for prolog .
+_ artificial intelligence _ , vol.23 , pp295307 .
+okeefe ,  r. ( 2000 ) .
+`` lifting the curse of dom '' , submitted for publication .
+somogyi ,  z. , henderson ,  f. , and conway ,  t. ( 1995 ) .
+`` mercury : + an efficient purely declarative logic programming language '' , in _ proceedings of the australian computer science conference _ , glenelg , australia ,
+february 1995 , pp 499512 .
+http://www.cs.mu.oz.au/mercury/ has this and other mercury papers .
+world wide web consortium ( 1998 )
+. `` document object model level 1 recommendation '' .
+url : ` http://www.w3.org/tr/rec-dom-level-1/ ` world wide web consortium ( 1999 ) .
+`` xml path language ( xpath ) version 1.0 '' .
+url : ` http://www.w3.org/tr/xpath/ ` world wide web consortium ( 2000 ) .
+`` document object model level 2 recommendation '' , november 2000 .
+url : ` http://www.w3.org/tr/rec-dom-level-2/ `

@@ -1,0 +1,241 @@
+in a bidirectional relay network , two users exchange information via a relay node @xcite .
+several protocols have been proposed for such a network under the practical half - duplex constraint , i.e. , a node can not transmit and receive at the same time and in the same frequency band .
+the simplest protocol is the traditional two - way relaying protocol in which the transmission is accomplished in four successive point - to - point phases : user 1-to - relay , relay - to - user 2 , user 2-to - relay , and relay - to - user 1 .
+in contrast , the time division broadcast ( tdbc ) protocol exploits the broadcast capability of the wireless medium and combines the relay - to - user 1 and relay - to - user 2 phases into one phase , the broadcast phase @xcite .
+thereby , the relay broadcasts a superimposed codeword , carrying information for both user 1 and user 2 , such that each user is able to recover its intended information by self - interference cancellation .
+another existing protocol is the multiple access broadcast ( mabc ) protocol in which the user 1-to - relay and user 2-to - relay phases are also combined into one phase , the multiple - access phase @xcite . in the multiple - access phase , both user 1 and user 2 simultaneously transmit to the relay which is able to decode both messages .
+generally , for the bidirectional relay network without a direct link between user 1 and user 2 , six transmission modes are possible : four point - to - point modes ( user 1-to - relay , user 2-to - relay , relay - to - user 1 , relay - to - user 2 ) , a multiple access mode ( both users to the relay ) , and a broadcast mode ( the relay to both users ) , where the capacity region of each transmission mode is known @xcite , @xcite . using this knowledge ,
+a significant research effort has been dedicated to obtaining the achievable rate region of the bidirectional relay network @xcite-@xcite .
+specifically , the achievable rates of most existing protocols for two - hop relay transmission are limited by the instantaneous capacity of the weakest link associated with the relay .
+the reason for this is the fixed schedule of using the transmission modes which is adopted in all existing protocols , and does not exploit the instantaneous channel state information ( csi ) of the involved links . for one - way relaying ,
+an adaptive link selection protocol was proposed in @xcite where based on the instantaneous csi , in each time slot , either the source - relay or relay - destination links are selected for transmission . to this end
+, the relay has to have a buffer for data storage .
+this strategy was shown to achieve the capacity of the one - way relay channel with fading @xcite .
+moreover , in fading awgn channels , power control is necessary for rate maximization .
+the highest degree of freedom that is offered by power control is obtained for a joint average power constraint for all nodes .
+any other power constraint with the same total power budget is more restrictive than the joint power constraint and results in a lower sum rate .
+therefore , motivated by the protocols in @xcite and @xcite , our goal is to utilize all available degrees of freedom of the three - node half - duplex bidirectional relay network with fading , via an adaptive mode selection and power allocation policy . in particular , given a joint power budget for all nodes , we find a policy which in each time slot selects the optimal transmission mode from the six possible modes and allocates the optimal powers to the nodes transmitting in the selected mode , such that the sum rate is maximized .
+adaptive mode selection for bidirectional relaying was also considered in @xcite and @xcite .
+however , the selection policy in @xcite does not use all possible modes , i.e. , it only selects from two point - to - point modes and the broadcast mode , and assumes that the transmit powers of all three nodes are fixed and identical .
+although the selection policy in @xcite considers all possible transmission modes for adaptive mode selection , the transmit powers of the nodes are assumed to be fixed , i.e. , power allocation is not possible .
+interestingly , mode selection and power allocation are mutually coupled and the modes selected with the protocol in @xcite for a given channel are different from the modes selected with the proposed protocol .
+power allocation can considerably improve the sum rate by optimally allocating the powers to the nodes based on the instantaneous csi especially when the total power budget in the network is low .
+moreover , the proposed protocol achieves the maximum sum rate in the considered bidirectional network .
+hence , the sum rate achieved with the proposed protocol can be used as a reference for other low complexity suboptimal protocols .
+simulation results confirm that the proposed protocol outperforms existing protocols .    finally , we note that the advantages of buffering come at the expense of an increased end - to - end delay .
+however , with some modifications to the optimal protocol , the average delay can be bounded , as shown in @xcite , which causes only a small loss in the achieved rate .
+the delay analysis of the proposed protocol is beyond the scope of the current work and is left for future research .
+[ c][c][0.75]@xmath0 [ c][c][0.75]@xmath1 [ c][c][0.75]@xmath2 [ c][c][0.75]@xmath3 [ c][c][0.75]@xmath4 [ c][c][0.75]@xmath5 [ c][c][0.75]@xmath6 [ c][c][0.75]@xmath7 [ c][c][0.75]@xmath8 [ c][c][0.75]@xmath9     [ c][c][0.5]@xmath0 [ c][c][0.5]@xmath1 [ c][c][0.5]@xmath2 [ c][c][0.75]@xmath10 [ c][c][0.75]@xmath11 [ c][c][0.75]@xmath12 [ c][c][0.75]@xmath13 [ c][c][0.75]@xmath14 [ c][c][0.75]@xmath15     in this section , we first describe the channel model
+. then , we provide the achievable rates for the six possible transmission modes .
+we consider a simple network in which user 1 and user 2 exchange information with the help of a relay node as shown in fig .
+we assume that there is no direct link between user 1 and user 2 , and thus , user 1 and user 2 communicate with each other only through the relay node .
+we assume that all three nodes in the network are half - duplex .
+furthermore , we assume that time is divided into slots of equal length and that each node transmits codewords which span one time slot or a fraction of a time slot as will be explained later .
+we assume that the user - to - relay and relay - to - user channels are impaired by awgn with unit variance and block fading , i.e. , the channel coefficients are constant during one time slot and change from one time slot to the next .
+moreover , in each time slot , the channel coefficients are assumed to be reciprocal such that the user 1-to - relay and the user 2-to - relay channels are identical to the relay - to - user 1 and relay - to - user 2 channels , respectively .
+let @xmath3 and @xmath4 denote the channel coefficients between user 1 and the relay and between user 2 and the relay in the @xmath16-th time slot , respectively .
+furthermore , let @xmath17 and @xmath18 denote the squares of the channel coefficient amplitudes in the @xmath16-th time slot .
+@xmath19 and @xmath20 are assumed to be ergodic and stationary random processes with means @xmath21 and @xmath22 in expectations for notational simplicity . ] , respectively , where @xmath23 denotes expectation . since the noise is awgn , in order to achieve the capacity of each mode , nodes have to transmit gaussian distributed codewords .
+therefore , the transmitted codewords of user 1 , user 2 , and the relay are comprised of symbols which are gaussian distributed random variables with variances @xmath24 , and @xmath7 , respectively , where @xmath25 is the transmit power of node @xmath26 in the @xmath16-th time slot . for ease of notation , we define @xmath27 . in the following ,
+we describe the transmission modes and their achievable rates .      in the considered bidirectional relay network
+only six transmission modes are possible , cf . fig .
+[ figmodes ] .
+the six possible transmission modes are denoted by @xmath28 , and @xmath29 , denotes the transmission rate from node @xmath30 to node @xmath31 in the @xmath16-th time slot .
+let @xmath8 and @xmath9 denote two infinite - size buffers at the relay in which the received information from user 1 and user 2 is stored , respectively .
+moreover , @xmath32 , denotes the amount of normalized information in bits / symbol available in buffer @xmath33 in the @xmath16-th time slot . using this notation ,
+the transmission modes and their respective rates are presented in the following :    @xmath34 : user 1 transmits to the relay and user 2 is silent . in this mode ,
+the maximum rate from user 1 to the relay in the @xmath16-th time slot is given by @xmath35 , where @xmath36 .
+the relay decodes this information and stores it in buffer @xmath8 .
+therefore , the amount of information in buffer @xmath8 increases to @xmath37 .
+@xmath38 : user 2 transmits to the relay and user 1 is silent . in this mode ,
+the maximum rate from user 2 to the relay in the @xmath16-th time slot is given by @xmath39 , where @xmath40 .
+the relay decodes this information and stores it in buffer @xmath9 .
+therefore , the amount of information in buffer @xmath9 increases to @xmath41 .
+@xmath42 : both users 1 and 2 transmit to the relay simultaneously . for this mode
+, we assume that multiple access transmission is used , see @xcite .
+thereby , the maximum achievable sum rate in the @xmath16-th time slot is given by @xmath43 , where @xmath44 .
+since user 1 and user 2 transmit independent messages , the sum rate , @xmath45 , can be decomposed into two rates , one from user 1 to the relay and the other one from user 2 to the relay .
+moreover , these two capacity rates can be achieved via time sharing and successive interference cancelation .
+thereby , in the first @xmath46 fraction of the @xmath16-th time slot , the relay first decodes the codeword received from user 2 and considers the signal from user 1 as noise .
+then , the relay subtracts the signal received from user 2 from the received signal and decodes the codeword received from user 1 .
+a similar procedure is performed in the remaining @xmath47 fraction of the @xmath16-th time slot but now the relay first decodes the codeword received from user 1 and treats the signal of user 2 as noise , and then decodes the codeword received from user 2 . therefore , for a given @xmath48 , we decompose @xmath45 as @xmath49 and the maximum rates from users 1 and 2 to the relay in the @xmath16-th time slot are @xmath50 and @xmath51 , respectively . @xmath52 and @xmath53 are given by    @xmath54    the relay decodes the information received from user 1 and user 2 and stores it in its buffers @xmath8 and @xmath9 , respectively .
+therefore , the amounts of information in buffers @xmath8 and @xmath9 increase to @xmath37 and @xmath41 , respectively .
+@xmath55 : the relay transmits the information received from user 2 to user 1 .
+specifically , the relay extracts the information from buffer @xmath9 , encodes it into a codeword , and transmits it to user 1 .
+therefore , the transmission rate from the relay to user 1 in the @xmath16-th time slot is limited by both the capacity of the relay - to - user 1 channel and the amount of information stored in buffer @xmath9 .
+thus , the maximum transmission rate from the relay to user 1 is given by @xmath56 , where @xmath57 .
+therefore , the amount of information in buffer @xmath9 decreases to @xmath58 .
+@xmath59 : this mode is identical to @xmath55 with user 1 and 2 switching places . the maximum transmission rate from the relay to user 2
+is given by @xmath60 , where @xmath61 and the amount of information in buffer @xmath8 decreases to @xmath62 .
+@xmath63 : the relay broadcasts to both user 1 and user 2 the information received from user 2 and user 1 , respectively .
+specifically , the relay extracts the information intended for user 2 from buffer @xmath8 and the information intended for user 1 from buffer @xmath9 .
+then , based on the scheme in @xcite , it constructs a superimposed codeword which contains the information from both users and broadcasts it to both users .
+thus , in the @xmath16-th time slot , the maximum rates from the relay to users 1 and 2 are given by @xmath64 and @xmath65 , respectively .
+therefore , the amounts of information in buffers @xmath8 and @xmath9 decrease to @xmath62 and @xmath58 , respectively .
+our aim is to develop an optimal mode selection and power allocation policy which in each time slot selects one of the six transmission modes , @xmath28 , and allocates the optimal powers to the transmitting nodes of the selected mode such that the average sum rate of both users is maximized . to this end
+, we introduce six binary variables , @xmath66 , where @xmath67 indicates whether or not transmission mode @xmath68 is selected in the @xmath16-th time slot .
+in particular , @xmath69 if mode @xmath68 is selected and @xmath70 if it is not selected in the @xmath16-th time slot .
+furthermore , since in each time slot only one of the six transmission modes can be selected , only one of the mode selection variables is equal to one and the others are zero , i.e. , @xmath71 holds .    in the proposed framework
+, we assume that all nodes have full knowledge of the csi of both links .
+thus , based on the csi and the proposed protocol , cf .
+theorem  [ adaptprot ] , each node is able to individually decide which transmission mode is selected and adapt its transmission strategy accordingly .
+in this section , we first investigate the achievable average sum rate of the network . then , we formulate a maximization problem whose solution is the sum rate maximizing protocol .
+we assume that user 1 and user 2 always have enough information to send in all time slots and that the number of time slots , @xmath72 , satisfies @xmath73 .
+therefore , using @xmath67 , the user 1-to - relay , user 2-to - relay , relay - to - user 1 , and relay - to - user 2 average transmission rates , denoted by @xmath74 , @xmath75 , @xmath76 , and @xmath77 , respectively , are obtained as    lll[ratreg123 ] & & |r_1r = _ i = 1^n + & & |r_2r = _ i = 1^n + & & |r_r1 = _ i = 1^n \{c_r1(i),q_2(i-1 ) } + & & |r_r2 = _ i = 1^n \{c_r2(i),q_1(i-1)}.    the average rate from user 1 to user 2 is the average rate that user 2 receives from the relay , i.e. , @xmath77 .
+similarly , the average rate from user 2 to user 1 is the average rate that user 1 receives from the relay , i.e. , @xmath76 . in the following theorem
+, we introduce a useful condition for the queues in the buffers of the relay leading to the optimal mode selection and power allocation policy .
+[ queue ] the maximum average sum rate , @xmath78 , for the considered bidirectional relay network is obtained when the queues in the buffers @xmath8 and @xmath9 at the relay are at the edge of non - absorbtion .
+more precisely , the following conditions must hold for the maximum sum rate    lll[ratregapp456-buffer ] |r_1r=|r_r2 = _
+i = 1^n c_r2(i ) +     where @xmath74 and @xmath75 are given by ( [ ratreg123]a ) and ( [ ratreg123]b ) , respectively
+.    please refer to ( * ? ? ?
+* appendix a ) .    using this theorem , in the following , we derive the optimal transmission mode selection and power allocation policy
+.      the available degrees of freedom in the considered network in each time slot are the mode selection variables , the transmit powers of the nodes , and the time sharing variable for multiple access .
+herein , we formulate an optimization problem which gives the optimal values of @xmath67 , @xmath25 , and @xmath48 , for @xmath79 , @xmath80 , and @xmath81 , such that the average sum rate of the users is maximized .
+the optimization problem is as follows    cll[adaptprob ] & |r_1r+|r_2r + & : |r_1r=|r_r2 + & : |r_2r=|r_r1 + & : |p_1+|p_2+|p_r p_t + & : _ k = 1 ^ 6 q_k ( i ) = 1 , i + & : q_k(i ) [ 1-q_k(i ) ] = 0 , i , k + & : p_j(i)0 , i , j + & : 0t(i)1 , i    where @xmath82 is the total average power constraint of the nodes and @xmath83 , and @xmath84 denote the average powers consumed by user 1 , user 2 , and the relay , respectively , and are given by    lll |p_1= _
+i = 1^n ( q_1(i)+q_3(i))p_1 ( i ) +        in the optimization problem given in ( [ adaptprob ] ) , constraints @xmath85 and @xmath86 are the conditions for sum rate maximization introduced in theorem [ queue ]
+. constraints @xmath87 and @xmath88 are the average total transmit power constraint and the power non - negativity constraint , respectively .
+moreover , constraints @xmath89 and @xmath90 guarantee that only one of the transmission modes is selected in each time slot , and constraint @xmath91 specifies the acceptable interval for the time sharing variable @xmath48 . furthermore , we maximize @xmath92 since , according to theorem 1 ( and constraints @xmath85 and @xmath86 ) , @xmath93 and @xmath94 hold .    in the following theorem , we introduce a protocol which achieves the maximum sum rate .
+[ adaptprot ] assuming @xmath73 , the optimal mode selection and power allocation policy which maximizes the sum rate of the considered three - node half - duplex bidirectional relay network with awgn and block fading is given by    lll[seleccrit ] q_k^*(i)=    1 , & k^*= \{_k(i ) } + 0 , &    where @xmath95 is referred to as _ selection metric _ and is given by    lll[selecmet ] _
+1(i ) = ( 1-_1)c_1r(i ) - p_1(i ) |_p_1(i)=p_1^_1(i ) + _ 2(i ) = ( 1-_2)c_2r(i ) - p_2(i)|_p_2(i)=p_2^_2(i ) + _ 3(i ) = ( 1-_1)c_12r(i)+(1-_2)c_21r(i ) + - ( p_1(i)+p_2(i))|_p_2(i)=p_2^_3(i)^p_1(i)=p_1^_3(i ) + _ 6(i ) = _ 1 c_r2(i)+_2 c_r1(i ) - p_r(i)|_p_r(i)=p_r^_6(i )    where @xmath96 denotes the optimal transmit power of node @xmath30 for transmission mode @xmath68 in the @xmath16-th time slot and is given by    lll[optpower ] p_1^_1 ( i ) = ^+ + p_2^_2 ( i ) = ^+ + p_1^_3 ( i ) =    ^+ , _ 1_2 + ^+ ,     + p_2^_3 ( i ) =    ^+ , _ 1 _ 2 + ^+ ,     + p_r^_6 ( i ) = ^+    where @xmath97^+=\max\{x,0\}$ ] , @xmath98 , and @xmath99 .
+the thresholds @xmath100 and @xmath101 are chosen such that constraints @xmath85 and @xmath86 in ( [ adaptprob ] ) hold and threshold @xmath102 is chosen such that the total average transmit power satisfies @xmath87 in ( [ adaptprob ] ) .
+the optimal value of @xmath48 in @xmath52 and @xmath53 is given by    lll t^*(i ) =    0 , & _ 1 _ 2 + 1 , & _
+1 < _ 2    please refer to appendix [ appkkt ] .
+we note that the optimal solution utilizes neither modes @xmath13 and @xmath14 nor time sharing for any channel statistics and channel realizations .
+the mode selection metric @xmath95 introduced in ( [ selecmet ] ) has two parts .
+the first part is the instantaneous capacity of mode @xmath68 , and the second part is the allocated power with negative sign .
+the capacity and the power terms are linked via thresholds @xmath100 and/or @xmath101 and @xmath102 .
+we note that thresholds @xmath100 , @xmath101 , and @xmath102 depend only on the long term statistics of the channels .
+hence , these thresholds can be obtained offline and used as long as the channel statistics remain unchanged . to find the optimal values for the thresholds @xmath100 , @xmath101 , and @xmath102 , we need a three - dimensional search , where @xmath103 and @xmath104
+.    adaptive mode selection for bidirectional relay networks under the assumption that the powers of the nodes are fixed is considered in @xcite . based on the average and instantaneous qualities of the links ,
+all of the six possible transmission modes are selected in the protocol in @xcite . however , in the proposed protocol , modes @xmath13 and @xmath14 are not selected at all . moreover , the protocol in @xcite utilizes a coin flip for implementation .
+therefore , a central node must decide which transmission mode is selected in the next time slot .
+however , in the proposed protocol , all nodes can find the optimal mode and powers based on the full csi .
+in this section , we evaluate the average sum rate achievable with the proposed protocol in the considered bidirectional relay network in rayleigh fading . thus , channel gains @xmath19 and @xmath20 follow exponential distributions with means @xmath105 and @xmath106 , respectively .
+all of the presented results were obtained for @xmath107 and @xmath108 time slots .    in fig .
+[ mixed ] , we illustrate the maximum achievable sum rate obtained with the proposed protocol as a function of the total average transmit power @xmath82 . in this figure , to have a better resolution for the sum rate at low and high @xmath82 , we show the sum rate for both log scale and linear scale @xmath109-axes , respectively .
+the lines without markers in fig .  [ mixed ] represent the achieved sum rates with the proposed protocol for @xmath110 .
+we observe that as the quality of the user 1-to - relay link increases ( i.e. , @xmath105 increases ) , the sum rate increases too .
+however , for large @xmath105 , the bottleneck link is the relay - to - user 2 link , and since it is fixed , the sum rate saturates .
+[ c][t][0.75]@xmath111 [ c][b][0.75]@xmath112 [ l][c][0.45]@xmath113 [ l][c][0.45]@xmath114 [ l][c][0.45]@xmath115 [ l][c][0.45]@xmath116}\,(\omega_1=1)$ ] [ l][c][0.45]@xmath117}\,(\omega_1=1)$ ] [ l][c][0.45]@xmath118 [ l][c][0.45]@xmath119 [ c][c][0.6]@xmath120 [ c][c][0.6]@xmath121 [ c][c][0.6]@xmath122 [ c][c][0.6]@xmath123 [ c][c][0.6]@xmath124 [ c][c][0.6]@xmath125 [ c][c][0.6]@xmath126 [ c][c][0.6]@xmath127 [ c][c][0.6]@xmath128 [ c][c][0.6]@xmath129 [ c][c][0.6]@xmath130 [ c][c][0.6]@xmath131 [ c][c][0.6]@xmath132 [ c][c][0.6]@xmath133 [ c][c][0.30]@xmath124 [ c][c][0.30]@xmath134 [ c][c][0.30]@xmath135 [ c][c][0.30]@xmath136 [ c][c][0.30]@xmath137 [ c][c][0.30]@xmath138 [ c][c][0.30]@xmath139 [ c][c][0.30]@xmath140 [ c][c][0.30]@xmath141 [ c][c][0.30]@xmath142 [ c][c][0.30]@xmath125 [ c][c][0.30]@xmath120 [ c][c][0.30]@xmath121 [ c][c][0.30]@xmath122 [ c][c][0.30]@xmath123 [ c][c][0.30]@xmath124 [ c][c][0.30]@xmath125 [ c][c][0.30]@xmath126 [ c][c][0.30]@xmath127 [ c][c][0.30]@xmath128   for different protocols.,title="fig:",width=3 ]    as performance benchmarks , we consider in fig .
+[ mixed ] the sum rates of the tdbc protocol with and without power allocation @xcite and the buffer - aided protocols presented in @xcite and @xcite , respectively . for clarity , for the benchmark schemes , we only show the sum rates for @xmath143 . for the tdbc protocol without power allocation and the protocol in @xcite ,
+all nodes transmit with equal powers , i.e. , @xmath144 . for the buffer - aided protocol in @xcite , we adopt @xmath145 and @xmath146 is chosen such that the average total power consumed by all nodes is @xmath82 .
+we note that since @xmath143 and @xmath147 , the protocol in @xcite only selects modes @xmath12 and @xmath15 .
+moreover , since @xmath143 , we obtain @xmath148 in the proposed protocol . thus ,
+considering the optimal power allocation in ( [ optpower]c ) and ( [ optpower]d ) , we obtain that either @xmath149 or @xmath150 is zero .
+therefore , for the chosen parameters , only modes @xmath151 , and @xmath15 are selected , i.e. , the same modes as used in @xcite , the protocol in @xcite is optimal for given fixed node transmit powers . ] .
+hence , we can see how much gain we obtain due to the adaptive power allocation by comparing our result with the results for the protocol in @xcite . on the other hand ,
+the gain due to the adaptive mode selection can be evaluated by comparing the sum rate of the proposed protocol with the result for the tdbc protocol with power allocation . from the comparison in fig .
+[ mixed ] , we observe that for high @xmath82 , a considerable gain is obtained by the protocols with adaptive mode selection ( ours and that in @xcite ) compared to the tdbc protocol which does not apply adaptive mode selection ( around @xmath152 db gain ) . however , for high @xmath82 , power allocation is less beneficial , and therefore , the sum rates obtained with the proposed protocol and that in @xcite converge . on the other hand , for low @xmath82 ,
+optimal power allocation is crucial and , therefore , a considerable gain is achieved by the protocols with adaptive power allocation ( ours and tdbc with power allocation ) .
+we have derived the maximum sum rate of the three - node half - duplex bidirectional buffer - aided relay network with fading links . the protocol which achieves the maximum sum rate jointly optimizes the selection of the transmission mode and the transmit powers of the nodes .
+the proposed optimal mode selection and power allocation protocol requires the instantaneous csi of the involved links in each time slot and their long - term statistics .
+simulation results confirmed that the proposed selection policy outperforms existing protocols in terms of average sum rate .
+in this appendix , we solve the optimization problem given in ( [ adaptprob ] ) .
+we first relax the binary condition for @xmath67 , i.e. , @xmath153=0 $ ] , to @xmath154 , and later in appendix [ appbinrelax ] , we prove that the binary relaxation does not affect the maximum average sum rate . in the following ,
+we investigate the karush - kuhn - tucker ( kkt ) necessary conditions @xcite for the relaxed optimization problem and show that the necessary conditions result in a unique sum rate and thus the solution is optimal .
+to simplify the usage of the kkt conditions , we formulate a minimization problem equivalent to the relaxed maximization problem in ( [ adaptprob ] ) as follows    cll[adaptprobmin ] & -(|r_1r+|r_2r ) + & : |r_1r-|r_r2=0 + & : |r_2r-|r_r1=0 + & : |p_1+|p_2+|p_r - p_t0 + & : _ k = 1 ^ 6 q_k ( i ) - 1 = 0 , i + & : q_k(i)-1 0 , i , k + & : -q_k(i ) 0 , i , k + & : -p_j(i ) 0 , i , k + & : t(i)-1 0 , i + & : -t(i ) 0 , i.    the lagrangian function for the above optimization problem is provided in ( [ kkt function ] ) at the top of the next page where @xmath155 , and @xmath156 are the lagrange multipliers corresponding to constraints @xmath157 , and @xmath158 , respectively .
+the kkt conditions include the following :    l[kkt function ] = + - ( |r_1r+|r_2r ) + _ 1(|r_1r-|r_r2 ) + _ 2(|r_2r-|r_r1 ) + ( |p_1+|p_2+|p_r - p_t ) + + _ i = 1^n ( i ) ( _ k = 1 ^ 6 q_k ( i ) - 1 ) + _ i = 1^n _ k = 1 ^ 6 _ k ( i ) ( q_k ( i ) - 1 ) - _ i = 1^n _ k = 1 ^ 6 _ k ( i ) q_k ( i ) + -_i = 1^n + _ i = 1^n _ 1(i ) ( t(i)-1 ) - _ i = 1^n _ 0(i ) t(i )    * 1 ) * stationary condition : the differentiation of the lagrangian function with respect to the primal variables , @xmath159 , and @xmath160 , is zero for the optimal solution , i.e. ,    cccl[stationary condition ] & = & 0 , & i , k + & = & 0 , & i , j + & = & 0 , & i.    * 2 ) * primal feasibility condition : the optimal solution has to satisfy the constraints of the primal problem in ( [ adaptprobmin ] ) .    * 3 ) * dual feasibility condition : the lagrange multipliers for the inequality constraints have to be non - negative , i.e. ,    lll[dual feasibility condition ] _
+k(i)0 , & i , k + _ k(i)0,&i , k + 0 , & + _ j(i ) 0 , & i , j + _ l(i ) 0 , & i , l .
+* 4 ) * complementary slackness : if an inequality is inactive , i.e. , the optimal solution is in the interior of the corresponding set , the corresponding lagrange multiplier is zero .
+thus , we obtain    lll[complementary slackness ] _ k ( i ) ( q_k ( i ) - 1 ) = 0,&i , k + _ k ( i ) q_k ( i ) = 0 , & i , k + ( |p_1+|p_2+|p_r - p_t ) = 0 & + _ j(i ) p_j(i ) = 0 , & i , j + _ 1(i ) ( t(i)-1 ) = 0 , & i + _ 0(i ) t(i ) = 0 , & i.    a common approach to find a set of primal variables , i.e. , @xmath161 and lagrange multipliers , i.e. , @xmath162 , which satisfy the kkt conditions is to start with the complementary slackness conditions and see if the inequalities are active or not . combining these results with the primal feasibility and dual feasibility conditions , we obtain various possibilities .
+then , from these possibilities , we obtain one or more candidate solutions from the stationary conditions and the optimal solution is surely one of these candidates . in the following subsections , with this approach , we find the optimal values of @xmath163 and @xmath164 .      in order to determine the optimal selection policy , @xmath165 , we must calculate the derivatives in ( [ stationary condition]a ) .
+this leads to    lll[stationary mode ] = - ( 1-_1)c_1r(i)+(i)+_1(i)-_1(i ) + p_1(i)=0 + = -(1-_2)c_2r(i)+(i)+_2(i)-_2(i ) + p_2(i)=0 + = -[(1-_1)c_12r(i)+(1-_2)c_21r(i)]+(i ) + _ 3(i)-_3(i)+(p_1(i)+p_2(i))=0 + = - _ 2 c_r1(i)+(i)+_4(i)-_4(i)+p_r(i)=0 + = -_1 c_r2(i)+(i)+_5(i)-_5(i)+p_r(i)=0 + = -[_1 c_r2(i)+_2 c_r1(i)]+(i)+_6(i)-_6(i)+p_r(i)=0 .    without loss of generality ,
+we first obtain the necessary condition for @xmath166 and then generalize the result to @xmath167 . if @xmath168 , from constraint @xmath89 in ( [ adaptprobmin ] ) , the other selection variables are zero , i.e. , @xmath169 .
+furthermore , from ( [ complementary slackness ] ) , we obtain @xmath170 and @xmath171 . by substituting these values into ( [ stationary mode ] ) , we obtain    lll[met ] ( i)+_1(i ) = ( 1-_1)c_1r(i ) -p_1(i ) _
+1(i ) + ( i)-_2(i ) = ( 1-_2)c_2r(i ) -p_2(i ) _
+2(i ) + ( i)-_3(i ) = ( 1-_1)c_12r(i)+(1-_2)c_21r(i ) -(p_1(i)+p_2(i ) ) _
+3(i ) + ( i)-_4(i ) = _ 2 c_r1(i ) -p_r(i ) _
+4(i ) + ( i)-_5(i ) = _ 1 c_r2(i ) -p_r(i ) _
+5(i ) + ( i)-_6(i ) = _ 1 c_r2(i)+_2 c_r1(i ) -p_r(i ) _
+6(i ) ,    where @xmath95 is referred to as selection metric . by subtracting ( [ met]a ) from the rest of the equations in ( [ met ] ) , we obtain    rcl[eq_2_1 ] _
+1(i ) - _ k(i ) = _ 1(i)+_k(i ) , k=2,3,4,5,6 .    from the dual feasibility conditions given in ( [ dual feasibility condition]a ) and ( [ dual feasibility condition]b ) , we have @xmath172 . by inserting @xmath172 in ( [ eq_2_1 ] )
+, we obtain the necessary condition for @xmath166 as    lll _
+1(i ) \ { _ 2(i ) , _ 3(i ) , _
+4(i ) , _ 5(i ) , _
+6(i ) } .    repeating the same procedure for @xmath167 , we obtain a necessary condition for selecting transmission mode @xmath173 in the @xmath16-th time slot as follows    lll[optmet ] _
+k^*(i ) \{_k(i ) } ,    where the lagrange multipliers @xmath174 , and @xmath102 are chosen such that @xmath175 , and @xmath87 in ( [ adaptprobmin ] ) hold and the optimal value of @xmath48 in @xmath52 and @xmath53 is obtained in the next subsection .
+we note that if the selection metrics are not equal in the @xmath16-th time slot , only one of the modes satisfies ( [ optmet ] ) .
+therefore , the necessary conditions for the mode selection in ( [ optmet ] ) is sufficient .
+moreover , in appendix [ appbinrelax ] , we prove that the probability that two selection metrics are equal is zero due to the randomness of the time- continuous channel gains .
+therefore , the necessary condition for selecting transmission mode @xmath68 in ( [ optmet ] ) is in fact sufficient and is the optimal selection policy .      in order to determine the optimal @xmath25
+, we have to calculate the derivatives in ( [ stationary condition]b ) .
+this leads to    [ stationary power ] @xmath177 \nonumber \\ & + \gamma \frac{1}{n } ( q_1(i)+q_3(i ) )   - \nu_1(i ) = 0 \quad \tag{\stepcounter{equation}\theequation}\\      \frac{\partial\mathcal{l}}{\partial p_2(i ) } { \hspace{-0.7mm}=\hspace{-0.7mm}}&-\frac{1}{n\mathrm{ln}2 } \big [ \big \ { ( 1{\hspace{-0.7mm}-\hspace{-0.7mm}}\mu_2)q_2(i ) { \hspace{-0.7mm}+\hspace{-0.7mm}}(1{\hspace{-0.7mm}-\hspace{-0.7mm}}t(i))(\mu_1{\hspace{-0.7mm}-\hspace{-0.7mm}}\mu_2)q_3(i ) \big\ } \nonumber \\ & \times\frac{s_2(i)}{1{\hspace{-0.7mm}+\hspace{-0.7mm}}p_2(i)s_2(i ) } { \hspace{-0.7mm}+\hspace{-0.7mm}}\big\{t(i)(\mu_1{\hspace{-0.7mm}-\hspace{-0.7mm}}\mu_2){\hspace{-0.7mm}+\hspace{-0.7mm}}1{\hspace{-0.7mm}-\hspace{-0.7mm}}\mu_1 \big\}q_3(i ) \nonumber \\ & \times\frac{s_2(i)}{1+p_1(i)s_1(i)+p_2(i)s_2(i ) } \big]\nonumber \\ & + \gamma \frac{1}{n } ( q_2(i)+q_3(i ) )   - \nu_2(i)=0 \quad\tag{\stepcounter{equation}\theequation}\\      \frac{\partial\mathcal{l}}{\partial p_r(i ) } =         & -\frac{1}{n\mathrm{ln}2 } \big [ \mu_2\left(q_4(i)+q_6(i)\right)\frac{s_1(i)}{1+p_r(i)s_1(i)}\nonumber \\ & + \mu_1\left(q_5(i)+q_6(i)\right)\frac{s_2(i)}{1+p_r(i)s_2(i ) } \big]\nonumber \\ & + \gamma \frac{1}{n } ( q_4(i)+q_5(i)+q_6(i ) )   - \nu_r(i)=0 \tag{\stepcounter{equation}\theequation}\end{aligned}\ ] ]    the above conditions allow the derivation of the optimal powers for each transmission mode in each time slot .
+for instance , in order to determine the transmit power of user 1 in transmission mode @xmath10 , we assume @xmath166 . from constraint @xmath89 in ( [ adaptprobmin ] ) , we obtained that the other selection variables are zero and therefore @xmath178 . moreover ,
+if @xmath10 is selected then @xmath179 and thus from ( [ complementary slackness]d ) , we obtain @xmath180 . substituting these results in ( [ stationary power]a ) , we obtain    lll [ eq_11 ] p_1^_1 ( i ) = ^+ ,    where @xmath97^+=\max\{0,x\}$ ] . in a similar manner , we obtain the optimal powers for user 2 in mode @xmath11 , and the optimal powers of the relay in modes @xmath13 and @xmath14 as follows :    lll[p245 ] p_2^_2 ( i ) = ^+ + p_r^_4 ( i ) = ^+ + p_r^_5 ( i ) = ^+    in order to obtain the optimal powers of user 1 and user 2 in mode @xmath12 , we assume @xmath181 . from @xmath89 in ( [ adaptprobmin ] ) , we obtain that the other selection variables are zero , and therefore @xmath182 and @xmath183 .
+we note that if one of the powers of user 2 and user 1 is zero mode @xmath12 is identical to modes @xmath10 and @xmath11 , respectively , and for that case the optimal powers are already given by ( [ eq_11 ] ) and ( [ p245]a ) , respectively . for the case when @xmath179 and @xmath184 , we obtain @xmath180 and @xmath185 from ( [ complementary slackness]d ) .
+furthermore , for @xmath181 , we will show in appendix [ appkkt].c that @xmath48 can only take the boundary values , i.e. , zero or one , and can not be in between .
+hence , if we assume @xmath186 , from ( [ stationary power]a ) and ( [ stationary power]b ) , we obtain    lll[powerm3 ] & - + = 0 + & - + = 0    by substituting ( [ powerm3]a ) in ( [ powerm3]b ) , we obtain @xmath187 and then we can derive @xmath188 from ( [ powerm3]a ) .
+this leads to    lll [ pm3-t0 ] p_1^_3 ( i ) =    p_1^_1 ( i ) , s_2 + ^+ ,     + p_2^_3 ( i ) =    p_2^_2 ( i ) , s_2 s_1 + ^+ ,    similarly , if we assume @xmath189 , we obtain    lll [ pm3-t1 ] p_1^_3 ( i ) =    p_1^_1 ( i ) , s_2 s_1 + ^+ ,     + p_2^_3 ( i ) =    p_2^_2 ( i ) , s_2 + ^+ ,    we note that when @xmath190 , we obtain @xmath191 which means that mode @xmath12 is identical to mode @xmath10 .
+thus , there is no difference between both modes so we select @xmath10 . in figs
+[ figsregion ] a ) and [ figsregion ] b ) , the comparison of @xmath192 , and @xmath193 is illustrated in the space of @xmath194 .
+moreover , the shaded area represents the region in which the powers of users 1 and 2 are zero for @xmath151 , and @xmath12 .
+[ c][c][0.6]@xmath19 [ c][c][0.6]@xmath20 [ c][c][0.6]@xmath195 [ c][c][0.6]@xmath196 [ c][c][0.6]@xmath195 [ c][c][0.6]@xmath196 [ c][c][0.6]@xmath197 [ c][c][0.6]@xmath198 [ c][c][0.75]@xmath199 [ c][b][0.7]@xmath200 [ c][c][0.7]@xmath201 [ c][c][0.75]@xmath202 [ c][c][0.75]@xmath203 [ c][c][0.75]@xmath204 [ c][c][0.65]@xmath200 [ c][t][0.65]@xmath201 [ c][c][0.75]@xmath202 [ c][c][0.75]@xmath205 [ c][c][0.75]@xmath206 [ c][c][0.75]a ) @xmath207 [ c][c][0.75]b ) @xmath208 [ c][c][0.75]c )     for mode @xmath15 , we assume @xmath209 . from constraint @xmath89 in ( [ adaptprobmin ] ) , we obtain that the other selection variables are zero and therefore @xmath210 and @xmath211 .
+moreover , if @xmath209 then @xmath212 and thus from ( [ complementary slackness]d ) , we obtain @xmath213 . using these results in ( [ stationary power]c )
+, we obtain    lll[powerm6 ] _ 2 + _ 1 = 2    the above equation is a quadratic equation and has two solutions for @xmath7 .
+however , since we have @xmath214 , we can conclude that the left hand side of ( [ powerm6 ] ) is monotonically decreasing in @xmath7 .
+thus , if @xmath215 , we have a unique positive solution for @xmath7 which is the maximum of the two roots of ( [ powerm6 ] ) .
+thus , we obtain    lll[pm6 ] p_r^_6 ( i ) = ^+ ,    where @xmath216 , and @xmath99 .    in fig .
+[ figsregion ] c ) , the comparison between selection metrics @xmath217 and @xmath218 is illustrated in the space of @xmath194 .
+we note that @xmath219 and @xmath220 hold and the inequalities hold with equality if @xmath221 and @xmath222 , respectively , which happen with zero probability for time - continuous fading . to prove @xmath219 , from ( [ met ] ) ,
+we obtain    rcl _
+6(i ) & = & _ 1c_r2(i ) + _ 2c_r1(i ) -p_r(i ) |_p_r(i)=p_r^_6(i ) + & & _
+1c_r2(i ) + _ 2c_r1(i ) -p_r(i)|_p_r(i)=p_r^_4(i ) + & & _
+2c_r1(i ) -p_r(i ) |_p_r(i)=p_r^_4(i ) = _ 4(i ) ,    where @xmath223 follows from the fact that @xmath224 maximizes @xmath218 and @xmath225 follows from @xmath226 . the two inequalities @xmath223 and
+@xmath225 hold with equality only if @xmath221 which happens with zero probability in time - continuous fading or if @xmath227 .
+however , in appendix [ appmuregion ] , @xmath227 is shown to lead to a contradiction .
+therefore , the optimal policy does not select @xmath13 and @xmath14 and selects only modes @xmath228 , and @xmath15 .      to find the optimal @xmath48
+, we assume @xmath230 and calculate the stationary condition in ( [ stationary condition]c ) .
+this leads to    lll [ stationary t ] = & -(_1-_2 ) + & + _
+1(i)-_0(i)=0    now , we investigate the following possible cases for @xmath229 :    * case 1 : * if @xmath231 then from ( [ complementary slackness]e ) and ( [ complementary slackness]f ) , we have @xmath232 . therefore ,
+from ( [ stationary t ] ) and @xmath233 , we obtain @xmath148 .
+then , from ( [ stationary power]a ) and ( [ stationary power]b ) , we obtain    rcl[contradict ]    - ( 1-_1 ) + = 0 + - ( 1-_1 ) + = 0    in appendix [ appmuregion ] , we show that @xmath234 , therefore , the above conditions can be satisfied simultaneously only if @xmath235 , which , considering the randomness of the time - continuous channel gains , occurs with zero probability .
+hence , the optimal @xmath48 takes the boundary values , i.e. , zero or one , and not values in between .
+* case 2 : * if @xmath236 , then from ( [ complementary slackness]e ) , we obtain @xmath237 and from ( [ dual feasibility condition]e ) , we obtain @xmath238 . combining these results into ( [ stationary t ] ) , the necessary condition for @xmath186 is obtained as @xmath239 .
+* case 3 : * if @xmath240 , then from ( [ complementary slackness]f ) , we obtain @xmath241 and from ( [ dual feasibility condition]e ) , we obtain @xmath242 . combining these results into ( [ stationary t ] ) ,
+the necessary condition for @xmath189 is obtained as @xmath243 .
+we note that if @xmath148 , we obtain either @xmath244 or @xmath245 .
+therefore , mode @xmath12 is not selected and the value of @xmath48 does not affect the sum rate . moreover , from the selection metrics in ( [ met ] ) , we can conclude that @xmath207 and @xmath208 correspond to @xmath246 and @xmath247 , respectively .
+therefore , the optimal value of @xmath48 is given by    lll t^*(i ) =    0 , & _ 1 _ 2 + 1 , & _
+1 < _ 2    now , the optimal values of @xmath159 , and @xmath160 are derived based on which theorem [ adaptprot ] can be constructed .
+this completes the proof .
+in this appendix , we prove that the optimal solution of the problem with the relaxed constraint , @xmath248 , selects the boundary values of @xmath67 , i.e. , zero or one . therefore , the binary relaxation does not change the solution of the problem .
+if one of the @xmath249 , adopts a non - binary value in the optimal solution , then in order to satisfy constraint @xmath89 in ( [ adaptprob ] ) , there has to be at least one other non - binary selection variable in that time slot .
+assuming that the mode indices of the non - binary selection variables are @xmath250 and @xmath251 in the @xmath16-th time slot , we obtain @xmath252 from ( [ complementary slackness]a ) , and @xmath253 and @xmath254 from ( [ complementary slackness]b ) . then , by substituting these values into ( [ stationary mode ] ) , we obtain    lll[binrelax ] ( i ) = _ k(i ) + ( i)= _ k(i ) + ( i)-_k(i ) = _ k(i ) , kk , k  .    from ( [ binrelax]a ) and ( [ binrelax]b ) , we obtain @xmath255 and by subtracting ( [ binrelax]a ) and ( [ binrelax]b ) from ( [ binrelax]c ) , we obtain    rcl _
+k(i ) - _ k(i ) & = & _ k(i ) , kk , k  + _ k(i ) - _ k(i ) & = & _ k(i ) , kk , k  .    from the dual feasibility condition given in ( [ dual feasibility condition]b )
+, we have @xmath256 which leads to @xmath257 .
+however , as a result of the randomness of the time - continuous channel gains , @xmath258 holds for some transmission modes @xmath259 and @xmath260 , if and only if we obtain @xmath261 or @xmath262 which leads to a contradiction as shown in appendix [ appmuregion ] .
+this completes the proof .
+in this appendix , we find the intervals which contain the optimal value of @xmath100 and @xmath101 . we note that for different values of @xmath100 and @xmath101 , some of the optimal powers derived in ( [ eq_11 ] ) , ( [ p245 ] ) , ( [ pm3-t0 ] ) , ( [ pm3-t1 ] ) , and ( [ pm6 ] ) are zero for all channel realizations .
+for example , if @xmath263 , we obtain @xmath264 from ( [ eq_11 ] ) .
+[ figmuregion ] illustrates the set of modes that can take positive powers with non - zero probability in the space of ( @xmath174 ) . in the following ,
+we show that any values of @xmath100 and @xmath101 except @xmath265 and @xmath266 can not lead to the optimal sum rate or violate constraints @xmath85 or @xmath86 in ( [ adaptprobmin ] ) .
+* case 1 : * sets @xmath267 and @xmath268 lead to selection of either the transmission from the users to the relay or the transmission from the relay to the users , respectively , for all time slots .
+this leads to violation of constraints @xmath85 and @xmath86 in ( [ adaptprobmin ] ) and thus the optimal values of @xmath100 and @xmath101 are not in this region .
+* case 2 : * in set @xmath269 , both modes @xmath13 and @xmath15 need the transmission from user 2 to the relay which can not be realized in this set .
+thus , this set leads to violation of constraint @xmath86 in ( [ adaptprobmin ] ) .
+similarly , in set @xmath270 , both modes @xmath14 and @xmath15 require the transmission from user 1 to the relay which can not be selected in this set .
+thus , this region of @xmath100 and @xmath101 leads to violation of constraint @xmath85 in ( [ adaptprobmin ] ) .
+* case 3 : * in set @xmath271 , there is no transmission from user 2 to the relay .
+therefore , the optimal values of @xmath100 and @xmath101 have to guarantee that modes @xmath13 and @xmath15 are not selected for any channel realization .
+however , from ( [ met ] ) , we obtain      where @xmath223 follows from the fact that @xmath224 maximizes @xmath218 and @xmath225 follows from @xmath272 . the two inequalities @xmath223 and @xmath225 hold with equality only if @xmath222 which happens with zero probability for time - continuous fading , or @xmath273 which is not included in this region . therefore , mode @xmath15 is selected in this region which leads to violation of constraint @xmath86 in ( [ adaptprobmin ] ) .
+a similar statement is true for set @xmath274 .
+thus , the optimal values of @xmath100 and @xmath101 can not be in these two regions .        where inequality @xmath223 comes from the fact that @xmath276 and the equality holds when @xmath221 which happens with zero probability , or @xmath227 .
+inequality @xmath225 holds since @xmath277 maximizes @xmath278 and holds with equality only if @xmath279 and consequently @xmath227 .
+if @xmath280 , mode @xmath15 is not selected and there is no transmission from the relay to user 2 .
+therefore , the optimal values of @xmath100 and @xmath101 have to guarantee that modes @xmath10 and @xmath12 are not selected for any channel realization .
+thus , we obtain @xmath263 which is not contained in this region .
+if @xmath227 , from ( [ met ] ) , we obtain      where both inequalities @xmath223 and @xmath225 hold with equality only if @xmath281 . if @xmath282 , modes @xmath13 and @xmath15 are not selected
+thus , there is no transmission from the relay to the users which leads to violation of @xmath85 and @xmath86 in ( [ adaptprobmin ] ) .
+if @xmath281 , we obtain @xmath283 , thus mode @xmath11 can not be selected and either @xmath244 or @xmath284 , thus mode @xmath12 can not be selected either . since both modes @xmath13 and @xmath15 require the transmission from user 2 to the relay , and both modes @xmath11 and @xmath12 are not selected , constraint @xmath86 in ( [ adaptprobmin ] ) is violated and @xmath227 and @xmath281 can not be optimal .
+a similar statement is true for set @xmath285 .
+therefore , the optimal values of @xmath100 and @xmath101 are not in this region .
+s.  j. kim , n.  devroye , p.  mitran , and v.  tarokh , `` achievable rate regions and performance comparison of half duplex bi - directional relaying protocols , '' _ ieee trans .
+inf . theory _ ,
+57 , no .
+6405 6418 , oct .
+2011 .
+n.  zlatanov and r.  schober , `` capacity of the state - dependent half - duplex relay channel without source - destination link , '' _ submitted ieee transactions on information theory _ , 2013 .
+[ online ] .
+available : http://arxiv.org/abs/1302.3777    v.  jamali , n.  zlatanov , a.  ikhlef , and r.  schober , `` adaptive mode selection in bidirectional buffer - aided relay networks with fixed transmit powers , '' _ submitted in part to eusipco13 _ , 2013 .
+[ online ] .
+available : http://arxiv.org/abs/1303.3732

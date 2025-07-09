@@ -1,0 +1,299 @@
+the statistical mechanics of pure systems 
+most prominently the topic of phase transitions and their associated surface phenomena  has been a subject of fairly intensive research in recent years .
+several physical principles for pure systems ( the gibbs phase rule , wulff construction , etc . ) have been put on a mathematically rigorous footing and , if necessary , supplemented with appropriate conditions ensuring their validity .
+the corresponding phenomena in systems with several mixed components , particularly solutions , have long been well - understood on the level of theoretical physics .
+however , they have not received much mathematically rigorous attention and in particular have not been derived rigorously starting from a local interaction .
+a natural task is to use the ideas from statistical mechanics of pure systems to develop a higher level of control for phase transitions in solutions .
+this is especially desirable in light of the important role that basic physics of these systems plays in sciences , both general ( chemistry , biology , oceanography ) and applied ( metallurgy , etc . ) .
+see e.g. @xcite for more discussion
+.    among the perhaps most interesting aspects of phase transitions in mixed systems is a dramatic _ phase separation _ in solutions upon freezing ( or boiling ) .
+a well - known example from `` real world '' is the formation of brine pockets in frozen sea water . here , two important physical phenomena are observed :    1 .
+migration of nearly all the salt into whatever portion of ice / water mixture remains liquid .
+clear evidence of _ facetting _ at the water - ice boundaries .
+quantitative analysis also reveals the following fact :    1 .
+salted water freezes at temperatures lower than the freezing point of pure water .
+this is the phenomenon of _ freezing point depression_.    phenomenon  ( 1 ) is what `` drives '' the physics of sea ice and is thus largely responsible for the variety of physical effects that have been observed , see e.g.  @xcite .
+notwithstanding , ( 13 ) are not special to the salt - water system ; they are shared by a large class of the so called _ non - volatile _ solutions .
+a discussion concerning the general aspects of freezing / boiling of solutions  often referred to as _ colligative _ properties  can be found in  @xcite .    of course ,
+on a heuristic level , the above phenomena are far from mysterious .
+indeed , ( 1 ) follows from the observation that , macroscopically , the liquid phase provides a more hospitable environment for salt than the solid phase .
+then ( 3 ) results by noting that the migration of salt increases the entropic cost of freezing so the energy - entropy balance forces the transition point to a lower temperature .
+finally , concerning observation  ( 2 ) we note that , due to the crystalline nature of ice , the ice - water surface tension will be anisotropic . therefore , to describe the shape of brine pockets , a wulff construction has to be involved with the caveat that here the crystalline phase is on the outside . in summary
+, what is underlying these phenomena is a phase separation accompanied by the emergence of a crystal shape . in the context of pure systems ,
+such topics have been well understood at the level of theoretical physics for quite some time @xcite and , recently ( as measured on the above time scale ) , also at the level of rigorous theorems in two  @xcite and higher  @xcite dimensions .
+the purpose of this and a subsequent paper is to study the qualitative nature of phenomena ( 13 ) using the formalism of equilibrium statistical mechanics .
+unfortunately , a microscopically realistic model of salted water / ice system is far beyond reach of rigorous methods .
+( in fact , even in pure water , the phenomenon of freezing is so complex that crystalization in realistic models has only recently  and only marginally  been exhibited in computer simulations  @xcite . )
+thus we will resort to a simplified version in which salt and both phases of water are represented by discrete random variables residing at sites of a regular lattice .
+for these models we show that phase separation dominates a non - trivial _ region _ of chemical potentials in the phase diagram  a situation quite unlike the pure system where phase separation can occur only at a single value ( namely , the transition value ) of the chemical potential .
+the boundary lines of the phase - separation region can be explicitly characterized and shown to agree with the approximate solutions of the corresponding problem in the physical - chemistry literature .
+the above constitutes the subject of the present paper . in a subsequent paper @xcite
+we will demonstrate that , for infinitesimal salt concentrations scaling appropriately with the size of the system , phase separation may still occur dramatically in the sense that a non - trivial fraction of the system suddenly melts ( freezes ) to form a pocket ( crystal ) .
+in these circumstances the amount of salt needed is proportional to the _ boundary _ of the system which shows that the onset of freezing - point depression is actually a surface phenomenon . on a qualitative level
+, most of the aforementioned conclusions should apply to general non - volatile solutions under the conditions when the solvent freezes ( or boils ) .
+notwithstanding , throughout this and the subsequent paper we will adopt the _ language _ of salted water and refer to the solid phase of the solvent as ice , to the liquid phase as liquid - water , and to the solute as salt .      our model will be defined on the @xmath0-dimensional hypercubic lattice  @xmath1 .
+we will take the ( formal ) nearest - neighbor hamiltonian of the following form : @xmath2 here @xmath3 is the inverse temperature ( henceforth incorporated into the hamitonian ) ,  @xmath4 and  @xmath5 are sites in  @xmath1 and  @xmath6 denotes a neighboring pair of sites .
+the quantities  @xmath7 ,  @xmath8 and  @xmath9 are the ice ( water ) , liquid ( water ) and salt variables , which will take values in  @xmath10 with the additional constraint @xmath11 valid at each site  @xmath4 .
+we will say that  @xmath12 indicates the _ presence of ice _ at  @xmath4 and , similarly ,  @xmath8 the _ presence of liquid _ at  @xmath4 .
+since a single water molecule can not physically be in an ice state , it is natural to interpret the phrase  @xmath12 as referring to the collective behavior of many particles in the vicinity of  @xmath4 which are enacting an ice - like state , though we do not formally incorporate such a viewpoint into our model .
+the various terms in are essentially self - explanatory : an interaction between neighboring ice points , similarly for neighboring liquid points ( we may assume these to be attractive ) , an energy penalty  @xmath13 for a simultaneous presence of salt and ice at one point , and , finally , fugacity terms for salt and liquid . for simplicity ( and tractability ) , there is no direct salt - salt interaction , except for the exclusion rule of at most one salt `` particle '' at each site .
+additional terms which could have been included are superfluous due to the constraint .
+we will assume throughout that  @xmath14 , so that the salt - ice interaction expresses the negative affinity of salt to the ice state of water .
+this term is entirely  and not subtly 
+responsible for the general phenomenon of freezing point depression .
+we remark that by suitably renaming the variables , the hamiltonian in would just as well describe a system with boiling point elevation .
+as we said , the variables  @xmath7 and  @xmath8 indicate the presence of ice and liquid water at site  @xmath4 , respectively .
+the assumption  @xmath15 guarantees that _ something _ has to be present at  @xmath4 ( the concentration of water in water is unity ) ; what is perhaps unrealistic is the restriction of  @xmath7 and  @xmath8 to only the extreme values , namely  @xmath16 . suffice it to say that the authors are confident ( e.g. , on the basis of @xcite ) that virtually all the results in this note can be extended to the cases of continuous variables .
+however , we will not make any such mathematical claims ; much of this paper will rely heavily on preexisting technology which , strictly speaking , has only been made to work for the discrete case .
+a similar discussion applies , of course , to the salt variables .
+but here our restriction to  @xmath17 is mostly to ease the exposition ; virtually all of our results directly extend to the cases when  @xmath9 takes arbitrary ( positive ) real values according to some _ a priori _ distribution .
+it is not difficult to see that the `` ice - liquid sector '' of the general hamiltonian reduces to a ferromagnetic ising spin system . on a formal level
+, this is achieved by passing to the ising variables @xmath18 , which in light of the constraint gives @xmath19 by substituting these into , we arrive at the interaction hamiltonian : @xmath20 where the new parameters @xmath21 and @xmath22 are given by @xmath23 we remark that the third sum in is still written in terms of `` ice '' indicators so that  @xmath24 will have a well defined meaning even if  @xmath25 , which corresponds to prohibiting salt entirely at ice - occupied sites .
+( notwithstanding , the bulk of this paper is restricted to finite  @xmath13 . )
+using an appropriate restriction to finite volumes , the above hamitonian allows us to define the corresponding gibbs measures .
+we postpone any relevant technicalities to section  [ sec2.1 ] .
+the hamiltonian as written foretells the possibility of fluctuations in the salt concentration .
+however , this is _ not _ the situation which is of physical interest .
+indeed , in an open system it is clear that the salt concentration will , eventually , adjust itself until the system exhibits a pure phase . on the level of the description provided by it
+is noted that , as grand canonical variables , the salt particles can be explicitly integrated , the result being the ising model at coupling constant  @xmath21 and external field  @xmath26 , where @xmath27 in this context , phase coexistence is confined to the region  @xmath28 , i.e. , a simple curve in the @xmath29-plane . unfortunately , as is well known  @xcite , not much insight on the subject of _ phase separation _ is to be gained by studying the ising magnet in an external field .
+indeed , under ( for example ) minus boundary conditions , once  @xmath22 exceeds a particular value , a droplet will form which all but subsumes the allowed volume .
+the transitional value of  @xmath22 scales inversely with the linear size of the system ; the exact constants and the subsequent behavior of the droplet depend on the details of the boundary conditions .
+the described `` failure '' of the grand canonical description indicates that the correct ensemble in this case is the one with a fixed amount of salt per unit volume .
+( the technical definition uses conditioning from the grand canonical measure ; see section  [ sec2.1 ] . )
+this ensemble is physically more relevant because , at the moment of freezing , the salt typically does not have enough `` mobility '' to be gradually released from the system .
+it is noted that , once the total amount of salt is fixed , the chemical potential  @xmath30 drops out of the problem  the relevant parameter is now the salt concentration . as will be seen in section  [ sec2 ] , in our ising - based model of the solvent - solute system , fixing the salt concentration generically leads to _ sharp _ phase separation in the ising configuration .
+moreover , this happens for an _ interval _ of values of the magnetic field  @xmath22 .
+indeed , the interplay between the salt concentration and the actual external field will demand a particular value of the magnetization , even under conditions which will force a droplet ( or ice crystal , depending on the boundary condition ) into the system .
+[ rem0 ] we finish by noting that , while the parameter @xmath22 is formally unrelated to temperature , it does to a limited extent play the role of temperature in that it reflects the _ a priori _ amount of preference of the system for water _ vs _ ice . thus the natural phase diagram to study is in the @xmath31-plane .
+the reasoning which led to formula allows for an immediate heuristic explanation of our principal results .
+the key simplification  which again boils down to the absence of salt - salt interaction  is that for any ising configuration , the amalgamated contribution of salt , i.e. , the gibbs weight summed over salt configurations , depends only on the overall magnetization and not on the details of how the magnetization gets distributed about the system . in systems of linear scale
+@xmath32 , let  @xmath33 denote the canonical partition function for the ising magnet with constrained overall magnetization  @xmath34 .
+the total partition function  @xmath35 at fixed salt concentration  @xmath36 can then be written as @xmath37 where  @xmath38 denotes the sum of the salt part of the boltzmann weight  which only depends on the ising spins via the total magnetization  @xmath34over all salt configurations with concentration  @xmath36 .
+as usual , the physical values of the magnetization are those bringing the dominant contribution to the sum in .
+let us recapitulate the standard arguments by first considering the case @xmath39 ( which implies @xmath40 ) , i.e. , the usual ising system at external field @xmath22 .
+here we recall that  @xmath41 can approximately be written as @xmath42},\ ] ] where  @xmath43 is a suitably chosen constant and  @xmath44 is a ( normalized ) canonical free energy .
+the principal fact about @xmath44 is that it vanishes for  @xmath45 in the interval  @xmath46 $ ] , where  @xmath47 denotes the spontaneous magnetization of the ising model at coupling  @xmath21 , while it is strictly positive and strictly convex for  @xmath45 with  @xmath48 .
+the presence of the `` flat piece '' on the graph of  @xmath44 is directly responsible for the existence of the phase transition in the ising model : for  @xmath49 the dominant contribution to the grand canonical partition function comes from  @xmath50 while for  @xmath51 the dominant values of the overall magnetization are  @xmath52 .
+thus , once  @xmath53which happens for  @xmath54 with  @xmath55 whenever  @xmath56a phase transition occurs at  @xmath57 .
+the presence of salt variables drastically changes the entire picture .
+indeed , as we will see in theorem [ thm1 ] , the salt partition function @xmath38 will exhibit a nontrivial exponential behavior which is characterized by a _ strictly convex _ free energy . the resulting exponential growth rate of @xmath58 for @xmath59 is thus no longer a function with a flat piece  instead , for each  @xmath22 there is a _
+unique _ value of  @xmath45 that optimizes the corresponding free energy .
+notwithstanding ( again , due to the absence of salt - salt interactions ) once that  @xmath45 has been selected , the spin configurations are the typical ising configurations with overall magnetizations  @xmath60 . in particular , whenever  @xmath35 is dominated by values of  @xmath60 for an  @xmath61 , a _
+macroscopic droplet _ develops in the system .
+thus , due to the one - to - one correspondence between  @xmath22 and the optimal value of  @xmath45 , phase separation occurs for an _ interval _ of values of  @xmath22 at any positive concentration ; see fig .
+[ fig1 ] .
+we finish with an outline of the remainder of this paper and some discussion of the companion paper  @xcite . in section  [ sec2 ]
+we define precisely the model of interest and state our main results concerning the asymptotic behavior of the corresponding measure on spin and salt configurations with fixed concentration of salt .
+along with the results comes a description of the phase diagram and a discussion of freezing - point depression , phase separation , etc . ,
+see section  [ sec2.3 ] .
+our main results are proved in section  [ sec3 ] . in  @xcite
+we investigate the asymptotic of infinitesimal salt concentrations .
+interestingly , we find that , in order to induce phase separation , the concentration has to scale at least as the inverse linear size of the system .
+with the ( formal ) hamiltonian in mind , we can now start on developing the _ mathematical _ layout of the problem . to define the model , we will need to restrict attention to finite subsets of the lattice .
+we will mostly focus on rectangular boxes @xmath62 of @xmath63 sites centered at the origin .
+our convention for the boundary ,  @xmath64 , of the set @xmath65 will be the collection of sites outside  @xmath66 with a neighbor inside  @xmath66 .
+for each @xmath67 , we have the water and salt variables , @xmath68 and @xmath17 . on the boundary
+, we will consider fixed configurations  @xmath69 ; most of the time we will be discussing the cases @xmath70 or  @xmath71 , referred to as plus and minus boundary conditions . since there is no salt - salt interaction , we may as well set  @xmath72 for all  @xmath73 .
+we will start by defining the interaction hamiltonian .
+let  @xmath65 be a finite set . for a spin configuration  @xmath69 and the pair  @xmath74 of spin and salt configurations
+, we let @xmath75 here , as before ,  @xmath6 denotes a nearest - neighbor pair on  @xmath1 and the parameters  @xmath21 ,  @xmath22 and  @xmath13 are as discussed above .
+( in light of the discussion from section  [ sec1.3 ] the last term in has been omitted . ) the probability distribution of the pair  @xmath74 takes the usual gibbs - boltzmann  form : @xmath76 where the normalization constant ,  @xmath77 , is the partition function . the distributions in  @xmath78 with the plus and minus boundary conditions will be denoted by  @xmath79 and  @xmath80 , respectively .    for reasons discussed before we will be interested in the problems with a fixed salt concentration @xmath81 $ ] . in finite volume
+, we take this to mean that the total amount of salt , @xmath82 is fixed . to simplify future discussions
+, we will adopt the convention that `` concentration  @xmath36 '' means that @xmath83 , i.e. , @xmath84 . we may then define the finite volume gibbs probability measure with salt concentration  @xmath36 and plus ( or minus ) boundary conditions denoted by  @xmath85 ( or  @xmath86 ) . in light of ,
+these are given by the formulas @xmath87 both measures  @xmath88 depend on the parameters  @xmath21 and  @xmath13 in the hamiltonian .
+however , we will always regard these as fixed and suppress them from the notation whenever possible .      in order to describe our first set of results
+, we will need to bring to bear a few standard facts about the ising model .
+for each spin configuration @xmath89 let us define the overall magnetization in  @xmath78 by the formula @xmath90 let @xmath91 denote the magnetization of the ising model with coupling constant  @xmath21 and external field  @xmath92 .
+as is well known , cf the proof of theorem  [ thm3.1 ] , @xmath93 continuously ( and strictly ) increases from the value of the spontaneous magnetization @xmath94 to one as @xmath22 sweeps through @xmath95 .
+in particular , for each @xmath96 , there exists a unique @xmath97 such that @xmath98 .
+next we will use the above quantities to define the function  @xmath99 , which represents the canonical free energy of the ising model in  . as it turns out
+ see theorem  [ thm3.1 ] in section  [ sec3]we simply have @xmath100 as already mentioned , if  @xmath101 , where  @xmath102 is the critical coupling constant of the ising model , then @xmath103 and thus @xmath104 for @xmath105 $ ] .
+( since  @xmath106 only for  @xmath56 , the resulting `` flat piece '' on the graph of  @xmath107 appears only in dimensions  @xmath56 . ) from the perspective of the large - deviation theory , cf  @xcite , @xmath107 is the large - deviation rate function for the magnetization in the ( unconstrained ) ising model ; see again theorem  [ thm3.1 ] .
+let @xmath108 denote the entropy function of the bernoulli distribution with parameter  @xmath109 .
+( we will set @xmath110 whenever @xmath111 $ ] . ) for each @xmath112 , each @xmath81 $ ] and each @xmath113 $ ] , let @xmath114 as we will show in section  [ sec3 ] , this quantity represents the entropy of configurations with fixed salt concentration  @xmath36 , fixed overall magnetization  @xmath45 and fixed fraction  @xmath115 of the salt residing `` on the plus spins '' ( and fraction @xmath116 `` on the minus spins '' ) .
+having defined all relevant quantities , we are ready to state our results .
+we begin with a large - deviation principle for the magnetization in the measures  @xmath88 :    [ thm1 ] let @xmath117 and @xmath14 be fixed . for each @xmath118 ,
+each @xmath119 and each @xmath112 , we have @xmath120 here @xmath121 is given by @xmath122}{\mathscr{g}}_{h , c}(m,\theta),\ ] ] where @xmath123 the function @xmath121 is finite and strictly convex on  @xmath124 with @xmath125 .
+furthermore , the unique minimizer @xmath126 of @xmath121 is continuous in both  @xmath36 and  @xmath22 and strictly increasing in  @xmath22 .    on the basis of the above large - deviation result
+, we can now characterize the typical configurations of the measures  @xmath88 .
+consider the ising model with coupling constant  @xmath21 and zero external field and let  @xmath127 be the corresponding gibbs measure in volume  @xmath78 and  @xmath128-boundary condition .
+our main result in this section is then as follows :    [ thm2 ] let  @xmath117 and  @xmath14 be fixed .
+let @xmath118 and @xmath119 , and define two sequences of probability measures  @xmath129 on  @xmath130 $ ] by the formula @xmath131\bigr)=p_l^{\pm , c , h}(m_l\le ml^d ) , \qquad m\in[-1,1].\ ] ] the measures @xmath129 allow us to write the spin marginal of the measure  @xmath88 as a convex combination of the ising measures with fixed magnetization ; i.e. , for any set
+@xmath132 of configurations @xmath133 , we have @xmath134 moreover , if  @xmath126 denotes the unique minimizer of the function  @xmath121 from , then the following properties are true :    1 .   given the spin configuration on a finite set @xmath65 , the salt variables on  @xmath66 are asymptotically independent . explicitly , for each finite set @xmath65 and any two configurations @xmath135 and @xmath136 , @xmath137 where the numbers  @xmath138 $ ] are uniquely determined by the equations @xmath139 2 .
+the measure  @xmath129 converges weakly to a point mass at  @xmath126 , @xmath140 in particular , the ising - spin marginal of the measure  @xmath88 is asymptotically supported on the usual ising spin configurations with the overall magnetization  @xmath141 , where  @xmath45 minimizes  @xmath121 .
+the fact that conditioning @xmath88 on a fixed value of magnetization produces the ising measure under same conditioning  which is the content of  is directly related to the absence of salt - salt interaction .
+the principal conclusions of the previous theorem are thus parts  ( 1 ) and  ( 2 ) , which state that the presence of a particular amount of salt _ forces _ the ising sector to choose a particular value of magnetization density .
+the underlying variational principle provides insight into the physical mechanism of phase separation upon freezing of solutions .
+( we refer the reader back to section  [ sec1.4 ] for the physical basis of these considerations . )
+we will proceed by discussing the consequences of these results for the phase diagram of the model and , in particular , the phenomenon of freezing point depression .
+theorems  [ thm1 ] and  [ thm2 ] are proved in section  [ sec3.2 ] .
+[ fig1 ]    .
+the horizontal axis marks the concentration of the salt in the system , the vertical line represents the external field acting on the ising spins  see formula  . for positive concentrations @xmath142 , the system stays in the liquid - water phase throughout a non - trivial range of negative values of  @xmath22a manifestation of the freezing - point depression . for  @xmath143 in the shaded region , a non - trivial fraction of the system is frozen into ice .
+once @xmath143 is on the left of the shaded region , the entire system is in the ice state . for moderate values of  @xmath13 ,
+the type of convexity of the transition lines may change from concave to convex near  @xmath144 ; see the companion paper  @xcite .
+, width=336 ]    .
+the horizontal axis marks the concentration of the salt in the system , the vertical line represents the external field acting on the ising spins  see formula  . for positive concentrations @xmath142 , the system stays in the liquid - water phase throughout a non - trivial range of negative values of  @xmath22a manifestation of the freezing - point depression
+. for  @xmath143 in the shaded region , a non - trivial fraction of the system
+is frozen into ice .
+once @xmath143 is on the left of the shaded region , the entire system is in the ice state . for moderate values of  @xmath13 ,
+the type of convexity of the transition lines may change from concave to convex near  @xmath144 ; see the companion paper  @xcite .
+, width=336 ]      the representation along with the asymptotic allow us to characterize the distribution  @xmath88 in terms of the canonical ensemble of the ising ferromagnet . indeed
+, these formulas imply that the distribution of ising spins induced by  @xmath88 is very much like that in the measure  @xmath127 conditioned on the event that the overall magnetization  @xmath145 is near the value  @xmath146 . as a consequence , the asymptotic statements ( e.g. , the wulff construction ) that have been ( or will be ) established for the spin configurations in the ising model with fixed magnetization will automatically hold for the spin - marginal of the  @xmath88 as well .
+a particular question of interest in this paper is phase separation .
+recall that  @xmath47 denotes the spontaneous magnetization of the ising model at coupling  @xmath21 .
+then we can anticipate the following conclusions about typical configurations in measure  @xmath88 :    1 .   if @xmath147 , then the entire system ( with plus boundary condition ) will look like the plus state of the ising model whose external field is adjusted so that the overall magnetization on the scale @xmath148 is roughly @xmath146 .
+2 .   if @xmath149 , then the system ( with minus boundary condition ) will look like the ising minus state with similarly adjusted external field .
+if @xmath150 , then , necessarily , the system exhibits phase separation in the sense that typical configurations feature a large droplet of one phase inside the other . the volume fraction taken by the droplet is such that the overall magnetization is near @xmath151 .
+the outer phase of the droplet agrees with the boundary condition .    the cases ( 1 - 2 ) with opposite boundary conditions  that is , the minus boundary conditions in  ( 1 ) and the plus boundary conditions in  ( 2)are still as stated
+; the difference is that now there has to be a large contour near the boundary flipping to the `` correct '' boundary condition .
+[ rem1 ] we have no doubt that the aforementioned conclusions ( 1 - 3 ) hold for all @xmath56 and all @xmath101 ( with a proper definition of the _ droplet _ in part  ( 3 ) , of course ) . however , the depth of conclusion  ( 3 ) depends on the level of understanding wulff construction , which is at present rather different in dimensions  @xmath152 and  @xmath153 .
+specifically , while in @xmath152 the results of  @xcite allow us to claim that for all @xmath101 and all magnetizations @xmath61 , the system will exhibit a unique large contour with appropriate properties , in @xmath153 this statement is known to hold  @xcite only in `` @xmath154-sense '' and only for @xmath61 which are near the endpoints .
+( moreover , not all values of  @xmath101 are , in principle , permitted ; cf  @xcite for a recent improvement of these restrictions . )
+we refer to  @xcite for an overview of the situation .    notwithstanding the technical difficulties of wulff construction ,
+the above allows us to characterize the phase diagram of the model at hand . as indicated in fig .
+[ fig1 ] , the @xmath155 and @xmath156 quadrant splits into three distinct parts : the _ liquid - water _
+region , the _ ice _ region and the _ phase separation _ region , which correspond to the situations in  ( 1 - 3 ) , respectively .
+the boundary lines of the phase - separation region are found by setting @xmath157 which in light of strict monotonicity of @xmath158 allows us to calculate  @xmath22 as a function of  @xmath36 .
+the solutions of can be obtained on the basis of the following observation :    [ prop2b ] let @xmath105 $ ] and @xmath81 $ ] and define the quantities  @xmath159 by  .
+let  @xmath22 be the solution to @xmath160 .
+then we have : @xmath161 in particular , there exist two continuous and decreasing functions @xmath162 $ ] with @xmath163 for all @xmath142 , such that @xmath164 is equivalent to @xmath165 for all @xmath142 .
+proposition  [ prop2b ] is proved at the very end of section  [ sec3.2 ] .
+here is an informal interpretation of this result : the quantities @xmath166 represent the _ mole fractions _ of salt in liquid - water and ice , respectively . in mathematical terms ,  @xmath167 is the probability of having a salt particle on a given plus spin , and  @xmath168 is the corresponding quantity for minus spins , see  .
+formula quantifies the shift of the chemical potential of the solvent ( which is given by @xmath169 in this case ) due to the presence of the solute .
+this is a manifestation of _ freezing point depression _ , see also remark  [ rem0 ] . in the asymptotic when @xmath170 we have @xmath171 this relation , derived in standard chemistry and physics books under the auspicies of the `` usual approximations
+, '' is an essential ingredient in the classical analyses of colligative properties of solutions  @xcite . here
+the derivation is a direct consequence of a microscopic ( albeit simplistic ) model which further offers the possibility of systematically calculating higher - order corrections .
+the proofs of our main results are , more or less , straightforward exercises in large - deviation analysis of gibbs distributions .
+we first state and prove a couple of technical lemmas ; the actual proofs come in section  [ sec3.2 ] .
+the starting point of the proof of theorem  [ thm1 ] ( and , consequently , theorem  [ thm2 ] ) is the following large - deviation principle for the ising model at zero external field :    [ thm3.1 ] consider the ising model with coupling constant @xmath172 and zero external field .
+let  @xmath127 be the corresponding ( grand canonical ) gibbs measure in volume  @xmath78 and  @xmath128-boundary conditions .
+then for all @xmath173 $ ] , @xmath174 where  @xmath145 is as in and  @xmath175 is as defined in .
+proof the claim is considered standard , see e.g.  ( * ? ? ?
+* section  ii.1 ) , and follows by a straightforward application of the thermodynamic relations between the free energy , magnetization and external field . for completeness ( and reader
+s convenience ) we will provide a proof .    consider the function  @xmath176 , where @xmath177 is the expectation with respect to  @xmath127 , and let  @xmath178 .
+the limit exists by subadditivity arguments and is independent of the boundary condition .
+the function  @xmath179 is convex on  @xmath180 , real analytic ( by the lee - yang theorem  @xcite ) on  @xmath181 , and hence it is strictly convex on  @xmath180 . by the  @xmath182 symmetry
+there is a cusp at  @xmath57 whenever  @xmath183 .
+it follows that for each  @xmath184 there is a unique  @xmath185 such that  @xmath186 , with  @xmath187 increasing continuously from  @xmath188 to  @xmath189 as  @xmath45 increases from  @xmath190 to  @xmath191 .
+the plus - minus symmetry shows that a similar statement holds for the magnetizations in  @xmath192 $ ] .
+let  @xmath193 denote the legendre transform of  @xmath194 , i.e. ,  @xmath195 $ ] . by the above properties of  @xmath179 we infer that  @xmath196 when  @xmath197 and  @xmath198 , while  @xmath199 for  @xmath105 $ ] . applying the grtner - ellis theorem ( see ( * ? ? ?
+* theorem  v.6 ) or  ( * ? ? ?
+* theorem  2.3.6 ) ) , we then have with  @xmath200 for all  @xmath201$]which is the set of so called exposed points of  @xmath193 . since @xmath202 and the derivative of  @xmath203 is  @xmath187 , this  @xmath175 is given by the integral in . to prove when  @xmath105 $ ] , we must note that the left - hand side of is nonpositive and concave in  @xmath45 .
+( this follows by partitioning  @xmath78 into two parts with their own private magnetizations and disregarding the interaction through the boundary . )
+since  @xmath44 tends to zero as  @xmath45 tends to  @xmath204 we thus have that for  @xmath105 $ ] as well .
+the `` first '' part of the grtner - ellis theorem ( * ? ? ?
+* theorem  v.6 ) actually guarantees the following _ large - deviation principle _ : @xmath205 for any closed set  @xmath206 while @xmath207}\phi^\star(m)\ ] ] for any open set  @xmath208 .
+( here  @xmath209 for  @xmath173 $ ] and @xmath210 otherwise . )
+the above proof follows by specializing to @xmath211-neighborhoods of a given  @xmath45 and letting  @xmath212 .
+the  @xmath105 $ ] cases  i.e , the non - exposed points  have to be dealt with separately .
+the above is the core of our proof of theorem  [ thm1 ] .
+the next step will be to bring the quantities  @xmath36 and  @xmath22 into play .
+this , as we shall see , is easily done if we condition on the total magnetization .
+( the cost of this conditioning will be estimated by . ) indeed , as a result of the absence of salt - salt interaction , the conditional measure can be rather precisely characterized .
+let us recall the definition of the quantity  @xmath213 from which represents the total amount of salt in the system .
+for any spin configuration  @xmath89 and any salt configuration  @xmath214 , let us introduce the quantity @xmath215 representing the total amount of salt `` on the plus spins . ''
+then we have :    [ lemma3.2 ] for any fixed spin configuration  @xmath216 , all salt configurations @xmath217 with the same  @xmath213 and  @xmath218 have the same probability in the conditional measure  @xmath219 .
+moreover , for any  @xmath220 with @xmath221 and for any  @xmath173 $ ] , @xmath222 where the normalization constant is given by @xmath223 here  @xmath177 is the expectation with respect to  @xmath127 .
+proof the fact that all salt configurations with given  @xmath213 and  @xmath218 have the same probability in  @xmath219 is a consequence of the observation that the salt - dependent part of the hamiltonian depends only on  @xmath218 .
+the relations ( [ 3.3][3.4 ] ) follow by a straightforward rewrite of the overall boltzmann weight .
+the characterization of the conditional measure @xmath224 from lemma  [ lemma3.2 ] allows us to explicitly evaluate the configurational entropy carried by the salt .
+specifically , given a spin configuration  @xmath89 and numbers  @xmath225 , let @xmath226 the salt entropy is then the rate of exponential growth of the size of  @xmath227 which can be related to the quantity @xmath228 from as follows :    [ lemma3.3 ] for each  @xmath229 and each  @xmath230 there exists a number  @xmath231 such that the following is true for any @xmath225 , any  @xmath112 that obey @xmath232 , @xmath233 and any  @xmath234 : if @xmath89 is a spin configuration with @xmath235 , then @xmath236    proof we want to distribute  @xmath237 salt particles over  @xmath238 positions , such that exactly @xmath239 of them land on  @xmath240 plus sites and  @xmath241 on @xmath242 minus sites .
+this can be done in latexmath:[\[\label{3.8a }    number of ways .
+now all quantities scale proportionally to  @xmath238 which , applying stirling s formula , shows that the first term is within , say ,  @xmath244 multiples of @xmath245 once  @xmath234 , with  @xmath246 depending only on  @xmath247 .
+a similar argument holds also for the second term with  @xmath115 replaced by  @xmath116 and  @xmath45 by  @xmath248 . combining these expressions
+we get that  @xmath249 is within  @xmath250 multiples of  @xmath251 once  @xmath32 is sufficiently large .    for the proof of theorem  [ thm2 ]
+, we will also need an estimate on how many salt configurations in  @xmath227 take given values in a finite subset  @xmath252 .
+to that extent , for each  @xmath253 and each  @xmath135 we will define the quantity @xmath254 as a moment s thought reveals ,  @xmath255 can be interpreted as the probability that  @xmath256 occurs in ( essentially ) any homogeneous product measure on  @xmath214 conditioned to have  @xmath257 and  @xmath258 .
+it is therefore not surprising that , for spin configurations  @xmath259 with given magnetization ,  @xmath260 will tend to a product measure on  @xmath261 .
+a precise characterization of this limit is as follows :    [ lemma3.4 ] for each  @xmath262 , each  @xmath263 and each  @xmath230 there exists  @xmath231 such that the following holds for all  @xmath234 , all  @xmath252 with  @xmath264 , all  @xmath45 with  @xmath232 and all  @xmath265 $ ] for which @xmath266 satisfy  @xmath267 $ ] : if  @xmath89 is a spin configuration such that  @xmath235 and  @xmath135 is a salt configuration in  @xmath66 , then @xmath268    proof we will expand on the argument from lemma  [ lemma3.3 ] .
+indeed , from   we have an expression for the denominator in . as to the numerator , introducing the quantities @xmath269 and the shorthand @xmath270 the same reasoning as we used to prove allows us to write the object  @xmath271 as @xmath272 , where the various parameters are as follows : the quantities @xmath273 represent the total number of pluses and minuses in the system , respectively , @xmath274 are the numbers of salt particles on pluses and minuses , and , finally , @xmath275 are the corresponding quantities for the volume  @xmath66 , respectively .    since   and the restrictions on  @xmath232 and @xmath265 $ ] imply that  @xmath276 ,  @xmath277 ,  @xmath278 ,  @xmath279 ,  @xmath280 and  @xmath281 all scale proportionally to  @xmath238 , uniformly in  @xmath259 and  @xmath282 , while  @xmath283 and  @xmath284 are bounded by  @xmath285which by our assumption is less than  @xmath286we are in a regime where it makes sense to seek an asymptotic form of quantity  @xmath287 . using the bounds @xmath288 which are valid for all integers  @xmath289 and  @xmath290 with  @xmath291
+, we easily find that @xmath292 since  @xmath293 and  @xmath294 as  @xmath295 , while  @xmath283 , @xmath296 , @xmath284 and  @xmath297 stay bounded , the desired claim follows by taking  @xmath32 sufficiently large .
+the reader may have noticed that , in most of our previous arguments , @xmath115 and  @xmath45 were restricted to be away from the boundary values .
+to control the situation near the boundary values , we have to prove the following claim :    [ lemma3.5 ] for each  @xmath298 and each  @xmath299 , let  @xmath300 be the event @xmath301 then for each  @xmath118 and each  @xmath119 there exists an  @xmath262 such that @xmath302    proof we will split the complement of @xmath300 into four events and prove the corresponding estimate for each of them .
+we begin with the event  @xmath303 .
+the main tool will be stochastic domination by a product measure .
+consider the usual partial order on spin configurations defined by putting  @xmath304 whenever  @xmath305 for all  @xmath4 .
+let @xmath306 be the conditional probability that  @xmath307 occurs given a spin configuration  @xmath308 in @xmath309 and a salt configuration  @xmath310 in  @xmath78 , optimized over all  @xmath308 , @xmath310 and also  @xmath311 and the system size .
+since  @xmath312 reduces to ( the exponential of ) the local interaction between  @xmath313 and its ultimate neighborhood , we have  @xmath314 .
+using standard arguments it now follows that the spin marginal of  @xmath88 stochastically dominates the product measure  @xmath315 defined by  @xmath316 for all  @xmath4 .
+in particular , we have @xmath317 let @xmath318 .
+then  @xmath319namely , the expectation of  @xmath313 with respect to  @xmath315exceeds the negative of  @xmath320 and so cramr s theorem ( see ( * ? ? ?
+* theorem  i.4 ) or ( * ? ? ? * theorem  2.1.24 ) ) implies that the probability on the right - hand side decays to zero exponentially in  @xmath238 , i.e. , @xmath321 the opposite side of the interval of magnetizations , namely , the event @xmath322 , is handled analogously ( with  @xmath323 now focusing on  @xmath324 instead of  @xmath325 ) .
+the remaining two events , marking when  @xmath218 is either less than  @xmath211 or larger than  @xmath320 times the total number of plus spins , are handled using a similar argument combined with standard convexity estimates .
+let us consider the event  @xmath326which contains the event  @xmath327and let us emphasize the dependence of the underlying probability distribution on  @xmath13 by writing  @xmath88 as  @xmath328 .
+let  @xmath329 denote the expectation with respect to  @xmath328 and note that  @xmath330 .
+we begin by using the chernoff bound to get @xmath331 a routine application of jensen s inequality gives us @xmath332 it thus suffices to prove that there exists a  @xmath333 such that @xmath334 is positive .
+( indeed , we take  @xmath211 to be strictly less than this number and set  @xmath335 to observe that the right - hand side decays exponentially in  @xmath238 . ) to show this we write @xmath336 as the sum of  @xmath337 over all  @xmath311 .
+looking back at , we then have @xmath338 , where  @xmath323 is now evaluated for  @xmath339 , and so @xmath340 thus , once  @xmath341 , the probability  @xmath342 decays exponentially in  @xmath238 .    as to the complementary event , @xmath343
+, we note that this is contained in  @xmath344 , where  @xmath345 counts the number of plus spins with no salt on it .
+since we still have  @xmath346 , the proof boils down to the same argument as before .      on the basis of the above observations , the proofs of our main theorems
+are easily concluded .
+however , instead of theorem  [ thm1 ] we will prove a slightly stronger result of which the large - deviation part of theorem  [ thm1 ] is an easy corollary .
+[ thm3.5 ] let  @xmath117 and  @xmath347 be fixed . for each  @xmath348 ,
+each  @xmath119 and each  @xmath112 , let  @xmath349 be the set of all @xmath350 for which @xmath351 and @xmath352 hold
+. then @xmath353 \end{subarray } } { \mathscr{g}}_{h , c}(m',\theta'),\ ] ] where  @xmath354 is as in .
+proof since the size of the set  @xmath227 depends only on the overall magnetization , let  @xmath355 denote this size for the configurations  @xmath259 with  @xmath356 .
+first we note that , by lemma  [ lemma3.2 ] , @xmath357 where @xmath358 here  @xmath359 is the normalization constant from which in the present formulation can also be interpreted as the sum of @xmath360 over the relevant ( discrete ) values of  @xmath45 and  @xmath115 .
+let  @xmath361 denote the sum of  @xmath362 over all  @xmath363 and  @xmath364 for which  @xmath365 and  @xmath366 are integers and @xmath367 and  @xmath368 .
+( this is exactly the set of magnetizations and spin - salt overlaps contributing to the set  @xmath369 . )
+applying to extract the exponential behavior of the last probability in , and using to do the same for the quantity @xmath355 , we get @xmath370 where  @xmath247 is as in . as a consequence of the above estimate we have @xmath371 for any  @xmath112 and any  @xmath372 .
+next we will attend to the denominator in .
+pick  @xmath373 and consider the set latexmath:[\[{\mathcal m}_\delta=\bigl\{(m,\theta)\colon    write  @xmath359 as a sum of two terms , @xmath375 , with  @xmath376 obtained by summing @xmath377 over the admissible  @xmath378 and  @xmath379 collecting the remaining terms . by lemma  [ lemma3.5 ] we know that  @xmath380 decays exponentially in  @xmath238 and so the decisive contribution to  @xmath359 comes from  @xmath376 . assuming that  @xmath381 , let us cover @xmath382 by finite number of sets of the form  @xmath383\times[\theta_\ell'-\epsilon,\theta_\ell'+\epsilon]$ ] , where  @xmath384 and  @xmath385 are such that  @xmath386 and  @xmath387 are integers .
+then  @xmath376 can be bounded as in @xmath388 moreover , the right - hand side is bounded by the left - hand side times a polynomial in  @xmath32 . taking logarithms , dividing by  @xmath238 , taking the limit  @xmath295 , refining the cover and applying the continuity of  @xmath389 allows us to conclude that @xmath390}{\mathscr{g}}_{h , c}(m,\theta).\ ] ] combining these observations , is proved .
+proof of theorem  [ thm1 ] the conclusion follows from by similar arguments that prove .
+the only remaining thing to prove is the strict convexity of  @xmath121 and continuity and monotonicity of its minimizer .
+first we note that  @xmath391 is strictly convex on the set of  @xmath115 where it is finite , which is a simple consequence of the strict convexity of  @xmath392 .
+hence , for each  @xmath45 , there is a unique  @xmath393 which minimizes  @xmath391 .
+our next goal is to show that , for  @xmath394 , the solution  @xmath393 will satisfy the inequality @xmath395 ( a heuristic reason for this is that  @xmath396 corresponds to the situation when the salt is distributed independently of the underlying spins .
+this is the dominating strategy for  @xmath397 ; once  @xmath14 it is clear that the fraction of salt on plus spins _ must _ increase . )
+a formal proof runs as follows : we first note that  @xmath398 solves for  @xmath115 from the equation @xmath399 where  @xmath228 is as in . but  @xmath400 is strictly concave and its derivative vanishes at  @xmath401 .
+therefore , for  @xmath394 the solution  @xmath393 of must obey .
+let  @xmath402 be the set of  @xmath403 for which holds and note that  @xmath402 is convex .
+a standard second - derivative calculation now shows that  @xmath354 is strictly convex on  @xmath402 .
+( here we actually differentiate the function @xmath404which is twice differentiable on the set where it is finite  and then use the known convexity of  @xmath44 .
+the strict convexity is violated on the line  @xmath401 where  @xmath389 has a flat piece for  @xmath105 $ ] . )
+now , since  @xmath405 minimizes  @xmath354 for a given  @xmath45 , the strict convexity of  @xmath354 on  @xmath402 implies that for any  @xmath406 , @xmath407 hence ,  @xmath121 is also strictly convex .
+the fact that  @xmath408 diverges as  @xmath409 is a consequence of the corresponding property of the function  @xmath107 and the fact that the rest of  @xmath410 is convex in  @xmath45 .    as a consequence of strict convexity and the abovementioned `` steepness '' at the boundary of the interval  @xmath124
+, the function  @xmath121 has a unique minimizer for each  @xmath119 and  @xmath142 , as long as the quantities from satisfy  @xmath411 .
+the minimizer is automatically continuous in  @xmath22 and is manifestly non - decreasing .
+furthermore , the continuity of  @xmath412 in  @xmath36 allows us to conclude that  @xmath405 is also continuous in  @xmath36 .
+what is left of the claims is the _ strict _ monotonicity of  @xmath45 as a function of  @xmath22 .
+writing  @xmath413 as  @xmath414 and noting that  @xmath415 is continuously differentiable on  @xmath124 , the minimizing  @xmath45 satisfies @xmath416 but  @xmath417 is also strictly convex and so  @xmath418 is strictly increasing .
+it follows that  @xmath45 has to be strictly increasing with  @xmath22 .
+theorem  [ thm3.1 ] has the following simple consequence that is worth highlighting :    [ cor3.6 ] for given  @xmath119 and  @xmath118 , let  @xmath419 be the minimizer of  @xmath354 .
+then for all  @xmath262 , @xmath420    proof on the basis of and the fact that  @xmath354 has a unique minimizer , a covering argument  same as used to prove implies that the probability on the left - hand side decays to zero exponentially in  @xmath238 .
+before we proceed to the proof of our second main theorem , let us make an observation concerning the values of  @xmath421 at the minimizing  @xmath45 and  @xmath115 :    [ lemma3.7 ] let  @xmath119 and  @xmath118 be fixed and let  @xmath419 be the minimizer of  @xmath354 .
+define the quantities  @xmath159 by and  @xmath422 by .
+then @xmath423 moreover ,  @xmath166 are then related to  @xmath22 via whenever  @xmath105 $ ] .
+proof first let us ascertain that  @xmath166 are well defined from equations .
+we begin by noting that the set of possible values of  @xmath424 is the unit square  @xmath425 ^ 2 $ ] .
+as is easily shown , the first equation in corresponds to an increasing curve in  @xmath425 ^ 2 $ ] connecting the corners  @xmath426 and  @xmath427 . on the other hand ,
+the second equation in is a straight line with negative slope which by the fact that  @xmath428 intersects both the top and the right side of the square .
+it follows that these curves intersect at a single point  the unique solution of .
+next we will derive equations that  @xmath421 have to satisfy .
+let  @xmath419 be the unique minimizer of  @xmath354 .
+the partial derivative with respect to  @xmath115 yields @xmath429 and from the very definition of  @xmath421 we have @xmath430 noting that  @xmath431 , we now see that  @xmath421 satisfies the same equations as  @xmath166 and so , by the above uniqueness argument , must hold .    to prove relation , let us also consider the derivative of  @xmath354 with respect to  @xmath45 . for solutions in  @xmath46 $ ]
+we can disregard the  @xmath175 part of the function ( because its vanishes along with its derivative throughout this interval ) , so we have @xmath432 a straightforward calculation then yields .
+now we are ready to prove our second main result :    proof of theorem  [ thm2 ] the crucial technical step for the present proof has already been established in lemma  [ lemma3.2 ] . in order to plug into the latter result ,
+let us note that the sum of  @xmath433 over all salt configurations  @xmath214 with  @xmath221 is a number depending only on the total magnetization  @xmath434 .
+lemma  [ lemma3.2 ] then implies @xmath435 where  @xmath436 is a positive number depending on  @xmath45 , the parameters  @xmath36 ,  @xmath22 ,  @xmath21 and the boundary condition  @xmath128 but not on the event  @xmath132 . noting that  @xmath129 is simply the distribution of the random variables  @xmath437 in measure  @xmath88 , this proves  .    in order to prove the assertion
+, we let  @xmath438 , pick  @xmath252 and fix  @xmath439 .
+since lemma  [ lemma3.2 ] guarantees that , given  @xmath440 , all salt configurations with fixed  @xmath218 and concentration  @xmath36 have the same probability in  @xmath219 , we have @xmath441 where  @xmath442 is defined in . pick  @xmath230 and assume , as in lemma  [ lemma3.4 ] , that  @xmath443 $ ] , @xmath444 $ ] and  @xmath445 for some  @xmath45 with  @xmath232 . then the aforementioned lemma tells us that @xmath446 is within  @xmath211 of the probability that  @xmath447 occurs in the product measure where the probability of  @xmath448 is  @xmath449 if  @xmath450 and  @xmath451 if  @xmath452 .
+let  @xmath419 be the unique minimizer of  @xmath354 .
+taking expectation of over  @xmath453 with  @xmath454 fixed , using corollary  [ cor3.6 ] to discard the events  @xmath455 or  @xmath456 and invoking the continuity of  @xmath421 in  @xmath45 and  @xmath115 , we find out that @xmath457 indeed converges to @xmath458 with  @xmath421 evaluated at the minimizing  @xmath419 .
+but for this choice lemma  [ lemma3.7 ] guarantees that @xmath459 , which finally proves ( [ 2.7][2.8 ] ) .
+the last item to be proved is proposition  [ prop2b ] establishing the basic features of the phase diagram of the model under consideration :    proof of proposition  [ prop2b ] from lemma  [ lemma3.7 ] we already know that the set of points  @xmath160 for  @xmath105 $ ] is given by the equation . by the fact that  @xmath460 is strictly increasing in  @xmath22 and that  @xmath461 as  @xmath462 we thus know that defines a line in the  @xmath143-plane .
+specializing to  @xmath463 gives us two curves parametrized by functions  @xmath464 such that at  @xmath143 satisfying  @xmath165 the system magnetization  @xmath460 is strictly between  @xmath465 and  @xmath190 , i.e. , @xmath143 is in the phase separation region .    it remains to show that the above functions  @xmath466 are strictly monotone and negative for  @xmath142 .
+we will invoke the expression which applies because on the above curves we have  @xmath467 $ ] .
+let us introduce new variables @xmath468 and , writing  @xmath22 in in terms of  @xmath469 , let us differentiate with respect to  @xmath36 .
+( we will denote the corresponding derivatives by superscript prime . )
+since gives us that  @xmath470 , we easily derive @xmath471 thus ,  @xmath472 and  @xmath473 have opposite signs ; i.e. , we want to prove that  @xmath474 . but
+that is immediate : by the second equation in we conclude that at least one of  @xmath475 must be strictly positive , and by  @xmath470 we find that both  @xmath476 .
+it follows that  @xmath466 are strictly decreasing , and since  @xmath477 , they are also negative once  @xmath142 .
+the research of k.s.a . was supported by the nsf under the grants dms-0103790 and dms-0405915 .
+the research of m.b . and l.c .
+was supported by the nsf grant  dms-0306167 .
+p.  curie , _ sur la formation des cristaux et sur les constantes capillaires de leurs diffrentes faces _ , bull .
+.  mineral .
+* 8 * ( 1885 ) 145 ; reprinted in _ uvres de pierre curie _
+, gauthier - villars , paris , 1908 , pp .  153157 .

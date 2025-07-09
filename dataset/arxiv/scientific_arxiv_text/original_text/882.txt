@@ -1,0 +1,121 @@
+the chemical peculiar ( cp ) stars of the upper main sequence display abundances that deviate significantly from the standard ( solar ) abundance distribution .
+the existence of strong global magnetic field specifies a subset of this class , the magnetic chemically peculiar ( mcp ) stars .
+the periodic variability of mcp stars is explained in terms of the oblique rotator model , according to which , the period of the observed light , spectrum , and magnetic field variations is identical to the rotational period .
+the photometric changes are due to variations of global flux redistribution caused by the phase - dependent line blanketing and continuum opacity namely in the ultraviolet part of stellar spectra @xcite .
+the amplitude of the photometric variability is determined by the degree of non - uniformity of the surface brightness ( spots ) , the used passband , and the line of sight .
+the observed light amplitudes are up to a few tenths of magnitudes , standardly    in the milky way , we know of a statistically significant number of rotational periods for mcp stars deduced from photometric and/or spectroscopic variability studies @xcite .
+nevertheless , also extragalactic mcp stars were found in the meanwhile .
+after the first photometric detection of classical chemically peculiar ( cp ) stars in the large magellanic cloud ( lmc ) @xcite , a long term effort was spent to increase the sample @xcite .
+finally , we were able to verify our findings with spectroscopic observations @xcite .    in this paper
+, we present the tools of the time series analysis developed for finding and testing of the expected periodic light variations of mcp candidates in the lmc @xcite .
+the list of targets @xcite was compared with the ogle database @xcite for corresponding measurements . in total , fourteen common objects were found and the @xmath0 and @xmath1 light curves analysed .
+the description of methods are also published in the textbook by @xcite .
+the basic tool to search for periodic variations of a measured value ( intensity , magnitude , and radial velocity ) are so called periodograms . these plot some quantities expressing the significance of the phase sorting of searched data according to an individual angular ( circular ) frequency @xmath2 , where @xmath3 is a frequency , @xmath4
+, @xmath5 is a period .
+the extremes of periodograms then indicate the best arrangement of observed data versus a period and hence the possible periodicity of a signal .
+the basic linear regression models of periodic variations are harmonic polynomials of the @xmath6-order : @xmath7 where @xmath8 is the model of detrended measured quantities @xmath9 corrected for their mean , @xmath10 are @xmath11 harmonic coefficients .
+the harmonic coefficients for the best fit of model function @xmath8 : @xmath12 for the fixed @xmath13 can be determined by the standard least square method technique allowing to count with uneven uncertainties of individual measurements @xmath14 .      the simplest way how to construct lsm
+spectral periodogram is to plot scalar value @xmath15 versus @xmath13 or @xmath4 , where @xmath16}^2= \sum_{i=1}^n\ , { \left[\frac{y_i^2}{\sigma_i^2}- \frac{f^2(\omega , t_i)}{\sigma_i^2}\right]}.\ ] ] now we can find and discuss the frequencies for which the value @xmath15 reach their minima .
+this method is fairly general because it can be applied to any kind of time series ( magnitudes , intensities , spectral line equivalent widths , or radial velocities ) .
+nevertheless for data of the same type ( magnitudes , intensities ) we recommend to use the following modification with some value added.    the first sum of equation ( [ chikva ] ) where the first sum on the right is a constant that not depends on the frequency , while the second is the weighted sum of the squares of the model prediction given by the function @xmath17 . therefore , instead of the minimum of the @xmath15 we can find the maximum of the modulated amplitude @xmath18 @xmath19 which is nearly equal to the effective amplitude @xmath20 of a periodic function ( see in * ? ? ?
+for the first estimate of the variation period it is sufficient to use the simplest possible option : @xmath21 which gives also the most explicit results .
+then @xmath22}^2.\ ] ]    .
+periodograms are displayed in arbitrary units normalized to the height of the period peak .
+the results of particular periodograms are comparable , nevertheless both of the new tools of periodograms ( ( b ) and ( c ) ; sec.[sumator ] and sec.[modulator ] ) are a slightly better than the results of the notorious lomb - scargle periodogram ( ( a ) , sec.[scargle]).,scaledwidth=98.0% ]    d@xmath23 ( rotation period ) and subsidiary peaks at @xmath24,scaledwidth=97.0% ]      the second lsm type of periodograms uses as a criterion of the significance of individual peaks a robust `` signal - to - noise '' @xmath25 criterion which is defined as : @xmath26 @xmath27 is an estimate of the uncertainty of the quantity @xmath28 for a particular angular frequency .
+the model function @xmath29 is assumed in the form of the harmonic polynomial of the @xmath6-th order ( see eq.[harm ] ) .
+the detailed description of both lsm novel periodogram criteria can be found in the textbook by @xcite .
+we tested the properties of the @xmath30 criterion on thousands samples with sine @xmath31 signals scattered by randomly distributed noise .
+we found that if there is no periodic signal in such data , the median of the maximum @xmath30 value in a periodogram is 4.52 , in 95% of cases we find a @xmath25 value between 4.2 and 5.4 .
+consequently , the occurrence of peaks definitely higher than 6 indicates possible periodic variations .
+the periodogram @xmath30 is very sensitive ( see fig.[fig1]b ) and suppresses the false periods which results from usually bad time distribution of astrophysical observational data , very well .      during the treatment of ogle - iii time
+series @xcite , we concluded that both types of periodograms correlate very well with other time - proven periodograms as e.g. the lomb - scargle ( see e.g. * ? ? ?
+so we are able to consider them as generally interchangeable ( see also fig.[fig1 ] ) .
+the lomb - scargle method assumes that the found changes have sine / cosine type phase curves .
+the method uses , as the measure of individual periods significance , the quantity @xmath32 : @xmath33 } ; \quad \displaystyle \omega=\frac{2\,\pi}{p};\\ & q_{\mathrm{ls}}(\omega)=\displaystyle \frac { \sum_{i=1}^n { \left\{y_i\ , \cos[\omega\,(t_i-\tau)]\right\}}^2}{\sum_{i=1}^n \cos^2[\omega\,(t_i-\tau)]}+\displaystyle \frac{\sum_{i=1}^n { \left\{y_i \sin[\omega\,(t_i-\tau)]\right\}}^2}{\sum_{i=1}^n \sin^2[\omega\,(t_i-\tau)]}.\nonumber\end{aligned}\ ] ] the definition of the significance indicator @xmath34 ( see eq.[lomb ] ) can be easily modified to the more general case of data with uneven uncertainties .
+bs cir ( hd 125630 ) is a moderately cool mcp star with the rotation period @xmath35 .
+there are many observations of the double - wave light curves available ( for details see in * ? ? ?
+* ; * ? ? ?
+although light curves taken in various colours differ , those ones obtained in the spectral region 500560 nm can be considered as almost identical .
+the periodogram measurements taken from @xcite . ] presented in fig.[fig2 ] shows the spectrum of the square of the modulated amplitude @xmath36 , @xmath37 , see eqs.[harm],[amgen ] ) dominated by the basic period with frequency @xmath38d@xmath23 , and subordinate peaks at @xmath39 .
+this spectrum results from the fact that the light curves in various filters are not exactly the same .
+the mean modulated amplitude of the maximum peak correspond to 0.11 mag , the mean weighted @xmath25 of used 4766 individual photometric observations is about 20 .
+we obtain such a periodogram only in very rare cases when we study an object with the pronounced variability documented by thousands of observations not suffering from bad sampling .
+nevertheless , frequently we have to analyze data of much worse quality and time sampling .
+cq uma ( hr5153 = hd 119213 ) , is also a moderately cool mcp star , similar to bs cir , with a strong variation in the @xmath40 color and @xmath41 index .
+the period of variations of all kind is constant , @xmath42 @xcite .        .
+the low amplitude of it and the absence of any other pronounced period peaks mean that the periodogram of the star is formed namely by aliases of the basic ( true ) period .
+, scaledwidth=80.0% ]    in 1983 - 4 , we obtained nine measurements of the effective magnetic field ( @xmath43 ) using the hydrogen magnetograph of the 6-m sao reflector ( see full dots in fig.[fig3 ] ) .
+the expected synchronous periodic variations in the light and magnetic field ( @xmath43 ) were confirmed @xcite .
+however , are these nine magnetic observations of cq uma sufficient for the period determination ? definitely not , the period spectrum is overcrowded by plenty of aliases ( fig.[fig4 ] ) .
+several of them are so much dominant that they exceed even the peak of the real period .
+the aliases can be suppressed by a continuation observations .
+we can simulate it by adding of 27 ` new ' ( artificial ) magnetic measurements obtained during the following six years ( see open circles in fig.[fig3 ] ) .
+the new periodogram ( fig.[fig5 ] ) undoubtedly indicates the only dominant period at the true placement ] .
+the phase diagram plotted with this period displays simple sinusoidal variations with a @xmath44 .
+if we remove the sinusoidal signal from our magnetic measurements , we can search for other possible relic periods using the same periodogram technique - see the bottom of fig.[fig4 ] .
+it seems that there is no periodic signal in the remaining data meaning that the found period is unique .
+the remaining data correspond to pure noise which is not very prominent .
+the characteristics of the periodogram is determined mainly by aliases originated from the very low number of measurements ( 36 ) and the short time basis of observations ( 8 years ) .
+the aliases can be lowered if we use , besides not very accurate magnetic measurements of @xmath43 , more precise photometric data ( @xmath25 usually up to 20 ) .
+then we are able to achieve the pure periodogram similar to the periodogram of bs cir displayed in fig.[fig2 ] .
+several quite different problems were encountered when we analyzed the light curves of mcp candidates in the large magellanic cloud .
+the number of individual ogle observations in the @xmath0 and @xmath1 colours are @xmath45 and the duration of observations ( 8 years ) were satisfactory .
+the effect of aliases in such data should be insignificant .
+unfortunately , the periodograms suffer here from relatively large scatter due to observational noise .
+the ratio @xmath25 of an individual observation was very low because of the weakness of the signal .
+we shall now discuss the period analysis of a typical representative of the mcp candidates in lmc - the star ogle lmc136.7 16501 ( 04 50 46.10 -69 59 16.7 , 2000.0 ) , denoted in @xcite as a star no .
+4 , with a mean magnitude in @xmath46 mag , the absolute magnitude @xmath47 mag .         and @xmath0 light curves of ogle lmc136.7 16501 plotted versus the ` best ' period @xmath48.,scaledwidth=100.0% ]    the periodogram depicted in fig.[fig6 ] is quite dissimilar to the periodograms of mcp stars discussed above ( compare with fig.[fig2 ] and fig.[fig5 ] ) .
+we do not see here any prominent period peak .
+the characteristics of the period spectrum is mainly determined by the stochastic scatter that competes with several possible periods of the the principal aliases conjugated with the basic sampling period of one sidereal day .
+the frequencies of aliases obey to notorious @xcite relation : @xmath49 where @xmath50 is the frequency of the alias of the @xmath51-th order , @xmath52 is the frequency of the maximum period peak @xmath53 , and @xmath54 is the sampling frequency , here it is the frequency of a sidereal day @xmath55 .
+the most significant period in the periodogram ( fig.[fig6 ] ) is 4373 , with amplitudes of the light curves @xmath56 mag , both in @xmath0 and @xmath1
+. the ratio of @xmath57 for this peak is very low .
+the light curves in @xmath0 and @xmath1 are depicted in fig.[fig7 ] . nevertheless , all predicted aliases : @xmath58 are indicated .
+does it mean that the period 4373 is real ?
+unfortunately not .
+the occurrence of aliases at their ` right positions ' given by the tanner relation eq.[tanner ] is only the confirmation of the distinctiveness of expected sampling period or periods in observational data . because the ogle data were obtained at a ground based station
+, the pronounced one day sampling period can be easily explained .
+the observed ordering of observation into a phase curve with the period 4373 can be a mere coincidence .
+that is why we shall solve the crucial question : are the found periodic variations real
+? some partial answers may give us several simple tests of variability of general use we have developed @xcite .
+the heuristic _ shuffling method _ is able to test the ` pessimistic ' hypothesis that the distribution of the data is only random .
+we can analyze the data of our object displaying weak periodical variations again by the same way as it was described above , only we randomly shuffled all the individual observations ( magnitudes and their uncertainties ) , the times of the observations remained the same .
+we are convinced that this derogation will destroy any periodic signal and randomize the data .
+for the shuffled version of data we then find the maximum modulated amplitude @xmath59 and the maximum of @xmath25 .
+then we repeat the same procedure many times and compare the results with @xmath59 and @xmath25 for the original unshuffled data set .
+if the results are nearly the same , we may conclude that the periodic variability of the object ( if any ) is undetectable in the investigated data .
+we found for the mcp candidate ogle lmc136.7 16501 , the median of amplitudes in period peaks of shuffled data @xmath60 mag and a ratio @xmath61 , what is very close to the values found above @xmath56 mag , both in @xmath0 and @xmath1 and @xmath57 .
+consequently , the lmc136.7 16501 photometric data are very probably random .    the same results we obtained also for the other 11 mcp candidates , only for stars no 12 and no 14 ( according to the list of lmc mcp cadidates in * ? ? ?
+* ) the periods seem significant .
+we deduce a @xmath62 for significance .
+the following tests will help to quantify the significance of the periods .
+the technique of bootstrap @xcite has proved to be very useful for testing the statistical significance and therefore the reality of found periods .
+it helped us to quantify this reality as a probability that the periodogram of a randomly created bootstrap subset has its dominant peak at the same frequency as the standard periodogram .
+we tested it with one hundred of bootstrap subsets for each star of our sample .
+we consider a period as statistically significant , if the maximum peak occurs at one of the aliased frequency because during the bootstrap choice aliases often exceed the basic peak .
+the results for found periods of all 14 mcp candidates were dismal : the bootstrap significance never exceeds 50% .
+especially , the bootstrap significance of the period 437 in the case of the star 4 was only 26% ! the periodicity of stars no .
+12 and 14 , mentioned in sec.[shuple ] , is disputable .      for data , including observations in two or more spectral regions
+ their individual periodograms should indicate nearly the same peak period .
+it can be tested , e.g. by the periodogram of the product of individual @xmath18 or @xmath25 values .
+all mentioned newly developed methods are open source . for details
+see in @xcite or the textbook of @xcite .
+this paper uses observations made at the south african astronomical observatory ( saao ) .
+this work was funded by the grant gar p209/12/0217 and supported by the somopro ii programme ( 3sga5916 ) , co - financed by the european union and the south moravian region , the grant ga r 7amb12at003 , and the financial contributions of the austrian agency for international cooperation in education and research ( bg-03/2013 and cz-09/2014 ) .
+mn acknowledges the support by the grant 14 - 26115p of the czech science
+foundation.this work reflects the opinion of the authors and the european union is not responsible for any possible application of the information included in the paper .
+catalano , f. a. , leone , f. 1993 , , 100 , 319 esa , 1998 , the hipparcos and tycho catalogs , celestia 2000 , sp1220 krtika , j. , mikulek , z. , henry , g.  w. , et al .
+2009 , a&a , 499 , 567 krtika , j. , mikulek , z. , lftinger , t. et al .
+2012 , a&a , 537 , a14 krtika , j. , mikulek , z. , zverko , j. , & iovsk , j. 2007 , , 470 , 1089 maitzen , h. m. , paunzen , e. , & pintado , o. i. 2001 , , 371 , l5 manfroid , j. , renson , p. 1983
+, , 51 , 267 mas - hesse , j.m . ,
+gimnez , a. , domingo , a. , rsquez , d. , caballero , m.d . ,
+gutirrez , r. , solano , e. and the omc team , 2004 .
+5th integral workshop on the integral universe , 552 , 729 mikulek , z. , glagolevskij , yu . v. , romanyuk , i. i. , shtol , v. g. , bychkov , v. d. 1984 , in magnetic stars , 13 mikulek , z. , jank , j. , zverko , j. , iovsk , j. , netolick , & vako , m. 2007 , astronomische nachrichten , 328 , 1 , 10 mikulek , z. , krtika , j. , jank , j. et al .
+2011 , in magnetic stars , proceedings of the international conference , sao ras 2010 , eds : i. i. romanyuk and d. o. kudryavtsev , 52 mikulek , z. , krtika , j. , jank , j. et al .
+2013arxiv1310.6640 mikulek , z. , jank , j. , krtika , j. , zejda , m. , & jagelka , j. this contributions 2015 mikulek , z. & zejda , m. , in vod do studia promnnch hvzd , isbn 978 - 80 - 210 - 6241 - 2 , masaryk university , brno 2013 mikulek , z. , zverko , j. , krtika , j. et al .
+2007 , in magnetic stars , eds .
+iosif romanyuk , dmitry kudryavtsev 2007 , 352 paunzen , e. , maitzen , h. m. , pintado , o. i. , et al .
+2006 , , 459 , 871 paunzen , e. , mikulek , z. , poleski , krtika , j. , netopil , & m. zejda , m. 2013 , , 556 , a12 paunzen , e. , netopil , m. , bord , d. j. 2011 , , 411 , 260 pojmaski , g. 2001 , asp conference series vol .
+246 , iau colloquium 183 .
+b. paczynski , w - p .
+chen , and c. lemme , 53 renson , p. , catalano , f. a. 2001 , , 378 , 113 press , w. h. , & rybicki , g. b. 1989 , , 338 , 277 tanner , r. w. 1948 , journal of the royal astronomical society of canada , 42 , 177 udalski , a. , syzmanski , m. k. , soszynski , i. , & poleski , r. 2008 , acta astronomica , 58 , 69 vogt , n. , faundez , a. m. 1979 , 36 , 477

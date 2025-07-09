@@ -1,0 +1,87 @@
+{
+  "nodes": [
+    {
+      "id": "Facebook",
+      "type": "Platform",
+      "properties": {}
+    },
+    {
+      "id": "News Feed",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Recommendation Engine",
+      "type": "Algorithm",
+      "properties": {}
+    },
+    {
+      "id": "See First",
+      "type": "Feature",
+      "properties": {}
+    },
+    {
+      "id": "Ios Devices",
+      "type": "Device",
+      "properties": {}
+    }
+  ],
+  "relationships": [
+    {
+      "source": {
+        "id": "Facebook",
+        "type": "Platform",
+        "properties": {}
+      },
+      "target": {
+        "id": "News Feed",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "DISPLAYS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Platform",
+        "type": "Facebook",
+        "properties": {}
+      },
+      "target": {
+        "id": "Recommendation Engine",
+        "type": "Algorithm",
+        "properties": {}
+      },
+      "type": "POWERS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "Feature",
+        "type": "News feed",
+        "properties": {}
+      },
+      "target": {
+        "id": "See First",
+        "type": "Feature",
+        "properties": {}
+      },
+      "type": "PINS",
+      "properties": {}
+    },
+    {
+      "source": {
+        "id": "See First",
+        "type": "Feature",
+        "properties": {}
+      },
+      "target": {
+        "id": "Ios Devices",
+        "type": "Device",
+        "properties": {}
+      },
+      "type": "EXCLUSIVE_TO",
+      "properties": {}
+    }
+  ]
+}

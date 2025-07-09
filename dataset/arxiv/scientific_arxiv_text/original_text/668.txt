@@ -1,0 +1,354 @@
+understanding dissipative quantum dynamics of a system embedded in a complex environment is an important topic across various sub - disciplines of physics and chemistry .
+significant progress in the understanding of condensed phase dynamics have been achieved within the context of a few prototypical models@xcite such as caldeira - leggett model and spin - boson model . in most cases
+the environment is modeled as a bosonic bath , a set of non - interacting harmonic oscillators whose influences on the system is concisely encoded in a spectral density . the prevalent adoption of bosonic bath models is based on the arguments that knowing the linear response of an environment near equilibrium should be sufficient to predict the dissipative quantum dynamics of the system .    despite many important advancements in the quantum dissipation theory have been made with the standard bosonic bath models in the past decades , more and more physical and chemical studies have suggested the essential roles that other bath models assume .
+we briefly summarize three scenarios below .    1 .
+a standard bosonic bath model fails to predict the correct electron transfer rate in donor - acceptor complex strongly coupled to some low - frequency intramolecular modes .
+some past attempts to model such an anharmonic , condensed phase environment include ( a ) using a bath of non - interacting morse@xcite or quartic oscillatorsand ( b ) mapping anharmonic environment onto effective harmonic modes@xcite with a temperature - dependent spectral density .
+another prominent example is the fermonic bath model .
+electronic transports through nanostructures , such as quantum dots or molecular junctions , involves particle exchange occurs across the system - bath boundary .
+recent developments of several many - body physics and chemistry methods , such as the dynamical mean - field theory@xcite and the density matrix embedding theory@xcite , reformulate the original problem in such a way that a crucial part of the methods is to solve an open quantum impurity model embedded in a fermionic environment .
+the spin ( two - level system ) bath models have also received increased attention over the years due to ongoing interests in developing various solid - state quantum technologies@xcite under the ultralow temperature when the phonon or vibrational modes are frozen and coupling to other physical spins ( such as nuclear spins carried by the lattice atoms ) , impurities or defects in the host material emerge as the dominant channels of decoherence .
+both bosonic and fermionic environments are gaussian baths , which can be exactly treated by the linear response@xcite in the path integral formalism . for the non - gaussian baths , attaining numerically exact open quantum dynamics would require either access to higher order response function of the bath in terms of its multi - time correlation functions or explicit dynamical treatments of the bath degrees of freedom ( dofs ) .    in this work , we extend a stochastic formulation@xcite of quantum dissipation by incorporating all three fundamental bath models : non - interacting bosons , fermions and spins .
+the stochastic liouville equation ( sle ) , eq .
+( [ eq : sleq ] ) , prescribes a simple yet general form of quantum dissipative dynamics when the bath effects are modelled as colored noises @xmath0 and @xmath1 .
+different bath models and bath properties are distinguished in the present framework by assigning distinct noise variables and associated statistics .
+for instance , in dealing with bosonic and fermionic baths , the noises are complex - valued and grassmann - valued gaussian processes , respectively , and characterized by the two - time correlation functions such as eq .
+( [ eq : xi_corr ] ) .
+the grassmann - valued noises are adopted whenever the environment is composed of fermionic modes as these algebraic entities would bring out the gaussian characteristics of fermionic modes . for anharmonic environments , such as a spin bath ,
+the required noises are generally non - gaussian .
+two - time statistics can not fully distinguish these processes and higher order statistics furnished with bath multi - time correlation functions are needed . despite the conceptual simplicity of the sle , achieving stable convergences in stochastic simulations has proven to be challenging in the long - time limit .
+even for the most well - studied bosonic bath models , it is still an active research topic to develop efficient stochastic simulation schems@xcite today .
+our group has successfully applied stochastic path integral simulations to calculate ( imaginary - time ) thermal distributions@xcite , absorption / emission spectra@xcite and energy transfer@xcite ; however , a direct stochastic simulation of real - time dynamics remains formidable . in this study , we consider generic quantum environments that either exhibit non - gaussian characteristics or invovles ferimonic degrees of freedoms ( and associated grassmann noise in the stochastic formalism ) .
+both scenarios present new challenges to developing efficient stochastic simulations .
+hence , in subsequent discussions , all numerical methods developed are strictly deterministic .
+we note that it is common to derive exact master equation@xcite , hierarchical equation of motions@xcite , and hybrid stochastic - deterministic numerical methods@xcite from a stochastic formulation of open quantum theory . in sec .  [
+sec : spectral ] , we further illustrate the usefulness of our stochastic frmulation by presenting a numerical scheme that would be difficult to obtain within a strictly deterministic framework of open quantum theory .
+furthermore , the stochastic formalism gives straightforward prescriptions to compute dynamical quantities such as @xmath2 , which represents system - bath joint observables , as done in a recently proposed theory@xcite .
+staring from the sle , we derive numerical schemes to deterministically simulate quantum dynamics for all three fundamental bath models .
+the key step is to formally average out the noise variables in the sle .
+a common approach is to introduce auxiliary density matrices ( adms ) , in close parallel to the hierarchical equation of motion ( heom ) formalism@xcite , that fold noise - induced fluctuations on reduced density matrix in these auxiliary constructs with their own equations of motions . to facilitate the formal derivation with the noise averaging , we consider two distinct ways to expand the adms with respect to a complete set of orthonormal functions in the time domain . in the first case
+, the basis set corresponds to the eigenfunctions of the bath s two - time correlation functions .
+this approach provides an efficient description of open quantum dynamics for bosonic bath models .
+unfortunately , it is not convenient to extend this approach to study non - gaussian bath models .
+we then investigate another approach inspired by a recent work on the extended heom ( eheom)@xcite .
+in this case , we expand the bath s multi - time correlation functions in an arbitrary set of orthonormal functions .
+this approach generalizes eheom to the study of non - gaussian and fermionic bath models with arbitrary spectral densities and temperature regimes .
+despite having a slightly more complex form , our fermionic heom can be easily related to the existing formalism@xcite . in this work ,
+we refer to the family of numerical schemes discussed in this work collectively as the generalized hierarchical equations ( ghe ) .    among the three fundamental bath models ,
+spin baths deserve more attentions .
+a spin bath can feature very different physical properties@xcite from the standard heat bath composed of non - interacting bosons ; especially , when the bath is composed of localized nuclear / electron spins@xcite , defects and impurities .
+this kind of spin environment is often of a finite - size and has an extremely narrow bandwidth of frequencies .
+to more efficiently handle this situation , we consider a dual - fermion mapping that transforms each spin into a pair of coupled fermions . at the expense of introducing an extra set of fermionic dofs , it becomes possible to recast the non - gaussian properties of the original spin bath in terms of gaussian processes in the extended space . in a subsequent work , the paper ii@xcite
+, we should further investigate physical properties of spin bath models .
+the paper is organized as follows . in sec .
+[ sec:2 ] , we introduce thoroughly the stochastic formalism for open quantum systems embedeed in a generic quantum environment .
+the sle is the starting point that we build upon to construct generalized hierarchical equations ( ghe ) , a family of deterministic simulation methods after formally averaging out the noise variables . in sec .
+[ sec : spectral ] , we study bosonic baths by expanding the noise processes in terms of the spectral eigenfunctions of the bath s two - time correlation function . in sec .  [
+sec : heom ] , we discuss the alternative derivation that generalizes the recently introduced extended heom to study non - gaussian bath models and fermionic bath models . in sec .
+[ sec : spin ] , we introduce the dual - fermion representation and derive an alternative ghe more suitable for spin bath models composed of nuclear / electron spins .
+a brief summary is given in sec .
+[ sec : last ] . in app.[app : stochprocess]-[app : grassmann ] , we provide additional materials on the stochastic calculus and grassmann number to clarify some details of the present work .
+appendix [ app : inf - func ] shows how to recover the influence functional theory from the present stochastic formalism .
+in the last appendix , we present numerical examples to illustrate the methods discussed in the main text .
+in this study , we consider the following joint system and bath hamiltonian , @xmath3 where the interacting hamiltonian can be decomposed into factorized forms with @xmath4 and @xmath5 acting on the system and bath , respectively . more specifically , we assume @xmath6 and @xmath7 where the operator @xmath8 can be taken as the bosonic creation operator @xmath9 , the fermionic creation operator @xmath10 or the spin raising operator @xmath11 depending on the specific bath model considered . throughout the rest of this paper ,
+the system hamiltonian reads @xmath12 where we simply take the system as a spin and the index 0 always refers to the system .
+although we adopt a specific system hamiltonian in eq .
+( [ eq : sysh ] ) , it can be more general .
+we consider the factorized initial conditions , @xmath13 where two parts are initially uncorrelated and the bath density matrix is commonly taken as a tensor product of thermal states for each individual mode .
+with eqs.([eq : genh])-([eq : genrhoi ] ) , the dynamics of the composite system ( system and bath ) is obtained by solving the von neumann equation @xmath14.\end{aligned}\ ] ] if only the system is of interest , then one can trace over the bath dofs , i.e. @xmath15 .
+this straightforward computation ( full many - body dynamics then partial trace ) soon becomes intractable as the dimension of the hilbert space scales exponentially with respect to a possibly large number of bath modes .
+many open quantum system techniques have been proposed to avoid a direct computation of eq .
+( [ eq : vneq ] ) .
+our starting point is to replace eq .
+( [ eq : vneq ] ) with a set of coupled stochastic differential equations , @xmath16   -\frac{i}{\sqrt 2 } \sum_{\alpha=\pm } a^\alpha\tilde\rho_s dw_\alpha   + \frac{i}{\sqrt 2}\sum_{\alpha=\pm } \tilde\rho_s a^\alpha dv_\alpha , \nonumber \\ \label{eq : ito_unnorm2 } & & d\tilde\rho_b    =   \\ & & -i dt \left[\hat{h}_b , \tilde\rho_b\right ]   + \frac{1}{\sqrt 2 } \sum_{\alpha=\pm } dw^*_\alpha b^{\bar \alpha }   \tilde \rho_b    + \frac{1}{\sqrt 2}\sum_{\alpha=\pm } dv^*_\alpha \tilde \rho_b   b^{\bar \alpha } , \nonumber\end{aligned}\ ] ] where the stochastic noises appear as differential wiener increments , @xmath17 and @xmath18 ( the white noises @xmath19 and @xmath20 will be explicitly defined later ) . noting the stochastic relation@xcite between density matrix and wave function , @xmath21 , the two forward / backward wave functions evolves under the time - dependent hamiltonian , @xmath22 and @xmath23 , respectively .
+this connection implies an equivalent formulation of stochastic wave function - based theory of open quantum systems with better scaling@xcite for large system simulations . in this work ,
+we focus on the density matrix presentation and attach the tilda symbol on top of all stochastically - evolved density matrices as in eqs .
+( [ eq : ito_unnorm])-([eq : ito_unnorm2 ] ) .
+equation ( [ eq : ito_unnorm2 ] ) can be further decomposed into corresponding equations for individual modes , @xmath24    \nonumber \\ & &   + \frac{1}{\sqrt 2 } \sum_{\alpha=\pm } g_k dw^*_\alpha   b^{\bar\alpha}_k \tilde \rho_k    + \frac{1}{\sqrt 2}\sum_{\alpha=\pm } g_k dv^*_\alpha \tilde \rho_k b^{\bar\alpha}_k,\end{aligned}\ ] ] where @xmath25 , @xmath26 and @xmath27 .
+the system and bath are decoupled from each other but subjected to the same set of random fields .
+the stochastic processes ( @xmath28 and @xmath29 ) in this work can be either complex - valued or grassmann - valued depending on the bath model under study . to manifest the gaussian properties of fermionic baths , it is essential to adopt the grassmann - valued noises . in these cases , it is crucial to maintain the order between fermionic operators and grassmann - valued noise variables presented in eqs .
+( [ eq : ito_unnorm2])-([eq : ito_unnorm3 ] ) as negative signs arise when the order of variables and operators are switched .
+the white noises satisfy the standard relations @xmath30 where the overlines denote averages over noise realizations .
+any other unspecified two - time correlation functions vanish exactly . the order of variables in eq .
+( [ eq : noise ] ) also matters for grassmann noises as explained earlier . with these basic properties laid out ,
+we elucidate how to recover eq .
+( [ eq : vneq ] ) from the stochastic formalism .
+first , the equation of motion for the joint density matrix @xmath31 is given by @xmath32 \tilde \rho_b(t ) + \tilde \rho_s(t ) [ d\tilde \rho_b(t ) ] + d \tilde \rho_s(t ) d \tilde \rho_b(t),\end{aligned}\ ] ] where the last term is needed to account for all differentials up to @xmath33 as the product of the conjugate pairs of differential wiener increments such as @xmath34 , contributes a term proportional to @xmath35 on average .
+taking the noise averages of eq .
+( [ eq : itodiff ] ) , the first two terms together yield @xmath36 $ ] and the last term gives the system - bath interaction , @xmath37 $ ] . due to the linearity of the von neumann equation and the factorized initial condition , the composite system dynamics is given by @xmath38 . to extract the reduced density matrix
+, we trace out the bath dofs before taking the noise average , @xmath39 in this formulation , it is clear that all the bath - induced dissipative effects are encoded in the trace of the bath s density matrix .    because of the non - unitary dynamics implied in the eqs .
+( [ eq : ito_unnorm])-([eq : ito_unnorm2 ] ) , the norm of the stochastically evolved bath density matrices are not conserved along each path of noise realization .
+the norm conservations only emerge after the noise averaging .
+this is a common source of numerical instabilities one encounters when directly simulating the simple stochastic dynamics presented so far .
+the norm fluctuations of @xmath40 can be suppressed by modifying the stochastic differential equations above to read , @xmath41   \mp i dt \sum_{\alpha } \left [ a^{\alpha } ,   \tilde\rho_s \right]_{\mp } \mathcal{b}^{\bar \alpha}(t )   \\ & & \ , \ ,
+-\frac{i}{\sqrt 2 } \sum_{\alpha } a^{\alpha}\tilde\rho_s dw_{\alpha }   + \frac{i}{\sqrt 2}\sum_{\alpha } \tilde\rho_s a^{\alpha } dv_{\alpha } , \nonumber \\ \label{eq : ito2 } & & d\tilde\rho_b = -i dt \left[\hat{h}_b , \tilde\rho_b\right ]   + \frac{1}{\sqrt 2 } \sum_{\alpha } dw^*_{\bar \alpha } \left ( b^{\alpha } \mp \mathcal b^\alpha(t ) \right ) \tilde \rho_b \nonumber \\ & & \ , \ , + \frac{1}{\sqrt 2}\sum_{\alpha } dv^*_{\bar \alpha } \tilde \rho_b   \left ( b^\alpha - \mathcal b^\alpha ( t ) \right).\end{aligned}\ ] ] where additional stochastic fields @xmath42 is introduced to ensure @xmath43 is conserved along each noise path . in eqs .
+( [ eq : ito])-([eq : ito2 ] ) , the top / bottom sign in the symbols @xmath44 ( @xmath45 ) refers to complex - valued / grassmann - valued noises , respectively . similarly , @xmath46_{\mp}$ ] refers to commutator ( complex - valued noise ) and anti - commutator ( grassmann - valued noise ) in eq .
+( [ eq : ito ] ) . after these modifications
+, the exact reduced density matrix of the system is given by @xmath47 .    by introducting @xmath48
+, we directly incorporate the bath s response to the random noise in system s dynamical equation .
+equation ( [ eq : ito ] ) and the determination of @xmath48 constitute the foundation of open system dynamics in the stochastic framework .
+in addition to being a methodology of open quantum systems , it should be clear that the present framework allows one to calculate explicitly bath operator involved quantities of interest@xcite .      from eq .
+( [ eq : bfield ] ) , it is clear that @xmath48 can be obtained by formally integrating eq .
+( [ eq : ito2 ] ) . for simplicity , we take @xmath49 and similarly for @xmath50
+. this simplification does not compromise the generality of the results presented below and applies to the common case of the spin boson like model when the system - bath interacting hamiltonian is given by @xmath51 with @xmath52 .
+we first consider the gaussian baths composed of non - interacting bosons or fermions .
+the equations of motion for the creation and annihilation operators for individual modes read @xmath53 where the top ( bottom ) sign of @xmath44 should be used when complex - valued ( grassmann - valued ) noises are adopted . the expectation values in eqs .
+( [ eq : boson_mode1])-([eq : boson_mode2 ] ) are taken with respect to @xmath54 .
+the generalized cumulants are defined as @xmath55 for bosonic and fermionic bath models , it is straightforward to show that the time derivatives of @xmath56 vanish exactly .
+hence , the second order cumulants are determined by the thermal equilibrium conditions of the initial states .
+immediately , one can identify the relevant quantity @xmath57 representing either the bose - einstein or fermi - dirac distribution depending on whether it is a bosonic or fermionic mode .    replacing the second order cumulants in eqs .
+( [ eq : boson_mode1])-([eq : boson_mode2 ] ) with an appropriate thermal distribution , one can derive a closed form expression @xmath58 where @xmath59 stands for the corresponding two - time bath correlation functions .
+for the gaussian bath models , eqs .
+( [ eq : ito ] ) and ( [ eq : gaussbfield ] ) together provide an exact account of the reduced system dynamics .
+next we illustrate the treatment of non - gaussian bath models within the present framework with the spin bath as an example . in the rest of this section
+, the analysis only applies to the complex - valued noises .
+the determination of @xmath60 still follows the same procedure described at the beginning of this section up to eqs .
+( [ eq : boson_mode1])-([eq : boson_mode2 ] ) .
+the deviations appear when one tries to compute the time derivatives of the second cumulants .
+common to all non - gaussian bath models , the second cumulants are not time invariant .
+instead , by iteratively using eq .
+( [ eq : ito2 ] ) , the second and higher order cumulants can be shown to obey the following general equation , @xmath61}_{k}+\mathcal{g}^{[\pmb{\alpha},-]}_{k}\right ) \nonumber \\ & & + \frac{1}{\sqrt{2}}dv^*_s \left(\mathcal{g}^{[+,\pmb{\alpha}]}_{k}+\mathcal{g}^{[-,\pmb{\alpha}]}_{k}\right),\end{aligned}\ ] ] where @xmath62 specifies a sequence of raising and lowering spin operators that constitute this particular @xmath63-th order cumulant and @xmath64 with @xmath65 depending on whether it refers to a raising ( + ) or lowering ( - ) operator , respectively .
+the time evolution of these bath cumulants form a simple hierarchical structure with an @xmath63-th order cumulant influenced directly by the @xmath66-th order cumulants according to the equation above where we use @xmath67 \equiv ( \alpha_1 , \dots \alpha_n , \pm)$ ] to denote an @xmath66-th cumulant obtained by appending a spin operator to @xmath68 . a similar definition is implied for @xmath69 $ ] .
+more specifically , these cumulants are defined via an inductive relation that we explicitly demonstrate with an example to obtain a third - order cumulant starting from a second - order one given in eq .
+( [ eq:2ndcum ] ) , @xmath70}_k = \langle b^{\alpha_1 } b^{\alpha_2 } ( b^\pm - \langle b^\pm \rangle ) \rangle
++   \langle b^{\alpha_1}(b^\pm - \langle b^\pm \rangle ) \rangle \langle b^{\alpha_2}\rangle + \langle b^{\alpha_1 } \rangle \langle b^{\alpha_2 } ( b^\pm - \langle b^\pm \rangle ) \rangle.\end{aligned}\ ] ] the key step in this inductive procedure is to insert an operator identity @xmath71 at the end of each expectation bracket defining the @xmath63-th cumulant .
+if a term is composed of m expectation brackets , then this insertion should apply to one bracket at a time and generate m terms for the @xmath66-th cumulant .
+similarly , we get @xmath72}$ ] by inserting the same operator identity to the beginning of each expectation bracket of @xmath73 .    for the spin bath , these higher order cumulants do not vanish and persist up to all orders . in any calculations
+, one should certainly truncate the cumulants at a specific order by imposing the time invariance , @xmath74 and evaluate the lower order cumulants by recursively integrating eq .
+( [ eq : gencum ] ) . through this simple prescription ,
+one derives @xmath75 where @xmath76 stands for an @xmath63-time bath correlation functions with the subscript @xmath77 used to distinguish the @xmath78 @xmath63-time correlation functions appearing in the stochastic integrations ( each involves a unique sequence of noise variables ) in eq .
+( [ eq : generalfield ] ) . comparing to eq.([eq : gaussbfield]),one can identify @xmath79 and @xmath80 with @xmath81 and @xmath82 , respectively . note this derivation assumes the odd - time correlation functions vanish with respect to the initial thermal equilibrium state .      at this point
+, we briefly summarize the unified stochastic formalism . once @xmath60 is fully determined , eq .
+( [ eq : ito ] ) can be presented in a simple form , the stochastic liouville equaiton ( sle ) , @xmath83   \mp i   a \tilde\rho_s(t)\xi(t )   + i \tilde\rho_s(t)a\eta(t),\nonumber \\\end{aligned}\ ] ] where the newly defined color noises are @xmath84 in these equations above , the top / bottom signs are associated with complex - valued / grassmann - valued noises , respectively .    in the cases of bosonic baths , @xmath60 is given by eq .
+( [ eq : gaussbfield ] ) and driven by the complex - valued noises .
+the color noises then are fully characterized by the statistical properties , @xmath85 several stochastic simulation algorithms have been proposed to solve the sle with the gaussian noises .    on the other hand , all previous efforts in the stochastic formulations of fermionic bath end up with derivations of either master equations@xcite or hierarchical@xcite type of coupled equations .
+the stochastic framework has simply served as a mean to derive deterministic equations for numerical simulations .
+the lack of direct stochastic algorithm is due to the numerical difficulty to model grassmann numbers . in this study
+, we support the view that grassmann numbers are simply  formal bookkeeping devices " to help formulate the fermionic path integrals and the formal stochastic equations of motion with gaussian properties .
+hence , it is critical to formally eliminate the grassmann number and the associated stochastic processes , which will be demonstrated in sec .  [
+sec : spin ] with numerical illustrations in app .
+[ app : num ] .
+going beyond the gaussian baths , @xmath60 is given by eq .
+( [ eq : generalfield ] ) which involves multiple - time stochastic integrals .
+formally , one can still use the same definition of noises , eq .
+( [ eq : defcolornoise ] ) , and the sle still prescribes the exact dynamics for the reduced density matrix .
+the primary factor distinguishing from the gaussian baths is the statistical characterization of the noises .
+higher order statistics are no longer trivial for non - gaussian processes , and they are determined by the multi - time correlation functions @xmath86 in eq .
+( [ eq : generalfield ] ) .
+for instance , when the fourth order correlation functions are included in the definition of @xmath60 , additional statistical conditions such as @xmath87 would have to be imposed and related to @xmath88 to fully specify this noise . since constructing a purely stochastic method to simulate gaussian processes is already a non - trivial task , simulating non - gaussian random processes
+is an even tougher goal .    in the subsequent discussions , we should devise deterministic numerical methods based on the sle , eq .
+( [ eq : sleq ] ) , by formally averaging out the noises .
+we name the proposed methods in sec .
+[ sec : spectral ] - sec .
+[ sec : heom ] collectively as the generalized hierarchical equations ( ghe ) in this work .
+besides the ghe to be presented , we note sophisticated hybrid algorithms@xcite could also be constructed to combine advantages of both stochastic and deterministic approaches .
+we shall leave these potential extensions in a future study .
+in this section , we consider a bosonic gaussian bath .
+we note eq .
+( [ eq : xi_corr ] ) encodes the full dissipative effects induced by a bath in the stochastic formalism .
+the microscopic details , such as eq .
+( [ eq : defcolornoise ] ) , of the noise variables become secondary concerns .
+this observation allows us to substitute any pairs of correlated color noises that satisfy eq .
+( [ eq : xi_corr ] ) as these statistical conditions alone do not fully specify the noises present in eq .
+( [ eq : sleq ] ) . in other words ,
+more than one set of noises can generate identical quantum dissipative dynamics as long as they all satisfy eq .
+( [ eq : xi_corr ] ) but may differ in other unspecified statistics such as @xmath89 and @xmath90 etc .
+this flexibility with the choice@xcite of stochastic processes provides opportunities to fine - tune performances of nuemrical algorithms .
+we propose the following decomposition@xcite of the noise variables @xmath91 where ( @xmath92,@xmath93 ) and ( @xmath94 , @xmath95 ) are independent and real - valued normal variables with mean @xmath96 and variance @xmath97 while @xmath98 are similarly defined but complex - valued .
+the other unspecified functions are obtained from the spectral expansion of the correlation functions , @xmath99 where @xmath100 , the functions @xmath101 ( complex - valued in general ) , @xmath102 ( real - valued ) and @xmath103 ( real - valued ) form independent sets of orthonormal basis function over time domain @xmath104 $ ] for the simulation .
+the spectral components can be determined explicitly by solving @xmath105 and similar integral equations will yield other sets of basis functions and the associated eigenvalues .
+the newly defined noises in eq .
+( [ eq : corr - stoch ] ) can be shown to reproduce the two - time statistics given in eq .
+( [ eq : xi_corr ] ) .
+a crucial assumption of the spectral expansion above is that correlation functions should be positive semi - definite .
+this could be a concern with the quantum correlation functions in the low temperature regime .
+however , this problem can be addressed by modifying the hamiltonian and re - define the correlation functions in order to shift the spectral values by a large constant to avoid negative eigenvalues .
+we re - label the newly introduced random variables @xmath106 and expand the reduced density matrix by@xcite @xmath107 where the function @xmath108 with @xmath109 is explicitly defined in the second line .
+the @xmath77-th hermite polynomial @xmath110 takes argument of random variables @xmath111 .
+the total number of random variables @xmath112 is given by @xmath113 .
+every auxiliary density matrices @xmath114 directly contributes to the determination of @xmath115 .    substituting eqs .
+( [ eq : corr - stoch ] ) and ( [ eq : rho - stochexp ] ) into eq .
+( [ eq : sleq ] ) and average over all random variables @xmath112 , one obtains a set of coupled equations for the density matrices , @xmath116 + i \sum_{k,\mathbf n } a \sigma_{\mathbf n }   \theta_k(t ) g^{k}_{\mathbf m \mathbf n }
+- i \sum_{k,\mathbf n }   \sigma_{\mathbf n}a \theta^\prime_k(t ) g^{k}_{\mathbf m \mathbf n},\end{aligned}\ ] ] where @xmath117 , the components of @xmath0 in eq .
+( [ eq : corr - stoch ] ) , and similarly @xmath118 correspond to the components of @xmath1 , respectively . in the above equation , @xmath119
+is defined by @xmath120 where these averages can be done analytically by exploiting the properties of the hermite polynomials and gaussian integrals@xcite .    finally , the exact reduced density matrix is obtained after averaging out random variables in eq .
+( [ eq : rho - stochexp ] ) , which can be done by invoking the gaussian integral identities .
+the present approach introduces an efficient decomposition of the noise variables and provides an alternative coupling structure for a system of differential equations than the standard heom in solving open quantum dynamics .
+unfortunately , the present method is not easily generalizable to accommodate the non - gaussian processes .
+we next present another approach , starting from eq .
+( [ eq : sleq ] ) again , that yields deterministic equations and more easily to accommodate non - gaussian bath models . this time we utilize eq .
+( [ eq : defcolornoise ] ) as the definitions for the noises , @xmath0 and @xmath1 . following the basic procedure of ref .  , we average over the noises in eq .
+( [ eq : sleq ] ) to get @xmath121   - i \left [ a , \overline{\tilde \rho_s \mathcal{b } } \right ] , \end{aligned}\ ] ] the noise averages yield an auxiliary density matrix ( adm ) , @xmath122 , by eq .
+( [ eq : defcolornoise ] ) . working out the equation of motion for the adm , one
+is then required to define additional adms and solve their dynamics too . in this way
+, a hierarchy of equation of motions for adms develops with the general structure @xmath123 = \overline { d_t [ \tilde\rho_s ] \mathcal{b}^m } + \overline{\tilde \rho_s d_t \mathcal{b}^m } +   \overline{d_t \tilde \rho_s d_t \mathcal b^m}.\end{aligned}\ ] ] the time derivatives of @xmath124 and @xmath125 are given by eqs .
+( [ eq : ito ] ) and ( [ eq : generalfield ] ) , respectively .
+if we group the adm s into a hierarchical tier structure according to the exponent @xmath77 of @xmath126 , then it would be clear soon that the first term of the rhs of eq .
+( [ eq : genheom ] ) couples the present adm to ones in the ( @xmath127)-th tier , and the last term couples the present adm to others in the ( @xmath128)-th tier .    in the rest of this section
+, we should materialize these ideas by formulating generalized heoms in detail .
+we separately consider the cases of complex - valued noises ( for bosonic and non - gaussian bath models ) and grassmann - valued noises ( for fermionic bath models ) .
+following a recently proposed scheme , we introduce a complete set of orthonormal functions @xmath129 and express all the multi - time correlation functions in eq .
+( [ eq : generalfield ] ) as @xmath130 where @xmath131 . due to the completeness
+, one can also cast the derivatives of the basis functions in the form , @xmath132 next we define cumulant matrices @xmath133,\end{aligned}\ ] ] where each composed of @xmath134 row vectors with indefinite size .
+for instance , @xmath135 has two row vectors while @xmath136 has four row vectors etc .
+the @xmath77-th row vector of matrix @xmath137 contains matrix elements denoted by @xmath138 .
+each of this matrix element can be further interpreted by @xmath139 where @xmath140 can be either a @xmath141 or @xmath142 stochastic variable depending on index @xmath77 . with these new notations , the multi - time correlation functions in eq .
+( [ eq : generalfield ] ) can be concisely encoded by @xmath143 now we introduce a set of adm s @xmath144 \left [ \mathbf a_2 \right ] \left [ \mathbf a_3 \right ] } \dots \equiv   \overline { \tilde\rho_s(t ) \prod_{n , m , k } a^n_{m \mathbf{j}_k}(t)},\end{aligned}\ ] ] which implies the noise average over a product of all non - zero elements of each matrix @xmath145 with the stochastically evolved reduced density matrix of the central spin .
+the desired reduced density matrix would correspond to the adm at the zero - th tier with all @xmath146 being null .
+furthermore , the very first adm we discuss in eq .
+( [ eq : first - heom ] ) can be cast as @xmath147 \dots } ( t),\end{aligned}\ ] ] where each adm on the rhs of the equation carries only one non - trivial matrix element @xmath148 in @xmath149 .
+finally , the hierarchical equations of motion for all adms can now be put in the following form , @xmath150 \left [ \mathbf a_2 \right ] \left [ \mathbf a_3 \right ] \cdots }   =    -i \left [ h_s , \rho^{\left [ \mathbf a_1 \right ] \left [ \mathbf a_2 \right ] \left [ \mathbf a_3 \right ] \cdots } \right ]   -i \sum_{n , m,\pmb j } \chi^{n+1,m}_{\pmb j }   \left [ a , \rho^{\cdots \left [ \mathbf{a}_n + ( m,\pmb j ) \right ] \cdots }   \right ] \nonumber \\ & &   -i \sum_{n , m,\mathbf j }   \phi_{j_1}(0 ) a \rho^{\cdots \left [ \mathbf{a}_{n-1 } + ( m',\pmb{j}_1 ) \right]\left [ \mathbf{a}_n - ( m,\pmb j ) \right ] \cdots }    -i \sum_{n , m,\mathbf j }   \phi_{j_1}(0 ) \rho^{\cdots \left [ \mathbf{a}_{n-1 } + ( m',\pmb{j}_1 ) \right]\left [ \mathbf{a}_n - ( m,\pmb j ) \right ] \cdots } a \nonumber \\ & & + \sum_{n , m,\mathbf{j}\mathbf{j ' } } \eta_{\mathbf{j } \mathbf{j ' } }    \rho^{\cdots \left [ a^{n}_{m \mathbf{j } } \rightarrow a^{n}_{m \mathbf{j ' } } \right ] \cdots}\end{aligned}\ ] ]    this equation involves a few compact notations that we now explain .
+we use @xmath151 $ ] to mean adding or removing an element @xmath152 to the @xmath77-th row .
+we also use @xmath153 $ ] to denote a replacement of an element in the @xmath77-th row of @xmath149 . on the second line , we specify an element in a lower matrix given by @xmath154 .
+the variable @xmath155 implies removing the first element of the @xmath156 array and the associated index @xmath157 is determined by removing the first stochastic integral in eq .
+( [ eq : adef ] ) .
+we caution that there is no @xmath158 matrix and such a term whenever arises should simply be ignored when interpreting the above equation .
+after the first term on the rhs of eq .
+( [ eq : gheom ] ) , we only explicitly show the matrices @xmath149 affected in each term of the equation .
+this generalized heom structure reduces exactly to the recently proposed eheom@xcite when only @xmath159 cumulant matrix carries non - zero elements , i.e. only the second cumulant expansion of an influence functional is taken into account .
+it is clear that the higher - order non - linear effects induced by the bath s @xmath63-time correlation functions will only appear earliest at the ( @xmath160)-th tier expansion .
+next we consider the fermionic bath models with grassmann - valued noises .
+as discussed earlier , the grassmann numbers are essential to manifest the gaussian properties of fermionic baths . in this case , one can significantly simplify the generalized heom in the previous section .
+first , the bath - induced stochastic field can still be decomposed in the form , @xmath161 where the indices @xmath77 and @xmath63 are suppressed when compared to eq .
+( [ eq : bosonb ] ) .
+this is because the hamiltonian we consider in this study only allows fermion gaussian bath model .
+each element @xmath162 are similarly defined @xmath163 where @xmath164 ( grassmann - valued ) when @xmath165 ( or @xmath166 ) .
+similar to the algebraic properties of fermionic operators , there are no higher powers of grassmann numbers and each element @xmath167 can only appear once .
+this pauli exclusion constraint allows us to simplify the representation of fermionic adms .
+we may specify an m - th tier adm by @xmath168 where @xmath169 with @xmath170 or @xmath97 . in this simplified representation , instead of specifying the non - zero elements as in eq .
+( [ eq : boson - adm ] ) , we layout all elements @xmath171 in an ordered fashion and employ the binary index @xmath172 to denote which basis functions contribute to a particular adm . the tier level of an adm is determined by the number of basis participating functions , i.e. @xmath173 .
+following the general procedure outlined in eq .
+( [ eq : genheom ] ) , the m - th tier heom reads , @xmath174    + i \sum_{j } \left ( \chi_j a \bar\rho^{m+1}_{\mathbf n + \mathbf 1_{j } } ( -1)^{\vert \mathbf n \vert_j } +   \chi_j \bar\rho^{m+1}_{\mathbf n + \mathbf 1_{j } } a ( -1)^{\vert \mathbf n \vert_j } \right)(1-n_j )   \nonumber \\ & &   + i\sum_{j } \phi_{j}(0 ) a \rho^{m-1}_{\mathbf n - \mathbf 1_j}(-1)^{\vert \mathbf n \vert_j}n_j \nonumber \\ & &   + i\sum_{j } \phi_j(0 ) \rho^{m-1}_{\mathbf n - \mathbf 1_j } a ( -1)^{\vert \mathbf n \vert_j}n_j \nonumber \\   & & + \sum_{j , j ' } \eta_{jj ' } \rho^{m}_{\mathbf n_{j , j ' } } ( -1)^{\vert \mathbf n \vert_j+\vert \mathbf n \vert_{j ' } } n_j ( 1-n_{j ' } ) , \ ] ] where @xmath175 and @xmath176 implies setting @xmath177 and @xmath178 . in the above equation , @xmath179 is a vector of zero s except an one at the @xmath180-th component .
+the factor such as @xmath181 and @xmath182 are present to enforce the pauli exclusion principle associated with the fermions .
+the structure of fermionic heom certainly resembles that of the bosonic case .
+however , a few distinctions are worth emphasized .
+first , it is just the gaussian bath result including only @xmath159 block matrix when compared to the results in sec .
+[ sec : complex ] .
+secondly , the fermionic heom truncates exactly at some finite number of tiers due to the constraint on the array of binary indices , @xmath172 .
+extra negative signs arise from the permutations to shift the underlying grassmann - valued stochastic variables from their respective positions in eq .
+( [ eq : fm - tier - defn ] ) to the left end of the sequence .
+we dedicate an entire section to discuss the spin bath from two distinct perspectives .
+if one formulates the sle for a spin bath model in terms of complex - valued noises , then the bath induced stochastic field @xmath60 is given by eq .
+( [ eq : generalfield ] ) . in this way
+, the spin bath is a specific example of non - gaussian bath models .
+the generalized heom formulated earlier can be directly applied in this case . however , in any realistic computations , it is necessary to truncate the statistical characterization of @xmath60 up to a finite order of multi - time correlation functions in eq .
+( [ eq : generalfield ] ) . while the method is numerically exact , it is computationally prohibitive to calculate beyond the first few higher - order corrections .
+when the spin bath is large and can be considered as a finite - size approximation to a heat bath , one can show that the linear response approximation@xcite often yields accurate results and a leading order correction should be sufficient whenever needed .
+the relevance of this leading order correction for spin bath models will be investigated in the paper ii@xcite .    on the other hand , a spin bath composed of nuclear / electrons spins , as commonly studied in artificial nanostructures at ultralow temperature regime ,
+can beahve very differently from a heat bath composed of non - interacting bosons .
+there is no particular reason that the linear response and the first leading order correction should sufficiently account for quantum dissipations under all circumstances . in this scenario
+, it could be useful to map each spin mode onto a pair of coupled fermions .
+the non - linear mapping allows us to efficiently capture the exact dynamics in an extended gaussian bath model .
+we consider the following transformation that maps each spin mode into two fermions via , @xmath183 where the fermion operators satisfy the canonical anti - commutation relations .
+one can verify the above mapping reproduces the correct quantum angular momentum commutation relations with the @xmath184 fermion operators for each spin , while the presence of additional @xmath185 fermions makes the spin operators associated with different modes commute with each other .
+we now re - write the hamiltonian as @xmath186 the initial density matrix still maintains a factorized form in the dual - fermion representation , @xmath187 where @xmath188 is the thermal equilibrium state of the @xmath184 fermions at the original inverse temperature @xmath189 of the spin bath and the @xmath185 fermions are in the maximally mixed state which is denotes by the identity matrix with dimension @xmath190 where @xmath63 is the number of bath modes .
+a normalization constant is implied to associate with the @xmath191 matrix .    according to the transformed hamiltonian in eq .
+( [ eq : dfh ] ) , the system bath coupling now involves three - body interactions , @xmath192 .
+furthermore , the two femrionic baths portrait a non - equilibrium setting with @xmath184 fermionic bath inherits all physical properties of the original spin bath while @xmath185 fermionic bath is always initialized in the infinite - temperature limit regardless of the actual state of the spin bath .
+we first take the system and the d fermions together as an enlarged system and treat the c fermions collectively as a fermionic bath .
+we introduce the grassmann noises to stochastically decouple the two subsystems , @xmath193   - i \sum_{k } \sigma^z_0 a_k \tilde \rho_{sd } d\mathcal{w}_k , \nonumber \\ & & \ , + i \sum_k \tilde\rho_{sd } \sigma^z_0 a_k d\mathcal{v}_k \nonumber \\ \label{eq : sd - ito2 } d\tilde \rho_{k } & = & -i dt \left [ \hat h_{b , k } , \tilde \rho_k \right ] + \frac{dw^*_k}{\sqrt 2 }   \left(b_k+\mathcal{b}_k\right ) \tilde \rho_k \nonumber \\ & & \ , +   \frac{dv^*_k}{\sqrt 2 } \tilde \rho_k \left(b_k-\mathcal{b}_k\right),\end{aligned}\ ] ] where @xmath194 , @xmath195 , @xmath196 and @xmath197 . the density matrices @xmath198 denotes the extended system including system spin and all @xmath185 fermions and @xmath199 denotes the individual c fermions with @xmath200 . in eq .
+( [ eq : sd - ito ] ) , the noises are defined by @xmath201 where @xmath202 and @xmath203 are the standard grassmann noises defined earlier .
+( [ eq : sd - ito2 ] ) clearly conserve the norm of @xmath54 along each noise path , and we will focus on eq .
+( [ eq : sd - ito ] ) and the stochastic fields , @xmath204 .
+our main interest is just the system spin .
+hence , we trace out the d fermions in eq .
+( [ eq : sd - ito ] ) and get @xmath205 + i \sum_k \left [ \sigma^z_0 , \psi^{1}_k\right ] \frac{dx_k}{2 } \nonumber \\ & & + i \sum_{k } \left\{\sigma^z_0 , \psi^{1}_k \right\}\left(\frac{dy_k}{2 } - \mathcal{b}_k \right).\end{aligned}\ ] ] the auxiliary objects , @xmath206 , appearing in eq .
+( [ eq : dual - stoch1 ] ) are defined via @xmath207 where @xmath208 , ( s)tr either implies standard trace ( n is even ) or super - trace ( n is odd ) , and the new noises @xmath209    a hierarchical structure is implied in eq .
+( [ eq : dual - stoch1 ] ) , so we derive the equations of motions for the auxiliary objects ,    @xmath210 + i \sum_{j \notin \mathbf{k } }   \left\{\sigma^z_0 , \psi^{n+1}_{\mathbf{k}+j}\right\ } \frac{dx_k}{2}(-1)^{\vert \mathbf k \vert _ { > j } }   \ , + i \sum_{j \in \mathbf{k } }   \left[\sigma^z_0 , \psi^{n-1}_{\mathbf{k}-j}\right]\frac{dx_k}{2 } ( -1)^{\vert \mathbf k \vert_{\geq j}}\nonumber \\ & & + i \sum_{j \notin \mathbf{k } }   \left[\sigma^z_0 , \psi^{n+1}_{\mathbf{k}+j}\right ] \left(\frac{dy_k}{2 } - \mathcal{b}_k \right ) ( -1)^{\vert \mathbf k \vert _ { > j } } + i \sum_{j \in \mathbf{k } }   \left\{\sigma^z_0 , \psi^{n-1}_{\mathbf{k}-j}\right\}\left(\frac{dy_k}{2 } - \mathcal{b}_k \right )   ( -1)^{\vert \mathbf k \vert_{\geq j}},\end{aligned}\ ] ]    where @xmath211 .    since the spin bath model is mapped onto an effective fermionic problem , the uses of grassmann noises , eq .
+( [ eq : dual - stoch2 ] ) , will serve as a starting point to develop deterministic numerical methods once the grassmann noises are integrated out .      to solve eq .
+( [ eq : dual - stoch2 ] ) , we first define the generalized adms @xmath212 where @xmath213 .
+the 2 index vectors @xmath214 and @xmath215 label pairs of coupled @xmath184 and @xmath185 fermionic modes ; furthermore , the two index vectors are mutually exclusive in the sense a bath mode can appear in just one of the two vectors each time . in this case , the tier - structure of the adms are determined by @xmath216 .
+same as the bosonic and fermionic bath results , the desired reduced density matrix is exactly given by the zero - th tier of adms .
+further notational details of eq .
+( [ eq : adm_sbath ] ) are explained now .
+the vector @xmath217 is to be paired with the vector @xmath214 to characterize the first set of stochastic fields @xmath218 in eq .
+( [ eq : adm_sbath ] ) .
+more precisely , each @xmath219 labels one of the two possible stochastic fields , @xmath220 and @xmath221 , associated with @xmath222-th c fermion . in dealing with bosonic , fermionic and non - gaussian baths , we need to explicitly use bath s multi - time correlation functions via @xmath223 when formulating the generalized heom approach . in the present case , the stochastic decoupling we introduced in sec .
+[ sec : spin - dualf ] dictates that each c fermion acts as a bath and equipped with its own set of stochastic fields as shown in eq .
+( [ eq : dual - stoch2 ] ) .
+there is no need to expand the bath correlation functions in some orthonormal basis , as each mode s correlation functions will be treated explicitly in a fourier decomposition .
+repeat the same steps of the derivation as before , we obtain the generalized heom for the spin bath ,    @xmath224   + i \sum_{l \in \mathbf k } \alpha_l \omega_l \rho^{n , m}_{\omega , \mathbf j }   + i \sum_{\substack{l \notin \mathbf k , l \notin \mathbf j \\
+\gamma } } \left [ a , \rho^{n+1,m}_{\omega+(l,\gamma ) , j}\right ]   + i \sum_{l \in \mathbf k } \alpha_l \left\ { a , \rho^{n-1,m+1}_{\omega-(l,\alpha_l),\mathbf j+\mathbf 1_l}\right\ } \nonumber \\ & & -\frac{i}{2 } \sum_{l \in \mathbf j , \gamma } \gamma g_l^2 ( 1 - 2n_f(\omega_l ) ) \left\ { a , \rho^{n+1,m-1}_{\omega+(l,\bar\gamma),\mathbf j - \mathbf 1_l } \right\ } -\frac{i}{2 } \sum_{l \in \mathbf k } g_l^2 ( 1 - 2n_f(\omega_{l } ) ) \left [ a , \rho^{n-1,m}_{\omega-(l,\alpha_l),\mathbf j } \right ] , \nonumber \\ & & + \frac{i}{2 } \sum_{l \in \mathbf j , \gamma } g_l^2 \left [ a , \rho^{n+1,m-1}_{\omega+(l,\gamma),\mathbf j - \mathbf 1_l}\right ] + \frac{i}{2 } \sum_{l \in \mathbf k } \alpha_l g_l^2 \left\{a , \rho^{n-1,m}_{\omega-(l,\alpha_l),\mathbf j}\right\ } , \end{aligned}\ ] ]    where @xmath225 means a stochastic field @xmath226 is either added or removed from the vectors @xmath214 and @xmath217 and , similarly , @xmath227 means an index @xmath228 is either added or removed from @xmath215 .
+the range of the index values @xmath214 and @xmath215 can be extremely large as we explicitly label each microscopic bath modes . due to the hierarchical structure and the way adms are defined
+, it becomes prohibitively expensive to delve deep down the hierarchical tiers in many realistic calculations .
+however , the situation might not be as dire as it appears .
+we already discuss how the present formulation is motivated by the physical spin based environment , such as a collection of nuclear spins in a solid . in such cases ,
+the bath often possess some symmetries allowing simplifications .
+for instance , most nuclear spins will precess at the same lamour frequency , and the coupling constant is often distance - dependent .
+hence , one can construct spatial  symmetric shells " centered around the system spin in the 3-dimensional real space such that all bath spins inside a shell will more or less share the same frequency and system - bath coupling coefficient . by exploiting this kind of symmetry arguments , one can combine many adms defined in eq .
+( [ eq : adm_sbath ] ) together to significantly reduce the complexity of the hierarchical structures . for a perfectly symmetric bath ( i.e. one frequency and one system - bath coupling term ) , one can use the following compressed adm , @xmath229 where the sum takes into account of all possible combinations of @xmath63 modes compatible with the requirement that @xmath230 .    on the other hand ,
+if one deals with a large spin bath described by an effective spectral density then treating the spin bath as an anharmonic environment and usage of the generalize heom in sec .
+[ sec : complex ] will be more appropriate .
+in fact , in the thermodynamical limit , the spin bath can be accurately approximated as a gaussian bath and one only needs to invoke @xmath159 block matrix in most calculations .
+in summary , we advocate the present stochastic framework as a unified approach to extend the study of dissipative quantum dynamics beyond the standard bosonic bath models .
+we exploit the it calculus rule to represent any bilinear interaction between two quantum dof as white noises . starting from eqs .
+( [ eq : ito])-([eq : ito2 ] ) , one can derive the sle , eq .
+( [ eq : sleq ] ) , with appropriate statistical conditions , such as eq .
+( [ eq : xi_corr ] ) , that the noises must satisfy . in the gaussian bath models ,
+the required conditions only involve two - time statistics determined by the bath s correlation functions . in the case of non - gaussian bath models ,
+the noises are further characterized by higher order statistics and the multi - time correlation functions .
+we devise a family of ghe to solve the sle with deterministic simulations .
+we consider two separate orthonormal basis expansions : ( 1 ) spectral expansion and ( 2 ) generalized heom . the spectral expansion , in sec .  [ sec : spectral ] ,
+allows us to solve bosonic bath models efficiently when bath s two - time correlations assume a simple spectral expansion .
+this is often the case for correlation functions with a slow decay . the second approach , in sec .  [ sec : heom ] , generalizes the eheom method to handle multi - time correlation functions in some arbitary set of orthnormal functions .
+this generalization can provide numerically exact simulations for non - gaussian ( including spin ) , fermionic and bosonic bath models with arbitray sepctral densities and temperature regimes .    among the bath models ,
+we extensively discuss the spin bath . when a spin bath is characterized by a well - behaved spectral density@xcite , the generalized heom in sec .
+[ sec : heom ] serves as an efficent approach to simulate dissipative quantum dynamics in a non - gaussian bath . for situations requiring more than a few higher - order response functions , such as baths composed of almost identical nuclear / electron spins , an alternative approach is to first map the spin bath onto an enlarged gaussian bath model of fermions via the dual - fermion representation and apply the dual - fermion ghe in sec .  [
+sec : heom - spin ] .
+numerical examples are illustrated in app .
+[ app : num ] .    c.h .
+acknolwedges support from the sutd - mit program .
+is supported by nsf ( grant no .
+che-1112825 ) and smart .
+we focus on the complex - valued stochastic processes in this appendix .
+additional remarks on grassmann noises will be made in the following section .
+the basic wiener processes considered in this work is taken to be @xmath231 where the complex - valued noise has a mean @xmath232 and a variance @xmath233 .
+take a uniform discretization of time domain , in each time interval @xmath234 , each white noise path reduces to a sequence of normal random variables @xmath235 .
+hence , at each time interval , an identical normal distribution is given , @xmath236 the variance is chosen to reproduce the dirac delta function in the limit @xmath237 .
+furthermore , the differential wiener increments @xmath238 satisfy @xmath239 as required for brownian motion .
+the averaging process , implied by the bar on top of stochastic variables , can now be explicitly defined as @xmath240
+grassmann numbers are algebraic constructs that anti - commute among themselves and with any fermionic operators . given any two grassmann numbers , @xmath241 and @xmath242 , and a fermionic operator , @xmath243
+, they satisfy @xmath244 furthermore , the grassmann numbers commute with the vacuum state @xmath245 and , consequently , anti - commute with @xmath246 . besides the fermionic operators
+, these numbers commute with everything else such as the bosonic operators and spin pauli matrices .    due to the anti - commutativity
+, there is no higher powers of grassmann numbers , i.e. @xmath247 . for instance , a single - variate grassmann function @xmath248 ( all variables , a , b , and x , are grassmann - valued ) can only assume this finite taylor - expanded form .
+in general every grassmann function can be decomposed into odd and even parity , @xmath249 .
+such that @xmath250 where @xmath251 is another arbitrary function with no particular parity assumed .
+the fermionic thermal equilibrium states are are even - parity grassmann function when represented in terms of the fermonic coherent states . this even - parity
+is preserved under linear driving with grassmann - valued noises .
+this means all the grassmann numbers will commute with the fermonic bath density matrices in our study .
+another relevant algebraic property for our study is @xmath252 where @xmath241 is a grassmann number and str@xmath253 is often termed the super - trace .
+finally , we discuss grassmann - valued white noises .
+similar to the discretized complex - valued white noises introduced earlier , we shall take the noise path as a continuum limit of a sequence of grassmann numbers , @xmath254 .
+we will formally treat them as random numbers with respect to grassmann gaussians as probability distributions .
+more precisely , the following integrals yield the desired first two moments ( in analogy to the complex - valued normal random variables ) , @xmath255 where the gaussians should be interpreted by the taylor expansion : @xmath256 . in evaluating the integrals above , we recall the standard grassmann calculus rule that integration with respect to @xmath241 is equivalent to differentiation with respect to @xmath241 . with these basic set - ups , one can operationally formulate grassmann noises in close analogy to the complex - valued cases .
+the connection between the two formalisms is usually investigated by deriving the stochastic equations from the influence functional theory via the hubbard - stratonovich transformation@xcite .
+nevertheless , to advocate the stochastic view of quantum dynamics as a rigorous foundation , we establish the connections in the reversed order .
+we should restrict to the standard bosonic bath models , but extension should be obvious .
+we first re - write eq .
+( [ eq : ito_unnorm ] ) as @xmath257 \tilde\rho_s   + i \tilde\rho_s \left[h_s -i \frac{\nu^*(t)}{\sqrt{2}}a\right],\end{aligned}\ ] ] where the system - bath interaction is given by eq .
+( [ eq : genh ] ) . in this revised form , it is immediately clear that @xmath258 where @xmath259 is the time - ordering ( + ) and anti - time - ordering ( - ) operator . by inserting a complete set of basis @xmath260 at each time slice , eq .
+( [ eq : appc - rdm ] ) can be put in the form , @xmath261 e^{is[\alpha_\tau]-is[\alpha^\prime_\tau ] } \nonumber \\ & & \,\,\ ,
+\times   e^{-\frac{i}{\sqrt 2 } \int^t_0 d\tau\left(\mu^\prime_\tau\alpha_\tau + i \nu^\prime_\tau \alpha'_\tau\right ) } , \nonumber \end{aligned}\ ] ] where @xmath262 and @xmath263 .    on the other hand , the trace of @xmath264 , governed by eq .
+( [ eq : ito_unnorm2 ] ) , can be expressed as @xmath265 where @xmath266 is given by eq .
+( [ eq : gaussbfield ] ) .
+the exact reduced density matrix is then obtained after formally averaging out the noises in the following equation , @xmath267e^{is[\alpha_\tau]-is[\alpha^\prime_\tau ] } \nonumber \\ & & \,\,\ , \times \overline {   \exp\left(-\frac{i}{\sqrt 2}\int^t_0 ds   \left\ { \mu^\prime_s\alpha_s + i \nu^\prime_s \alpha'_s + i \left ( \mu_s + i \nu_s\right ) \mathcal b_s\right\ }   \right )   } , \nonumber\end{aligned}\ ] ] where an explicit evaluation of the noise average on the last line should yield the standard bosonic bath influence functional . to get the influence function ,
+it is useful to contemplate the discretized integrals for the noise averaging , @xmath268 = \int \prod_{i } \left [ d\mu_i d\mu^*_i d\nu_i d\nu^*_i   \left(\frac{\delta t}{2\pi}\right)^2 e^{-\frac{\delta t}{2 } \left(\vert \mu_i\vert^2 + \vert \nu_i\vert^2 \right ) } \right ] \nonumber \\ & & \,\ , \times \exp\left ( -\frac{i}{\sqrt 2 } \sum_i \left\ { \mu^*_i \alpha_i   + i \nu^*_i \alpha^\prime_i \right\ } \right ) \nonumber \\ & & \,\ ,
+\times\exp\left(\frac{1}{\sqrt 2 } \sum_{i\geq j}\left\ { ( \mu_i + i\nu_i ) ( c_{i - j}\mu_j - i c^*_{i - j}\nu_j ) \right\ }   \right ) , \nonumber \end{aligned}\ ] ] where the bath correlation function @xmath269 is given by @xmath270 by using the complex - valued gaussian integral identity , @xmath271 the standard feymann - vermon influence functional is recovered .
+the present result is easily generalized when dealing with non - gaussian baths and @xmath60 is potentially characterized by an infinite number of multi - time correlation functions .
+the noise averaging in this general case will give the cumulant expansion of an influence functional for any bath .
+we present a few numerical results to illustrate the dual - fermion ghe method introduced in this work .
+numerical examples with generalized heom approach will be further studied in a separate work , the paper ii@xcite .
+we will consider various cases of a pure dephasing model , @xmath272 an analytical expression for the off - diagonal matrix element of the reduced density matrix reads , @xmath273 with @xmath274,\end{aligned}\ ] ] where @xmath275 .
+first , we consider a 50-spin bath with the parameters @xmath276 sampled from the discretization of an ohmic bath .
+we use the general dual - fermion ghe scheme , eq .
+( [ eq : dualfheom ] ) , to simulate the off - diagonal matrix element for the density matrix . figure [ fig : ohmic ] shows the results in the weak coupling ( panel a ) and the strong coupling ( panel b ) cases . due to each spin is modelled as a bath , it becomes prohibitive to delve into further tiers .
+nevertheless , with a shallow 2-tier hierarchy , the results seem to do reasonably well in the short - time limit .    in the second case ,
+we consider the spin star model@xcite where all the bath spins look identical , i.e. @xmath277 and @xmath278 .
+this is an often used model to analyze spin bath models . as shown by the results in fig .
+[ fig : nuclear ] , it is critical to go deep down the hierarchical tiers in order to recover the correct quantum dissipations .
+one can only generate this many tiers through compressing the auxiliary density matrices as in eq .
+( [ eq : dualfc ] ) .
+this second example illustrates the kind of scenarios where dual - fermion ghe could provide an accurate account of quantum dynamics induced by a spin bath .
+@xmath279 , and @xmath280 ( kondo parameter ) assumes the value 0.1 ( a ) and 0.8 ( b ) .
+2 hierarchical tiers are used in both cases .
+red curves are the numerical results and black curves are the exact results . ]

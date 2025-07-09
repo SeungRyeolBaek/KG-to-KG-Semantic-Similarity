@@ -1,0 +1,368 @@
+given their ubiquity in nature , long chain macromolecules have been the subject of considerable study .
+whereas there is now a reasonably firm basis for understanding the physical properties of homopolymers@xcite , considerably less is known about the heteropolymers of biological significance . from a biologist s perspective , it is the specific properties of a particular molecule that are of interest .
+after all the genetic information is coded by very specific sequences of nucleic acids , which are in turn translated to the chain of amino acids forming a protein@xcite .
+the energy of the polymer is determined by the van der waals , hydrogen bonding , hydrophobic / hydrophilic , and coulomb interactions between its constituent amino acids . in accord to these interactions
+, the protein folds into a specific shape that is responsible for its activity .
+given the large number of monomers making up such chains , and the complexity of their interactions , finding the configuration of a particular molecule is a formidable task .
+by contrast , a physicist s approach is to sacrifice the specificity , in the hope of gleaning some more general information from simplified models@xcite .
+there are in fact a number of statistical descriptions of _ ensembles _ of molecules composed of a random linear sequence of elements with a variety of interactions that determine their final shapes@xcite .
+these simple models of heteropolymers are of additional interest as examples of disordered systems with connections to spin 
+glasses @xcite , with the advantage of faster relaxation @xcite .
+there are a number of recent experimental studies of solutions@xcite and gels@xcite of polymers that incorporate randomly charged groups .
+as statistical approaches only provide general descriptions of such heteropolymers , we focus on simple models which include the essential ingredients .
+the overall size and shape of a polymer with charged groups is most likely controlled by the coulomb interactions that are the strongest and with the longest range .
+we shall consider the typical properties of a model _ polyampholyte _
+( pa)@xcite : a flexible chain in which each of the @xmath5 monomers has a fixed charge @xmath0 selected from a well defined ensemble of quenches .
+the polymer has a characteristic microscopic length @xmath6 ( such as range of the excluded 
+volume interaction , or nearest neighbor distance along the chain ) . in the numerical studies
+we further simplify the model by considering only self  avoiding walk ( saw ) configurations on a cubic lattice with lattice constant @xmath6 .
+the long range nature of the coulomb interactions , combined with the randomness of the charge sequence , produces effects quite distinct from systems with short range interactions . in section [ secgend ]
+we use the knowledge accumulated in previous studies@xcite to explore the phase diagrams of quenched pas in @xmath7 dimensions . in particular , we show that for @xmath8 , the behavior of pas is similar to that of random chains with short  range interactions , while for @xmath9 the spatial conformations of a pa strongly depend on its excess charge @xmath10 . in every space dimension @xmath9
+, there is a critical charge @xmath11 such that pas with @xmath12 can not form a compact state .
+the probability of a randomly charged pa to have such an excess charge depends on both @xmath7 and its length . in the @xmath13
+limit the excess charge will always ( i.e. with probability 1 ) be `` small '' for @xmath14 and `` big '' for @xmath15 .
+thus investigation of the `` borderline '' three  dimensional case provides valuable insight into the behavior of the system in general space dimensions .    in section [ secgen ]
+we summarize previous results for pas in @xmath16 : analytical arguments and monte carlo ( mc ) studies indicate that the pa undergoes a transition from a dense ( `` globular '' ) to a strongly stretched configuration as @xmath1 exceeds @xmath17 .
+the mc simulations@xcite were performed for polymer sizes up to @xmath18 and in a wide range of temperatures .
+they , however , could not provide information on the energy spectrum of pas , and on very low temperature properties . in this work
+we undertake a complete enumeration study of pas for all possible quenches up to @xmath19 , and are thus able to present very detailed results regarding energetics and spatial conformations of short pas .
+the details of the enumeration procedure are explained in section [ secenum ] , while the results are described in sections [ secenspec ] and [ secshape ] .
+the majority of these results add further support to the predictions of mc studies , and provide some details which could not be measured by mc ( e.g. , density of states , condensation energy , and surface tension in the globular phase ) .
+we also find some indication that pas with small @xmath1 may undergo a phase transition between two dense states .
+no signs of this transition could be detected in the mc studies , because it occurs at temperatures too low for that procedure to equilibrate .
+it is helpful to view the problem in the more general context of a variable space dimension @xmath7 .
+let us consider a continuum limit in which configurations of the pa are described by a function @xmath20 .
+the continuous index @xmath21 is used to label the monomers along the chain , while @xmath22 is the position of the monomer in @xmath7dimensional embedding space .
+the corresponding probabilities of these configurations are governed by the boltzmann weights of an effective hamiltonian , @xmath23\over t } & = & { k\over2}\int dx\left({d\vec{r}\over dx}\right)^2 + { v\over2}\int dxdx'\delta^d(\vec{r}(x)-\vec{r}(x ' ) ) \nonumber\\          & & + { 1\over 2t}\int dxdx'{q(x)q(x')\over    & \equiv &   h_0+h_v+h_q\ .\end{aligned}\ ] ] in this equation @xmath24 represents the entropic properties of the connected chain ( ideal polymer ) , @xmath25 is the continuum description of the excluded volume interactions , while @xmath26 represents the @xmath7dimensional electrostatic energy .
+for each pa , there is a specific ( quenched ) function @xmath27 representing the charges along the chain .
+( in this work we set @xmath28 and measure @xmath2 in energy units . )    in the simplest ensemble of quenches , each monomer takes a charge @xmath0 independent of all the others ; i.e. @xmath29 , where the overline indicates averaging over quenches . while the average charge of such pas is zero , a `` typical '' sequence has an excess charge of about @xmath30 , with @xmath31 .
+this statement , as well as the definition of @xmath32 , are unrelated to the embedding dimension @xmath7 . however
+, the importance of charge fluctuations ( both for the overall polymer , or large segments of it ) does depend on the space dimension .
+the electrostatic energy of the excess charge , spread over the characteristic size of an ideal polymer ( @xmath33 ) , grows as @xmath34 .
+this simple dimensional argument shows that for @xmath8 weak electrostatic interactions are irrelevant .
+( the excluded volume effects are also irrelevant in @xmath8 . )
+thus , at high temperatures the pa behaves as an ideal polymer with an entropy  dominated free energy of the order of @xmath35 .
+however , on lowering temperature it collapses into a dense state , taking advantage of a condensation energy of the order of @xmath36 .
+this collapse is similar to the well known @xmath37transition of polymers with short range interactions and will be discussed later in this section .    for @xmath9 ,
+electrostatic interactions are relevant and the high temperature phase is no longer a regular self  avoiding walk . at high temperatures the behavior of the polymer can be studied perturbatively . for the above ensemble of uncorrelated charges , the lowest order ( @xmath38 ) correction to the quench  averaged @xmath39 vanishes@xcite .
+however , if we restrict the ensemble of quenches to sequences with a fixed overall excess charge of @xmath1 , there is a lowest order correction term proportional to @xmath40 .
+thus pas with @xmath1 less than @xmath32 contract while those with larger charges expand .
+this trend appears in any space dimension @xmath7 , and is indicated by the vertical line at the top of fig .
+it should be noted that restricting the ensemble to yield fixed @xmath1 , slightly modifies the quench  averaged charge  charge correlations . in particular , the two  point correlation function becomes @xmath41 for @xmath42 .
+this small ( order of @xmath43 ) correction to the correlation function may cause a significant change in @xmath39 due to the long range nature of the coulomb interaction .
+the above discussion can be extended to pas with short  range correlations along the sequence : if neighboring charges satisfy @xmath44@xcite where @xmath45 , with no further restrictions , then @xmath46 .
+the resulting ensembles continuously interpolate between the deterministic extremes of an alternating sequence ( @xmath47 ) and a uniformly charged polyelectrolyte ( @xmath48 ) . as in the case of uncorrelated charges
+, we can impose an additional constraint on the overall charge , resulting in correlations @xmath49 where @xmath50 .
+we note that the variance of @xmath1 in such a correlated sequence also becomes @xmath51 .
+thus the proportion of quenches with @xmath1 above or below @xmath52 is independent of @xmath53 .
+all the results for uncorrelated sequences remain valid if we substitute @xmath52 for @xmath32 . as @xmath54 , the behavior of the pa crosses over from that of a random sequence to the deterministic ( alternating or homogeneous ) one .
+however , the crossover occurs only for @xmath55 .
+as typical of the qualitative behavior outside this narrow interval , we concentrate on the uncorrelated case of @xmath56 .
+a short distance cutoff @xmath6 , such as the range of the excluded volume interaction , introduces a temperature scale @xmath57 .
+for @xmath8 the electrostatic interactions in random pas are effectively short  ranged .
+previous results on a random short range interaction model@xcite ( rsrim ) in @xmath16 indicate that , as long as the positive and negative charges are approximately balanced , the polymer assumes spatial conformations where the interactions are predominantly attractive . to maximize this attraction ,
+the chain undergoes a transition from an expanded to a collapsed ( dense ) state at a @xmath37transition . for truly short range interactions ,
+the @xmath37transition disappears only for a rather strong charge imbalance of @xmath58 .
+even if as a result of the relevant coulomb interactions in @xmath9 , the high temperature phase of uncorrelated pas turns out to be compact , we can not exclude the possibility of a transition into another dense ( possibly glassy ) state when @xmath2 decreases below a critical @xmath59 .
+such a potential `` @xmath59transition '' , indicated by the horizontal dashed line in fig .
+[ figa ] , must be different from a regular collapse since the lower density phase is not a self  avoiding walk .
+the compact phase can also be destroyed by increasing the net charge as described in the following paragraph .
+a dense globular pa droplet of radius @xmath60 has a surface energy of @xmath61 , where @xmath62 is the surface tension . for small @xmath1 ,
+the surface tension keeps the pa in an approximately spherical shape .
+however , as shown in appendix  [ secrayleigh ] , at sufficiently large @xmath1 electrostatic forces destabilize the droplet . comparing the electrostatic ( @xmath63 ) and surface energies
+indicates that the droplet shape is controlled by the parameter @xmath64 , where @xmath65 is the _
+rayleigh charge_. for a large enough @xmath66 a spherical shape is unstable ( a charged liquid droplet disintegrates ) .
+the rayleigh charge in @xmath16 is proportional to @xmath67 , while for @xmath14 ( @xmath15 ) it increases faster ( slower ) than @xmath32 .
+the solid vertical line at the bottom of fig .
+[ figa ] shows the position of this instability in @xmath16 .
+clearly , any @xmath59transition ( if at all present ) must also terminate at @xmath11 .
+only a negligible fraction of random quenches in @xmath14 have @xmath1 exceeding @xmath11 , and thus a typical pa is a spherical droplet at low @xmath2 .
+conversely , in @xmath15 almost all pas have charges larger than @xmath11 and the dense phase does not exist . the borderline case of @xmath16 , where a finite fraction of pas have @xmath1 exceeding @xmath11 , is the most controversial : an analogy with uniformly charged polyelectrolytes@xcite suggests@xcite that the pa is fully stretched ( @xmath68 ) in this case@xcite . by contrast , a debye
+hckel inspired theory@xcite predicts that low@xmath2 configurations are compact .
+partial resolution of this contradiction comes from the observation@xcite that pas in @xmath16 are extremely sensitive to the excess charge @xmath1 . in the following section we shall briefly review the main features of three  dimensional pas obtained by mc simulations@xcite .
+numerical simulations are performed on a discretized version of eq .
+( [ continuumh ] ) .
+configurations of a polymer are specified by listing the position vectors @xmath69 ( @xmath70 ) of its monomers .
+the shape and spatial extent of the polymer are then characterized by the tensor , @xmath71 with the greek indices labeling the various components .
+thermal averages of the eigenvalues @xmath72 of this tensor ( sometimes referred to as moments of inertia ) are used to describe the mean size and shape ; their sum is the squared radius of gyration , @xmath73 . since we are dealing with sequences of quenched disorder , these quantities must also be averaged over different realizations of @xmath74 . in three dimensions , uniform uncharged polymers in good solvents
+are swollen ; their @xmath75 scaling as @xmath76 with @xmath77 as in self  avoiding walks .
+polymers in poor solvents are `` compact '' , i.e. described by @xmath78 .
+in previous work@xcite we used monte carlo ( mc ) simulations ( along with analytical arguments ) to establish the following properties for pas immersed in a good solvent :    \(a ) the radius of gyration strongly depends on the total excess charge @xmath1 , and is weakly influenced by other details of the random sequence .
+\(b ) a @xmath38expansion indicates that the size of a pa tends to decrease upon lowering temperature if @xmath1 is less than a critical charge @xmath31 , and increases otherwise .
+this behavior is confirmed by mc simulations .
+\(c ) at low temperatures , neutral polymers ( @xmath79 ) are compact in the sense that their spatial extent in any direction grows as @xmath80 , where @xmath6 is a microscopic length scale .
+\(d ) the low@xmath2 size of the pa exhibits a sharp dependence on its charge : @xmath75 is almost independent of @xmath1 for @xmath81 , and grows rapidly beyond this point .
+this increase becomes sharper as the temperature is lowered , or as the length of the chain is made longer .
+we interpret the low temperature results by an analogy to the behavior of a charged liquid drop . the energy ( or rather the quench averaged free energy ) of the pa is phenomenologically related to its shape by @xmath82 the first term is a condensation energy proportional to the volume ( assumed compact ) , the second term is proportional to the surface area @xmath83 ( with a surface tension @xmath84 ) , while the third term represents the long range part of the electrostatic energy due to an excess charge @xmath1 ( @xmath85 is a dimensionless constant of order unity ) .
+the optimal shape is obtained by minimizing the overall energy .
+the first term is the same for all compact shapes , while the competition between the surface and electrostatic energies is controlled by the dimensionless parameter @xmath86 here @xmath87 and @xmath88 are the radius and volume of a spherical drop of @xmath5 particles , and we have defined the _
+rayleigh charge _ @xmath11 .
+( see eq .
+( [ eqr ] ) of the appendix for the definition of @xmath11 in a general dimension @xmath7 . )
+the dimensionless parameter @xmath66 controls the shape of a charged drop : a spherical drop becomes unstable and splits into two equal droplets for @xmath89 .
+we argued in ref.@xcite that the quenched pa has a similar instability at the vertical line in the bottom of fig .
+[ figa ] : charged beyond a critical @xmath66 , the pa splits to form a _ necklace _ of blobs connected by strands . from the definition of @xmath11 it is clear that it is proportional to @xmath32 ; the dimensionless prefactor relating the two depends on @xmath84 and is estimated in this work .
+\(e ) while confirming the general features of fig .
+[ figa ] , the mc simulations provide no indication of the suggested @xmath59 transition .
+however , these simulations are not reliable at very low temperatures@xcite due to the slowing  down of the equilibration process .
+all the above results were obtained by mc simulations for pas of between 16 and 128 monomers . since the mc procedure does not provide good equilibration at low @xmath2 , we could not determine the properties of the ground states ( although some conclusions were drawn from the low@xmath2 data ) .
+systems with coulomb interactions are particularly poorly equilibrated , even at densities of only 10% the maximal value . to remedy these difficulties ,
+in this work we resorted to complete enumeration of all possible spatial conformations , and all possible quenched charge sequences .
+while such an approach enables us to obtain exact results , and detailed information not available in mc studies , the immensity of configuration space restricts the calculation to chains of at most 12 steps ( 13 monomers ) .
+we considered self  avoiding walks ( saws ) on a simple cubic lattice of spacing @xmath6 .
+an @xmath90step saw has @xmath91 sites ( atoms ) , and the randomly charged polymer is defined by assigning a fixed sequence of charges ( @xmath92 ) to its monomers .
+the charge sequence is considered to be quenched , i.e. it remains unchanged when the spatial conformation of the walk changes .
+the energy of any particular configuration is given by @xmath93 , where @xmath94 is the position of the @xmath95th atom on the three  dimensional lattice .
+thermal averages of various quantities are calculated by summing over all conformations with the boltzmann weights of this energy .
+the resulting average is quench specific .
+we then obtain quenched averages by summing over all possible realizations of the sequence , possibly with certain restrictions such as on the total excess charge @xmath96 .
+our calculation consists of three steps : ( a ) generating lists of all spatial conformations and quench sequences ; ( b ) using the lists to calculate various thermodynamic quantities for each quenched configuration ; ( c ) averaging of results over restricted ensembles of quenches , and analyzing the data . since the calculational procedure is extremely time consuming , we used precalculated lists of all saws , and of all possible sequences of charges along the chains .
+other programs then used these two lists as input .
+since the first list of all @xmath90step saws with @xmath97 is extremely large , we tried to reduce it by including only `` truly different '' configurations and listing their degeneracies .
+as the actual position of a walk in space is not important , we disregard it and only give the _ directions _ of the @xmath90 steps .
+as the energy of a configuration is independent of its overall orientation , we assume that the first step is taken in the @xmath98 direction .
+the above trivial symmetries are not included in our counting ; e.g. we assign a completely straight line the degeneracy of @xmath99 .
+all saws , except for the straight line , have a four fold degeneracy related to rotation around the direction of the initial step .
+we shall therefore assume that the first step which is not in @xmath98 direction is taken along the @xmath100 axis , and attribute a degeneracy @xmath101 to all walks which are not straight lines .
+every non  planar walk has an additional degeneracy due to reflection in the @xmath102 plane , leading to a total degeneracy of @xmath103 .
+thus the list of all 12step saws consists of the directions of 11 successive steps , along with a degeneracy factor .
+the total number of 4,162,866 chains consists of one straight line ( @xmath99 ) , 40,616 planar saws ( @xmath101 ) , and 4,122,249 non 
+planar saws ( @xmath103 ) . accounting for degeneracies
+reduces the length of the list and the time needed to calculate various quantities by almost a factor of eight .
+some chains possess additional symmetries ; e.g. , by inverting the sequence of steps we may get some other saw in the list . we did not take advantage of this symmetry because the distribution of quenched charges on the chain is not necessarily symmetric under interchange of its two ends . in any case , we use the end to end exchange symmetry in the listing of all possible quenches .
+a second input list contains all possible charge sequences ; each  quench " for an @xmath90step walk has @xmath91 charges . since the energy is unchanged by reversing the signs of all charges , we considered only configurations in which the total charge is @xmath104 .
+this shortens the list by almost a factor of 2 .
+the majority of quenches are not symmetric under order reversal , i.e. the sequence does not coincide with itself when listed backwards . since we are exploring all spatial configurations , without accounting for the end 
+reversal symmetry mentioned in the previous paragraph , the list can be reduced by almost another factor of 2 by considering only one of each pair of such quenches ( keeping track of the degeneracy ) . after accounting for both charge and sequence reversal symmetries ,
+the list for @xmath105 ( @xmath19 ) has only 2080 entries .    for any sequence ,
+the number of computer operations required to calculate the energy of a single configuration grows as @xmath106 .
+the total number of saws grows as @xmath107 , where @xmath108 is the effective coordination number for saws on a cubic lattice , and @xmath109 .
+the number of  quenches " grows as @xmath110 .
+these factors limit the size of chains which can be investigated to @xmath105 steps . at this @xmath90 we needed 4 weeks of cpu time on a silicon graphics r4000 workstation .
+an increase of @xmath90 by a single unit multiplies the calculation time by an order of magnitude .
+thus it is impractical to employ our procedure for chains that are much longer than 12 steps .
+if , instead of completely enumerating all possible charge configurations we confine ourselves to sampling a few hundred quenches , the calculations can be extended to @xmath111 , but not much further .
+the order in which the calculations were performed is as follows : for each saw configuration we calculated the radius of gyration , squared end  to 
+end distance , _ and _ the energies of all possible quenched charge configurations along the backbone .
+these energies were then used to update histogram tables ( a separate histogram of possible energies for each quench ) . due to the long range nature of the coulomb interaction ,
+the allowed energies form almost a continuous spectrum which we discretized in units of @xmath112 .
+this discretization was sufficient to accurately reproduce properties of the system on the temperature scales of interest .
+( for @xmath113 , we used a finer division of the histograms to verify that the discretization process does not distort calculation of such properties as the specific heat , except at extremely low temperatures . ) in addition to histograms , we also collected data about the energy , the radius of gyration , and the end  to  end distance at the ground state of each quench .
+the issue of the multiplicity of the ground state is of much interest , and hotly debated in the context of models of proteins@xcite . in the presence of coulomb interactions , due to the quasi  continuous nature of the energy spectrum , the ground state is almost never degenerate ( except for the trivial degeneracies mentioned above ) .
+it is quite likely that , for sufficiently long polymers and specific quenches , there may be exactly degenerate ground states which are not related by symmetry operations .
+however , for @xmath114 such cases are extremely rare . moreover , the distance between the ground state and the second  lowest energy state remains of the order of @xmath112 for all @xmath90s in our calculation , even though at higher energies the densities of the states increase very rapidly with @xmath90 .
+we used this data to obtain averages over quenches ( with or without a constraint on the net charge ) .
+it should be mentioned that creation of histograms , as well as calculation of the thermal averages , required the correct accounting of degeneracies of spatial conformations , while averages over quenches needed proper care of the sequence degeneracies .
+for few selected quenches we also performed a calculation of the density of states as a function of two variables , the energy and the squared radius of gyration . due to large amount of data , we could not do such detailed studies for all possible quenches .    fig .
+[ figb ] depicts ground states of four cases of quenched charges with different excess charges @xmath1 .
+it provides qualitative support for the conclusions previously obtained for mc simulations : fig .
+[ figb]a depicts the ground state configuration of an almost neutral pa which is quite compact .
+the pa in fig .
+[ figb]b has @xmath1 slightly smaller than @xmath32 ; while the configuration is still compact we see the beginning of a stretching . figs .
+[ figb]c and [ figb]d show strongly stretched configurations in cases where @xmath1 exceeds @xmath32 . in the following sections we will quantify this qualitative observations .    as a by  product of the above procedure we also obtained similar data for the model with short  range interactions : in the random short range interaction model ( rsrim ) , a quenched sequence of dimensionless charges @xmath115 is defined along the chain . the interaction energy is @xmath116 , where @xmath117 if @xmath118 , and @xmath119 , otherwise .
+while we shall compare and contrast several properties of short and long range models in this paper , detailed results for rsrim can be found in ref.@xcite .
+the additional data were gathered without a substantial increase in the total execution time of the programs .
+there are a few minor differences in the data collection process in the two models : ( a ) as the energies of the rsrim are naturally discretized , the resulting histograms are exact .
+( b ) the ground state of most quenches is highly degenerate .
+this required keeping track of the degeneracy , and obtaining the @xmath39 in the ground state as an average lowest energy configurations .
+we begin our analysis by testing the validity of eq .
+( [ edefenerg ] ) for the ground states of the polymers .
+obviously , the exact value of each ground state energy depends on the details of the charge sequence .
+however , eq .  ( [ edefenerg ] ) implies that the effect of the overall charge can be ( approximately ) separated ; the remaining parts of the energy depending only weakly on the details of the sequence .
+the basic energy unit of our model is @xmath120 , and a useful system for comparison is the regular crystal formed by alternating charges ( the `` sodium chloride '' structure ) .
+the condensation energy per atom of such a crystal ( @xmath121 ) is much smaller than the interaction energy per atom between the nearest neighbors ( @xmath122 ) .
+this demonstrates the importance of the long  range coulomb interaction : although the system is locally neutral , the ground state energy depends on an extended neighborhood .
+similarly , the surface tension @xmath123 of the crystal is quite small .
+our first observation is that , for a fixed @xmath1 , the ground state energy is quite insensitive to the details of the sequence : fig .
+[ figc ] depicts the ground state energies of _ all _ 2080 possible quenches for 12step ( 13atom ) chains .
+( the horizontal axis represents an arbitrary numbering of the quenches . )
+the energies are clearly separated into 7 bands , corresponding to excess charges of @xmath124 , 3 , 5 , @xmath125 , 13 .
+( there is only one quench with @xmath126 . ) while each band has a finite width , we see that the energy of a pa can be determined rather accurately by only specifying its net charge @xmath1 ! _ this is not the case for short  range interactions : _ a comparison of histograms of ground state energies between ( a ) pas and ( b ) rsrim of length @xmath127 in fig .
+[ figd ] clearly shows the importance of long range interactions .
+there is a rather clear separation of energies into ` bands ' with fixed values of @xmath1 for the pas , which is almost absent in the rsrim .
+of course , the finite width of each ` band ' shows that the details of the sequence can not be completely neglected , although their influence on the ground state energy is rather small .    using a debye  hckel approximation@xcite , wittmer _
+et al_@xcite have performed a systematic study of the dependence of the free energy of neutral pas ( @xmath79 ) at high @xmath2 on the correlations between neighboring charges along the chain ( see eq .
+( [ qqcorr ] ) ) .
+they obtain an expression which smoothly interpolates between the free energy densities of a completely random sequence ( @xmath128 , where @xmath129 is the debye screening length ) , and non - random alternating sequence ( @xmath130 ) .
+( the latter model was also studied in ref.@xcite . )
+these results exclude the electrostatic self  interaction energy , which is infinite in the continuum model used in ref.@xcite .
+thus the free energy of the alternating chain is roughly 20 times smaller than the random one . while these results can not be directly extended to the ground states , we may attempt to obtain crude estimates by setting @xmath131 and @xmath132 .
+however , our results indicate that the ground state energy of alternating polymers ( @xmath133 ) is only smaller by about 16% than the mean condensation energy of unrestricted sequences . such inconsistency
+is partially explained by the fact that the alternating pa has negative mean electrostatic energy ( approximately @xmath134 per atom ) even at @xmath135 , while such an energy for a completely random pa ( averaged over all quenches ) vanishes .
+thus , only about 1/4 of the ground state energy of an alternating pa is its condensation energy .
+( this part of the energy explicitly depends on the discreteness of the chain and is not accounted for in ref.@xcite . )
+this argument brings the approximate conclusions based on ref.@xcite in better qualitative agreement with our exact enumeration results .    the dependence of the quench 
+averaged ground state energies on the length of the chain is depicted in fig .
+a restricted average is performed at each value of @xmath1 ( indicated next to each line ) .
+the scaling of the axes is motivated by the re - casting of eq .
+( [ edefenerg ] ) in the form @xmath136 where @xmath137 , with a prefactor @xmath138 depending on the average shape .
+the small number of data points makes an accurate determination of @xmath139 ( and hence the surface tension ) rather difficult .
+the value used in fig .
+[ fige ] is @xmath140 , for which the curves with different @xmath1 extrapolate to approximately the same value , giving a condensation energy of @xmath141 . for this choice of @xmath139 the slopes of the curves with @xmath142 approximately scale as @xmath143 .
+the condensation energy @xmath144 is surprisingly close to that of a regular crystal ( @xmath121 ) , despite the fact that in a random chain on average one neighbor ( along the chain ) has the `` wrong '' sign ( compared to the alternating arrangement ) , costing an energy of the order of @xmath145 .
+this again confirms our contention that the ground state energy is determined by very extended neighborhoods of each particle
+. if the ground state configuration has approximately cubic or spherical shape , then @xmath146 , while for the slightly elongated objects that we obtain , @xmath138 can be somewhat larger ( @xmath147 ) .
+therefore , we estimate @xmath148 .
+the error bars indicate our uncertainty in the values of @xmath138 and @xmath139 , and disregard possible systematic errors in attempts to evaluate surface tension from such small clusters . using these numbers we estimate that the rayleigh charge of the model pa is approximately the same as @xmath32 , since @xmath149 ( the relation @xmath150 assumes pas of maximum possible density . ) from fig .
+[ fige ] it is not clear that the ( charge unconstrained ) average energies ( indicated by the @xmath151 symbols ) of all quenches , also extrapolate to the same condensation energy of @xmath144 .
+this apparent inconsistency can be understood by noting that since the quench averaged @xmath143 is equal to @xmath152 , the last term in eq .
+( [ eqnscale ] ) scales as @xmath153 .
+thus , the linear approach ( in the variables used in fig .
+[ fige ] ) to asymptotic value ( as @xmath154 ) is replaced by a very small power law .
+such a slow decay can not be detected for the small values of @xmath5 used in our enumeration study .
+since our model is defined on a discrete lattice , the allowed energies are discrete . however , as the length of the chain increases the separations between the states are reduced .
+the density of states becomes quasi  continuous and can be described by a function @xmath155 .
+[ figf ] depicts @xmath156 , where the overline denotes averaging over all quenches with a fixed @xmath1 .
+( note that this quantity is _ not _ the quench  averaged free energy as the average is performed on @xmath157 rather than on @xmath158 . )
+not surprisingly , the densities of states for different @xmath1s are shifted with respect to each other . for
+every quench the density of states is very high near the middle of the band and decreases towards the edges .
+we find that almost all pas have a unique ground state ( up to trivial symmetry transformations ) .
+this is not the case for short range interactions@xcite and may be an important clue to the problem of protein folding .
+( for ease of calculation , most studies of similar random copolymers have focused on short - range interactions , and typically find highly degenerate ground states . ) furthermore , the gaps to the second lowest energy states typically remain of order of @xmath159 ( up to the studied size of @xmath105 ) , while most interstate separations decrease with @xmath90 . in the @xmath160 limit , the density of lowest energy excitations of our model pas appears to decay faster than a power law .
+( of course our lattice model does not include any vibrational modes . )
+this decay manifests itself in a vanishing heat capacity in the @xmath161 limit , as depicted in fig .
+the solid lines represent the quench averaged heat capacities per degree of freedom @xmath162 , of pas with @xmath79 at low temperatures .
+( since the energy fluctuations of a polymer depend only on changes of its shape , and are independent of its overall position and orientation , we assumed that an @xmath5atom pa has @xmath163 degrees of freedom , where @xmath164 represents subtraction of translational and rotational degrees of freedom .
+such a choice decreases the bias in the @xmath5dependence of @xmath162 which would appear for very small values of @xmath5 . )
+the vanishing heat capacity was _ not _ observed in mc studies@xcite , where poor equilibration at low @xmath2 hinders measurement of @xmath162 .
+it is instructive to compare and contrast the behavior of random pas with vanishing excess charge to that of an ordered alternating sequence ; the latter is a highly atypical member of the ensemble with @xmath79 .
+numerical investigations of alternating charge sequences by victor and imbert@xcite show that such polymers undergo a collapse transition , similar to saws with _ short range _ attractive interactions .
+this is because the exact compensation in the charges of any pair of neighboring monomers leads to large scale properties determined by dipole 
+dipole ( and faster decaying ) interactions .
+thus coulomb interactions are irrelevant in the high temperature phase of the alternating chain that consequently behaves as a saw .
+by contrast , even though we consider a sub  ensemble of quenches with @xmath79 , the charge fluctuations can not be neglected in random pas and control the long distance behavior of the chain .
+such pas are compact at _ any _ temperature .    the attractive dipole 
+dipole interactions eventually cause the collapse of the alternating charge sequence to a compact state at temperatures below a @xmath37point . of course
+, the ground state of such a chain is the ordered nacl crystal discussed earlier .
+however , it is not clear if the state of the chain immediately below the @xmath37 temperature is the ordered crystal .
+another possibility is that the initial collapse is into a  molten globular " ( liquid like ) state @xcite , which then crystallizes at a lower temperature .
+we singled out the alternating pas in our complete ensemble of quenches ; the dashed lines in fig .  [ figg ] depict the heat capacity of this sequence .
+the presence of a phase transition manifests itself in the peak in @xmath162 at @xmath165 ( for @xmath166 ) which grows ( and slightly shifts towards higher temperatures ) as @xmath90 increases .
+[ figg ] shows that the average heat capacity of random pas with @xmath79 also has a peak at @xmath167 ( for @xmath166 ) .
+as the high temperature phase is no longer swollen ( for @xmath79 ) , there are again two possible interpretations of this heat capacity peak .
+one is that it represents a crossover remnant of the @xmath37 transition , with an increase in the density of the compact polymer .
+indeed , the peak is lower and broader than that of alternating chains .
+another possibility is that there is a  glass " transition in which the  molten globule " freezes into its ` ground state ' .
+the proximity of the peak temperature to the energy gap for the first excited state supports the latter conclusion .
+no corresponding anomaly was observed in the mc simulations@xcite . since
+finite size effects are extremely important in such small systems , the heat capacity peak should be regarded only as a suggestion for the presence of a  @xmath59transition " . as indicated by the dashed line in fig
+.  [ figa ] , the location of such a transition may depend on @xmath1 , disappearing at @xmath168 , consistent with other features of the phase diagram .
+this behavior is analogous to that of the @xmath37point in the rsrim@xcite , although in that case the limiting charge scales linearly with @xmath5 .
+additional , studies are needed to establish the @xmath59transition .
+the contour plots in fig .
+[ figh ] depict the number of states as a function of both @xmath39 and @xmath169 , for three sequences of @xmath127 with charges @xmath124 ( a ) , 5 ( b ) , and 11 ( c ) . at high temperatures
+the typical configurations correspond to the highest densities . in all three cases these configurations
+are located in the middle of the diagram , and behave essentially as saws . on
+lowering temperature the polymer seeks out states of lowest energy which are very different in the three cases .
+the approximately neutral chain of fig .
+[ figh]a assumes a very compact shape represented by the lower  left corner of the contours .
+the presence of a specific heat peak is consistent with the shape of this contour plot .
+while @xmath39 increases monotonically with @xmath2 , the chains are too short to permit a quantitative test for the presence of a @xmath59point from the scaling of @xmath39 .
+the lowest energy contour of the chain with @xmath170 ( fig .
+[ figh]b ) is almost horizontal .
+hence , upon lowering temperature the chain will not collapse , maintaining an extended shape .
+thus a putative transition must disappear for larger @xmath1 . finally , the fully charged polymer in fig .
+[ figh]c expands from a saw to the completely stretched configurations represented by the lower 
+right corner of the contour plot .
+the low temperature results from mc simulations suggest that @xmath39 of a pa strongly depends on its charge , crossing over from compact configurations at small @xmath1 to extended states for larger @xmath1 .
+this is qualitatively supported by the ground state shapes in fig .
+[ figb ] , and will be more quantitatively examined here .
+[ figi]a depicts the @xmath90dependence of @xmath39 for several choices of @xmath1 .
+the vertical axis is scaled so that compact , i.e. fixed density , structures are represented by horizontal lines . since @xmath1 is fixed , the influence of the excess charge diminishes as the length of the polymer is increased , and thus all curves must asymptotically converge to the same horizontal line .
+there is some indication of this in fig .
+[ figi]a , although the crossover is rather delayed for larger values of @xmath1 . since the unrestricted ensemble ( solid circles ) includes a large range of @xmath1s , it is not surprising that the corresponding averages are not compact .
+the chains are too short to extract a meaningful value for the exponent @xmath4 .
+nevertheless , the effective slope of @xmath171 , strongly suggests that the average over an unrestricted ensemble is not compact . by comparison , the corresponding results for the rsrim in fig .
+[ figi]b clearly indicate that the averages both at fixed and varying @xmath1 have similar fixed density ground states .    since the quench 
+averaged @xmath39 of the unrestricted ensemble scales differently from the sub  ensembles of fixed @xmath1 , the former set must contain a non  negligible portion of non  compact configurations for every @xmath90 .
+it is natural to assume that the borderline between compact and stretched states is controlled by @xmath67 . in previous work@xcite
+we argued that pas undergo a transition to an expanded state when @xmath1 exceeds @xmath11 ( @xmath172 ) : the transition is more pronounced for larger @xmath90 and lower @xmath2 . in the mc
+simulations@xcite we were able to use long pas , but were restricted to finite , albeit small , temperatures which slightly smeared the transition in @xmath75 with increasing @xmath1 . in this study we know the exact ground states but are limited to small @xmath90s where the difference between @xmath75 of compact and stretched states is less visible .
+the sum of all eigenvalues of the shape tensor , @xmath39 is somewhat insensitive to an expansion since the increase in the largest eigenvalue is partially compensated by the decrease of the other two eigenvalues .
+a clearer view is provided by the ratios of the mean eigenvalues of the shape tensor as depicted in fig .
+these ratios for different @xmath90s can be collapsed after scaling the charges by @xmath32 , consistent with the mc simulations .
+[ figk ] depicts ( on a logarithmic scale ) the distribution of values of @xmath39 in the ground states of all quenches for @xmath111 .
+the distribution is peaked near the smallest possible value of @xmath39 , but has a broad ( possibly power law ) tail .
+if the tail falls off sufficiently slowly , it will determine the asymptotic value of the exponent @xmath4 : as @xmath90 increases the very large values of @xmath39 of the ( minority ) stretched configurations will eventually dominate the total average .
+we thus expect @xmath173 to increase with @xmath90 , and the value of @xmath173 extracted from the slope of the solid line on fig .
+[ figi]a , probably underestimates the true asymptotic value . to get further insight into the behavior for larger @xmath90
+, we performed separate averages for the 80% of configurations which have the smallest @xmath39 , and for the remaining top 20% .
+these averages are depicted in fig .
+the vertical axis is again scaled so that compact structures are represented by horizontal lines .
+the bottom 80% indeed scale as compact chains while the top 20% , which stand for the tail of the distribution , have radii that grow with @xmath90 with an effective exponent of @xmath174 .
+we thus conclude that the @xmath39 of the unrestricted ensemble increases with @xmath90 at least as fast as a saw .
+as a byproduct of our study , since we have access to the complete set of quenches , we can find which particular sequence , restricted only by its net charge , has the lowest energy . as this is the sequence that is selected in a model in which the charges are free to change positions along the chain , we shall refer to the results as describing the ground states of _ annealed pas_. for long chains , neither the sequence , nor its spatial conformation , need to be unique .
+however , for the sizes considered here , we always found a single ground state , several of which are shown in fig .
+[ figm ] for @xmath111 and different values of @xmath1 .
+it appears that the optimal configurations correspond to a uniform distribution of excess charge along the backbone . in particular , for small @xmath1 the preferred arrangement is the alternating sequence which then folds into a nacl structure .
+previously@xcite we suggested that annealed pas expel their excess charge ( provided @xmath175 ) into highly charged `` fingers '' . as a result of such `` charge expulsion '' the spanning length of annealed
+pas should increase dramatically ( @xmath176 ) .
+however , since most of the mass remains in a compact globule , @xmath39 is not substantially modified ( as long as @xmath177 ) .
+the chains used in our study are too short to exhibit an increased spanning length with no change in @xmath75 .
+moreover , the effects of lattice discreteness are much more pronounced for annealed pas where ground states correspond to a single sequence . in the quenched case , averaging over all sequences partially smoothens out lattice effects . as partial evidence
+we note that plots for the charge dependence of ratios of eigenvalues of the shape tensor ( analogous to fig .
+[ figj ] ) exhibit better collapse with the variable @xmath178 than with @xmath179 .
+however , given the scatter of the few data points , the evidence for the appearance of `` fingers '' is not really any more convincing than any conclusions drawn from inspection of the ground states in fig .
+[ figm ] .
+as noted earlier , we expect the ground state of a sufficiently long annealed pa with fixed @xmath1 to be the nacl structure . to test the approach to this limit , in fig .
+[ fign ] we plot the energies per atom of the ground states . as in the case of
+quenched pas ( fig .  [ fige ] ) , we check for finite size corrections proportional to the surface area .
+( unlike the case of quenched pas , each point in this figure represents a _
+single _ configuration . ) here we used a value of @xmath180 although the results are rather insensitive to this choice , and we estimate the accuracy of this quantity as @xmath181 .
+the point of intersection with the @xmath182 axis is close to the known value of the @xmath145 .
+furthermore , @xmath183 corresponds to a surface tension of @xmath184 which is also consistent with the known value of @xmath185 .
+these consistency checks add further confidence to the values of @xmath144 and @xmath84 deduced for quenched pas .
+this work was supported by the us 
+israel bsf grant no .
+9200026 , by the nsf through grants no .
+dmr9400334 ( at mit s cmse ) , dmr 9115491 ( at harvard ) , and the pyi program ( mk ) .
+in this appendix we discuss instabilities of charged @xmath7dimensional drops . a detailed discussion of the three  dimensional case can be found in appendices b and c of ref.@xcite , which also provides other references to the subject .
+the energy of a charged _ conducting _ ( hyper)sphere of radius @xmath87 with charge @xmath1 is given by @xmath186 where the first term is the surface energy ( @xmath84 is the surface tension , and @xmath187 denotes the @xmath7dimensional solid angle ) , while the second term is the electrostatic energy .
+( we have used units such that , in @xmath7 dimensions , the electrostatic potential at a distance @xmath188 from a charge @xmath189 is @xmath190 ; and @xmath191 in @xmath192 . ) for small @xmath1 , the sphere is stable with respect to infinitesimal shape perturbations .
+however , when the electrostatic and surface energies are comparable , the drop becomes unstable .
+to explore this instability we differentiate eq .
+( [ eeq ] ) with respect to @xmath87 to find the pressure difference between the interior and the exterior of the drop as @xmath193 the pressure difference vanishes when @xmath1 equals the _ rayleigh charge _
+@xmath11 , where @xmath194 for @xmath195 a ( hyper)spherical shape is unstable to small perturbations ; initially the drop becomes distorted and subsequently it disintegrates . note that @xmath196 , where @xmath88 is the volume of the drop .
+when applied to pas , up to a dimensionless prefactor , @xmath197    we can regard the first term in eq .
+( [ eeq ] ) as setting the overall energy scale , while the shape of the drop is determined by the dimensionless ratio @xmath198 while from the above argument we conclude that the spherical shape is ( locally ) unstable for @xmath199 , even for @xmath200 , the energy of the drop can be lowered by splitting into smaller droplets .
+in particular , we may split away from the original drop a large number @xmath157 , of small droplets of radius @xmath201 and charge @xmath202 , and remove them to infinity .
+it can be directly verified that for @xmath203 , the total electrostatic energy , total surface area of the small droplets , as well as their total volume , vanishes in the @xmath204 limit .
+thus the energy of any charged conducting drop can be lowered to that of an uncharged drop by expelling a large number of `` dust particles '' which carry away the entire charge .
+( of course this argument neglects the finite size of any particles making up the drop ! )    the globular phase of a quenched random pa is better represented by a drop of immobile charges .
+therefore , we next consider a drop in which the charges are _ uniformly _ distributed over the volume .
+the sum of the surface and electrostatic energies is now given by @xmath205 for sufficiently large @xmath1 , the drop can lower its energy by splitting into two droplets of equal size .
+this will occur when @xmath66 exceeds a critical value of @xmath206 which is equal to 0 , 0.293 , 0.323 , 0.322 , and @xmath207 , for @xmath192 , 3 , 4 , 5 , and @xmath208 , respectively .
+as the value of @xmath66 increases further , the drop splits into a larger number of droplets . by examining the energy of a system of @xmath157 equal spherical droplets
+, we find that the optimal number is proportional to @xmath209 . if the typical @xmath143 is proportional to @xmath5 ( as happens in unrestricted pas ) , while @xmath210 is given by eq .
+( [ edefqrind ] ) , the number of droplets scales as @xmath211 .
+thus @xmath16 is a special dimension , above which a typical pa prefers to stay in a single globule .
+m. mzard , g. parisi , and m. a. virasoro , _ spin glass theory and beyond _ , world scientific , singapore ( 1987 ) .
+yu , a. tanaka , k. tanaka , and t. tanaka , j. chem . phys . * 97 * , 7805 ( 1992 ) ; yu x .- h . , ph .
+d. thesis , mit ( 1993 ) .
+m. annaka and t. tanaka , nature * 355 * , 430 ( 1992 ) .
+m. scouri , j.p .
+munch , s.f .
+candau , s. neyret , and f. candau , macromol .
+* 27 * , 69 ( 1994 ) .
+y. kantor and m. kardar , europhys .
+* 27 * , 643 ( 1994 ) .
+y. kantor and m. kardar , phys . rev . *
+e51 * , in press ( 1995 ) .
+j. wittmer , a. johner and j.f .
+joanny , europhys . lett .
+* 24 * , 263 ( 1993 ) .
+y. kantor and m. kardar , europhys .
+* 28 * , 169 ( 1994 ) .
+p. pfeuty , r.m .
+velasco , and p.g . de gennes , j. phys .
+( paris ) lett . * 38 * , l5 ( 1977 ) . the coulomb potential used in refs.@xcite
+was slightly distorted at short distances , with different short range cutoff and intermonomer distances .
+therefore , there is no exact equivalence between @xmath2 of this work and that in refs.@xcite .
+an approximate correspondence is obtained by multiplying the @xmath2s in refs.@xcite by a factor of 2 to 3 .
+see , e.g. , h. frauenfelder and p.g .
+wolynes , physics today * 47*(2 ) , 58 ( 1994 ) .
+landau and e.m .
+lifshitz , _ statistical physics _ , part 1 , pergamon , ny ( 1981 ) .
+j.m . victor and j.b.imbert , europhys . lett .
+* 24 * , 189 ( 1993 ) . in all figures in this paper lengths
+are measured in units of @xmath6 , charges in units of @xmath212 , temperatures and energies in units of @xmath120 . for the rsrim , charges are dimensionless , and energies are instead measured in units of @xmath213 .

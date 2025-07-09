@@ -1,0 +1,181 @@
+any cooperation among agents ( players ) being able to make strategic decisions becomes a _ coalition formation game _ when the players may for various personal reasons wish to belong to a relative _ small coalition _ rather than the `` grand coalition '' . partitioning players represents the crucial question in the game context and a stable partition of the players is referred to as an equilibrium . in @xcite ,
+the authors propose an abstract approach to coalition formation that focuses on simple merge and split stability rules transforming partitions of a group of players .
+the results are parametrized by a preference relationship between partitions from the point of view of each player .
+on the other hand , a coalition formation game is called to be _ hedonic _ if    * _ the gain of any player depends solely on the members of the coalition to which the player belongs _ , and * _ the coalitions form as a result of the preferences of the players over their possible coalitions set_.    accordingly , the stability concepts aiming _ hedonic conditions _ can be summarized as following @xcite : a partition could be _ individually stable , nash stable , core stable , strict core stable , pareto optimal , strong nash stable , strict strong nash stable_. in the sequel , we concentrate on the nash stability .
+the definition of the nash stability is quite simple :    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ a partition of players is nash stable whenever there is no player deviating from his / her coalition to another coalition in the partition_. _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _    we refer to @xcite for further discussions concerning the stability concepts in the context of hedonic coalition formation games .        in @xcite , the problem of generating nash stable solutions in coalitional games is considered . in particular , the authors proposed an algorithm for constructing the set of all nash stable coalition structures from players preferences in a given additively separable hedonic game . in @xcite , a bargaining procedure of coalition formation in the class of hedonic games , where players preferences depend solely on the coalition they belong to is studied .
+the authors provide an example of nonexistence of a pure strategy stationary perfect equilibrium , and a necessary and sufficient condition for existence .
+they show that when the game is totally stable ( the game and all its restrictions have a nonempty core ) , there always exists a no - delay equilibrium generating core outcomes .
+other equilibria exhibiting delay or resulting in unstable outcomes can also exist .
+if the core of the hedonic game and its restrictions always consist of a single point , it is shown that the bargaining game admits a unique stationary perfect equilibrium , resulting in the immediate formation of the core coalition structure .    in @xcite ,
+drze and greenberg introduced the hedonic aspect in players preferences in a context concerning local public goods .
+moreover , purely hedonic games and stability of hedonic coalition partitions were studied by bogomolnaia and jackson in @xcite . in this paper
+, it is proved that if players preferences are additively separable and symmetric , then a nash stable coalition partition exists . for further discussion on additively separable and symmetric preferences , we refer the reader to @xcite
+.      our work aims at considering stable strategies for hedonic coalition formation games .
+we first develop a simple decentralized algorithm finding the nash stability in a game if at least one exists .
+the algorithm is based on _ the best reply strategy _ in which each player decides serially his / her coalition .
+thus , the problem is considered as a non - cooperative game .
+we consider a _
+random round - robin _ fashion where each player determines its strategy in its turn according to a
+_ scheduler _ which is randomly generated for each round . under this condition
+, we prove that the algorithm converges to an equilibrium if it exists .
+then the fundamental question that comes is to determine which utility allocation methods may ensure a nash - stable partition .
+we address this issue in the sequel .
+we first propose the definition of _ the nash - stable core _ which is the set of all possible utility allocation methods resulting in nash - stable partitions .
+we show that efficient utility allocations where the utility of a group is completely shared between his / her members , may have no nash - stable partitions with some exceptions .
+rather , we proved that relaxing the efficiency condition may ensure the non - emptyness of the core .
+indeed we prove that if the sum of players gains within a coalition is allowed to be less than the utility of this coalitionn then a nash - stable partition always exist .
+a coalition formation game is given by a pair @xmath0 , where @xmath1 is the set of @xmath2 _ players _ and @xmath3 denotes the _ preference profile _ , specifying for each player @xmath4 his preference relation @xmath5 , i.e. a reflexive , complete and transitive binary relation .    a coalition structure or a _ coalition partition _ is a set @xmath6 which partitions the players set @xmath7 , i.e. , @xmath8 , @xmath9 are disjoint coalitions such that @xmath10 . given @xmath11 and @xmath12 ,
+let @xmath13 denote the set @xmath14 such that @xmath15 .    in its partition form
+, a coalition formation game is defined on the set @xmath7 by associating a utility value @xmath16 to each subset of any partition @xmath11 of @xmath7 . in its characteristic form ,
+the utility value of a set is independent of the other coalitions , and therefore , @xmath17 .
+the games of this form are more restricted but present interesting properties to achieve equilibrium . practically speaking
+, this assumption means that the gain of a group is independent of the other players outside the group .
+hedonic coalition formation games fall into this category with an additional assumption :    [ def : hedonic ] a coalition formation game is called to be _ hedonic _ if    * _ the gain of any player depends solely on the members of the coalition to which the player belongs _ , and * _ the coalitions form as a result of the preferences of the players over their possible coalitions set_.      the preference relation of a player can be defined over a _
+preference function_. let us denote by @xmath18 the preference function of player @xmath12 .
+thus , player @xmath12 prefers the coalition @xmath19 to @xmath20 iff ,
+@xmath21    we consider the case where the preference relation is chosen to be the utility allocated to the player in a coalition , then @xmath22 where @xmath23 refers to the utility received by player @xmath12 in coalition @xmath19 .
+in the case of transferable utility games ( tu games ) we are considering in this paper , the utility of a group can be tranfered among users in any way .
+thus , an utility allocation is set relatively efficient if for each coalition @xmath19 , the sum of individual utilities is equal to the coalition utility : @xmath24 .
+now , if the preferences of a player are _ additively separable _ , the preference can be even stated with a function characterizing how a player prefers another player in each coalition .
+this means that the player s preference for a coalition is based on individual preferences .
+this can be formalized as follows :    the preferences of a player are said to be additively separable if there exists a function @xmath25 s.t .
+@xmath26 @xmath27    where , according to @xcite , @xmath28 is normalized and set to @xmath29 .
+a profile of additively separable preferences , represented by @xmath30 , satisfies _ symmetry _ if @xmath31 .
+the question we address in this paper concerns the stability of this kind of games .
+the stability concept for a coalition formation game may receive different definitions . in the litterature ,
+a game is either said _ individually stable , nash stable , core stable , strict core stable , pareto optimal , strong nash stable , strict strong nash stable_. we refer to @xcite for a thorough definition of these different stability concepts .    in this paper
+, we concentrate only on the nash stability because we are interested in those games where the players do nt cooperate to take their decisions which means that only individual moves are allowed .    the definition of the nash stability for an _ hedonic coalition formation game _ is simply :    [ def : nashstability ] a partition of players is nash stable whenever no player is incentive to unilaterally change his or her coalition to another coalition in the partition .    which can be mathematically formulated as :    a partition @xmath11 is said to be nash - stable if no player can benefit from moving from his coalition @xmath13 to another existing coalition @xmath32 , i.e. : @xmath33    nash - stable partitions are immune to individual movements even when a player who wants to change does not need permission to join or leave an existing coalition @xcite .    in the literature ( @xcite ) , the stability concepts being immune to individual deviation are _ nash stability , individual stability , contractual individual stability_. nash stability is the strongest within above .
+we concentrate our analysis on the partitions that are nash - stable .
+the notion of _ core stability _ has been used already in some models where immunity to coalition deviation is required @xcite .
+but the nash stable core has not been defined yet at the best of our knowledge .
+this is what we derive in the next section .    under this definition
+we propose in this paper to evaluate the existence of nash stability and to propose an approach that ensures the convergence to a nash equilibrium of an approximated convex game .
+let us consider a hedonic tu game noted @xmath34 ( since @xmath35 is transferable to the players , we consider hedonic coalition formation games based on transferable utility ) . for the sake of simplicity , the preference function of player @xmath12 is assumed to be the gain obtained in the corresponding coalition , i.e. , @xmath36 as well as let @xmath37 denote the _ allocation method _ which directly sets up a corresponding preference profile .
+the corresponding space is equal to the number of set , i.e. @xmath38 where @xmath39 .
+we now define the operator @xmath40 , where @xmath41 is the set of all possible partitions .
+clearly , for any preference function , the operator @xmath42 finds the set of nash - stable partition @xmath11 , i.e. @xmath43 . if a nash - stable partition can not be found , the operator maps to empty set .
+moreover , the inverse of the operator is denoted as @xmath44 which finds the set of all possible preference functions that give the nash - stable partition @xmath11 .
+thus , the nash - stable core includes all those efficient allocation methods that build the following set : @xmath45      to know if the core is non empty , we need to state the set of constraints the partition function as to fulfill . under the assumption of _ efficiency _ , we have a first set of constraints @xmath46 then a given partition @xmath11 is nash - stable with respect to a given partition function if the following constraints hold : @xmath47 where @xmath48 is the unique set in @xmath11 containing @xmath12 .
+then , the nash - stable core is non - empty , iif : @xmath49 the nash - stable core can be further defined as : @xmath50 which let us to conclude :    the nash - stable core can be non - empty .
+algorithmically , the nash - stable core is non - empty if the following linear program is feasible : @xmath51    however , it is not possible to state about the non - emptiness of the nash - stable core in the general case .
+further , searching in an exhaustive manner over the whole partitions is np - complet as the number of parititions grows according to the bell number .
+typicall , with only @xmath52 players , the number of partition is as large as @xmath53 .
+we now analyse some specific cases in the following .      in the case
+the grand coalition is targeted , the stability conditions are the following .
+let @xmath54 , then the following constaints hold : @xmath55 resulting in the following : @xmath56 those cooperative tu games that satisfy this condition are said to be _
+we now propose to formulate a special game where the utility is shared among players with an equal relative gain .
+let us denote the gain of player @xmath12 in coalition @xmath19 as @xmath57 in which @xmath58 is called _ the relative gain_. note that for an isolated player @xmath12 , one have @xmath59 .
+the preference relation can be determined w.r.t .
+the relative gain : @xmath60 the total allocated utilities in coalition @xmath19 is @xmath61 .
+therefore , @xmath62 , where @xmath63 is the _ marginal utility _ due to coalition @xmath19 .
+the symmetric relative gain sharing approach relies on equally dividing the marginal utility in a coalition , i.e. @xmath64 this choice means that each player in coalition @xmath19 has the same gain ; thus the effect of coalition @xmath19 is identical to the players within it .
+[ cor : equivalentevaluation ] * equivalent evaluation * : assume that @xmath65 . due to eq .
+( [ eq : equallydivmarutility ] ) , the following must hold @xmath66 it means that all players in @xmath67 prefer coalition @xmath19 to @xmath20 whenever the relative gain in @xmath19 is higher than @xmath20 .
+for this particular case we obtained the following theorems :    [ lma : nashcoretwoplayersincaseofsymmetricrelativegain ] there is always a nash - stable partition when @xmath68 in case of symmetric relative gain .
+see appendix    [ lma : nashcorethreeplayersincaseofsymmetricrelativegain ] there is always a nash - stable partition when @xmath69 in case of symmetric relative gain .
+see appendix    thus , we can conclude that symmetric relative gain always results in a nash - stable partition when @xmath70 .
+however , this is not the case when @xmath71
+. we can find many counter examples that justify it such as the following one :    [ cexample : nashcoremorethanthreeplayersincaseofsymmetricrelativegain ] let the marginal utility for all possible @xmath72 be as following : @xmath73 let us now generate the preference profile according to these marginal utility values .
+notice that we could eliminate those marginal utilities which are negative since a player will prefer to be alone instead of a negative relative gain .
+further , ranking the positive relative gains in a descending order results in the following sequence : @xmath74.\ ] ] according to the ranking sequence , we are able to generate the preference list of each player : @xmath75 note that this preference profile does not admit any nash - stable partition .
+thus , we conclude that symmetric relative gain allocation does nt provide always a nash - stable partition when @xmath76 .
+we now turn out to the case of separable and symmetric utility case .
+consider eq .
+( [ eq : additivelyseparable ] ) meaning that player @xmath12 gains @xmath77 from player @xmath78 in any coalition . in case of symmetry ,
+@xmath79 such that @xmath80 .
+further , we denote as @xmath81 the utility that player @xmath12 gains in coalition @xmath19 .
+then , the sum of allocated utilities in coalition @xmath19 is given by @xmath82    let us point out that @xmath83 ( for example , @xmath84 , @xmath85 $ ] ) .
+therefore , the following determines the existence of additively separable and symmetric preferences when the utility function @xmath35 is allocated to the players : @xmath86 where @xmath87 is the _ marginal utility _ due to coalition @xmath19 .
+albeit we will come back later on this point , it is true noting these constraints are strongly restrictive and are rarely oberved in real problems
+. let it be illustrated for example @xmath88    the constraints imposed are : @xmath89,\notag\\ v(1,3 ) & = \frac{1}{2}[u(1,3)-u(1)-u(3)],\notag\\ v(2,3 ) & = \frac{1}{2}[u(2,3)-u(2)-u(3)],\notag\\ v(1,2)+v(1,3)+v(2,3 ) & = \frac{1}{2}[u(1,2,3)-u(1)-u(2)-u(3)].\end{aligned}\ ] ] we have 3 variables and 4 constraints , thus only special problem may fit with all constraints .
+a more general approach allows to state the following theorem :    the nash - stable core of the additively separable and symmetric utility hedonic game is non - empty if there exist balanced weights of the dual problem ( balancedness conditions ) : @xmath90 \quad \forall s\in 2^n.\end{aligned}\ ] ]    according to bondareva - shapley theorem @xcite when the gains of players are allocated according to the additively separable and symmetric way we can note :    * @xmath91 the all possible bipartite coalitions such that @xmath92 .
+note that @xmath93 . * @xmath94 the index set of all possible bipartite coalitions .
+so , @xmath95 is the @xmath96th bipartite coalition . *
+@xmath97 which is the vector demonstration of all @xmath98 .
+* @xmath99 . *
+@xmath100 such that @xmath101 where @xmath102 .
+* @xmath103 is a matrix such that @xmath104 .    by using these definitions ,
+the nash - stable core is non - empty whenever the following linear program is feasible @xmath105.\end{aligned}\ ] ] the linear program that is dual to @xmath106 is given by @xmath107,\end{aligned}\ ] ] where @xmath108 denote the vector of dual variables .
+let @xmath109 denote the @xmath96th column of @xmath110 .
+then @xmath111 implies @xmath112 this result means that the feasible solutions of @xmath113 exactly correspond to the vectors containing balancing weights for balanced families .
+more precisely , when @xmath114 is feasible in @xmath113 , @xmath115 is a balanced family with _ balancing weights _ @xmath116 .    according to the _ weak duality theorem _ , the objective function value of the primal @xmath117 at any feasible solution is always greater than or equal to the objective function value of the dual @xmath113 at any feasible solution , i.e. @xmath118 which implies @xmath119 and @xmath120    combining these results , we have the following balancedness conditions of @xmath35 : @xmath121 \quad \forall s\in 2^n.\end{aligned}\ ] ]    however , these conditions are very restrictive . for a given set of players @xmath122 ,
+the number of variables is strictly equal to @xmath123{c } 2\\ n     \end{array } \right)=n\cdot(n-1)/2 $ ] while the number of constraints is equal to the number of sets , i.e. @xmath124 . for @xmath125 , we have @xmath126 variables and as much as @xmath127 constraints .      considering the former result we propose to transform an initial hedonic game under an additively separable and symmetric utility case , by relaxing the efficiency constraint . clearly
+, we propose to relaw the constraint of having the sum of allocated utilities in a coalition to be strictly equal to the utility of the coalition , i.e. @xmath128 .
+we assume that the system can not provide any coalition with additional utility and therefore the unique way is to taxe a group to ensure the convergence , which leads to having : @xmath129    now the following theorem may be stated :    the nash - stable core is always non - empty in case of relaxed efficiency .
+a feasible solution of the following linear program guarantees the non - emptiness of the nash - stable core : @xmath130 which is equivalent to @xmath131.\end{aligned}\ ] ] note that @xmath132 is always feasible since    * there are no any inconsistent constraints , i.e. there are no at least two rows in @xmath110 that are equivalent , * the polytope is bounded in the direction of the gradient of the objective function @xmath133 .      in the case where the system is able to provide some redistribution of utilities to a coalition , we can also allow the sum of individual utilities in a coalition to be higher than the coalition s utility . in this case
+, the system may be intersted however to find an additively separable and symmetric utility while minimizing the total deviation from the utilities .
+we can then propose to select the symmetric preferable preferences @xmath98 according to the following optimization problem : @xmath134 this formulation leads to an analytical solution : @xmath135 .
+however the system may be interested in adding hard constraints on some specific sets , typically the grand coalition , to avoid the risk of having to pay some additional costs .
+this can be done by adding additional constraints to the problem above , but if the constraints are expressed as linear equalities or inequalities the problem remains convex .
+in this section , we now develop a decentralized algorithm to reach a nash - stable partition whenever one exists in a hedonic coalition formation game .
+we in fact model the problem of finding a nash stable partition in a hedonic coalition formation by formulating it as a non - cooperative game and we state the following :    a hedonic coalition formation game is equivalent to a non - cooperative game .
+let us denote as @xmath136 the set of strategies .
+we assume that the number of strategies is equal to the number of players .
+this is indeed sufficient to represent all possible choices .
+indeed , the players that select the same strategy are interpreted as a coalition .    based on this equivalence , it is possible to reuse some classical results from game theory .
+we consider a _
+random round - robin _ algorithm where each player determines its strategy in its turn according to a _ scheduler _ which is randomly generated for each round .
+a scheduler in round @xmath137 is denoted as @xmath138 where @xmath139 is the turn of player @xmath12 .
+it should be noted that a scheduler is a random permutation of the set of players @xmath7 and therefore , our problem turns out to a _
+weakly acyclic games_. a non - cooperative game is classified as weakly acyclic if every strategy - tuple is connected to some pure - strategy nash equilibrium by a best - reply path .
+weakly acyclic games have the property that if the order of deviators is decided more - or - less randomly , and if players do not deviate simultaneously , then a best - reply path reaches an equilibrium @xcite if there exists at least one .
+the type of scheduler chosen in this work is by default considered as _
+memoryless _ since the identity of the deviator in each round does not depend on the previous rounds .
+however , it may be more efficient to design a scheduler according to the past observations .
+thus , we come up with so called _ algorithmic mechanism design _ that could enable to converge an equilibrium in less number of rounds .
+this kind of optimization is kept out of the scope of this paper .    a _ strategy tuple _ in step @xmath140
+is denoted as @xmath141 , where @xmath142 is the strategy of player @xmath12 in step @xmath140 .
+the relation between a round and a step can be given by @xmath143 . in each step , only one dimension is changed in @xmath144 .
+we further denote as @xmath145 the partition in step @xmath140 .
+define as @xmath146 the set of players that share the same strategy with player @xmath12 .
+thus , note that @xmath147 for each step . the preference function of player @xmath12 is denoted as @xmath148 and verifies the following equivalence : @xmath149 where player @xmath12 is the one that takes its turn in step @xmath140 .
+any sequence of strategy - tuple in which each strategy - tuple differs from the preceding one in only one coordinate is called a _ path _ , and a unique deviator in each step strictly increases the utility he receives is an _
+improvement path_. obviously , any _ maximal improvement path _ which is an improvement path that can not be extended is terminated by stability .    an algorithm for hedonic coalition formation can be given as following :    set stability flag to zero generate a scheduler according to the scheduler , each player chooses the best - reply strategy check stability set stability flag to one    the proposed algorithm [ alg : nashstabilityestablisher ] ( nash stability establisher ) always converges to a stable partition whenever there exists one .
+the proof exploits the propery mentioned above , relative to weakly acyclic games :    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ every weakly acyclic game admits always a nash equilibrium @xcite ; since _ nash stability establisher _ is exactly a weakly acyclic game , it always converges to a partition which is nash - stable_. _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _    let us denote as @xmath150 the initial partition where each player is alone .
+it corresponds to the case where each player chooses different strategy ; thus each player is alone in its strategy : @xmath151 .
+the transformation of strategy tuple and partition in each step can be denoted as following : @xmath152 where @xmath153 represents the the step in which the stable partition occurs .
+in fact , the stable partition in @xmath154 is exactly the nash equilibrium in a weakly acyclic game .
+we propose now to evaluate the use of the former algorithm on hedonic games transformed to additively separable and symmetric .
+such approach needs two steps . during the first step , the system computes the relative symmetric gains @xmath98 according to one of the suboptimal approximations proposed above .
+then , during the second step , the players do their moves according to the algorithm and using the modified utilities until an equilibrium is reached .
+the social optimum is the maximum total global utility , i.e. what is the partitioning of the players such that the total global utility is maximized .
+it can be formulated as a set partitioning optimization problem which can be given by @xmath155 by which we find a partition @xmath156 maximizing the global utility .
+note that the total social utility in case of a nash - stable partition will always be lower or equal to the one obtained by social optimum , i.e. @xmath157 .
+we could say that an approach is socially optimal if it reaches the social optimum .
+the distance between the social optimum and the equilibrium solution achieved is the price of anarchy .
+we study here the utility allocation based on relaxed efficiency according to the marginal utilities given in counter example [ cexample : nashcoremorethanthreeplayersincaseofsymmetricrelativegain ] .
+we also suppose that @xmath158 , @xmath159 , @xmath160 , @xmath161 .
+we calculate the social optimum which is equivalent to the set partitioning problem s optimization version .
+a utility allocation method can be found by solving the following linear program : @xmath162 which produces the following values : @xmath163 thus , the preference profile is obtained @xmath164 which admits the nash - stable partition @xmath165 .
+the total social utility can be calculated as @xmath166 .
+the social optimum in the considered example is found to be @xmath167 which is a result of partition @xmath168 .
+we suggested a decentralized algorithm for finding the nash stability in a game whenever there exists always at least one .
+the problem of finding the nash stability is considered as a non - cooperative game .
+we consider a _
+random round - robin _ fashion where each player determines its strategy in its turn according to a _ scheduler _ which is randomly generated for each round . under this condition
+, we proved that the algorithm converges to an equilibrium which is the indicator of the nash stability .
+moreover , we answer the following question : is there any utility allocation method which could result in a nash - stable partition ? we proposed the definition of the nash - stable core .
+we analyzed the cases in which the nash - stable core is non - empty , and prove that in case of the relaxed efficiency condition there exists always a nash - stable partition .
+according to corollary [ cor : equivalentevaluation ] , @xmath173 . thus , combining all constraint sets of all possible partitions , we have the following result constraint set : @xmath174 $ ] .
+it means that for any value of @xmath175 , symmetric relative gain always results in a nash - stable partition for two players case .
+note that there are @xmath176 possible partitions in case of @xmath69 .
+thus , according to equally divided marginal utility , the following variables occur : @xmath177 , @xmath178 , @xmath179 , @xmath180 . enumerating all possible partitions results in the following conditions :      note that the constraint set @xmath191 covers all values in @xmath192 in case of @xmath193
+further , it also covers all values when @xmath194 .
+we are able to draw it since there are three dimensions : @xmath195{nashcorethreeplayersincaseofsymmetricrelativegain.pdf}\ ] ]    1 k. r. apt and a. witzel .
+`` a generic approach to coalition formation , '' _ international game theory review _ , vol.11 , no.3 , pp . 347367 , 2009 . h. aziz and f. brandl , `` existence of stability in hedonic coalition formation games , '' _ in proceedings of the 11th international conference on autonomous agents and multiagent systems ( aamas 2012 ) _
+, jun . 2012 .
+h. keinnen , `` an algorithm for generating nash stable coalition structures in hedonic games , '' _ in proceedings of the 6th international conference on foundations of information and knowledge systems ( foiks10 ) _ , 2010 .
+j. drze and j. greenberg , `` hedonic coalitions : optimality and stability , '' _ econometrica _ , vol .
+9871003 , jan .
+a. bogomonlaia and m. jackson , `` the stability of hedonic coalition structures , '' _ games and economic behavior _ , vol .
+38 , pp . 201230 , jan .
+n. burani , and w. s. zwicker , `` coalition formation games with separable preferences , '' _ mathematical social sciences , elsevier _ , vol .
+1 , pp . 2752 , feb . 2003 .
+young , `` the evolution of conventions , '' _ econometrica _ , vol .
+61 , pp . 5784 , 1993 . i. milchtaich , `` congestion games with player - specic payoff functions , '' _ games and economic behavior _ vol .
+13 , pp . 111124 , 1996 . j. hajdukov , `` coalition formation games : a survey , '' _ international game theory review _ , vol .
+4 , pp . 613641 , 2006 . f. bloch and e. diamantoudi , `` noncooperative formation of coalitions in hedonic games , '' _ int j game theory _
+40 , pp . 263280 , 2011 .
+o. n. bondareva,``some applications of linear programming methods to the theory of cooperative games , '' _ problemy kybernetiki _ , vol .
+10 , 119139 , 1963 . l. s. shapley , `` on balanced sets and cores , '' _ naval research logistics quarterly _ , vol . 14 , pp .
+453460 , 1967 .

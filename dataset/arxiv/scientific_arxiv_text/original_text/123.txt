@@ -1,0 +1,288 @@
+it is presently accepted that most stars form in clusters or groups , although the details of the cluster - formation process , especially the origin of their structural properties , remain a matter of active research ( see , e.g. , the reviews by * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+in particular , in recent years , a number of structural properties of the clusters have been uncovered that still require an adequate theoretical understanding , such as : i ) the existence of a mass segregation in the clusters , with the most massive stars lying closer to the cluster s center @xcite ; ii ) the distribution of protostellar separations , which appears to have no characteristic scale @xcite ; iii ) the likely existence of an age gradient in clusters , with the youngest stars being located in the highest - density regions @xcite ; iv ) the apparent deficit of ob stars in some infrared dark clouds .
+numerical simulations have begun to offer some insight about these properties .
+@xcite have concluded , from a suite of simulations of self - gravitating , decaying isothermal turbulence , that the most massive stars form in situ at the cluster centers , rather than `` sinking '' there through dynamical interactions in the cluster itself .
+however , they gave no physical explanation as to why the most massive stars should form there .
+more recently , @xcite have suggested , by comparing multi - wavelength observations of stellar clusters with numerical simulations , that clusters form by mergers of `` subcluster '' structures , although again no explanation of why such mergers should occur is provided .
+observationally , the presence of subunits of somewhat different ages in the clusters has also been pointed out by @xcite .
+a physical mechanism capable of providing a unifying scenario to these properties is that of global , hierarchical molecular cloud collapse , advanced by .
+the latter authors noted that , if molecular clouds ( mcs ) are assembled by large - scale colliding streams of warm , atomic gas that rapidly condenses into the cold atomic phase , then they quickly become jeans - unstable and begin to collapse globally .
+moreover , the turbulence induced by the collision of the streams causes moderately supersonic turbulence ( e.g. , * ? ? ?
+* ; * ? ? ?
+* ) in the cold gas , which produces a multi - scale spectrum of density fluctuations , where small - scale , large - amplitude ( ssla ) density fluctuations are superposed on larger - scale , smaller - amplitude ( lssa ) ones . since these density fluctuations are nonlinear , the denser ssla fluctuations have shorter free - fall times than the lssa ones , therefore completing their collapse earlier .
+this process is therefore similar to @xcite fragmentation , except that the density fluctuations are of turbulent origin and therefore nonlinear . in this sense ,
+the process is also similar to the mechanism of `` gravo - turbulent fragmentation '' , except that the cloud is _ not _ globally supported by turbulence , and the turbulent fluctuations do not collapse directly , but rather just plant the seeds for subsequent , local , scattered collapses as the cloud contracts globally @xcite . in what follows , we will refer to this intermediate scenario between hoyle and gravoturbulent fragmentation as `` global hierarchical collapse '' ( ghc ) .
+this scenario also predicts that the star formation rate ( sfr ) in mcs evolves ( initially increasing ) over time , as a consequence of the increase of the mean density of the clouds as they go through global gravitational collapse @xcite . assuming that massive stars do not form until the sfr is high enough that the imf is sampled up to high masses , then massive stars form late in the global process , and when they do , they begin to disrupt their parent clouds through their feedcak ( winds , ionising radiation , sn explosions ) , reducing the sfr again .
+@xcite presented a smoothed - particle hydrodynamics ( sph ) numerical simulation of cloud formation and evolution in the context of ghc that showed the formation of filamentary structures with embedded clumps . in that simulation ,
+the filaments constitute river - like structures , through which material flows from the extended cloud environment to the dense cores where star formation occurs .
+when the filaments are sufficiently dense , fragmentation occurs within them as the gas flows along them into the most massive cores .
+this implies that the filaments supply the dense cores with a mixture of stars and gas .
+this kind of flow was also observed ( although it was not discussed ) in a similar simulation presented by using the adaptive mesh refinement code art @xcite that included a simplified treatment of radiative transfer and a prescription to form stellar particles ) . ]
+( sps ) that allows imposing a power - law sp mass function with a slope similar to that of @xcite .
+this implies that , contrary to the situation in the simulation by @xcite , the clusters formed in the simulation of paper i , as well as their surrounding gas , are subject to realistic dynamics , which allows investigating the evolution of the clusters from their formation to the time when they disperse their surrounding gas .
+there exist many numerical studies of cluster formation , focusing on issues such as their stellar mass function , the correlation function of the spatial stellar distribution and cluster boundedness , and the formation of binaries ; the effect of feedback on producing massive stars and on destroying their parent clumps ; and the energy balance and rotation of the cluster as a function of the initial turbulence level in the parent cloud @xcite .    in this work , instead , we aim to describe the process of assembly and early evolution of the clusters as a consequence of ghc . to this end , we study a cluster formed in the simulation labeled laf1 in paper i , focusing on the resulting spatial structure of the cluster . in sec.[sec : model ] we briefly describe the numerical simulation , and in sec .
+[ sec : cluster ] we describe the criteria for defining the cluster and stellar groups , both in terms of the origin of their members as well as from their instantaneous positions .
+next , in sec.[sec : results ] we present our results concerning the assembly from subunits brought in by the ghc , as well as the resulting structure of the clusters . in sec .
+[ sec : discussion ] we discuss the implications of our results and compare them with existing observations , and in sec.[sec : conclusions ] we give a summary and some conclusions .
+the numerical simulation used in this work comes from the set performed in paper i with the hydrodynamics+n - body adaptive refinement tree ( art ) code of @xcite .
+the physical processes included are self - gravity , parameterized heating and cooling ( sec.[sec : hcrates ] ) , star formation with an imposed but realistic imf ( sec.[sec : sf ] ) , and simplified radiative transfer for the feedback from massive - star ionising radiation ( sec .
+[ sec : feedback ] ) .
+magnetic fields are neglected . for more details ,
+we refer the reader to paper i.      the simulation represents the head - on collision of two cylindrical streams in the warm neutral medium .
+the streams each have a radius of 64 pc and a length 112 pc , and each is traveling at a speed of @xmath0 .
+the numerical box ( including the streams ) initially has a uniform density @xmath1 and temperature @xmath2 k , implying an adiabatic sound speed of @xmath3 .
+thus , the streams move with a mach number of 0.8 with respect to the sound speed in the initial uniform background medium .
+the simulation uses a base resolution of @xmath4 grid cells , and allows for 5 refinement levels , reaching a maximum resolution equivalent to @xmath5 , with a minimum cell size of 0.0625 pc , or @xmath6 13 000 au .
+the refinement is based on a `` constant mass '' criterion , so that a cell size is refined when its mass exceeds @xmath7 .
+this implies that the grid cell size @xmath8 scales with density @xmath9 as @xmath10 .
+once the maximum refinement level is reached , no further refinement is performed , and the cell s mass can reach much larger values because of the probabilistic sf scheme ( sec .  [ sec : sf ] ) .
+note that this constant - cell - mass refinement criterion does not conform to the so - called _ jeans criterion _ @xcite of resolving the jeans length with at least 4 grid cells .
+those authors cautioned that failure to do this might result in spurious , numerical fragmentation .
+however , we do not consider this a cause for concern since , as will be described in sec .
+[ sec : sf ] , our star formation prescription allows us to choose the stellar - particle mass distribution , and tune it to a @xcite value .
+we use heating ( @xmath11 ) and cooling ( @xmath12 ) functions of the form @xmath13 these functions are fits to the various heating and cooling processes considered by @xcite , as given by equation ( 4 ) of @xcite , with the typographical corrections noted in @xcite . with these heating and cooling laws ,
+the gas is thermally unstable in the density range @xmath14 .
+no chemistry tracking is performed , and so the gas is assumed to be all atomic , with a mean particle weight @xmath15 .
+our simulation employs a probabilistic star formation prescription such that , if a grid cell reaches a number density @xmath16 , where  is a density threshold , then an sp of fixed mass @xmath17 may be placed in the cell with a probability @xmath18 every timestep of the root ( coarsest ) grid .
+if the sp is created , it acquires half of the gas mass of the parent cell .
+unlike standard sink particles ( e.g. , * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ; * ? ? ?
+* ) , our sps do not accrete .
+however , since our prescription for sf is probabilistic , once the highest refinement level is reached in a cell , it actually continues to accrete from the surrounding material , and grows in mass and density until an sp is actually placed in it .
+this implies that the accretion is performed in the gas phase , rather than onto the particles .
+serendipitously , it was found in paper i that this prescription allows the sps to form with a power - law mass distribution , whose slope can be tuned by varying the value of @xmath18 , at a given maximum resolution . in paper
+i it was reported that setting @xmath19 at the resolution used in our simulation caused the sp power - law mass distribution to attain an exponent of @xmath20 , thus being similar to the classical salpeter value .
+we set the threshold density for sp formation at @xmath21 , which corresponds to a cell mass of @xmath22 at the highest refinement level .
+thus , the minimum possible sp mass is @xmath23 . with this prescription
+, the most massive sp formed in this simulation has @xmath24 .
+note , however , that our imposed imf is a strict power law , and thus the most probable stellar mass is also the minimum .
+this implies that we are missing the low - mass ( @xmath25 ) side of the actual imf , implying that we are missing about half of the total number of stars , and that their corresponding mass ( 2030% of the total mass ) is deposited instead into the stars that do get formed in the simulation .
+we discuss the implications of this in sec .
+[ sec : limits ] .
+our simulation thus contains sps that represent individual stars ( not clusters or groups ) , with a realistic mass distribution above the most probable stellar mass .
+this allows the dynamics of the sps to be reasonably representative of the forming cluster dynamics , contrary to the case when the particles masses correspond to those of small groups , of up to a few hudreds of solar masses . in that case
+, low - mass particles can suffer exceedingly strong encounters with the massive particles , and thus acquire unrealistically high velocities .      in our simulation ,
+the feedback effect of the ionising stars on the mc is non - local , using a simplified radiative transfer prescription to model the formation and evolution of a hii region around an sp . as a zeroth - order approximation
+, we assume a uniform `` line - of - sight '' ( los ) characteristic density @xmath26 in the hii region , with a value equal to the geometric mean between the density of the cell containing the sp and that of the target cell .
+moreover , for any given star we assume an ionising flux @xmath27 taken from the tabulated data provided by @xcite .
+we then compute the corresponding strmgrem radius , @xmath28 , given by @xmath29 where @xmath30 @xmath31 s@xmath32 is the hydrogen recombination coefficient .    at each time step , we search for all cells surrounding every sp particle whose distances to it are smaller than @xmath28 .
+for each target cell that satisfies this condition , we set its temperature to @xmath33 and turn off the cooling there .
+the cell will remain so during the whole lifetime of the star , which is determined by its mass @xmath34 as @xmath35 as explained in paper i , for stars more massive than @xmath36 , this time is a fit to the stellar lifetimes by @xcite , while for stars with masses lower than that , it represents the fact that the duration of the stellar - wind phase is @xmath37 myr , roughly independently of mass .
+this also means that we are representing the effect of the winds and outflows of low mass stars by an ionization prescription .
+while this is clearly only an approximation , we do not expect it to have much impact on our calculations , since the main source of feedback energy at the level of gmcs is the ionization feedback from massive stars @xcite .
+although highly simplified , this prescription was tested in paper i against the known analytic formula for the evolution of @xmath38 in a uniform medium @xcite and shown to agree within 30% .
+this , we believe , is accurate enough given our interest in large - scale molecular cloud evolution and the associated cluster dynamics at early stages of assembly , rather than on the structural details of the ionised regions .
+one crucial step for the present study is the membership of stars to a given group or cluster .
+we now discuss our procedure of choice .
+observationally , the identification and membership definition of embedded stellar clusters is intrinsically a complex task , complicated by ambiguities and uncertainties , since the clusters do not have well defined edges , contamination by field stars is difficult to quantify , and faint members may be difficult to identify . in our case , the origin of the stars in the simulations is known , and this allows a classification of the stars by site of origin .
+however , this information is unavailable to observations , which instead must proceed by first identifying the cluster as a stellar surface density excess , and then define its members mainly on a statistical basis , by comparison with star counts in nearby control fields off the cluster @xcite . on the other hand ,
+in the simulation there are no `` field '' stars , but only stars from clusters formed at some other locations in the cloud .    for the purpose of defining a cluster or group by location at early times
+, we use the well known friends - of - friends ( fof ) algorithm @xcite .
+this is convenient at early stages , when the first groups of stars are well separated and the stars are easy to tag as part of a group that has formed at a certain time and location .
+however , note that , because of the hierarchical structure of the clusters , and [ sec : results ] . ]
+the number and stellar content of the resulting groups depends on the value of the so - called `` linking parameter '' passed to the algorithm .
+this parameter is a measure of the distance out to which neighbors are searched . at early times
+, the separation between groups is easily determined by eye , and the linking parameter can then be chosen to match the visual classification .    at later times , however , the groups change their size by dynamical interactions between their members , and moreover new stars continue to form in the same region , or in its outskirts , making it necessary to suitably define the regions size in order to determine stellar membership to a group .
+we thus define the radius of a group at a given time by performing an iterative process :    1 .   considering only the stars that were part of the group in the previous snapshot , we measure the distance from their center of mass to the most distant star .
+if this distance is less than twice the distance from the center to the second most distant star , we consider the distance to the most distant star as the radius of the group .
+otherwise , we consider the most distant star as a `` runaway star '' and take the radius of the group as the distance from its center to the second most distant star .
+next , we assign the new stars ( those formed in the period of time between the actual snapshot and the previous one ) to the group whose center of mass is closest to them .
+3 .   finally , including the new stars , we recompute the center of mass , size ( @xmath39 ) , total mass ( @xmath40 ) , and total number of stars ( @xmath41 ) of the group .
+we also compute the age of the group , @xmath42 , as the time elapsed since the moment when the group was first defined .
+however , neighbouring groups generally approach each other ( as part of the large - scale collapse ) and often they merge .
+we say that a new group has formed by the merger of two former groups when the distance between their centers of mass is smaller than the larger of the two radii . at that point
+, we consider that the earlier subgroups disappear . in general
+, we expect this process to operate at all scales in our simulation , with groups in turn forming from subgroups , and so on , in a hierarchical and self - similar manner .
+in this simulation , three main clusters form , two of which are sufficiently massive to clear out the dense gas around them on a timescale @xmath43 myr since the formation of the first stars ( from @xmath44 myr to @xmath45 myr in the evolution of the simulation ) .
+stars begin to form at @xmath46 myr , and the first hii  regions appear at @xmath47 myr .
+specifically , at @xmath48 myr , the dense gas has been cleared from a radius of @xmath49 pc around the clusters .
+figure [ fig : sim_imgs ] shows one snapshot of the simulation , at @xmath50 myr into the evolution , in which two hii  regions , surrounding the two most massive clusters , can be seen , while the filamentary structure of the cloud is still noticeable in general . the clusters themselves have formed along the main filamentary structures in the cloud , and contain @xmath51@xmath52 .
+note also that the structure of the most massive cluster retains the filamentary shape of its parent cloud , similarly to , for example , the structure observed in the orion a cloud .
+this similarity in fact is not limited to the filamentary shape , but also includes the fact that the filament has a larger concentration of stars in one end . in a future paper
+we plan to quantitatively explore the stucture and kinematics of these observed and simulated clusters .
+the crucial effect of the ghc scenario is that the filaments constitute part of the large - scale gravitational collapse , funneling gas into the cores within them , as observed by @xcite in a numerical simulation of cloud formation and collapse .
+moreover , these authors observed a hierarchy of collapses within the filaments , so that _ small clumps , which are collapsing locally , and sometimes forming stars already , are themselves falling onto larger - scale ones _ , similarly to the `` conveyor belt '' scenario proposed by @xcite for the gas stream in the central molecular zone .
+this is illustrated in fig .
+[ fig : imgs_clus2 ] , which shows a series of snapshots around the second most massive cluster ( hereafter , `` cluster 2 '' , located in the upper left part of the cloud ) among those seen in fig .
+[ fig : sim_imgs ] , from @xmath53 myr to @xmath54 myr . from @xmath55 18.92 to 19.05 myr it can be seen that new stars have formed in the first group . at @xmath56 myr
+, a second group is seen to have formed at a distance @xmath57 pc from the first . by @xmath58 myr
+, this second group is seen to have approached the first , being at a distance @xmath59 pc from it , and to have merged with it by @xmath60 myr .
+also , at this time , a third group is seen to begin forming in the far left part of the filament , containing only one star at that time , although by @xmath61 myr it already contains several stars ( not shown ) .    the effect of the feedback is also worth noting . already by @xmath58 myr
+, the section of the filament connecting the two clusters is seen to be partially disrupted , and some gas is being expelled from the clump containing the main group .
+however , accretion along the filament is seen to have replenished this section of the filament at @xmath62 myr , although the other side of the filament is now seen to be in the process of dispersal .
+finally , by @xmath54 myr , the filament is seen to be in the process of dispersal on both sides of the cluster .
+figure [ fig : imgs_clus2b ] then shows the late stages of the evolution of this cluster . by @xmath63
+myr the filament is seen to have been dispersed out to distances @xmath64 pc , and by @xmath65 myr , a large hii  region , of diameter @xmath66 pc has formed , although the group on the left retains some of its gas , and a new group has formed in an `` pillar '' that constitutes the remainder of the filament .
+also , along this filamentary structure , yet another group is seen to have formed ( at the far right of the image ) . by @xmath67 myr ,
+most of the dense gas has been cleared from the region , and the cluster is seen to consist of four groups , two of them almost devoid of gas ( `` naked '' ) and two of them still embedded in their respective clumps .                            from the above description , it becomes clear that the clusters in this simulation are assembled by means of a hierarchical process , in which subunits formed at slightly different locations and times merge as they fall into a large - scale potential well , _ feeding the central clump with both stars and gas_. in the following sections we discuss various implications of this mechanism .
+the resulting evolution of cluster 2 is illustrated in fig.[fig : cluster_evol ] , which shows the projected positions of the stellar particles on the @xmath68 plane at times @xmath69 , 21.44 , 22.40 , and 25.34 myr in the _ top left , top right , bottom left , and bottom right panels _
+.    in this cluster , stars begin to form at @xmath70 myr and fig .
+[ fig : cluster_evol ] shows that they are assembled into a cluster in such a way that at @xmath69 myr we identify two subgroups ( hereafter , groups 1 and 2 ; see the _ top left panel _ of fig .
+[ fig : cluster_evol ] ) of what will later become a larger , merged group ( group 1 - 2 ) .
+we use square symbols to identify stars that belong to group 1 , and filled circles for stars belonging to group 2 .
+furthermore , we color them according to their age as shown in the labels and qualitatively represent their masses by the symbol size , with larger symbols indicating larger masses .
+the green and red circles represent the group radii at each time , computed as explained in sec .
+[ sec : cluster ] , with the dashed circles representing the size out to the most distant star , and the solid circles representing the distance to the second most distant star . in
+what follows , we use the distance to the second most distant star as the radius of group 1 - 2 , because the first most distant one is clearly `` running away '' from the group .
+finally , we use larger symbols to represent more massive stars , and smaller symbols to represent lower - mass stars .
+thus , even at these early stages , we can see that _ the more massive and younger stars tend to be near the centers of the groups_.             from fig .  [ fig : cluster_evol ] it is clearly seen that , at these early stages , the groups are undergoing expansion , and that star formation continues within them .
+by @xmath71 myr , both groups have similar sizes , masses , and number of stars , and they have undergone a large enough expansion that their merger appears inevitable .
+the formerly `` most distant '' star of group 2 is now far away from the center of either group . by our definition ,
+the merger occurs at @xmath72 myr , forming the new group 1 - 2 .
+we have kept the circular and square symbols to indicate the original group membership of the stars in the merged group .
+triangles now represent stars born in the new group 1 - 2 .
+thus , this new group contains stars that were born at somewhat different times and locations .    for later times , we continue to track the evolution of this and other , new groups appearing in a 10-pc box around group 1 - 2 , and by @xmath73 myr , we now find a system of groups with different ages , masses , and sizes ( _ bottom right panel _ of fig .
+[ fig : cluster_evol ] ) .
+these groups lie approximately in a straight line , because they formed in the filament feeding the main clump . eventually , as these groups expand and approach each other , they finally become part of what we refer to as the whole cluster 2 , as seen in the _ bottom right panel _ of fig.[fig : imgs_clus2b ] , although the subunits are still partially distinguishable at that time ( @xmath74 myr ) .      as mentioned in the introduction , one fundamental implication of the ghc scenario
+is that the sfr of star - forming clouds must increase in time until the time when massive stars begin to appear and to destroy their parent mc @xcite .
+figure [ fig : sfr_evol ] shows the evolution of the sfr in groups 1 and 2 , as well as in the merged group 1 - 2 . except for group 2 , in whose parent cloud the sfr starts relatively high and then decreases , for groups 1 and 1 - 2 the trend of increasing sfr is observed .
+moreover , the sfr for the merged group 1 - 2 is much larger than the maximum value reached in group 2 before the merger , so the increase of the sfr also holds for the system of groups 1 and 2 combined , before and after their merger .        assuming that massive stars do not form in a region until the sfr is locally high enough to sample the imf up to large masses , the increase of the sfr implies that the massive stars should tend to appear late in the evolution of star - forming regions .
+this is illustrated in fig.[fig : age - mass ] , which shows the mass of the stars _
+vs. _ their age at @xmath54 and @xmath75 myr . at both times
+, it is clearly seen that the oldest stars have the lowest masses , and that , as the age decreases , the range of stellar masses extends to larger values .
+this is also illustrated in fig .
+[ fig : cum_mass_hist ] , which shows the cumulative mass distribution of groups 1 , 2 , and 1 - 2 at various times .
+it is seen from this figure that the relative abundance of massive stars increases over time , especially after groups 1 and 2 have merged .
+the ghc mechanism implies that each star - forming site is locally undergoing collapse while simultaneously it is falling into larger - scale potential wells .
+moreover , since the small - scale regions are forming stars on their own , this process in turn implies that the larger scales are fed both gas and stars ( cf .
+[ sec : global_evol ] ) from the surrounding infalling material . also , the small - scale regions fall into the larger - scale ones mostly along filaments @xcite .
+an important consequence of this `` mixed '' ( gas+stars ) infall is that the ensemble of stars constitutes a non - dissipative `` fluid '' that conserves the kinetic energy of the infalling motions .
+thus , the stars formed _ before _ reaching the large - scale collapse center should exhibit a velocity dispersion corresponding to their motions as they were infalling to the center of the large - scale potential well . in turn
+, this implies that older stars should reach somewhat larger distances from the center of a group or cluster that has undergone mergers than the stars formed _ in situ _ in this merged clump , where the gas from which they inherit their velocity dispersion has probably been shocked and thus has lost some of the infall kinetic energy .         figure [ fig : age_profile ]
+shows the age of the stellar particles as a function of their distance to the center of mass of cluster 2 at @xmath76 myr .
+it is seen that all of the youngest stars ( @xmath77 , and in particular several stars with @xmath78 myr ) , are located within the central 0.5 pc of the cluster .
+this is qualitatively consistent with the observation that the youngest stars appear tightly clustered around core - like or filamentary star - forming regions .    instead , at larger distances ( @xmath79 pc )
+, there are no particles with @xmath80 myr .
+these older stars are the ones that formed in groups 1 and 2 , prior to their merging .
+this can also be seen in the _ bottom left _
+panel of fig .
+[ fig : cluster_evol ] , which shows that the stars farther from the center of group 1 - 2 are all represented by circles and squares ( i.e. , formed previously to the merger ) and by green and cyan colors , denoting ages between 1 and 4 myr , while the stars clustered near the center have ages @xmath81 myr , as indicated by their black - colored symbols .    on the other hand
+, we also notice in fig .
+[ fig : age_profile ] that the inner 0.5 pc of the cluster also contains several old stars , and in particular , the oldest ones ( @xmath82 23.5 myr ) .
+this suggests that some of the stars formed previously to the merger have already had @xmath83-body interactions with the other stars in the region , and thus have transferred their excess kinetic energy to other stars in the cluster .
+this is facilitated because these old stars have low masses , so that they are strongly affected by interactions with more massive ones . indeed , as discussed in sec .
+[ sec : sfr ] ( fig .
+[ fig : age - mass ] ) , the oldest stars have masses near the peak of the imf , which in our case is also the minimum stellar mass ( cf .  sec .  [
+sec : sf ] ) .
+also , as mentioned in secs .
+[ sec : intro ] and [ sec : sfr ] , another implication of the ghc is that the sfr increases in each star - forming site until feedback begins to destroy the gas supply onto it , at which point the sfr begins to decline there , and perhaps shut off completely . using a semi - analytic model for the evolution of collapsing clouds and their sfr , @xcite showed that this acceleration of the sf at each star - forming site implies that the age histogram of the site before a few myr of its destruction is characterized by a large peak of very young ( age @xmath84 myr ) and a small tail of older ( up to several myr ) stars , similarly to the age histograms of embedded clusters in various nearby mcs @xcite .
+figure [ fig : age_hist ] shows the age histogram of the stars in groups 1 and 2 at various times , as the clumps that embed them merge and continue to form stars . at @xmath85 myr ,
+the two clumps and their embedded groups are still separate , and a histogram for each group is shown . at @xmath86 myr , the two clumps and their embedded groups have already merged , and thus a single histogram is shown .
+it is seen that , at this time , the most numerous stars are those less than 1 myr old .
+neverthless , there are also a few stars up to nearly 4 myr old .
+this indicates an acceleration of sf during the first @xmath87 myr of evolution of cluster 2 . at later times ( @xmath88 and @xmath89 myr ) , the number of young stars decreases , while the most numerous stars are those formed around @xmath90 myr .
+this indicates a decline of the sfr after this time due to the onset of gas dispersal by the feedback .
+figure [ fig : mass_profile ] shows the radial distribution of the stellar particle masses at @xmath54 myr .
+it can be seen that all but one of the stars with mass @xmath91 , and all stars with @xmath92 are located within @xmath93 pc of the computed center of the cluster .
+only one star with @xmath94 is located at @xmath95 pc from the cluster s center of mass
+. however , close inspection of the time sequence outlined by the various images of fig .
+[ fig : cluster_evol ] shows that this is a runaway star formed in , and ejected from , group 1 before the merger .
+this star is represented by the cyan squared symbol lying on the green solid circle in the _ top right _ panel [ @xmath96 myr ] of fig.[fig : cluster_evol ] and on the solid orange circle in the _ bottom left _ [ @xmath97 myr ] panel .
+thus , this star is just `` flying by '' the cluster . instead
+, the other massive stars in group 1 - 2 have formed _ in situ _ , as indicated by the triangular shape of their symbols in fig .
+[ fig : cluster_evol ] .    also , the other massive stars are represented by symbols of white and cyan colors , and with triangular shapes , indicating that those stars are younger ( @xmath98 myr ) , and formed _ in situ _ in the merged group 1 - 2 .
+thus , we conclude that , except for the star that is `` passing by '' , the massive stars have formed after the merger of groups 1 and 2 to form group 1 - 2 , thus being younger and tightly clustered near the group center .
+another feature of the cluster evolution seen in figs.[fig : age_profile ] and [ fig : mass_profile ] is that the cluster expands as it evolves , increasing its radius from @xmath99 pc at @xmath54 myr to @xmath100 pc at @xmath101 myr .
+the reason for this is not totally clear
+. it can be due in part to the fact that the gaseous material is beginning to be expelled from the clump , as can be seen in figs .
+[ fig : imgs_clus2 ] and [ fig : imgs_clus2b ] , and in part to the fact that the velocity dispersion of the older stars , formed in the scattered ssla regions that have fallen into the lssa one , corresponds to the large - scale potential well , not that of the local star - forming site ( cf .
+[ sec : age_distr ] ) , causing the cluster to expand to a size representative of this somewhat larger energy .
+we now discuss the hierarchical structure of the cluster itself , resulting from the process of ghc of its parent cloud .
+figure [ fig : hier_clus ] shows the stars belonging to the cluster at time @xmath74 myr , first as a whole , and then as identified by a friends - of - friends algorithm using three different values of the `` linking parameter '' @xmath102 , which determines how far neighbours are searched in order to identify a group .
+we see that , using a small value of the parameter ( @xmath103 , _ top right _ panel ) , 10 tight groups are identified ( denoted by the different colors ) , while using larger values ( @xmath104 and 2 , _ bottom left _ and _ bottom right _ panels ) , respectively 9 and 4 are identified , each group being significantly more extended .
+we also note that , at the lowest value , @xmath105 , a whole group of moderately scattered stars is left out , which is nevertheless identified as a group at higher values .
+these results show that the structure of the cluster resulting from the global , hierarchical contraction of the cloud , is inherently `` nested '' , consisting of structures within structures within structures , reflecting the structure of the parent cloud , which in turn is a consequence of its multi - scale , hierarchical collapse .
+we can summarise the discussion in the previous section as follows .
+the underlying assumption for interpreting the emerging properties of the clusters formed in the scenario of ghc is that first proposed in @xcite , namely that massive stars only form in sites where the local sfr is high enough that the imf can be sampled to correspondingly large stellar masses .
+conversely , the most common stars in low - sfr sites should be those at the peak of the imf .
+this is , of course , a fully probabilistic interpretation of the imf , and it does not address the physical mechanisms responsible for the development of the imf itself . however , it allows a framework for understanding the assembly of the clusters .    also , under the assumption that structures of all scales are collapsing , as required by the ghc , at a given density ( and therefore , a given free - fall time ) , more massive clumps are expected to have higher sfrs , if the sfr is given , to first order , by the ratio of the clump mass to its free - fall time .
+our simulation mimics these hypotheses , due to the probabilistic scheme used for the formation of a stellar particle .
+the longer it takes for a particle to form , the more massive it will be , since the cell in which it forms continues to accrete and becomes more massive , without further refinement , and then the particle forms with half the mass of the cell .
+but , as shown in figure 1 of paper i , the probability of being able to wait very long times before forming a stellar particle is very low , and so the probability of forming of a very massive star is also very low .
+thus , our simulation is expected to generally only form massive stars when the local sfr is very high , although there can be a few exceptions to this pattern .
+finally , in the ghc scenario , the low - mass , small - scale but large - amplitude ( ssla ) star - forming sites should appear earlier in the evolution of the cloud , because of their shorter free - fall times , while the high - mass , larger - scale , smaller - amplitude ( lssa ) sites should appear later . moreover
+, the low - mass sites should be falling into the trough of the gravitational potential well of the high - mass ones .
+however , low - mass sites continue to appear at all times in the filaments that feed the massive clumps until the filaments are destroyed by the feedback .
+thus , the low mass stars formed in the low - mass , infalling clumps share the clumps infall velocity , and thus should have larger velocity dispersions than the stars formed in the main , massive clump , which can have both low or high masses .
+the above considerations imply a number of properties of the resulting clusters :    1 .
+the oldest stars tend to have low masses
+. however , the converse is not necessarily true : low - mass stars in general can be either young or old .
+this trend is shown in the _ top _ panel of fig .
+[ fig : age - mass ] , which shows the mass _ vs. _ the age of the stars in the cluster at times @xmath97 and 23.66 myr .
+the oldest stars have larger velocities ( fig .
+[ fig : v - age ] , _ left _ panel ) , and consequently , they may be encountered at larger distances from the local star - forming site ( fig .  [ fig : age_profile ] ) .
+the most massive stars appear later ( a few myr ) in the evolution of the clump ensemble , when various ssla sites have merged to form a lssa site .
+this is shown in figure [ fig : cum_mass_hist ] , which gives the cumulative stellar mass histogram for groups 1 and 2 , independently and combined , at various times . as time proceeds , progressively larger fractions of the stars are seen to be massive .
+4 .   the sfr increases during the early stages of the cluster assembly , until the time when massive stars begin to form . after this time , the sfr decreases , as the ionising feedback from the massive stars begins to destroy the clump and its filamentary gas supply .
+this is seen in the evolution of the age histogram , shown in fig .
+[ fig : age_hist ] .
+the oldest stars constitute a minority , since the sfr initially increases with time .
+however , after the appearance of ob stars that can partially or completely destroy the local clump and its supplying filaments , the sfr decreases again , and thus stars younger than the age of the oldest massive stars should be less abundant as well , as also shown in fig .
+[ fig : age_hist ] .    note that these properties refer to regions of sizes a few parsecs and ages of at least a few myr , and so it specifically does _ not _ refer to the local and instantaneous stellar production in a single clump , for which our simulation can not discern whether massive stars form first or last , or how long does it take to build a massive star .
+also , note that young star - forming regions may consist of several low - mass local star - forming sites , and contain no large - scale site yet .
+this situation corresponds to times where the first low - mass sites have not yet merged to form a more massive one .
+our numerical results are qualitatively consistent with recent observational results on the age and mass distributions of young stellar objects in star - forming regions . in particular , @xcite have recently reported the existence of age gradients in the stellar populations of various massive star - forming regions , such that the youngest stellar objects are located in the obscured regions of molecular clouds , intermediate - age objects are located in revealed clusters , and the oldest objects are found in distributed populations .
+this is qualitatively consistent with our result that the oldest objects can be found at large distances from the cluster s center due to their larger velocity dispersion , in turn due to their formation far from it , so that their velocities include the component from their infall onto the central massive clump .
+instead , younger objects formed in the clump lack this component of the velocity , and these are characterised by somewhat lower velocites .
+also , the larger velocity dispersion of the older objects predicted by the ghc scenario has been observed by @xcite in the orion a cloud .
+@xcite considered several possible scenarios that could lead to the age segregation they observed .
+of these , the one closest to the mechanism of hierarchical assembly by ghc is their scenario b , since it invokes the acceleration of sf as proposed by @xcite , which is consistent with our scenario @xcite .
+however , the similarity between ghc and scenario b of @xcite is not complete , since they did not consider the accretion of both stars and gas onto the trough of the large - scale potential well .
+in addition , @xcite have concluded that the cloud complex known as the m17 southwest extension ( m17 swex ) appears to be lacking very massive stars in comparison with the number expected from its estimated sfr .
+this region consists of several scattered star - forming cores , separated by distances of several parsecs from each other ( m.povich , private communication ; see also busquet et al .
+this is consistent with the hierarchical assembly of the cluster in our simulation , since several isolated , intermediate - mass star - forming clumps may produce a relatively numerous combined population of ysos that may however not yet have formed massive stars , because in the ghc scenario this only occurs after these smaller regions have merged to form a massive one .
+this is again illustrated in fig.[fig : cum_mass_hist ] , which shows that the relative abundance of massive stars increases over time , especially after groups 1 and 2 have merged .
+we conclude that the scenario of ghc provides an assembly mechanism for clusters that naturally predicts the observed age segregation and bottom - heavy imf of young clusters . in a future contribution
+we plan to carry out a detailed quantitative comparison between the clusters in simulations that sample the imf to lower masses ( see sec.[sec : limits ] ) and the observed properties of specific clusters .
+the present study is based on the underlying hypothesis that our probabilistic stellar particle formation scheme mimics the mechanism leading to the development of the imf .
+that is , we interpret the imf strictly as a random sampling process , so that the scarcity of massive stars is interpreted to imply that the probability of forming one is very low and given precisely by the imf .
+interestingly , the fact that our simulation , using a probabilistic criterion for the formation of stellar particles ( cf
+.  sec .
+[ sec : sf ] ) , qualitatively reproduces several observed properties of young clusters , suggests that our underlying assumption is reasonably realistic .
+nevertheless , our star formation scheme does have some limitations .
+most importantly , as described in sec .
+[ sec : sf ] , the minimmum stellar - particle mass is @xmath106 , which is near the peak of the observed stellar imf , and thus we are missing stars on the low - mass side of the imf .
+our imposed imf is thus a strict power law , that lacks the turnover at low masses .
+this implies that we are missing a significant number of low - mass stars , about half of the total number of stars .
+their mass , @xmath107 of the total mass for a @xcite imf , and @xmath108 for a @xcite imf , is instead deposited into the stars that do form in the simulation , with masses @xmath106 to @xmath109 .
+this may affect the dynamics of the clusters formed in the simulation , although not very strongly , since the missing stars have low masses , and are not expected to affect the dynamics of the higher - mass ones too much , especially if the tend to form a roughly uniform background .
+the fact that the structure of our clusters resembles that of observed young clusters reinforces this expectation .
+we nevertheless plan to improve our star formation scheme in order to produce a more complete stellar - particle mass spectrum , and with this carry out a more detailed and quantitative comparison with observations .
+meanwhile , we consider that our study conveys an illustrative first approximation to the problem of cluster assembly , capturing the essential aspects of the hierarchical assembly of these objects .    other limitations of our simulation are that it does not include magnetic fields nor any form of feedback other than ionisation heating , in particular supernova ( sn ) explosions
+. the neglect of magnetic fields may not be crucial , since our present understanding is that mcs are generally magnetically supercritical , meaning that the magnetic field is in general unable to support them against their own self - gravity , and therefore they proceed unimpeded to global collapse .
+the neglect of sn explosions is also not crucial because of two main reasons .
+first , it is becoming increasingly accepted that sn explosions need to occur within the clouds in order to remove significant amounts of mass from the clouds @xcite , although on the other hand , only sne that explode in low - density environments avoid energy losses that allow efficient coupling with the gas @xcite .
+also , pre - sn feedback is required to allow blastwaves to propagate efficiently into the ism @xcite .
+second , and more importantly , our study suggests that the assembly of the clusters is accomplished mostly during the early stages ( first few myr ) of the clouds evoloution , during which few or no sne are expected to occur , especially if massive stars form late in the evolution of the cloud , as suggested by the ghc scenario .
+so , the ionising feedback included in our simulations is probably the most relevant form of feedback for regulating the gas flow onto the sites where the new stars are forming .    finally , our feedback prescription ( sec .
+[ sec : feedback ] ) is of course crude , solving the radiative transfer only in an approximate way .
+although it was shown in paper i that the evolution of an hii  region with this prescription does track the uniform - medium analytic solution reasonably well , it is possible that our prescription allows evaporation of regions that should be shaded behind dense clumps , since it does not take into account the density of the intervening material between the ionising star and the cell on which the effect of the radiation is being determined .
+thus , our simulations may somewhat overestimate the evaporation rate of material in filaments containing dense clumps .
+however , since the filaments themselves are denser than the background medium , and their length far exceeds that of isolated clumps and cores , their column density for situations where the filament is aligned with the ionising object and with the intervening clump ( as in the case of filaments feeding the main clump where the ionising object formed ) may be comparable to or even larger than that of the intervening clump . therefore , the shadowing caused by this clump is likely to be of secondary importance . indeed , figure 10 in paper
+i shows the gradual evaporation of filaments containing clumps in a way that allows the formation of `` pillars '' , and finally isolated globules within growing hii  regions , similarly to objects like the `` pillars of creation '' and dark globules , respectively . on the other hand ,
+our feedback prescription allows the simulations to run orders of magnitude faster than if the radiative transfer is followed in full .
+we thus conclude that our prescription provides a sufficiently realistic framework for the study of the assembly of stellar clusters .
+in this paper , we have discussed the mechanism of assembly of a cluster in a numerical simulation of cloud formation and collapse by converging flows . the assembly proceeds in a hierarchical way as a consequence of the hierarchical nature of the collapse of its parent cloud @xcite .
+the hierarchical collapse regime consists of small - scale , large - amplitude ( ssla ) collapses ( involving small total masses ) within large - scale , small - amplitude ( lssa ) ones ( involving large masses , which are spread out over large scale regions ) .
+collapse at all scales involves accretion onto the troughs of the potential wells ( the collapse `` centers '' ) .
+the large - scale collapses involve the generation of filamentary flows that funnel material from the whole large - scale region down to its collapse center , and the small - scale collapsing regions `` ride '' along these large - scale filamentary flows @xcite , in a `` conveyor belt '' fashion @xcite . because the small - scale collapses start forming stars earlier ( due to their larger amplitudes , which imply shorter free - fall times ) , they often reach the large - scale collapse center already containing stars in addition to fresh gas .
+this mechanism then implies that massive star - forming sites form by the merging of smaller - scale star - forming regions , which supply both stars and gas to the larger sites , and thus these larger - scale sites contain a mixture of locally formed stars and stars that formed at a remote , smaller - scale site and that are brought to the large - scale site by the infalling flow .
+moreover , the stars that form in the small - scale , scattered sites have an infall velocity corresponding to the larger - scale potential well .
+however , stars formed in the massive center of the large - scale collapse , form from gas that has probably been shocked upon its arrival there , and so they form with a somewhat lower velocity dispersion .    finally , this scenario also implies that the sfr must increase with time during early stages of evolution , and then decrease again as the massive stars begin to destroy their forming sites @xcite .
+this acceleration of the sf process , combined with a face - value interpretation of the imf as a probability distribution function of stellar masses , suggests that massive stars are only expected to form once the sfr is large enough to sample the imf to high masses .
+therefore , massive stars should form last in the evolution of the whole ensemble of star - forming sites , once the low - mass ones have merged to form a large - mass , high - sfr one .    from these considerations ,
+we have concluded that a cluster that has formed from the hierarchical collapse of its parent cloud must have the following characteristics :    * the oldest stars tend to have low masses , because they formed in the low - mass sites early in the evolution of the cloud .
+however , newer stars can be either low - or high mass , as they form in the high - mass site formed by the merger of the low - mass ones .
+* the oldest stars tend to have larger velocity dispersions , because they are characterized by the infall velocity of the material onto the high - mass collapse center
+. however , this effect tends to be washed out by the stellar interaction as the cluster ages .
+* as a consequence , older stars tend to be at larger distances from the collapse center ( or filament ) .
+* the most massive stars tend to be younger , because they only form when the sfr of the whole region has increased sufficiently to sample the high - mass regions of the imf . * as a consequence , the low- and intermediate - mass sites that have not concluded the merging process may be defficient in the highest - mass stars . * because of the increasing sfr , most stars are young , although a small fraction may be as old as several myr .
+these features are in good qualitative agreement with observed properties of young clusters , which seem to have a hierarchical structure , have an age gradient , so that the oldest stars tend to be farther from the forming sites @xcite and to have larger velocities @xcite .
+also , the scenario implies that ensembles of cores in early phases of evolution will be defficient in massive stars compared to the expected number form their combined stellar production , as observed by @xcite .
+we conclude that the scenario of ghc allows a clear understanding of the properties of young clusters , in terms of the multi - scale collapse of their parent clouds .
+e.v .- s .  is glad to acknowledge enlightening discussions with matt povich on the observed structure of young clusters .
+was supported by uc - mexus fellowship .

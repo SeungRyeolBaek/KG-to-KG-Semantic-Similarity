@@ -1,0 +1,144 @@
+lens - source relative proper motions @xmath5 are frequently measured in planetary microlensing events , but to date there are no published measurements of the source proper motion itself in these events ( @xmath6 ) .
+this may seem surprising at first sight because the source is almost always visible whereas the lens is typically invisible .
+in fact , however , @xmath7 is generally both more useful and easier to measure than @xmath6 .
+source - lens proper motions can be measured essentially whenever there are significant finite - source effects in the event @xcite because the source - lens crossing time @xmath8 is directly measurable from the light curve , while the angular size of the source can be extracted from its dereddened color and magnitude @xcite , which in turn can be extracted by placing the source on an instrumental color - magnitude diagram @xcite .
+the most important application of @xmath7 is not the proper - motion itself , but rather that it immediately yields the einstein radius , @xmath9 where @xmath10 is the einstein timescale ( measurable from the event ) , @xmath11 is the lens mass , and @xmath12 is the lens - source relative parallax .
+therefore , @xmath13 usefully constrains a combination of the lens mass and distance .
+however , @xmath7 does often play a role at the next level . because @xmath11 and @xmath14 are not determined independently
+, one normally must make a bayesian estimate of these quantities , using inputs from a galactic model @xcite , which can include priors on @xmath7 . in principle , the bayesian analysis could also include priors on @xmath6 if this quantity were measured .
+there are two reasons why this has not been done yet .
+first , in many cases , the posterior probabilities would not be strongly impacted by this additional prior .
+second , and probably more important , it is remarkably difficult to measure @xmath6 in most cases .    here
+we present a new method to measure @xmath6 , which is tailored to meet the challenges of the faint , moderately blended sources typical of microlensing events seen toward the galactic bulge .
+we are motivated to develop this method by , and specifically apply it to , the planetary microlensing event moa-2011-blg-262/ogle-2011-blg-0703 .
+this event has a short timescale @xmath0days , a very high ( or high ) relative proper motion @xmath15 ( or @xmath16 for the competing , nearly equally likely , microlensing model ) , and a companion / host mass ratio @xmath1 @xcite .
+these parameters are , in themselves , consistent with either a lens that contains a stellar host with a jovian - class planet in the galactic bulge , or a brown dwarf ( or possibly a jovian planet ) with an earth - class `` moon '' .    in the former case ( stellar host in the bulge ) ,
+the very high @xmath7 that is measured in the microlensing event would almost certainly require combinations of abnormally high lens and source proper motions .
+that is , if the source were moving slowly , it would be quite unusual for the lens proper motion to be large enough to account for the high relative proper motion by itself .
+by contrast , if the lens were in the foreground disk ( and so of much lower mass ) , its proper motion relative to the frame of the galactic bulge could easily be high enough to explain the observed @xmath7 .
+thus , for this event , it would be important to actually measure @xmath6 .
+the optical gravitational lensing experiment ( ogle ) is a long - term photometric sky survey focused on finding and characterizing microlensing events in the galaxy .
+the first phase of the ogle project began in april 1992 and the project continues to this date with its fourth phase currently being executed @xcite .
+ogle monitors brightness of hundreds of millions of stars toward the galactic bulge with high cadence , using dedicated 1.3 m warsaw telescope at las campanas observatory , chile . every night
+between 100 and 200 1.4 deg@xmath17 exposures are being taken .
+in addition to the performed real - time reduction and analysis , all the science frames are archived in their full integrity . these constitute an unprecedented data set for various astronomical studies .
+the decades - long time span of the ogle monitoring provides us with a unique opportunity to precisely measure proper motions of many stars in the galactic bulge , including the source star of this very interesting microlensing event .
+proper motion studies of the galactic bulge have been previously carried out using the ogle data .
+for example , @xcite measured proper motions for over @xmath18 stars over 11 deg@xmath17 using the ogle - ii data from 1997 to 2000 .
+however , this survey was restricted to resolved stars , @xmath19 .    in the present case ,
+the source magnitude is @xmath20 ( as determined from the microlens models ) , which would be close to the photometric detection limit even if the source was relatively isolated .
+in fact , the source is blended with a brighter star , and was not recognized as an independent star in the reference image , prior to the event .
+hence , a new technique is required to measure the proper motion , which is described in the next section .
+consider a difference of two images that has been generated by standard difference image analysis ( dia,@xcite ) .
+that is , the images have been geometrically aligned to a common frame of reference stars , photometrically aligned to the same mean flux level , and one has been convolved with a kernel function to mimic the point spread function ( psf ) of the other .
+the usual purpose of this procedure is to detect stars whose flux has changed between the two epochs .
+these will appear as relatively isolated psfs on an otherwise flat background ( beside the noise , cosmic rays , masked regions , satellites , etc . ) .
+however , let us now consider the case that there have been no flux changes but only position changes . for simplicity , we begin by assuming that the psf is an isotropic gaussian @xmath21 where @xmath22 is the gaussian width .
+let us now assume that one star has been displaced by a distance @xmath23 in the direction @xmath24 , while all other stars have remained fixed .
+if we further assume that @xmath25 , then it is straightforward to show that the difference profile will have the form @xmath26 where @xmath27 and @xmath28 is the flux of the star .
+thus , the difference image will have an anti - symmetric dipole profile , whose form is always the same ( @xmath29 ) .
+the amplitude of this dipole is given by the product @xmath30 , and the direction is simply the direction of motion .
+note that the maximum of the dipole profile lies at @xmath31 , i.e. , @xmath32 from the star center .
+moreover its height relative to the peak of the original star is @xmath33 thus , if several stars have moved , then the difference image will contain several dipoles , all with the same form , but with different amplitudes and pointing in different directions .
+see figure  [ fig : dia ] .    in principle , then , it is possible to determine the proper motion of a star by measuring the height of the dipole relative to the original image and applying equation  ( [ eqn : max ] ) . in practice ,
+the utility of this approach is limited to fairly restricted conditions .
+first , if the star is truly isolated , it is usually more convenient to simply measure the star at many epochs in the usual fashion . on the other hand ,
+if the star is heavily blended , it will still produce a dipole as given by equation  ( [ eqn : dipole ] ) but there will be two problems .
+first , the star s flux @xmath28 can not usually be disentangled from that of other stars within the psf . hence ,
+when the dipole amplitude ( @xmath30 ) is measured , one can not extract @xmath23 from it .
+second , other stars within the psf may also have moved , each in its own direction @xmath34 and each with own amplitude @xmath35 .
+when several stars are in the same psf , all that can be observed is the vector sum of these dipoles : @xmath36 .
+now , for microlensed sources , the first of these problems is actually easily solved because the microlensing fit returns the source flux @xmath37 as one of its parameters .
+however , the second problem remains .
+this means that the technique is actually applicable only to moderately blended sources in which the blending can be reasonably well understood .
+before undertaking such an application , we note that the above formalism is easily extended to asymmetric gaussian profiles,@xmath38 where @xmath39 is the inverse covariance matrix , @xmath40 is now the 2-dimensional coordinate , and where we use einstein summation convention .
+then the dipole is given by @xmath41 of course , one might also consider non - gaussian profiles , but since almost all the signal comes from within a few @xmath42 , while the deviations from a gaussian are not understood well enough to characterize @xmath43 at sub - pixel scales , this level of complexity is generally not warranted .
+the difference image in dia can be constructed either by taking the second epoch image as an `` image '' and the first epoch image as a `` reference image '' or vice versa . in the latter case
+, the measured dipole direction should be flipped to obtain the real direction of the proper motion . since the `` reference image '' will be convolved with a kernel to match its psf to the psf of the `` image '' , one should choose the lower - seeing image out of the two for the reference image .
+before the dia procedure can be performed , the images should be aligned to a common pixel grid .
+this is done by picking a set of bright common stars in both images , finding polynomial or spline interpolation of the coordinates and resampling one image to the other image s pixel grid @xcite .
+this step ensures that both images cover the same region of the sky  modulo the quality of the transformation .
+the differences should be small compared to the fitting regions of the dia kernel ( domains ) . other advantage
+this procedure brings is compensation of the majority of the differences of field distortion between the two epochs .
+thus , the dia kernel can have less free parameters to achieve similar quality of subtraction .
+it is extremely important to understand what degrees of freedom the dia kernel has before any conclusions about the proper motion can be made .
+one example would be a kernel transforming a gaussian psf into a gaussian psf with the same centroid .
+if the images were not carefully aligned to remove all of the field of view deformations the subtraction could turn out poor . by introduction of the additional parameters to the mathematical model of the psf , describing smooth shifts of its center across the field , subtraction would be greatly improved .
+@xcite dia uses a series of gaussians multiplied by polynomials for the mathematical model of the psf .
+the difference of two gaussian profiles displaced by a small distance @xmath44 ( @xmath45 ) is equal to the gaussian multiplied by the first order polynomial ( _ cf .  _
+( [ eqn : dipole ] ) ) . hence ,
+if we allow a psf model to be constructed from a gaussian multiplied by the first order polynomial , with parameters being a function of position on the image , we effectively allow for the smooth profile centers displacements ( by some non negligible fraction of the profile width ) .
+this approach allows for compensation of the field distortions , but at the same time , it potentially smoothes the gradients in the stars motions across the field .
+let us consider a globular cluster covering some fraction of the field in front of the galactic background .
+stars in the cluster would have different expected median velocities than the background stars . if , in a region of the frame , the percentage of cluster members is significant , their motion between two epochs could be seen as a field deformation near this region .
+hence , careful initial alignment of the images should only use the field stars .
+we also note , that the dia is specifically designed to reduce signal on the subtracted image within the freedom of the psf model .
+thus , without care in setting up the dia procedure , it is very likely , that the kernel parameters will try to compensate for the effective bulk motion of the part of the field containing cluster members  effectively reducing observed dipole signal for the cluster members and introducing false signal in the field stars .    in the field of view
+studied in this paper we do not expect any unusual velocity gradients .
+however , we expect that the bright stars sample would consist of a mixture of bulge stars and disk stars .
+disk stars are expected to have on average proper motions of couple of @xmath46 in the direction of galactic rotation , with respect to the bulge stars . for a reference point of our proper motion measurement
+we choose the median proper motion of the red clump ( rc ) giants , which are identified on the color - magnitude diagram ( cmd ) .
+we use the rc giant stars for two reasons .
+first , they belong to the bulge system so their median proper motion is not affected by the galactic rotation and can serve as an approximation of the median motion of the whole bulge system .
+second , the red clump giants are bright , abundant and easy to identify on the cmd .
+we initially align two epoch images using the predefined sample of rc giants .
+after performing the dia , we measure the shift of centroids of those stars that is likely introduced by the procedure .
+we take the `` reference '' epoch and measure the positions of the reference stars .
+then , we take `` convolved reference image '' ( it is produced by the dia in order to match the reference image to the target image before the subtraction ) and measure the positions of the same sample of stars .
+the median shift between the measured positions indicates the total displacement the dia procedure introduced , and hence , should be subtracted from any dipole measurements to form the final proper motion measurement .
+we use a series of images obtained with the warsaw telescope during the third and fourth phase of the ogle project .
+we select eight best seeing images near the beginning of the ogle - iii ( mean epoch @xmath47 @xmath48 @xmath49 ) and 11 of the best seeing ( unmagnified ) images from ogle - iv ( mean epoch @xmath47 @xmath50 ) .
+note that ogle - iii and ogle - iv have identical pixel scales : 259 mas px@xmath51 .
+we stack each set of images .
+these stacked images , which have similar , but not identical seeing fwhm @xmath52px , are offset by 7.65 years in mean epoch .
+they are presented in figure [ fig : images ] .
+as shown in figure [ fig : images ] , the source of this event is moderately blended with a brighter neighboring star even in the excellent - seeing images used to construct the two stacks .
+in fact , there is one image with extremely good seeing on which the source appears isolated , but the single - to - noise ratio ( s / n ) of a single image is too low to perform accurate astrometry or photometry . instead , we find the microlensing source position from difference images at the time of the magnification event ( as is standard practice ) , when it can be easily observed ( _ cf .
+_ fig  [ fig : images ] ) .
+then , we determine the source flux ( @xmath37 ) from the microlens fit and subtract the resulting source profile from the second - epoch stacked image in order to investigate the structure of the blending star(s ) alone @xcite  namely , measure positions and brightness .
+there is no detectable remaining flux at the source position .
+we thereby place an upper limit on the blend flux at the source position of @xmath53 , implying @xmath54 . for stars in the bulge
+, this implies absolute magnitude to be @xmath55 ( where we take the reddening @xmath56 ) .
+in particular , this allows only for bulge lenses with @xmath57 . using equation  ( [ eqn : thetae ] ) , the measured @xmath58 ( @xmath59 ) for the very - high @xmath7 ( high @xmath7 ) model implies that the allowed mass range corresponds to lens - source separations @xmath60 ( @xmath61 ) . in the case of the former ( very - high @xmath7 ) model the substantial fraction of the available phase space
+is ruled out , thus putting significant constraints upon ( but certainly not ruling out ) a bulge lens .
+in addition , this flux limit restricts the presence of distant hosts in `` free - floating - planet '' scenarios .
+for example , if the primary lens is assumed to be a 10-jupiter - mass object , then it would have a relative parallax @xmath62mas , and therefore be at a distance @xmath63kpc .
+the flux limit would then imply @xmath64 , i.e. , @xmath65 for the putative host .
+however , our central concern here is to measure or place limits on the proper motion of the source , @xmath6 .
+we notice that there is no evident dipole at the position of the source in the difference image in figure  [ fig : dia ] . to place limits
+, we must fit for a dipole at this location . because the source is partially blended with the neighboring star
+, we must fit simultaneously for two dipoles , one at each location .
+in fact , to be conservative , for each ( 2-d ) trial value of the source dipole , we consider all possible values for the neighbor dipole , and choose the one that gives the best overall fit .
+we assign the resulting @xmath66 to this trial value .
+each dipole amplitude @xmath67 is divided by the flux ( known from the microlens fit ) to obtain the displacement @xmath68 , and hence the proper motion @xmath69 , where @xmath70yr is the time elapsed between the two mean epochs . to model the psf we use equations  ( [ eqn : psf_asym ] ) and ( [ eqn : dipole_asym ] ) with @xmath71 , as measured with the dophot photometry package @xcite , with the @xmath44-axis aligned to that of the ogle - iii camera , i.e. , equatorial north - south .
+the resulting contours are shown in figure  [ fig : pm ] .
+origin in figure  [ fig : pm ] was adjusted for the shift that was introduced by the dia ( see section  [ sec : frame ] ) so it is now consistent with the median proper motion of the bugle stars . in our @xmath72 work
+subfield we have identified 511 rc giants . the median shift of this set of bulge stars was measured between `` reference images '' and `` convolved reference image '' to be ( 0.0095 , 0.0174 ) pixels in ( north , east ) direction .
+this is the equivalent to ( -0.336 , 0.583 ) @xmath46 proper motion in the galactic north and east direction .    to test this shift - correction procedure we artificially resample target image by introducing simple shifts with values between @xmath73 and @xmath74 pixels in both axes .
+the resulting subtracted image is virtually the same and yields same measurements of the proper motion of the source star , showing that the dia kernel easily absorbed the artificial shift .
+the value of the displacement measured by the shift - correction procedure , recovers both , the original values quoted above , plus any artificial shift we have introduced .
+we note that the contours shown in figure  [ fig : pm ] are elongated along an axis that is approximately aligned with galactic north - south .
+this is because the neighboring star lies along the galactic east - west axis .
+we can understand this analytically by approximating the psf as axisymmetric . without loss of generality
+, we can then assume that the two stars are separated by a distance @xmath75 along the @xmath44-axis .
+their dipoles can then be represented ( in the global coordinate system ) by @xmath76 \exp(-[-(x\pm a/2)^2 + y^2]/2\sigma^2)\over 2\pi\sigma^4 } \label{eqn : dip_pm}\ ] ] where @xmath77 are the orientations of the two dipoles relative to the direction of their separation .
+one then finds @xmath78 and @xmath79\cos\phi_+\cos\phi_- + \sin\phi_+\sin\phi_-   \over \exp(a^2/4\sigma^2 ) } \label{eqn : diracrat}\ ] ] it is straightforward to show that for uniform noise per pixel ( background - limited case ) the ratio of the correlated errors to the error estimates that would hold for an isolated source are @xmath80    then , for each possible orientation of the source dipole @xmath81 , we must choose the orientation of the neighbor - dipole that maximizes equation  ( [ eqn : diracrat ] ) [ and so eq .
+( [ eqn : corerr ] ) ] . differentiation yields , @xmath82\cot\phi_+$ ] , from which one obtains , @xmath83e^{-(1+k)}\biggr\}^{-1/2 } , \qquad k\equiv { a^2\over 2\sigma^2 } - 1 .
+\label{eqn : errcont}\ ] ]    it is clear from equation  ( [ eqn : errcont ] ) that the error contour will be aligned either parallel or perpendicular to the direction of the neighbor , depending on whether @xmath84 is larger or smaller than unity .
+that is , @xmath85^{-2 } = 1 - k^2\exp[-(1+k)]$ ] and @xmath86^{-2 } = 1 -\exp[-(1+k)]$ ] .
+note that the contour will not be perfectly elliptical but will generally approximate an ellipse .
+in the present case @xmath87 , so @xmath88 and the contour is aligned perpendicular to the direction of the neighbor . however , since @xmath89\sim 0.36 $ ] , the overall deviation from circular symmetry is only about 14% in this case .
+we measured the proper motion of the source star in the microlensing event moa-2011-blg-262 using new dipole - fitting method performed on the difference image of two epochs separated by @xmath90 yrs .
+the result is @xmath91 in a ( north , east ) galactic coordinate frame .
+the new method yields a measurement of proper motion of the star that is close to the photometric detection limit .
+in fact , the subject star was not even discovered in the initial photometry of the photometric reference image for the field , due to being faint and close to another star .
+the star s exact position and brightness was measured during the microlensing event .
+additionally , this new approach allows to marginalize over an unknown motion of the partially blended neighboring star .
+the importance of this measurement for our particular microlensing event lies mainly in the fact that the obtained confidence regions exclude the source being a high velocity star and show that it follows the typical bulge kinematics .
+it is compatible with both microlensing models  and only increases _ a priori _ lensing probability of the very - high @xmath92 microlensing model ( @xmath93 ) by a factor of 1.5 when compared to the high @xmath92 microlensing model ( @xmath94 ) .
+however , more importantly , it heavily disfavors lens - in - the - bulge scenario for the former and moderately disfavors it for the later .
+the stellar lens with the jupiter - mass planetary companion located in the galactic bulge is , _ a priori _ , much more likely explanation for the moa-2011-blg-262 microlensing event , than the close - by jupiter - mass planet with the earth - mass moon in the galactic disk . by reducing the likelihood of the lens being in the bulge
+, our measurement brings those two explanations on par .
+acknowledge support of the space exploration research fund of the ohio state university .
+the ogle project has received funding from the european research council under the european community s seventh framework programme ( fp7/20072013)/erc grant agreement no .
+246678 to a.u .

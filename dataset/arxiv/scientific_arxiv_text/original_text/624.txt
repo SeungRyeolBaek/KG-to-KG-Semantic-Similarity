@@ -1,0 +1,313 @@
+registration , the task of establishing correspondences between multiple instances of objects such as images , landmarks , curves , and surfaces , plays a fundamental role in a range of computer vision applications including shape modeling @xcite , motion compensation and optical flow @xcite , remote sension @xcite , and medical imaging @xcite . in the subfield of computational anatomy @xcite ,
+establishing inter - subject correspondences between organs allows the statistical study of organ shape and shape variability .
+examples of the fundamental role of registration include quantifying developing alzheimer s disease by establishing correspondences between brain tissue at different stages of the disease @xcite ; measuring the effect of copd on lung tissue after removing the variability caused by the respiratory process @xcite ; and correlating the shape of the hippocampus to schizophrenia after inter - subject registration @xcite .    in this paper , we survey the role of symmetry in diffeomorphic registration and deformation modeling and link symmetry as seen from the field of geometric mechanics with the image registration problem .
+we focus on large deformations modeled in subgroups of the group of diffeomorphic mappings on the spatial domain , the approach contained in the large deformation diffeomorphic metric mapping ( lddmm , @xcite ) framework .
+connections with geometric mechanics @xcite have highlighted the role of symmetry and resulted in previously known properties connected with the registration of specific data types being described in a common theoretical framework @xcite .
+we wish to describe these connections in a form that highlights the role of symmetry and points towards future applications of the ideas .
+it is the aim that the paper will make the role of symmetry in registration and deformation modeling clear to the reader that has no previous familiarity with symmetry in geometric mechanics and symmetry groups in mathematics .
+one of the main reasons symmetry is useful in numerics is in it s ability to reduce how much information one must carry . as a toy example , consider the a top spinning in space . upon choosing some reference configuraiton ,
+the orientation of the top is given by a rotation matrix , i.e. an element @xmath0 .
+if i ask for you to give me the direction of the pointy tip of the top , ( which is pointing opposite @xmath1 in the reference ) it suffices to give me @xmath2 . however , @xmath2 is contained in space of dimension @xmath3 , while the space of possible directions is the @xmath4-sphere , @xmath5 , which is only of dimension @xmath4 .
+therefore , providing the full matrix @xmath2 is excessive in terms of data .
+it suffices to just provide the vector @xmath6 .
+note that if @xmath7 , then @xmath8 .
+therefore , given only the direction @xmath9 , we can only reconstruct @xmath2 up to an element @xmath10 which preserves @xmath1 .
+the group of element which preserve @xmath1 is identifiable with @xmath11 .
+this insight allows us to express the space of directions @xmath5 as a homogenous space @xmath12 . in terms of infomation
+we can cartoonishly express this by the expression @xmath13    this example is typically of all group quotients .
+if @xmath14 is some universe of objects and @xmath15 is a group which acts freely upon @xmath14 , then the orbit space @xmath16 hueristically contains the data of @xmath14 minus the data which @xmath15 transforms .
+thus @xmath17 reduction by symmetry can be implemented when a problem posed on @xmath14 has @xmath15 symmetry , and can be rewritten as a problem posed on @xmath18 .
+the later space containing less data , and is therefore more efficient in terms of memory .
+registration of objects contained in a spatial domain , e.g. the volume to be imaged by a scanner , can be formulated as the search for a deformation that transforms both domain and objects to establish an inter - object match .
+the data available when solving a registration problem generally is incomplete for encoding the deformation of every point of the domain .
+this is for example the case when images to be matched have areas of constant intensity and no derivative information can guide the registration . similarly ,
+when 3d shapes are matched based on similarity of their surfaces , the deformation of the interior can not be derived from the available information .
+the deformation model is in these cases over - complete , and a range of deformations can provide equally good matches for the data .
+here arises _ symmetry _ : the subspaces of deformations for which the registration problem is symmetric with respect to the available information . when quotienting out symmetry subgroups , a vastly more compact representation is obtained . in the image case ,
+only displacement orthogonal to the level lines of the image is needed ; in the shape case , the information left in the quotient is supported on the surface of the shape only .
+we start with background on the registration problem and the large deformation approach from a variational viewpoint . following this
+, we describe how reduction by symmetry leads to an eulerian formulation of the equations of motion when reducing to the lie algebra .
+symmetry of the dissimilarity measure allows additional reductions , and we use isotropy subgroups to reduce the complexity of the registration problem further .
+lastly , we survey the effect of symmetry in a range of concrete registration problems and end the paper with concluding remarks .
+the registration problem consists in finding correspondences between objects that are typically point sets ( landmarks ) , curves , surfaces , images or more complicated spatially dependent data such as diffusion weighted images ( dwi ) .
+the problem can be approached by letting @xmath19 be a spatial domain containing the objects to be registered .
+@xmath19 can be a differentiable manifold or , as is often the case in applications , the closure of an open subset of @xmath20 , @xmath21 , e.g. the unit square .
+a map @xmath22 can deform or warp the domain by mapping each @xmath23 to @xmath24 .
+acts on an image @xmath25 by composition with the inverse warp , @xmath26 .
+given two images @xmath27 , image registration involves finding a warp @xmath28 such that @xmath29 is close to @xmath30 as measured by a dissimilarity measure @xmath31 . ]
+the deformation encoded in the warp will apply to the objects in @xmath19 as well as the domain itself .
+for example , if the objects to be registered consist of points sets @xmath32 , @xmath33 , the set will be mapped to @xmath34 . for surfaces
+@xmath35 , @xmath28 similarly results in the warped surface @xmath36 . because those operations are associative ,
+the mapping @xmath28 acts on @xmath37 or @xmath38 and we write @xmath39 and @xmath40 for the warped objects .
+an image is a function @xmath25 , and @xmath28 acts on @xmath41 as well , in this case by composition with its inverse @xmath42 , see figure  [ fig : registration ] . for this @xmath28 must be is invertible , and commonly we restrict to the set of invertible and differentiable mappings @xmath43 . for various other types of data objects
+, the action of a warp on the objects can be defined in a way similar to the case for point sets , surfaces and images .
+this fact relates a range registration problems to the common case of finding appropriate warps @xmath28 that trough the action brings the objects into correspondence .
+trough the action , different instances of a shape can be realized by letting warps act on a base instance of the shape , and a class of shape models can therefor be obtained by using deformations to represent shapes @xcite .
+the search for appropriate warps can be formulated in a variational formulation with an energy @xmath44 where @xmath45 is a dissimilarity measure of the difference between the deformed objects , and @xmath2 is a regularization term that penalizes unwanted properties of @xmath28 such as irregularity .
+if two objects @xmath46 and @xmath47 is to be matched , @xmath45 can take the form @xmath48 using the action of @xmath28 on @xmath49 ; for image matching , an often used dissimilarity measure is the @xmath50-difference or sum of square differences ( ssd ) that has the form @xmath51 .
+the regularization term can take various forms often modeling physical properties such as elasticity @xcite and penalizing derivatives of @xmath28 in order to make it smooth .
+the free - form - deformation ( ffd , @xcite ) and related approaches penalize @xmath28 directly . for some choices of @xmath2 , existence and analytical properties of minimizers of
+have been derived @xcite , however it is in general difficult to ensure solutions are diffeomorphic by penalizing @xmath28 in itself .
+instead , flow based approaches model one - parameter families or paths of mappings @xmath52 , @xmath53 $ ] where @xmath54 is the identity mapping @xmath55 and the dissimilarity is measured at the endpoint @xmath56 .
+the time evolution of @xmath52 can be described by the differential equation @xmath57 with the flow field @xmath58 being a vector field on @xmath19 . the space of such fields is denoted @xmath59 . in the large deformation
+diffeomorphic metric mapping ( lddmm , @xcite ) framework , the regularization is applied to the flow field @xmath58 and integrated over time giving the energy @xmath60 if the norm @xmath61 that measures the irregularity of @xmath58 is sufficiently strong , @xmath52 will be a diffeomorphism for all @xmath62 .
+this approach thus gives a direct way of enforcing properties of the generated warp : instead of regularizing @xmath28 directly , the analysis is lifted to a normed space @xmath59 that is much easier control .
+the energy has the same minimizers as the geometric formulation of lddmm used in the next section .
+direct approaches to solving the optimization problem must handle the fact that the problem of finding a warp is now transfered to finding a time - dependent family of warps implying a huge increase in dimensionality .
+this problem is therefore vary hard to represent numerically and to optimize . for several data types
+, it has been shown how optimal paths for have specific properties that reduces the dimensionality of the problem and therefor makes practical solutions feasible . in the next section ,
+we describe the geometric framework and the reduction theory that allows the data dependent results to be formulated as specific examples of reduction by symmetry .
+we survey these examples in the following section .
+we here describe a geometric formulation of the registration problem @xcite and how symmetry can be used to reduce the optimization over time - dependent paths of warps to vector fields in the lie algebra resulting in an eulerian version of the equations of motion .
+secondly , we describe how symmetry of the dissimilarity measure allows further reduction to lower dimensional quotients .
+we here introduce a number of notions from differential geometry in a fairly informal manner . for formal definitions we refer to @xcite .
+while it is neccessary for the purpose of rigour to learn formal definitions , independent of cartoonish sketches , when learning differential geometry , one can still get quite far with cartoonish sketches .
+for example , by picturing a manifold , @xmath19 , as a surface embedded in @xmath63 .
+this is the approach we will take .
+the tangent bundle of @xmath19 , denoted @xmath64 , is the set of pairs @xmath65 where @xmath66 and @xmath67 is a vector tangential to @xmath19 at the point @xmath68 ( see figure  [ fig : tm ] ) .
+a vector - field is a map @xmath69 such that @xmath70 is a vector above @xmath68 for all @xmath66 . in summary , a vector on @xmath19 is an `` admissible velocity '' on @xmath19 , and @xmath64 is the set of all possible admissible velocities .     of the manifold
+@xmath19 consists of pairs @xmath65 of points @xmath23 and tangent vectors @xmath71 .
+it s a fiber bundle over @xmath19 with fibers @xmath72 for each @xmath73 m . ]
+given a vector - field @xmath74 we may consider the initial value problem @xmath75 for @xmath76 $ ] . given an intial condition @xmath77 , the point @xmath78 given by solving this initial value problem is uniquely determined ( if it exists ) . under reasonable conditions @xmath79 exists for each @xmath77 , and there is a map @xmath80 which we call the flow of @xmath74 .
+if @xmath74 is time - dependent we can consider the initial value problem with @xmath81 . under certain conditions ,
+this will also yield a flow map , @xmath82 which is the flow from time @xmath83 to @xmath84 . if @xmath74 is smooth , the flow map is smooth as well , in particular a diffeophism .
+we denote the set of diffeomorphisms by @xmath43 .
+conversely , let @xmath85 be a time - dependent diffeomorphism .
+thus , for any @xmath66 , we observe that @xmath86 is a curve in @xmath19 .
+if this curve is differentiable we may consider its time - derivative , @xmath87 , which is a vector above the point @xmath86 . from these observations
+it imediately follows that @xmath88 is a vector above @xmath68 .
+therefore the map @xmath89 , given by @xmath90 is a vector - field which we call the _ eulerian velocity field of @xmath52_.    the eulerian velocity field contains less data than @xmath91 , and this reduction in data can be viewed from the perspective of symmetry . given any @xmath92 , the curve @xmath52 can be transformed to the curve @xmath93 .
+we observe that @xmath94 thus @xmath52 and @xmath93 both have the same eulerian velocity fields .
+in other words , the eulerian velocity field , @xmath95 , is invariant under particle relablings .
+schematically , the following holds @xmath96    finally , we will denote some linear operators on the space of vector - fields .
+let @xmath97 and let @xmath98 .
+the _ push - forward _ of @xmath74 by @xmath99 , denoted @xmath100 , is the vector - field given by @xmath101(x ) = \left .
+d\phi \right|_{\phi^{-1}(x ) } \cdot u ( \phi^{-1}(x)).\end{aligned}\ ] ] by inspection we see that @xmath102 is a linear operator on the vector - space of vector - fields .
+one can view @xmath100 as `` @xmath74 in a new coordinate system '' because any differential geometric property of @xmath74 is also inherited by @xmath100 .
+for example , if @xmath103 then @xmath104 ( y ) = 0 $ ] with @xmath105 .
+if @xmath38 is an invariant under @xmath74 then @xmath106 is invariant under @xmath107 .
+as @xmath102 is linear , we can transpose it .
+let @xmath108 denote the dual space to the space of vector - fields , i.e. the set of linear maps @xmath109 , and let @xmath110 .
+we define @xmath111 by the equality @xmath112 for all @xmath113 where @xmath114 denotes evaluation of @xmath115 on @xmath67 .
+finally , we define the lie - derivative as the linear operator @xmath116 defined by @xmath117 = \left .
+\frac{d}{d \epsilon}\right|_{\epsilon=0 } ( \phi^w_{\epsilon } ) _ * u.\end{aligned}\ ] ] as @xmath118 is linear , we can take its transpose .
+if @xmath110 , then we can define @xmath119 \in \mathfrak{x}(m)^*$ ] by the equation @xmath120 , w \rangle + \langle m , \pounds_u[w ] \rangle = 0\end{aligned}\ ] ] for all @xmath121 .
+this is a satisfying because for a fixed @xmath115 and @xmath122 we observe @xmath123 , w \rangle + \langle m,\pounds_u[w ] \rangle = 0 = \frac{d}{dt } \langle m , w \rangle = \frac{d}{dt}\langle ( \phi_t^u ) _ * m , ( \phi_t^u ) _ * \rangle \label{eq : product_rule}\end{aligned}\ ] ] this is nothing but a coordinate free version of the product rule .
+the variational formulation of lddmm is equivalent to minimizing the energy @xmath124 where @xmath125 is a distance metric on @xmath43 , @xmath126 is the identity diffeomorphism , and @xmath127 is a function which measures the disparity between the deformed template and the target image
+.    given images @xmath128 , we consider the dissimilarity measure @xmath129 [ ex : imssd ]    in this article we will consider the distance metric @xmath130 , \mathfrak{x}(m ) ) \\
+\phi^v_{0,1 } \circ \varphi_0 = \varphi_1        }      } \left ( \int_0 ^ 1 \| v(t ) \| dt \right),\end{aligned}\ ] ] where @xmath131 is some norm on @xmath132 .
+if @xmath131 is induced by an inner - product , then this distance metric is ( formally ) a riemannian distance metric on @xmath43 .
+note that the distance metric , @xmath133 , is written in terms of a norm @xmath131 , defined on @xmath132 . in fact , the norm on @xmath132 induces a riemannian metric on @xmath43 given by @xmath134 and @xmath133 is the reimannian distance with respect to this metric .
+if the norm @xmath131 imposes a hilbert space structure on the vector - fields it can be written in terms of a psuedo - differential operator @xmath135 as @xmath136 , u \rangle$ ] @xcite .
+given @xmath137 , minimizers of @xmath138 must neccessarily satisfy @xmath139\\    \langle m(1 )   , w \rangle = \left .
+\frac{d}{d\epsilon } \right|_{\epsilon=0 } f ( \phi^w_\epsilon \circ \phi^u_{0,1 } ) \quad,\quad \forall w \in \mathfrak{x}(m ) .
+\end{cases } \label{eq : extreme1}\end{aligned}\ ] ] this is a vector - calculus statement of proposition 11.6 of @xcite .
+that this equation of motion is even well - posed is nontrivial , since @xmath137 is merely an injective map , and there is no guarantee that it can be inverted to obtain a vector - field @xmath74 to integrate into a diffeomorphism .
+fortunately , safety guards for well - posedness are studied in @xcite . if the reproducing kernel of @xmath137 is @xmath140 , then the equations of motion are well - posed for all time .
+there is something unsatisfying about using for the purpose of computation .
+doing any sort of computation on @xmath43 is difficult , as it is a nonlinear infinite dimensional space .
+moreover , the dissimilarity measure @xmath45 only comes into play at time @xmath141 and the distance function is an integral over the vector - space @xmath132
+. it would be nice if we could rewrite the extremizers purely in terms of the eulerian velocity field , @xmath74 and the flow at @xmath141 .
+in fact this is often the case . given @xmath137 , the minimizer of @xmath138
+must neccessarily satisfy the boundary value problem @xmath142 = 0 , m = p[u ] \quad \forall t \in [ 0,1 ] \\
+\frac{d}{d \epsilon}|_{\epsilon = 0 } \left [ f ( \phi^w_\epsilon \circ \phi^u_{0,1 } ) \right ] +   \langle p[u(1 ) ] , w \rangle = 0 \quad , \forall w \in \mathfrak{x}(m ) .    \end{cases } \label{eq : extreme2}\end{aligned}\ ] ] this is an alternative formulation of , obtained simply by taking a time - derivative . in the language of fluid - dynamics ,
+is an eulerian version of .
+the advantage of this formulation , is that the bulk of the computation occurs on the vector - space @xmath132 , and this observation is the starting point for the algorithm given in @xcite .
+this reduction of the problem to the space of vector - fields is a first instance of reduction by symmetry . in particular
+, this corresponds to the fact that the space of vector - fields @xmath132 , is identifiable as a quotient space @xmath143 and the map @xmath144 .
+is the quotient projection .
+the reduction to dynamics on @xmath43 to dynamics on @xmath132 occurs primarly because the distance function is @xmath43 invariant .
+however , one can not completely abandon @xmath43 because the solution requires one to compute the time @xmath145 flow , @xmath146 .
+fortunately , there is a second reduction which allows us to avoid computing @xmath146 in its entirety .
+this second reduction corresponds to the invariance properties of the dissimilarity measure @xmath45 .
+let @xmath147 denote the set of diffeomorphisms which leave @xmath45 invariant , i.e. : @xmath148 one can readily verify that @xmath149 is a subgroup of @xmath43 , and so we call @xmath149 the _ isotropy subgroup of @xmath45_.    having defined @xmath149 we can now consider the homogenous space @xmath150 , which is the _ quotient space _ induced by the action of right composition of @xmath149 on @xmath43 .
+this quotient space is `` smaller '' in the sense of data . in terms of maps ,
+this can be seen by defining the map @xmath151_{/g_f } \in q$ ] , where @xmath152_{/g_f}$ ] denotes the equivalence class of @xmath28 .
+we call this mapping the _ quotient projection _ because it sends @xmath43 to @xmath153 surjectively .
+while these notions are theoretically quite complicated , they often manifest more simply in practice .    [ ex : two_particles ] let @xmath154 be the closure of some open set .
+let @xmath155 with @xmath156 and consider the dissimilarity measure @xmath157 we see that @xmath158 and @xmath159 where @xmath160 denotes the diagonal of @xmath161 .
+the quotient projection is @xmath162 .
+note that @xmath43 is infinite dimensional while @xmath153 is of dimension @xmath163 .
+this is massive reduction .
+for a one - point matching problem with dissimilarity measure @xmath164 visualized by their effect on an initially square grid .
+the isotropy subgroup leaves @xmath45 invariant by not moving @xmath68 .
+, title="fig : " ]   for a one - point matching problem with dissimilarity measure @xmath164 visualized by their effect on an initially square grid .
+the isotropy subgroup leaves @xmath45 invariant by not moving @xmath68 .
+, title="fig : " ]   for a one - point matching problem with dissimilarity measure @xmath164 visualized by their effect on an initially square grid .
+the isotropy subgroup leaves @xmath45 invariant by not moving @xmath68 .
+, title="fig : " ]    if one is able to understand @xmath153 then one can use this insight to reformulate the dissimilarity measure @xmath45 as function on @xmath153 rather than @xmath43 .
+in particular , there neccessarily exists a unique function @xmath165 defined by the property @xmath166_{/g_f } ) = f(\varphi)$ ] .
+again , this is useful in the sense of data , as is illustrated in the following example .
+consider the dissimilarity measure @xmath45 of example [ ex : two_particles ] .
+the function , @xmath167 is @xmath168    finally , note that @xmath43 acts upon @xmath153 by the left action @xmath169_{g_f } \in \operatorname{diff}(m ) / g_f \stackrel{\psi \in \operatorname{diff}(m ) } { \longmapsto } [ \psi \circ \varphi]_{/g_f } \in \operatorname{diff}(m ) / g_f.\end{aligned}\ ] ] usually we will simply write @xmath170 for the action of @xmath92 on a given @xmath171 .
+this means that @xmath132 acts upon @xmath153 infinitesimally , as it is the lie algebra of @xmath43 .
+consider the setup of example [ ex : two_particles ] . here
+@xmath172 and the left action of @xmath43 is given by @xmath173 for @xmath92 and @xmath174 .
+the infinitesimal action of @xmath98 on @xmath153 is @xmath175    these constructions allow us to rephrase the initial optimization problem using a reduced curve energy .
+minimization of @xmath138 is equivalent to minimization of @xmath176 where @xmath177 is obtained by integrating the ode , @xmath178 with the intial condition @xmath179_{/g_f}$ ] where @xmath180 is the identity transformation .
+we see that this curve energy only depends on the eulerian velocity field and the equivalence class @xmath177 .
+minimizers of @xmath181 must neccessarily satisfy @xmath142 \quad , \quad m = p[u ] \\
+\langle u(1 )   , w \rangle = - df(q ) \cdot ( w \cdot q ) \quad,\quad \forall w
+\in \mathfrak{x}(m ) .
+\end{cases } \label{eq : extreme3}\end{aligned}\ ] ] again , the solution only depends on the eulerian velocity and @xmath177 . for this reason ,
+we see that the @xmath149 symmetry of @xmath45 provides a second reduction in the data needed to solve our original problem .
+in addition to reducing the amount of data we must keep track of there is an additional consequence to the @xmath149-symmetry of @xmath45 .
+in particular , there is a potentially massive constraint satisfied by the eulerian velocity @xmath74 .    to describe this
+we must introduce an isotropy algebra . given @xmath182_{/g_f}$ ]
+we can define the ( time - dependent ) isotropy algebra @xmath183 this is nothing but the lie - algebra associated to the isotropy group @xmath184 .
+it turns out that the velocity field @xmath95 which minimizes @xmath138 ( or @xmath181 ) is orthogonal to @xmath185 with respect to the chosen inner - product .
+intuitively this is quite sensible because velocities which do not change @xmath186 do not alter the data , and simply waste control effort .
+this intuitive statement is roughly the content of the following proof .
+let @xmath74 satisfy or . then @xmath187 $ ] anihillates @xmath185 .
+let @xmath74 be the solution to .
+we will first prove that @xmath188 ( this is @xmath74 at time @xmath141 ) is orthogonal to @xmath189 .
+let @xmath190 .
+we observe @xmath191 , w(1 ) \rangle \stackrel{\text{by \eqref{eq : extreme3}}}{= }      - \left.\frac{d}{d\epsilon}\right|_{\epsilon=0 } f_{q } ( \phi^{w(1)}_\epsilon z(1 ) ) .
+\end{aligned}\ ] ] however , @xmath192 leaves @xmath193 fixed , so @xmath194 .
+therefore @xmath195 , w(1 ) \rangle = 0 $ ] .
+let @xmath196^*w(1)$ ] in coordinates this means @xmath197^{-1}(x ) }      [ \phi^u_{t,1}]^i w^j \left(1 , [ \phi^u_{t,1}]^{-1}(x ) \right )    \end{aligned}\ ] ] one can directly verify that @xmath198 for all @xmath76 $ ] . denoting @xmath199 $ ] , as in , we find @xmath200 ,   w(t ) \rangle & =       \frac{d}{dt } \langle m(t ) , w(t ) \rangle       \langle \partial_t m ,
+\rangle + \langle m , \partial_t w \rangle \\      & = \langle - \pounds_u [ m ] , w \rangle + \langle m , -\pounds_u[w ] \rangle = 0 .    \end{aligned}\ ] ] where the last equality follows from . thus @xmath201 , w(t ) \rangle$ ] is constant .
+we ve already verified that at @xmath141 , this inner - product is zero , thus @xmath201 , w(t ) \rangle = 0 $ ] for all time . that @xmath192 is an arbitrary element of @xmath202 makes
+@xmath203 an arbitrary element of @xmath185 at each time .
+thus @xmath95 is orthogonal to @xmath185 for all time .    at this point
+, we should return to our example to illustrate this idea .
+[ ex : ex5 ] again consider the setup of example [ ex : two_particles ] . in this case
+the space @xmath205 is the space of vector - fields which vanish at @xmath206 and @xmath207 .
+therefore , @xmath95 is orthogonal to @xmath186 if and only if @xmath187 $ ] satisfies @xmath208 for some covectors @xmath209 and for any @xmath113 . in other words
+@xmath210 where @xmath211 denotes the dirac delta functional cetnered at @xmath68 .
+this orthogonality constrain allows one to reduce the evolution equation on @xmath132 to an evolution equation on @xmath153 ( which might be finite dimensional if @xmath149 is large enough ) .
+in particular there is a map @xmath212 uniquely defined by the conditions @xmath213 and @xmath214 with respect to the chosen inner - product on vector - fields .
+consider the setup of example [ ex : two_particles ] with @xmath215 .
+then @xmath216 . let @xmath217 be the matrix - valued reproducing kernel of @xmath137 ( see @xcite ) .
+then @xmath218 is given by @xmath219 where @xmath220 are such that @xmath221 and @xmath222 .
+one can immediately observe that @xmath59 is injective and linear in @xmath223 .
+in other words @xmath224 is an injective linear map for fixed @xmath171 .
+because the optimal @xmath95 is orthogonal to @xmath185 we may invert @xmath225 on @xmath95 .
+in particular , we may often write the equation of motion on @xmath226 rather than on @xmath132 . this is a massive reduction if @xmath153 is finite dimensional . in particular
+, the inner - product structure on @xmath132 induces a riemannian metric on @xmath153 given by @xmath227 , v(q , v_2 ) \rangle.\end{aligned}\ ] ] the equations of motion in and map to the geodesic equations on @xmath153 .
+let @xmath74 extremize @xmath138 or @xmath228 .
+then there exists a unique trajectory @xmath229 such that @xmath230 .
+moreover , @xmath186 is a geodesic with respect to the metric @xmath231 .
+let @xmath74 minimize @xmath138 .
+thus @xmath74 satisfies . by the previous proposition @xmath95
+is orthogonal to @xmath185 .
+as @xmath232 is injective on @xmath233 , there exists a unique @xmath234 such that @xmath235 .
+note that @xmath138 can be written as @xmath236 thus , minimizers of @xmath138 correspond to geodesics in @xmath153 with respect to the metric @xmath231 .    if we let @xmath237 be the hamiltonian induced by the metric on @xmath153 we obtain the most data - efficient form or and .
+minimizers of @xmath138 ( or @xmath228 ) are : @xmath238_{/g_f}.    \end{cases }    \label{eq : extreme4}\end{aligned}\ ] ] we see that this is a boundary value problem posed entirely on @xmath153 .
+if @xmath153 is finite dimensional , this is a massive reduction in terms of data requirements .
+consider the setup of example [ ex : two_particles ] with @xmath215 .
+the metric on @xmath239 is most easily expressed on the cotangent bundle @xmath240 .
+if @xmath241 is the matrix valued kernel of @xmath137 , the metric on @xmath240 takes the form @xmath242      a related approach to defining distances on a space of objects to be registered consists of defining an object space @xmath243 upon which @xmath43 acts transitively there exists a @xmath244 such that @xmath245 with distance @xmath246 here the distance on @xmath243 is defined directly from the distance in the group that acts on the objects , see for example @xcite . with this approach ,
+the riemannian metric descends from @xmath43 to a riemannian metric on @xmath243 and geodesics on @xmath243 lift by horizontality to geodesics on @xmath43 .
+the quotient spaces @xmath153 obtained by reduction by symmetry and their geometric structure corresponds to the object spaces and geometries defined with this approach .
+intuitively , reduction by symmetry can be considered a removal of redundant information to obtain compact representations while letting the metric descend to the object space @xmath243 constitutes an approach to defining a geometric structure on an already known space of objects . the solutions which result are equivalent to the ones presented in this article because @xmath247 where @xmath248 for some fixed reference object @xmath249 .
+we here give a number of concrete examples of how symmetry reduce the infinite dimensional registration problem over @xmath43 to lower , in some cases finite , dimensional problems . in all examples
+, the symmetry of the dissimilarity measure with respect to a subgroup of @xmath43 gives a reduced space by quotienting out the symmetry subgroup .
+the space @xmath153 used in the examples in section  [ sec : red ] constitutes a special case of the landmark matching problem where sets of landmarks @xmath250 , are placed into spatial correspondence trough the left action @xmath251 of @xmath43 by minimizing the dissimilarity measure @xmath252 .
+the landmark space @xmath153 arises as a quotient of @xmath43 from the symmetry group @xmath149 as in in example  [ ex : two_particles ] .
+reduction from @xmath43 to @xmath153 in the landmark case has been used in a series of papers starting with @xcite .
+landmark matching is a special case of jet matching as discussed below .
+hamilton s equations take the form @xmath253 on @xmath240 where @xmath254 denotes the spatial derivative of the reproducing kernel @xmath241 .
+generalizing the situation in example  [ ex : ex5 ] , the momentum field is a finite sum of dirac measures @xmath255 that through the map @xmath59 gives an eulerian velocity field as a finite linear combination of the kernel evaluated at @xmath256 : @xmath257 .
+registration of landmarks is often in practice done by optimizing over the initial value of the momentum @xmath258 in the ode to minimize @xmath138 , a strategy called shooting @xcite . using symmetry , the optimization problem is thus reduced from an infinite dimensional time - dependent problem to an @xmath259 dimensional optimization problem involving integration of a @xmath260 dimensional ode on @xmath240 .
+the space of smooth non - intersecting closed parametrized curves in @xmath261 is also known as the space of embeddings , denoted @xmath262 .
+the parametrization can be removed by considering the right action of @xmath263 on @xmath264 given by @xmath265 then the quotient space @xmath266 is the space of _ unparametrized curves_. the space @xmath267 is a special case of a nonlinear grassmannian @xcite .
+it is not immediately clear if this space is a manifold , although it is certainly an orbifold .
+in fact the same question can be asked of @xmath268 and @xmath269 .
+a few conditions must be enforced on the space of embeddings and the space of diffeormophisms in order to impose a manifold structure on these spaces , and these conditions along with the metric determine whether or not the quotient @xmath267 can inherit a manifold structure .
+we will not dwell upon these matters here , but instead we refer the reader to the survey article @xcite .
+when the parametrization is not removed , embedded curves and surfaces can be matched with the current dissimilarity measure @xcite .
+the objects are considered elements of the dual of the space @xmath270 of differential @xmath271-forms on @xmath19 . in the surface case
+, the surface @xmath38 can be evaluated on a @xmath4-form @xmath122 by @xmath272 where @xmath273 is an orthonormal basis for @xmath274 and @xmath275 the surface element .
+the dual space @xmath276 is linear an can be equipped with a norm thereby enabling surfaces to be compared with the @xmath276 norm .
+note that the evaluation does not depend on the parametrization of @xmath38 .
+the isotropy groups for curves and surfaces generalize the isotropy groups of landmarks by consisting of warps that keeps the objects fixed , i.e. @xmath277 the momentum field will be supported on the transported curves / surfaces @xmath278 for optimal paths for @xmath138 in @xmath43 .
+images can be registered using either the @xmath50-difference defined in example  [ ex : imssd ] or with other dissimilarity measures such as mutual information or correlation ratio @xcite
+. the similarity will be invariant to any infinitesimal deformation orthogonal to the gradient of dissimilarity measure . in the @xmath50 case , this is equivalent to any infinitesimal deformation orthogonal to the level lines of the moving image @xcite .
+the momentum field thus has the form @xmath279 for a smooth function @xmath280 on @xmath19 and the registration problem can be reduced to a search over the scalar field @xmath280 instead of vector field @xmath281 .
+minimizers for @xmath138 follow the pde @xcite @xmath282 with @xmath283 representing the deformed image at time @xmath62 .
+-difference will be orthogonal to level lines of the image and symmetry implies that the momentum field will be orthogonal to the level lines so that @xmath279 for a time - dependent scalar field @xmath284 . ]      in @xcite an extension of the landmark case has been developed where higher - order information is advected with the landmarks .
+these higher - order particles or _ jet - particles _ have simultaneously been considered in fluid dynamics @xcite ,    the spaces of jet particles arise as extensions of the reduced landmark space @xmath153 by quotienting out smaller isotropy subgroups .
+let @xmath285 be the isotropy subgroup for a single landmark @xmath286 let know @xmath271 be a positive integer .
+for any @xmath271-differentiable map @xmath287 from a neighborhood of @xmath288 , the @xmath271-jet of @xmath287 is denoted @xmath289 . in coordinates , @xmath289 consists of the coefficients of the @xmath271th order taylor expansions of @xmath287 about at @xmath68 .
+the higher - order isotropy subgroups are then given by @xmath290 that is , the elements of @xmath291 fix the taylor expansion of the deformation @xmath28 up to order @xmath271 .
+the definition naturally extends to finite number of landmarks , and the quotients @xmath292 can be identified as the sets @xmath293 with @xmath294 being the space of rank @xmath295 tensors .
+intuitively , the space @xmath296 is the regular landmark space with information about the position of the points ; the 1-jet space @xmath297 carry for each jet information about the position and the jacobian matrix of the warp at the jet position ; and the 2-jet space @xmath298 carry in addition the hessian matrix of the warp at the jet position .
+the momentum for @xmath296 in coordinates consists of @xmath299 vectors representing the local displacement of the points . with the 1-jet space @xmath296 ,
+the momentum in addition contains @xmath300 matrices that can be interpreted as locally linear deformations at the jet positions @xcite . in combination with the displacement
+, the 1-jet momenta can thus be regarded locally affine transformations .
+the momentum fields for @xmath298 add symmetric tensors encoding local second order deformation .
+the local effect effect of the jet particles is sketched in figure  [ fig : discimage ] .
+when the dissimilarity measure @xmath45 is dependent not just on positions but also on higher - order information around the points , reduction by symmetry implies that optimal solutions for @xmath138 will be parametrized by @xmath271-jets in the same way as @xmath296 parametrize optimal paths for @xmath138 in the landmark case .
+the higher - order jets can thus be used for landmark matching when the dissimilarity measure is dependent on the local geometry around the landmarks .
+for example , matching of first order structure such as image gradients lead to 1-order jets , and matching of local curvature leads to @xmath4-order jets
+.      the image matching problem can be discretized by evaluating the @xmath50-difference at a finite number of points . in practice
+, this alway happens when the integral @xmath301 is evaluated at finitely many pixels of the image . in @xcite , it is shown how this reduces the image matching pde to a finite dimensional system on @xmath153 when the integral is approximated by pointwise evaluation at a grid @xmath302 @xmath303 where @xmath304 denotes the grid spacing .
+@xmath305 approximates @xmath45 to order @xmath306 , @xmath307 .
+the reduced space @xmath153 encodes the position of the points @xmath308 , @xmath309 , and the lifted eulerian momentum field is a finite sum of point measures @xmath310 . for each grid point
+, the momentum encodes the local displacement of the point , see figure  [ fig : discimage ] .    in @xcite , a discretization scheme with higher - order accuracy
+is in addition introduced with an @xmath311 approximation @xmath312 of @xmath45 .
+the increased accuracy results in the entire energy @xmath138 being approximated to order @xmath311 .
+the solution space in this cases become the jet - space @xmath298 . for a given order of approximation , a corresponding reduction in the number of required discretization points
+is obtained .
+the reduction in the number of discretization points is countered by the increased information encoded in each 2-jet .
+the momentum field thus encodes both local displacement , local linear deformation , and second order deformation , see figure  [ fig : discimage ] .
+the discrete solutions will converge to solutions of the non - discretized problem as @xmath313 .
+, @xmath304 and the image matching pde is reduced to an ode on a finite dimensional reduced space @xmath153 . with the approximation @xmath305
+, the momentum field will encode local displacement as indicated by the horizontal arrows ( top row ) . with a first order expansion ,
+the solution space will be jet space @xmath297 and locally affine motion is encoded around each grid point ( middle row ) .
+the @xmath311 approximation @xmath312 includes second order information and the system reduces to the jet space @xmath298 with second order motion encoded at each grid point ( lower row ) . ]
+image matching is symmetric with respect to variations parallel to the level lines of the images . with diffusion weighted images ( dwi ) and the variety of models for the diffusion information ( e.g. diffusion tensor imaging dti cite , gaussian mixture fields cite ) , first or higher - order information can be reintroduced into the matching problem .
+in essence , by letting the dissimilarity measure depend on the diffusion information , the full @xmath43 symmetry of the image matching problem is reduced to an isotropy subgroup of @xmath43 .
+the exact form of the of dwi matching problem depends on the diffusion model and how @xmath43 acts on the diffusion image . in @xcite , the diffusion
+is represented by the principal direction of the diffusion tensor , and the data objects to be match are thus vector fields .
+the action by elements of @xmath43 is defined by @xmath314 the action rotates the diffusion vector by the jacobian of the warp keeping its length fixed .
+similar models can be applied to dti with the preservation of principle direction scheme ( ppd , @xcite ) and to gmf based models @xcite .
+the dependency on the jacobian matrix implies that a reduced model must carry first order information in a similar fashion to the 1-jet space @xmath297 , however , any irrotational part of the jacobian can be removed by symmetry .
+the full effect of this has yet to be explored .
+incidentally , the equation of motion @xmath315 = 0 \\    u = k * m\end{aligned}\ ] ] is an eccentric way of writing euler s equation for an invicid incompressible fluid if we assume @xmath74 is initially in the space of divergence free vector - fields and @xmath241 is a dirac - delta distribution ( which impies @xmath316 . )
+this fact was exploited in @xcite to create a sequece of regularized models to euler s equations by considering a sequence of kernels which converge to a dirac - delta distribution . moreover ,
+if one replaces @xmath43 by the subgroup of volume preserving diffeomorphisms @xmath317 , then ( formally ) one can produce incompressible particle methods using the same reduction arguments presented here .
+in fact , jet - particles were independently discoverd in this context as a means of simulating fluids in @xcite .
+it is notable that @xcite is a mechanics paper , and the particle methods which were produced were approached from the perspective of reduction by symmetry .    in @xcite one of the kernel parameters in @xcite which controls the compressibility of the @xmath74
+was taken to the incompressible limit .
+this allowed a realization of the particle methods described in @xcite .
+the constructions of @xcite is the same as presented in this survey article , but with @xmath43 replaced by the group of volume preserving diffeomorphisms of @xmath318 , denoted @xmath319 .
+the information available for solving the registration problem is in practice not sufficient for uniquely encoding the deformation between the objects to be registered .
+symmetry thus arises in both particle relabeling symmetry that gives the eulerian formulation of the equations of motion and in symmetry groups for specific dissimilarity measures .    for landmark
+matching , reduction by symmetry reduces the infinite dimensional registration problem to a finite dimensional problem on the reduced landmark space @xmath153 . for matching curves and surfaces
+, symmetry implies that the momentum stays concentrated at the curve and surfaces allowing a reduction by the isotropy groups of warps that leave the objects fixed . in image matching , symmetry allows reduction by the group of warps that do not change the level sets of the image .
+jet particles have smaller symmetry groups and hence larger reduced spaces @xmath297 and @xmath298 that encode locally affine and second order information .
+reduction by symmetry allow these cases to be handled in one theoretical framework .
+we have surveyed the mathematical construction behind the reduction approach and its relation to the above mentioned examples . as data complexity rises both in term of resolution an structure , symmetry will continue to be an important tool for removing redundant information and achieving compact data representations .
+hoj would like to thank darryl holm for providing a bridge from geometric mechanics into the wonderful world of image registration algorithms .
+hoj is supported by the european research council advanced grant 267382 fcca .
+ss is supported by the danish council for independent research with the project `` image based quantification of anatomical change '' .
+d.  c. alexander , j.  c. gee , and r.  bajcsy , _
+strategies for data reorientation during non - rigid warps of diffusion tensor images _ , medical image computing and computer - assisted intervention  miccai99 ( chris taylor and alain colchester , eds . ) , lecture notes in computer science , no . 1679 , springer berlin heidelberg , january 1999 , pp .
+463472 ( en ) .
+r  abraham and j  e marsden , _ foundations of mechanics _
+, benjamin / cummings publishing co. inc .
+advanced book program , reading , mass .
+, 1978 , second edition , revised and enlarged , with the assistance of tudor ratiu and richard cushman .
+reprinted by ams chelsea , 2008 .
+d.  c. alexander , c.  pierpaoli , p.  j. basser , and j.  c. gee , _ spatial transformations of diffusion tensor magnetic resonance images _ , ieee transactions on medical imaging * 20 * ( 2001 ) , no .  11 , 11311139 ( eng ) .
+thomas brox , andrs bruhn , nils papenberg , and joachim weickert , _ high accuracy optical flow estimation based on a theory for warping _ , computer vision - eccv 2004 ( toms pajdla and ji matas , eds . ) , lecture notes in computer science , no .
+3024 , springer berlin heidelberg , january 2004 , pp .
+2536 ( en ) .      richard  g. boyes , daniel rueckert , paul aljabar , jennifer whitwell , jonathan  m. schott , derek l.  g. hill , and nicholas  c. fox , _ cerebral atrophy measurements using jacobian integration : comparison with the boundary shift integral _ , neuroimage * 32 * ( 2006 ) , no .  1 ,
+159169 ( eng ) .
+guang cheng , baba  c. vemuri , paul  r. carney , and thomas  h. mareci , _ non - rigid registration of high angular resolution diffusion images represented by gaussian mixture fields _ , proceedings of the 12th international conference on medical image computing and computer - assisted intervention : part i ( berlin , heidelberg ) , miccai 09 , springer - verlag , 2009 , pp .  190197 .
+r.  derfoul and c.  le  guyader , _ a relaxed problem of registration based on the saint venant  kirchhoff material stored energy for the mapping of mouse brain gene expression data to a neuroanatomical mouse atlas _ , siam journal on imaging sciences ( 2014 ) , 21752195 .
+suma dawn , vikas saxena , and bhudev sharma , _ remote sensing image registration techniques : a survey _ , image and signal processing ( abderrahim elmoataz , olivier lezoray , fathallah nouboud , driss mammass , and jean meunier , eds . ) , lecture notes in computer science , no .
+6134 , springer berlin heidelberg , january 2010 , pp .
+103112 ( en ) .
+vladlena gorbunova , sander s. a.  m. jacobs , pechin lo , asger dirksen , mads nielsen , alireza bab - hadiashar , and marleen de  bruijne , _ early detection of emphysema progression _ , medical image computing and computer - assisted intervention : miccai
+... international conference on medical image computing and computer - assisted intervention * 13 * ( 2010 ) , no .
+pt 2 , 193200 ( eng ) .
+joan glauns , _ transport par diffomorphismes de points , de mesures et de courants pour la comparaison de formes et lanatomie numrique _ , ph.d .
+thesis , universit paris 13 , villetaneuse , france , 2005 .
+sarang  c. joshi , michael  i. miller , and ulf grenander , _ on the geometry and shape of brain sub - manifolds _ , international journal of pattern recognition and artificial intelligence * 11 * ( 1997 ) , no .  08 , 13171343 .
+alexis roche , grgoire malandain , xavier pennec , and nicholas ayache , _ the correlation ratio as a new similarity measure for multimodal image registration _ , proceedings of the first international conference on medical image computing and computer - assisted intervention , miccai 98 , springer - verlag , 1998 , acm
+i d : 709612 , pp .
+11151124 .
+d  rueckert , l  i sonoda , c  hayes , d  l hill , m  o leach , and d  j hawkes , _ nonrigid registration using free - form deformations : application to breast mr images _ , ieee transactions on medical imaging * 18 * ( 1999 ) , no .  8 , 712721 .

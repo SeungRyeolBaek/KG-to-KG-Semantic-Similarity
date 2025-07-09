@@ -1,0 +1,79 @@
+stars form out of gas in the densest areas of molecular clouds .
+early studies of molecular cloud structure ( e.g.  @xcite ) concluded that a division into discrete clumps of emission was the best description . within such clumps
+, star formation occurs inside denser cores @xcite .
+a growing consensus now maintains that molecular clouds have a scale - free structure governed by turbulence ( e.g.@xcite ) , with clumps only an arbitrary categorization .
+we may reconcile these viewpoints to some extent ; the clump population has a power - law spectrum of mass implying the overall cloud has a similar distribution ( e.g.  @xcite ) .
+equally , the self - similarity of molecular clouds must break down where gravitational collapse becomes important .
+this paper focusses on the decomposition of molecular clouds into _ clumps _ of emission .
+the utility of such a description depends on whether the located clumps accurately represent star - forming cores .
+clumps are typically located in either dust continuum or spectral - line datasets , which both have their own advantages and drawbacks .
+continuum observations select high - density cores , which tend to be self - gravitating , but associate more mass to clumps than exists in reality , since objects may be superposed along the line of sight ( e.g.  @xcite ) .
+clump - finding analyses on spectral - line cubes , with their added velocity dimension , should enable clumps to be more accurately assigned but are subject to larger uncertainties from the details of the radiative transfer than continuum emission .
+ultimately , high signal - to - noise ratios are required in both cases for clumps to converge towards the underlying core population @xcite .
+nevertheless , many insights into star formation from clump populations remain compelling . @xcite
+first pointed out that the mass distribution of compact continuum clumps ( the clump mass distribution ; hereafter cmd ) is remarkably similar to the initial mass function of stars ( imf ) . at high masses ,
+the slope is consistent with a salpeter power law ( @xmath7 , @xcite ) , considerably steeper than the power law for co clumps ( @xmath8 , e.g.  @xcite ) . at lower masses ,
+the cmd slope becomes shallower , around the point that samples start to suffer from incompleteness .
+this suggests that the mass of a star is established at its earliest phases ( see also @xcite ) and would seem to rule out models where the shape of the imf is formed later , through e.g.  dynamical interactions @xcite .
+however , the mapping of the cmd on to the imf is not straightforward and many evolutionary schemes would fit the present data ( e.g.  @xcite ) .
+many wide - field surveys are about to or have just begun , which will locate and characterize thousands of star - forming cores from continuum data , e.g.  the james clerk maxwell telescope ( jcmt ) and _ herschel _ gould belt surveys @xcite .
+one of the key science drivers for these projects is the measurement of the cmd to high precision at low masses , into the brown - dwarf regime ( @xmath9m@xmath6 ) .
+thus , an examination of different source - finding techniques is particularly timely .
+many different methods have been deployed in the literature to locate clumps in molecular - line and continuum data , from identifications by eye to automated algorithms .
+however , few studies _ compare _ the sources located with different techniques ( a notable exception is @xcite ) . in this paper
+, we closely compare the populations of continuum clumps found in the perseus molecular cloud ( hereafter simply perseus ) using the two most popular automated algorithms , clfind  @xcite and gaussclumps@xcite , to highlight their differences and biases .
+we re - examine scuba 850  data , presented originally by @xcite , in the four clusters of cores where we have complementary harp spectral - line data @xcite , namely : ngc  1333 , ic348/hh211 ( ic348 for short ) , l1448 and l1455 .
+although only investigating a sub - set of the scuba data limits our sample size , these are the sources whose kinematics we will investigate subsequently and any cmds from the spectral - line data will be directly comparable ( curtis & richer , in prep . ) .
+the regions selected still encompass the majority of the scuba cores identified by @xcite , 58 out of 103 ; so we can extrapolate any conclusions to the entire cloud population .
+this work is divided into two principal parts . in section
+[ sec : clumppopulation ] , we identify clumps using the two algorithms before matching them to a catalogue of scuba cores , classified as protostellar or starless on the basis of their seds by @xcite ( hereafter ) .
+second , sections [ sec : properties ] and [ sec : cmd ] present an analysis of the physical properties of the cores before we summarize our conclusions in section [ sec : summary ] .
+many different terminologies have been used to describe the hierarchical structure in molecular clouds ; we follow @xcite . within molecular clouds ,
+individual over - densities are termed _ clumps _ , these are the objects identified by automated algorithms and do not necessarily go on to form stars .
+clumps may contain _ cores _ , which are the direct precursors of individual or multiple stars .
+every clump that does not contain an embedded object is referred to as _
+starless_. of these starless cores , only a subset , the _ prestellar _ cores ( formerly pre - protostellar cores , @xcite ) will be gravitationally bound and thus go on to form stars .
+we extracted fully calibrated and reduced scuba 850  maps across the four regions in perseus we observed with harp from the data presented by @xcite , where we refer the reader for details of the observations and processing . in short , the data were taken during 20 nights between 1999 and 2003 . the sky opacity measured at 225ghz varied from @xmath10 to 0.080 , with most of the data taken in good conditions ( @xmath11 ) .
+the beam size is 14arcsec ( 0.017pc at 250pc , our assumed distance to perseus ) and the maps are sampled on a 3arcsec grid .
+the rms noise level varies across the maps from typical values of @xmath12mjybeam@xmath13  in ngc  1333 and ic348 to higher values , 32 and 46mjybeam@xmath13  in l1448 and l1455 .
+hereafter , to be consistent with the @xcite studies and therefore allowing a direct comparison of our source catalogues , we take the noise to be @xmath14mjybeam@xmath13 , the typical value for the _ entire _ cloud .
+( sub)millimetre continuum mapping selects young , cold cores ( 520k ) at the earliest stages of star formation .
+these largely self - gravitating cores are intermediate in properties between co clumps and infrared young stellar objects ( see @xcite for a review ) .
+the dust s thermal emission is optically thin nearly everywhere at these wavelengths , accurately tracing density throughout the cloud .        1 .   ` clumpfind ' or clfind  @xcite , which contours the data at evenly - spaced levels , starting close to the peak value .
+all distinct contiguous areas are considered above each contour level in turn .
+if an area has no pixels previously assigned to a clump , it is marked as a new clump .
+alternatively if there is a pre - existing clump assignment , that clump is extended to the next lowest contour level .
+when two or more different assignments exist in a area , the pixels are distributed using a friend - of - friends algorithm .
+gaussclumps  @xcite , which uses a least - squares fitting procedure to break - down the data into a number of gaussian - shaped clumps , in a fashion similar to the clean algorithms used in interferometric mapping .
+clfind  is a partitioning method with each pixel only allocated to a single clump , whereas gaussclumps  permits any number of clumps to overlap at a single spatial position .
+this means gaussclumps  is better at handling blended sources , although its output clumps necessarily conform to a strict gaussian profile as opposed to the arbitrary shapes from clfind .
+the way each algorithm find clumps of emission is controlled by a number of tuning parameters .
+our overall aim in this paper is to compare the populations of clumps found _ independently _ by clfind  and gaussclumps .
+we therefore try to find the same objects with both algorithms , namely clumps larger than the beamsize with peaks greater than @xmath15 , but do not try to make the algorithms find exactly the same identifications clump - to - clump . in so doing
+, we follow the majority of previous studies and select parameters for each algorithm that are considered optimal for rejecting spurious detections . in an alternative approach , one could try to produce clump catalogues which were as similar as possible .
+however , the standard algorithm outputs we supply are quite different because of the very different way clumps are found with the two algorithms . given that we can never definitively know the true , underlying clump population , then selecting one algorithm population to make more similar to the other would be completely arbitrary _ a priori_. indeed , it is only through detailed analysis , such as the one presented in this paper , or monte - carlo simulations that such a decision regarding algorithm selection could be made .
+the most important parameters to tune clfind s output are the value of the lowest contour level ( @xmath16 ) and the contour level spacing ( @xmath17 ) .
+@xmath18 of 2@xmath19 is considered optimal for rejecting clumps otherwise fitted to noise spikes @xcite .
+@xmath20 essentially sets the clump peak threshold ( @xmath21 ) . after some experimentation we settled on the optimum parameters to find plausible clumps : @xmath18 and @xmath16 both @xmath22 , so clumps must have peaks @xmath23 .
+additionally , the clumps had to be larger than the beam size and contain at least 7 pixels .
+we find 85 clumps in this manner which are depicted across the four regions in fig .
+[ fig : clfind_clumps ] .
+the full catalogue of clfind  detections is listed in tab .
+[ tab : clfind_detections ] .                      for the gaussclumps  algorithm
+the most sensitive tuning parameter was the threshold , the minimum value at which the routine would attempt a model fit ( @xmath24 ) .
+as for clfind , clumps with widths smaller than the beam size ( 14arcsec ) were rejected . in total ,
+122 clumps were located in the four regions as shown in fig .
+[ fig : gauss_clumps ] .
+tab.[tab : gclumps_detections ] provides the full the list of gaussclumps  identifications .
+although we identify clumps in the same data with the same algorithm , find fewer clumps ( the total number of clumps found in this work and is summarized in tab .
+[ table : numberclumps_allalgs ] ) . use the idl implementation of clfind  on the scuba maps with an unsharp mask applied to remove structure on spatial scales @xmath25arcmin .
+the most plausible explanation for this discrepancy is the different clump threshold , although there are other differences . in our catalogue
+, we include all clfind  detections found with @xmath26 and @xmath27 .
+this ensures the detections all have peaks @xmath28 .
+however , only select their clfind  detections ( with @xmath29 and @xmath30 ) that have peaks @xmath31 . additionally , they select less bright sources , with peaks @xmath32 that also have an identification by eye in their original paper @xcite or are bolocam sources @xcite .
++ @xmath33  peak clump flux position .
++ @xmath34  clump effective radius , the geometric mean of the clump major and minor ` sizes ' ( @xmath35 ) .
+each size is formed from the standard deviation of the clump co - ordinates about the centroid position , weighted by the pixel data values .
++ @xmath36  clump peak flux .
++ @xmath37  clump total flux .
++ @xmath38  clump mass derived from the total flux assuming optically thin , isothermal dust at 12  k ( see section [ sec : dustmasses ] ) .

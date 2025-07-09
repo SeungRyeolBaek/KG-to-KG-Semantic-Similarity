@@ -1,0 +1,368 @@
+understanding how galaxies form and evolve into the objects we observe today remains one of the most fundamental quest of astrophysical research .
+even if the field is still at its beginnings , the use of numerical approaches to study how galaxies are assembled in a cosmological hierarchical scenario from primordial fluctuations , seems promising .
+the main advantage of these approaches ( namely hydrodynamical simulations ) is that physics is introduced at a most general level , and the dynamical processes relevant to galaxy assembly ( i.e. , collapse , gas infall , interactions , mergers , instabilities ... ) emerge naturally , rather than by assumption , and can be followed in detail .
+only the star forming processes need to be modelled .
+these considerations emphasize the interest of hydrodynamical simulations as an outstanding working tool to learn about galaxy formation and evolution from primordial fluctuations .
+for other approaches to this problem , see manrique et al .
+( in preparation ) , firmani & avila - reese ( 2000 ) and the references therein .    as discs are naturally produced in the collapse of a dissipative system embedded in a gravitational field , learning how to get well - behaved discs ( i.e. , similar to those observed in spirals ) in such simulations is one important step towards understanding galaxy assembly in general . according to the standard model of disc formation ( fall & efstathiou 1980 ) , disc - like structures with observable counterparts can form provided that the diffuse gas in the dark matter halo cools and collapses conserving its specific angular momentum , @xmath1 . in hierarchical scenarios ,
+halo gas cooling occurs with @xmath1 conservation in the _ quiescent _ phases of galaxy assembly , producing extended , thin discs with an exponential mass density profile in the equatorial plane ( dalcanton , spergel & summers 1997 ) .
+but _ violent _ phases play also a fundamental role in these scenarios . during these phases ,
+the system undergoes interactions and merger events , that can destroy discs that had possibly formed in previous quiescent phases .
+thus far , no hydrodynamical simulation of galaxy formation in fully consistent hierarchical cosmological scenarios had provided extended discs , with structural and dynamical properties similar to those observed in spiral galaxies ( see , however , recent work by sommer - larsen & dolgov 1999 ) .
+the objects formed were either a )  gaseous and too concentrated , when no stellar formation processes are considered at all ( navarro & benz 1991 ; navarro , frenk & white 1995 ; evrard , summers & davis 1994 ; vedel , hellsten & sommer - larsen 1994 ; navarro & steinmetz 1997 ; sommer - larsen , gelato & vedel 1999 ; weil , eke & efstathiou 1998 and references therein ) , or b )  rather stellar and without discs , when these processes have been included ( navarro & steinmetz 2000 ; thacker & couchman 2000 ) . in the former cases ,
+objects are too concentrated due to an excessive @xmath1 loss in violent events ; this is the so - called disc angular momentum catastrophe [ damc ] . in the latter cases , as discussed by tissera , siz & domnguez - tenreiro ( in preparation , hereafter tsdt ) the particular star formation implementations used lead to a too early gas transformation into stars , leaving no gas to cool and form discs at lower  @xmath2 .
+the effects of star formation have also been considered by katz ( 1992 ) and steinmetz & mller ( 1995 ) who obtained , in both cases , a three component system that resembles a spiral galaxy . however , their simulations treat only the case of a semi - cosmological modellization of the collapse of a constant density perturbation in solid - body rotation .
+sommer - larsen & dolgov ( 1999 ) have succeeded in avoiding excessive @xmath1 loss in warm dark matter scenarios .
+nevertheless , their discs still do not match observations very well .    this inability to reproduce
+observed discs in fully consistent cosmological simulations , represents clearly a major pitfall of present - day numerical simulations as a working tool to learn about galaxy formation and evolution . in a series of papers ( domnguez - tenreiro , tissera & siz 1998 ;
+siz , tissera & domnguez - tenreiro 1999 ; tsdt ) it has been shown that the object properties at the end of violent phases of evolution critically depend on the structural stability of the disc - like objects involved in interaction and merger events , on the one hand , and on the availability of gas to regenerate a disc structure after the last violent episode , on the other hand . concerning stability ,
+cold thin discs are known to be very unstable against non - axisymmetric modes ( athanassoula & sellwood 1986 ; binney & tremaine 1987 ; barnes & hernquist 1991 , 1992 ; martinet 1995 and references therein ; mihos & hernquist 1994 , 1996 ; mo , mao & white 1998 ) .
+massive haloes can stabilize discs , but not every halo is able to stabilize the pure exponential disc that would form from @xmath1-conserving diffuse gas collapse in its last quiescent phase . in these cases ,
+a central compact bulge is needed to ensure stability ( christodoulou , shlosman & tohline 1995 ; van den bosch 1998 , 2000 ) . otherwise ,
+non - axisymmetric instabilities could be easily triggered by interactions and mergers , causing important @xmath1 losses ( that is , damcs ) , followed by strong gas inflow .    in that series of papers we also show that compact central bulges form when star - forming processes are considered in hierarchical hydrodynamical simulations , provided that the particular star formation implementation used does not lead to a too early gas exhaustion ( i.e. , _ inefficient _ star formation , see silk 1999 ) .
+the physical processes involved in disc formation and stability when an inefficient schmidt law - like stellar formation algorithm is implemented in these simulations are discussed in detail in tsdt .
+the aim of this paper is to show that discs identified in galaxy - like objects produced in these hierarchical hydrodynamical simulations are , at a structural and dynamical level , similar to those observed in spirals . to this end
+, we analyze the structural and dynamical properties of a sample of 29 disc - like objects formed in three different such simulations .
+we focus on those properties that can be constrained with available data for observed spiral galaxies .
+these data are taken principally from the compilations of galaxy structural parameters of broeils ( 1992 , hereafter b92 ) , de  jong ( 1996 ) and courteau ( 1996 , 1997b , hereafter c97b ) .
+the paper is organized as follows : @xmath3[simu ] describes the simulations .
+the general characteristics of disc - like objects at @xmath4 are outlined in @xmath3[objects ] , and their bulge - disc decomposition and rotation curves are discussed in @xmath3[budi ] and @xmath3[rocu ] , respectively .
+finally , a summary and conclusions are presented in @xmath3[sumcon ] .
+we consider three simulations , s1 , s1b , and s1c , from different realizations of a given model for the primordial spectrum of the density fluctuation field . in each case , we follow the evolution of @xmath5 gas plus dark matter particles in a periodic box of comoving side 10 mpc ( @xmath6 km  s@xmath7 mpc@xmath7 with @xmath8 ) using a sph code coupled to a high resolution ap3 m code ( thomas & couchman 1992 ; see tissera , lambas & abadi 1997 for details on sph algorithm implementation ) .
+the initial distributions of positions and velocities of the @xmath5 particles are consistent with a standard cdm cosmology , with @xmath9 , @xmath10 and @xmath11 ; one out of ten of them is randomly chosen to be a gas particle .
+these initial distributions are set by means of the action algorithm , kindly provided by e. bertschinger .
+all , dark , gas and stellar particles have the same mass , @xmath12 m@xmath13 .
+ap3m - sph integrations were carried out from @xmath14 to the present using fixed time steps @xmath15 years .
+the gravitational softening length is 3  kpc and the minimum allowed smoothing length is 1.5  kpc .
+these simulations include a star formation prescription described by tissera et al .
+( 1997 ; see tissera 2000 for a discussion on the resulting star formation history ) .
+the gas cools due to radiative cooling .
+we use the approximation for the cooling function by dalgarno & mccray ( 1972 ) for a primordial mixture of hydrogen and helium .
+gas particles are transformed into stars if they are cold ( @xmath16 k ) , dense ( @xmath17 g  @xmath18 ) , in a convergent flow and satisfy jean s instability criterion .
+when a gas particle satisfies these conditions , it is transformed into a star particle after a time interval ( @xmath19 ) over which its gas mass is being converted into stars according to @xmath20 where @xmath21 is the star formation efficiency , @xmath22 is a characteristic time - scale assumed to be proportional to the dynamical time of the particle ( @xmath23 ) and @xmath24 is the time interval over which 99 per cent of the gas mass in a particle is expected to be transformed into stars ( navarro & white 1993 ) .
+we adopt a low star formation [ sf ] efficiency with @xmath25 ( for a discussion of the inefficient sf implementation , see tsdt ) .
+no supernovae explosion effects have been considered .
+however , this low @xmath21 value avoids the quick depletion of gas at high  @xmath2 , leaving enough remanent gas to form disc - like structures at low  @xmath2 .
+to some extent , this could mimic the effects of energy injection from supernovae explosions .
+the treatment of supernova feedback in numerical simulations is still an open and complex problem that remains to be properly solved .
+galaxy - like objects are identified at their virial radius , @xmath27 , at @xmath0 .
+dark matter haloes formed in the s1 simulation have been extensively studied in tissera & domnguez - tenreiro ( 1998 , hereafter tdt98 ) .
+these haloes , as well as those formed in s1b and s1c simulations , are resolved with a relatively high number of particles ( see the number of dark mass particles , @xmath28 , per halo , in table  [ general ] ) .
+the main baryonic objects embedded in these dark haloes can be identified by applying a friends - of - friends ( fof ) algorithm to the baryonic particle distribution , with a linking length of 10 per cent the mean total interparticle separation in the box .
+baryonic objects identified in the simulation at @xmath0 are galaxy - like objects ( glos ) that span a range of morphological characteristics : disc - like objects ( hereafter , dlos ) , spheroids and irregular objects .
+dlos have external extended , populated discs , consisting mostly of gas , central stellar bulge - like concentration and , in some cases , stars in a thick disc .
+spheroids are mostly composed of stars forming a relaxed , spheroidal configuration , with a small amount of gas forming a small central disc .
+irregular objects do not have a defined morphology , and in most cases they are the end product of a recent merger . in this paper
+only dlos will be analyzed .
+only those glos with a total baryon number @xmath29 larger than @xmath30 have been considered is defined unambiguously as @xmath31 , where @xmath32 is the baryon number as given by the friends - of - friends algorithm for a given glo .
+however , some glos have close satellites that are included in the friends - of - friends algorithm , even if these satellites are dynamically and structurally different entities from the glo itself . in this case , the actual glo baryon number is @xmath33 , with @xmath34 the number of baryonic particles in the @xmath35-th satellite entering in @xmath32 . ] .
+this criterion has been chosen as a compromise : taking @xmath36 much higher than 150 would result into too few dlos in our sample ; taking @xmath36 much lower than 150 would result into dlos composed of too few particles to be properly analyzed .    out of our 3 simulations , we are able to identify different numbers of discs ( 9 , 13 and 7 , for a total sample of 29 objects ) and spheroids or irregular objects ( 5 , 7 and 11 , not studied in this paper ) following the previous mass - limit criterion .
+dlos are labelled by the three coordinates ( in 10@xmath37mesh units ) that identify the cell where the centre of mass of their host halo is found in the total box .
+when several haloes ( hosting either dlos , spheroids or irregulars ) are found in a given cell , a greek letter is added to distinguish among them . some haloes host more than one baryonic object ; asterisks in table  [ general ] identify haloes that include more than one baryonic object ( either dlo , spheroid or irregular ) . in this case , the different components are distinguished by means of a capital letter in order of decreasing mass . for instance , dlo # 165c ( in s1b ) belongs to a massive halo , where the more massive objects # 165a ( spheroid ) and # 165b ( irregular ) are also found ; dlos # 233a and # 233b ( in s1 ) , on the one side , and # 643@xmath38a and # 643@xmath38b ( in s1b ) , on the other side , share the same halo .
+the virial radius , @xmath27 , maximum limiting radius , @xmath39 ( see @xmath3[budi ] ) , dark , star and gas particle number , @xmath28 , @xmath40 and @xmath41 , respectively , within spheres of radii @xmath27 and @xmath39 for each of the 29 dlos of the sample are listed in table  [ general ] .    in fig .
+[ dlos](a ) we plot , for the @xmath35-th baryonic particle inside the halo hosting dlo # 242 , the cosine of the angle formed by its position and velocity vectors , @xmath42 and @xmath43 , versus @xmath44 , its distance to the dlo mass centre . in fig .
+[ dlos](b ) we plot @xmath45 versus @xmath44 , where @xmath46 is the component of the angular momentum per unit mass of the @xmath35-th particle parallel to @xmath47 ( disc specific total angular momentum ) .
+the solid line is @xmath48 , where @xmath49 is the circular velocity at projected distance @xmath50 ( see @xmath3[rocu ] ) . in these figures ,
+stars stand for stellar particles , circles for gas particles and open symbols for counter - rotating particles ( i.e. , with @xmath51 ) of any kind .
+these figures show that most gas particles placed at @xmath52  kpc move coherently along circular trajectories ( so that they have @xmath53 , see fig .
+[ dlos](a ) ) on the equatorial plane ( and so they verify @xmath54 ) , that is , they have @xmath55 , with a small dispersion around this value ( see fig .  [ dlos](b ) ; @xmath56 if the @xmath35-th particle is on the equatorial plane ) : the particles form a _ cold thin disc_. in contrast with disc gas particles , gas particles placed at @xmath57  kpc ( hereafter , halo gas particles ) do not show any order : roughly half of them are in counter - rotation ( open circles ) , their @xmath58 $ ] and their @xmath45 takes any value under the solid line .
+concerning stars , we see that most of them are found at @xmath59  kpc , where they form a central compact relaxed structure , i.e. , a bulge , with @xmath60 without any preferred direction and very low @xmath45 ; in some dlos , as figs .
+[ dlos](a )  and  [ dlos](b ) illustrate , some stars are placed at @xmath61  kpc in some orderly fashion , forming a sort of thick disc .
+baryons forming other dlos in our sample follow similar behaviour patterns .    in fig .
+[ jmvsm ] we plot the specific total angular momentum at @xmath0 versus mass for dark haloes , @xmath62 ( open symbols ) , for the inner 83 per cent of the disc gas mass ( i.e. , the mass fraction enclosed by @xmath63 in a purely exponential disc , where @xmath64 is the disc scale length , see @xmath3[budi ] ) , @xmath65 ( filled symbols ) , and for the stellar component of the dlos in our simulations , @xmath66 ( starred symbols ) .
+we see that @xmath65 is of the same order as @xmath62 , so that these gas particles have collapsed conserving , on average , their angular momentum .
+moreover , dlos formed in our simulations are inside the box defined by observed spiral discs in this plot ( fall 1983 ) .
+in contrast , @xmath66 is much smaller than either @xmath62 or @xmath65 , meaning that the stellar component in the central parts has formed out of gas that had lost an important amount of its angular momentum .
+a detailed description of the physical processes leading to dlo configuration at @xmath0 we have just described is given in domnguez - tenreiro et al .
+( 1998 ) and tsdt . here
+these processes are only briefly summarized :    the net effect of shocks and cooling in the quiescent phases of evolution on disordered halo gas particles , is that they force them to a coherent rotation with global specific angular momentum conservation .
+consequently , in the quiescent phases of the evolution , gas particles tend to settle at the inner halo regions , and if the gravitational potential has some centre of axial ( or central ) symmetry at these regions , gas particles will move on a plane on circular orbits around this centre , forming a cold thin disc .
+most stars in the central bulges have been formed out of gas particles that had been involved in an inflow event with high @xmath1 loss ; these compact central bulges create a gravitational potential that is spherically symmetric on scales of a few kpc , ensuring @xmath1 conservation .
+this stabilizes the system against gas inflows in future violent phases of the evolution .
+in fact , in the next major merger event , those gas particles involved in the merger and with high @xmath1 will be placed on an intermediate disc ; in their turn , the stellar bulge of the smaller dlo involved in the event is eventually destroyed by strong tidal forces ; then , incomplete orbital angular momentum loss puts most of its stars at some distance of the centre , where , after some relaxation , they form a kind of thick disc .
+finally , most of the disc external gas particles are supplied by infall of particles , either belonging to baryonic clumps ( satellites ) or diffuse component , completing the dlo assembly .
+because of the sf implementation used , gas in discs are not transformed into stars .
+then , simulated discs are mostly composed of gas . observed discs in spirals
+are mostly stellar , but the stellar discs inherit the structural and dynamical characteristics of the gaseous discs out of which disc stars have formed , so that , for the sake of comparison , the value of the parameters describing those properties can be safely determined from the simulated gaseous discs .
+a proper implementation of star formation with supernovae feedback should lead to a self - regulated star formation that would allow the formation of both compact stellar bulges and thin stellar discs .
+observationally , the structural parameters of spirals are obtained from a fit to the shape of the surface _ brightness _ profile .
+the galaxy luminosity profile is often decomposed into a bulge ( b ) and disc ( d ) component , such as @xmath67    each individual profile can be modelled using the parametrization from srsic ( 1968 ) , @xmath68 ,
+\ { \rm{for } \hspace{0.5 cm } c = { \rm b , d } } ,    \label{surprof}\ ] ] and where @xmath69 is a shape parameter taken to be @xmath70 for the disc component ( i.e. , a pure exponential law ) and that is left as a free parameter for the bulge component .
+the de  vaucouleurs profile for spheroids corresponds to a choice of @xmath71 .
+@xmath72 and @xmath73 are the central surface brightness and scale length for the bulge and disc components .
+the same profile form has been fit to the projected _ mass _ density of baryons , @xmath74 , for the dlos in our sample .
+@xmath74 is calculated by averaging concentric rings centred at the centre of mass of each dlo .
+projections on the plane normal to the total angular momentum of each dlo ( disc plane ) have been used .
+these projected densities are binning dependent and somewhat noisy . to circumvent these problems , the _
+integrated projected _ mass density in concentric cylinders of radius @xmath50 and mass @xmath75 , @xmath76 has been used as fitting function , instead of the projected mass density itself .
+cumulative histograms @xmath77 are constructed by adding equal height steps at those positions @xmath78 where baryon particles are placed .
+[ mcyl ] shows these @xmath79 histograms for two dlos .
+simulated discs , as well as discs observed in spirals , do not have a sharp end .
+we have taken as maximum limiting radius for the simulated discs @xmath80 . ] which corresponds to a limiting or truncation radius in surface brightness of @xmath81 mag arcsec@xmath82 assuming that discs have @xmath83 mag arcsec@xmath82 .
+as minimum limiting radius we have taken @xmath84  kpc .
+these changes affect mainly the @xmath85 parameter values , that in the less favoured case , @xmath86  kpc , change on average only by less than a 10 per cent ; @xmath64 variations , on the other hand , are on average lower than the corresponding monte carlo errors due to finite sampling ( see fig .
+[ rbrd ] ) . ] .
+because the total baryon number inside @xmath39 for each object is known ( see table  [ general ] ; this is equivalent to knowing the _ total _ dlo mass ) , we are left with four free fitting parameters among @xmath69 , @xmath87 , @xmath88 , @xmath89 and @xmath64 .
+an updated version of the minuit software from cern library has been used to make the fits .    to compare the size of bulges with different shape (
+i.e. , with different bulge shape parameter @xmath69 ) the @xmath88 parameter is meaningless because its value , as determined from the fitting procedure , depends on @xmath69 .
+in fact , when bulges with the same physical scale and different shape are considered , @xmath88 varies by orders of magnitude when @xmath69 varies by a factor of some few units ( see eqs .
+( [ reffrb ] )  and  ( [ reffrb2 ] ) below ) . to circumvent this shortcoming ,
+an _ effective _ bulge scale length or half light radius , @xmath85 , is often used by observers . in our case
+, it will be defined through the projected bulge mass profile by the condition @xmath90 , where @xmath91 is the bulge mass ( i.e. , it is a half mass radius ) .
+@xmath85 is related to @xmath88 through : @xmath92 where @xmath93 and @xmath94 are the incomplete and complete gamma functions . for @xmath70 , eq .
+( [ reffrb ] ) gives @xmath95 ; for @xmath71 one finds @xmath96 . for arbitrary @xmath69 , eq .
+( [ reffrb ] ) can be approximated by @xmath97    the results for the effective bulge scale length , @xmath85 , and disc scale length , @xmath64 , corresponding to the optimal bulge shape parameter , @xmath98 , and , also , to @xmath99 ( exponential bulge profile ) are given in table  [ buldis ] , together with their corresponding @xmath100 per degree of freedom parameter .
+for comparison , table  [ buldis ] also gives the disc scale length and the @xmath100 per degree of freedom for a de  vaucouleurs profile ( @xmath101 ) .
+note that the disc scale parameter , @xmath64 , is , in most cases , nearly independent of the bulge shape parameter ( either @xmath98 , @xmath70 or @xmath71 ) .
+knowing the length and mass scale parameters for simulated bulges and discs allows us to determine their _ mass _ bulge - to - disc ratios , @xmath102 these ratios are given in table  [ buldis ] .
+this table shows another interesting parameter characterizing dlo structure : the _ transition _ radius , @xmath103 , where @xmath104 .    in fig .
+[ mcyl ] we have drawn the best fits to the integrated projected baryon mass density , @xmath105 , for dlos # 242 and # 643@xmath38a .
+a solid line arrow marks @xmath103 ; a dashed line arrow marks the lower limit of the fitting interval @xmath84  kpc .
+this figure illustrates the good quality achieved in the fittings , even for the regions where @xmath106 , and hence the stability of the bulge / disc parameter determination against changes in @xmath107 , as mentioned before .
+we see in table  [ buldis ] that bulges for most dlos are more adequately modelled with an exponential profile ( @xmath99 ) than with a de  vaucouleurs profile ( @xmath101 ) .
+this agrees with observational results for early and late - type spiral galaxies ( e.g.  andredakis , peletier & balcells 1995 ; courteau , de jong & broeils 1996 [ cdjb96 ] ; moriondo , giovanelli & haynes 1999 [ mgh99 ] ) .
+furthermore , andredakis et al .  ( 1995 ) and cdjb96 have found that the bulge shape parameter is correlated with spiral type . in particular , cdjb96 find that most sb  sc and all high surface brightness spiral galaxies of later type are best fitted with a @xmath70 profile , most sa 
+sab galaxies are best modelled with a @xmath108 bulge , and only a small fraction of late type spirals have bulges that follow the de  vaucouleurs law .
+this distribution of shape parameters , @xmath98 , is most similar to that of dlos in table  [ buldis ] .
+based on the grid of shape parameters in andredakis et al .
+( 1995 ) and cdjb96 , most of our simulated dlos seem to be of type @xmath109 or greater ( see @xmath98 in table  [ buldis ] ) .
+the dependence of the observed @xmath69 values on the morphological type suggests a difference in the formation and evolution of the bulge component .
+the values of the @xmath88 and @xmath64 parameters , corresponding to a double exponential fit , are plotted in fig .
+[ rbrd ] for all the dlos in our sample ; squares , triangles and circles correspond to dlos formed in s1 , s1b and s1c simulations , respectively .
+the error bars in the top left corner of the figure are the typical dispersions in the @xmath88 ( vertical ) and @xmath64 ( horizontal ) parameters values , arising from finite sampling and calculated through monte carlo realizations of the dlo profiles , as given by eqs .
+( [ surdes ] )  and  ( [ surprof ] ) , with @xmath110 particles and @xmath70 . for comparison , in fig .  [ rbrd ]
+we also show the @xmath88 and @xmath64 values given by cdjb96 and courteau ( 1997a ) from one - dimensional luminosity decompositions of sb  sc spirals ( points ) .
+we get average bulge / disc scale length ratios of @xmath111 for dlos in s1 , @xmath112 for dlos in s1b and @xmath113 for dlos in s1c .
+the ratio for the whole sample of 29 dlos is @xmath114 , which compares well with the values found by cdjb96 in the @xmath115-band , 0.13 @xmath116 0.07 , and de  jong ( 1996 ) at @xmath117 alone , 0.09 @xmath116 0.04 .
+mgh99 also find @xmath118 . in all cases ,
+consistency between available data and our dlo sample is good .
+note that we miss dlos with small values of @xmath88 and/or @xmath64 as compared with the range of values quoted by these authors .
+it simply reflects our lack of dynamical resolution to resolve smaller structures .    in fig .
+[ rbrd ] we compare scale lengths obtained from one - dimensional surface _ brightness _ decompositions with scales obtained from projected _ mass _ density decompositions with bulge shape parameter @xmath70 . as compared with the disc ,
+the bulge is typically less prominent in surface brightness than in projected mass density , since its mass - to - light ratio ( @xmath119 ) is likely to be higher than the disc mass - to - light ratio ( @xmath120 ) .
+it is not clear , a priori , if this fact makes the previous comparisons meaningless . to find out
+if this is indeed the case , one would have to compare the values of the @xmath88 and @xmath64 parameters as obtained from a fit to the surface brightness profile of a given dlo with those obtained from a fit to its projected mass density profile .
+since this is not possible , in order to assess the feasibility of the previous comparisons , we adopt the following method :    assuming that both @xmath119 and @xmath120 do not depend on @xmath50 , a given dlo with double exponential @xmath121 profile characterized by values of @xmath88 , @xmath64 , @xmath122 and @xmath123 , would have a surface brightness profile , @xmath124 , given by eqs .
+( [ surdes ] )  and  ( [ surprof ] ) with the same @xmath88 and @xmath64 parameters , but with @xmath125 and @xmath126 .
+the previous comparisons will make sense if fittings to monte carlo realizations of a given @xmath121 profile and to monte carlo realizations of its surface brightness counterpart , @xmath124 , with the same number of particles , lead to the same values of the @xmath88 and @xmath64 parameters .
+this test has been performed for @xmath121 corresponding to dlos # 242 and # 545 ( from s1 ) in the sample .
+results are shown in fig .
+[ rbrdtest - exp ] for @xmath127 = 1 , 3 and 5 , from where we see that consistent values of @xmath88 and @xmath64 are obtained ( within errors resulting from finite dlo sampling ) .
+therefore , the mass and length structural parameters are decoupled , making the comparisons valid .
+this compatibility between the simulated mass scale lengths and observed luminosity scale lengths in the @xmath115 and @xmath117 bands , suggests that the projected light density ( i.e. , stars ) follows the projected mass density .
+this could be expected if the star formation rate in a disc were proportional to the baryon surface mass density ( see kennicutt 1998 and silk 1999 for a discussion ) .
+the _ mass _ @xmath128 ratios given in table  [ buldis ] are plotted in fig .
+[ noptbd ] versus the corresponding @xmath98 .
+note that no correlation is observed between @xmath128 and @xmath98 . these _ mass _ @xmath128 ratios are considerably higher than the corresponding _ luminosity _ @xmath128 ratios of late - type systems .
+but it is difficult to decide at the present whether the central baryon concentrations found in dlos are excessive or not , as both , disc and bulge , mass - to - light ratios , would be required to compare with observed _ luminosity _ @xmath128 ratios .
+in fact , the only disc galaxy where the masses of the disc and bulge / central component can be estimated directly is the milky way . sommer - larsen & dolgov ( 1999 ) obtain @xmath129 0.2  0.4 , for a disc scale length of 2.5  3.0 kpc . for other galaxies ,
+some estimations give @xmath130 12 ( in solar units , for @xmath131 ; courteau & rix 1999 , hereafter cr99 ) .
+values in these ranges would make the _ mass _ @xmath128 ratios obtained in the simulations roughly compatible with _
+@xmath128 ratios from observations , but more accurate measures of @xmath119 and @xmath120 are required before a conclusion can be reached .
+it is worthwhile to note that decompositions of extended rotation curves ( rcs ) of some galaxies from broeils compilation ( b92 ) , using sub - maximal discs ( bottema 1993 , 1997 ; cr99 ) , yield _ mass _ @xmath128 ratios of about  1 ( see rhee 1996 ) .
+also , mgh99 find that 5 out of 23 sa 
+scd galaxies for which they obtain a reliable fit to the rotation curve ( rc ) for both the bulge and the disc component , have _ mass _ @xmath128 ratios of about  1 or larger .
+note , however , that the majority of these decompositions are ill - constrained , as different combinations of bulge , disc , and halo profiles yield equally good agreement with the data ( van albada et al .
+1985 , cr99 ) .
+current observational uncertainties on @xmath119 and @xmath120 preclude any consistency check for our derived baryon mass distributions . for more stringent constraints , one must turn instead to dynamical observables such as rcs .
+the shapes of spiral rcs are determined by their three dimensional total ( i.e. , bulge , disc and dark matter halo ) mass distribution .
+the rcs of the simulated objects have been constructed by adding up in quadrature the contributions to circular rotation from the bulge , the disc ( both of them formed by baryons , either gas or stars , see @xmath3[objects ] ) , so that @xmath132 , and the dark matter halo , @xmath133 , @xmath134 we have adopted a softened plummer potential ( evrard et al .
+1994 ) @xmath135 where @xmath136 and @xmath137 are the total baryonic and dark matter masses , respectively , inside a sphere or radius @xmath115 .
+the adaptive ap3 m scheme produces an effective dynamical gravitational softening at @xmath0 of @xmath138  kpc at the central region of the dlos .
+the rcs for several dlos in our sample are given in fig .
+[ rotcur ] .
+points are the tangential velocity component of the baryonic particles ( projected on the disc plane ) , solid lines are @xmath139 , dashed lines are @xmath140 and point lines @xmath141 .
+note that the halo component , @xmath140 , gives rise to an almost _ flat _ contribution to the rcs beyond the very inner regions .
+these rcs fit very well the tangential velocity component of the baryonic particles up to @xmath142 , suggesting that these particles are in rotationally supported equilibrium within the potential well produced by both the dark haloes and the baryons themselves ( tdt98 ) .    on scales encompassing the baryonic object ( i.e. , @xmath143 ) , dlos have rcs that are declining in their outer parts , and some of them have central spikes produced by the bulge , similar to those found in some observed galaxies with _ mass _ @xmath144 or larger ( for example , ngc  6674 and ngc  7331 in rhee 1996 , or ugc  89 , ugc  1013 and ugc  1238 in mgh99 ) .
+it is customary to try to explain the shapes of rcs as a combination of various ` fundamental plane ' parameters such as global size ( i.e. , a spatial and a mass scale ; rubin et al .  1985 ) , central mass concentration ( rhee & van albada 1996 ) , and luminosity ( persic , salucci & stel 1996 ) .
+here , the rc shapes for simulated dlos are parametrized as a function of disc scale length , @xmath64 , as spatial scale , rotation velocity at @xmath145 is the radius at which a _ purely _ exponential disc would reach its maximum circular velocity .
+] , @xmath146 , as mass size , and central mass concentration , via the maximum or peak rotation velocity , @xmath147 , and the radius where this is reached , @xmath148 ( c97b ) .
+some combinations of these parameters have also been explored , such as the logarithmic slope , @xmath149 ( casertano & van gorkom 1991 [ cvg91 ] ; b92 ; de blok , mcgaugh & van der hulst 1996 ) .
+the @xmath149 is observationally defined as the slope of a straight line that fits the rc in log  log scale , from @xmath150 to @xmath151 ( this last point is usually taken to be the last measured rc point , but see c97b for variations on this operational procedure ) .
+for simulated objects in our sample , the rcs are nearly linear in log  log scale for @xmath152 , so that @xmath149 does not appreciably change for @xmath153 .
+the values of these parameters measured in simulated dlos have been compared with those measured in rcs from : a )  sb  sc field spirals drawn from the courteau sample , with long - slit h@xmath154 spectra and @xmath115-band photometry ( see c97b ) , and b )  sb  sc spirals from broeils compilation ( b92 ) of extended rcs with surface photometry .
+we keep only galaxies with @xmath155 km  s@xmath7 ( only one of broeils galaxies has @xmath156 in the range @xmath157 $ ] km  s@xmath7 ) .
+apart from these parameters characterizing the shapes of rcs at scales of the baryonic objects , other interesting parameters at halo scales ( i.e. , @xmath158 ) , are the velocity at the virial radius @xmath159 and the spin parameter , @xmath160 , with @xmath161 , @xmath162 and @xmath163 the total angular momentum , energy and mass for all particles inside @xmath27 .
+note that both @xmath164 and @xmath165 are not observable .    in table
+[ dynamical ] we give @xmath164 , @xmath165 and the rc parameters for our dlo sample .
+note that the @xmath165 values are within their expected range for a standard cdm scenario ( warren et al .
+1992 ; dalcanton et al .
+1997 ; lemson & kauffmann 1998 ) . in fig .
+[ lambrd ] we plot @xmath64 versus @xmath166 .
+a correlation appears in the sense that haloes with higher spin host more extended discs . in the framework of semianalytical models of quiescent _ pure _
+( i.e. , bulgeless ) disc formation with @xmath1 conservation one approximately has @xmath167 ( see dalcanton et al .
+1997 ; mo et al .
+1998 ) ; we find an important dispersion due to the loss of angular momentum by _ bulge _ particles involved in damcs in the violent phases of the evolution .
+the dlo values of the parameters @xmath64 and @xmath156 are consistent with observations ( see tables  [ buldis ]  and  [ dynamical ] and figs .
+[ rbrd ]  and  [ rdv22 ] ) . by virtue of selecting dlos with @xmath168 ,
+we find high rc amplitudes mostly with @xmath155 km  s@xmath7 .
+our simulated dlos are either intermediate spirals ( 100 km  s@xmath169 km  s@xmath7 , 9 objects ) , large bright spirals ( @xmath170 km  s@xmath7 , @xmath171  kpc , 18 objects ) , or compact bright spirals ( @xmath170 km  s@xmath7 , @xmath172  kpc , 2 objects )
+. our sample does not include any dwarf galaxy .
+as expected , @xmath156 is correlated with @xmath164 , albeit with a dispersion .
+this dispersion is provided by the particularities of the evolutionary history of each dlo in the sample , namely , the number and characteristics of the interactions and merger events involved in its assembly ( see tdt98 for a discussion ) .
+the mass distribution of real spirals and their decomposition into bulge , disc and halo components can not be inferred uniquely from observed rcs , as different decompositions yield equally good agreement with the data ( van albada et al .
+1985 ; broeils & courteau 1997 ; cr99 ) .
+one has to postulate different scalings ( mass - to - light ratios ) between the bulge and disc components in order to infer the mass distribution of the halo .
+common constraints for ( m / l)@xmath173 include a )  the so - called ` maximum disc ( or maximal light ) hypothesis ' ( van albada & sancisi 1986 ) , which postulates that the halo dark mass component needed to fit the rcs should be minimum , or , equivalently , that the contribution of the disc and bulge to the inner parts of rcs should be maximum , and b )  sub - maximal discs with @xmath174 . this constraint is obtained either by matching the vertical velocity dispersion , scale height and scale length of a thin exponential disc which yields the maximum disc rotation ( bottema 1993 ) , or , independently , showing that the tully  fisher relation of bright spirals is independent of surface brightness ( cr99 ) .
+a maximum disc is defined as @xmath175 , at the 95 per cent confidence level ( sackett 1997 ) , corresponding to @xmath176 . to the sub - maximal discs
+described above corresponds a @xmath177 of @xmath178 .
+one notes that this choice of sub - maximal disc corresponds to half the amount of luminous matter at @xmath150 compared to the maximum disc case .
+let us now consider our simulations .
+@xmath179 can be measured directly once @xmath64 is determined for each dlo ( assuming that @xmath180 ) and the different hypotheses above can be tested .
+results are given in table  [ dynamical ] for both the optimal and double exponential fits .
+@xmath181 is correlated with @xmath156 ( and , also , with @xmath164 , albeit with more dispersion ) . in fig .
+[ vratio ] we plot the @xmath182 ratios versus @xmath164 for dlos in our sample ( double exponential fits ; no substantial changes occur taking instead the values corresponding to optimal fits ) .
+the shaded area shows the 95 per cent interval for maximum discs according to sackett ( 1997 ) . only dlos # 126 and # 545 ( from s1 ) are inside this area , as they have @xmath183 0.765 and 0.763 , respectively .
+these dlos are somewhat peculiar : dlo # 126 has a particularly populated disc ; dlo # 545 has two satellites close to it .
+we see that most dlos lie inside the allowed interval for sub - maximal discs .
+the mean value for the simulated dlos is @xmath184 , in excellent agreement with bottema ( 1993 , 1997 ) and cr99 .    in fig .
+[ vratio ] only a slight correlation appears between @xmath182 and @xmath164 with an important dispersion , in the sense that less massive haloes have slightly lower values of @xmath182 .
+this presumably reflects the fact that less massive haloes are somewhat more centrally concentrated than more massive ones ( navarro , frenk & white 1995b ; see also tdt98 ) .
+the dispersion , on the other hand , reflects the particularities of the assembly of each dlo in the sample .    to quantify the importance of dark matter ( or baryons ) in the inner regions of dlos
+we have used the @xmath185 parameter ( tdt98 ) .
+we define @xmath185 as the radius where @xmath186 , such that rcs are dynamically dominated by baryons for @xmath187 , and dark matter dominated @xmath188 ( see table  [ dynamical ] ) .
+note that most dlos have @xmath189 and only a few have @xmath190 ; note also that there is no correlation between @xmath185 and @xmath64 . in fig .
+[ rcross ] we plot @xmath191 versus @xmath156 ; some correlation appears , in the sense that more massive objects are less dark matter dominated at their centres .
+this correlation disappears when @xmath156 is normalized to the halo global velocity , @xmath164 , indicating that most of the correlation seen in fig .
+[ rcross ] is provided by the halo total mass .
+in fact , as stated above , less massive haloes are known to be more centrally concentrated than more massive ones .    in figs .
+[ lsrd](a )  and  [ lsrd](b ) , we plot @xmath149 versus the disc scale lengths @xmath64 and versus @xmath156 , respectively , for the dlos and , as a comparison , the objects of cvg91 compilation in the same dynamical range .
+we see that dlos with @xmath170 km  s@xmath7 do have observational counterparts , i.e. , their @xmath149 parameters take values that are found in observed spirals with the same range in @xmath156 , even if we miss objects with @xmath149 between , say , @xmath192 and @xmath193 . those with @xmath194
+km  s@xmath7 have excessively low @xmath149s , but recall that only one galaxy in cvg91 has @xmath195 $ ] km  s@xmath7 .
+moreover , according to cvg91 , @xmath149s are correlated with the morphological type .
+our dlos would be @xmath196 , in consistence with the range in @xmath197 type previously found from the bulge shape parameters .
+it is worthwhile to note that the value of the @xmath149 is almost independent on how baryonic mass is distributed inside @xmath150 , particularly on how it is shared between the bulge and the disc ( it changes on average by only 10 per cent when the bulge mass is halved conserving the baryon number inside @xmath150 ) .
+the fact that @xmath149s are negative may reflect in part the fact that dark matter haloes in standard cdm scenarios are too concentrated , leading to declining rotation curves ( navarro , frenk & white 1998 ) .
+in fact , the declining shape of dlo rcs results from the flat halo contribution to rcs ( see tdt98 for a detailed discussion ) and the dynamic baryon dominance in the inner dlo regions .
+declining rcs have been observed in spiral galaxies .
+early examples can be found in bosma ( 1978 , 1981 ) , van  moorsel ( 1982 ) .
+then , cvg91 , b92 and bosma ( 1999 ) , among others , also found other examples .
+cvg91 suggest that this is a common feature of compact bright spiral galaxies , and also frequent in large bright spirals ( although see b92 who shows , contrary to cvg91 , that declining rcs do not correlate with the disc scale length ) .
+dubinski , mihos & hernquist ( 1999 ) have found that the declining character of rcs is a necessary condition to form long tidal tails in galaxy mergers as those observed in some interacting galaxy systems .    in fig .
+[ vrmax ] we plot @xmath147 versus the @xmath198 ratio for the 29 dlos in our sample . for comparison , we also give the peak velocities in of sb  sc spirals from table  4.1 in rc96 ( most of them from b92 compilation ) , with @xmath198 ratios taken from c97b .
+we also plot the @xmath147 and @xmath198 ratios measured in the courteau sample of optical rcs ( c97b ) .
+we confirm the previous finding that dlos in table  [ general ] have observational counterparts , even if the smaller ones are somewhat too concentrated as compared with courteau data .
+note , however , that @xmath148 is difficult to measure in dlos and the measurement hard to assess in spiral galaxies .
+we present the results of a detailed and careful comparison between the parameters characterizing the structural and dynamical properties of a sample of 29 simulated dlos and those measured in observed spiral galaxies .
+these dlos have been identified in three fully consistent hierarchical hydrodynamical simulations , where an _ inefficient _ schmidt law - like algorithm to model the stellar formation process has been implemented . in this paper
+we have been only concerned with disc _ structural _ and _ dynamical _ properties , because they keep the imprints of the dynamical and hydrodynamical processes that , together with their interplay with star formation , are key for galaxy formation and evolution .
+the comparison of dlos in our sample with spiral discs has been a two step work .
+first , dlo bulge - disc decomposition has been performed .
+this yields the bulge effective scale length and shape parameters , @xmath85 and @xmath98 , the disc scale length , @xmath64 , and the mass bulge - to - disc ratio , @xmath128 , among other dlo parameters .
+after having tested the robustness of the fitting procedure , the following results have been obtained :    1 .
+the scale lengths , @xmath85 and @xmath64 , and their ratio @xmath199 , are consistent with available data ( cdjb96 ; de jong 1996 ; mgh99 ) .
+the distribution of bulge shape parameters is similar to that found by cdjb96 for their sample of sa  sc galaxies .
+the mass @xmath128 ratios are somewhat high as compared to luminosity @xmath128 ratios , but current observational uncertainties on the bulge and disc mass - to - light ratios make it difficult to draw any conclusion from this comparison .    in a second step , dlo rcs have been analyzed .
+dlo gas particles placed at distances between 2  kpc and 30  kpc to the centre move roughly along circular orbits on the equatorial plane .
+they are in centrifugal supported equilibrium within the potential well produced by the total mass distribution ( tdt98 ) .
+rotation curve shapes have been parametrized through @xmath64 ( or @xmath145 ) as spatial scale , @xmath200 as mass size , and the maximum or peak velocity , @xmath147 , and the radius where this is reached , @xmath148 .
+these parameters have been compared with those measured at : a )  sb  sc field spirals drawn from the courteau sample , with long - slit h@xmath154 spectrum and @xmath115-band photometry ( c97b ) , and b )  sb  sc spirals from broeils compilation ( b92 ) of extended rcs with surface photometry .
+the main results follow :    1 .
+in contrast to findings in other fully - consistent hydrodynamical simulations ( e.g. , navarro & steinmetz 2000 ; thacker & couchman 2000 ) , dlo @xmath156 velocities have been found to be consistent with observational data .
+this is a consequence of disc formation with @xmath1 conservation .
+the @xmath64 and @xmath156 values obtained indicate that dlos in our sample are either large bright spirals ( 18 ) , intermediate spirals ( 9 ) , or compact bright spirals ( 2 ) .
+the average relative contribution of baryons to @xmath156 in our sample is @xmath201 , in very good agreement with bottema ( 1993 , 1997 ) and cr99 , if we take @xmath202 .
+most dlos have been found to have sub - maximal discs ; only two of them have been found to lie inside the 95 per cent confidence interval for maximum discs according to sackett ( 1997 ) .
+the previous agreement also shows that the amount of baryon mass that has ended up inside @xmath203 is not excessive , again as a consequence of @xmath1 conservation .
+4 .   the @xmath191 parameter ratio is a measure of the relative amount of dark matter at the inner dlo zones .
+some correlation between these amounts and the circular velocity at @xmath150 has been found , in the sense that less massive objects tend to be more dark matter dominated in their central regions .
+5 .   concerning the parameters that give a measure of the central concentrations ,
+the comparison of the @xmath147 versus @xmath204 plots to b92 data confirms again that dlos have observational counterparts , even if the smaller dlos are somewhat too concentrated as compared to courteau data ( c97b ) .
+the logarithmic slope , @xmath149 , measures the rc slopes for @xmath152 , where , as stated , in most cases dark matter is already dynamically dominant .
+dlos with @xmath170 km  s@xmath7 occupy the same zone in the @xmath149 versus @xmath156 and versus @xmath150 plots as galaxies studied by cvg91 in the same dynamical range ; those with @xmath194 km  s@xmath7 do not show the tendency of less massive galaxies in cvg91 to have higher @xmath149 .
+this may be a consequence of the strongly concentrated mass distribution of dark haloes in standard cdm scenarios .
+a concern is in order regarding numerical resolution .
+dlos are resolved with a relatively low number of particles .
+in contrast , dark matter haloes are described with a much better resolution .
+an inappropriate low gas resolution would result in an unphysical gas heating that could halt the gas collapse ( navarro & steinmetz 1997 ) .
+however , some works suggest that it is an inadequate resolution in the dark matter halo component that may produce the larger undesired numerical artifacts ( steinmetz & white 1997 ) .
+in fact , it appears that a well - resolved dark matter halo , even if the number of gas particles is lower ( but more than , say , one hundred ) , gives rise to a well - represented ( or well - resolved ) gas density profile , being this point the most important for both the hydrodynamics and the tracking of the star formation history .
+moreover , to make sure that the populated and extended discs in the simulations do not result from unphysical gas heating or smoothing , we have run a higher resolution simulation ( @xmath5 particles in a periodic box of 5  mpc , with cosmological and star formation parameters similar to those in s1 , s1b and s1c ; hereafter hrs ) .
+only one disc with mass comparable to those in these lower resolution simulations forms .
+it has 1713 + 1380 gas+star particles and its halo 36112 dark matter particles .
+its analysis has shown that it is populated and extended , that its structural and dynamical characteristics are also compatible with observations ( see table  1 and fig .  1 in domnguez - tenreiro et al .
+1998 , where we show that the @xmath88 and @xmath64 parameters and their ratio take a typical value , and the specific angular momentum has been conserved ) and that the physical processes leading to its formation are essentially the same as those that are at work in s1 , s1b or s1c .    in conclusion ,
+the comparison between dlos produced in our simulations and observational data allows us to affirm that they have counterparts in the real world .
+this agreement suggests that the process operating in fall & efstathiou ( 1980 ) standard model for disc formation ( i.e. , gas cooling and collapse with specific angular momentum , @xmath1 , conservation ) is also at work in the _ quiescent _ phases of dlo formation in these simulations , resulting in discs with exponential density profiles , as predicted by dalcanton et al .
+however , in domnguez - tenreiro et al .
+( 1998 ) and siz et al .
+( 1999 ) it is shown that _
+violent _ episodes ( i.e. , interaction and merger events ) also occur and play an important role in dlo assembly . in particular
+, it is shown that dark matter haloes formed in these simulations are not always able to stabilize the _ pure _ exponential disc that would form at its central region according to fall & efstathiou and dalcanton et al .
+scenarios ( see also van den bosch 2000 ) . to provide the right conditions for disc regeneration to occur after the last violent episode of dlo assembly
+, a compact central bulge is needed ; this will ensure the axisymmetric character of the gravitational potential well at scales of some kpcs at all times , avoiding excessive @xmath1 losses in violent events . in tsdt these arguments
+are developed , and , moreover , we prove that a second condition is necessary for disc regeneration : the availability of gas at low  @xmath2 , that is , it is necessary that the sf algorithm implementation does not result in a too early gas exhaustion .
+the good behaviour of our dlo sample as compared with observations suggests that the _ inefficient _ sf algorithm used in the simulations has met both requirements .
+the global agreement with observations we have found , at a structural and dynamical level , also represents an important step towards making numerical approaches more widely used to learn about galaxy formation and evolution in a cosmological framework , i.e. , from primordial fluctuations .
+these approaches will be particularly useful if , as expected , future improvements in numerical methods and computers speed allow to numerically simulate the different aspects of galaxy assembly with an increasingly high degree of realism .
+it is a pleasure to thank e. bertschinger for providing us with some software subroutines , j.  f. navarro for interesting discussions and j. silk for his valuable comments on our work .
+we wish to acknowledge as well the referee , j. sommer - larsen , for his suggestions and interesting comments .
+this work was supported in part by dges ( spain ) through grants number pb93 - 0252 and pb96 - 0029 . as was also supported by dges through fellowships .
+pbt thanks dges , and conicet and anpcyt ( argentina ) for their financial support .
+we are indebted to the centro de computacin cientfica ( universidad autnoma de madrid ) and to the oxford university for providing the computational support to perform this work .
+lllrrrrrlrrr & & & & & & & + simulation & dlo # & @xmath27 & @xmath39 & & @xmath28&@xmath41&@xmath40 & & @xmath28&@xmath41&@xmath40 + s1 & 126 & 239 .
+& 25.9 & & 2709 & 248 & 157 & & 516 & 185 & 157 + & 143 & 194 .
+& 37.5 & & 1482 & 153 & 47 & & 473 & 110 & 47 + & 233a & 310 . *
+& 28.5 & ( & 6027 & 583 & 164 & ) & 506 & 201 & 95 + & 233b & 310 . * & 25.4 & ( & 6027 & 583 & 164 & ) & 400 & 148 & 69 + & 242 & 316 . & 33.4 & & 6325 & 621 & 281 & & 959 & 339 & 278 + & 333 & 296 . & 49.7 & & 5213 & 509 & 217 & & 1337 & 338 & 212 + & 531 & 235 . & 30.9 & & 2573 & 275 & 79 & & 589 & 224 & 79 + & 544 & 312 .
+& 43.4 & & 6170 & 555 & 230 & & 1304 & 349 & 215 + & 545 & 328 .
+& 26.2 & & 7131 & 671 & 252 & & 794 & 381 & 238 +   + s1b & 054 & 252 .
+& 35.9 & & 3076 & 299 & 138 & & 611 & 171 & 138 + & 110 & 254 .
+& 30.3 & & 3145 & 268 & 174 & & 648 & 163 & 174 + & 116@xmath154 & 303 .
+& 73.0 & & 5357 & 455 & 270 & & 1806 & 291 & 269 + & 116@xmath38 & 178 .
+& 38.1 & & 1029 & 171 & 30 & & 460 & 138 & 30 + & 164 & 222 .
+& 29.2 & & 2107 & 233 & 62 & & 496 & 160 & 62 + & 165c & 467 . * & 39.1 & ( & 19522 & 1188 & 1578 & ) & 556 & 113 & 56 + & 211 & 186 . & 43.5 & & 1236 & 157 & 12 & & 468 & 130 & 12 + & 212 & 261 . & 49.4 & & 3419 & 226 & 237 & & 1171 & 192 & 234 + & 633a & 312 . * & 40.9 & ( & 5890 & 371 & 401 & ) & 1068 & 188 & 325 + & 643@xmath154 & 317 . & 47.4 & & 6176 & 447 & 373 & & 1217 & 180 & 358 + & 643@xmath38a & 307 . * & 38.1 & ( & 5583 & 518 & 270 & ) & 695 & 217 & 213 + & 643@xmath38b & 307 . * & 32.4 & ( & 5583 & 518 & 270 & ) & 351 & 146 & 55 + & 643@xmath205 & 232 . & 40.8 & & 2409 & 234 & 97 & & 683 & 181 & 97 +   + s1c & 106 & 217 . & 29.5 & & 1966 & 196 & 76 & & 419 & 122 & 76 + & 324 & 191 . & 36.6 & & 1322 & 173 & 22 & & 395 & 127 & 22 + & 342 & 280 .
+& 34.3 & & 4214 & 470 & 114 & & 770 & 311 & 107 + & 444 & 267 .
+& 33.8 & & 3727 & 352 & 99 & & 737 & 243 & 99 + & 454 & 215 .
+& 20.4 & & 1907 & 184 & 70 & & 383 & 149 & 70 + & 556 & 265 .
+& 31.0 & & 3605 & 257 & 229 & & 707 & 178 & 229 + & 631 & 215 . & 18.9 & & 1917 & 193 & 59 & & 322 & 145 & 59 +   +    distances are given in kpc .
+an asterisk indicates that the corresponding dlo is embedded in a double or multiple halo , i.e. , that one or more other baryonic objects ( either disc - like or not ) exist within @xmath27 .
+this is to be taken into account on evaluating the total number of halo particles ( numbers in parentheses ) .
+126 & 2.6 & 0.90 & 6.3 & 1.83 & 5.72 & 4.46 & & 1.09 & 5.8 & 1.48 & 10.40 & 3.50 & & 6.5 & 6.35 + 143 & 3.2 & 0.58 & 10.9 & 1.45 & 1.61 & 4.54 & & 0.91 & 10.1 & 1.36 & 2.30 & 3.52 & & 11.1 & 1.53 + 233a & 1.3 & 1.00 & 6.5 & 1.25 & 5.52 & 3.57 & & 1.08 & 6.4 & 1.22 & 5.55 & 3.43 & & 7.1 & 5.81 + 233b & 0.6 & 1.05 & 5.6 & 1.22 & 9.09 & 2.77 & & 0.89 & 5.7 & 1.23 & 9.55 & 2.89 & & 5.8 & 12.54 + 242 & 1.2 & 1.25 & 7.5 & 1.23 & 15.96 & 4.19 & & 1.29 & 7.5 & 1.21 & 16.19 & 4.06 & & 7.9 & 42.04 + 333 & 1.9 & 1.36 & 12.0 & 1.72 & 5.30 & 6.59 & & 1.50 & 11.1 & 1.58 & 11.40 & 5.36 & & 12.8 & 11.98 + 531 & 0.9 & 1.70 & 6.9 & 2.02 & 3.85 & 5.24 & & 1.69 & 6.9 & 2.07 & 4.00 & 5.39 & & 9.3 & 19.57 + 544 & 2.3 & 1.05 & 10.6 & 1.79 & 2.44 & 5.82 & & 1.26 & 9.7 & 1.61 & 9.05 & 4.54 & & 11.3 & 4.06 + 545 & 1.1 & 1.26 & 5.9 & 1.23 & 3.01 & 3.78 & & 1.27 & 5.9 & 1.22 & 3.11 & 3.74 & & 6.4 & 20.24 +   + 054 & 1.6 & 0.89 & 8.4 & 2.99 & 2.94 & 4.80 & & 1.04 & 8.0 & 2.82 & 3.65 & 4.13 & & 9.7 & 4.32 + 110 & 1.8 & 0.60 & 7.0 & 2.54 & 2.64 & 3.46 & & 0.78 & 6.8 & 2.47 & 3.28 & 3.13 & & 7.2 & 3.46 + 116@xmath154 & 2.3 & 0.48 & 16.4 & 1.40 & 13.97 & 4.12 & & 0.76 & 16.3 & 1.39 & 14.55 & 3.50 & & 16.5 & 14.79 + 116@xmath38 & 1.3 & 1.26 & 8.7 & 1.70 & 1.75 & 4.97 & & 1.34 & 8.5 & 1.64 & 1.93 & 4.60 & & 10.1 & 3.10 + 164 & 1.3 & 1.19 & 7.2 & 2.47 & 1.70 & 4.83 & & 1.25 & 6.9 & 2.36 & 1.99 & 4.44 & & 9.9 & 4.64 + 165c & 1.6 & 0.93 & 9.0 & 2.37 & 1.08 & 4.67 & & 1.06 & 8.7 & 2.28 & 1.28 & 4.15 & & 9.8 & 1.71 + 211 & 1.8 & 1.35 & 14.0 & 1.42 & 0.75 & 6.47 & & 1.49 & 13.0 & 1.36 & 1.19 & 5.40 & & 17.0 & 1.30 + 212 & 2.3 & 0.53 & 11.2 & 1.95 & 4.93 & 4.04 & & 0.80 & 11.1 & 1.91 & 6.30 & 3.46 & & 11.3 & 5.49 + 633a & 1.1 & 0.72 & 9.0 & 3.01 & 4.69 & 3.33 & & 0.74 & 9.2 & 2.98 & 4.33 & 3.32 & & 9.6 & 6.62 + 643@xmath154 & 1.4 & 1.19 & 10.9 & 3.40 & 3.14 & 5.91 & & 1.28 & 10.6 & 3.27 & 5.07 & 5.30 & & 13.2 & 19.61 + 643@xmath38a & 2.8 & 0.86 & 9.4 & 2.36 & 3.18 & 5.75 & & 1.13 & 8.5 & 2.02 & 10.91 & 4.22 & & 10.0 & 3.70 + 643@xmath38b & 1.4 & 1.28 & 7.6 & 1.98 & 1.46 & 5.02 & & 1.35 & 7.3 & 1.87 & 1.96 & 4.54 & & 9.5 & 3.45 + 643@xmath205 & 1.7 & 1.18 & 13.2 & 2.43 & 2.90 & 6.56 & & 1.32 & 11.9 & 2.32 & 4.33 & 5.30 & & 17.8 & 5.37 +   + 106 & 2.0 & 1.06 & 7.5 & 2.69 & 1.18 & 5.51 & & 1.20 & 6.6 & 2.25 & 2.47 & 4.22 & & 8.2 & 1.70 + 324 & 1.2 & 1.42 & 8.3 & 1.96 & 0.80 & 5.22 & & 1.46 & 8.2 & 1.91 & 0.84 & 4.99 & & 10.1 & 2.56 + 342 & 1.3 & 1.43 & 8.2 & 1.45 & 2.52 & 5.09 & & 1.46 & 7.7 & 1.38 & 2.87 & 4.60 & & 9.2 & 9.95 + 444 & 1.3 & 1.41 & 7.9 & 2.02 & 3.49 & 5.34 & & 1.46 & 7.6 & 1.92 & 4.22 & 4.89 & & 10.9 & 11.14 + 454 & 1.0 & 1.23 & 4.6 & 3.14 & 2.33 & 4.26 & & 1.24 & 4.6 & 3.10 & 2.34 & 4.20 & & 10.2 & 6.45 + 556 & 2.1 & 0.86 & 7.6 & 3.70 & 1.64 & 5.37 & & 1.06 & 6.9 & 3.17 & 6.17 & 4.13 & & 8.2 & 3.70 + 631 & 0.9 & 1.13 & 4.1 & 2.36 & 0.97 & 3.50 & & 1.11 & 4.2 & 2.43 & 0.97 & 3.62 & & 18.0 & 2.78 +      llllccccccccc & & & & & & & & & & + dlo # & @xmath164 & & @xmath185 & @xmath149 & @xmath148 & @xmath147 & & @xmath156 & @xmath181&&@xmath156 & @xmath181 + 126 & 114 .
+& 0.039 & 16.6 & -0.176 & 10.6 & 216 . & & 210 . & 157 . & & 206 . & 153 .
++ 143 & 98.5 & 0.045 & 8.94 & -0.172 & 7.98 & 156 . & & 148 .
+& 83.0 & & 147 .
+& 80.6 + 233a & 157 . * & 0.063 * & 14.0 & -0.139 & 9.45 & 203 . & & 197 . & 139 . & & 197 . & 139 .
++ 233b & 157 . * & 0.063 * & 12.9 & -0.085 & 6.93 & 179 . & & 176 . & 125 . & & 176 . & 125 .
++ 242 & 160 . & 0.069 & 19.3 & -0.168 & 6.33 & 279 . & & 257 . & 186 .
+& & 257 . & 186 .
++ 333 & 150 .
+& 0.079 & 16.2 & -0.108 & 7.25 & 250 . &
+& 221 . & 143 . & & 218 . & 139 .
++ 531 & 118 .
+& 0.011 & 12.7 & -0.192 & 7.70 & 217 . & & 206 . & 140 .
+& & 206 . & 140 .
++ 544 & 158 .
+& 0.023 & 17.8 & -0.104 & 5.69 & 254 . & & 228 . & 153 . & & 225 . & 148 .
++ 545 & 166 .
+& 0.049 & 18.6 & -0.159 & 8.66 & 278 . & & 270 . & 204 .
+& & 269 . & 204 .
++   + 054 & 126 . & 0.122 & 16.4 & -0.152 & 5.64 & 213 . & & 189 . & 132 . & & 187 . & 129 .
++ 110 & 127 .
+& 0.044 & 12.2 & -0.172 & 6.74 & 237 . & & 215 . & 148 . & & 214 . & 147 .
++ 116@xmath154 & 151 . & 0.067 & 16.8 & -0.097 & 6.46 & 249 . & & 206 . & 121 . & & 206 . & 121 .
++ 116@xmath38 & 88.8 & 0.055 & 8.80 & -0.214 & 8.11 & 167 . & & 155 . & 92.6 & & 153 . & 92.0 + 164 & 111 .
+& 0.038 & 9.63 & -0.193 & 6.88 & 199 .
+& & 186 . & 120 . & & 184 . & 118 .
++ 165c & 228 .
+* & 0.043 * & 7.70 & -0.136 & 7.43 & 176 . & & 160 . & 92.7 & & 160 . & 92.6 + 211 & 92.7 & 0.095 & 7.29 & -0.189 & 7.15 & 153 . & & 136 . & 70.8 & & 135 . & 69.0 + 212 & 130 . & 0.062 & 13.2 & -0.155 & 5.64 & 243 . & & 213 . & 132 . & & 213 . & 131 .
++ 633a & 156 . * & 0.067 * & 19.9 & -0.161 & 5.78 & 265 . & & 227 . & 160 . & & 227 . & 161 .
++ 643@xmath154 & 158 . & 0.086 & 20.6 & -0.118 & 5.78 & 275 . & & 222 . & 153 . & & 222 .
++ 643@xmath38a & 154 . * & 0.067 * & 20.3 & -0.184 & 7.43 & 234 . & & 209 . & 149 .
+& & 204 . & 144 .
++ 643@xmath38b & 154 . * & 0.067 * & 15.1 & -0.166 & 8.11 & 170 . & & 157 . & 110 . & & 156 . & 108 .
++ 643@xmath205 & 116 . & 0.054 & 12.7 & -0.174 & 8.53 & 205 . & & 176 .
+& 105 . & & 171 . & 100 .
++   + 106 & 108 . & 0.075 & 12.4 & -0.167 & 5.64 & 177 . & & 169 . & 116 . & & 167 . & 110 .
++ 324 & 95.2 & 0.045 & 8.53 & -0.201 & 8.66 & 160 . & & 147 .
+& 89.9 & & 147 . & 88.8 + 342 & 140 .
+& 0.018 & 15.1 & -0.152 & 9.76 & 235 . & & 220 . & 153 . & & 217 . & 149 .
++ 444 & 133 . &
+0.055 & 14.0 & -0.135 & 6.74 & 225 . & & 207 . & 141 . & & 207 . & 139 .
++ 454 & 107 .
+& 0.034 & 10.6 & -0.154 & 6.88 & 205 .
+& & 197 . & 141 . & & 197 . & 141 .
++ 556 & 130 .
+& 0.063 & 15.4 & -0.167 & 6.46 & 248 . & & 226 . & 160 . & & 222 . & 155 .
++ 631 & 107 . & 0.025 & 9.63 & -0.178 & 6.33 & 199 . & & 196 . & 140 . & & 196 . & 141 .
++   +    distances are given in kpc ; velocities in km  s@xmath7 .
+asterisks stand for double or multiple haloes , so that their global parameters ( with an asterisk in this table ) might not reflect a direct property of the corresponding dlo .

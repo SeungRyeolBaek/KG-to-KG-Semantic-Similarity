@@ -1,0 +1,209 @@
+video compression is a major requirement in many of the recent applications like medical imaging , studio applications and broadcasting applications .
+compression ratio of the encoder completely depends on the underlying compression algorithms .
+the goal of compression techniques is to reduce the immense amount of visual information to a manageable size so that it can be efficiently stored , transmitted , and displayed .
+3-d dwt based compressing system enables the compression in spatial as well as temporal direction which is more suitable for video compression .
+moreover , wavelet based compression provide the scalability with the levels of decomposition . due to continuous increase in size of the video frames ( hd to uhd ) , video processing through software coding tools
+is more complex .
+dedicated hardware only can give higher performance for high resolution video processing .
+in this scenario there is a strong requirement to implement a vlsi architecture for efficient 3-d dwt processor , which consumes less power , area efficient , memory efficient and should operate with a higher frequency to use in real - time applications .
++    from the last two decades , several hardware designs have been noted for implementation of 2-d dwt and 3-d dwt for different applications .
+majority of the designs are developed based on three categories , viz .
+( i ) convolution based ( ii ) lifting - based and ( iii ) b - spline based .
+most of the existing architectures are facing the difficulty with larger memory requirement , lower throughput , and complex control circuit .
+in general the circuit complexity is denoted by two major components viz , arithmetic and memory component .
+arithmetic component includes adders and multipliers , whereas memory component consists of temporal memory and transpose memory .
+complexity of the arithmetic components is fully depends on the dwt filter length .
+in contrast size of the memory component is depends on dimensions of the image . as image resolutions are continuously increasing ( hd to uhd ) ,
+image dimensions are very high compared to filter length of the dwt , as a result complexity of the memory component occupied major share in the overall complexity of dwt architecture .
++    convolution based implementations @xcite-@xcite provides the outputs within less time but require high amount of arithmetic resources , memory intensive and occupy larger area to implement .
+lifting based a implementations requires less memory , less arithmetic complex and possibility to implement in parallel
+. however it require long critical path , recently huge number of contributions are noted to reduce the critical path in lifting based implementations . for a general lifting
+based structure @xcite provides critical path of @xmath0 , by introducing 4 stage pipeline it cut down to @xmath1 . in @xcite huang et al .
+, introduced a flipping structure it further reduced the critical path to @xmath2 .
+though , it reduced the critical path delay in lifting based implementation , it requires to improve the memory efficiency .
+majority of the designs implement the 2-d dwt , first by applying 1-d dwt in row - wise and then apply 1-d dwt in column wise .
+it require huge amount of memory to store these intermediate coefficients . to reduce this memory requirements , several dwt architecture
+have been proposed by using line based scanning methods @xcite-@xcite .
+huang et al . ,
+@xcite-@xcite give brief details of b - spline based 2-d idwt implementation and discussed the memory requirements for different scan techniques and also proposed a efficient overlapped strip - based scanning to reduce the internal memory size .
+several parallel architectures were proposed for lifting - based 2-d dwt @xcite-@xcite .
+y. hu et al .
+@xcite , proposed a modified strip based scanning and parallel architecture for 2-d dwt is the best memory - efficient design among the existing 2-d dwt architectures , it requires only 3n + 24p of on chip memory for a n@xmath3n image with @xmath4 parallel processing units ( pu ) .
+several lifting based 3-d dwt architectures are noted in the literature @xcite-@xcite to reduce the critical path of the 1-d dwt architecture and to decrease the memory requirement of the 3-d architecture . among the best existing designs of 3-d dwt , darji et al .
+@xcite produced best results by reducing the memory requirements and gives the throughput of 4 results / cycle .
+still it requires the large on - chip memory ( @xmath5 ) .    in this paper
+, we propose a new parallel and memory efficient lifting based 3-d dwt architecture , requires only @xmath6 words of on - chip memory and produce 8 results / cycle .
+the proposed 3-d dwt architecture is built with two spatial 2-d dwt ( cdf 9/7 ) processors and four temporal 1-d dwt ( haar ) processors . proposed architecture for 3-d dwt replaced the multiplication operations by shift and add , it reduce the cpd from @xmath7 to @xmath8 .
+further reduction of cpd to @xmath9 is done by introducing pipeline in the processing elements . to eliminate the temporal memory and to reduce the latency ,
+haar wavelet is incorporated in temporal processor .
+the resultant architecture has reduce the latency , on chip memory and to increase the speed of operation compared to existing 3-d dwt designs .
+the following sections provide the architectural details of proposed 3-d dwt through spatial and temporal processors .
+organization of the paper as follows .
+theoretical background for dwt is given in section ii .
+detailed description of the proposed architecture for 3-d dwt is provided in section iii .
+implementation results and performance comparison is given in section iv . finally , concluding remarks are given in section v. +
+lifting based wavelet transform designed by using a series of matrix decomposition specified by the daubechies and sweledens in @xcite . by applying the flipping @xcite to the lifting scheme ,
+the multipliers in the longest delay path are eliminated , resulting in a shorter critical path .
+the original data on which dwt is applied is denoted by @xmath10 $ ] , and the 1-d dwt outputs are the detail coefficients @xmath11 $ ] and approximation coefficients @xmath12 $ ] . for the image ( 2-d ) above process is performed in rows and columns as well .
+eqns.(1)-(6 ) are the design equations for flipping based lifting ( 9/7 ) 1-d dwt @xcite and the same equations are used to implement the proposed row processor ( 1-d dwt ) and column processor ( 1-d dwt ) .    [ lift_2d_eq ] @xmath13 & \leftarrow a'*x[2n-1]+\{x[2n]+x[2n-2]\ }   \ldots p1\\ { l_1}[n]&\leftarrow b'*x[2n]+\{{h_1}[n]+{h_1}[n-1]\ }   \ldots u1\\ { h_2}[n ] & \leftarrow c'*{h_1}[n]+\{{l_1}[n]+{l_1}[n-1]\}\ldots p2\\ { l_2}[n ] & \leftarrow d'*{l_1}[n]+\{{h_2}[n]+{h_2}[n-1]\}\ldots u2\\ h[n ] & \leftarrow k0 * \{{h_2}[n]\}\\ l[n ] & \leftarrow k1 * \{{l_2}[n]\}\end{aligned}\ ] ]    where @xmath14 , @xmath15 , @xmath16 , @xmath17 , @xmath18 , and @xmath19 @xcite . the lifting step coefficients
+@xmath20 , @xmath21 , @xmath22 , @xmath23 and scaling coefficient @xmath24 are constants and its values @xmath25 , @xmath26 , @xmath27 , and @xmath28 , and @xmath29    lifting based wavelets are always memory efficient and easy to implement in hardware .
+the lifting scheme consists of three steps to decompose the samples , namely , splitting , predicting ( eqn .
+( 1 ) and ( 3 ) ) , and updating ( eqn . ( 2 ) and ( 4 ) ) .
+haar wavelet transform is orthogonal and simple to construct and provide fast output . by considering the advantages of the haar wavelets ,
+the proposed architecture uses the haar wavelet to perform the 1-d dwt in temporal direction ( between two adjacent frames ) .
+@xcite developed a lifting based haar wavelet .
+the equations of the lifting scheme for the haar wavelet transform is as shown in eqn.([eq2 ] ) @xmath30 = \left ( { \begin{array}{*{20}{c } } { \sqrt 2 } & 0\\ 0&{\frac{1}{{\sqrt 2 } } } \end{array } } \right)\left ( { \begin{array}{*{20}{c } } 1&{s(z)}\\ 0&1 \end{array } } \right)\left ( { \begin{array}{*{20}{c } } 1&0\\ { - p(z)}&1 \end{array } } \right)\left ( \begin{array}{l } { x_0}(z)\\ { x_1}(z ) \end{array } \right)\ ] ] @xmath31 eqn.([eq3 ] ) is extracted by substituting predict value @xmath32 as 1 and update step @xmath33 value as 1/2 in eqn.([eq2 ] ) , which is used to develop the temporal processor to apply 1-d dwt in temporal direction ( @xmath34 dimension ) . where l and h are the low and high frequency coefficients respectively .
+the proposed architecture for 3-d dwt comprising of two parallel spatial processors ( 2-d dwt ) and four temporal processors ( 1-d dwt ) , is depicted in fig .
+[ blockdia_1 ] . after applying 2-d dwt on two consecutive frames , each spatial processor ( sp ) produces 4 sub - bands , viz .
+ll , hl , lh and hh and are fed to the inputs of four temporal processors ( tps ) to perform the temporal transform . output of these tps is a low frequency frame ( l - frame ) and a high frequency frame ( h - frame ) .
+architectural details of the spatial processor and temporal processors are discussed in the following sections .          in this section ,
+we propose a new parallel and memory efficient lifting based 2-d dwt architecture denoted by spatial processor ( sp ) and it consists of row and column processors .
+the proposed sp is a revised version of the architecture developed by the y. hu et al.@xcite .
+the proposed architecture utilizes the strip based scanning @xcite to enable the trade - off between external memory and internal memory . to reduce the critical path in each stage flipping model @xcite-@xcite
+is used to develop the processing element ( pe ) .
+each pe has been developed with shift and add techniques in place of multiplier .
+lifting based ( 9/7 ) 1-d dwt process has been performed by the processing unit ( pu ) in the proposed architecture .
+as shown in fig .
+[ 3d_2 ] , the proposed pu is designed with five pes , and each pe ( except first pe ( shift@xmath35pe ) ) has been constructed with two pipeline stages for further reduction of cpd .
+this modified pu , reduces the cpd to @xmath36 ( adder delay ) . fig .
+[ blockdia_1 ] shows that the number of inputs to the spatial processor is equal to 2p+1 , which is also equal to the width of the strip . where p is the number of parallel processing units ( pus ) in the row processor as well as column processor .
+we have designed the proposed architecture with two parallel processing units ( p = 2 ) .
+the same structure can be extended to p = 4 , 8 , 16 or 32 depending on external bandwidth .
+whenever row processor produces the intermediate results , immediately column processor start to process on those intermediate results .
+row processor takes 9 clocks to produce the temporary results then after column processor takes 9 more clocks to to give the 2-d dwt output ; finally , temporal processor takes 3 more clocks after 2-d dwt results are available to produce 3-d dwt output . as a summary , proposed
+2-d dwt and 3-d dwt architectures have constant latency of 18 and 21 clock cycles respectively , regardless of image size n and number of parallel pus ( p ) .
+details of the row processor and column processor are given in the following sub - sections .
+let @xmath37 be the image of size @xmath38 , extend this image by one column by using symmetric extension .
+now image size is @xmath39 .
+refer @xcite for the structure of strip based scanning method .
+the proposed architecture initiates the dwt process in row wise through row processor ( rp ) then process the column dwt by column processor ( cp ) .
+[ 3d_1](a ) .
+shows the generalized structure for a row processor with @xmath40 number of pus .
+@xmath41 has been considered for our proposed design .
+for the first clock cycle , rp get the pixels from @xmath42 to @xmath43 simultaneously .
+for the second clock rp gets the pixels from next row i.e. @xmath44 to @xmath45 , the same procedure continues for each clock till it reaches the bottom row i.e. , @xmath46 to @xmath47 .
+then it goes to the next strip and rp get the pixels from @xmath43 to @xmath48 and it continues this procedure for entire image .
+each pu consists of five pipeline stages and each pipeline stage is processed by one processing element ( pe ) as depicted in fig .
+[ 3d_2](b ) . first stage ( shift@xmath35pe ) provide the partial results which is required at @xmath49 stage ( pe@xmath35alpha ) , likewise processing elements pe@xmath35alpha to pe@xmath35delta ( @xmath49 stage to @xmath50 stage ) gives the partial results along with their original outputs .
+( e.g. , consider the pe@xmath35alpha of pu-1 , it needs to provide output corresponding to eqn.(1 ) ( @xmath51 $ ] ) , along with @xmath52 $ ] , it also provides the partial output @xmath53 $ ] which is required for the pe@xmath35beta ) .
+structure of the pes are given in the fig .
+[ 3d_2](b ) , it shows that multiplication is replaced with the shift and add technique .
+the original multiplication factor and the value through the shift and add circuit are noted in table.[tab1 ] , it shows that variation between original and adopted one is extremely small . as shown in fig .
+[ 3d_2](b ) , time delay of shift@xmath35pe is one @xmath9 and remaining all pes are having delay of @xmath54 . to reduce the cpd of pu ,
+pes from pe@xmath35alpha to pe@xmath35delta are divided in to two pipeline stages , and each pipeline stage has a delay of @xmath9 , as a result cpd of pu is reduced to @xmath9 and pipeline stages are increased to nine and is shown in fig .  [ 3d_2](c ) .
+the outputs @xmath55 $ ] , @xmath56 $ ] , and @xmath57 $ ] corresponding to pe@xmath35alpha and pe@xmath35beta of last pu and pe@xmath35gama of last pu is saved in the memories memory@xmath35alpha , memory@xmath35beta and memory@xmath35gama respectively , shown in fig .
+[ 3d_1](a ) .
+those stored outputs are inputted for next subsequent columns of the same row . for a @xmath58 image rows
+is equivalent to @xmath59 .
+so the size of the each memory is @xmath60 words and total row memory to store these outputs is equals to @xmath61 .
+output of each pu are under gone through a process of scaling before it producing the outputs h and l. these outputs are fed to the transposing unit .
+the transpose unit has @xmath4 number of transpose registers ( one for each pu ) .
+[ 3d_3](a ) shows the structure of transpose register , and it gives the two h and two l data alternatively to the column processor .      the structure of the column processor ( cp ) is shown in fig .  [ 3d_1](b ) . to match with the throughput of rp , cp
+is also designed with two number of pus in our architecture .
+each transpose register produces a pair of h and l in an alternative order and are fed to the inputs of one pu of the cp .
+the partial results produced are consumed by the next pe after two clock cycles . as
+such , shift registers of length two are needed within the cp between each pipeline stages for caching the partial results ( except between @xmath62 and @xmath63 pipeline stages ) . at the output of the cp ,
+four sub - bands are generated in an interleaved pattern , @xmath64 and so on .
+outputs of the cp are fed to the re - arrange unit .
+[ 3d_3](b ) shows the architecture for re - arrange unit , and it provides the outputs in sub - band order @xmath65 and @xmath66 simultaneously , by using @xmath4 registers and @xmath67 multiplexers . for multilevel decomposition
+, the same dwt core can be used in a folded architecture with an external frame buffer for the ll sub - band coefficients .
+.original and adopted values for multiplication [ cols= " < ,
+< , < " , ]
+the proposed 3-d dwt architecture has been described in verilog hdl .
+a uniform word length of 14 bits has been maintained throughout the design .
+simulation results have been verified by using xilinx ise simulator .
+we have simulated the matlab model which is similar to the proposed 3-d dwt hardware architecture and verified the 3-d dwt coefficients .
+rtl simulation results have been found to exactly match the matlab simulation results .
+the verilog rtl code is synthesized using xilinx ise 14.2 tool and mapped to a xilinx programmable device ( fpga ) 7z020clg484 ( zynq board ) with speed grade of -3 .
+table [ fpga_results ] shows the device utilization summary of the proposed architecture and it operates with a maximum frequency of 265 mhz .
+the proposed architecture has also been synthesized using synopsys design compiler with 90-nm technology cmos standard cell library .
+it consumes 43.42 mw power and occupies an area equivalent to 231.45 k equivalent gate at frequency of 200 mhz .
+the performance comparison of the proposed 2-d and 3-d dwt architectures with other existing architectures is figure out in tables [ 2dcompare ] and [ 3dcompare ] respectively .
+the proposed 2-d processor requires zero multipliers , 34p ( pis number of parallel pus ) adders , 60p+3n internal memory .
+it has a critical path delay of @xmath9 with a throughput of four outputs per cycle with @xmath68/2p computation cycles to process an image with size @xmath38 . when compared to recent 2-d dwt architecture developed by the y.hu et al .
+@xcite , cpd reduced to @xmath9 from @xmath69 with the cost of small increase in hardware resources .
+table [ 3dcompare ] shows the comparison of proposed 3-d dwt architecture with existing 3-d dwt architecture .
+it is found that , the proposed design has less memory requirement , high throughput , less computation time and minimal latency compared to @xcite , @xcite , @xcite , and @xcite . though the proposed 3-d dwt architecture has small disadvantage in area and frequency , when compared to @xcite , the proposed one has a great advantage in remaining all aspects .
+table [ 3d_asic ] gives the comparison of synthesis results between the proposed 3-d dwt architecture and @xcite .
+it seems to be proposed one occupying more cell area , but it included total on chip memory also , where as in @xcite on chip memory is not included .
+power consumption of the proposed 3-d architecture is very less compared to @xcite .
+in this paper , we have proposed memory efficient and high throughput architecture for lifting based 3-d dwt . the proposed architecture is implemented on 7z020clg484 fpga target of zynq family , also synthesized on synopsys design vision for asic implementation .
+an efficient design of 2-d spatial processor and 1-d temporal processor reduces the internal memory , latency , cpd and complexity of a control unit , and increases the throughput . when compared with the existing architectures the proposed scheme shows higher performance at the cost of slight increase in area .
+the proposed 3-d dwt architecture is capable of computing 60 uhd ( 3840@xmath702160 ) frames in a second .
+30 q. dai , x. chen , and c. lin,``a novel vlsi architecture for multidimensional discrete wavelet transform,''__ieee transactions on circuits and systems for video technology _ _ , vol .
+14 , no . 8 , pp . 1105 - 1110 , aug .
+2004 . c. cheng and k. k. parhi , `` high - speed vlsi implementation of 2-d discrete wavelet transform , '' _ ieee trans .
+signal process .
+393 - 403 , jan . 2008 .
+b. k. mohanty and p. k. meher , `` memory - efficient high - speed convolution - based generic structure for multilevel 2-d dwt.''__ieee transactions on circuits and systems for video technology , _ _ vol .
+353 - 363 , feb . 2013 .
+i. daubechies and w. sweledens , `` factoring wavelet transforms into lifting schemes , '' _ j. fourier anal .
+247 - 269 , 1998 .
+huang , p.c .
+tseng , and l .- g .
+chen , `` flipping structure : an efficient vlsi architecture for lifting - based discrete wavelet transform , '' _ ieee trans . signal process .
+1080 - 1089 , apr . 2004 .
+xiong , j .- w .
+tian , and j. liu , `` a note on flipping structure : an efficient vlsi architecture for lifting - based discrete wavelet transform , '' _ ieee transactions on signal processing , _ vol .
+54 , no . 5,pp .
+1910 - 1916 , may 2006 c .- t .
+huang , p .- c .
+tseng , and l .- g .
+chen , `` analysis and vlsi architecture for 1-d and 2-d discrete wavelet transform , '' _ ieee trans .
+signal process .
+1575 - 1586 , apr .
+cheng , c .- t .
+huang , c .- y .
+ching , c .- j .
+chung , and l .- g .
+chen , `` on - chip memory optimization scheme for vlsi implementation of line based two - dimentional discrete wavelet transform , '' _ ieee transactions on circuits and systems for video technology , _ vol .
+17 , no . 7 , pp .
+814 - 822 , jul .
+liao , m. k. mandal , and b. f. cockburn , `` efficient architectures for 1-d and 2-d lifting - based wavelet transforms , '' _ ieee transactions on signal processing , _ vol .
+5 , pp . 1315 - 1326 , may 2004 .
+b.f . wu and c.f .
+chung , `` a high - performance and memory - efficient pipeline architecture for the 5/3 and 9/7 discrete wavelet transform of jpeg2000 codec , '' _ ieee trans .
+circuits syst .
+video technol .
+, _ vol . 15 , no . 12 , pp .
+1615 - 1628 , dec .
+xiong , j. tian , and j. liu , `` efficient architectures for two - dimensional discrete wavelet transform using lifting scheme , '' _ ieee transactions on image processing , _ vol .
+607 - 614 , mar .
+w. zhang , z. jiang , z. gao , and y. liu , `` an efficient vlsi architecture for lifting - based discrete wavelet transform , '' _ ieee transactions on circuits and systems - ii : express briefs , _ vol .
+158 - 162 , mar .
+b. k. mohanty and p. k. meher , `` memory efficient modular vlsi architecture for high throughput and low - latency implementation of multilevel lifting 2-d dwt , '' _ ieee transactions on signal processing , _ vol .
+5 , pp . 2072 - 2084 , may 2011 .
+a.darji , s. agrawal , ankit oza , v. sinha , a.verma , s. n. merchant and a. n. chandorkar , `` dual - scan parallel flipping architecture for a lifting - based 2-d discrete wavelet transform,''__ieee transactions on circuits and systems - ii : express briefs , _ _ vol .
+61 , no . 6 , pp .
+433 - 437 , jun . 2014 .
+b. k. mohanty , a. mahajan , and p. k. meher , `` area and power efficient architecture for high - throughput implementation of lifting 2-d dwt , '' _ ieee trans .
+circuits syst .
+briefs , _ vol .
+59 , no . 7 , pp .
+434 - 438 , jul . 2012 .
+y. hu and c. c. jong,``a memory - efficient high - throughput architecture for lifting - based multi - level 2-d dwt,''__ieee transactions on signal processing , _ _ vol .
+20 , pp.4975 - 4987 , oct .
+15 , 2013 .
+y. hu and c. c. jong , `` a memory - efficient scalable architecture for lifting - based discrete wavelet transform,''__ieee transactions on circuits and systems - ii : express briefs , _ _ vol .
+60 , no . 8 , pp . 502 - 506 , aug .
+j. xu , z.xiong , s. li , and ya - qin zhang , `` memory - constrained 3-d wavelet transform for video coding without boundary effects , '' _ ieee transactions on circuits and systems for video technology , _ vol .
+812 - 818 , sep . 2002 .
+m. weeks and m. a. bayoumi , `` three - dimensional discrete wavelet transform architectures,''__ieee transactions on signal processing , _ _ vol .
+50 , no . 8 , pp.2050 - 2063 , aug .
+z. taghavi and s. kasaei , `` a memory efficient algorithm for multidimensional wavelet transform based on lifting , '' _ in proc .
+acoust speech signal process .
+( icassp ) _ , vol .
+401 - 404 , 2003 .
+q. dai , x. chen , and c. lin , `` novel vlsi architecture for multidimensional discrete wavelet transform , '' _ ieee transactions on circuits and systems for video technology , _ vol .
+14 , no . 8 , pp . 1105 - 1110 ,
+a. das , a. hazra , and s. banerjee,``an efficient architecture for 3-d discrete wavelet transform,''__ieee transactions on circuits and systems for video technology , _ _ vol .
+286 - 296 , feb . 2010 .
+b. k. mohanty and p. k. meher , `` memory - efficient architecture for 3-d dwt using overlapped grouping of frames,''__ieee transactions on signal processing _ _ , vol .
+11 , pp.5605 - 5616 , nov . 2011 .
+a. darji , s. shukla , s. n. merchant and a. n. chandorkar , `` hardware efficient vlsi architecture for 3-d discrete wavelet transform , '' _ proc . of @xmath71 int .
+conf . on vlsi design and @xmath72 int .
+conf . on embedded systems _ pp .
+348 - 352 , 5 - 9 jan . 2014 .
+w.sweldens , `` the lifting scheme : a construction of second generation of wavelets , '' _ siam journal on mathematical analysis , _
+vol.29 no.2 , pp .
+511 - 546 , 1998 .

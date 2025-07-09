@@ -1,0 +1,249 @@
+recently a new method for analyzing multifractal functions @xmath1 was introduced @xcite .
+it exploits the fact that the fractional derivative of order @xmath2 ( denoted here by @xmath3 ) of @xmath1 has , for a suitable range of @xmath2 , a power - law tail in its cumulative probability @xmath4 the exponent @xmath5 is the unique solution of the equation @xmath6 where @xmath7 is the scaling exponent associated to the behavior at small separations @xmath8 of the structure function of order @xmath9 , i.e. @xmath10 .
+it was also shown that the actual observability of the power - law tail when multifractality is restricted to a finite range of scales is controlled by how much @xmath7 departs from linear dependence on @xmath9 . the larger this departure
+the easier it is to observe multifractality .
+so far the theory of such power - law tails has been developed only for synthetic random functions , in particular the random multiplicative process @xcite for which kesten - type maps @xcite and large deviations theory can be used .
+it is our purpose here to test the fractional derivative method for invariant measures of dissipative dynamical systems , in particular for the feigenbaum invariant measure which appears at the accumulation point of the period doubling cascade where the orbit has period @xmath11 @xcite .
+its multifractality was proven rigorously in ref .
+@xcite using a thermodynamic formalism . for the feigenbaum measure all
+scaling exponents can be determined with arbitrary accuracy .
+there is an important difference in the way one processes functions and invariant measures to determine their multifractal properties and in particular the spectrum of singularities , usually denoted @xmath12 for functions @xcite and @xmath0 for measures @xcite . for a function @xmath1 one uses the moments or the pdfs of the increments @xmath13 to determine the scaling exponents , whereas for an invariant measure @xmath14 one works with integrals over intervals or boxes of different sizes . in the one - dimensional case
+the two approaches become equivalent by introducing the cumulative distribution function @xmath15 hence we shall apply the fractional derivative method to the integral of the invariant measure .
+the organization of the paper is the following .
+section  [ s : thermo ] is devoted to the thermodynamic formalism for the feigenbaum attractor . in section  [ ss :
+formalism ] , we recall the method used in ref .  @xcite . in section  [ ss : connection ]
+we show how this formalism , based on the study of the geometrical properties of the attractor , is actually connected to the standard multifractal formalism which focusses on the statistical properties of the invariant measure @xcite . to the best of our knowledge
+the exact relation between the two formalisms is discussed here for the first time .
+then , in section  [ ss : numericalfreeenergy ] we calculate numerically the free energy and accordingly the scaling exponents @xmath7 for the integral of the invariant measure ; this is done by a very accurate transfer - matrix - based method .
+fractional derivatives are discussed in section  [ s : fraclap ] . in section  [ ss : fraclap_pheno ]
+we briefly recall the phenomenology of power - law tails in the distribution of fractional derivatives and the limits on observability .
+the fractional derivative analysis of the feigenbaum measure is presented in section [ ss : fraclap_numerics ] .
+concluding remarks are made in section  [ s : concl ] .
+in this section we give a brief description of the thermodynamic formalism for the invariant measure of the feigenbaum map ( see ref .
+@xcite for the mathematical details ) and show how one can use it in order to study the multifractal properties of the hlder exponents .    by feigenbaum attractor we understand the attractor of the one - dimensional mapping @xmath16 \to [ 0,1]$ ] , where @xmath17 is the solution of the feigenbaum 
+cvitanovi doubling equation : @xmath18 equation ( [ g ] ) is known to have the unique solution in the class of smooth unimodal maps ( that is , maps having one critical point ) with a non - degenerate maximum .
+this solution is called the feigenbaum map .
+it is holomorphic in some complex neighborhood of @xmath19 $ ] and the first few terms in the power series expansion are @xcite @xmath20 the value of the universal constant @xmath21 which is the inverse of the feigenbaum scaling constant @xmath22 is approximately equal to @xmath23 .
+an attractor @xmath24 for the map @xmath25 can be constructed in the following way . for each @xmath26 define a collection of intervals of @xmath27th level : @xmath28 , \nonumber \\ & & \delta^{(n)}_i = g^{(i)}(\delta^{(n)}_0 ) \equiv \underbrace{g \circ g   \circ \cdots \circ g}_{i } ( \delta_0^{(n ) } ) \quad ( 1 \leq i\leq 2^n-1 ) .
+\label{delta}\end{aligned}\ ] ]    the following properties of the intervals @xmath29 are easy consequences of the doubling equation ( [ g ] ) : ( a ) intervals @xmath30 are pairwise disjoint .
+( b ) @xmath31 .
+( c ) each interval of @xmath27th level @xmath29 contains exactly two intervals of @xmath32th level , @xmath33 and @xmath34 .
+( d ) @xmath35 , where @xmath36 denotes the length of the interval .
+the first three levels of the intervals are shown in fig .
+[ f : dynamicalpartition ] .
+the feigenbaum 
+cvitanovi map @xmath17 and the first three levels of the partitions @xmath37 . for @xmath17
+we used the expansion ( [ g1 ] ) , introduced in ref .  @xcite up to @xmath38 . ]    65 10 dynamical partitions    the properties above imply that it is natural to use a dyadic representation for the intervals @xmath29 .
+let @xmath39 , where @xmath40 .
+then we can use a sequence @xmath41 as a symbolic coding for intervals @xmath29 : @xmath42 .
+now we can define the feigenbaum attractor @xmath43 the set @xmath24 is isomorphic to the set of all infinite dyadic sequences @xmath44 .
+such sequences can be considered as a symbolic coordinate system on @xmath24 . in this new coordinate system
+the map @xmath25 acts as the dyadic addition of the sequence @xmath45 .
+notice that topologically @xmath24 is a cantor set .
+it is easy to see that @xmath24 is indeed an attractor for all but countably many initial points @xmath46 $ ] : @xmath47 as @xmath48 .
+the exceptional set of initial points consists of all unstable periodic orbits and their preimages .    as we have seen above , all intervals @xmath29 have exponentially small lengths but the exponent varies from @xmath49 to @xmath50 .
+notice that exponents @xmath51 give all possible scalings of the fractal set @xmath24 .
+the basic ingredient which is needed for the multifractal analysis is the control over the spectrum of possible scalings corresponding to exponents , i.e. @xmath51 .
+such control can be achieved with the help of the thermodynamic formalism .
+the thermodynamic formalism which was constructed in ref .
+@xcite is based on the gibbsian description for the lengths of the intervals @xmath29 .
+it is shown in ref .
+@xcite that there exists a function @xmath52 ( thermodynamic potential ) which is defined on all infinite dyadic sequences such that :    i. there exists a constant @xmath53 for which @xmath54    \ii . for any two dyadic sequences @xmath55    which coincide on the first @xmath56 positions @xmath57 with @xmath58 @xmath59\leq \frac{|\delta^{(n)}_{\epsilon_0 , \dots , \epsilon_{n-1}}|}{|\delta^{(n-1)}_{\epsilon_0 , \dots , \epsilon_{n-2}}|}\exp(-u(\epsilon_{n-1 } , \dots , \epsilon_{1},1,0,\dots , 0,\dots ) ) \leq \exp[c(2\gamma)^{\frac{n}{3 } } ]
+\ , .\ ] ] it immediately follows from ( [ exp1 ] ) that for @xmath60 $ ] @xmath61}\leq c_1 \ , .\ ] ] the condition @xmath62 corresponding to intervals @xmath63 with odd @xmath64 s plays only a technical role and it is not essential for our further analysis since the odd intervals contain information about the lengths of the even ones .
+indeed , it is very easy to see that for every odd @xmath64 the intervals @xmath63 and @xmath65 have lengths of the same order .
+we next introduce a parameter @xmath66 ( inverse temperature ) and define the partition function @xmath67 \label{part}\ ] ] and the free energy @xmath68 it immediately follows from ( [ part ] ) and ( [ free ] ) that @xmath69.\ ] ]    in the thermodynamic limit
+@xmath70 the probability distributions @xmath71 \label{gibbs}\ ] ] tend to a limiting distribution @xmath72 which can be considered as a gibbs measure with the potential @xmath73 , inverse temperature @xmath66 and the boundary condition @xmath74 .
+this gibbs distribution generates the probability measure on @xmath75 which is the part of the whole attractor @xmath24 corresponding to intervals @xmath29 with odd numbers @xmath64 .
+we shall denote this gibbs measure on @xmath76 by @xmath77 .
+notice that @xmath78 corresponds to a unique invariant measure and @xmath79 gives a conditional distribution corresponding to lebesgue measure on @xmath19 $ ] .
+the free energy @xmath80 contains all information about the multifractal properties of the feigenbaum attractor .
+notice that the thermodynamic formalism leads to one - dimensional statistical mechanics with exponential decay of interactions and hence without phase transitions .
+this implies that @xmath80 is a smooth function .
+in fact it is holomorphic in some complex neighborhood of the real axis .
+denote @xmath81 using relations @xmath82 \nonumber \\ & = & \left<\frac{\ln |\delta^{(n)}_{1,\epsilon_1 , \dots , \epsilon_{n-1}}|}{n}\right>_{\nu^{(n)}_\beta } + o\left(\frac{1}{n}\right)\end{aligned}\ ] ] and @xmath83 \nonumber \\ & & -\left(\frac{1}{z_n(\beta)}\sum_{\epsilon_{n-1 } , \dots , \epsilon_0 = 0,1}\frac{1}{n}h(\epsilon_{n-1 } , \dots , \epsilon_1 ) \exp\left[\beta h(\epsilon_{n-1 } , \dots , \epsilon_1)\right]\right]^2 \nonumber \\ & & = \left<\left(\frac{\ln |\delta^{(n)}_{1,\epsilon_1 , \dots ,        \epsilon_{n-1}}|}{n}\right)^2\right>_{\nu^{(n)}_\beta } - \left(\left<\frac{\ln |\delta^{(n)}_{1,\epsilon_1 , \dots ,         \epsilon_{n-1}}|}{n}\right>_{\nu^{(n)}_\beta}\right)^2          + o\left ( \frac{1}{n}\right),\end{aligned}\ ] ] we conclude that @xmath80 is a monotone decreasing convex function .
+we shall also use the spectral representation for the free energy . consider the transfer - matrix operator @xmath84 : @xmath85h(\epsilon^{(0)},\epsilon^{(1 ) } , \epsilon^{(2 ) } , \dots , \epsilon^{(n ) } , \dots ) \ , .\ ] ] since @xmath84 is a positive linear operator , its largest eigenvalue @xmath86 is strictly positive and simple .
+it is easy to see that @xmath87    for an arbitrary point @xmath88 , denote by @xmath89 the interval of the @xmath56th level which contains @xmath90 .
+it follows from ( [ monotonicity ] ) that for points @xmath90 which are typical with respect to @xmath77 ( that is corresponding to a set of full @xmath77-measure . )
+latexmath:[\[\label{typ1 }    precisely , for @xmath77-almost all @xmath92 @xmath93 we next find the total number @xmath94 of the intervals of @xmath27th level whose length is of the order @xmath95 $ ] .
+we have @xmath96\ , \sim \
+,   z_n(\beta ) \ , \sim \ ,   \exp[f(\beta)n]\ ] ] which gives @xmath97 \ , .\ ] ] using ( [ n ] ) we can find the hausdorff dimension @xmath98 of the set of points @xmath88 which are typical with respect to the measure @xmath99 . since @xmath100\ ] ] we conclude that @xmath101 which immediately implies @xmath102 the hausdorff dimension @xmath103 of the whole attractor @xmath24 is equal to the maximum of @xmath98 over all @xmath104
+. let @xmath105 be the unique solution of the equation @xmath106 .
+it is easy to see that @xmath107 .
+the integral @xmath1 of the feigenbaum invariant measure calculated with @xmath108 bins of uniform length @xmath109 in @xmath19 $ ] .
+inset : the invariant measure smoothed over the distance @xmath110 calculated as a frequency histogram . ]    65 10 feigenbaum measure , u(x )    we next discuss multifractal properties associated with the hlder exponents .
+consider the integral @xmath1 of the invariant measure @xmath14 , defined by ( [ distr ] ) , which is plotted in fig .
+[ f : feigendistribution ] .
+the attractor being topologically a cantor set , @xmath1 is a variant of the devil s staircase ( see ref .
+@xcite , section 8.2 ) .    to find its spectrum of hlder exponents ,
+notice that for every interval @xmath29 the increase of @xmath1 along the interval is equal to @xmath111 .
+hence @xmath29 corresponds to a hlder exponent @xmath112 where @xmath113 .
+this implies @xmath114 using ( [ typ1 ] ) , ( [ hold ] ) we conclude that the hlder exponent @xmath22 corresponds to an inverse temperature @xmath115 such that @xmath116 this gives @xmath117 where @xmath118 is the inverse function to @xmath119 .
+we can now find the hausdorff dimension @xmath120 of the set of points @xmath92 for which the hlder exponent of @xmath1 is equal to @xmath22 : @xmath121 notice that the analysis presented above can be made completely rigorous ( see , for example , refs .
+@xcite ) .
+it is quite interesting to compare the multifractal analysis which we presented above with the one introduced in ref .  @xcite .
+although we restrict ourselves here to the case of the feigenbaum attractor , the result presented below holds in a much more general setting .
+basically our analysis is valid whenever the system under consideration can be described with the help of the thermodynamic formalism .
+the basic object for our analysis is the feigenbaum attractor itself and the method is based on the construction of the thermodynamic formalism for the lengths of the elements of dynamic partitions @xmath29 .
+the thermodynamic formalism uses considerable dynamical information about the map @xmath25 .
+in contrast , the analysis in ref .
+@xcite is carried out for fractal measures and does not directly use the dynamical information about the system . in the period - doubling setting
+the fractal measure is @xmath14 .
+it is the unique invariant measure for @xmath25 acting on @xmath24 ( see ref .
+it also can be considered as a physical or sinai  ruelle  bowen ( srb ) measure on
+@xmath19 $ ] .
+this means that under dynamics given by the map @xmath25 any initial absolutely continuous distribution @xmath122 on @xmath19 $ ] converges to @xmath14 : @xmath123 as @xmath70 .
+the multifractal analysis in ref .
+@xcite is based on a function @xmath124 which can be defined in the following way .
+consider a partition of the interval @xmath19 $ ] into subintervals @xmath125 of length @xmath8 .
+then @xmath126 it follows from ( [ hjkps1 ] ) that @xmath127 another characteristic of a multifractal measure is given by its spectrum of dimensions @xmath0 which is just the legendre transform of @xmath128 : @xmath129 \ , .\ ] ] the dual legendre relation allows one to find @xmath128 from @xmath0 : @xmath130 \ , .\ ] ] we next find a correspondence between the pair @xmath131 and the pair of thermodynamic functions @xmath132 .
+we shall show that @xmath133 where @xmath134 is an inverse function to the free energy @xmath80 . to derive the first relation we consider the dynamical partition @xmath135 and
+assume that @xmath136 but @xmath137 .
+for each @xmath63 define @xmath138 notice that the asymptotic behavior of @xmath139 depends only on asymptotic scalings of smaller elements of the dynamical partitions @xmath140 inside @xmath63 .
+the thermodynamic formalism constructed above implies that asymptotically those scalings are completely determined by the potential @xmath73 and hence they do not depend on @xmath64 .
+rescaling the invariant measure inside @xmath63 by a factor @xmath141 we conclude that @xmath142 where @xmath143 is a total number of the intervals @xmath144 inside @xmath63 . taking the sum over @xmath64 and using ( [ free1 ] ) we have @xmath145\ , .\end{aligned}\ ] ] this together with ( [ hjkps11 ] ) immediately gives @xmath146=2^p\ ] ] which implies the first relation in ( [ hjkps3 ] ) .
+we next show that the second relation holds . using ( [ hjkps2 ] )
+we have @xmath147=\inf_p \ [ \alpha
+p - ( -f^{-1}(p\ln 2)]=\inf_z \
+\left[\frac{\alpha}{\ln 2}z + f^{-1}(z)\right ] \nonumber \\ & = & \inf_\beta \
+\left[\frac{\alpha}{\ln 2}f(\beta ) + \beta \right ] = \frac{\alpha}{\ln 2}\inf_\beta\ \left[\frac{\ln 2}{\alpha}\beta + f(\beta)\right ]       \ , .\end{aligned}\ ] ] it is easy to see that the extremum in ( [ hjkps8 ] ) corresponds to @xmath148 which implies @xmath149    finally we express the scaling exponents @xmath7 for the structure functions through the thermodynamic characteristics . the exponent @xmath7 is defined by the scaling relation @xmath150 in terms of the integral @xmath1 of the invariant measure .
+let @xmath151 be a partition of @xmath19 $ ] into intervals of length @xmath8 .
+then @xmath152 which together with ( [ hjkps3 ] ) gives @xmath153 using ( [ hjkps22 ] ) one can also write @xmath7 in the following form : @xmath154 = 1 + \inf_{\alpha } \ [ \alpha p - d_h(\alpha ) ] \ , .\ ] ] at @xmath155 the infimum ( [ structure3 ] ) is attained , we can then write the relation between @xmath9 and @xmath156 as @xmath157 the scaling exponents for the structure functions are hence obtained as @xmath158    we now turn to concrete calculations for the scheme presented above .
+it is easy to see that all the thermodynamic functions can be effectively approximated numerically .
+the first step is to find approximations for the thermodynamic potential @xmath52 .
+we shall use markov approximations @xmath159 which are defined by the following formula : @xmath160 it was shown in @xcite that the limit in ( [ kapprox ] ) exists and @xmath161 we can construct a markov approximation for the transfer - matrix operator @xmath84 .
+namely , we define a finite dimensional linear operator @xmath162 : @xmath163h(\epsilon^{(0)},\epsilon^{(1 ) } , \epsilon^{(2 ) } , \dots , \epsilon^{(k-1 ) } ) \ , .\ ] ] in the matrix representation the operator @xmath162 corresponds to a certain @xmath164 matrix .
+denote by @xmath165 its largest eigenvalue .
+then @xmath166 is a natural approximation for the free energy @xmath80 .
+it follows from ( [ kapprox1 ] ) that @xmath167 converges to @xmath80 exponentially fast in @xmath168 topology . using @xmath167
+we can effectively approximate all the multifractal functions which we discussed above .
+the corresponding numerical results are presented in the next section .      here
+we show how to construct the transfer - matrix operator @xmath169 starting from @xmath170 to general @xmath171 . for @xmath170 , the matrix operator
+@xmath172 is just a scalar .
+denoting @xmath173 by @xmath174 for clarity , let us consider @xmath175    =    \lim_{n \to \infty }    \frac{|{\delta^{({n})}({1 , \overbrace{0 , \ldots , 0}^{n - 2 } , \epsilon^{(0)}})}| }         { |{\delta^{({n - 1})}({1 , \underbrace{0 , \ldots , 0}_{n - 2}})}| } , \label{e : eu1 }        \end{aligned}\ ] ] whose analytical expression is easy to calculate .
+the 0-th order approximation of the free energy is given by @xmath176.\end{aligned}\ ] ] for @xmath177 , since @xmath178 $ ] and @xmath179
+$ ] , we have @xmath180 ) of @xmath17 . thus @xmath181 .
+therefore , the corresponding component of @xmath182 is @xmath183 before considering the second term in the argument of the logarithm in ( [ twoterms ] ) , we recall the relation @xmath184 which played a primary role in the proof of theorem 4.1 . of ref .
+since @xmath185 , in view of ( [ e : nsim ] ) , we have @xmath186 ^ 2 - 1\ } + o(\alpha^{-4(n - 1)})|.\end{aligned}\ ] ] thus for @xmath187 , ( [ e : eu1 ] ) can be rewritten as @xmath188 ^ 2 - 1\ } + o(\alpha^{-4(n - 1)})| }         { |c \alpha^{-2(n - 1 ) } + o(\alpha^{-4(n - 1)})| }   = 1 - [ g(\alpha^{-1})]^2.\end{aligned}\ ] ] we now arrive at the expression for the @xmath189-th order approximation of the free energy : @xmath190 ^ 2\}^{\beta } ] .
+\label{e : f0beta }   \end{aligned}\ ] ]    next , consider the @xmath191 approximation to the transfer matrix @xmath192 . from ( [ lk ] ) , it can be written in standard matrix notation as @xmath193 it then follows that the free energy is given by @xmath194 \nonumber \\ & & - \ln 2.\end{aligned}\ ] ] the four components of the transfer matrix require the evaluation of suitable exponential terms , expressible by ( [ kapprox ] ) , from @xmath195 = \lim_{n \to \infty }    \frac{|{\delta^{({n})}({1 , \overbrace{0 , \ldots , 0}^{n - 3 } , \epsilon^{(1 ) } ,    \epsilon^{(0)}})}| } { |{\delta^{({n - 1})}({1 , \underbrace{0 , \ldots , 0}_{n - 3 } ,    \epsilon^{(1)}})}|}.\end{aligned}\ ] ] each of these terms is calculated in the same manner as for the @xmath170 case : @xmath196 ^ 2 - [ g(\alpha^{-1})]^2 \nonumber\\    & = &   1 - [ g(\alpha^{-1})]^2,\\   e^{u_2(0 , 1 ) } & = &   \lim_{n \to \infty }   \frac{|{\delta^{({n})}({1 , 0 , \dots , 0 , 1 , 0})}| }        { |{\delta^{({n - 1})}({1 , 0 , \dots , 0 , 1 } ) }    | } \nonumber \\   & = &   \frac{|[g(0)]^2 - [ g(\alpha^{-2})]^2| }        { |[g(0)]^2 - [ g(\alpha^{-1})]^2| }   =          \frac{1 - [ g(\alpha^{-2})]^2 }        { 1 - [ g(\alpha^{-1})]^2},\\    e^{u_2(1 , 1 ) } & = &   \lim_{n \to \infty }   \frac{|{\delta^{({n})}({1 , 0 , \dots , 0 , 1 , 1})}| }        { |{\delta^{({n - 1})}({1 , 0 , \dots , 0 , 1 } ) }    | } \nonumber \\ & = &   \frac{|[g^{(3)}(0)]^2 - [ g^{(3)}(\alpha^{-2})]^2| }        { |[g(0)]^2 - [ g(\alpha^{-1})]^2|}.       \end{aligned}\ ] ]    for @xmath197 , we just write down the transfer matrix @xmath198 : @xmath199    now we are in a position to calculate the transfer matrix @xmath162 for general @xmath171 .
+let us consider the component for @xmath200 : @xmath201 & = & \lim_{n \to \infty } \frac{|{\delta^{({n})}({1 , \overbrace{0 , \ldots , 0}^{n - k - 2 } , \epsilon^{(k ) } , \ldots , \epsilon^{(1 ) } , \epsilon^{(0)}})}| }       { |{\delta^{({n - 1})}({1 , \underbrace{0 , \ldots , 0}_{n - k - 2 } , \epsilon^{(k ) } , \ldots , \epsilon^{(1)}})}| } \nonumber \\ & = & \lim_{n \to \infty }   \frac{|g({\delta^{({n})}({\overbrace{0 , \ldots , 0}^{n - k - 2 } , \epsilon^{(k ) } , \ldots , \epsilon^{(1 ) } , \epsilon^{(0)}})})| }       { |g({\delta^{({n - 1})}({\underbrace{0 , \ldots , 0}_{n - k - 2 } , \epsilon^{(k ) } , \ldots , \epsilon^{(1)}})})|}. \label{e : compo }      \end{aligned}\ ] ] hence it is enough to calculate @xmath202 .
+for this we use the following relation : @xmath203 by ( [ e : similarity ] ) the numerator in ( [ e : compo ] ) is given by @xmath204 ^ 2\ }       -       \{1 - c\ , \alpha^{-2(n - k - 1)}[g^{(j)}(\alpha^{-(k + 1)})]^2\ } + o(\alpha^{-4(n - k)})|\ } \nonumber \\    & = & c \ , \alpha^{-2(n - k - 1)}|[g^{(j)}(0)]^2 - [ g^{(j)}(\alpha^{-(k + 1)})]^2| + o(\alpha^{-4(n - k)}).\end{aligned}\ ] ] therefore the component ( [ e : compo ] ) is expressed as @xmath201    =   \left|    \frac{[g^{(j)}(0)]^2   - [ g^{(j)}(\alpha^{-(k + 1)})]^2 }         { [ g^{(j')}(0)]^2 - [ g^{(j')}(\alpha^{-k})]^2 }   \right| , \label{e : concretecompo } \end{aligned}\ ] ] where @xmath205 and @xmath206 . in other words , if the coordinates of the end points of the intervals are given by @xmath207 $ ] and @xmath208 $ ] , the component ( [ e : compo ] ) can be rewritten as @xmath209   =   \left|    \frac{\left(a_j^{(k + 1)}\right)^2   - \left(b_j^{(k + 1)}\right)^2 }         { \left(a_{j'}^{(k ) }    \right)^2   - \left(b_{j'}^{(k ) }    \right)^2 }   \right| .
+\label{e : ab}\end{aligned}\ ] ] if the transfer matrix is written as an ordinary @xmath210 matrix , it is easily found that the row and columns indices are given by @xmath211 , where @xmath212    for numerical calculation of the functions @xmath167 and @xmath7 associated to @xmath1 , we use the expansion ( [ g1 ] ) for @xmath17 , as given in ref .
+we include terms up to @xmath38 .
+numerical calculation is done with standard double precision ( 15 significant digits ) . for obtaining the largest eigenvalue
+, we use the power method for matrices @xcite .
+the multiplication of the matrix is stopped when the relative error of the most dominant eigenvalue becomes less than @xmath213 , thus giving @xmath213 absolute error on the @xmath80 function .
+an alternative approach , also based on the thermodynamic formalism and yielding 10-digit accuracy , may be found in ref .
+approximate free energies @xmath167 , with @xmath171 up to @xmath214 , calculated by the transfer - matrix method are shown in fig .
+[ f : free - energy ] .
+the @xmath171-th order approximation to the free energy @xmath167 .
+inset : enlargement of the region @xmath215 ; when increasing @xmath171 , alternate convergence is observed . ]
+65 10 free energy    we note that the @xmath170 approximation ( [ e : f0beta ] ) already gives a reasonable estimate .
+the discrepancy of the free energy between various orders of approximations is visible at large @xmath66 .
+however the @xmath216 region is irrelevant as far as @xmath7 for positive @xmath9 is concerned ( see eq .
+( [ 1-beta ] ) ) .
+the corresponding @xmath217 are calculated from the @xmath167 by ( [ structure2 ] ) for different values of @xmath171 ; the results , which hardly depend on @xmath171 , are shown in fig .
+[ f : feigen - zetap](a ) .
+( a ) scaling exponents @xmath7 of structure functions obtained by two methods .
+open circles : data obtained by a least - square fit of the slopes of the directly measured structure functions shown in ( b ) .
+lines : data calculated from the free energy @xmath167 using ( [ structure2 ] ) ( curves for different @xmath171 are essentially indistinguishable ) .
+, title="fig : " ] ( a ) scaling exponents @xmath7 of structure functions obtained by two methods .
+open circles : data obtained by a least - square fit of the slopes of the directly measured structure functions shown in ( b ) .
+lines : data calculated from the free energy @xmath167 using ( [ structure2 ] ) ( curves for different @xmath171 are essentially indistinguishable ) .
+, title="fig : " ]    65 10 feigen : structure func , zetap    we also determined the structure functions of @xmath1 with @xmath218 uniform bins in @xmath219 $ ] ; they are plotted in fig .
+[ f : feigen - zetap](b ) .
+the exponents @xmath7 are then obtained by a least square fit of the structure functions over the range @xmath220 . with this number of bins , the quality of the fit begins to somewhat deteriorate beyond @xmath221 , but otherwise there is rather good agreement between the two methods of determining @xmath7 .
+note that the `` @xmath222-intercept '' of the graph of @xmath7 , namely @xmath223 , which is the codimension of the support of the invariant measure @xmath224 , is positive and its numerical value is slightly under one half @xcite .
+this will be important in the sequel .
+in this section we briefly recall the phenomenological approach to multifractality via fractional derivatives @xcite and adapt it to a multifractal measure .
+we therefore work , not with the measure @xmath224 itself , but with its integral @xmath1 .
+singularity exponents @xmath22 may be viewed as local hlder exponents of @xmath1 , i.e. , @xmath225 for @xmath226 .
+we turn to fractional derivatives of order @xmath2 defined , as in ref .
+@xcite , as the multiplication in the fourier space by @xmath227 by @xmath228 ( see ref .
+@xcite for precise definition ) .
+an isolated non - oscillatory singularity with exponent @xmath22 at a point @xmath90 implies @xmath229 if @xmath230 , as we shall assume hereafter , the exponent is negative , the fractional derivative can become arbitrarily large and thus contributes to the tail - behavior of the probability .
+a key assumption in the phenomenology is that this argument can be carried over to non - isolated multifractal singularities , provided we take all types of singularities into account . for the feigenbaum invariant measure , we know the hausdorff dimension @xmath120 of the set of points having a singularity with exponent @xmath22 . assuming that we can also use @xmath120 as a covering dimension , we can express the probability to have a singularity of exponent @xmath22 contributing a fractional derivative of order @xmath2 which exceeds ( in absolute value ) a given large value @xmath231 , that is we require @xmath232 in terms of the codimension of the set @xmath233 , the probability to satisfy ( [ e : y - x ] ) is written as @xmath234 here @xmath235 is the spatial dimension ( @xmath236 ) .
+taking now into account the singularities with all possible exponents @xmath22 , the tail of the cumulative probability of the fractional derivative of order @xmath2 is given , to the leading order , by the following power law @xmath237 an easy calculation shows that @xmath156 corresponding to the infimum in ( [ e : inf ] ) satisfies @xmath238 which immediately gives @xmath239 .
+on the other hand , we know that @xmath240 here the infimum is given by an @xmath22 satisfying the very same relation @xmath239 .
+hence , @xmath241 using ( [ alpha_star ] ) , we get @xmath242 where the second relation follows from @xmath239 .
+the geometrical interpretation of this equation is that the ( negative ) exponent of the power - law tail for the fractional derivative of order @xmath2 is the @xmath9-value of the intersection of the graph of @xmath7 and of a straight line of slope @xmath2 through the origin .    as shown in ref .
+@xcite , in the presence of the finite range of scaling , the power - law tail ( [ e : cprob ] ) emerges only if the multifractality is sufficiently strong .
+this strength is given by the multifractality parameter @xmath243 , a measure of how strongly the data depart from being self similar ( which would imply @xmath244 ) : @xmath245 where @xmath246 . it was shown that observability of the power - law requires a sufficiently large value for the product @xmath247 , where @xmath56 is the number of octaves over which the data present multifractal scaling . in practice
+it was found in ref .
+@xcite that @xmath248 for example , fully - developed turbulence velocity data @xcite have typical @xmath249 values of the order of @xmath250 , thereby requiring a monstrous inertial range of about 300  octaves for observability of power - law tails .
+as we shall see , the situation is much more favorable for the feigenbaum invariant measure .    before turning to numerical questions ,
+we comment on an issue raised by an anonymous referee who worried about the nonlocal character of the fractional derivative and wrote in essence that our approach makes sense , strictly speaking , only for ( statistically ) translationally invariant in space systems : otherwise , if the system consists of components whose `` fractal properties '' are rather different the results will be smeared out .
+our feeling about such matters is summarized as follows .
+first one can observe that , of course , the attractor for the feigenbaum map is not homogeneous ( translation - invariant ) but after zooming in it becomes increasingly so ; the fractional derivative is not a local operator but the tail of its pdf is likely to be dominated by strongly localized events .
+second , a more technical observation .
+the idea of the multi - fractal analysis is based on the fact that the dynamics of a system determines a variety of scales .
+it is important that these scales do not depend on a particular place in the phase space . on the contrary , they are present and `` interact '' with each other everywhere . in the case of the feigenbaum attractor
+the scales depend on a symbolic location in a system of partitions . in physical systems , like homogeneous turbulence , such partitions are difficult to define rigorously . however , the invariance with respect to the space coordinate is still present and forms a basis for applicability of the multifractal calculus .
+the phenomenological arguments presented in the previous section suggest that we should find power - law tails in the cumulative probability for fractional derivatives of @xmath1 for suitable orders @xmath2 .
+inspection of fig .
+[ f : feigen - zetap ] indicates that @xmath2 should be between the minimum slope of the graph and unity .
+the value @xmath251 is of course not a fractional order but , as we shall see , it is associated with a power - law tail of exponent minus one .. ( putting @xmath252 into the partition function @xmath253 , we have @xmath254 . ) ] the minimum slope can be easily found .
+indeed , @xmath80 takes large values when @xmath66 is large negative . in this case the main contribution to @xmath80comes from the shortest interval of the partition with the length of the order of @xmath50 .
+hence , @xmath255 in the limit @xmath256 .
+this gives the following lower bound of the differentiation order : @xmath257 we have already observed that , because the @xmath7 graph does not pass through the origin , substantial values can be expected for the multifractality parameter @xmath243 .
+the actual values of @xmath249 , associated to values of @xmath9 ranging from @xmath258 to 3 by increments of @xmath259 are shown in table  [ t : fzetap ] , together with the number @xmath56 of scaling octaves needed determined by @xmath260 ( cf .
+( [ e : criterion ] ) ) .
+.[t : fzetap ] for the feigenbaum invariant measure we show the scaling exponents @xmath7 , the corresponding inverse temperature @xmath66 s , the multifractality parameter @xmath249 and the number of scaling octaves needed . [ cols="^,^,^,^,^,^,^",options="header " , ]     in practice , on a 32 bit machine , we are limited to about 25 octaves of dynamical range in resolution over the interval @xmath261 $ ]
+. this should be enough to observe power - law tails .
+cumulative probabilities of absolute values of fractional derivatives of various orders @xmath262 for the feigenbaum invariant measure .
+each function displays a power - law tail with an exponent fairly close to the predicted value @xmath263 .
+insets : corresponding @xmath7 graphs . ( a ) @xmath264 .
+( b ) @xmath265 .
+( c ) @xmath266 .
+( d ) @xmath267 .
+( e ) @xmath268 . ]    cumulative probabilities of absolute values of fractional derivatives of various orders @xmath262 for the feigenbaum invariant measure .
+each function displays a power - law tail with an exponent fairly close to the predicted value @xmath263 .
+insets : corresponding @xmath7 graphs .
+( a ) @xmath264 .
+( b ) @xmath265 .
+( c ) @xmath266 .
+( d ) @xmath267 .
+( e ) @xmath268 .
+, title="fig : " ] cumulative probabilities of absolute values of fractional derivatives of various orders @xmath262 for the feigenbaum invariant measure .
+each function displays a power - law tail with an exponent fairly close to the predicted value @xmath263 .
+insets : corresponding @xmath7 graphs .
+( a ) @xmath264 .
+( b ) @xmath265 .
+( c ) @xmath266 .
+( d ) @xmath267 .
+( e ) @xmath268 .
+, title="fig : " ]    cumulative probabilities of absolute values of fractional derivatives of various orders @xmath262 for the feigenbaum invariant measure .
+each function displays a power - law tail with an exponent fairly close to the predicted value @xmath263 .
+insets : corresponding @xmath7 graphs .
+( a ) @xmath264 .
+( b ) @xmath265 .
+( c ) @xmath266 .
+( d ) @xmath267 .
+( e ) @xmath268 .
+, title="fig : " ] cumulative probabilities of absolute values of fractional derivatives of various orders @xmath262 for the feigenbaum invariant measure .
+each function displays a power - law tail with an exponent fairly close to the predicted value @xmath263 .
+insets : corresponding @xmath7 graphs .
+( a ) @xmath264 .
+( b ) @xmath265 .
+( c ) @xmath266 .
+( d ) @xmath267 .
+( e ) @xmath268 .
+, title="fig : " ]    65 10 feigen : cumulative probability    indeed , fig .
+[ f : feigen - cump ] shows five instances of cumulative probabilities of fractional derivatives with power - law tails , corresponding to the values of the exponent @xmath9 listed in table  [ t : fzetap ] .
+the corresponding order of differentiation @xmath2 ranges between @xmath269 and @xmath258 .
+is too small , e.g. for @xmath270 , no power - law tail is observed .
+] since the function @xmath1 which we are analyzing is not periodic , we resort to the hann windowing technique employed previously in ref .
+@xcite ( section 13.4 ) . also , we use rank ordering to avoid binning .    the power - law behavior observed is consistent with the phenomenological theory presented in section  [ ss : fraclap_pheno ] , the residual discrepancies being due to the resolution of @xmath271 bins .
+we have found solid numerical evidence for the presence of power - law tails in the cumulative distribution of fractional derivatives for the integral @xmath1 of the invariant measure of the feigenbaum map .
+furthermore the exponents measured are consistent with those predicted by phenomenological arguments from the spectrum of singularities .
+since we have a fairly deep understanding of the structure of the attractor , thanks in particular to the thermodynamic formalism , a reasonable goal may be to actually prove the results .
+the main difficulty is that the operation of fractional derivative is non - local .
+however , we believe that a rigorous analysis here is still possible due to the quite simple spectral structure of the dynamical system corresponding to the feigenbaum attractor .
+we are grateful to rahul pandit for useful remarks .
+computational resources were provided by the yukawa institute ( kyoto ) .
+this research was supported by the european union under contract hprn - ct-2000 - 00162 and by the indo - french centre for the promotion of advanced research ( ifcpar  2404 - 2 ) .
+vul , ya.g .
+sinai and k.m .
+khanin , feigenbaum universality and the thermodynamic formalism , _ russian math . surveys _ * 39*:140 ( 1984 ) .
+g.  parisi and u.  frisch , on the singularity structure of fully developed turbulence , in _ turbulence and predictability in geophysical fluid dynamics _ ,
+proceedings of international school of physics enrico fermi , jun .
+1424 1983 , varenna , italy , m.  ghil , r.  benzi and g.  parisi , eds . , pp .  8487 , north holland ( 1985 ) .

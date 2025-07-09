@@ -1,0 +1,308 @@
+since many decades , design codes ensure a very low probability that a building collapses under ordinary loads , like self weight , dead and live service load , or snow .
+nevertheless buildings still do collapse , from time to time .
+an extremely small fraction of collapses originates from unlikely combinations of intense ordinary load with very poor strength of the building .
+the majority of structural collapses are due to accidental events that are not considered in standard design .
+examples of such events are : gross design or construction errors , irresponsible disregard of rules or design prescriptions , and several rare load scenarios like e.g.  earthquakes , fire , floods , settlements , impacts , or explosions @xcite .
+accidental events have low probability of occurrence , but high potential negative consequences . since risk is a combination of probability and consequences , the risk related to accidental events
+is generally significant @xcite .    in 1968
+a gas explosion provoked the partial collapse of the ronan point building in london .
+this event highlighted for the first time the urgency for _ robust _ structures , enduring safety in extraordinary scenarios @xcite .
+since then , interes was driven by striking catastrophic collapses @xcite , until in 2001 the tragic collapse of the world trade center renewed the attention to the topic ( see e.g.  @xcite and @xcite ) .
+the last decades , several design rules aimed at improving structural robustness have been developed ( see e.g.  @xcite ) .
+accidental events can be classified into _ identified _ and _ unidentified _ @xcite .
+identified events are statistically characterizable in terms of intensity and frequency of occurrence .
+examples are earthquakes , fire not fueled by external sources , gas explosions , and unintentional impacts by ordinary vehicles , airplanes , trains , or boats . specific design rules and even entire codes
+are devoted to specific identified accidental events .
+unidentified events comprise a wide variety of incidents whose intensity and frequency of occurrence can not be described statistically , e.g.  terrorist attacks or gross errors .
+the risk related to unidentified accidental events can be mitigated both by structural and nonstructural measures @xcite .
+nonstructural measures such as barriers and monitoring can reduce the probability that an accidental event affects the structural integrity , others like a wise distribution of plants and facilities can minimize the negative consequences of eventual collapses .
+otherwise , structural measures can improve local resistance of structural elements to direct damage , e.g.  the design of _ key elements _ for intense local load @xcite , or the application of the _ enhanced local resistance _
+method @xcite .
+structural measures can also provide progressive collapse resistance , i.e.  prevent spreading of local direct damage inside the structure to an extent that is disproportioned with respect to the initial event .
+usual strategies to improve progressive collapse resistance are compartmentalization of structures @xcite and delocalization of stress after local damage .
+stress delocalization can be obtained exploiting redundancy , plastic stress redistributions ( masoero , wittel et al . , 2010 ) , ties @xcite , and moment resisting connections @xcite .    nowadays
+several design codes employ the conventinal _ alternate load path method ( alpm ) _ to evaluate progressive collapse resistance , e.g.  @xcite and @xcite .
+the method consists in removing one key element , generally a column or a wall , and measuring the extent of subsequent collapse .
+if the final collapse is unacceptably wide , some of the previously listed measures have to be employed . hence structures are first designed and subsequently tested to be robust - they are not conceived _ a priori_.
+this course of action excludes optimizations of the basic structural topology and geometry , that actually play a key role in the response to local damage , considering as an example the very different behavior of redundant and statically determined structures .
+anti - seismic design @xcite already contains some prescriptions that should be considered before starting a new design , e.g.  geometric regularity on the horizontal and on the vertical planes .
+furthermore , anti - seismic _ capacity design _ requires a hierarchy of the structural elements ensuring that earthquakes can only provoke ductile collapse of the horizontal beams , while failure of columns and brittle ruptures due to shear are inhibited .
+differently , for what concerns progressive collapse resistance , optimal overall geometric features are not known , except for the concepts of redundancy and compartmentalization .
+furthermore , the idea of hierarchically maximizing progressive collapse resistance is completely absent .    in this paper
+, we make a first step to cover this deficiency , showing that progressive collapse resistance can be improved by hierarchy in the overall geometry ( _ topological _ hierarchy ) and in the relative strength and stiffness of horizontal and vertical structural elements ( _ mechanical _ hierarchy ) .
+our approach incorporates the simulation of progressive collapse of regular 2d frames made of reinforced concrete ( rc ) subjected to the sudden removal of structural elements , following the alpm  framework .
+we first describe the analyzed frame structures and briefly sketch the approach that is based on the _ discrete element method ( dem)_. after the model description , we present the results of the simulations , with focus on the effect of geometry and hierarchy on the activated collapse mechanisms and , consequently , on progressive collapse resistance .
+we consider two representative sets of regular 2d framed structures in fig .
+[ fig_struct]-a .
+each set consists of three frames with identical total width @xmath1 and different topological _ hierarchical level _
+@xmath2 , where @xmath3 is the number of structural cells in a frame .
+the horizontal beams , excluded those of the secondary structure , carry a uniform load per unit length @xmath4 .
+the frames are made of rc  with typical mechanical parameters of concrete and steel , as shown in table [ tabmecpar ] . the total height @xmath5 of the structure is kept constant , and two different height - bay aspect ratios @xmath6 of the structural cells are considered ( @xmath7 and @xmath8 ) .
+@xmath9 & @xmath10 & @xmath11 +   + specific weight & @xmath12 & kg / m@xmath13 & 2500 + young modulus & @xmath14 & n / m@xmath15 & 30@xmath16 + compressive strength ( high ) & @xmath17 & n / m@xmath15 & 35@xmath18 + compressive low ( low ) & @xmath17 & n / m@xmath15 & 0.35@xmath18 + ultimate shortening & @xmath19 & - & 0.0035 +   + young s modulus & @xmath20 & n / m@xmath15 & 200@xmath16 + yield stress & @xmath21 & n / m@xmath15 & 440@xmath18 + ultimate strain & @xmath22 & - & 0.05 +    there exist several ways of introducing hierarchy into the topology of framed structures ; here we call a structure  hierarchical " if it has a primary structure , made of few massive structural elements , that supports a secondary one .
+the latter defines the living space and has negligible stiffness and strength compared to the primary structure .
+the frames with @xmath23 and @xmath24 can be seen as reorganizations of those with @xmath25 . in detail
+, each column of the frames with @xmath24 corresponds to two columns of the frames with @xmath25 , and the same is valid for the beams , disregarding the first floor beam of the frames with @xmath25 , which is simply deleted ( see fig .  [
+fig_struct]-a ) .
+analogously , the geometry of the frames with @xmath23 can be obtained starting from the frames with @xmath24 .
+the cross sections of columns are square ( see fig .  [
+fig_struct]-b ) , with edges @xmath26 proportional to @xmath27 with factor @xmath28 .
+the beams have rectangular cross section whose height @xmath29 is proportional to @xmath30 with factor @xmath31 , and whose base @xmath32 is proportional to @xmath29 with aspect ratio @xmath33 .
+the reinforcement is arranged as shown in fig .
+[ fig_struct]-b , with area @xmath34 proportional to the area of the cross section by factor @xmath35 for the columns ( i.e.  8@xmath3618 when n=11 ) , and @xmath37 for the beams ( i.e.  4@xmath3614 when n=11 ) .
+the damage areas , ( dotted in fig .
+[ fig_struct]-a ) contain the structural elements that are suddenly removed to represent an accidental damage event , following the alpm  framework .
+the damage is identical for frames with same @xmath38 , and is defined by the breakdown of one third of the columns on a horizontal line .
+the columns and beams removed from frames with @xmath25 correspond to the structural elements removed from frames with @xmath24 and @xmath23 .
+this kind of damage is employed to represent accidental events with a given amount of destructive energy or spatial extent , like explosions or impacts . in this work
+we do not explicitly simulate very local damage events like gross errors , which would be better represented by the removal of single elements .
+nevertheless , we will generalize our results to consider also localized damage events .
+we employ the discrete element method ( dem ) to simulate the dynamics after a sudden damage @xcite .
+dem is based on a lagrangian framework , where the structure is meshed by massive elements interacting through force potentials .
+the equations of motion are directly integrated , in our case using a 5@xmath39 order gear predictor - corrector scheme , with time increments between 10@xmath40s and 10@xmath41s ( see masoero , wittel et al . , 2010 ) .
+dem is an equivalent formulation to finite elements , converging to the same numerical solution of the dynamics if identical force - displacement laws are implemented
+. a detailed description of the algorithm for 3d systems can be found in ( masoero , wittel et al . , 2010 ) ; @xcite , together with a discussion on the applicability . for this work ,
+the code was restricted to 2d by allowing only two displacements and one rotation in the vertical plane . in ( masoero ,
+vallini et al . , 2010 ) , the dem  model is tested against dynamic energy - based collapse analyses of a continuous horizontal beam suddenly losing a support .
+in the appendix , we compare our dem  results to experimental observations of a 2d frame undergoing quasi - static column removal @xcite . to the best of our knowlede ,
+literature still lacks on experiments of dynamic collapse of framed structures due to accidental damage .    in the following
+we will review only the essentials of our model , focusing on the details tha are relevant for the application to 2d frames .
+we assume simplified force - displacement laws for the beam element and for the hertzian contacts .
+predicting collapse of real structures would require more specialized interaction as compared to here , for example using the fiber approach for the cross sections .
+by contrast , we are interested in fundamental mechanisms of damage propagation within complex structural systems . in this research perspective , and according to a basic principle of statistical mechanics , minimizing the complexity of local interactions improves the interpretation of the systemic response . despite the strong assumptions , in the appendix we show that our model can match reasonably well with with experimental observations .      in a first step , the structure needs to be assembled by discrete elements and beams .
+[ fig_2d_mesh]-a shows the four types of spherical discrete elements ( sde ) that we employed .
+columns and beams are made of 9 sdes , respectively with diameter @xmath42 and @xmath43 , slightly smaller than the distance between them to prevent contact form occurring before local rupture . constrained
+sdes and connection sdes have same diameter @xmath44 as column sdes .
+the constrained sdes are clamped to a plane that represents the ground by means of the hertzian contact model , discussed further in this section .
+pairs of sdes are connected by _
+euler - bernoulli beam elements - ( ebe ) _ that , when deformed , transmit forces and moments to their edge nodes , locally labeled 0 and 1 ( see fig .
+[ fig_2d_mesh]-b ) .
+the mass @xmath45 of an sde  is defined on the basis of the ebes connected to it .
+namely @xmath46 , where @xmath47 labels the generic ebe  connected to sde , and @xmath48 is the cross sectional area of the structural element corresponding to the ebe .
+the external load @xmath4 is introduced adding a mass @xmath49 to the beam sdes .
+@xmath4 is not treated directly as a force to avoid downward accelerations of the sdes greater than gravity @xmath50 during free fall .    for sufficiently small deformations ,
+the ebes are linear elastic and exert a force @xmath51 proportional to the elongation @xmath52 and directed along the @xmath53 segment , a shear force @xmath54 proportional to the sum of the nodal rotations @xmath55 , and a bending moment @xmath56 proportional to the nodal effective rotations , defined as @xmath57 , and @xmath58 .
+furthermore , we introduce damping by forces and moments directed opposite to @xmath51 , @xmath54 , and @xmath56 , and proportional to the time derivative of @xmath52 with factor @xmath59ns / m , and of @xmath60,@xmath61 with factor @xmath62nms .
+geometric nonlinearity due to large displacements is considered by referring rotations and elongation to the @xmath53 segment . in the small deformations regime of our simulations
+, @xmath51 is with good approximation equal to the axial force inside the ebe , and thus perpendicular to @xmath54 .
+if @xmath51 overcomes a yield threshold in tension @xmath63 or under compression @xmath64 , the ideally plastic regime is entered and plastic axial strain @xmath65 is applied to maintain @xmath66 or @xmath67 . neglecting the contributions of concrete in tension and of steel in compression
+, we set the yield thresholds in terms of @xmath51 and @xmath52 to : @xmath68 ideally plastic regime in bending is entered when @xmath69 .
+we obtain the bending yield threshold @xmath70 and the corresponding yielding effective rotation @xmath71 , neglecting the strength contribution of concrete and assuming a lever arm between upper and lower reinforcement equal to the height @xmath72 of the cross section : @xmath73 @xmath74 is the cross sectional moment of inertia of the ebe , and @xmath75 is the fraction of reinforcement in tension ( @xmath76 for columns and @xmath77 for beams , as in fig .
+[ fig_struct]-b ) .
+@xmath78 considers the beneficial compression effect compression in the ebe .
+we set @xmath78 assuming bending carried by the reinforcement alone , and that the strain @xmath79 in the reinforcement put under tension by @xmath78 equals the compressive strain @xmath80 due to @xmath81 , namely : @xmath82 in this way , eventual tension @xmath83 inside the ebe  produces negative @xmath78 , and thus reduces @xmath70 .
+when yielding in bending occurs , plastic rotations are added at the edge nodes of the ebe .
+if only @xmath84 , with @xmath85 , is greater than @xmath70 , then only @xmath86 is applied to restore @xmath87 . differently ,
+if both @xmath88 and @xmath89 are greater than @xmath70 , both @xmath90 and @xmath91 are applied to restore @xmath92 . for the sake of simplicity , we assume yielding in bending uncoupled from yielding in axial direction . furthermore , we neglect yielding due to shear because small plastic deformations are generally associated with shear .
+we consider an ebe  failed when excessive @xmath65 and @xmath93 are cumulated .
+for this purpose , the coupled breaking criterion : @xmath94 is employed .
+@xmath95 , @xmath96 , and @xmath97 are the maximum allowed plastic elongation , shortening , and rotation in uncoupled conditions .
+we consider high plastic capacity of the structural elements setting @xmath98 , @xmath99 , and @xmath100rad ( see table [ tabmecpar ] ) . failed ebes are instantly removed from the system .
+we neglect ruptures due to shear assuming that , in agreement with a basic principle of capacity design , a sufficient amount of bracings ensures the necessary shear strength .
+the hertzian contact model is employed for the sdes to consider collisions between structural elements .
+the model consist of repulsive forces between partially overlapping sdes , damped by additional forces proportional and opposite to the overlapping velocity .
+we also set tangential forces that simulate static and dynamic friction , as well as damping moments opposed to the relative rolling velocity . a similar hertzian contact model is also employed for sdes colliding with the ground plane . in the following simulations we employ contact parameters that can be found in @xcite .
+we do not transcribe them because impacts do not affect significantly the collapse mechanisms sudied here .
+nevertheless , in general simulation algorithms for progressive collapse should consider impacts , because initial damage located at upper stories generates falling debris , and because impacts can drive the transition from partial to total collapse ( see ( masoero , wittel et al . , 2010 ) and @xcite ) .
+in granular dynamics , the contact parameters are generally set referring to the material of the grains @xcite . in our model
+the sdes represent large heterogeneous portions of structural elements , for which there are not conventionally defined contact parameters so far .
+we emply parameters yielding a qualitatively realistic dynamics ( e.g.  the elements do not rebound or pass through each other ) , and chosen from sets of possible one that were defined through preliminary studies .
+such studies also indicated that the collapse loads of a beam due to debris impact varies of less than 15% upon orders of magnitude change in the contact parameters .
+the simulations are organized into two steps : first the structure is equilibrated under the effect of @xmath4 and gravity , then the ebes inside the damage area are suddenly removed , and the subsequent dynamic response is simulated .
+our aim is to quantify three _ collapse loads _ :
+* @xmath101 : maximum static load that the intact structure can carry ; * @xmath102 : minimum _ critical load _ that causes dynamic collapse after damage . applied statically to the intact structure first
+, it is then kept constant during the post - damage dynamic response . * @xmath103 : minimum load corresponding to total collapse after damage . by definition , @xmath104 .    in our dem
+model we do not have a straightforward unique measure of load , because the mass of the sdes depends on the external load @xmath4 and on the self weight of the structural elements .
+the mass of the beam sdes effectively acts as a distributed horizontal load . on the other hand , the columns at each story
+transmit vertical concentrated forces either to other columns at a lower story , or to the horizontal transfer beam over the damage area .
+therefore we introduce a load measure that we call _ equivalent load _
+@xmath105 , applied to the massless structure and analytically related to the geometry , the mass , and the activated collapse mechanism of the frames in the simulations .
+namely , @xmath105 is defined to produce the same static effect as the various masses and concentrated forces of the simulation frames , at the critical points where collapse is triggered .
+the derivation of the analytical expressions used in this work is shown in @xcite .
+for each analyzed structure , we first apply the entire structural mass . in a subsequent step ,
+the external load @xmath4 is increased until the intact structure collapses in static conditions .
+the collapse mechanism indicates what equivalent load expression should be used to compute @xmath101 .
+then we slightly decrease @xmath4 , equilibrate , introduce the damage , and calculate whether dynamic progressive collapse is triggered and to what an extent . performing several simulations with progressively smaller @xmath4 , the final extent of collapse changes from total to partial , and we employ again an adequate equivalent load to compute @xmath103 .
+if the structure collapses even when @xmath4 is reduced to zero , we start reducing the specific weight of the structural elements , i.e.  the structural mass .
+when dynamic collapse does not occur anymore , an adequate equivalent load provides @xmath102 .
+once we obtain the collapse loads , we estimate the progressive collapse resistance referring to the _ residual strength fraction _ @xmath106 . actually , progressive collapse resistance is more directly related to @xmath102 , but the advantage of @xmath0 is that it can not be improved by simply strengthening the structural elements , which would increase both @xmath102 and @xmath101 .
+robustness - oriented structural optimization is required to increase @xmath0 , which therefore is a good indicator to compare different structural solutions .      in our model , the bending yield threshold @xmath70
+does not depend on the strength of concrete @xmath17 .
+therefore , setting the high value @xmath107n / mm@xmath15 , the mainly compressed columns get much stronger than the horizontal beams , that fail in bending ( see figs .
+[ fig_2d_bendcoll_before],[fig_2d_bendcoll ] ) .
+the resulting collapse mechanisms resemble triple - hinge and four hinges mechanisms , reflecting the large plastic capacity of the structural elements .
+s corresponds to the first breaking of an ebe . ]
+s corresponds to the application of the initial damage . ]
+if the initial damage triggers a bending mechanism , frames with @xmath23 undergo total collapse , while frames with lower hierarchical level @xmath2 initially suffer only a local collapse ( see fig .
+[ fig_par - tot - bend ] ) .
+the local collapse can nevertheless evolve to total collapse , if high applied load and plastic capacity cause the falling central part of the structure to dynamically drag down the lateral portions ( masoero , wittel et al . , 2010 ) .
+= 13kn / m ) and total ( @xmath108=26kn / m ) bending collapse after damage of a frame with very strong columns , @xmath109=11 , and @xmath8 .
+time @xmath110s corresponds to the application of the initial damage . ]
+the collapse loads , expressed in terms of equivalent loads @xmath105 , are summarized in fig .
+[ fig_mu - rsr - bend ] as a function of the hierarchical level @xmath2 , for different slenderness of the structural cells @xmath38 . in fig .
+[ fig_mu - rsr - bend ] , superscript @xmath111 indicates bending collapse mechanism .
+we employ equivalent loads referring to perfectly brittle or perfectly plastic bending failure ( see the appendix ) .
+the collapse loads decrease with @xmath38 , i.e.  a slender structure seems weaker , and increase with @xmath2 , i.e.  hierarchical frames are stronger .
+the residual strength fraction @xmath0 does not depend on @xmath38 , while hierarchical structures with low @xmath109 are more robust than homogeneous ones ( see fig .
+[ fig_mu - rsr - bend ] ) .
+in fact , the concentration of bending moment at the connection between a beam hanging above the damage area and the first intact column depends on the _ number _ of removed columns . in the simulations , we remove a constant fraction of one third of the columns on a horizontal line ( see fig .  [ fig_struct ] ) .
+therefore homogeneous structures lose more columns and are less robust toward the bending collapse mechanisms . on the other hand ,
+since the number of removed columns is decisive , we expect that the hierarchical level does not influence @xmath0 toward bending collapse in case of single column removal .
+finally we consider the 2d frame as part of a regular 3d structure and divide the collapse loads in fig .
+[ fig_mu - rsr - bend ] by @xmath30 , i.e.by the tributary length of the beams in the direction perpendicular to the frame . in this way ,
+collapse loads per unit area are obtained in fig .
+[ fig_divl_mu - bend ] , showing that : @xmath38 does not influence @xmath112 and @xmath113 ; structures with slender cells are less likely to collapse entirely ; @xmath113 is independent from the hierarchical level ; @xmath112 is proportional to @xmath2 .     for frames that undergo bending progressive collapse .
+]     divided by @xmath30 , considering the 2d frames as part of regular 3d structures . ]
+progressive compressive failure of the columns , also called pancake collapse , occurs when we set the compressive strength of concrete to a small value @xmath114n / mm@xmath15 ( see fig .
+[ fig_2d_pancake ] ) .
+this choice is unphysical but allows us to separate the effect of strength reduction from that of stiffness reduction in the columns .
+more realistic scenarios would involve columns with small cross section and highly reinforced , tall beams .
+the columns immediately next to the damage area are the first to fail under compression , and then progressive collapse spreads horizontally to the outside .
+we employ equivalent loads @xmath105 referring to the two limit cases of _ local _ and of _ global _ pancake collapse .
+local pancake collapse occurs when the bending stiffness of the beams is very low and when the compressive failure of the columns is very brittle . in this case
+, the overload after damage is entirely directed to the intact columns that are closer to the damage area , and collapse propagates by _
+nearest neighbor _ interactions . on the other hand ,
+high stiffness of the beams and large plastic capacity of the columns induce _ democratic _ redistribution of overload between the columns .
+consequently , the columns crush simultaneously triggering global pancake collapse .
+the collapse dynamics recorded in our simulations resembles global pancake . note that in the studied framed structures , all the columns have identical compressive strength without disorder .
+therefore , once the first two columns crush , pancake collapse can not be arrested .
+nevertheless , at some @xmath115n / mm@xmath15 our frames undergo partial collapse because the progressive failure of the columns can be arrested by the initiation of bending collapse .
+= 5 , @xmath7 , and @xmath109=11 , @xmath8 . ]
+[ fig_2d_mu - rsr_pank ] , where superscript @xmath116 indicates pancake collapse , shows that the collapse loads increase with the structural slenderness @xmath117 , because the columns have tributary area related to @xmath118 and compressive strength proportional to @xmath119 .
+furthermore , hierarchical structures with small @xmath109 appear to be stronger than homogeneous ones both in terms of @xmath101 and of @xmath102 . finally , the residual strength fraction @xmath0 toward pancake collapse is remarkably higher than that toward bending collapse ( cf .
+[ fig_mu - rsr - bend ] ) , and is neither influenced by the hierarchical level @xmath2 , nor by @xmath38 .
+in fact , @xmath0 toward global pancake mode is related to the _ fraction _ of columns that are initially removed at one story . in our simulations
+, we always remove one third of the columns at one story , and obtain the constant value @xmath120 , slightly smaller than a theoretical 2/3 because of dynamics .
+we showed how the dynamic strength after damage @xmath102 of 2d frames depends on the activated collapse mechanism .
+we can now drive a series of conclusions regarding the effect of damage extent , structural slenderness , and topological and mechanical hierarchy .
+bending collapse provokes a local intensification of bending moments at the connections between the transfer beams above the damage area and the first intact column .
+consequently , @xmath102 and the residual strength fraction @xmath0 decrease with the number of removed columns . in analogy with fracture mechanics , structures that are prone to bending collapse correspond to notch sensitive materials , and
+the number of removed columns corresponds to the crack width @xcite .
+if global pancake collapse is triggered , @xmath102 and @xmath0 decrease with the fraction of removed columns , which is analogous to plastic failure of materials that are not notch sensitive .
+consistently , @xmath0 corresponding to global pancake collapse is remarkably larger than that corresponding to bending collapse .    the structural slenderness @xmath121 affects in general the collapse loads for both bending and pancake collapse modes .
+the effect of @xmath122 depends on the scaling of cross section and reinforcement of the structural elements , with the beam length @xmath123 and with the column height @xmath124 ( see the analytical results in @xcite , regarding the simulations in this paper ) .
+nevertheless @xmath125 turns out to be independent from @xmath122 , because @xmath125 is the ratio between two collapse loads with same scaling respect to @xmath123 and @xmath124 .
+considering structural topology , in case of bending collapse hierarchical structures are more robust toward initial damage with fixed spatial extent ( e.g.  explosion , impact ) , and as robust as homogeneous structures toward single column removal ( e.g.  design error ) .
+the reason is that @xmath0 toward bending collapse decreases with the number of removed columns at one story .
+this confirms the analogy with fracture mechanics , where notch sensitive hierarchical materials are tougher than homogeneous ones @xcite . on the other hand , considering global pancake collapse , structural hierarchy does not influence @xmath0 toward initial damage with fixed spatial extent , while hierarchical structures are more sensitive than homogeneous ones to single column removals .
+this is due to @xmath0 toward global pancake collapse decreasing with the fraction of removed columns .
+[ fig_2d_mu - rsr_pank ] shows that damaged frames undergoing global pancake collapse can carry the @xmath126 of the static ultimate load of the intact structure @xmath101 . since well designed structures can carry a @xmath101 remarkably greater than the environmental load expected when an accidental event occurs , @xmath0 related to global pancake collapse
+can ensure structural robustness for most of the practical cases @xcite . on the other hand , @xmath0 related to bending collapse is generally much smaller , making structures vulnerable to accidental damage .    in this work we considered idealized structures , with simplified geometry and mechanical behavior of the elements .
+reducing local complexity enables a better interpretation of the coral system response to damage .
+this study provides a basis of knowledge preceding the incorporation of more details and degrees of freedom , to investigate further aspects of progressive collapse .
+shear failures can cause brittle ruptures and reduce the collapse resistance of large structural elements .
+different locations of the initial damage may activate different collapse mechanisms .
+for example , damaging the upper stories would cause debris impacts , while removing external columns reduces @xmath127 without producing significant lateral toppling @xcite .
+the dem algorithm was already applied to 3d structures in ( masoero , wittel et al . , 2010 ) , showing that the bending and pancake collapse mechanisms persist also in 3d . on the other hand , in 3d structures
+the horizontal floor slabs improve the horizontal redistribution of loads and the catenary action , increasing the strength toward bending collapse and impacting debris ( see the appendix and , e.g.  , @xcite ) .
+it is worth noting that horizontal ties and diaphragms increase the strength both after and before damage , causing a compensation that limits the effect on @xmath125 .
+finally , future works can incorporate a detailed description of structural connections , which are crucial for energy dissipation , catenary effect , and compartmentalization .
+coming back to the central theme of structural hierarchy , our results already suggest that hierarchical structures are more robust toward accidental damage
+. an optimal solution would be to design : 1 ) a primary frame made of few large elements , with columns weaker than the beams , and 2 ) a secondary structure , made of many smaller elements , which defines the living space and follows traditional design rules .
+the primary frame would provide topological hierarchy , maximizing @xmath0 toward bending collapse and enabling new possible compartmentalization strategies .
+the strong beams and weak columns of the primary frame would favor pancake collapse over bending collapse , and improve the vertical compartmentalization of high - rise buildings against falling debris . on the other hand , in real structures , the beams generally fail before the columns , and
+imposing the opposite is expensive .
+nevertheless , designing a strong - beam weak - column behavior _ only for the primary frame _ can significantly limit the extra cost .
+hierarchical structures can be a novel and somehow counterintuitive feature of robustness - oriented capacity design .
+planning structural hierarchy requires understanding the complex system response to local damage , and should drive the design process since the very beginning .
+by contrast , traditional design is focused on local resistance against ordinary actions , and considers robustness toward accidents only at the end .
+this generally leads to non - hierarchical structures with strong columns and poorly understood system behavior .
+in addition , anti - seismic capacity design requires plastic failure of the beams to precede columns rupture ( see e.g.  @xcite ) .
+overcoming these contradictions is a challenge toward optimizing structures against exceptional events .
+22 [ 1]#1 [ 1]`#1 ` urlstyle [ 1]doi : # 1    s.  alexander .
+new approach to disproportionate collapse .
+_ struct . eng .
+_ , 820 ( 23/24):0 1418 , 2004 .    z.p .
+baant and y.  zhou .
+why did the world trade center collapse ? - simple analysis .
+mech .- asce _ , 1280 ( 1):0 26 , 2002 .    .
+actions on structures - part 1 - 7 : general actions - accidental actions . technical report en 1991 - 1 - 7 , bsi , 2004 .    .
+design of structures for earthquake resistance .
+technical report , bsi , 2004 .
+design of steel framed buildings at risk from terrorist attack . _
+_ , 820 ( 22):0 3138 , 2004 .    a.  calvi .
+il crollo delle torri gemelle : analisi dellevento e insegnamenti strutturali .
+master s thesis , politecnico di torino , 2010 .
+( in italian ) .
+carmona , f.k .
+wittel , f.  kun , and h.j .
+fragmentation processes in impact of spheres .
+e _ , 770 ( 5):0 243253 , 2008 .
+cherepanov and i.e. esparragoza . progressive collapse of towers : the resistance effect .
+_ , 143:0 203206 , 2007 .
+chiaia and e.  masoero .
+analogies between progressive collapse of structures and fracture of materials .
+_ , 1540 ( 1 - 2):0 177193 , 2008 .
+technical report , department of defence , 2005 .
+technical report , gsa , 2003 .
+h.  gulvanessian and t.  vrouwenvelder .
+robustness and the eurocodes .
+eng . int .
+_ , 2:0 161171 , 2006 .
+r.  hamburger and a.  whittaker .
+design of steel structures for blast - related progressive collapse resistance .
+_ modern steel constr .
+_ , march:0 4551 , 2004
+.    r.  lakes .
+materials with structural hierarchy . _
+, 361:0 511515 , 1993 .
+e.  masoero .
+_ progressive collapse and robustness of framed structures_. phd thesis , politecnico di torino , italy , 2010 .
+e.  masoero , p.  dar , and b.m .
+chiaia . progressive collapse of 2d framed structures : an analytical model .
+_ , 54:0 94102 , 2013 .    c.  pearson and n.  delatte .
+ronan point apartment tower collapse and its effect on building codes .
+_ j. perf .
+fac . -asce _ , 190 ( 2):0 172177 , 2005 .    t.  pschel and t.  schwager .
+_ computational granular dynamics_. springer - verlag gmbh , berlin , 2005 .
+u.  starossek
+. progressive collapse of structures : nomenclature and procedures .
+_ , 160 ( 2):0 113117 , 2006 .
+val and e.g. val .
+robustness of framed structures .
+_ , 160 ( 2):0 108112 , 2006 .
+vlassis , b.a izzuddin , a.y .
+elghazouli , and d.a nethercot . progressive collapse of multi - storey buildings due to sudden column loss - part ii : application .
+_ , 300 ( 5):0 14241438 , 2008 .    w .- j .
+yi , q .- f .
+he , y.  xiao , and s.k .
+experimental study on progressive collapse - resistant behavior of reinforced concrete frame structures .
+_ aci structural journal _ , 1050 ( 4):0 433439 , 2008 .
+in this appendix , we compare the numerical predictions of our dem model with the experimental observations in @xcite .
+we also briefly discuss some effects of catenary actions on collapse resistance .
+the experimental setup in @xcite consists of a plane frame made of reinforced concrete ( see fig .
+[ fig_exper](a ) ) .
+columns are square in section ( 200x200 mm ) , beams are rectangular ( 200 mm tall , 100 mm wide ) . everywhere ,
+the longitudinal reinforcement is symmetrically distributed within the cross section ( 4@xmath12812 steel bars ) .
+the strength and ultimate strain of concrete and steel are specified in @xcite , while the elastic moduli are not .
+the mid column at the first floor is replaced by jacks that provides an upward vertical force @xmath129 . in the middle of the top floor
+, a servo - hydraulic actuator applies a constant downward vertical force @xmath130=109kn , to represent the self weight of upper stories .
+initially @xmath131109kn , and then it is progressively reduced to reproduce quasi - static column loss , until a bending mechanism triggers collapse ( see fig .
+[ fig_exper](b ) ) . during the experiments , the increasing values of the midspan inflection @xmath132
+is plotted against @xmath129 , to get the force - displacement reaction curve .
+the integral of the curve represents the energy dissipation capacity , which relates to the dynamic strength of the structure with respect to the activated collapse mechanism .
+our target is to capture the experimental reaction curve @xmath133 through dem simulations .
+the parametrization of our model , based on the geometry and mechanical data in @xcite , is straightforward .
+therefore , we focus on the discrepancies between model and experimental inputs , and a few necessary additional assumptions . regarding the overall geometry , we consider all the columns to be equally tall ( 1,100 mm ) , while in the experiments the columns at the first floor were taller ( 1,567 mm ) .
+this discrepancy should not have a significant effect on the collapse mechanism and the strength .
+the mechanical behavior of the real steel bars was strain hardening , with yielding at 416mpa , and rupture at 526mpa . in our model , we consider two limit cases of elastic - perfectly plastic behavior of the steel bars : _ weak steel _
+`` ws '' with yielding threshold set at 416mpa , and _ strong steel _ `` ss '' yielding at 526mpa .
+@xcite provide two measures of the ultimate tensile strain @xmath134 of the steel bars .
+we employ @xmath135 , which was measured on a longer bar segment , because in our simulation the strain develops within relatively long euler - bernoulli beam elements , ebes .
+we assume young moduli @xmath136gpa for the steel , and @xmath137gpa for the concrete . in order to better understand the development of catenary actions , we consider two limit cases of cross section behavior under tension : _ fully reacting sections _
+`` frs '' , where the concrete always contributes to the tensile stiffness , and _ partially reacting sections _
+`` prs '' , where the concrete cracks and only the steel provides axial stiffness as soon as the cross section goes in tension . furthermore , in order to focus exclusively on ruptures due to tensile strain in the steel , we allow for an infinite rotation capacity of the cross sections .
+we subject our model frames to gravity , but remain in the quasi - static regime by adding a high viscous damping force proportional to the velocity of each spherical discrete element .
+we repeat numerous simulations with fixed @xmath138kn and @xmath129 , ranging from @xmath139kn to values that are small enough to cause the quasi - static rupture of at least one ebe .
+we track the midspan deflection @xmath140for comparison in fig .
+[ fig_exper](c ) .        in the experimental results ,
+as @xmath129 decreases , the system crosses several stages : ( i ) linear elastic @xmath141 mm , ( ii ) elasto - plastic @xmath142 mm , ( iii ) plastic hinges @xmath143 mm , ( iv ) catenary action @xmath144 mm , and ( v ) collapse .
+the transition from elastic to elasto - plastic is not evident from the curve , as well as that from plastic hinge to catenary action .
+by contrast , plastic hinges formation is clearly marked by a sudden change of slope at @xmath145 mm .
+our simulations do not capture the initial elasto - plastic stage because we do not model the non - linear elasto - plastic behavior of concrete .
+this leads to an overestimation of the stiffness @xmath146 before the formation of the plastic hinges . nevertheless , the additional strain energy produced by this approximation is negligible when compared to the energy dissipated in the subsequent stages , ie .
+the overestimation of the initial stiffness is irrelevant for the actual dynamic collapse . assuming weak steel ws , yielding at 416mpa , provides a good agreement with the experiment in terms of transition point to the plastic hinges stage . considering fractured concrete under tension yields the prs - ws curve , which underestimates the structural strength at large @xmath132 .
+the reason for this divergence can be that the steel hardens under strain , with reaction stress increasing from from 416mpa ( ws ) to 526mpa ( ss ) . this interpretation is supported by the fact that the prs - ws and prs - ss curves envelop the experimental one . in particular , the prs - ss curve reproduces well the last part of the experimental curve , as well as the collapse point .      despite strong simplifying assumptions in the formulation , our dem model provides reasonably good quantitative predictions of the experimental results . for the simulations in the body of this paper , we always considered fully reactive cross sections with concrete that does not crack under tension . the frs - ws curve in fig .
+[ fig_exper](c ) shows that this assumption leads to an overestimation of the static collapse strength against column removal ( @xmath147% ) .
+let us conjecture that frs induce the same strength increase of + 70% in the structure without column removal , i.e.  in @xmath148 . from a heuristic application of energy conservation , one can estimate the dynamic collapse load after sudden column removal by considering the mean @xmath129 in the catenary stage : @xmath149kn from the experiment , and @xmath150kn from the simulation with frs - ws .
+consequently , the increase in post - damage dynamic collapse strength @xmath127 due to frs is approximately @xmath151% . in conclusion ,
+assuming fully reactive cross sections causes an _ underestimation _ of the residual strength fraction @xmath152 , which our example quantifies as @xmath153% . however this assumption does not affect the main statement of this work on hierarchical structures

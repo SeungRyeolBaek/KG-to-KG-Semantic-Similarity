@@ -1,0 +1,121 @@
+binary models like ising - type simulation have a long history .
+they have been applied by schelling to describe the ghetto formation in the inner cities of the usa , i.e. , to study phase separation between black and white @xcite . in the sociophysics context , recently , many social phenomena such as election , propagation of information , predicting features of traffic , migration , opinion dynamics and formation in a social group have been successful modelled based on ising spin systems using models and tools of statistical physics . with this respect ,
+particularly successful models have been developed by sznajd @xcite , deffuant et al.@xcite and hegselmann and krause @xcite .    among those three models ,
+the one developed by sznajd is the most appropriate for simulation in networks and lattices , since it consider just the interactions between the nearest neighbors .
+indeed , the sznajd model has been successfully applied to model sociophysical and economic systems @xcite . on the other hand , several modifications of the sznajd model
+have been studied using different rules or topologies starting from different initial opinion densities @xcite .
+all these models are static ( i.e. not dynamic ) and they allow for consensus ( one final opinion ) , polarization ( two final opinion ) , and fragmentation ( more than two final opinions ) , depending on how tolerant people are to different opinions .    more recently the striking sociophysical model has been suggested by aydiner @xcite in order to explain the time evolution of resistance probability of a closed community in a one - dimensional sznajd like model based on ising spin system .
+it has been shown that resistance probability in this model decay as a stretched exponential with time . in that model
+spins does not move on the lattice sites during the simulation , so this model was so - called static .
+however , in a realistic case , spins i.e. , people move in the community i.e. , in the space . social or opinion formation formed depend upon dynamics of the system . because , there must be a direct connection between opinion dynamics and formation in a social system since the social formation is determined by the dynamics .
+meyer - ortmanns @xcite studied recent work in which the condition for ghetto formation in a population with natives and immigrants by using kawasaki - exchange dynamics in a two dimensional ising model .
+she showed that ghetto formation can be avoided with a temperature increasing with time .
+similarly , schulze have also generalized meyer - ortmanns work to up to seven different ethnic groups to explain ghetto formation in a multi - cultural societies in a potts - like model @xcite .    in this study
+, we have developed a dynamic version of the aydiner @xcite model by combining the aydiner and meyer - ortmanns @xcite models based on one - dimensional ising model .
+in one - dimensional static model @xcite , each site carriers a spin which is either spin up ( + 1 ) or spin down ( -1 ) randomly .
+spin up ( + 1 ) represent the host people and spin down ( -1 ) represent the soldier .
+the host people always against occupation , and , on the other hand , soldier always willing to continue occupation , who always have the opinion opposite of that of the host people .
+furthermore , the community member i.e. , spins does nt also move on the lattice during the process .    in this model , initially , it was assumed that there was a over all consensus among member of the community against occupation even if some exceptions exist .
+one expects that host people obey to this consensus at least initially . in this sense
+, community behaves as polarized at zero social temperature @xcite against occupation just like ising ferromagnet at zero temperature .
+it was conjectured that host people are influenced by soldiers even though they against occupation owing to they are exposed to intensive biased information or propagation .
+soldiers affect the host people and force to change their opinion about occupation .
+effected people may change their own opinions depending on resistance probability of the nearest neighbors about occupation .
+moreover , effected host people affect neighbors .
+such a mechanism depolarize the polarization ( resistance probability ) of all host people .
+hence social polarization destroy .
+however , soldiers , unlike host people , have not been influenced by the host people .
+their opinion about justifying the occupation does not change during the occupation process , since they may be stubborn , stable or professional etc .
+, who behaves like persistent spins in ising spin system .
+it is means that the probability of the against occupation of a soldier is always zero .
+if we summarize , we can say that none spins does flip fully in the system .
+spin up always remains spin up , and spin down always remains spin down . in this respect , the probability of against occupation of host people can be interpreted as a survival probability of opinion of host people about occupation under above considerations . in this sense ,
+the survival probability @xmath0 of opinion of host people indicate equal to @xmath1 at least initially and , on the other hand , the probability of against occupation of soldier equal to zero , which means that soldier behaves as a trap point lattice which depolarize the survival probability of opinion of host people .    of course
+, one may suggest that there are many different number of opinions in society , however , it is possible to find that a society being formed two - state opinion in a real case .
+therefore this model is a good example for two - state opinion model as well galam contrarian model @xcite even though it seems that it is very simple .
+furthermore , in real social systems , people move on the space , i.e. , lattice .
+therefore , in this study , we assumed that people i.e. , spins randomly move on the lattice through the kawasaki - exchange dynamics contrary to previous model .
+the survival probability @xmath2 for a people at site @xmath3 at the next time @xmath4 is determined with the survival probability of nearest - neighbors with previous time @xmath5 as @xmath6.\label{eq1}\ ] ] we note that the survival probability for all site are calculated as synchronously .
+randomly motion of the spins i.e. , people on the lattice through the kawasaki - exchange dynamics .
+firstly , a spin pair is chosen randomly and then it is decided whether spin pair exchange with each other or not . in this approach ,
+the nearest - neighbor spins are exchanged under heat - bath dynamics , i.e. , with probability @xmath7 , where @xmath8 is the energy change under the spin exchange , @xmath9 is the boltzmann constant , and @xmath10 is the temperature i.e. , social temperature or tolerance .
+hence , to obtain probability @xmath11 we need to calculate @xmath12 and @xmath13 which correspond to energy of the spin pair at first position and after exchange with position of spins , respectively .
+energy @xmath12 and @xmath13 can be calculated in terms of the survival probability instead of spin value as    @xmath14    @xmath15    where @xmath16\ ] ] and @xmath17\ ] ] energy difference is written as @xmath18 from eq .
+( [ eq2a ] ) and ( [ eq2b ] ) .
+in addition , the total survival probability of opinion of host people at the any time @xmath5 can be obtained over each person for any @xmath19 configuration as @xmath20 where @xmath21 is the initial number of host people .
+on the other hand , the averaged survival probability at the any time @xmath5 can be obtained from eq .
+( [ eq3 ] ) over the independent configuration as @xmath22 where @xmath23 is the number of different configurations .
+we have adopted the monte carlo simulation technique to the one - dimensional sociophysical model using the lattice size @xmath24 with periodic boundary condition , and independent configuration @xmath25 for the averaged results .
+the simple algorithm for the simulation is as follows : i ) at the @xmath26 , eq .
+( [ eq4 ] ) is initially calculated , ii ) for @xmath27 a spin pair is randomly chosen , and then it is decided whether the spin pair exchange or not with the probability @xmath28 , this step is repeated @xmath29 times , iii ) after ii - steps are completed , eq .
+( [ eq4 ] ) is recalculated again , and to continue this procedure goes to step ii .
+the simulation results are as follow : we have firstly plotted simulation data versus time in fig .  [ fig1 ] in a several manner .
+it is explicitly seen from figs .
+[ fig1](a)-(c ) that there are no power , exponential and logarithmic law dependence in our simulation data , respectively . however , as seen fig .
+[ fig1](d ) , data well fit to the stretched exponential function as @xmath30 where @xmath31 is the relaxation constant , and @xmath32 is the decay exponent of the survival probability .
+this result indicate that the time evaluation of survival probability of the opinion of the host people in a closed community has stretched exponential character i.e. , kohlraush - william - watts ( kww ) decay law @xcite .
+it should be tested whether fig .
+[ fig1](d ) satisfies to stretched exponential or not @xcite . because , as noted by stauffer , the fig .  [ fig1](d ) would work as stretched exponential , if pre - factor of eq .
+( [ eq5 ] ) is equal to 1 .
+however , if pre - factor is less than @xmath1 , it may give the impression of stretched exponential form , even for @xmath33 .
+therefore , it can be plotted @xmath34 versus suitable powers of @xmath5 , like @xmath35 , @xmath36 , etc . , and find out the best straight line among the powers of @xmath5 for long times .
+hence , @xmath34 was plotted versus powers of @xmath5 for @xmath37 then the best straight fitting line for long times was obtained for @xmath38 for @xmath39 , @xmath40 for @xmath41 , and @xmath42 for @xmath43 as seen in fig .
+[ fig3](a)-(c ) respectively .
+these results confirm to this method used to find out stretched exponential exponents in fig .
+[ fig1](d ) , and also all figures in fig .
+[ fig2 ] as mentioned .
+also , this test indicates that prefactor in eq .
+( [ eq5 ] ) does not effect results presented in this paper .    it is concluded that results for high temperatures also consistent with static model @xcite .
+but , unlike the static model , time crossover has been observed in dynamic model at low temperatures . in order to investigate the transition we have plotted survival probability versus time for different social temperature @xmath10 in fig .
+it is clearly seen that the time crossover occurs depend on social temperature .
+when social temperature decreases , the crossover become more clear .
+such a behavior was not observed in a static model .
+we can bridge the short time regime and the long time regime by a scaling function @xmath44 @xmath45 where @xmath46 indicates the time crossover . for our simulation data , the scaling relation ( 6 )
+can be written for very long and very short time intervals as @xmath47{c}e^{-\left (   t/\tau\right )   ^{\beta_{1}}}\\ e^{-\left (   t/\tau\right )   ^{\beta_{2}}}\end{array } \begin{array } [ c]{l}if \hspace{0.3 cm } t<<t_{c}\\ if \hspace{0.3 cm } t>>t_{c}.\end{array}\ ] ]    on the other hand , in order see how the decay exponent @xmath32 depend on soldier density @xmath48 , and social temperature @xmath10 , we have plotted @xmath32 versus soldier density @xmath48 in fig .
+[ fig4](a ) for @xmath49 and @xmath50 in account to taken different social temperatures , and social temperature @xmath10 in fig .
+[ fig4](b ) for a fixed value of density @xmath48 , respectively .    as seen from fig .
+[ fig4](a ) that @xmath51 and @xmath52 are linearly depend on soldier density both of two regimes at low social temperature . on the other hand , the decay exponent has two different character for @xmath49 and @xmath50 depend on social temperature @xmath10 in fig .
+[ fig4](b ) , the decay exponent @xmath51 decreases with increasing temperature @xmath10 for @xmath49 , whereas @xmath52 increases with increasing temperature @xmath10 for @xmath50 at low temperatures .
+however , for relatively high temperatures we roughly say that @xmath51 approach to @xmath52 for both two regimes obey to eq .
+( [ eq7 ] ) .    finally , to understand the social temperature and soldier density dependence of the time crossover @xmath53 , we have plotted @xmath53 versus social temperature @xmath10 in fig .
+[ fig5](a ) for a fixed soldier density @xmath48 , and versus soldier density in fig .  [
+fig5](b ) for fixed social temperature @xmath10 , respectively .
+it seems from fig .
+[ fig5](a ) that the crossover transition @xmath53 quite rapidly decrease with increasing @xmath10 , on the other hand , it seems from fig .
+[ fig5](b ) that it slowly decrease with increasing soldier density @xmath48 .
+we note that as seen inserted figure in fig .
+[ fig5](b ) the crossover transition @xmath53 depends on soldier density with power law for fixed social temperature .
+we suggest that the stretched exponential behavior of decay must be originated from model system .
+the persistent spins i.e. , the soldiers does nt flip during simulation , therefore they behave as a trap in the system .
+hence they play a role diminishing the survival probability of the neighbor spins in the system .
+consequently , decay characteristic of the system can be explain due to the trapping states .
+another say , this characteristic behavior does nt depend on either diffusion dynamics of spins or interaction rules between spins .
+another unexpected behavior is the time crossover in @xmath32 contrast to previous model @xcite .
+we supposed that this amazing result originated from opinion dynamics depend on social temperature .
+model allows to the opinion formation with time .
+indeed , there is a direct connection between opinion dynamics and formation in a social system since the social formation is determined by the dynamics as depend on the social temperature .
+for example , in a real spin system , decreasing temperature phase separation may occur in the system . in the sociophysical sense , it means that people who have different opinion are separated each other with decreasing social tolerance , and therefore the ghetto formation or polarization may occur in the system .
+it is expected that interactions between soldier and host people is maximum when soldiers are randomly distributed in the community . as social temperature , i.e. , tolerance is decreased , however , phase separation occur with time , so this leads to decreasing of the interactions .    in our opinion ,
+the ghetto formation in the system does nt leads crossover transition in time because of the ghetto formation is randomly distributed relatively . on the other hand , the time average of survival probability over different configuration effect of ghetto formation may probably destroy .
+so we do nt hope that ghetto formation is not responsible crossover transition .
+however , polarization must be occurred at low temperature leads to meaningful phase separation in the system .
+such a polarization may leads to crossover transition in time .
+stretched exponential behavior indicates mathematically that decay for the relatively short times is fast , but for relatively long times it is slower .
+one can observe that this mathematical behavior corresponds to occupation processes in the real world .
+in generally , a military occupation is realized after a hot war .
+the community does not react to occupation since it occurs as a result of defeat .
+people are affected easily by propaganda or other similar ways .
+therefore , it is not surprised that resistance probability decrease rapidly at relatively short times . on the other hand
+, spontaneous reaction may begin against occupation in the community after the shock .
+hence , community begins by regaining consciousness and more organized resistance may display difficulties for occupants . for long times ,
+the resistance probability decreases more slowly .
+this means that resistance against occupation extends to long times in practice . at this point , the number of soldiers is also important , because the density of soldiers determines the speed of decaying .
+the different regimes have been observed in the decay of the survival probability .
+these regimes clearly appear particularly at low temperatures . in the case of the social temperature
+is very low , @xmath51 is bigger than @xmath52 which indicates the decay of the survival probability for relatively short time is slower than for relatively long time .
+this can be interpreted that the resistance of host people against occupation may be broken spontaneously if soldier can wait enough time .    of course
+, the mechanism considered in this work can be regarded as simple , but , it would be useful to understand the time evolution of the resistance probability of the community against to occupation in the one - dimensional model under some considerations .
+we remember that simple social rules lead to complicated social results , hence we believe that the obtained results and model can be applied the real social phenomena in the societies to understand the basis of them .
+authors are grateful dietrich stauffer for the suggestions in the preparation of this paper .
+000          g. deffuant , d. neau , f. amblard , and g. weisbuch , adv .
+compl . syst . * 3 * , 87 ( 2000 ) ; g. deffuant , f. amblard , g. weisbuch , and t. faure , artificial societies and social simulation * 5 * ( 4 ) , 1 ( 2002 ) ( jass.soc.surrey.ac.uk ) .

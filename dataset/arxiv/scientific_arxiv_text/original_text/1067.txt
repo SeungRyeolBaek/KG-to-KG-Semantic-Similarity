@@ -1,0 +1,267 @@
+quantum walks @xcite have been proposed as potentially useful components of quantum algorithms @xcite . in recent years these systems
+have been studied in detail and some progress has been made in developing new quantum algorithms using either continuous @xcite or discrete @xcite versions of quantum walks .
+the key to the potential success of quantum walks seems to rely on the ability of the quantum walker to efficiently spread over a graph ( a network of sites ) in a way that is much faster than any algorithm based on classical coin tosses .
+quantum interference plays an important role in quantum walks being the crucial ingredient enabling a faster than classical spread . for this reason ,
+some effort was made in recent years in trying to understand the implications of the process of decoherence for quantum walks @xcite .
+decoherence , an essential ingredient to understand the quantum  classical transition @xcite , could turn the quantum walk into an algorithm as inefficient as its classical counterpart .
+the models studied in this context can be divided in two classes depending on how the coupling with an external environment is introduced .
+in fact , a quantum walk consists of a quantum particle that can occupy a discrete set of points on a lattice . in the discrete version ,
+the walker carries a quantum coin , which in the simplest case can be taken as a spin-@xmath0 degree of freedom .
+the algorithm proceeds so that the walker moves in one of two possible directions depending on the state of the spin ( for more complex regular arrays , a higher spin is required ) .
+so , in this context it is natural to consider some decoherence models where the spin is coupled to the environment and others where the position of the walker is directly coupled to external degrees of freedom .
+the specific system in which the algorithm is implemented in practice will dictate which of these two scenarios is more relevant .
+several experimental proposals to implement discrete quantum walks in systems such as ion traps @xcite , cavity qed @xcite , and optical lattices @xcite have been analyzed ( see also ref .
+@xcite for a recent nmr implementation of a continuous quantum walk ) .
+the main effect of decoherence on quantum walks is rather intuitive : as the interaction with the environment washes out quantum interference effects , it restores some aspects of the classical behavior .
+for example , it has been shown that the spread of the decohered walker becomes diffusion dominated proceeding slower than in the pure quantum case .
+this result was obtained both for models with decoherence in the coin and in the position of the walker @xcite .
+however , it is known that classical correspondence in these systems has some surprising features . for example , for models with some decoherence in the quantum coin the asymptotic dispersion of the walker grows diffusively but with a rate that does not coincide with the classical one @xcite . also , a small amount of decoherence seems to be useful to achieve a quantum walk with a significant speedup @xcite .    in this work we will revisit the quantum walk on a cycle ( and on a line ) considering models where the quantum coin interacts with an environment .
+the aim of our work is twofold .
+first we will use phase - space distributions ( i.e. , discrete wigner functions ) to represent the quantum state of the walker .
+the use of such distributions in the context of quantum computation has been proposed in ref .
+@xcite , where some general features about the behavior of quantum algorithms in phase space were noticed .
+a phase - space representation is natural in the case of quantum walks , where both position and momentum play a natural role .
+our second goal is to study the true nature of the transition from quantum to classical in this kind of model .
+we will show that models where the environment is coupled to the coin are not able to induce a complete transition to classicality .
+this is a consequence of the fact that the preferred observable selected by the environment is the momentum of the walker .
+this observable , which is the generator of discrete translations in position , plays the role of the `` pointer observable '' of the system @xcite .
+therefore , as we will see , the interaction with the environment being very efficient in suppressing interference between pointer states preserves the quantum interference between superpositions of eigenstates of the conjugate observable to momentum ( i.e. , position ) .
+again , the use of phase - space representation of quantum states will be helpful in developing an intuitive picture of the effect of decoherence in this context .
+the paper is organized as follows : in sec .
+ii we review some basic aspects of the quantum walk on the cycle .
+we also introduce there the phase - space representation of quantum states for the quantum walk and discuss some of the main properties of the discrete wigner functions for this system . in sec .
+iii we introduce a simple decoherence model and show the main consequences on the quantum walk algorithm . in sec .
+iv we present a summary and our conclusions .
+the quantum walks on an infinite line or in a cycle with @xmath1 sites are simple enough systems to be exactly solvable . for the infinite line
+the exact solution was presented in ref .
+the case of the cycle was first solved in ref .
+however , the exact expressions are involved enough to require numerical evaluation to study their main features . here
+we will review the main properties of this system presenting them in a way which prepares the ground to use phase - space representation for quantum states ( we will focus on the case of a cycle , the results for the line can be recovered from ours with @xmath2 ) .    for a quantum walk in a cycle of @xmath1 sites ,
+the hilbert space is @xmath3 , where @xmath4 is the space of states of the walker ( an @xmath1-dimensional hilbert space ) and @xmath5 is the two  dimensional hilbert space of the quantum coin ( a spin @xmath0 ) .
+the algorithm is defined by a unitary evolution operator which is the iteration of the following map : @xmath6 here @xmath7 is the hadamard operator acting on the hilbert space of the quantum coin [ @xmath8 , @xmath9 being the usual @xmath10 pauli matrices ] .
+the operator @xmath11 is the cyclic translation operator for the walker , which in the position basis is defined as @xmath12 ( mod @xmath1 ) .
+it is worth stressing that the operator @xmath13 is nothing but a spin  controlled translation acting as @xmath14 .
+so , the map @xmath15 consists of a spin  controlled translation preceded by a coin toss , which is implemented by the hadamard operation ( the use of the hadamard operator in this context is not essential and can be replaced by almost any unitary operator on the coin @xcite ) .
+the notion of phase - space is natural in the context of this kind of quantum walk .
+in fact , the position eigenstates @xmath16 form a basis of the walkers hilbert space @xmath4 .
+the conjugate basis is the so  called momentum basis @xmath17 .
+position and momentum bases are related by the discrete fourier transform , i.e. , @xmath18 the cyclic translation operator @xmath11 that plays a central role in the quantum walk is diagonal in momentum basis since @xmath19 .
+this simply indicates that momentum is nothing but the generator of finite translations . as a consequence of this ,
+the total unitary operator defining the quantum walk algorithm is also diagonal in such basis .
+this fact , which was noticed before by several authors , enables a simple exact solution of the quantum walk dynamics .
+indeed , we can write the initial state of the system using the momentum basis of the walker as ( below @xmath20 denotes the total density matrix of the system formed by the walker and the coin ) @xmath21 where @xmath22 is the initial state of the quantum coin ( we assume that the initial state of the combined system is a product , but this assumption can be relaxed ) .
+after @xmath23 iterations of the quantum map the reduced density matrix of the walker ( denoted as @xmath24 ) is @xmath25,\end{aligned}\ ] ] where the operator @xmath26 is defined as @xmath27    all the temporal dependence is contained in the function @xmath28 which can be exactly computed in a straightforward way : one should first expand the initial state @xmath22 in a ( nonorthogonal ) basis of operators of the form @xmath29 ( @xmath30 ) , where @xmath31 are the eigenstates of the operator @xmath26 ( i.e. , @xmath32 ) .
+the explicit expressions for the eigenstates @xmath31 and the eigenvalues @xmath33 will not be given here since they can be found in the literature ( see , for example , @xcite ) . after doing this the evolution of the quantum state is fully determined by the equation @xmath34 below we will describe the properties of this solution using a phase - space representation for the quantum state of the system .
+wigner functions @xcite are a powerful tool to represent the state and the evolution of a quantum system . for systems with a finite - dimensional hilbert space , the discrete version of wigner functions
+was introduced using different methods ( see ref .
+@xcite ) . we will follow the approach and notation used in ref .
+@xcite , where these phase - space distributions were applied to study properties of quantum algorithms . for completeness , we will give here the necessary definitions and outline some of the most remarkable properties of the discrete wigner functions .
+for a system with an @xmath1-dimensional hilbert space the discrete wigner function can be defined as the components of the density matrix in a basis of operators defined as @xmath35 these are the so  called phase - space point operators .
+they are defined in terms of the cyclic shift @xmath11 ( which in the position basis acts as @xmath36 ) , the reflection operator @xmath37 ( which in the position basis acts as @xmath38 ) , and the momentum shift @xmath39 ( which generates cyclic displacements in the momentum basis , i.e. , @xmath40 ) .
+phase - space operators are unitary , hermitian and form a complete orthogonal basis of the space of operators ( they are orthogonal in the hilbert  schmidt inner product since they satisfy that @xmath41=n\delta_{q , q'}\delta_{p , p'}$ ] ) . expanding the quantum state in the @xmath42 basis as @xmath43 the coefficients @xmath44 are the discrete wigner functions of the quantum state , which are obtained as @xmath45 . \label{wigner}\ ] ] this function has three remarkable properties that almost give it the status of a probability distribution .
+the first two properties are evident : wigner functions are real numbers ( a consequence of the hermiticity of the phase - space operators ) and they provide a complete description of the quantum state ( a consequence of the completeness of the basis of such operators ) .
+the third property is less obvious : marginal probability distributions can be obtained by adding values of the wigner function along lines in phase - space . for this to be possible
+, it turns out that the phase - space has to be defined as a grid of @xmath46 points where @xmath44 is given at each point precisely by eq .
+( [ wigner ] ) .
+thus , adding the values of the wigner function over all points satisfying the condition @xmath47 one gets the probability to detect an eigenstate of the operator @xmath48 with eigenvalue @xmath49 ( the sum is equal to zero if such eigenvalue does not exist ) . in particular , adding the wigner function along vertical lines @xmath50 one obtains the probability to detect eigenstates of the operator @xmath51 , with eigenvalues given by @xmath49 .
+these numbers are equal to zero if @xmath52 is odd and they are equal to the probability for measuring the position eigenstate @xmath53 when @xmath52 is even .
+complementary , adding values of the wigner function along horizontal lines enables us to compute the probability to detect a momentum eigenstate .
+a final remark about properties of the discrete wigner function is in order .
+figure [ wigner - basicas ] shows the wigner function of a position eigenstate @xmath54 and of a superposition of two position eigenstates , such as @xmath55 . as we see , in the first case the function is positive on a vertical line located at @xmath56 and is oscillatory on a vertical line located at @xmath57 .
+the interpretation of these oscillations is clear .
+it is well known that wigner functions display oscillatory regions whenever there is interference between two pieces of a wave packet . in this case , the cyclic boundary conditions we are imposing ( that originate from the fact that @xmath11 and @xmath39 are cyclic shift operators ) generate a mirror image for every phase - space point .
+thus , the oscillating strip can be interpreted as the interference between the positive strip and its mirror image . for the case of a quantum state which is a superposition of two position eigenstates , we observe two positive vertical lines with the usual interference fringes in between them .
+all these vertical lines have their corresponding oscillatory counterparts originated from the boundary conditions which are located at a distance @xmath1 . in what follows we will show wigner functions for typical states of a quantum walker .     for a localized state ( up ) and for a delocalized superposition state ( down ) .
+the dimension of the hilbert space is @xmath58 . the horizontal ( vertical ) axis corresponds to position ( momentum ) .
+color code is such that red ( blue ) regions correspond to positive ( negative ) values while white corresponds to zero ( @xmath59 , @xmath60 , @xmath61).,title="fig:",scaledwidth=28.0% ] +   for a localized state ( up ) and for a delocalized superposition state ( down ) .
+the dimension of the hilbert space is @xmath58 .
+the horizontal ( vertical ) axis corresponds to position ( momentum ) .
+color code is such that red ( blue ) regions correspond to positive ( negative ) values while white corresponds to zero ( @xmath59 , @xmath60 , @xmath61).,title="fig:",scaledwidth=28.0% ]    ' '' ''    for an initial state where the walker starts at a given position and the spin is initially unbiased [ @xmath62 , the behavior of the quantum walker starts to deviate from its classical counterpart at early times ( in this paper we will only consider unbiased initial states for the quantum coin ) .
+the phase - space representation of the state is shown in fig .
+[ wigner - local - nodeco ] and makes evident that a peculiar pattern of quantum interference fringes develops between the different pieces of the wave packet .
+the consequence of these interference effect is evident also when one looks at the probability distribution for different positions .
+this distribution is shown in fig .
+[ probab - nodeco ] and has been previously studied in the literature ( see @xcite ) . like its classical counterpart , at a given time @xmath23 the state initially located at @xmath63
+has support only on states @xmath64 satisfying that @xmath65 adds up to an even number .
+however , in general the quantum distribution differs from the classical one , exhibiting peaks located at @xmath66 and a plateau of height @xmath67 around @xmath63 . after some time the wigner function of the quantum walker develops a shape that resembles a thread , as it is clear in the pictures .
+for this reason we will call this a thread state .
++     iterations for an initially localized walker with unbiased spin .
+@xmath68 , @xmath69 .
+we only plot the function for sites such that @xmath65 adds to an even number ( solid ) , and also include the classical distribution ( dotted).,scaledwidth=30.0% ]    ' '' ''     + a ) @xmath70     + b ) @xmath71     + c ) @xmath72    ' '' ''    it is also interesting to analyze the evolution of the quantum walk for delocalized initial states .
+in particular , we will consider an initial state that is a coherent superposition of two position eigenstates ( whose wigner function was already displayed in fig .
+[ wigner - basicas ] ) .
+we find a wigner function that develops into a sum of two threads with a region in between where interference fringes are evident .
+this is displayed in fig .
+[ wigner - delocal - nodeco ] .
+some properties of the quantum walk for this kind of delocalized initial states were analyzed in ref .
+@xcite where it was noticed that the asymptotic probability distribution can be rather different from the one obtained from a localized initial state .
+below , we will show that the process of decoherence affects localized and delocalized initial states in a rather different way .
++ a ) @xmath70     + b ) @xmath73     + c ) @xmath74    ' '' ''
+we will consider a quantum walk where the quantum coin couples to an environment . to describe such coupling
+we will use a model which was introduced and studied in detail in ref .
+@xcite . in that paper
+it was shown that one can mimic the coupling to an external environment by a sequence of random rotations applied to the quantum coin , which have the effect of scrambling the spin polarization .
+more precisely , these kicks will be generated by the evolution operator @xmath75 where the angles @xmath76 take random values and @xmath77 is a fixed vector specifying the rotation axis .
+the virtue of this model is not only its simplicity but also the fact that can be experimentally implemented in a controllable manner using , for example , nmr techniques .
+after the application of one step of the quantum walk algorithm and one kick the evolution of the total system is @xmath78 to obtain a closed expression for the reduced density matrix of the walker for an ensemble of realizations of the random variables @xmath76 we follow the method proposed in ref .
+@xcite ( see ref .
+@xcite for a similar approach ) : assuming that these angles are randomly distributed in an interval ( @xmath79,@xmath80 ) , this density matrix is @xmath81\ \label{rodet}\end{aligned}\ ] ] expanding the initial state in the momentum basis as before enables us to simplify this expression .
+in fact , after doing this one can integrate over the random variables to find @xmath82 .
+\label{fkkp}\end{aligned}\ ] ] here @xmath83 is a superoperator acting on the spin state ( depending on direction @xmath77 of the kicks ) as @xmath84 where @xmath85 is a parameter related to the strength of the noise ( notice that @xmath86 corresponds to unitary evolution , i.e. , to @xmath87 ) .
+one can find a simple matrix representation for the superoperator @xmath83 for different choices of the rotation axis by writing @xmath22 in the basis formed by the identity and the pauli operators . in the appendix
+we show the explicit form of this matrix representation , which is helpful in finding exact and numerical solutions to the problem . in
+what follows we will show results for the case @xmath88 ( the other cases are qualitatively similar ) . to find the state of the walker at arbitrary times we simply need to find eigenstates and eigenvalues of the superoperator @xmath83 .
+this can always be done numerically and also analytically in the interesting case of @xmath89 , which can be denoted as `` total decoherence '' . in such case ,
+the exact solution turns out to be @xmath90 several features of the decoherence effect are evident in the above formula .
+the environment produces a tendency towards diagonalization of the density matrix of the walker in the momentum basis ( matrix elements with @xmath91 are maximally suppressed ) .
+the decay of nondiagonal elements is exponential in time , as already discussed in ref .
+it is also clear that momentum eigenstates are not affected by the interaction since they are eigenstates of the full evolution [ in fact , from eqs .
+( [ fkkp ] ) and ( [ superop ] ) follows @xmath92 . in this sense
+they are perfect pointer states for this model . in
+what follows we will present results concerning the evolution of several initial quantum states .
++ a ) @xmath93     + b ) @xmath94     + c ) @xmath95    ' '' ''     + a ) @xmath96     + b ) @xmath97     + c ) @xmath98    ' '' ''      the effect of decoherence on the evolution of states which are initially localized in position has been analyzed elsewhere @xcite .
+as shown in fig .
+[ wigner - local - deco ] , the wigner function of the evolved quantum state gradually loses its oscillatory nature .
+thus , instead of a thread state the interaction with the environment gradually produces a mixed state with a binomial distribution in the position direction ( which has an approximately gaussian shape for large @xmath23 ) but remains constant along the momentum direction .
+it is worth noticing that for any value of @xmath99 the resulting state has support only on position eigenstates satisfying that the sum @xmath100 is equal to an even number , as it was already pointed out for both the classical distribution ( @xmath89 ) and the purely quantum one ( @xmath86 ) in the preceding section .
+it is interesting to notice that the process of decoherence has a rather simple interpretation when represented in phase - space : decoherence in phase - space is roughly equivalent to diffusion in the position direction .
+this is not unexpected : in fact , in ordinary quantum brownian motion models a coupling to the environment through position ( momentum ) gives rise to a momentum ( position ) diffusion term in the evolution equation for the wigner function .
+the situation here is quite similar , since the walker effectively couples with the environment through its momentum .
+this is indeed the case because the environment interacts with the quantum coin which is itself coupled with the walker through the displacement operator which is diagonal in the momentum basis .
+therefore , the decoherence effect on the wigner function is expected to correspond to diffusion along the position direction .            ' '' ''    as noticed before , if one considers initial states where the walker is localized in a well defined position , one can see that the probability distribution for the different positions of the walker gradually tends to the classical one by increasing the coupling strength @xmath101 from @xmath87 ( no kicks ) to @xmath102 .
+this is shown in fig .
+[ probab - deco ] .
++ from the above analysis we could be tempted to conclude that the interaction between the quantum coin and the environment induces the classicalization of the walker .
+however , this is not the case .
+the process of decoherence induced in this way is not complete .
+this is most clearly seen by analyzing how it is that the interaction with the environment affects initial states of the quantum walker which are not initially localized . in fig .
+[ wigner - delocal - deco ] we show the wigner function of an initially delocalized state ( shown in fig .
+[ wigner - basicas ] ) under full decoherence .
+we can clearly see that decoherence does not erase all quantum interference effects .
+in fact , as mentioned above , the interaction with the environment induces diffusion along the position direction .
+therefore , interference fringes which are aligned along the position direction are immune to decoherence .
+thus , the final state one obtains from a superposition of two position eigenstates is not the mixture of two binomial states but a coherent superposition of them .
+this peculiar behavior is easily understood by noticing that this is a simple consequence of the fact that momentum eigenstates are pointer states : decoherence is effective in destroying superpositions of pointer states but highly inefficient in destroying superpositions of eigenstates of the conjugate observable ( position ) .      by analyzing the entropy of the reduced density matrix of the walker one can get a more quantitative measure of the degree of decoherence achieved as a consequence of the interaction with the environment . for convenience we will not examine the von neumann entropy @xmath103 but concentrate on the linear entropy defined as @xmath104)$ ] , which is easier to calculate .
+this entropy provides a lower bound to @xmath103 @xcite .
+it is possible to show that almost no entropy is produced by the decay of the coherence present in the initially delocalized superposition state .
+in fact , this can be seen by comparing the entropy produced from the initially delocalized superposition and the one originated from an initial state in which the walker is prepared in an equally weighted mixture of two positions .
+these entropies can be seen in fig .
+[ entropy ] .
+the initial entropy of the mixture is 1 bit [ @xmath105 .
+it is quite clear from the curves shown in such figure that the entropy arising from the initial mixture remains to be 1 bit higher than the one originated from the initial coherent superposition .
+thus , the quantum coherence present in the initial state is robust under the interaction with the environment and does not decay at all .
+[ entropy ] shows another interesting feature : one would naively expect a monotonic dependence of the entropy with the coupling to the environment ( which is parametrized by @xmath101 ) .
+however this is not the case since the curves in fig .
+[ entropy ] intersect .
+this peculiar effect is made more evident in fig .
+[ entropy - rate ] where we study the entropy at a fixed time as a function of the coupling strength . in this figure a clear indication of a nontrivial behavior
+is seen : for early times the entropy grows slowly with @xmath101 and exhibits a flat plateau for large values of @xmath101 . however , as time progresses a peak develops : the largest value of entropy at a given time is not achieved by the largest coupling . to the contrary
+, the largest entropy is attained by an intermediate coupling @xmath106 , whose value decreases with time .
+the fact that for a given time the maximal entropy is not achieved by the maximal coupling to the environment is counterintuitive .
+as entropy is a measure of the spread of a distribution , this strange behavior can be rephrased as a manifestation of the counterintuitive fact that the decohered state ( which is approximately diagonal in position basis ) has a probability distribution that is more spread for @xmath107 than for @xmath108 .
+a possible explanation for this peculiar behavior is the following : for high values of the coupling to the environment the state rapidly becomes classical and the spread in position grows diffusively , as in the classical random walk . when the coupling to the environment is not strong , our result seems to indicate that the state of the walker remains `` quantum '' for a longer time during which it spreads at a rate faster than classical .
+when this quantum state finally decoheres it may end up having a larger entropy than the one attained for high coupling simply because it is spread over a wider range of positions .
+we speculate that there could be a relation between this peculiar feature and the properties that make some degree of decoherence useful for quantum walks as discussed by kendon and tregenna in @xcite .
+the value of the @xmath106 introduced above depends on both @xmath1 and @xmath23 and could be related to the position of the minima reported in refs .
+@xcite . for example
+, in a cycle regime ( @xmath109 ) @xmath106 diminishes with increasing @xmath1 as it is also the case for the position of the minima of the so  called _ quantum mixing time _ @xcite .
+( solid ) , @xmath110 ( dotted ) , @xmath111 ( dash dotted ) , @xmath112 ( dashed ) .
+the top ( down ) plot corresponds to an initial state which is an equally weighted mixture ( superposition ) of two position eigenstates .
+@xmath113.,title="fig:",scaledwidth=32.0% ] +    ( solid ) , @xmath110 ( dotted ) , @xmath111 ( dash dotted ) , @xmath112 ( dashed ) . the top ( down ) plot corresponds to an initial state which is an equally weighted mixture ( superposition ) of two position eigenstates .
+@xmath113.,title="fig:",scaledwidth=32.0% ]    ' '' ''     for various values of time : @xmath114 ( solid ) , @xmath115 ( dashed ) , @xmath116 ( dotted ) , @xmath117 ( @xmath118 ) , @xmath119 ( @xmath120 ) , @xmath121 ( dash dotted ) .
+the initial state of the walker is well localized and the initial state of the quantum coin is unbiased . @xmath122 and all the curves are below the saturation regime [ @xmath123 .
+it is evident that , after some time , the maximum value of the entropy is not achieved by the maximum value of the coupling strength.,scaledwidth=32.0% ]    ' '' ''
+the use of phase - space representation enables us to develop some intuition about the nature of the decoherence process in the kind of quantum walk analyzed in this paper . by coupling the quantum coin to an environment
+we obtain a decoherence model which is roughly equivalent to position diffusion . as we mentioned above , this is a natural result whose origin can be traced back to the way in which the system effectively couples to the environment ( via the momentum operator ) .
+the relation between decoherence and position diffusion can also be established by analyzing in more detail the structure of the superoperator @xmath83 [ given in eq .
+( [ superop ] ) ] .
+let us consider the form of the superoperator after @xmath23 iterations .
+if we use eq .
+( [ superop ] ) we can easily see that , as each iteration doubles the number of terms , we will have an expression with @xmath124 terms each one of which has pauli operators applied at different times . to obtain the function @xmath125 one should compute the trace over the quantum coin . in each of the @xmath124 terms we can move the pauli operator @xmath126 towards the outside of the expression and cancel them due to the cyclic property of the trace . for the case
+@xmath88 it is easy to show that the only remaining effect of the pauli operators ( that in this case anti  commute with the hadamard operator ) is to reverse the direction of the rotation in @xmath26 defined in eq .
+( [ mofk ] ) .
+the final expression can be shown to be @xmath127 where @xmath128 and @xmath129 ( we use the convention @xmath130 ) .
+therefore , the superoperator is the sum of @xmath124 terms each one of which contains a contribution that is identical to that of a quantum walk where the direction of the walker is chosen at random after the first step .
+each of the @xmath124 terms is labeled by a @xmath23bit string @xmath131 and corresponds to a quantum walk where the direction of the @xmath132th step ( @xmath133 ) is reversed if and only if @xmath134 is odd . in the limit of total decoherence each of these terms has equal weight .
+therefore the final state is simply the average over an ensemble where each member corresponds to each of the @xmath135 possible choices of two directions ( forward or backward ) for the @xmath136 steps ( notice that the direction of the first step is not affected by the decoherence model we chose ) .
+for this type of decoherence it is clear that the quantum walk becomes a random walk .
+the relation between decoherence and position diffusion is quite evident in this way .
+it is worth pointing out that similar models of decoherence were considered in ref .
+@xcite in a different context .
+other decoherence models have been analyzed for quantum walks @xcite , where the effective coupling to the environment is through the position observable . in such case
+, we expect decoherence to correspond to diffusion along the momentum direction .
+combining the two types of decoherence ( i.e. , considering coupling to the environment via the quantum coin and the position of the quantum walker ) the initial state corresponding to a superposition of two positions would finally decay into a mixture of two binomial states ( see ref .
+@xcite for similar results obtained when studying decoherence models with a natural phase - space representation in a finite quantum system evolving under various quantum maps ) .
+the above conclusions are generic for any model in which decoherence is due to the coupling of the quantum coin to an environment .
+an interesting class of models , based on the use of quantum multi 
+baker maps @xcite , has been studied . in such models
+one replaces the quantum coin with a quantum system with a higher - dimensional hilbert space .
+the total space of states is then @xmath137 . here
+@xmath138 is the dimensionality of the system which plays the role of the quantum coin and is considered to be an even number ( @xmath139 , so that we can always consider @xmath140 ) .
+the dynamics for a quantum multi  baker map is defined in terms of the unitary operator [ that replaces eq .
+( [ onestep ] ) ] : @xmath141 where @xmath142 is the unitary operator defining the so  called `` quantum baker map '' ( see refs .
+@xcite ) and @xmath143 is a pauli operator acting on the hilbert space @xmath5 ( the most significant qubit of the internal space @xmath140 ) .
+the properties of the operator @xmath142 have been widely studied in the literature @xcite : the map faithfully represents a classically chaotic system ( in the large @xmath138 limit ) . from the point of view of the quantum walker
+the situation is quite similar to the one we studied in this paper .
+one can describe a quantum multi 
+baker map as an ordinary quantum walk where the quantum coin ( whose hilbert space is @xmath5 ) interacts with an environment ( whose hilbert space is @xmath144 ) .
+the interaction is modeled by the quantum baker map acting on the total internal hilbert space @xmath145 , which also replaces the usual hadamard step in eq .
+( [ onestep ] ) .
+as the quantum baker map is chaotic , the state of the quantum coin will be roughly randomized after each iteration .
+thus , the effect should be similar to the one we described here ( where the quantum coin is subject to a noisy evolution ) .
+however , after a large number of iterations ( of the order of @xmath138 ) all the possible orthogonal directions available in the internal space of the quantum coin would have been explored .
+one should therefore expect that this model will stop being effective in producing decoherence after such time .
+recent studies of quantum multi 
+baker systems agree with these expectations ( see ref .
+@xcite where a transition from diffusive to ballistic behavior after a time of the order of @xmath138 has been analyzed ) . in any case , based on the results of our work we believe that in quantum multi 
+baker systems the relative stability of initially delocalized superpositions will also be observable .    we thank marcos saraceno and augusto roncaglia for useful discussions and assistance during several stages of this work .
+was partially supported by funds from fundacin antorchas , anpcyt and ubacyt .
+a matrix representation for the superoperator @xmath83 can be obtained for @xmath146 .
+we will write this superoperator in the basis formed by the identity and the pauli matrices ( we use the standard ordering of the basis as @xmath147 ) . in such basis
+the matrix of @xmath83 is @xmath148 where [ @xmath149 .
+notice they all converge to the same matrix when @xmath86 ( no decoherence ) .
++ to compute eq .
+( [ fkkplanteodeco ] ) we need to diagonalize @xmath83 .
+although the matrix representation of the superoperator is rather sparse , the eigenvalues and eigenvectors are quite cumbersome for an arbitrary value of @xmath99 ( including @xmath86 , no decoherence ) , so it was more convenient to use numerical techniques .
+however , for the special case of complete decoherence ( @xmath89 ) it is possible to obtain a simple formula and the final result for @xmath125 . the result for @xmath154
+is given in eq .
+( [ fkkyz ] ) .
+n. shenvi , j. kempe , k. birgitta whaley , phys .
+a * 67 * , 052307 ( 2003 ) .
+v. kendon and b. tregenna , phys .
+a * 67 * , 042315 ( 2003 ) .
+brun , h.a .
+carteret , a. ambainis , phys .
+a * 67 * , 032304 ( 2003 ) .
+v. kendon and b. tregenna , e - print quant - ph/0301182 .    for
+a review see j.p .
+paz and w.h .
+zurek , in _ coherent matter waves , les houches session lxxii _ , edited by r. kaiser , c. westbrook and f. david ( springer verlag , berlin , 2001 ) , pp . 533614 , e - print quant - ph/0010011 .
+w. dr , r. raussendorf , v.m .
+kendon , h.j .
+briegel , phys .
+a * 66 * , 052319 ( 2002 ) .
+j. du , h. li , x. xu , m. shi , j. wu , x. zhou , r. han , phys . rev .
+a * 67 * , 042316 ( 2003 ) .
+c. miquel , j.p .
+paz , m. saraceno , phys .
+a * 65 * , 062309 ( 2002 ) .
+zurek , phys .
+d , * 24 * , 15161525 ( 1981 ) .
+a. nayak and a. vishwanath , e - print quant - ph/0010117 ; see also a. ambainis , e. bach , a. nayak , a. vishwanath , j. watrous , proc .
+33rd annual acm symposium on theory of computing ( stoc 2001 ) , 3749 . m. scully , m. hillery and e. wigner , phys . rep . *
+106 * , 121 ( 1984 ) .
+g. teklemariam , e.m .
+fortunato , c.c .
+lpez , j. emerson , j.p .
+paz , t.f .
+havel , d.g .
+cory , phys .
+a * 67 * , 062316 ( 2003 ) .
+the linear entropy @xmath155)$ ] shares two important properties of the von neumann entropy @xmath156 $ ] : ( @xmath157 ) it is non - negative and vanishes only if @xmath20 is pure ; ( @xmath158 ) its maximum value is @xmath159 and it is reached iff @xmath160 .
+in addition to this , @xmath161 provides a lower bound to @xmath103 since @xmath162 .
+the use of this entropy can be found , for example , in @xcite and also in i. garca - mata , m. saraceno , m.e .
+spina , phys .
+lett . * 91 * , 064101 ( 2003 ) ; d. monteoliva and j.p .
+paz , phys .
+* 85 * , 3373 ( 2000 ) .

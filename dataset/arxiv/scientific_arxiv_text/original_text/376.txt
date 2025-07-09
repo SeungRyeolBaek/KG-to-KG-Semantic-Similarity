@@ -1,0 +1,365 @@
+the problem of simultaneous localization and mapping ( slam ) has a rich history over the past two decades , which is too broad to cover here , see e.g. @xcite .
+the extended kalman filter ( ekf ) based slam ( the ekf - slam ) has played an important historical role , and is still used , notably for its ability to close loops thanks to the maintenance of correlations between remote landmarks .    the fact
+that the ekf - slam is inconsistent ( that is , it returns a covariance matrix that is too optimistic , see e.g. , @xcite , leading to inaccurate estimates ) was early noticed @xcite and has since been explained in various papers @xcite . in the present paper
+we consider the inconsistency issues that stem from the fact that , as only relative measurements are available , the origin and orientation of the earth - fixed frame can never be correctly estimated , but the ekf - slam tends to  think " it can estimate them as its output covariance matrix reflects an information gain in those directions of the state space .
+this lack of observability , and the poor ability of the ekf to handle it , is notably regarded as the root cause of inconsistency in @xcite ( see also references therein ) . in the present paper
+we advocate the use of the invariant ( i)-ekf to prevent covariance reduction in directions of the state space where no information is available .
+the invariant extended kalman filter ( iekf ) is a novel methodology introduced in @xcite that consists in slightly modifying the ekf equations to have them respect the geometrical structure of the problem .
+reserved to systems defined on lie groups , it has been mainly driven by applications to localization and guidance , where it appears as a slight modification of the multiplicative ekf ( mekf ) , widely known and used in the world of aeronautics .
+it has been proved to possess theoretical local convergence properties the ekf lacks in @xcite , to be an improvement over the ekf in practice ( see e.g. , @xcite and more recently @xcite where the ekf is outperformed ) , and has been successfully implemented in industrial applications to navigation ( see the patent @xcite ) .    in the present paper ,
+we slightly generalize the iekf framework , to make it capable to handle very general observations ( such as range and bearing or bearing only observations ) , and we show how the derived iekf - slam , a simple variant of the ekf - slam , allows remedying the inconsistency of ekf - slam stemming from the non - observability of the orientation and origin of the global frame .
+the issue of ekf - slam inconsistency has been the object of many papers , see @xcite to cite a few , where empirical evidence ( through monte - carlo simulations ) and theoretical explanations in various particular situations have been accumulated . in particular , the insights of @xcite have been that the orientation uncertainty is a key feature in the inconsistency .
+the article @xcite , in line with @xcite , also underlines the importance of the linearization process , as linearizing about the true trajectory solves the inconsistency issues , but is impossible to implement in practice as the true state is unknown .
+it derives a relationship that should hold between various jacobians appearing in the ekf equations when they are evaluated at the current state estimate to ensure consistency .
+a little later , the works of g.p .
+huang , a.i .
+mourikis , and s. i. roumeliotis @xcite have provided a sound theoretical analysis of the ekf - slam inconsistency as caused by the ekf inability to correctly reflect the three unobservable degrees of freedom ( as an overall rotation and translation of the global reference frame leave all the measurements unchanged ) .
+indeed , the filter tends to erroneously acquire information along the directions spanned by those unobservable transformations . to remedy this problem ,
+the above mentioned authors have proposed various solutions , the most advanced being the observability constrained ( oc)-ekf .
+the idea is to pick a linearization point that is such that the unobservable subspace  seen " by the ekf system model is of appropriate dimension , while minimizing the expected errors of the linearization points .    our approach , that relies on the iekf , provides an interesting alternative to the oc - ekf , based on a quite different route .
+indeed , the rationale is to apply the ekf methodology , but using alternative estimation errors to the standard linear difference between the estimate and the true state .
+any non - linear error that reflects a discrepancy between the true state and the estimate , necessarily defines a local frame around any point , and the idea underlying the iekf amounts to write the kalman jacobians and covariances in this frame .
+we notice and prove here that an alternative nonlinear error defines a local frame where the unobservable subspace is _ everywhere _ spanned by the same vectors . using this local frame at the current estimate to express kalman s covariance matrix will be shown to ensure the unobservable subspace  seen " by the ekf system model is _ automatically _ of appropriate dimension .
+we thus obtain an ekf variant which automatically comes with consistency properties .
+moreover , we relate unobservability to the inverse of the covariance matrix ( called information matrix ) rather than on the covariance matrix itself , and we derive guarantees of information decrease over unobservable directions .
+contrarily to the oc - ekf , and as in the standard ekf , we use here the latest , and thus best , state estimate as the linearization point to compute the filter jacobians .    in a nutshell , whereas the key fact for the analysis of @xcite is that the choice of the linearization point affects the observability properties of the linearized state error system of the ekf , the key fact for our analysis is that the choice of the error variable has similar consequences .
+theoretical results and simulations underline the relevance of the proposed approach .
+robot - centric formulations such as @xcite , and later @xcite are promising attempts to tackle unobservability , but they unfortunately lack convenience as the position of all the landmarks must be revised during the propagation step , so that the landmarks estimated position becomes in turn sensitive to the motion sensor s noise .
+they do not provably solve the observability issues considered in the present paper , and it can be noted the oc - ekf has demonstrated better experimental performance than the robocentric mapping filter , in @xcite . in particular , the very recent papers @xcite propose to write the equations of the slam in the robot s frame under a constant velocity assumption . using an output injection technique ,
+those equations become linear , allowing to prove global asymptotic convergence of any linear observer for the corresponding deterministic linear model .
+this is fundamentally a deterministic approach and property , and as the matrices appearing in the obtained linear model are functions of the observations , the behavior of the filter is not easy to anticipate in a noisy context : the observation noise thus corrupts the very propagation step of the filter .
+some recent papers also propose to improve consistency through local map joining , see @xcite and references therein .
+although appealing , this approach is rather oriented towards large - scale maps , and requires the existence of local submaps .
+but when using submap joining algorithm ,  inconsistency in even one of the submaps , leads to an inconsistent global map " @xcite .
+this approach may thus prove complementary , if the iekf slam proposed in the present paper is used to build consistent submaps .
+note that , the iekf slam can also be readily combined with other measurements such as the gps , whereas the submap approach is tailored for pure slam .    from a methodology viewpoint ,
+it is worth noting our approach does not bring to bear estimation errors written in a robot frame , as @xcite .
+although based on symmetries as well , the estimation errors we use are slightly more complicated .    finally , nonlinear optimization techniques have become popular for slam recently , see e.g. , @xcite as one of the first papers .
+links between our approach , and those novel methods are discussed in the paper s conclusion .
+the paper is organized as follows . in section [ sec:1 ] ,
+the standard ekf equations and ekf - slam algorithm are reviewed . in section [ sec:2 ]
+we recall the problem that neither the origin nor the orientation of the global frame are observable , but the ekf - slam systematically tends to  think " it observes them , which leads to inconsistency . in section [ sec:22 ] we introduce the iekf - slam algorithm . in section [ sec:3 ]
+we show how the linearized model of the iekf always correctly captures the considered unobservable directions . in section [ sect::tools ] we derive a property of the covariance matrix output by the filter that can be interpreted in terms of fisher information . in section [ sec:4 ] simulations support the theoretical results and illustrate the benefits of the proposed algorithm .
+finally , the iekf theory of @xcite is briefly recapped in the appendix , and the iekf slam shown to be an application of this theory indeed .
+the equations of the iekf slam in 3d are then also derived applying the general theory .
+consider a general dynamical system in discrete time with state @xmath0 associated to a sequence of observations @xmath1 .
+the equations are as follows : @xmath2 @xmath3 where @xmath4 is the function encoding the evolution of the system , @xmath5 is the process noise , @xmath6 an input , @xmath7 the observation function and @xmath8 the measurement noise .
+the ekf propagates the estimate @xmath9 obtained after the observation @xmath10 , through the deterministic part of : @xmath11 the update of @xmath12 using the new observation @xmath13 is based on the first - order approximation of the non - linear system , around the estimate @xmath14 , with respect to the estimation errors @xmath15 defined as : @xmath16 using the jacobians @xmath17 , @xmath18 , and @xmath19 , the combination of equations , and yields the following first - order expansion of the error system @xmath20 where the second order terms , that is , terms of order @xmath21 have been removed according to the standard way the ekf handles non - additive noises in the model ( see e.g. , @xcite p. 386 ) . using the linear kalman equations with @xmath22 the gain @xmath23
+is computed , and letting @xmath24 , an estimate @xmath25 of the error @xmath26 accounting for the observation @xmath13 is computed , along with its covariance matrix @xmath27 .
+the state is updated accordingly : @xmath28 the detailed equations are recalled in algorithm [ algo::ekf ] .
+the assumption underlying the ekf is that through first - order approximations _ of the state error _ evolution , the linear kalman equations allow computing a gaussian approximation of the error @xmath29 after each measurement , yielding an approximation of the sought density @xmath30 .
+however , the linearizations involved induce inevitable approximations that may lead the filter to inconsistencies and sometimes even divergence .
+define @xmath31 and @xmath32 through and .
+define @xmath33 as @xmath34 and @xmath35 as @xmath36 . *
+propagation * @xmath37 @xmath38 * update * @xmath39 @xmath40 , @xmath41 @xmath42p_{n|n-1 } $ ]      for simplicity s sake let us focus on the standard  steered " bicycle ( or unicycle ) model @xcite .
+the state is defined as : @xmath43 where @xmath44 denotes the heading , @xmath45 the 2d position of the robot / vehicle , @xmath46 the position of unknown landmark @xmath47 ( landmarks or synonymously features , constitute the map ) .
+the equations of the model are : @xmath48 where @xmath49 denotes the odometry - based estimate of the heading variation of the vehicle , @xmath50 the odometry - based indication of relative shift , @xmath51 and @xmath52 their associated noises , and @xmath53 is the matrix encoding a rotation of angle @xmath54 : @xmath55note that a forward euler discretization of the continuous time well - known unicycle equations leads to @xmath50 having its second entry null . more sophisticated integration methods or models including side slip may yet lead to non - zero values of both entries of @xmath56 so we opt for a more general model with @xmath50 .
+the covariance matrix of the noises will be denoted by @xmath57 with @xmath58 .
+a general landmark observation in the robot s frame reads : @xmath59+v_n^1 \\ \vdots \\ \tilde h \left [ r(\theta_n)^t \left ( p^k - x_n \right ) \right]+v_n^k   \end{pmatrix}\ ] ] where @xmath60 ( or @xmath61 for monocular visual slam ) is the observation of the features at time step @xmath62 , and @xmath8 the observation noise , and @xmath63 is any function .
+only a subset of the features is actually observed at time @xmath62 .
+however , to simplify the exposure of the filters equations , we systematically assume in the sequel that all features are observed .
+we let the output noise covariance matrix be @xmath64    note that , the observation model encompasses the usual range and bearing observations used in the slam problem by letting @xmath65 . if we choose instead the one dimensional observation @xmath66 we recover the 2d monocular slam measurement .
+note also we do not provide any specific form for the noise in the output : this is because the properties we are about to prove are related to the observability and thus only depend on the deterministic part of the system , so they are in fact totally insensitive to the way the noise enters the system .
+we merely apply here the methodology of ekf to the slam problem described in section [ sect::slam_problem ] .
+the first - order expansions , applied to equations , yield : @xmath67 with @xmath68 , @xmath69 and @xmath70 denotes the jacobian of @xmath63 computed at @xmath71 \in { { \mathbb r}}^2 $ ] .
+the obtained ekf - slam algorithm is recaped in algorithm [ algo::ekf_slam_linear ] .
+define @xmath31 and @xmath32 as in .
+define @xmath33 , @xmath35 as in and . *
+propagation * for all @xmath72 @xmath38 * update * @xmath73 \\ \vdots \\ \tilde h \left [ r(\hat \theta_{n|n-1})^t \left ( \hat p^k_{n|n-1}- \hat x_{n|n-1 } \right ) \right ]   \end{pmatrix}$ ] @xmath40 , @xmath41 @xmath42p_{n|n-1 } $ ]
+in this section we come back to the general framework , .
+the standard issue of observability @xcite is fundamentally a deterministic notion so the noise is systematically turned off .    [ def::non_obs ]
+we say a transformation @xmath74 of the system - is unobservable if for any initial conditions @xmath75 and @xmath76 the induced solutions of the dynamics with noise turned off , i.e. , @xmath77 yield the same output at each time step @xmath78 , that is : @xmath79    it concretely means that ( with all noises turned off ) if the transformation is applied to the initial state then none of the observations @xmath13 are going to be affected . as a consequence
+, there is no way to know this transformation has been applied . in line with @xcite
+we will focus here on the observability properties of the linearized system . to that end
+we define the notion of non - observable ( or unobservable ) shift which is an infinitesimal counterpart to definition [ def::non_obs ] , and is strongly related to the infinitesimal observability @xcite :    [ def::non_obs_first_order ] let @xmath80 denote a solution of with noise turned off .
+a vector @xmath81 is said to be an unobservable shift of - around @xmath82 if : @xmath83 where @xmath32 is the linearization of @xmath7 at @xmath84 and where @xmath85 is the solution at @xmath62 of the linearized system @xmath86 initialized at @xmath87 , with @xmath88 denoting the jacobian matrix of @xmath89 computed at @xmath90 .    in other words
+( see e.g. @xcite ) , for all @xmath91 , @xmath85 lies in the kernel of the observability matrix between steps @xmath92 and @xmath62 associated to the linearized error - state system model , i.e. , @xmath93=0 $ ] .
+the interpretation is as follows : consider another initial state shifted from @xmath82 to @xmath94 .
+saying that @xmath87 is unobservable means no difference on the sequence of observations up to the first order could be detected between both trajectories .
+formally , this condition reads : @xmath95 , i.e. , @xmath96 .
+an estimation method conveying its own estimation uncertainty as the ekf , albeit based on linearizations , should be able to detect such directions and to reflect that accurate estimates along such directions are beyond reach .      in the present paper we consider unobservability corresponding to the impossibility to observe the position and orientation of the global frame @xcite .
+the corresponding shifts have already been derived in the literature .
+[ prop::first_order_rotations_prelim]@xcite let @xmath97 be an estimate of the state .
+only one feature is considered , the generalization of the proposition to several features is trivial .
+the first - order perturbation of the estimate corresponding to an infinitesimal rotation of angle @xmath98 of the global frame consists of the shift @xmath99 with @xmath100 . in the same way ,
+the first - order perturbation of the estimate corresponding to an infinitesimal translation of the global frame of vector @xmath101 consists of the shift @xmath102 .
+when rotating the global frame the heading becomes : @xmath103 the position of the robot becomes : @xmath104 the position of the feature becomes : @xmath105 stacking these results we obtain the first - order variation of the full state vector ( regarding the rotation only , the effect of infinitesimal translation being trivial to derive ) : @xmath106    [ prop::first_order_rotations]@xcite the shifts of proposition [ prop::first_order_rotations ] that correspond to infinitesimal rotations , are unobservable shifts of - in the sense of definition [ def::non_obs_first_order ] .
+the intuitive explanation is clear @xcite : `` if the robot and landmark positions are shifted equally along those vectors , it will not be possible to distinguish the shifted position from the original one through the measurements . ''
+this section recalls using the notations of the present paper , a result of @xcite .
+it shows the infinitesimal rotations defined in proposition [ prop::first_order_rotations ] are not , in general , unobservable shifts of the system linearized about the trajectory estimated by the ekf .
+indeed , applying definition [ def::non_obs_first_order ] to in the case of a single feature ( the generalization being straightforward ) with @xmath107 and @xmath108 yields the condition for an infinitesimal rotation of the initial state to be unobservable for the linearized system .
+this condition writes @xmath109 and boils down to have for any @xmath110 ( see @xcite ) : @xmath111=0\ ] ] where @xmath112 is the jacobian of @xmath63 computed at @xmath113 .
+for example , if @xmath63 is invertible the condition boils down to @xmath114=0.\label{never_verified}\end{aligned}\ ] ] we see the quantities involved are the updates of the state .
+as they depend on the noise , there is a null probability for the condition to be respected , and it is always violated in practice .
+but the point of the present paper is to show that the problem is related to the ( arbitrary in a non - linear context ) choice to represent the estimation error as the linear difference @xmath115 , not to an inconsistency issue inherent to ekf - like methods applied to slam . by devising an ekf - slam based on another estimation error variable , which in some sense amounts to change coordinates
+, the false observability problem can be corrected .
+the qualitative reason why this is sufficient is related to the basic cause of false observability : a given fixed shift may or may not be observable depending on the linearization point @xmath116 , as proved by proposition [ prop::first_order_rotations ] .
+it turns out that the latter property is not inherently related to the slam problem : it is in fact a mere consequence of the errors definition . defining those errors
+otherwise can dramatically modify the condition .
+this is the object of the remainder of this article .
+building upon the theory of the invariant ( i)ekf on matrix lie groups , as described and studied in @xcite , we introduce in this section a novel iekf for slam . in appendix
+[ primer]-[gen : iekf ] the general theory of the iekf is recalled and slightly extended to account for the very general form of output , and the algorithm derived herein is shown to be a direct application of the theory . to spare the reader a study of the lie group based theory , we attempt to explain in simple terms the iekf methodology on the particular slam example throughout the present section .
+consider the model equations with state @xmath84 given by .
+exactly as the ekf , the iekf propagates the estimated state obtained after the observation @xmath10 of through the deterministic part of i.e. , @xmath117 , @xmath118 , @xmath119 for all @xmath72 . to update the predicted state @xmath120 using the observation @xmath13 we use a first order taylor expansion of the error system .
+but , _ instead of considering the usual state error @xmath121 _ , we rather use the ( linearized ) estimation error defined as follows @xmath122and @xmath123 is analogously defined . for close - by @xmath124 , this represents an error variable in the usual sense indeed , as @xmath125 if and only if @xmath126 . as in the standard ekf methodology ,
+let us see how this _ alternative _ estimation error is propagated through a first - order approximation of the error system . using the propagation equations of the filter , and , we find @xmath127 where terms of order @xmath128 , @xmath129 , and @xmath130 have been neglected as in the standard the ekf handles non - additive noises @xcite .
+to derive we have used the equalities @xmath131 , @xmath132 : @xmath133 note that , the odometer outputs @xmath134 have miraculously vanished .
+this is in fact a characteristics - and a key feature - of the iekf approach .
+let us now compute the first - order approximation of the observation error , using the alternative state error .
+define @xmath32 as the matrix , depending on @xmath120 only , such that for all @xmath135 defined by , the innovation term @xmath136 \\ \vdots \\ \tilde h \left [ r(\theta_n)^t \left ( p^k - x_n \right ) \right ] \end{pmatrix}-\begin{pmatrix }   \tilde h \left [ r(\hat \theta_{n|n-1 } ) ^t \left(\hat p^1_{n|n-1}-\hat x_{n|n-1 } \right ) \right ] \\ \vdots \\ \tilde h \left [ r(\hat \theta_{n|n-1 } ) ^t \left ( \hat p^k_{n|n-1}-\hat x_{n|n-1 } \right ) \right ] \end{pmatrix}\]]is equal to @xmath137 . using that @xmath138 $ ] , and @xmath139 from
+, we see that @xmath32 is defined as in below .
+thus the linearized ( first - order ) system model with respect to alternative error writes @xmath140 with @xmath141 , and @xmath142 where @xmath143 is the jacobian of @xmath63 computed at @xmath144 . as in the standard ekf methodology ,
+the matrices @xmath145 allow to compute the kalman gain @xmath23 and covariance @xmath146 .
+letting @xmath147 be the standardly defined innovation ( see algorithm [ algo::iekf_slam ] just after  update " ) , @xmath148 is an estimate of the linearized error @xmath149 accounting for the observation @xmath13 , and @xmath27 is supposed to encode the dispersion @xmath150 .
+the final step of the standard ekf methodology is to update the estimated state @xmath120 thanks to the estimated linearized error @xmath148 .
+there is a small catch , though : @xmath151 being not anymore defined as a mere difference @xmath121 , simply adding @xmath123 to @xmath152 would not be appropriate .
+the most natural counterpart to in our setting , would be to choose for @xmath152 the values of @xmath153 making the right member of equal to the just computed @xmath123 .
+however , the iekf theory recalled in appendix [ gen : iekf ] , suggests an update that amounts to the latter to the first order , but whose non - linear structure ensures better properties @xcite .
+thus , the state is updated as follows @xmath154 , with @xmath155 defined by @xmath156where @xmath157 .
+algorithm [ algo::iekf_slam ] recaps the various steps of the iekf slam .
+define @xmath31 and @xmath32 as in .
+define @xmath33 , @xmath35 as in and . *
+propagation * for all @xmath72 @xmath38 * update * @xmath73 \\ \vdots \\ \tilde h \left [ r(\hat \theta_{n|n-1})^t \left ( \hat p^k_{n|n-1}- \hat x_{n|n-1 } \right ) \right ]   \end{pmatrix}$ ] @xmath40 , @xmath41 @xmath42p_{n|n-1 } $ ]
+in this section we show the infinitesimal rotations and translations of the global frame are unobservable shifts in the sense of definition [ def::non_obs_first_order ] regardless of the linearization points used to compute the matrices @xmath158 and @xmath32 of eq . , a feature in sharp contrast with the usual restricting condition on the linearization points . in other words
+we show that infinitesimal rotations and translations of the global frame are always unobservable shifts of the system model
+_ linearized _ with respect to error regardless of the linearization point , a feature in sharp contrast with previous results ( see section [ sect::eks_slam8inconsistency ] and references therein ) .
+we can consider only one feature ( @xmath159 ) without loss of generality .
+the expression of the linearized system model has become much simpler , as the linearized error has the remarkable property to remain constant during the propagation step in the absence of noise , since @xmath160 in - .
+first , let us derive the impact of first - order variations stemming from rotations and translations of the global frame on the error as defined by , that is , an error of the following form @xmath161    [ prop::first_order_rotations_non_linear ] let @xmath162 be an estimate of the state . the first - order perturbation of the _ linearized _ estimation error defined by around 0
+, corresponding to an _ infinitesimal _ rotation of angle @xmath98 of the global frame , reads @xmath163 in the same way , an _
+infinitesimal _ translation of the global frame with vector @xmath101 implies a first - order perturbation of the error system of the form @xmath164    according to proposition [ prop::first_order_rotations_prelim ] , an infinitesimal rotation by an angle @xmath165 of the true state corresponds to the transformation @xmath166 .
+@xmath167 and @xmath168 .
+regarding @xmath151 of eq it corresponds to the variation @xmath169this direction of the state space is  seen " by the _
+linearized _ error system as the vector @xmath170 .
+similarly , a translation of vector @xmath171 of the global frame yields the transformation @xmath172 .
+the effect on the linearized error @xmath151 of is obviously the perturbation @xmath173 neglecting terms of order @xmath174 .
+we can now prove the first major result of the present article : the infinitesimal transformations stemming from rotations and translations of the gobal frame are unobservable shifts for the iekf linearized model .
+[ slam : thm : obs ] consider the slam problem defined by equations and , and the iekf - slam algorithm [ algo::iekf_slam ]
+. let @xmath87 denote a linear combination of infinitesimal rotations and translations @xmath175 of the whole system defined as follows @xmath176 then @xmath87 is an unobservable shift of the linearized system model - of the iekf slam in the sense of definition [ def::non_obs_first_order ] , and this whatever the sequence of true states and estimates @xmath177 : the very structure of the iekf is consistent with the considered unobservability .
+note that definition [ def::non_obs_first_order ] involves a propagated perturbation @xmath85 , but as here @xmath158 is @xmath178 : we have @xmath179 .
+thus , the only point to check is : @xmath180 i.e. , @xmath181 .
+this is straightforward replacing @xmath87 with alternatively @xmath182 and @xmath183 .
+we obtained the consistency property we were pursuing : the linearized model correctly captures the unobservability of global rotations and translations . as a byproduct ,
+the unobservable seen by the filter is automatically of appropriate dimension .
+the standard ekf is tuned to reduce the state estimation error @xmath184 defined through the original state variables @xmath124 of the problem
+. albeit perfectly suited to the linear case , the latter state error has in fact absolutely no fundamental reason to rule the linearization process in a non - linear setting . the basic difference
+when analyzing the ekf and the iekf is that    * in the standard ekf , there is a trivial correspondence between a small variation of the true state and a small variation of the estimation error .
+but the global rotations of the frame make the error vary in a non - trivial way as recalled in section [ sec:2 ] . * in the iekf approach , the effect of a small rotation of the state on the variation of the estimation error becomes trivial as ensured by proposition [ prop::first_order_rotations_non_linear ] .
+but the error is non - trivially related to the state , as its definition explicitly depends on the linearization point @xmath116 .
+many consistency issues of the ekf stem from the fact that the updated covariance matrix @xmath27 is computed before the update , namely at the predicted state @xmath120 , and thus does not account for the updated state s value @xmath152 , albeit supposed to reflect the covariance of the updated error .
+this is why the oc - ekf typically seeks to avoid linearizing at the latest , albeit best , state estimate , in order to find a close - by state such that the covariance matrix resulting from linearization preserves the observability subspace dimension .
+the iekf approach is wholly different : the updated covariance @xmath27 is computed at the latest estimate @xmath120 , which is akin to the standard ekf methodology .
+but it is then indirectly adapted to the updated state , since it is _ interpreted _ as the covariance of the error @xmath123 . and contrarily to the standard case , the definition of this error depends on @xmath152 .
+more intuitively , we can say the confidence ellipsoids encoded in @xmath27 are attached to a basis that undergoes a transformation when moved over from @xmath120 to @xmath152 , this transformation being tied to the unobservable directions .
+this prevents spurious reduction of the covariance over unobservable shifts , which are not identical at @xmath120 and @xmath152 .
+finally , note the alternative error is all but artificial : it naturally stems from the lie group structure of the problem .
+this is logical as the considered unobservability actually pertains to an _ invariance _ of the model - , that is the slam problem , to global translations and rotations .
+thus it comes as no surprise the _ invariant _ approach , that brings to bear invariant state errors that encode the very symmetries of the problem , prove fruitful ( see the appendix for more details ) .
+our approach can be related to the previous work @xcite . indeed , according to the latter article , failing to capture the right dimension of the observability subspace in the linearized model leads to `` spurious information gain along directions of the state space where no information is actually available '' and results in `` unjustified reduction of the covariance estimates , a primary cause of filter inconsistency '' .
+theorem [ slam : thm : obs ] proves that infinitesimal rotations and translations of the global frame , which are unobservable in the slam problem , are always `` seen '' by the iekf linearized model as unobservable directions indeed , so this filter does not suffer from `` false observability '' issues .
+this is our major theoretical result .
+that said , the results of the latter section concern the system with noise turned off , and pertain to an automatic control approach to the notion of observability as in @xcite .
+the present section is rather concerned with the estimation theoretic consequences of theorem [ slam : thm : obs ] .
+we prove indeed , that the iekf s output covariance matrix correctly reflects an absence of `` information gain '' along the unobservable directions , as mentioned above , but where the information is now to be understood in the sense of fisher information . as a by - product , this allows relating our results to a slightly different approach to slam consistency , that rather focuses on the fisher information matrix than on the observability matrix , see in particular @xcite .
+the exposure of the present section is based on the seminal article @xcite .
+see also @xcite for related ideas applied to slam .
+consider the system with output .
+define the collection of state vectors and observations up to time @xmath62 : @xmath185the joint probability distribution of the @xmath186 vector @xmath187 and of the @xmath188 vector @xmath189 is @xmath190the bayesian fisher information matrix ( bifm ) is defined as the following @xmath191 matrix based upon the dyad of the gradient of the log - likelihood : @xmath192[\nabla_{\tilde x_n } \log p(\tilde y_n,\tilde x_n]^t)\]]and note that , for the slam problem it boils down to the matrix of @xcite .
+this matrix is of interest to us as it yields a lower bound on the accuracy achievable by any estimator used to attack the filtering problem - .
+indeed let @xmath193 be defined as the _ inverse _ of the @xmath194 right - lower block of @xmath195^{-1}$ ] .
+this matrix provides a lower bound on the mean square error of estimating @xmath84 from past and present measurements @xmath189 and prior @xmath196 . indeed , for any unbiased estimator @xmath197 : @xmath198[t(\tilde y_n)]^t)\succeq j_n^{-1}\ ] ] where @xmath199 means @xmath200 is positive semi - definite .
+@xmath201 is called the bayesian or posterior cramr - rao lower bound for the filtering problem @xcite .
+most interestingly , in the case where @xmath4 and @xmath7 are linear , the prior distribution is gaussian , and the noises are additive and gaussian , we have @xmath202where @xmath27 is the covariance matrix output by the kalman filter .
+thus , in the linear gaussian case , @xmath203 reflects the statistical information available at time @xmath62 on the state @xmath84 . by extension in the slam literature
+@xmath203 is often simply referred to as the information matrix , in non - linear contexts also , e.g. when using extended information filters @xcite .      in the last section
+, we have recalled that in the linear gaussian case , the inverse of the covariance matrix output by the kalman filter is the fisher information available to the filter ( this is also stated in @xcite p. 304 ) . in the light of those results ,
+it is natural to expect from any ekf variant , that the inverse of the output covariance matrix @xmath203 reflect an absence of information gain along unobservable directions indeed .
+if the filter fails to do so , the output covariance matrix will be too optimistic , that is , inconsistent , and wrong covariances yield wrong gains @xcite .
+the following theorem shows the linearized system model of the iekf allows ensuring the desired property of the covariance matrix .
+it is our second major result .
+[ slam : big : thm ] consider the slam problem defined by equations - and the iekf - slam algorithm [ algo::iekf_slam ] .
+let @xmath87 denote a linear combination of infinitesimal rotations and translations @xmath175 of the whole system , as defined in theorem [ slam : thm : obs ] .
+@xmath87 is thus an unobservable shift . if the matrix @xmath27 output by the iekf remains invertible , we have at all times : @xmath204    as @xmath205 in , the unobservable shifts remain fixed i.e. @xmath206 . at the propagation step
+we have : @xmath207 as @xmath208 is positive semi - definite . and at the update step ( see the kalman information filter form in @xcite ) we have : @xmath209 \delta x_0     = \delta x_0^t   p_{n|n-1}^{-1 }   \delta x_0\ ] ] as @xmath210 as shown in the proof of theorem [ slam : thm : obs ] .
+thus @xmath211 is non - increasing over time @xmath62 .
+note that , the proof evidences that if @xmath27 is not invertible , the results of the theorem still hold , writing the iekf in information form .
+our result essentially means the _
+linearized model _ of the iekf has a structure which guarantees that the covariance matrix at all times reflects an absence of  spurious " ( bayesian fisher ) information gain over directions that correspond to the unobservable rotations and translations of the global frame .
+in this section we verify in simulation the claimed properties on the one hand , and on the other we illustrate the striking consistency improvement achieved by the iekf slam . to that end , we propose to consider a similar numerical experiment as in the sound work @xcite dedicated to the inconsistency of ekf and the benefits of the oc - ekf .
+the iekf is compared here to the standard ekf , the ukf , the oc - ekf , and the ideal ekf , which is the - impossible to implement - variant of the ekf where the state is linearized about the _ true _ trajectory .        .
+we see the indicator stays around 1 for iekf slam and oc - ekf slam over the whole time interval , as expected from a consistent estimation method .
+the  ideal " ekf , where the system is linearized on the true value of the state , yields similar results . to the opposite
+, we see the ekf is inconsistent , and the ukf also . ]
+uncertainty envelope computed by the filter .
+filters whith theoretical properties regarding non - observable directions ( iekf , oc - ekf and ideal ekf ) remedy this problem . ]    .
+bottom plot is a zoom of the first time steps .
+the information over an infinitesimal perturbation corresponding to a rotation of the whole system is decreasing for the iekf slam , which is a consistent behavior as this perturbation is unobservable .
+ideal ekf and ocekf give similar results , but ekf and ukf do not .
+the plot also confirms ekf and ukf slam tend to acquire spurious information over this unobservable direction.,title="fig : " ] .
+bottom plot is a zoom of the first time steps .
+the information over an infinitesimal perturbation corresponding to a rotation of the whole system is decreasing for the iekf slam , which is a consistent behavior as this perturbation is unobservable .
+ideal ekf and ocekf give similar results , but ekf and ukf do not .
+the plot also confirms ekf and ukf slam tend to acquire spurious information over this unobservable direction.,title="fig : " ]      the simulation setting we chose is ( deliberately ) similar to the one used in @xcite ( section 6.2 ) .
+the vehicle ( or robot ) drives a 15m - diameter loop ten times in the 2d plane , finding on its path 20 unknown features as displayed on figure [ fig::map ] .
+the velocity and angular velocity are constant ( 1 m / s and 9 deg / s respectively ) .
+the relative position of the features in the reference frame of the vehicle is observed once every second ( where @xmath63 of is the identity ) .
+the standard deviation @xmath212 of the velocity measurement on each wheel of the vehicle is @xmath213 of the velocity .
+this yields the standard deviation @xmath214 of the resulting linear velocity and @xmath215 of the rotational velocity : @xmath216 and @xmath217 , where @xmath218 is the distance between the drive wheels ( see @xcite ) .
+the features are visible if they lie within a sensing range of 5 m , in which case they are observed with an isotropic noise of standard deviation 10 cm .
+the initial uncertainty over position and heading is zero - which will prove a condition not sufficient to prevent failure of the ekf . each time
+a landmark is seen for the first time , its position is initialized in the earth frame using the current estimated pose of the robot , the associated uncertainty is set to a very high value compared to the size of the map , then a kalman update is performed to correlate the position of the new feature withe the other variables .
+each second , all visible landmarks ( i.e. those in a range of 5 m ) are processed simultaneously in a stacked observation vector .
+five algorithms are compared :    1 .
+the classical ekf , described in algorithm [ algo::ekf_slam_linear ] .
+2 .   the proposed iekf slam algorithm described in algorithm [ algo::iekf_slam ] .
+the ideal ekf as defined in @xcite , i.e. , a classical ekf where the riccati equation is computed at the true trajectory of the system instead of the estimated trajectory .
+although not usable in practice , the latter is a good reference to compare with , as it is supposed to be an ekf with consistent behavior .
+the oc - ekf described in @xcite , which is so far the the only method that guarantees the non - observable subspace has appropriate dimension .
+5 .   the unscented kalman filter ( ukf ) , known to better deal with the non - linearities than the ekf .    before going further
+, the next subsection introduces the nees indicator used in the simulations to measure the consistency of these methods .
+classical criteria used to evaluate the performance of an estimation method , like root mean squared ( rms ) error do not inform about consistency as they do not take into account the uncertainty returned by the filter .
+this point is addressed by the normalized estimation error squared ( nees ) , which computes the average squared value of the error , normalized by the covariance matrix of the ekf .
+for a sample @xmath219 of error values having dimension @xmath220 , each of them with a covariance matrix @xmath221 of size @xmath222 , the nees is defined by : @xmath223 if each @xmath224 is a zero mean gaussian with covariance matrix @xmath221 , then for large @xmath225 we have nees @xmath226 .
+the case nees @xmath227 reveals an inconsistency issue : the actual uncertainty is higher than the computed uncertainty .
+this situation typically occurs when the filter is optimistic as it believes to have gained information over a non - observable direction .
+the nees indicator will be used , along with the usual rms , to illustrate our solution to slam inconsistency in the sequel .
+figure [ fig::nees ] displays the nees indicator of the vehicle pose estimate ( heading and position ) over time , computed for 50 monte - carlo runs of the experiment described in section [ sect::exp_setting ] . as expected , the profile of the nees for classical ekf , ideal ekf and oc - ekf is the same as in the previous paper @xcite which inspired this experimental section .
+note that we used here a normalized version of the nees , making its swing value equal to 1 .
+we see also that the result is similar for oc - ekf slam and ideal ekf slam : the nees varies between 1 and 1.7 , in contrast to the ekf slam and ukf slam which exhibit large inconsistencies over the robot pose we see here that the iekf remedies inconsistency , with a nees value that remains close to 1 .
+note that , it performs here even better than oc - ekf and ideal ekf ( whose results are very close to each other ) , in terms of consistency . the basic difference between iekf and these filters lies in using or not the current estimate as a linearization point .
+uncertainty directions being very dependent from the estimate , what figure [ fig::nees ] suggests is that they may not be correctly captured if computed on a different point .
+the other aspect of the evaluation of an ekf - like method is performance : regardless of the relevance of the covariance matrix returned by the filter ( i.e. consistency ) , pure performance can be evaluated through rms of the heading and position error , whose values over time are displayed in figure [ fig::heading_rms ] .
+they confirm an expectable result : solving consistency issues improves the accuracy of the estimate as a byproduct , as wrong covariances yield wrong gains @xcite .    selecting a _ single run _
+, we can also illustrate the inconsistency issue in terms of covariance and information .
+figure [ fig::ekf_enveloppe ] displays the heading error for ekf , ukf , iekf , oc - ekf and ideal ekf slam , and the @xmath228 envelope returned by each filter .
+this illustrates both the false observability issue and the resulting inconsistency of ekf and ukf : the heading uncertainty is reduced over time while the estimation error goes outside the @xmath228 envelope . to the opposite ,
+the behavior of iekf , oc - ekf and ideal ekf is sound .
+figure [ fig::ekf_enveloppe2 ] shows the map and the landmarks @xmath228 uncertainty ellipsoids : similarly , both ekf and ukf fail capturing the true landmarks positions within the @xmath228 ellipsoids whereas the three over filters succeed to do so .
+finally , figure [ fig::info_rot ] displays the evolution of the information over a shift corresponding to infinitesimal rotations as defined in theorem [ slam : big : thm ] , that is the evolution over time of the quantity @xmath229 .
+the theorem is successfully illustrated : the latter quantity is always decreasing for the iekf , ideal ekf , oc - ekf but not for the ekf and the ( slightly better to this respect ) ukf .
+this work evidences that the ekf algorithm for slam is not inherently inconsistent - at least regarding inconsistency related to unobservable transformations of the global frame - but the choice of the right coordinates for the linearization process is pivotal .
+we showed that applying the recent theory of the iekf - an ekf ( slight ) variant - leads to provable properties regarding observability and consistency .
+extensive monte - carlo simulations have illustrated the consistency of the new method and the striking improvement over ekf , ukf , oc - ekf , and more remarkably over the ideal ekf also , which is the - impossible to implement - variant of the ekf where the system is linearized about the true trajectory .
+note that , the iekf approach may prove relevant beyond slam to some other problems in robotics as well , such as autonomous navigation ( see @xcite ) , and in combination with controllers , notably for motion planning purposes , see @xcite . in @xcite the iekf has proved to possess _ global _ asymptotic convergence properties on a simple localization problem of a wheeled robot , which is a strong property .
+the iekf has also been patented for navigation with inertial sensors @xcite .
+nowadays nonlinear optimization based slam algorithms are becoming popular as compared with ekf slam , see e.g. @xcite for one of the first papers on the subject .
+we yet anticipate a simple ekf slam with consistency properties will prove useful to the research community , the ekf slam having been abandoned in part due to its inconsistency .
+the general ekf has proved useful in numerous industrial applications , especially in the field of guidance and navigation .
+it has the benefits of being 1-recursive , avoiding to store the whole trajectory and 2-suited to on - line real - time applications .
+moreover the aerospace and defense industry has developed a corpus of experience for its industrial implementation and validation .
+and the iekf is a variant that , being in every respect similar to ekf , retains all its advantages , but which possesses additional guaranteed properties .
+note also that , all the improvements of the ekf for slam such as e.g. , the slam of @xcite and sparse extended information filters @xcite , can virtually be turned into their invariant counterpart .
+the high dimensional optimization formulation of the slam problem being prone to local minima , having an accurate initial value ( i.e. a small initial estimation error ) is very critical @xcite .
+the iekf slam algorithm proposed in the present paper may thus be advantageously used to initialize those methods in challenging situations .
+besides , we anticipate our approach based on symmetries could help improve ( at least first order ) optimization techniques for slam . to understand why ,
+assume by simplicity the sensors to be noise free .
+then , moving a candidate trajectory along unobservable directions will not change the cost function , and an efficient optimization algorithm should account for this . and
+when a gradient descent algorithm is used , only a first - order expansion of the cost function is considered .
+our lie group approach will allow defining steepest descent directions in a alternative geometric way , that will `` stick '' to the unobservable directions , and the corresponding update will move along the ( lie group ) state space in a non - linear yet relevant way .
+this issue is left for future work , but a thorough understanding of the interest of the invariant approach for the ekf , is a first step in this direction .      the authors would like to thank cyril joly for his advice .
+in this section we provide more details on the iekf theory on matrix lie groups , and show how the underlying lie group structure of the slam problem has been used indeed to build the iekf slam algorithm [ algo::iekf_slam ] .
+we also provide the iekf equations for 3d slam . for more information on the iekf see @xcite and references therein .
+a matrix lie group @xmath230 is a subset of square invertible @xmath231 matrices @xmath232 verifying the following properties : @xmath233 where @xmath234 is the identity matrix of @xmath235 .
+if @xmath236 is a curve over @xmath230 with @xmath237 , then its derivative at @xmath238 necessarily lies in a subset @xmath239 of @xmath240 .
+@xmath239 is a vector space and it is called the lie algebra of @xmath230 .
+it has same dimension @xmath241 as @xmath230 .
+thanks to a linear invertible map denoted by @xmath242 , one can advantageously identify @xmath239 to @xmath243 .
+besides , the vector space @xmath239 can be mapped to the matrix lie group @xmath230 through the classical matrix exponential @xmath244 . thus , @xmath245 can be mapped to @xmath230 through the lie exponential map defined by @xmath246 for @xmath247 .
+this map is invertible for small @xmath151 , and we have @xmath248 . the well - known baker - campbell - hausdorff ( bch ) formula gives a series expansion for the product @xmath249 .
+in particular it ensures @xmath250 , where @xmath251 is of the order @xmath252 . for any @xmath253
+, the adjoint matrix @xmath254 is defined by @xmath255 for all @xmath256 .
+we now give explicit formulas for two groups of particular interest for the slam problem .
+this famous group in robotics can be defined using homogeneous matrices , i.e. , @xmath258 .
+@xmath259 , then @xmath260 , where @xmath261 and @xmath262 .
+we have @xmath263 .
+the lie exponential writes @xmath264 where @xmath157 .
+we have @xmath265 .
+we now introduce a simple extension of @xmath257 , inspiring from preliminary remarks in @xcite . for @xmath267 and @xmath268 , consider the map @xmath269 defined by @xmath270    \vdots & \\[-0.5ex ]    0_{1,2 }   & \end{array } \right)\ ] ] and let @xmath271 be defined by @xmath272and denote it by @xmath273 .
+note that , we recover @xmath257 for @xmath159 , i.e. , @xmath274 . letting @xmath261 and @xmath275 yields @xmath276    \vdots & \\[-0.5ex ]    0_{1,2 }   & \end{array } \right)$ ] and @xmath277 .
+it turns out , by extension of the @xmath257 results , that there exists a closed form for the lie exponential @xmath278 that writes @xmath279 with @xmath157 .
+the @xmath280 is also easily derived by extension of @xmath257 , but to save space , we only display it once : @xmath281 is defined as the matrix @xmath282 of eq .
+this section is a summary of the iekf methodology of @xcite .
+let @xmath230 be a matrix lie group .
+consider a general dynamical system @xmath283 on the group , associated to a sequence of observations @xmath1 , with equations as follows : @xmath284 @xmath285 where @xmath286 is an input matrix which encodes the displacement according to the evolution model , @xmath287 is a vector encoding the model noise , @xmath288 is the observation function and @xmath289 the measurement noise .
+the iekf propagates an estimate obtained after the previous observation @xmath10 through the deterministic part of : @xmath290 to update @xmath291 using the new observation @xmath13 , one has to consider an estimation error that is _ well - defined _ on the group . in this paper
+we will use the following right - invariant errors @xmath292 which are equal to @xmath234 when @xmath293 .
+the terminology stems from the fact they are invariant to right multiplications , that is , transformations of the form @xmath294 with @xmath253 .
+note that , one could alternatively consider left - invariant errors but it turns out to be less fruitful for slam .      the iekf update is based upon a first - order expansion of the non - linear system associated to the errors around @xmath234 .
+first , compute the full error s evolution @xmath295note that the term @xmath296 has disappeared !
+this is a key property for the successes of the invariant filtering approach @xcite . to linearize this equation
+we define @xmath297 around @xmath234 through @xmath298as in the standard non - additive noise ekf methodology @xcite all terms of order @xmath299 , are assumed small and are neglected . using the bch formula , and neglecting the latter terms ,
+we get @xmath300 using the local invertibility of @xmath301 around @xmath302 , we get the following linearized error evolution in @xmath243 : @xmath303 where @xmath304 and @xmath305 .    to linearize the output error , we now slightly adapt the iekf theory @xcite to account for the general form of output .
+note that , @xmath306 . as @xmath149 is assumed small , and as @xmath307 , a first - order taylor expansion in @xmath247 arbitrary , allows definit @xmath32 as follows @xmath308          as in the standard theory , the kalman gain matrix @xmath23 allows computing an estimate of the linearized error after the observation @xmath13 through @xmath309 , where @xmath310 .
+recall the state estimation errors defined by - are of the form @xmath311 , that is , @xmath312 .
+thus an estimate of @xmath313 after observation @xmath13 which is consistent with - , is obtained through the following lie group counterpart of the linear update @xmath314 the equations of the filter are detailed in algorithm [ algo::iekf ] .
+choose initial @xmath315 and @xmath316 [ algo::iekf ] define @xmath32 as in and let @xmath317 and @xmath318 .
+define @xmath33 as @xmath34 and @xmath35 as @xmath36 .
+* propagation * @xmath319 @xmath320 * update * @xmath321 @xmath322 , @xmath41 @xmath42p_{n|n-1 } $ ]          the lie group that underlies the slam problem , is @xmath273 introduced in appendix [ sect::tuto_se23 ] .
+let us apply the general theory of the iekf to this group . to define the lie group counterpart @xmath313 of the state @xmath84 defined by , we let @xmath323 .
+the model equations write @xmath324 with @xmath325 . at the propagation step
+, the iekf propagates the estimate through the corresponding deterministic equations @xmath326with @xmath327 .
+a simple matrix multiplication shows that @xmath328 , where @xmath329   \\    p^1_n-[r \left (   \theta_n -{\hat \theta}_{n|n-1}\right )    \hat p^1_{n|n-1 } ]    \\
+\vdots \\
+p^k_n- [ r \left (   \theta_n -{\hat \theta}_{n|n-1}\right )     \hat p^k_{n|n-1 } ] \end{pmatrix}\]]and where @xmath330 is defined analogously .
+the linearized error is defined by , that is , @xmath331 . as terms of order @xmath332
+are to be neglected in the linearized equations , it suffices to compute a first - order approximation of @xmath333 .
+first note that @xmath149 defined by is a linear approximation to @xmath334 , that is , @xmath335 .
+this readily implies @xmath336recalling @xmath337 we see is a first approximation of @xmath333 as defined in indeed .
+the way the linearized error propagates has already been computed and consists of , which is the same as the first equation of .
+it exactly matches what can be expected from the general theory , that is , equation , recalling that @xmath282 of is the map @xmath338 of the group @xmath273 indeed .              extending the group @xmath266 to the 3d case , and applying the general iekf theory of section [ gen : iekf ] , we derive in the present section an iekf for 3d slam . due to space limitations
+an as it is not the primary object of the present paper we pursue extreme brevity of exposure .
+see also @xcite .
+note that , although the 3d slam equations make use of rotation matrices , they are in fact totally intrinsic : when using quaternions ( recommended ) or euler angles ( not recommended ) they write the same as the group @xmath342 we introduce does in fact not depend on a specific representation of rotations .
+the equations of the robot in 3d and in continuous time write : @xmath343 where @xmath344 is a rotation matrix that represents the robot s orientation at time @xmath345 , @xmath346 denotes the angular velocity of the robot measured by a gyrometer or by odometry ( in combination with a unicycle model for a terrestrial vehicle ) , @xmath347 the velocity in the robot s frame , and @xmath348 is the position of landmark @xmath47 , and where @xmath349 for @xmath350 denotes the skew symmetric matrix of @xmath351 such that for any @xmath352 we have @xmath353 .
+finally @xmath354 and @xmath355 denote ( resp . ) the noise on angular and linear velocities .
+although the theory of iekf could very well be applied directly to this continuous time dynamics as in @xcite , we apply it here to a discretized model , to be consistent with the rest of the article .
+although exact discretization of the noisy model on the group is beyond reach @xcite , letting @xmath356 be the time step , the following first - order integration scheme is widely used : @xmath357\omega_n , \quad   x_n   = x_{n-1}+r_{n-1 } ( v_n+ w_n^v ) , \\   p_n^j & = p_{n-1}^j,\quad 1\leq j\leq k \end{aligned}\ ] ] where the increments @xmath358 are obtained solving the noise - free initial conditions during the @xmath62-th time step with initial condition @xmath359 , and where the following discrete noise @xmath360 is obtained by integration of the corresponding white noises .
+note that , this scheme is accurate to first - order terms in @xmath356 .
+a general landmark observation in the car s frame reads : @xmath361+v_n^1 \\ \vdots \\ \tilde h \left [ r_n^t \left ( p^k - x_n \right ) \right]+v_n^k   \end{pmatrix}\ ] ] where @xmath362 ( or @xmath363 for monocular visual slam ) is the observation of the features at time step @xmath62 , and @xmath8 the observation noise .
+we let the output noise covariance matrix be @xmath364 ( not to be confused with the rotation @xmath35 ) .
+the lie group that underlies the problem is the group @xmath365 that we introduce as follows . for @xmath366 and @xmath367
+let @xmath368    \vdots & \\[-0.5ex ]    0_{1,3 }   & \end{array } \right)\ ] ] and let @xmath369 be defined as @xmath370and denote it by @xmath365 .
+we then have @xmath371    \vdots & \\[-0.5ex ]    0_{1,3 }   & \end{array } \right)$ ] and @xmath372 .
+for @xmath373 , by extension of the @xmath374 results , we have the closed form : @xmath375 where @xmath376 .
+as easily seen by analogy with @xmath374@xmath377    \vdots & \\[-0.5ex ]    ( p^k)_\times r   & \end{array } \right)\end{aligned}\ ] ]      let the state be @xmath378 , and let @xmath379 be @xmath380 , and let @xmath116 and @xmath381 be their estimated counterparts .
+it is easily seen that up to terms that will disappear in the linearization process anyway , the model for the state is mapped through @xmath382 defined at , to a model of the form .          using the matrix logarithm ,
+define @xmath384 as the solution of @xmath385 = r\hat r^{t}$ ] . neglecting terms of order @xmath386
+, we have @xmath387 . a first order identification as in appendix [ lnz : sec ] thus yields @xmath388 as a vector that satisfies the definition @xmath389 up to terms of order @xmath390 ) .
+as in the standard ekf theory , the iekf propagates an estimate obtained after the previous observation @xmath10 through the deterministic part of , or equivalently in matrix form .
+thus , the propagation equation is given by where @xmath391 and @xmath392 as a direct application of the theory .
+let @xmath391 , @xmath32 as in , @xmath396 using define @xmath33 by .
+@xmath397 is the observation noise cov .
+propagation * for all @xmath72 @xmath38 * update * @xmath398 \\ \vdots \\ \tilde h \left [ r_{n|n-1}^t \left ( \hat p^k_{n|n-1}- \hat x_{n|n-1 } \right ) \right ]   \end{pmatrix}$ ] @xmath399 , @xmath41 @xmath42p_{n|n-1 } $ ]        t. bailey , j. nieto , j. guivant , m. stevens , and e. nebot
+. consistency of the ekf - slam algorithm . in _ intelligent robots and systems , 2006
+ieee / rsj international conference on _ , pages 35623568 .
+ieee , 2006 .
+s.  bonnabel , p.  martin , and e.  salaun .
+invariant extended kalman filter : theory and application to a velocity - aided attitude estimation problem . in _
+ieee conference on decision and control _ , pp .
+1297 - 1304 , 2009 .
+g.  p. huang , a. mourikis , st .
+an observability - constrained sliding window filter for slam . in _ intelligent robots and systems ( iros ) , 2011
+ieee / rsj international conference on _ , pages 6572 .
+ieee , 2011 .
+g.  p. huang , a.  i. mourikis , and s.  i roumeliotis .
+analysis and improvement of the consistency of extended kalman filter based slam . in _ robotics and automation , 2008 .
+icra 2008 .
+ieee international conference on _ , pages 473479 .
+ieee , 2008 .
+s.  j. julier and j.  k. uhlmann . a counter example to the theory of simultaneous localization and map building . in _ robotics and automation , 2001 .
+proceedings 2001 icra .
+ieee international conference on _ , volume  4 , pages 42384243 .
+ieee , 2001 .
+k.  w. lee , w.  s. wijesoma , and j.  i. guzman . on the observability and observability analysis of slam . in _ intelligent robots and systems ( iros ) , 2006
+ieee / rsj international conference on _ , pages 35693574 .
+ieee , 2006 .
+a.  martinelli , n.  tomatis , and r.  siegwart .
+some results on slam and the closing the loop problem . in _ intelligent robots and systems ( iros ) , 2012
+ieee / rsj international conference on _ , pages 334339 .
+ieee , 2005 .
+s. thrun , y. liu , d. koller , a. y. ng,2 .
+ghahramani and h. durrant - whyte . simultaneous localization and mapping with sparse extended information filters . in _ the international journal of robotics research _ , 23(7 - 8 ) : 693 - 716 , 2004 .
+l. zhao , s. huang , and g. dissanayake .
+linear slam : a linear solution to the feature - based and pose graph slam based on submap joining . in _ intelligent robots and systems ( iros ) , 2013
+ieee / rsj international conference on .
+_ ieee , 2013 .

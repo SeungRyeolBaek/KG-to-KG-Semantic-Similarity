@@ -1,0 +1,192 @@
+in terms of the role in increasing the efficiency and aggregate network throughput , cognitive radio concept plays differently than the conventional spectrum allocation methods  @xcite . in cognitive networks ,
+unlicensed secondary users opportunistically access radio bandwidth owned by licensed primary users in order to maximize their performance , while limiting interference to primary users communications .    previously , cognitive radio mostly focused on a white space approach  @xcite , where the secondary users are allowed to access only those time / frequency slots left unused by the licensed users .
+white space approach is based on zero interference rationale .
+but , due to noise and fading in channel and mechanism of channel sensing , errors in measurement are inevitable  @xcite .
+therefore , in practical scenarios , there is some probability of having collision between primary and secondary users , which can be measured and used as a constraint for the optimization problem .
+there are some works investigating the coexistence of primary / secondary signals in the same time / frequency band by focusing on physical layer methods for static scenarios , e.g. ,  @xcite .
+considering the dynamism while superimposition of primary and secondary users on the same time / frequency slot , a strategy of secondary user has been derived where the primary user operates in slotted arq based networks  @xcite .
+we consider ieee 802.11 based networks where primary users follow dcf protocol in order to access the channel . unlike the work  @xcite , in our contemporary work  @xcite ,
+we have developed a transmission strategy for the secondary user which picks a backoff counter intelligently or remains idle after having a transmission in a multiplexed manner .
+as the user needs to pass difs and backoff time period before flushing a packet into the air , the secondary user does not know the exact state of the primary user .
+therefore , the performace constraint of the primary user plays a great role in the decision making process of secondary user .
+our previous work revealed solution by formulating the problem as linear program being assumed that secondary user does know the traffic arrival distribution of primary user .    as this approach assumes that the secondary transmitter has some knowledge of the current state and probabilistic model of the primary transmitter / receiver pair , limiting its applicability .
+for example , while it is likely that the secondary might read acks for the primary system , it is unlikely that the secondary will have knowledge of the pending workload of packets at the primary transmitter or will know the distribution of packet arrivals at the primary transmitter .
+therefore , we address this limitation by developing an on line learning approach that uses one feedback bit sent by the primary user and that approximately converges to the optimal secondary control policy .
+we will show that when the secondary user has access to such tiny knowledge , an online algorithm can obtain performance similar to an offline algorithm with some state information .
+rest of the paper is organized as follows , section  [ sec : sysmodel ] illustrates system model of the network , which includes the detailed optimization problem and solution thereafter .
+results obtained from simulation have been shown in section  [ sec : perfeval ] in order to verify the efficacy of the algorithm .
+finally section  [ sec : concl ] concludes the paper .
+we consider interference mitigation scenario in ieee 802.11 based networks .
+the prime assumption on the interference mitigation strategy is that both users can decode their packets with some probability when they transmit together or individually .
+however , secondary user is constrained to cause no more than a fixed maximum degradation of the primary s performance .
+this approach is the other end of white space one .
+if primary user can not tolerate any loss , the optimal strategy for the secondary user is not to transmit at all .
+whereas in the work  @xcite , secondary user can detect the slot occupancy and can only transmit in the slots which it finds empty and therefore incurs some throughput even if primary user can not tolerate any throughput loss .
+consider the network in figure  [ fig : sysmodel ] with a primary and secondary source , namely @xmath0 and @xmath1 .
+destination of these source nodes are @xmath2 and @xmath3 respectively .
+we assume a quasi static channel , and time is divided into slots . before initiating a packet transmission ,
+both users first undergo difs period and decrements the backoff counter which is as large as each single time slot . while decrementing backoff counter , if the station detects a busy channel , it halts its decrementing process and resumes until it detects idle channel for the length of difs period .
+when the counter reaches to zero , packet is flushed out into the air .
+packets have a fixed size of l - bits , and transmission of a packet plus its associated feedback message fits the duration of a slot . ideally , packet transmission time is variable , but in this work for the sake simplicity , it is constant i.e. multiple of some slots .
+we denote by @xmath4 , @xmath5 , @xmath6 and @xmath7 , the random variables corresponding to the channel coefficients respectively between @xmath0 and @xmath2 ; @xmath0 and @xmath3 ; @xmath1 and @xmath3 ; @xmath1 and @xmath2 with @xmath8 , @xmath9 , @xmath10 and @xmath11 their respective probability distribution . the average decoding failure probability at the primary destination @xmath2 associated with a silent secondary source is denoted by @xmath12 , while the same probability when the secondary source transmits is @xmath13 .
+analogously , the average decoding failure probability at the secondary destination @xmath3 when the primary source is silent and transmitting is denoted with @xmath14 and @xmath15 respectively .    control protocols implemented by the primary user is greatly impacted by the secondary user s transmission as discussed in the above paragraph .
+thus , it degrades the primary user s performance and this manner is true for the secondary user as well .
+however , the goal of the system design is to optimize secondary user s performance without doing harm to the primary user in some extent .
+therefore , upon receiving the feedback from the primary user , secondary one adjusts its transmission policy .
+packet arrival at the primary user is designed as a poisson arrival process with the parameter @xmath16 .
+the state of the network can be modeled as a homogeneous markov process .
+two parameters ( backoff stage , counter value ) referred to as ( b , c ) describe the state of a user , where @xmath17 can take any value between 0 and @xmath18 .
+backoff stage b varies from 1 to maximum backoff stage @xmath19 .
+here , @xmath19 is the maximum retry limit . having a transmission failure , each packet is attempted by the primary user for retransmission at most @xmath19 times . at each backoff stage , if a station reaches state @xmath20 ( i.e. backoff counter value becomes 0 ) , the station will send out a packet .
+if the transmission failure occurs at this point with some probability , the primary user moves to higher backoff stage @xmath21 with probability @xmath22 .
+if successful packet transmission happens , the primary user goes to idle state @xmath23
+( if there is no outstanding packet in queue ) or in the initial backoff stage having picked some backoff counter with the probability of @xmath24 .
+markov chain model of primary user has been illustrated in figure  [ fig : primmarkov ] .
+secondary user tries each packet only once , after having transmission , it goes to idle state with some probability or picks a backoff counter @xmath25 with probability @xmath26 for the transmission of new packet from the queue .
+note that , secondary user s packet is assumed as backlogged or there is always one packet in the queue .
+however , in order to meet the performance loss constraint of primary user , secondary user needs to keep silent and therefore we have introduced a fake variable @xmath27 i.e. secondary user s packet arrival rate .
+markov chain model for the secondary user has been shown in figure  [ fig : secmarkov ] . in both figures ,
+@xmath28 and @xmath29 are function of @xmath16 and @xmath27 .
+detailed state transitions and steady state distribution of the problem have been skipped in this work due to space constraint .
+goal of this work to find a optimal strategy for the secondary limiting the performance loss of primary user .
+let us define the cost functions @xmath30 as the average cost incurred by the markov process in state @xmath31 if action @xmath32 is chosen .
+note that , @xmath33 represents the secondary source keeps silent and @xmath34 represents the picking of a backoff counter from secondary backoff counter window i.e. @xmath35 $ ] . and , average generic cost function yields to    @xmath36\ ] ]    where @xmath37 is the sequence of actions of the secondary source and @xmath38 is an exogenous random variable which is not instantaneously obtained due to protocol specific behavior .
+for example , if secondary user picks a backoff counter @xmath25 , it has to go through first difs and @xmath25 times backoff slots before having transmission .
+while passing through the backoff slots , it might be halted by the transmission of primary user and reduces the overall throughput than the case of not being halted .
+this incidence is also true for the primary user as well .
+moreover , state variable @xmath39 is not explicit to the secondary user , because secondary user does not know if the primary user is in backoff stage or in idle slot .
+however , secondary user can sense the primary user s presence if the primary user transmits in a slot .
+considering all these issues , our high level cost functions have been derived below .
+@xmath40    @xmath41 and @xmath42 are the instantaneous calculated secondary user s throughput assuming the failure probability of transmitted packet is @xmath43 and @xmath44 respectively .
+as discussed previously , @xmath44 and @xmath43 are the failure probability of secondary user s transmitted packet when primary user transmits and does not transmit respectively . besides these two cases , @xmath45 is just the throughput of secondary user considering the current time slot as we know secondary user s queue is backlogged .
+sitting idle in other s transmission time and backoff slots are taken account into the calculation of throughput .
+@xmath46    and again , @xmath47 can be interpreted as the fraction of time slots in which the primary source fails the last allowed transmission and the packet would not be delivered and @xmath48 is the fraction of time slots where the primary begins the service of a new packet . in this paper
+we define the failure probability as the average ratio of dropped packets after @xmath19 retransmission , to the total number of new packets sent , one can see that @xmath49 is equivalent to the failure probability of the primary source s packets .
+the optimization problem is then given by    @xmath50    it is shown in  @xcite that the optimization problem in equation  [ eq : opt - prob ] is solved by formulating the problem as a linear program .
+parameters in the formulation have been derived from the steady state distribution of the markov chain .
+finally , the obtained optimal strategy has been denoted by a vector @xmath51 .
+elements of this vector holds the proportion of time secondary user keeps silent or in which probability should it picks the backoff counter from the given contention window .
+solution needs a little brute force search with some standard policy that have been proven analytically .
+the offline solution of the optimization problem requires full knowledge of state @xmath39 , which corresponds to the transmission index and queue state of the primary source , as well as knowledge of the transition probabilities and cost functions .
+however , the full knowledge of @xmath39 requires an explicit exchange of information .
+we address this limitation in two steps .
+first , by assuming that the secondary only has information about what can be directly observed about the primary , and second , by using an on line learning technique that learns the necessary parameters without requiring knowledge of the transition probabilities .    by sensing the channel ,
+primary user can not instantaneously detect the channel condition as primary user follows dcf protocol .
+therefore , there is no way to get the information about the state of the primary user when it is in backoff state or in idle state i.e. primary user s queue is empty .
+secondary user can get to know if primary user transmits in a certain slot by sensing the channel . in some cases
+, secondary user can get knowledge if primary user s transmitted packet is new or old .
+the header includes the sequence number of the packet , which increases if the transmitted packet is a new one and remains the same if it is a retransmission .
+however , when the retransmitted packet reaches to its maximum limit , there is no way for the secondary user to know , in the next slot whether it will go through another backoff stage with fresh packet , since the buffer state is completely unknown to the secondary user .
+even though primary user can gather such little information , in the proposed solution , secondary user does not rely on these information .
+rather , the proposed solution depends on a simple bit which indicates whether the performance constraint of the primary user is satisfied in the current time slot or not .
+this information is sent by the primary user as piggy backed form in either ack or the actual packet s header . having this information ,
+secondary user regulates its transmission strategy .
+it is shown in the following section via numerical results that this such partial knowledge is sufficient to implement a learning algorithm operating close to the limit provided by full state knowledge .
+note that , the state of the primary user is overlooked here , it does not help in the decision making process of the secondary user .
+rather the cost functions are most important driving factor of the proposed online algorithm .
+most approaches to optimal control require knowledge of an underlying probabilistic model of the system dynamics which requires certain assumptions to be made , and this entails a separate estimation step to estimate the parameters of the model .
+in particular , in our optimization paradigm  @xcite , the optimal randomized stationary policy can be found if the failure probabilities @xmath52 , @xmath53 , @xmath43 , @xmath44 are known to the secondary user , together with some knowledge of state @xmath54 . in this section
+we describe how we can use an adaptive learning algorithm called q - learning  @xcite to find the optimal policy without a priori knowledge about our probabilistic model .
+the q - learning algorithm is a long - term average reward reinforcement learning technique .
+it works by learning an action - value function @xmath55 that gives the expected utility of taking a given action @xmath56 in a given state @xmath54 and following a fixed policy thereafter .
+intuitively , the q - function captures the relative cost of the choice of a particular allocation for the next time - step at a given state , assuming that an optimal policy is used for all future time steps .
+q - learning is based on the adaptive iterative learning of q factors .
+however , as discussed previously , it is almost impossible to get to know about the information of primary user s current state and thus it ignores the current state @xmath39 while learning the system and behavioral parameters of primary user .
+since , secondary user overlooks current state @xmath39 while taking any action , we can call it as the variant of markov decision process(mdp ) .
+the original mdp means , the agent takes action based on the current state of the environment .
+no matter , secondary user follows mdp or variant of mdp , it needs to fix a cost function which is typically named as reward .
+ultimate reward of the secondary user is its own throughput i.e. @xmath57 which it wants to maximize .
+however , in order to maximize throughput , we have adopted some indirect approach to get the maximized value of @xmath57 .
+cost function is associated with the action of secondary user .
+proability of each action of secondary user is resided in the vector @xmath58 $ ] .
+length of this vector is @xmath59 ( @xmath60 is backoff window size of secondary user ) .
+index @xmath61 denotes the proportion of time secondary user keeps itself silent , subsequent indexes @xmath62 denote the portion of time backoff counter @xmath63 is chosen by the secondary user .
+as discussed previously , outcome of secondary user s action is not obtained instantaneously until the secondary user has its transmission . due to the interaction of secondary and primary user , the obtained throughput from each action vary and our cost function is the obtained average throughput ( added to the long term average throughput ) resultant from the taken action .
+let @xmath64 is the average throughput of secondary user while taking the action @xmath56 and @xmath65 is the average throughput when the secondary user really completes its packet transmission .
+then , the cost function at time @xmath66 is defined as follows :    @xmath67    and our optimization problem thus stands to    @xmath68\ ] ]    and the q - learning algorithm for solving equation  [ eq : opt ] is illustrated as follows .
+* * step 1 : * let the time step @xmath69 .
+initialize each element of reward vector @xmath70 as some small number , such as 0 .
+* * step 2 : * check if the constraint of the primary user is satisfied . if not , choose the action of @xmath33 . otherwise , choose the action @xmath56 with index @xmath71 $ ] that has the highest @xmath72 value with some probability say @xmath73 , else let @xmath56 be a random exploratory action .
+in other words , + @xmath74 * * step 3 : * carry out action @xmath75 .
+wait until secondary user completes its transmission if it picks any backoff counter .
+or secondary user may choose the option of being silent .
+in either case , calculate the cost function @xmath76 and update the reward variable for the corresponding action .
+if the current state is @xmath54 and the resultant state is @xmath77 after taking the action @xmath75 , reward is updated as follows .
++ @xmath78 * * step 4 : * set the current state as @xmath77 and repeat step 2 . when convergence is achieved , set @xmath79 .
+this is the typical q - learning algorithm . in our case
+, we do nt know the primary user s exact current state and also do nt know what the next state will be . therefore the equation  [ eq : q - learning ] reduces to    @xmath80    in order to obtain the optimal value of @xmath81 , we have found the following theorem .
+* theorem 1 : * step size parameter @xmath82 gives the convergence to the algorithm .
+* proof : * the choice @xmath82 results in the sample - average method , which is guaranteed to converge to the true action values by the law of large numbers . a well - known result in stochastic approximation theory gives us the conditions required to assure convergence with probability 1 :    @xmath83
+the first condition is required to guarantee that the steps are large enough to eventually overcome any initial conditions or random fluctuations .
+the second condition guarantees that eventually the steps become small enough to assure convergence .
+note that , both convergence conditions are met for the sample - average case , @xmath82 .
+in this section we will evaluate the performace of our online algorithm .
+in addition , we have compared performance of this algorithm with the algorithm which has some information of primary user as presented in our work  @xcite . throughout the simulation , we assume that the buffer size of the primary source is @xmath84 and the maximum retransmission time is @xmath85
+. backoff window size in each stage is 4 , 6 , 8 , and 10 respectively .
+secondary user s backoff window size is as @xmath86 .
+we set the failure probabilities for the transmission of the primary source @xmath87 , @xmath88 , depending on the fact that secondary is silent or not , respectively .
+similarly , the failure probabilities of the secondary source are set to be @xmath89 .
+note that these failure probabilities are not known at the secondary source and it has to learn the optimal policy without any assumption on these parameters in advance .
+once again , the goal of the algorithm is to maximize the throughput of the secondary source .     and @xmath90    figure  [ fig : thrput - convergence ] depicts the convergence of secondary and primary user s throughput from 0th iteration to some number of iterations .
+throughput loss is defined as the difference between maximum achievable throughput and instantaneous throughput at a particular slot . from the given parameters ,
+maximum achievable throughput is calculated considering only a single user ( primary or secondary ) is acting on the channel .
+we see the convergence of throughput loss happens after a few iterations .
+and @xmath90    in order to extrapolate the cost functions of our algorithm , we also have shown convergence process of two actions picked up by the secondary user , i.e. probability of picking backoff counter 0 and 1 respectively in the figure  [ fig : reward - convergence ] .
+we have initialzed cost of all actions at time slot zero .
+as the algorithm moves along with time , it updates its average reward according the formula presented in the algorithm .
+the algorithm is more prone to pick backoff counter with lower value that will be shown in the subsequent figures .
+however , in terms of general rule , algorithm does not pick the same action repeatedly .
+this is because , due to the interaction between primary and secondary users , the repeated action may cause to the degradation of the primary user s performance or it may degrade its own average reward value than the other actions .
+consequently , the algorithm moves to the other action and the average reward value over the time for different actions look similar .    ]
+figure  [ fig : secthrput - comparison ] shows the throughput of primary and secondary source with the increased packet arrival rate @xmath16 for a fixed tolerable primary source s throughput loss . as expected , throughput of the secondary source decreases as @xmath16 is increased gradually .
+a larger @xmath16 means that the primary source is accessing the channel more often .
+therefore , the number of slots in which the secondary source can transmit while meeting the constraint on the throughput loss of the primary source decreases .
+in addition , in this figure , we have projected the result obtained by our optimal algorithm  @xcite .
+optimal algorithm though due to the protocol behavior is not fully aware of state of the system , has some better information than our proposed online algorithm .
+therefore , it incurs better performance in terms of achievable throughput for different @xmath16 value . whereas
+, our online algorithm though does not look like have similar performance , but gains better one than other blind generic algorithm .
+generic algorithm means , here secondary user picks its backoff counter uniformly . with this strategy
+, we see the performance for the secondary user is the worst .
+even worst news is that , this algorithm is completely blind about the performance constraint of primary user .    ]
+figure  [ fig : secstrategy - comparison ] compares the obtained secondary user s strategy for both our optimal and online algorithms .
+we have presented the proportion of idle slots and probability of picking backoff counter 0 . for the sake of page limit ,
+we have skipped other results here . in this result
+apparently , we do nt see any match between two algorithms .
+however , we can explain the difference .
+in fact , online algorithm is mostly dependent on the primary user performance loss violation indicator and its own reward value for different actions .
+it tries to pick the action with maximum value , which is usually the backoff counter with lower value .
+otherwise , upon the signal of constraint violation , it keeps silent .
+therefore , we see that online algorithm puts more weights to the backoff of lower value and again backoff counter of lower value breaks the constraint more often and thus it keeps more silent than offline algorithm . whereas , optimal algorithm knows the arrival rate of primary user , it runs a near brute - force algorithm in order to find the optimal strategy of secondary user .
+we have proposed an on line learning approach in interference mitigation adopted ieee 802.11 based networks for the cognitive user .
+our approach relies only on the little performance violation feedback of the primary transmitter and uses q - learning to converge to nearly optimal secondary transmitter control policies .
+numerical simulations suggest that this approach offers performance that is close to the performance of the system when complete system state information is known .
+although , the strategy of both algorithms does not follow the exactly similar trend .
+q.  zhao , l.  tong , a.  swami , and y.  chen , `` decentralized cognitive mac for opportunistic spectrum access in ad hoc networks : a pomdp framework , '' _ ieee journal on selected areas in communications _ ,
+vol .  25 , no .  3 , pp . 589 600 , apr .
+o.  simeone , y.  bar - ness , and u.  spagnolini , `` stable throughput of cognitive radios with and without relaying capability , '' _ communications , ieee transactions on _ , vol .
+55 , no .  12 ,
+2351 2360 , dec .
+h.  su and x.  zhang , `` cross - layer based opportunistic mac protocols for qos provisionings over cognitive radio wireless networks , '' _ selected areas in communications , ieee journal on _ , vol .
+26 , no .  1
+118 129 , jan .
+2008 .
+y.  chen , q.  zhao , and a.  swami , `` joint design and separation principle for opportunistic spectrum access in the presence of sensing errors , '' _ information theory , ieee transactions on _ , vol .
+54 , no .  5 , pp .
+2053 2071 , may 2008 .
+w.  zhang and u.  mitra , `` spectrum shaping : a new perspective on cognitive radio - part i : coexistence with coded legacy transmission , '' _ communications , ieee transactions on _ , vol .
+58 , no .  6 , pp .
+1857 1867 , june 2010 .
+y.  xing , c.  n. mathur , m.  haleem , r.  chandramouli , and k.  subbalakshmi , `` dynamic spectrum access with qos and interference temperature constraints , '' _ mobile computing , ieee transactions on _ , vol .  6 , no .  4 , pp . 423 433 , april 2007 .
+ , `` cognitive interference management in retransmission - based wireless networks , '' in _ communication , control , and computing , 2009 .
+allerton 2009 .
+47th annual allerton conference on _
+, 30 2009-oct . 2 2009 , pp .
+94 101 .
+r.  ruby and v.  c. leung , `` determining the transmission strategy of congnive user in ieee 802.11 based networks , '' the university of british columbia , tech .
+rep . , 2011 .
+[ online ] .
+available : http://www.ece.ubc.ca/~rukhsana/files/icc2012.pdf      s.  mahadevan , `` average reward reinforcement learning : foundations , algorithms , and empirical results , '' _ mach .
+_ , vol .  22 , pp .
+159195 , january 1996 .
+[ online ] .
+available : http://dl.acm.org/citation.cfm?id=225667.225681

@@ -1,0 +1,322 @@
+the purpose of this paper is to outline the fundamental role the mittag - leffler function in renewal processes that are relevant in the theories of anomalous diffusion . as a matter of fact the interest in this function in statistical physics and probability theory
+has recently increased as is shown by the large number of papers published since 1990 of which a brief ( incomplete ) bibliography includes . in this paper
+we develop a theory for long - time behaviour of a renewal process with a generic power law waiting distribution of order @xmath1 , @xmath2 ( thereby for easy readability dispensing with decoration by a slowly varying function ) . to bring the distant future into near sight we change the unit of time from @xmath3 to @xmath4 , @xmath5 . for the random waiting times
+@xmath6 this means replacing @xmath6 by @xmath7 .
+then , having very many events in a moderate span of time we compensate this compression by respeeding the whole process , actually slowing it down so that again we have a moderate number of events in a moderate span of time .
+we will relate the rescaling factor @xmath8 and the respeeding factor @xmath9 in such a way that in the limit @xmath10 we have a reasonable process , namely one whose waiting time distribution is the mittag - leffler waiting time distribution whose density is @xmath11 with the mittag - leffler function @xmath12 we will call the renewal process with waiting time density @xmath13 the _ mittag - leffler ( renewal ) process_. this process can be seen as a fractional generalization of the poisson process , see @xcite .
+our method is , in some sense , analogous to the one applied in the sixties of the past century by gnedenko and kovalenko @xcite in their analysis of _ thinning _ ( or _ rarefaction _ ) of a renewal process .
+they found , under certain power law assumptions , in the infinite thinning limit , for the waiting time density the laplace transform @xmath14 but did not identify it as a mittag - leffler type function . in section 2 ,
+we provide , in our notation , an outline of the thinning theory for renewal processes essentially following gnedenko and kovalenko .
+their method has inspired us for the reatment of our problems . as we consider our renewal process formally as a _ continuous time random
+walk _ ( ctrw ) with constant non - random jumps 1 in space ( for the counting function @xmath15 , in section 3 we embed ab initio our theory into that of the ctrw , thus being in the position to treat the theory of a time fractional ctrw as limiting case of a ctrw with power law waiting time distribution . in this context
+the pioneering paper by balakrishnan @xcite of 1985 deserves to be mentioned .
+balakrishnan already found the importance of the laplace transform @xmath16 in the time fractional ctrw and time fractional diffusion , but also did not identify it as the laplace transform of @xmath13 .
+then , in 1995 hilfer and anton @xcite , see also @xcite , showed that this waiting time density is characteristic for the time fractional ctrw and can be expressed in terms of the mittag - leffler function in two parameters , that is @xmath17 with the generalized mittag - leffler function @xmath18 the form ( 1.3 ) is equivalent to the form ( 1.1 ) that we prefer as it exhibits visibly also the cumulative probability function , the _ survival function _
+, @xmath19 .
+we explain in section 4 two manipulations , _ rescaling _ and _ respeeding _ and use these in section 5 to deduce the asymptotic universality of the mittag - leffler waiting time density under a power law assumption for the original waiting time .
+then , in section 6 , assuming a suitable power law also for the spatial jumps we show that by a rescaling of the jump widths by a positive factor @xmath20 ( that means a change of the unit of space from 1 to @xmath21 to bring into near sight the far - away space ) another respeeding is effected , now an acceleration , that in the limit @xmath22 ( under a proper relation between @xmath20 and @xmath8 ) leads to space - time fractional diffusion . in section 7
+, we pass to a properly scaled limit for the counting function @xmath15 of a renewal process ( again under power law assumption ) and obtain the time fractional drift process ( viewing @xmath15 as a spatial variable ) .
+we will extensively work with the transforms of laplace and fourier , so easing calculations and proofs of _ convergence in distribution _ ( also called  weak convergence " ) for our passages to the limit .
+essentially , we treat in this paper three topics .
+first , in section 2 , the thinning of a pure renewal process .
+second , in sections 3 - 6 , under power law assumption for the waiting time , the asymptotic relevance of the mittag - leffler law , and then the general ctrw with special attention to space and time transition limits to fractional diffusion . as a third topic , in section 7
+, we investigate the long time behaviour of the mittag - leffler renewal process .
+essential properties of the derivative of fractional order in time and in space are given in appendix a and appendix b , respectively .
+finally , in appendix c we give details on the two special functions of the mittag - leffler type that play a fundamental role in this paper , the mittag - leffler survival probability and the mittag - leffler waiting time density .
+the _ thinning _ theory for a renewal process has been considered in detail by gnedenko and kovalenko @xcite .
+we must note that other authors , like szntai @xcite speak of _ rarefaction _ in place of thinning .
+let us sketch here the essentials of this theory : in the interest of transparency and easy readability we avoid the possible decoration of the relevant power law by multiplying it with a _ slowly varying function_. as usual we call a ( measurable ) positive function @xmath23 _ slowly varying at zero _ if @xmath24 with @xmath25 for every @xmath26 , _ slowly varying at infinity _ if @xmath24 with @xmath27 for every @xmath26 .
+a standard example of a slowly varying function at zero and at infinity is @xmath28 , with @xmath29 .
+denoting by @xmath30 , @xmath31 the time instants of events of a renewal process , assuming @xmath32 , with @xmath33 waiting times @xmath34 for @xmath35 , ( generically denoted by t ) , _ thinning _ ( or _ rarefaction _ ) means that for each positive index @xmath36 a decision is made : the event happening in the instant @xmath37 is deleted with probability @xmath38 or it is maintained with probability @xmath39 , @xmath40 .
+this procedure produces a _ thinned _ or _ rarefied _ renewal process with fewer events ( very few events if @xmath41 is near zero , the case of particular interest ) in a moderate span of time . to compensate for this loss we change the unit of time so that we still have not very few but still a moderate number of events in a moderate span of time
+such change of the unit of time is equivalent to rescaling the waiting time , multiplying it with a positive factor @xmath8 so that we have waiting times @xmath42 , and instants @xmath43 , in the rescaled process .
+our intention is , vaguely speaking , to dispose on @xmath8 in relation to the rarefaction parameter @xmath41 in such a way that for @xmath41 near zero in some sense the  average " number of events per unit of time remains unchanged . in an asymptotic sense
+we will make these considerations precise . denoting by @xmath44 the probability distribution function of the ( original ) waiting time @xmath6 , by @xmath45 its density ( @xmath45 is a generalized function generating a probability measure ) so that @xmath46 , and analogously by @xmath47 and @xmath48(t ) the distribution and density , respectively , of the sum of @xmath36 waiting times , we have recursively @xmath49 observing that after a maintained event the next one of the original process is kept with probability @xmath41 but dropped in favour of the second - next with probability @xmath50 and , generally , @xmath51 events are dropped in favour of the @xmath52-th - next with probability @xmath53 , we get for the waiting time density of the thinned process the formula @xmath54 with the modified waiting time @xmath55 we have @xmath56 hence the density @xmath57 , and analogously for the density of the sum of @xmath52 waiting times @xmath58 .
+the density of the waiting time of the rescaled ( and thinned ) process now turns out as @xmath59 in the laplace domain we have @xmath60 hence ( using @xmath61 ) @xmath62 from which by laplace inversion we can , in principle , construct the waiting time density of the thinned process . by rescaling we get @xmath63 being interested in stronger and stronger thinning ( _ infinite thinning _ )
+let us now consider a scale of processes with the parameters @xmath64 ( of _ rescaling _ ) and @xmath41 ( of _ thinning _ ) , with @xmath41 tending to zero _ under a scaling relation @xmath65 yet to be specified_. we have essentially two cases for the waiting time distribution : its expectation value is finite or infinite . in the first case we put @xmath66 in the second case
+we assume a queue of power law type ( dispensing with a possible decoration by a function slowly varying at infinity ) @xmath67 then , by the karamata theory ( see @xcite ) the above conditions mean in the laplace domain @xmath68 with a positive coefficient @xmath69 and @xmath2 .
+the case @xmath70 obviously corresponds to the situation with finite first moment ( 2.6a ) , whereas the case @xmath71 is related to a power law queue with @xmath72 now , passing to the limit of @xmath73 of infinite thinning under the scaling relation @xmath74 between the positive parameters @xmath41 and @xmath8 , the laplace transform of the rescaled density @xmath75 in ( 2.5 ) of the thinned process tends for fixed @xmath76 to @xmath77 which corresponds to the mittag - leffler density @xmath78 let us remark that gnedenko and kovalenko obtained ( 2.9 ) as the laplace transform of the limiting density but did not identify it as the laplace transform of a mittag - leffler type function . observe that in the special case @xmath79 we have @xmath80 , hence as the limiting process the poisson process , as formerly shown in 1956 by rnyi @xcite .
+the name _ continuous time random walk _ ( ctrw ) became popular in physics after montroll , weiss and scher ( just to cite the pioneers ) in the 1960 s and 1970 s published a celebrated series of papers on random walks for modelling diffusion processes on lattices , see @xcite , and the book by weiss @xcite with references therein .
+ctrws are rather good and general phenomenological models for diffusion , including processes of anomalous transport , that can be understood in the framework of the classical renewal theory , as stated in the booklet by cox @xcite .
+in fact a ctrw can be considered as a compound renewal process ( a simple renewal process with reward ) or a random walk _ subordinated _ to a simple renewal process .
+a spatially one - dimensional ctrw is generated by a sequence of independent identically distributed ( @xmath81 ) positive random waiting times @xmath82 each having the same probability density function @xmath83 @xmath84 and a sequence of @xmath81 random jumps @xmath85 in @xmath86 each having the same probability density @xmath87 @xmath88 let us remark that , for ease of language , we use the word density also for generalized functions in the sense of gelfand & shilov @xcite , that can be interpreted as probability measures .
+usually the _ probability density functions _ are abbreviated by @xmath89 .
+we recall that @xmath90 with @xmath91 and @xmath92 with @xmath93 . setting @xmath94 @xmath95 for @xmath96
+the wandering particle makes a jump of length @xmath97 in instant @xmath30 , so that its position is @xmath98 for @xmath99 and @xmath100 for @xmath101 we require the distribution of the waiting times and that of the jumps to be independent of each other .
+so , we have a compound renewal process ( a renewal process with reward ) , compare @xcite . by natural probabilistic arguments we arrive at the _ integral equation _ for
+the probability density @xmath102 ( a density with respect to the variable @xmath103 ) of the particle being in point @xmath103 at instant @xmath104 see @xcite , @xmath105\,dt'\ , , \eqno(3.1)\ ] ] in which the _ survival function _
+@xmath106 denotes the probability that at instant @xmath107 the particle is still sitting in its starting position @xmath108 clearly , ( 3.1 ) satisfies the initial condition @xmath109 .
+note that the _ special choice _ @xmath110 gives the _ pure renewal process _
+, with position @xmath111 , denoting the _ counting function _ , and with jumps all of length 1 in positive direction happening at the renewal instants . for many purposes the integral equation ( 3.1 ) of ctrw can be easily treated by using the laplace and fourier transforms .
+writing these as @xmath112 @xmath113 then in the laplace - fourier domain eq .
+( 3.1 ) reads @xmath114 introducing formally in the laplace domain the auxiliary function @xmath115 and assuming that its laplace inverse @xmath116 exists , we get , following @xcite , in the laplace - fourier domain the equation @xmath117 =    \left [ \widehat w(\kappa ) -1\right]\ ,     \widehat{\widetilde p}(\kappa , s ) \
+, , \eqno(3.6)\ ] ] and in the space - time domain the generalized kolmogorov - feller equation @xmath118 with @xmath119 .
+if the laplace inverse @xmath116 of the formally introduced function @xmath120 does not exist , we can formally set @xmath121 and multiply ( 3.6 ) with @xmath122 . then
+, if @xmath123 exists , we get in place of ( 3.7 ) the alternative form of the generalized kolmogorov - feller equation @xmath124\ , dt'\ , , \eqno(3.7')\ ] ] with @xmath119
+. special choices of the memory function @xmath116 are @xmath125 and @xmath126 , see eqs ( 3.8 ) and ( 3.12 ) : @xmath127 giving the _ exponential waiting time _ with @xmath128 in this case we obtain in the fourier- laplace domain @xmath129\ ,     \widehat{\widetilde p}(\kappa , s ) \ , , \eqno(3.10)\ ] ] and in the space - time domain the _ classical kolmogorov - feller equation _ @xmath130 @xmath131 giving the _ mittag - leffler waiting time _ with @xmath132 in this case we obtain in the fourier - laplace domain @xmath133 =    \lt [ \widehat w(\kappa ) -1\right]\ ,     \widehat{\widetilde p}(\kappa , s ) \ , , \eqno(3.14)\ ] ] and in the space - time domain the _ time fractional kolmogorov - feller equation _
+@xmath134 where @xmath135 denotes the fractional derivative of of order @xmath136 in the caputo sense , see appendix a. the time fractional kolmogorov - feller equation can be also expressed via the riemann - liouville fractional derivative @xmath137 , see again appendix a , that is @xmath138 ,      \eqno(3.16)\ ] ] with @xmath109 .
+the equivalence of the two forms ( 3.15 ) and ( 3.16 ) is easily proved in the fourier - laplace domain by multiplying both sides of eq .
+( 3.14 ) with the factor @xmath139 .
+we note that the choice @xmath140 may be considered as a limit of the choice @xmath126 as @xmath70 .
+in fact , in this limit we find @xmath141 so @xmath142 ( according to a formal representation of the dirac generalized function @xcite ) , so that eqs .
+( 3.6)-(3.7 ) reduce to ( 3.10)-(3.11 ) , respectively . in this case
+the order of the caputo derivative reduces to 1 and that of the r - l derivative to 0 , whereas the mittag - leffler waiting time law reduces to the exponential . in the sequel
+we will formally unite the choices ( * i * ) and ( * ii * ) by defining what we call the mittag - leffler memory function @xmath143 whose laplace transform is @xmath144 thus we will consider the whole range @xmath2 by extending the mittag - leffler waiting time law in ( 3.13 ) to include the exponential law ( 3.9 ) . equation ( 3.7 ) clearly may be supplemented by an arbitrary initial probability density @xmath145 .
+the corresponding replacement of @xmath146 by @xmath147 in ( 3.1 ) then requires in ( 3.4 ) multiplication of the term @xmath148 by @xmath149 and in ( 3.6 ) replacement of the lhs by @xmath150 $ ] . with @xmath151
+we obtain in @xmath102 the fundamental solution of ( 3.7 )
+we now consider two types of manipulations on the ctrw by acting on its governing equation ( 3.7 ) in its laplace - fourier representation ( 3.6 ) . + * ( a ) : rescaling the waiting time * , hence the whole time axis ; + * ( b ) : respeeding the process*. means change of the unit of time ( measurement ) . we replace the random waiting time @xmath6 by a waiting time @xmath7 , with the positive _ rescaling factor _ @xmath152 .
+our idea is to take @xmath153 in order to bring into near sight the distant future . in a moderate span of time
+we will so have a large number of jump events .
+for @xmath154 we get the rescaled waiting time density @xmath155 by decorating also the density @xmath38 with an index @xmath8 we obtain the rescaled integral equation of the ctrw in the laplace - fourier domain as @xmath156 =    \lt [ \widehat w(\kappa ) -1\rt]\ ,     \widehat{\widetilde { p}}_\tau ( \kappa , s)\ , , \eqno(4.2)\ ] ] where , in analogy to ( 3.5 ) , @xmath157 means multiplying the quantity representing @xmath158 by a factor @xmath159 , where @xmath160 is the _ respeeding factor _ : @xmath161 means _ acceleration _ , @xmath162 means _
+deceleration_. in the laplace - fourier representation this means multiplying the rhs of eq . ( 3.6 ) by the factor @xmath9 since the expression @xmath163 $ ] corresponds to @xmath164 .
+we now chose to consider the procedures of rescaling and respeeding in their combination so that the equation in the transformed domain of the rescaled and respeeded process has the form @xmath165 =   a\ , \lt [ \widehat w(\kappa ) -1\rt]\ ,     \widehat{\widetilde { p}}_{\tau , a } ( \kappa , s)\ , ,      \eqno(4.4)\ ] ] clearly , the two manipulations can be discussed separately : the choice @xmath166 means _ pure rescaling _ , the choice @xmath167 means _ pure respeeding _ of the original process . in the special case @xmath168 we only respeed the original system
+; if @xmath169 we can counteract the compression effected by rescaling to again obtain a moderate number of events in a moderate span of time by respeeding ( decelerating ) with @xmath170 . these vague notions will become clear as soon as we consider power law waiting times .
+defining now @xmath171 we finally get , in analogy to ( 3.6 ) , the equation @xmath172 =    \lt [ \widehat w(\kappa ) -1\rt]\ ,     \widehat{\widetilde { p}}_{\tau , a}(\kappa , s)\ , .
+\eqno(4.6)\ ] ] what is the combined effect of rescaling and respeeding on the waiting time density ?
+in analogy to ( 3.5 ) and taking account of ( 4.5 ) we find @xmath173 and so , for the deformation of the waiting time density , the _ essential formula _
+@xmath174 : the formula ( 4.8 ) has the same structure as the thinning formula ( 2.5 ) by identification of @xmath9 with @xmath41 . in both problems we have a rescaled process defined by a time scale @xmath152 , and we send the relevant factors @xmath152 , @xmath9 and @xmath41 to zero under a proper relationship .
+however in the thinning theory the relevant independent parameter going to 0 is that of thinning ( actually respeeding ) whereas in the present problem it is the rescaling parameter @xmath152 .
+we have essentially two different situations for the waiting time distribution according to its first moment ( the expectation value ) being finite or infinite . in other words
+we assume for the waiting time @xmath89 @xmath175 either @xmath176 or @xmath177 for convenience we have dispensed in ( 5.2 ) with decorating by a slowly varying function at infinity the asymptotic power law .
+then , by the standard tauberian theory ( see @xcite ) the above conditions ( 5.1)-(5.2 ) mean in the laplace domain the ( comprehensive ) asymptotic form @xmath178 where we have @xmath179 then , _ fixing @xmath76 _ as required by the continuity theorem of probability theory for laplace transforms , taking @xmath180 and _ sending @xmath8 to zero _ , we obtain in the limit the mittag - leffler waiting time law .
+in fact , eqs .
+( 4.8 ) and ( 5.3 ) imply as @xmath10 with @xmath2 , @xmath181 } { 1 - ( 1-\lambda \tau^\beta)\ , \left[1-\lambda \tau^\beta s^\beta + o(\tau^\beta s^\beta)\right ] }    \to \frac{1}{1 + s^\beta } \ , , \eqno(5.6)\ ] ] the laplace transform of @xmath182 , see ( 1.1 ) and appendix c. this formula expresses * the asymptotic universality of the mittag - leffler waiting time law * that includes the exponential law for @xmath80 .
+it can easily be generalized to the case of power laws decorated with slowly varying functions , thereby using the tauberian theory by karamata ( see again @xcite ) . the formula ( 5.6 )
+says that our general power law waiting time density is gradually deformed into the mittag - leffler waiting time density as @xmath8 tends to zero .
+let us stress here the distinguished character of the mittag - leffler waiting time density @xmath183 defined in ( 1.1 ) .
+considering its laplace transform @xmath184 we can easily prove the identity @xmath185 ^ml_,a ( s ) = ^ml ( s / a^1/ ) > 0 , a>0 .
+( 5.8)@xmath185 note that eq .
+( 5.8 ) states the _ self - similarity _ of the combined operation _
+rescaling - respeeding _ for the mittag - leffler waiting time density .
+in fact , ( 5.8 ) implies @xmath186 with @xmath187 which means replacing the random waiting time @xmath188 by @xmath189 . as a consequences ,
+choosing @xmath190 we have @xmath185 ^ml_,^ ( s ) = ^ml ( s ) > 0 .
+( 5.9)@xmath185 hence _ the mittag - leffler waiting time density is invariant against combined rescaling with @xmath152 and respeeding with @xmath191_. observing ( 5.6 ) we can say that @xmath192 is a @xmath10 attractor for any power law waiting time ( 5.2 ) under simultaneous rescaling with @xmath152 and respeeding with @xmath193 . in other words , this attraction property of the mittag - leffler probability distribution with respect to power law waiting times ( with @xmath194 ) is a kind of analogy to the attraction of sums of power law jump distributions by stable distributions .
+we have again two different situations for the jump - width distribution but according to its second moment being finite or infinite .
+in other words we assume for the jump - width probability density @xmath195 ( assumed for simplicity to be symmetric : @xmath196 ) either @xmath197 or @xmath198 then we have the asymptotic relation , compare with @xcite , @xmath199 where @xmath200 the above asymptotic relations are known in the framework of the attraction properties of the stable densities .
+we note that the classical book by gnedenko and kolmogorov @xcite has unfortunately the wrong constant @xmath201 for @xmath202 .
+as before we dispense with the possible decoration of the relevant power law by a slowly varying function . by another respeeding , in fact an acceleration
+, we can pass over to space - time fractional diffusion processes .
+for this we have * three choices * : + * ( a ) : diffusion limit in space only , for general waiting time * , + * ( b ) : diffusion limit in space only , for ml waiting time * , + * ( c ) : joint limit in time and space ( with power laws in both ) with scaling relation*. note hat ( b ) is just a special case of ( a ) but of particular relevance ( as we shall see ) .
+in all three cases we rescale the jump density by a factor @xmath203 , replacing the random jumps @xmath204 by @xmath205 .
+this means changing the unit of measurement in space from @xmath3 to @xmath21 , with @xmath206 , so bringing into near sight the far - away space . we get the rescaled jump density as @xmath207 , corresponding to @xmath208 . .
++ starting from the eq . ( 3.6 ) , the laplace - fourier representation of the ctrw equation , without special assumption on the waiting time density , we fix the fourier variable @xmath209 and accelerate the spatially rescaled process by the respeeding factor @xmath210 , arriving at the equation ( using @xmath211 as new dependent variable ) @xmath212 =   \frac { \widehat w(h \kappa ) -1}{\mu h^\alpha } \ ,     \widehat{\widetilde q}_h(\kappa , s)\ , .
+\eqno(6.5)\ ] ] then , _ fixing @xmath213 _ as required by the continuity theorem of probability theory for fourier transforms , and _ sending @xmath20 to zero _ we get , noting that @xmath214/(\mu h^\alpha ) \to -|\kappa|^\alpha$ ] , and writing @xmath215 in place of @xmath216 , @xmath217 = -    |\kappa |^\alpha \,\widehat{\widetilde u}(\kappa , s)\ , , \eqno(6.6)\ ] ] where we still have , consistently with ( 3.5 ) , @xmath218 being @xmath219 the original waiting time density . in physical space - time we have the integro - pseudo - differential equation @xmath220 with @xmath221 as the symbol of the riesz pseudo - differential operator @xmath222 usually referred to as the riesz fractional derivative of order @xmath223 , see appendix b. : by this rescaling and acceleration the jumps become smaller and smaller , their number in a given span of time larger and larger , the waiting times between jumps smaller and smaller . in the limit
+there are no waiting times anymore , the original waiting time density @xmath219 is now only spiritual , but still determines via @xmath116 the memory of the process .
+( 6.7 ) offers a great variety of diffusion processes with memory depending on the choice of the function @xmath116 . .
++ we now choose in eq .
+( 6.7 ) the mittag - leffler memory function ( 3.17 ) , namely @xmath224 corresponding to the mittag - leffler waiting time law @xmath225 consistently with the time fractional kolmogorov - feller equation ( 3.15 ) , that includes for @xmath80 the classical kolmogorov - feller equation ( 3.11 ) . as a consequence of our spatial diffusion limit , compare with @xcite , we so arrive immediately at the _ space - time fractional diffusion equation _ @xmath226 .
++ assuming the behaviour for the waiting time density as in eqs .
+( 5.1)-(5.2 ) , and for the jump - width density as in eqs .
+( 6.1)-(6.2 ) , rescaling as described the waiting times and the jumps by factors @xmath8 and @xmath20 , starting from ( 4.4 ) , decelerating by a factor @xmath227 in time , then accelerating for space by a factor @xmath228 , we obtain ( compare to section 4 , case ( b ) ) , fixing @xmath76 and @xmath209 and setting , for convenience @xmath229 @xmath230 =   a(\tau , h)\ , \left [ \widehat w_h(\kappa ) - 1\right]\ ,     \widehat{\widetilde { p}}_{\tau , a(\tau , h ) } ( \kappa , s)\,,\eqno(6.10)\ ] ] with @xmath231 and @xmath232 fixing @xmath233 to the constant value 1 , which means introducing the relationship of _ well - scaledness _ @xmath234 between the rescaling of time and space , we get @xmath235 because of @xmath236 we finally get the limiting equation @xmath237 = - |\kappa |^\alpha   \ ,     \widehat{\widetilde u}(\kappa , s)\,,\eqno(6.15)\ ] ] corresponding to eq . ( 6.8 ) , the space - time fractional diffusion equation .
+* ( @xmath223 ) * the mittag - leffler waiting time ( choice ( b ) ) , obeying the power law asymptotics ( 5.2 ) with @xmath238 leads from ( 6.7 ) directly to the space - time fractional diffusion equation ( 6.8 ) , without requirement of rescaling and deceleration in time , and with these procedures we arrive likewise at ( 6.8 ) .
+this strange fact is caused by the invariance of the mittag - leffler density to the combined effects of rescaling by @xmath8 and deceleration by @xmath239 , expressed in eq .
+( 5.9 ) . * ( @xmath136 ) * going again through our preceding deductions , we observe that the combined ( well - scaled ) passage of @xmath152 and @xmath20 , under the relation ( 6.12 ) , towards zero can be split in two distinct ways into two separate passages . :
+keep @xmath20 fixed letting @xmath152 tend to zero , then in the resulting model send also @xmath20 to zero . :
+interchange the order played by @xmath20 and @xmath152 in the first way . under our power law assumptions
+we can transform ( 3.7 ) , the basic integral equation of ctrw , into eq .
+( 3.15 ) ( time fractional ctrw ) by rescaling - respeeding manipulation only in the time variable , and then by rescaling in space followed by an acceleration into ( 6.8 ) , the space - time fractional diffusion equation . or we can transform ( 3.7 ) by rescaling in space followed by an acceleration into eq . ( 6.7 ) ( general space fractional diffusion with memory ) , and then by by rescaling - respeeding in the time variable arrive at ( 6.8 ) . *
+( @xmath240 ) * where have the waiting times gone in the space - time fractional diffusion equation ( 6.8 ) ?
+we can answer this question by interpreting eq .
+( 6.10 ) under the scaling relation ( 6.12 ) as the laplace - fourier representation @xmath241 =   \left [ \widehat w_h(\kappa ) - 1\right]\ ,     \widehat{\widetilde { p}}_{\tau , 1 } ( \kappa , s)\,,\eqno(6.16)\ ] ] of our original ctrw ( 3.1 ) , whose laplace - fourier representation ( 3.6 ) coincides with ( 6.16 ) if there we delete all decorations with indices .
+( 6.16 ) represents the same physical process as ( 3.1 ) but expressed in terms of new units @xmath242 and @xmath21 of time and space , respectively .
+however , the respeeding factor @xmath233 being fixed to 1 , there is no change of physical speed .
+when these new units are made smaller and smaller , moderate spans of time and space become numerically smaller and smaller , shrinking towards zero as @xmath152and @xmath20 tend to zero , and likewise the waiting times and the jump widths shrink to zero . the distant future and
+the far - away space come numerically into near sight . as long as @xmath152 and @xmath20 are positive
+, we always have the same physical process , only measured in other units . the finally resulting space - time fractional diffusion process ( 6.8 )
+remembers the power laws for waiting times and jumps in form of the orders @xmath136 and @xmath223 of fractional differentiation .
+* ( @xmath243 ) * an objection could be raised against the somewhat mystical actions of respeeding .
+namely , if the respeeding factor @xmath9 in eq .
+( 4.4 ) differs from 1 , the underlying renewal process and consequently the whole ctrw are distorted .
+however , for the ctrw we carry out the actions of deceleration and acceleration in either order in succession or simultaneously in combination , and by our special choice of these factors they cancel each other in effect , so that there remains no physical distortion .
+this is particularly obvious in our choice ( c ) , see the above comment ( @xmath240 ) . * ( @xmath244 ) * let us finally point out an advantage of splitting the passages @xmath10 and @xmath22 .
+whereas by the combined passage as in choice ( c ) , if done in the well - scaled way ( 6.12 ) , the mystical concept of respeeding can be avoided , there arises the question of correct use of the continuity theorems of probability .
+there is one continuity theorem for the laplace transform , one for the fourier transform , see @xcite .
+possible doubts whether their simultaneous use is legitimate vanish by applying them in succession , as in our two splitting methods . in our investigations
+we have met four types of spatially one - dimensional stochastic processes for the sojourn probability density @xmath102 or @xmath245 .
+for the reader s convenience let us give a list of these processes in physical coordinates , referring to the preceding text for details , and remind briefly how they can be connected by appropriate scaling and passages to the limit .
+let us note that in all these processes the initial condition @xmath246 for @xmath247 or @xmath248 can be replaced by a more general probability density function @xmath147 .
+the integral equation for the ctrw is , see ( 3.1 ) with ( 3.2 ) , @xmath249\,dt'\ ] ] is equivalent , by the introduction of the memory function @xmath116 , see ( 3.5 ) , to the generalized kolmogorov - feller equation , see ( 3.7 ) , @xmath250 the time fractional kolmogorov - feller equation , see ( 3.15 ) , @xmath251 the integro - pseudo - differential equation of space fractional diffusion with general memory , see ( 6.7 ) , @xmath252 the space - time fractional diffusion equation , see ( 6.8 ) , @xmath253 we now sketch shortly how these four evolution equations are connected in our theory .
+( i ) goes over in eq .
+( ii ) , likewise eq .
+( iii ) in eq .
+( iv ) by the special choice @xmath254 for the memory function , see ( 3.17 ) . under our power law assumption for the waiting time ,
+see ( 5.1 ) and ( 5.2 ) , these transitions can be achieved asymptotically by manipulation via rescaling and respeeding of the underlying renewal process . under our power law assumption for the jumps ,
+see ( 6.1)and ( 6.2 ) , the transition from eq .
+( i ) to eq .
+( iii ) and from ( ii ) to ( iv ) can be achieved asymptotically by passage to the diffusion limit only in space . under our power law assumption for time space there is a direct way from eq .
+( i ) to eq .
+( iv ) , namely _ the well - scaled passage to the diffusion limit _ ,
+for which the condition ( 6.12 ) is relevant .
+it is instructive to study the spatial transition to the diffusion limit for the _ mittag - leffler renewal process_. as said in section 3 this renewal process , viewed as a ctrw by treating its counting number @xmath255 as a spatial variable @xmath103 , is obtained by choosing @xmath256 as the jump width density , see eq .
+its waiting time density is , see ( 1.1 ) , ( 3.13 ) , @xmath257 we have @xmath258 , @xmath259 , hence
+@xmath260 =    \lt ( \e^{i\kappa}-1\rt)\ ,     \widehat{\widetilde { p } } ( \kappa , s ) \ , .
+\eqno(7.1)\ ] ] rescaling in space by a factor @xmath20 and accelerating ( because of @xmath261 for @xmath262 ) this pure renewal process by the factor @xmath21 we get a process @xmath263 =   \rec{h } \lt ( \e^{i h \kappa}-1\rt)\ ,     \widehat{\widetilde { q}_h } ( \kappa , s ) \,,\ ] ] which as @xmath264 and @xmath209 fixed gives @xmath265 =   i\kappa \ ,     \widehat{\widetilde { u } } ( \kappa , s ) \ , ,   \eqno(7.2)\ ] ] which implies @xmath266 we note that eq .
+( 7.2 ) corresponds to the time fractional drift equation @xmath267 by using the known scaling rules for the fourier and laplace transforms , @xmath268 we infer directly from ( 7 .
+3 ) ( thus without inverting the two transforms ) the following _ scaling property _ of the ( fundamental ) solution @xmath269 consequently , introducing the _ similarity variable _ @xmath270
+we can write @xmath271 where @xmath272 to determine the solution in the space - time domain we can follow two alternative strategies related to the different order in carrying out the inversion of the fourier - laplace transforms in ( 7 . 3 ) . indeed we can + ( s1 ) : invert the fourier transform getting @xmath273 and then invert this laplace transform , + ( s2 ) : invert the laplace transform getting @xmath274 and then invert this fourier transform . recalling the fourier
+transform pair , @xmath275 where @xmath276 denotes the unit step heaviside function , we get @xmath277 in view of the fact that @xmath278 is the laplace transform of the extremal unilateral stable density of order @xmath136 , @xmath279 ( see for notation appendix b ) , we recognize that the solution in the space - time domain can be expressed in terms of a fractional integral ( see appendix a ) of such density , namely @xmath280\ , .
+\eqno(7.7)\ ] ] working in the laplace domain we can note that the fundamental solution of our fractional drift equation ( 7.4 ) is simply related to that of the time fractional diffusion - wave equation @xmath281 equipped with the initial conditions @xmath282 if @xmath283 and @xmath284 if @xmath285 .
+in fact , the solution of ( 7.8 ) turns out the half of the solution ( 7.7 ) of our time fractional drift equation ( 7.4 ) , extended in a symmetric way to all of @xmath286 , as can be seen by factorizing eq .
+( 7.8 ) as @xmath287 indeed eq . ( 7.8 ) was solved by using the laplace transform strategy by mainardi in the 1990 s , see e.g. @xcite where the reader can find mathematical details of the proof and instructive plots of the fundamental solution .
+then , based on mainardi s analysis , we can state that the required solution of eq .
+( 7.4 ) reads @xmath288 where @xmath289 denotes the function of wright type defined in the complex plane @xmath290 }     \!=\ !
+\rec{\pi}\ , \sum_{n=1}^{\infty}\,{(-z)^{n-1 } \over ( n-1)!}\ ,    \gamma(\beta   n )   \,\sin ( \pi \beta    n ) .
+\eqno(7.10)\ ] ] the @xmath289 function is a special case of the wright function defined by the series representation , valid in the whole complex plane , @xmath291 indeed , we recognize @xmath292 originally , wright introduced and investigated this function with the restriction @xmath293 in a series of notes starting from 1933 in the framework of the asymptotic theory of partitions . only later , in 1940 , he considered the case @xmath294 .
+we note that in the handbook of the bateman project @xcite ( see vol .
+18 ) , presumably for a misprint , @xmath69 is restricted to be non negative .
+for further mathematical details on the @xmath289-wright function we recommend @xcite . for our time
+fractional drift equation ( 7.4 ) we note the particular case @xmath295 for which we obtain @xmath296\ , , \q x\ge 0 \,,\q t\ge 0\ , .
+\eqno(7.13)\ ] ] in the limiting case @xmath80 we recover the rightward pure drift , @xmath297 in view of the fact that that @xmath289-wright function of order @xmath136 is related to the extremal unilateral stable density of order @xmath136 , see @xcite , we conclude by displaying the alternative form of the solution of the time fractional drift equation : @xmath298 which , compared with ( 7.7 ) , shows the effect of the fractional integral on the stable density function @xmath299 . recalling the laplace transform pair , see e.g. @xcite , @xmath300 we get @xmath301 from which @xmath302 where @xmath303 denotes the cauchy principal value . because , see @xcite , vol .
+3 , chapter xviii on miscellaneous functions , section 18.1 eq .
+( 7 ) , @xmath304 we see that @xmath305 does not tend to zero fast enough for the integral ( 7.17 ) to exist as a regular improper riemann integral .
+but there should be no problem for existence as a cauchy principal value integral .
+it can be shown that the present strategy based on fourier integral ( 7.17 ) provides the result ( 7.9 ) . : not wanting to overload our paper we have deliberately avoided the concept of _ subordination _ in fractional diffusion .
+but , referring to @xcite , let us say that if in ( 7.15 ) we replace @xmath103 by @xmath306 we get the _ subordinator _ ,
+i.e. the probability law for generating the operational time @xmath306 from the physical time @xmath107 , see eq .
+( 5.20 ) in @xcite , and , in other notation , @xcite .
+because of its relation ( 7.16 ) via fourier transform to the mittag - leffler function with imaginary argument , the probability law governing the process ( 7.15 ) sometimes is called the _ mittag - leffler distribution _ , see e.g. @xcite .
+although so named it must not be confused with our _ mittag - leffler waiting time distribution _ whose density is given by ( 1.1 ) .
+the basic role of the mittag - leffler waiting time probability density in time fractional continuous time random walk ( ctrw ) has become well known by the fundamental paper of 1995 by hilfer and anton @xcite .
+earlier in the theory of thinning ( rarefaction ) of a renewal process under power law assumptions , see the 1968 book by gnedenko and kovalenko @xcite , this density had been found as limit density by a combination of thinning followed by rescaling of time and imposing a proper relation between the rescaling factor and the thinning parameter .
+likewise one arrives at this law when wanting to construct a certain special class of anomalous random walks , see the 1985 paper by balakrishnan @xcite , the anomaly defined by growth of the second moment of the sojourn probability density like a power of time with exponent between 0 and 1 .
+balakrishnan s paper , having appeared a few years before the fundamental paper of 1989 by schneider and wyss @xcite , is difficult to read as it is written in a style different from the present one , so we will here not go into details . but
+let it be said that by well - scaled passage to the limit from ctrw ( again under suitable power law assumptions in space and time ) he obtained the space - time fractional diffusion equation in form of an equivalent integro - differential equation .
+unfortunately , balakrishnan s paper did not find the attention it would have deserved .
+however , due to the sad fact that the mittag - leffler function too long played a rather neglected role in treatises on special functions balakrishnan as well as gnedenko and kovalenko contented themselves with presenting their results only in the laplace transform domain ; they did not identify their limit density as a mittag - leffler type function .
+having worked ourselves for some time on questions of well - scaled passage to the diffusion limit from continuous time random walks to fractional diffusion , see @xcite , we got from the theory of thinning the idea that it should be possible to carry out the passages to the limit separately in space and in time . in time
+this can be done by a combination of re - scaling time and respeeding the underlying renewal process ( formally treating it as a ctrw with unit steps in space ) .
+in fact , _ thinning _ in the sense of gnedenko and kovalenko transforms the original renewal process into one that is running more slowly and this effect can be balanced by proper choice of the rescaling factor .
+the result of our combination of rescaling and respeeding for a ctrw governed by a given renewal process with a generic power law waiting time law is a time fractional ctrw . by another rescaling in space ( now under power law assumption for the jumps ) which can be interpreted as a second respeeding we arrive at the already classical space - time fractional diffusion equation . in this way we shed new light on the long time and wide space behaviour of continuous time
+random walks . in a series of comments at the end of section 6 ,
+we have explained how , by what we call _ well - scaled _ passage to the diffusion limit , the transition from the ctrw to the space - time fractional diffusion process actually can be obtained by merely rescaling time and space without any respeeding at all . however ,
+the separate passages to the limit are more satisfying with respect to mathematical rigour . finally , in section 7
+, we have treated the time fractional drift process as a properly scaled limit of the counting function of a pure renewal process governed by a waiting time law of mittag - leffler type .
+our trick in finding the limiting waiting time law of this renewal process consists in treating it as a ctrw with positive jumps of size @xmath3 so that its counting number acts as a spatial variable
+. then , by suitably rescaling this spatial variable , we obtain as an interesting side result the long time behaviour of the mittag - leffler renewal process .
+for a sufficiently well - behaved function @xmath45 ( @xmath307 ) we define the _ caputo time fractional derivative _ of order @xmath308 with @xmath71 through @xmath309 so that @xmath310 such operator has been referred to as the _ caputo _
+fractional derivative since it was introduced by caputo in the late 1960 s for modelling the energy dissipation in the rheology of the earth , see @xcite .
+soon later this derivative was adopted by caputo and mainardi in the framework of the linear theory of viscoelasticity , see @xcite .
+the reader should observe that the _ caputo _ fractional derivative differs from the usual _ riemann - liouville _
+( r - l ) fractional derivative @xmath311 \ , , \q 0<\beta<1 \ , .
+\eqno(a.3)\ ] ] both derivatives are related to the riemann liouville ( r - l ) fractional integral that is defined for any order @xmath312 as @xmath313 so that @xmath314
+. incidentally @xmath315 for @xmath316 .
+then , in virtue of eqs ( a.2)-(a.4 ) , the two fractional derivatives read : @xmath317 @xmath318 in particular , the r - l derivative of order @xmath136 is the left inverse of the corresponding r - l fractional integral in that @xmath319 .
+we note the relationships between the two fractional derivatives ( when both of them exist ) , for @xmath320 , @xmath321      \ , = \ , _
+td^\beta   \ , f(t ) -       \frac{t^{-\beta } } { \gamma(1-\beta)}\,f(0^+ )   \ , . % % \q 0<\beta<1\ , .
+\eqno(a.7)\ ] ] as a consequence we can interpret the caputo derivative as a sort of regularization of the r - l derivative as soon as @xmath322 is finite ; in this sense such fractional derivative was independently introduced in 1968 by dzherbashyan and nersesian @xcite , as pointed out by kochubei , see @xcite . in this respect
+the regularized fractional derivative is sometimes referred to as the _ caputo - dzherbashyan derivative_. we observe the different behaviour of the two fractional derivatives ( a.2 ) , ( a.3 ) at the end points of the parameter interval @xmath323 , as it can be noted from their definitions in operational terms ( a.5 ) , ( a.6 ) .
+in fact , whereas for @xmath324 both derivatives reduce to @xmath325 , due to the fact that the operator @xmath326 commutes with @xmath325 , for @xmath327 we have @xmath328 the above behaviours have induced us to keep for the riemann - liouville derivative the same symbolic notation as for the standard derivative of integer order , while for the caputo derivative to decorate the corresponding symbol with subscript @xmath329 . for the r - l derivative
+the laplace transform reads for @xmath320 @xmath330 thus the rule ( a.9 ) is more cumbersome to be used than ( a.1 ) since it requires the initial value of an extra function @xmath331 related to the given @xmath45 through a fractional integral .
+however , when @xmath332 is finite we recognize @xmath333 . in the limit @xmath324 both derivatives reduce to the derivative of the first order
+so we recover the corresponding standard formula for the laplace transform : @xmath334 we conclude this appendix noting that in a proper way both derivatives can be generalized for any order @xmath335 , see @xcite .
+let us first recall that a generic linear pseudo - differential operator @xmath336 , acting with respect to the variable @xmath337 is defined through its fourier representation , namely @xmath338 where @xmath339 is referred to as the symbol of @xmath336 , formally given as @xmath340 the fractional _ riesz _ derivative @xmath341 is defined as the pseudo - differential operator with symbol @xmath342 this means that for a sufficiently well - behaved ( generalized ) function @xmath147 ( @xmath343 ) we have @xmath344 the symbol of the riesz fractional derivative is nothing but the logarithm of the characteristic function of the generic symmetric _
+( in the lvy sense ) probability density , see @xcite . noting @xmath345 we recognize that @xmath346 in other words , the riesz derivative is a symmetric fractional generalization of the second derivative to orders less than 2 . in an explicit way the riesz
+derivative reads , for @xmath202 , @xmath347 where in the l.h.s we have also adopted the alternative and illuminating notation introduced by zaslavsky , see @xcite .
+this operator is referred to as the _ riesz fractional derivative _ since it is obtained from the inversion of the fractional integral originally introduced by marcel riesz in the late 1940 s , known as the _ riesz potential _ , see @xcite .
+it is based on a suitable regularization of a hyper - singular integral , according to a method formerly introduced by marchaud in 1927 .
+: straightforward generalization to the _ riesz - feller derivative _ of order @xmath223 and skewness @xmath348 is possible . such pseudo - differential operator is denoted by us as @xmath349 in this case we have @xmath350 in an explicit way the riesz - feller derivative reads , for @xmath202 , @xmath351 \ ,   \int_0^\infty   { f(x+\xi)- f(x )   \over { \xi}^{1+\alpha}}\ , d \xi \right.}\\ & + \,{\ds \left . \sin
+\,[(\alpha-\theta ) \pi/2 ] \ ,   \int_0^\infty   { f(x-\xi)- f(x )   \over { \xi}^{1+\alpha}}\ , d \xi \right\}}\ , .   \end{array }   \eqno ( b.8)\ ] ] notice in ( b.7 ) that @xmath352 $ ] .
+thus the symbol of the riesz - feller fractional derivative is the logarithm of the characteristic function of the more general ( strictly ) _ stable _ probability density , closely following the feller parameterization , see @xcite revisited by the present authors in @xcite . according to our notation , the strictly stable density of order @xmath223 and skewness @xmath348
+is denoted by @xmath353 .
+we note that the allowed region for the parameters @xmath354 and @xmath348 turns out to be a diamond in the plane @xmath355 with vertices in the points @xmath356 , @xmath357 , @xmath358 , @xmath359 , that we call the _ feller - takayasu diamond _ , see fig .
+1 . for more details
+we refer the reader to @xcite , where series representations and numerical plots of the stable densities @xmath353 are found .
+in particular , we recall that the extremal stable densities obtained for @xmath360 with @xmath361 are unilateral , with support in @xmath362 , respectively .        -0.1truecm
+the mittag - leffler function with parameter @xmath136 is defined as @xmath363 it is an entire function of order @xmath1 and reduces for @xmath80 to @xmath364 for detailed information on the functions of mittag - leffler type the reader may consult and references therein .
+hereafter , we find it convenient to summarize the most relevant features of the functions @xmath365 @xmath366 that turn out to be the most relevant functions of mittag - leffler type for our purposes .
+both of them reduce to the exponential function @xmath367 in the limit as @xmath368 .
+we begin to quote their expansions in power series of @xmath369 ( convergent for @xmath307 ) and their asymptotic representations for @xmath370 , @xmath185 ( t ) = _ n=0^ ( -1)^n ~ , ( c.4 ) @xmath371 ( t ) = _ n=0^ ( -1)^n ~ .
+( c.5 ) @xmath185 the laplace transforms of @xmath372 and @xmath175 can easily be obtained by transforming the series ( c.4 ) , ( c.5 ) term by term , respectively : they read @xmath373 for @xmath71 both functions @xmath372 , @xmath175 keep the complete monotonicity of the limiting exponential function of @xmath374 complete monotonicity of a function @xmath45 means , for @xmath375 , and @xmath307 , @xmath376 , or equivalently , its representability as ( real ) laplace transform of a non - negative function or measure , see @xcite .
+recalling the theory of the mittag - leffler functions of order less than 1 , we obtain for @xmath71 the following representations , see @xcite , @xmath377 @xmath378 in figs 2 and 3 we exhibit plots of the functions @xmath372 and @xmath175 , respectively in logarithmic and linear scales .
+e. barkai and r.j .
+silbey , fractional kramers equation , _ j. phys
+b _ * 104 * ( 2000 ) , 3866 - 3874 . e. barkai and i.m .
+sokolov on hilfer s objection to the fractional time diffusion equation , _ physica a _ * 373 * ( 2007 ) , 231 - 236 .          , _ renewal theory _
+, 2-nd edn . , methuen , london ( 1967 ) .
+, _ integral transforms and representations of functions in the complex plane_. moscow , nauka ( 1966 ) . in russian .
+[ note that there is also the transliteration as djrbashyan ]    m.m .
+dzherbashyan and a.d .
+nersesian , fractional derivatives and the cauchy problem for differential equations of fractional order .
+nauk armjanskvy ssr , matematika _ * 3 * ( 1968 ) , 329 . in russian .
+w. feller , on a generalization of marcel riesz potentials and the semi - groups generated by them , _ meddelanden lunds universitets matematiska seminarium _ ( _ comm .
+universit de lund _ ) .
+tome suppl .
+ddi a m. riesz , lund , 1952 , pp .
+, _ an introduction to probability theory and its applications _ , vol .
+2 , 2-nd edn . wiley , new york ( 1971 ) .
+[ 1-st edn .
+1966 ]    i.m .
+gel`fand and g.e .
+shilov , _ generalized functions _ , volume i. academic press , new york and london ( 1964 ) .
+b.v . gnedenko and a.n .
+kolmogorov , _ limit distributions for sums of independent random variables _ , addison - wesley , cambridge , mass.(1954 ) .
+[ translated from the russian edition , moscow 1949 , with notes by k.l .
+chung , revised 1968 ]        , analytical properties and applications of the wright function , _ fractional calculus and applied analysis _ * 2 * ( 1999 ) , 383 - 414 .
+[ e - print arxiv : math - ph/0701069 ] , wright functions as scale - invariant solutions of the diffusion - wave equation , _ j. comput .
+_ * 118 * ( 2000 ) , 175 - 191 .
+, fractional calculus : integral and differential equations of fractional order . in a. carpinteri and f. mainardi ( editors ) , _ fractals and fractional calculus in continuum mechanics _ , springer verlag , wien and new york ( 1997 ) , pp .
+223 - 276 .
+[ http://www.fracalmo.org ]      r. gorenflo and f. mainardi , fractional diffusion processes : probability distributions and continuous time random walk , in : g. rangarajan and m. ding ( editors ) , _ processes with long range correlations _ , springer - verlag , berlin ( 2003 ) , pp .
+148 - 166 .
+[ lecture notes in physics , no .
+621 ]    r gorenflo and f. mainardi , simply and multiply scaled diffusion limits for continuous time random walks , in : s. benkadda , x. leoncini and g. zaslavsky ( editors ) , proceedings of the international workshop on chaotic transport and complexity in fluids and plasmas carry le rouet ( france ) 20 - 25 june 2004 , _ iop ( institute of physics ) journal of physics : conference series _ * 7 * ( 2005 ) , 1 - 16 .    r. gorenflo , f. mainardi , e. scalas and m. raberto fractional calculus and continuous - time finance iii : the diffusion limit , in : m. kohlmann and s. tang ( editors ) , _ mathematical finance _ , birkhuser verlag , basel ( 2001 ) , pp .
+171 - 180 .
+r. gorenflo , f. mainardi , h.m .
+srivastava , special functions in fractional relaxation - oscillation and fractional diffusion - wave phenomena , in : d. bainov ( ed . ) , _ proceedings viii international colloquium on differential equations , plovdiv 1997 _ vsp , utrecht , 1998 , pp .
+195 - 202 .
+r. gorenflo , f. mainardi and a. vivoli , continuous time random walk and parametric subordination in fractional diffusion , _ chaos , solitons and fractals _ * 34 * ( 2007 ) , 87 - 103 . [ e - print arxiv : cond - mat/0701126 ]      r. hilfer , exact solutions for a class of fractal time random walks , _ fractals _ * 3 * ( 1995 ) , 211 - 216 .
+r. hilfer , on fractional diffusion and continuous time random walks , _ physica a _ * 329 * ( 2003 ) , 35 - 39 .
+t. huillet , on the waiting time paradox and related topics , _ fractals _ * 10 * ( 2002 ) , 1 - 20 . ,
+_ generalized fractional calculus and applications_. harlow , longman ( 1994 ) .
+[ pitman research notes in mathematics , vol .
+301 ] a.n .
+kochubei , a cauchy problem for evolution equations of fractional order , _ differential equations _ * 25 * ( 1989 ) , 967974 .
+[ english translation from the russian journal _
+differentsialnye uravneniya _ ] a.n .
+kochubei , fractional order diffusion , _ differential equations _ * 26 * ( 1990 ) , 485492 . [ english translation from the russian journal _ differentsialnye uravneniya _ ]
+m. kotulski , asymptotic distributions of continuous - time random walks : a probabilistic approach , _
+_ * 81 * ( 1995 ) , 777792 .
+f. mainardi , fractional calculus : some basic problems in continuum and statistical mechanics , in a. carpinteri and f. mainardi ( editors ) , _ fractals and fractional calculus in continuum mechanics_. wien and new york , springer verlag , 1997 , pp .
+291 - 348 .
+f. mainardi , r. gorenflo and a. vivoli , renewal processes of mittag - leffler and wright type , _ fractional calculus and applied analysis _ , * 8 * ( 2005 ) , 7 - 38 .
+[ e - print arxiv : math - pr/0701455 ] f. mainardi , yu .
+luchko and g. pagnini , the fundamental solution of the space - time fractional diffusion equation , _ fractional calculus and applied analysis _ * 4 * ( 2001 ) , 153 - 192 .
+[ e - print arxiv : cond - mat/0702419 ]    f. mainardi and g. pagnini , the wright functions as solutions of the time fractional diffusion equations , _ applied mathematics and computation _ * 141 * ( 2003 ) , 51 - 62 .
+f. mainardi , m. raberto , r. gorenflo and e. scalas , fractional calculus and continuous - time finance ii : the waiting time distribution , _ physica a _ * 287 * ( 2000 ) , 468481 .
+f. mainardi , a. vivoli and r. gorenflo , continuous time random walk and time fractional diffusion : a numerical comparison between the fundamental solutions , _ fluctuation and noise letters _ * 5 * ( 2005 ) , l291-l297 .
+r. metzler , e. barkai and j. klafter , anomalous diffusion and relaxation close to thermal equilibrium : a fractional fokker - planck equation approach , _ phys .
+* 82 * ( 1999 ) , 35633567 .
+montroll and h. scher , random walks on lattices , iv : continuous - time walks and influence of absorbing boundaries , _ j. stat .
+_ * 9 * ( 1973 ) , 101 - 135 .
+montroll and g.h .
+weiss , random walks on lattices , ii , _ j. math .
+phys . _ * 6 * ( 1965 ) , 167181 . e.w .
+montroll and d.j .
+west , on an enriched collection of stochastic processes , in e.w .
+montroll and j. leibowitz ( editors ) , _ fluctuation phenomena _ , north - holland , amsterdam , 1979 , pp .
+[ studies in statistical mechanics , vol .
+vii ] r.n .
+pillai , on mittag - leffler functions and related distributions , _ ann .
+_ * 42 * ( 1990 ) , 157161 .
+a. piryatinska , a.i .
+saichev and w.a .
+woyczynski , models of anomalous diffusion : the subdiffusive case , _ physica a _ * 349 * , 375 - 420 ( 2005 ) .
+, _ fractional differential equations_. san diego , academic press ( 1999 ) .
+saichev and g.m .
+zaslavsky , fractional kinetic equations : solutions and applications , _ chaos _ * 7 * ( 1997 ) , 753764 .
+samko , a.a .
+kilbas and o.i .
+marichev , _ fractional integrals and derivatives : theory and applications _ , gordon and breach , new york ( 1993 ) . translation from the russian edition , nauka i tekhnika , minsk ( 1987 ) .
+e. scalas , the application of continuous - time random walks in finance and economics , _ physica a _ * 362 * ( 2006 ) , 225 - 239 .
+e. scalas , r. gorenflo and f. mainardi , fractional calculus and continuous - time finance , _ physica a _ * 284 * ( 2000 ) , 376 - 384 .
+e. scalas , r. gorenflo and f. mainardi , uncoupled continuous - time random walks : solution and limiting behavior of the master equation , _ phys .
+* 69 * ( 2004 ) , 011107 - 1/8 . , fractional diffusion and wave equations , _ j. math
+. phys . _ * 30 * ( 1989 ) 134 - 144 .
+sokolov , j. klafter and a. blumen , do strange kinetics imply unusual thermodynamics ? _ phys .
+e. _ * 64 * ( 2001 ) , 021107/1 - 4 .
+t. szntai , limiting distribution for the sums of random number of random variables concerning the rarefaction of recurrent events .
+_ studia scientiarum mathematicarum hungarica _ * 6 * ( 1971 ) , 443 - 452 .
+t. szntai , on an invariance problem related to different rarefactions of recurrent events .
+_ studia scientiarum mathematicarum hungarica _ * 6 * ( 1971 ) , 453 - 456 . v.v .
+uchaikin and v.v .
+saenko , stochastic solution of partial differential equations of fractional orders , _ siberian journal of numerical mathematics _ * 6 * ( 2003 ) , 197 - 203 .

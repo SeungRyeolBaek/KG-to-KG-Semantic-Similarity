@@ -1,0 +1,167 @@
+galaxy morphology is studied for the purpose of classification and analysis of the physical structures exhibited by galaxies in wide redshift ranges in order to get a better understanding of the structure and development of galaxies . while significant research has been done to study the morphology of galaxies with spiral arms @xcite ,
+research efforts have been focused also on the analysis of elliptical and s0 galaxies using photometric measurement of the electromagnetic radiation , ellipticity , position angle , shape , and colour @xcite .
+these analyses were successful in acquiring information regarding the structure and development of some of these galaxies .
+however , these studies have done little analysis of the spirality of galaxies that were classified as elliptical .    studying the morphology of large datasets of galaxies
+have attracted significant attention in the past decade @xcite , and was driven by the increasing availability of automatically acquired datasets such as the data releases of the sloan digital sky survey @xcite .
+however , attempts to automatically classify faint galaxy images along the hubble sequence have been limited by the accuracy and capability of computer learning classification systems , and did not provide results that met the needs of practical research @xcite .
+this contention led to the _ galaxy zoo _
+@xcite project , which successfully used a web - based system to allow amateur astronomers to manually classify galaxies acquired by sdss @xcite , and was followed by other citizen science ventures based on the same platform such as _ galaxy zoo 2 _ @xcite , _ moon zoo _ @xcite , and _ galaxy zoo mergers _ @xcite .
+while it has been shown that amateurs can classify galaxies to their basic morphological types with accuracy comparable to professional astronomers @xcite , manual classification may still be limited to what the human eye can sense and the human brain can perceive .
+for instance , the human eye can sense only 15 to 25 different levels of gray , while machines can identify 256 gray levels in a simple image with eight bits of dynamic range .
+the inability of the human eye to differentiate between gray levels can make it difficult to sense spirality in cases where the arms are just slightly brighter than their background , but not bright enough to allow detection by casual inspection of the galaxy image .
+in fact , this limitation might affect professional astronomers as much as it affects citizen scientists .    since the human eye can only sense the crude morphology of galaxies along the hubble sequence , and since the classification of galaxies is normally done manually , morphological classification schemes of galaxies are based on few basic morphological types
+. however , as these schemes are merely an abstraction of galaxy morphology , some galaxies can be difficult to associate with one specific shape , and many in - between cases can exist .    here
+we use the ganalyzer method to transform the galaxy images into their radial intensity plots @xcite , and analyze the spirality of galaxies classified manually as elliptical and s0 by the _ galaxy zoo _ , rc3 , and na10 catalogues .
+the method that was used to measure the spirality of the galaxies in the dataset is the ganalyzer method @xcite . unlike other methods that aim at classifying a galaxy into one of several classes of broad morphological types @xcite , ganalyzer measures the slopes of the arms to determine the spirality of a galaxy .
+ganalyzer is a model - driven method that analyzes galaxy images by first separating the object pixels from the background pixels using the otsu graylevel threshold @xcite .
+the centre coordinates of the object are determined by the largest median value of the 5@xmath15 shifted window with a distance less than @xmath2 from the mass centre , where s is the surface area @xcite .
+this method allows the program to determine the maximum radial distance from the centre to the outermost point , as well as the major and minor axes by finding the longest distance between two points which pass through the centre for the major axis , and then assigning the perpendicular line as the minor axis @xcite .
+the ellipticity is defined as the ratio of the lengths of the minor axis to the major axis @xcite .
+comparison of the ellipticity of 1000 galaxies to the ellipticity computed by sdss ( using isoa and isob ) shows a high pearson correlation of @xmath30.93 between the two measurements .
+after the centre coordinates of the galaxy @xmath4 and the radius @xmath5 are determined , the galaxy is transformed into its radial intensity plot such that the intensity value of the pixel @xmath6 in the radial intensity plot is the intensity of the pixel at coordinates @xmath7 in the original galaxy image , such that @xmath8 is a polar angel of [ 0,360 ] , and @xmath5 is the radial distance that ranges from 0.4 to 0.75 of the galaxy radius , producing an image of dimensionality of 360@xmath135 @xcite .
+figure  [ radial ] shows an example of two galaxies and their transformation such that the y axis is the pixel intensity and the x axis is the polar angle .
+as the figure shows , in the case of the elliptical galaxy the peaks are aligned on the same vertical line , while in the case of the spiral galaxy the peaks shift .
+the spirality is then measured by the slope of the groups peaks as described in @xcite , such that the peak in radial distance _
+r _ is grouped with the peak in radial distance _
+r_+1 if the difference between their polar angles is less than 5@xmath9 .
+this transformation makes it easier for machines to detect and measure the spirality , but can also detect spirality in galaxies that might look to the human observer as elliptical since the human eye can only recognize 15 - 25 gray levels , making it difficult to notice subtle spirality when looking at a raw galaxy image .
+for instance , tables 1 and 2 show several sdss galaxy images classified manually by _ galaxy zoo _ participants as elliptical , with their radial intensity plot transformation and their spirality as measured by ganalyzer . to test how the method analyzes tidally disrupted elliptical galaxies @xcite
+, we used several tidally disrupted galaxies from the na10 catalogue , displayed in table 3 .
+if the radial intensity plot does not feature peaks the galaxy is defined as pure elliptical .
+elliptical and lenticular galaxies in some cases can also have peaks in their radial intensity plot due to the position angle , but in these cases all peaks will be aligned on the same vertical line so that the slope will be very close to zero , and therefore the galaxy will be identified as elliptical .
+an exception can be in cases of s0 galaxies in which the position angle of the disk is different from the position angle of the galaxy , but the difference is not greater than 5@xmath9 . in that case
+ganalyzer might consider the disk and the galaxy as the same arm , but the difference in the position angles will lead to a certain slope in that arm .
+therefore , the arms of the galaxy will have a certain slope when measured using ganalyzer .
+the radial intensity plot can allow the detection of subtle curves in the arms that might not be easily detected by manual observation of the raw galaxy image , but becomes noticeable in its radial intensity plot .
+therefore , it is possible that many galaxies that were classified manually as elliptical might in fact feature a certain spirality @xcite .
+as the table shows , while the galaxies seem elliptical to the unaided human eye , the radial intensity plot transformations of the galaxies show that the peaks of maximal intensity shift , meaning that these galaxies feature certain curves in the arms .    by defining spirality and ellipticity thresholds ganalyzer
+can also be used for classifying galaxies into their broad morphological types of elliptical , spiral and edge - on , and a thorough discussion and experimental results about galaxy classification with ganalyzer are described in @xcite . in previous experiments with ganalyzer @xcite thresholds were applied to the slopes in the radial intensity plots so that the decision whether a galaxy is spiral or not is in agreement with the perception of a person observing the raw galaxy image . however , as described above , in this study ganalyzer is not used as a classifier , but as a tool to measure and detect the existence of galaxy spirality . since the radial intensity plot provides a more sensitive view of galaxy spirality than the non - transformed raw image , no thresholds are used in this study in order to utilize the ability of the radial intensity plots to detect subtle slopes in the galaxy arms and to test whether galaxies that seem elliptical to the human eye are indeed ellipticals , or have a subtle spirality that is difficult to measure using the unaided eye .
+that is , the purpose of the method described in this section is not to mimic the human eye , but test whether the human eye observing the raw galaxy image is indeed the most accurate tool to determine whether a galaxy is spiral or elliptical .
+the data used in the experiment are galaxies acquired by sloan digital sky survey , and were classified manually by the participants of the galaxy zoo project @xcite .
+all galaxies in the dataset have redshift , and the classification results were based on the corrected _ super clean _
+dataset described in @xcite . for the study , only galaxies that were classified by galaxy zoo participants as ellipticals were used , and the dataset consisted of 60,518 galaxies .
+the images were downloaded automatically by using the cas server .
+the galaxies were also divided into six bins based on their redshift , ranges from 0 to 0.3 , such that each bin had a redshift range of 0.05 .
+the number of galaxies in each redshift is specified in table 4 .
+the efficiency of ganalyzer can be affected by two or more galaxies that appear very close to each other in the image , either due to merging or superpositioning . since
+one galaxy can be segmented with part or all of the other galaxy , ganalyzer might detect the other galaxy as an arm . in most cases such  arm "
+is not expected to be mistakenly identified as sharp spirality because the angle of the brightest point compared to the center is not expected to shift , but it can lead to the false detection of mild spirality that is not based on the morphology of the target galaxy . to avoid analyzing overlapping galaxies each image
+was scanned for psfs as done in @xcite , and when more than one psf is detected the image is ignored .
+out of the galaxies classified by galaxy zoo as elliptical @xmath312.05% were detected as galaxies with more than one nucleus and were therefore rejected from the analysis .
+other catalog that were used in this study were the rc3 catalog @xcite , of which 261 galaxies classified as ellipticals and 640 galaxies classified as s0 were used , and the na10 catalog @xcite , of which 2705 galaxies that were classified as ellipticals , and 1964 galaxies that were classified as s0 were used in the experiment .
+additionally , 7638 galaxies of the na10 catalog classified as spirals were also used in the analysis .
+figure  [ spirality_distribution ] shows the distribution of the slopes of the arms of the galaxies classified manually as elliptical .
+as the figure shows , @xmath324% of the galaxies exhibit nonzero signal for spirality , and @xmath310% of the galaxies had a slope of the arms greater than 0.4 , indicating that many of the _ galaxy zoo _ galaxies that were classified manually as ellipticals actually have some spirality .
+expectedly , the fraction of galaxies that meet the spirality threshold decreases as the slope of the arms gets larger , and just less than 2% of the galaxies that were classified manually as ellipticals were detected to have a measured slope greater than 1 . as the graph shows , the measured slope of the arms of most galaxies is close to 0 .
+60,000 galaxies classified as ellipticals ]    figure  [ redshift_0_015 ] shows the distribution of the slopes of the arms in a galaxy population of different redshifts . as can be learned from the figure , the slope of the arms increases with the redshift , showing that at higher redshifts human readers find it more difficult to detect spirality by eye and tend to classify more galaxies as ellipticals . correlating the apparent magnitude of these galaxies with the slope of the arms provided a weak pearson correlation value of -0.036 , showing that the analysis is merely weakly dependent on apparent magnitude in the redshift range used in this study .
+while the experiments above show that human readers can in some cases fail to notice mild spirality , we also tested the error rate of human readers when they determine that the galaxy that they observe is spiral .
+figure  [ gz_spirals ] shows the distribution of the measured slope of the arms among galaxies that were classified by galaxy zoo participants as spiral .
+as the figure shows , when the human eye is able to detect spirality , spirality does exist , and galaxies classified by human observers as spirals are rarely galaxies that do not have any spirality in them
+. the reason could be the limited sensitivity of the human eye in detecting spirality , so that once spirality can be detected by the human eye it is above a certain spirality threshold that can be sensed by applying the analysis of the radial intensity plot of the galaxy as described in section  [ methodology ] .
+the results obtained with the _ galaxy zoo _ data were compared also to the analysis using data taken by the rc3 catalogue @xcite and the na10 catalogue @xcite . unlike _ galaxy zoo _ that was classified by amateurs , rc3 and na10 were both classified by professional astronomers .
+figure  [ rc3 ] shows the slopes of the arms of galaxies classified as ellipticals and s0 by rc3 .        as the graph shows , galaxies classified as s0 have a higher arm slopes compared to galaxies classified as ellipticals .
+the figure also shows that like the _ galaxy zoo _ catalog , the arms of many of the galaxies classified by professional astronomers as ellipticals also has a certain slope .
+these results are in agreement with the observation of @xcite , according which professional astronomers do not outperform amateur astronomers in classification of galaxies into their broad morphological types .
+figure  [ na10 ] shows the slopes of the arms of galaxies classified as ellipticals and s0 in the na10 catalog .
+these results are in agreement with the results of the rc3 catalog , showing higher arm slopes in galaxies classified manually as s0 .
+the distribution of the slopes of the arms was also analyzed for different redshifts , as displayed by figure  [ na10_redshift ] , showing galaxies classified as ellipticals .
+as the figure shows , the fraction of galaxies with non - zero slope classified as ellipticals in the na10 catalog does not change significantly with the redshift in the tested redshift ranges .
+in this study we used computer - aided analysis based on the radial intensity plots of sdss galaxy images to examine spirality in galaxies that were classified manually as elliptical . while the unaided human eye provides a limited tool for analyzing elliptical galaxy images due to the limited sensitivity of the human vision to different gray levels , transforming the images to their radial intensity plots allows much easier detection of the spirality .
+the results suggest that more than a third of the galaxies that were classified manually by _ galaxy zoo _ participants as elliptical actually have a certain spirality .
+although in most cases the spirality was low , 10% of the galaxies classified as elliptical had a slope greater than 0.5 , suggesting that computer - aided analysis can in some cases be more sensitive to galaxy spirality compared to the human eye .
+these conclusions are also true for galaxies classified by professional astronomers , as was shown by using the rc3 and na10 catalogs
+.    the results also exhibit redshift bias .
+this bias can be attributed to the quality of the images , as images of nearby galaxies provide higher image quality and therefore manual inspection of these images can be easier compared to images of galaxies with higher redshift , in which the ability of computer - aided analysis to detect subtle differences between gray levels can provide an advantage over the unaided human eye .
+funding for the sdss and sdss - ii has been provided by the alfred p. sloan foundation , the participating institutions , the national science foundation , the us department of energy , the national aeronautics and space administration , the japanese monbukagakusho , the max planck society , and the higher education funding council for england .
+the sdss web site is http://www.sdss.org/.    the sdss is managed by the astrophysical research consortium for the participating institutions .
+the participating institutions are the american museum of natural history , astrophysical institute potsdam , university of basel , university of cambridge , case western reserve university , university of chicago , drexel university , fermilab , the institute for advanced study , the japan participation group , johns hopkins university , the joint institute for nuclear astrophysics , the kavli institute for particle astrophysics and cosmology , the korean scientist group , the chinese academy of sciences ( lamost ) , los alamos national laboratory , the max planck institute for astronomy ( mpia ) , the max planck institute for astrophysics ( mpa ) , new mexico state university , ohio state university , university of pittsburgh , university of portsmouth , princeton university , the united states naval observatory and the university of washington .
+abraham , r. g. , merrifield , m. r. , ellis , r. s. , tanvir , n. r. , brinchmann , j. , 1999 .
+the evolution of barred spiral galaxies in the hubble deep fields north and south .
+mnras 308 , 569576 .
+abraham , r. g. , van den bergh , s. , nair , p. , 2003 . a new approach to galaxy morphology .
+i. analysis of the sloan digital sky survey early data release .
+apj 588 , 218229 .
+ball , n. m. , brunner , r. j. , myers , a. d. , strand , n. e. , alberts , s. l. , tcheng , d. , 2008 .
+robust machine learning applied to astronomical data sets .
+probabilistic photometric redshifts for galaxies and quasars in the sdss and galex .
+apj , 683 , 1221 .
+ball , n. m. , loveday , j. , brunner , r. j. , 2008 .
+galaxy colour , morphology and environment in the sloan digital sky survey .
+mnras 383 , 907922 .
+banerji , m. , et al .
+galaxy zoo : reproducing galaxy morphologies via machine learning .
+mnras , 406 , 342353 .
+conselice , c.j . , 2003 .
+the relationship between stellar light distributions of galaxies and their formation histories .
+apjs , 147 , 128 .
+corwin , h. g. , jr .
+, buta , r. j. , de vaucouleurs , g. , 1994 .
+corrections and additions to the third reference catalogue of bright galaxies aj 108 , 21282144 .
+djorgovski , s. g. , davis , m. , 1987 .
+fundamental properties of elliptical galaxies .
+apj 313 , 5968 .
+dressler , a. , lynden - bell , d. , burstein , d. , davies , r. l. , faber , s. m. , terlevich , r. wegner , g. , 1987 .
+spectroscopy and photometry pf elliptical galaxies .
+i. a new distance estimator .
+apj 313 , 42 .
+huertas - company , m. , aguerri , j. a. l. , bernardi , m. , mei , s. , sanchez almeida , j. , 2011 .
+sdss automated morphology classification .
+a&a 525 , 157 joy , k. et al . , 2011 .
+moon zoo : citizen science in lunar exploration .
+astronomy & geophysics 52 , 1012 .
+kormendy , j. , fisher , d. b. , cornell , m. e. , bender , r. , 2009.structure and formation of elliptical and spheroidal galaxies .
+apjs 182 , 216309 .
+kormendy , j. , bender , r. , 2012 . a revised parallel - sequence morphological classification of galaxies : structure and formation of s0 and spheroidal galaxies .
+apjs 198 , 2 .
+lintott , c. j. , et al .
+galaxy zoo : morphologies derived from visual inspection of galaxies from the sloan digital sky survey .
+mnras 389 , 11791189 .
+lintott , c. j. , et al . 2011 .
+galaxy zoo 1 : data release of morphological classifications for nearly 900,000 galaxies .
+mnras 410 , 166178 .
+loveday , j. , 1996 . the apm bright galaxy catalogue .
+mnras 278 , 10251048 .
+masters , k. l. , et al . 2011 .
+galaxy zoo : bars in disk galaxies .
+mnras 411 , 20262034 .
+nair , p. , 2009
+, phd dissertation , university of toronto nair , p. , abraham , r. , 2010 . on the fraction of barred spiral galaxies .
+apj , 714 , l260 otsu , n. , 1979 . a threshold selection method from gray level histograms .
+ieee trans .
+sys . man .
+9 , 6266 .
+shamir , l. , nemiroff , r.j .
+a lossy fits image compression algorithm that protects user - defined levels of photometric integrity .
+aj 129 , 539546 .
+shamir , l. , nemiroff , r.j .
+, 2005b . a fuzzy logic based algorithm for finding astronomical objects in wide - angle frames .
+pasa 22 , 111117 .
+shamir , l. , 2009 .
+automatic morphological classification of galaxy images .
+mnras 399 , 13671372 .
+shamir l. , 2011a .
+ganalyzer : a tool for automatic galaxy image analysis .
+apj 736 , 141 .
+shamir l. , 2011b .
+astrophysics source code library , ascl:1105.011 shamir l. , 2012 , handedness asymmetry of spiral galaxies with z@xmath00.3 shows cosmic parity violation and a dipole axis , physics letters b , 715 , 2529 .
+scorza , c . ,
+bender , r. , 1990 , a&a 235 , 49 .
+thorsten , l. , 2008 . is the gini coefficient a stable measure of galaxy structure ?
+apjs 179 , 319 tyson , j.a . , 2002 .
+large synoptic survey telescope : overview .
+proceedings of the spie , 4836 , 1020 .
+wallin , j. , holincheck , a. , borne , k. , lintott , c. , smith , a. , bamford , s. , fortson , l. , 2010 .
+tasking citizen scientists from galaxy zoo to model galaxy collisions .
+asp conference series , 423 , 217222 .
+van den bergh , s. , 2009 .
+what are s0 galaxies ?
+apj , 694 , l120l122 .
+van den bergh , s. , 2009 .
+lenticular galaxies and their environment .
+apj 702 , 1502 van dokkum , p. g. 2005 . the recent and continuing assembly of field elliptical galaxies by red mergers .
+aj 130 , 2647 - 2665 .
+york , d.g .
+et al . , 2000 .
+the sloan digital sky survey quasar catalog .
+ii . first data release .
+aj , 120 , 25792593 .

@@ -1,0 +1,308 @@
+the understanding of irreversible phenomena including nonequilibrium ( ne ) steady state is a long - standing problem of quantum statistical mechanics . with the recent experimental developments , it is now possible to measure the transport properties through nanoscale systems
+. these can be either the electronic charge transport or heat transport . both properties , i.e. thermoelectric transport
+, have recently been measured simultaneously @xcite .
+such properties exhibit many important new features in comparison with conduction through macroscopic systems .
+in particular , the interactions , such as coulomb interaction between electrons and scattering from atomic vibrations , become critically important in nanoscale objects , especially in single organic molecules @xcite    modelling such transport properties is still a challenge since one needs to be able to describe the system at the atomic level in a realistic manner , and one needs to use a formalism for the quantum transport that takes full account of the ne conditions ( full nonlinear response ) and the many - body ( mb ) interaction .
+nonequilibrium green s functions ( negf ) seems , at the present moment , the best way to tackle the problem .
+however , negf calculations for realistic systems are difficult to achieve , beyond mean - field - like approximations or quasi - equilibrium regime , since the calculations of the mb effects for a large number of electronic ( and vibronic ) degrees of freedom are extremely demanding
+. alternatively , the density - functional ( df)-based theories can handle large systems , but unfortunately treat the interaction ( between electrons for example ) on a mean - field - like basis and the corresponding functionals are not necessarily optimized , or even valid , for the ne conditions .    in this paper , we present an alternative approach based on the use of ne distribution and spectral functions . on one hand ,
+such an approach is , in principle , strictly equivalent to the steady - state negf technique , since there is a one - to - one equivalence between the green s functions ( gf ) and the ne distribution and spectral functions .
+one the other hand , approximations for the mb effects ( in the presence of ne conditions ) seems to be more easily introduced in the ne distribution , while keeping a clear physical interpretation .
+furthermore the use of approximated ne distributions may offer an alternative approach for future implementations in df - based calculations for large systems .    in earlier studies
+, we have already started developing and using the concept of ne distribution functions .
+this was done in a critical analysis of the applicability of landauer formalism for ne current in the presence of interactions @xcite , and in the study of the ne charge susceptibility and its relation with the nonlinear dynamical conductance @xcite .    in this paper , we develop in detail our approach using ne distribution and spectral functions , and provide numerical applications .
+the paper is organized as follows . in sec .
+[ sec : ness ] , we define the general steady state transport set - up .
+we start by considering a model system in sec .
+[ sec : onelevel ] and provide all the analytical results for the ne distributions .
+[ sec : fne ] concerns the general properties of the ne distributions . in sec .
+[ sec : fne_algo ] , we develop an algorithm for performing ne calculations .
+numerical applications are provided in sec .
+[ sec : numerics ] where we show examples of the ne distributions for a model of electron - phonon interacting system .
+the performance of the exact and approximated ne distributions are studied in this section .
+the generalisation of our approach to more realistic systems are provided in sec . [
+sec : realistic ] .
+finally we comment our results and conclude our study in sec .
+[ sec : ccl ] .
+we consider a system consisting of a central region @xmath0 connected to two non - interacting fermi seas .
+the left ( @xmath1 ) and right ( @xmath2 ) electrodes are at their own equilibrium , with a fermi distribution @xmath3 defined by their respective chemical potentials @xmath4 and temperatures @xmath5 ( @xmath6 ) .
+the central region @xmath0 connected to the leads contain interaction characterized by a self - energy @xmath7 in the negf formalism .
+furthermore the specific model used for the leads does not need to be specified at the moment , as long as the leads can also be described by an embedding self - energy @xmath8 in the electron gf of the central region .
+the possibility of reaching a steady state regime in such a two - terminal device has been explored by many authors . the full time - dependent negf formalism and the influence of bound states in the central region
+have been studied in refs .
+rigorous mathematical methods based on the @xmath9 algebra have been used to study the existence and stability of such ne steady state , i.e. , its independence of the way the division into subsystems and reservoirs is performed and its stability against local perturbations , in the absence @xcite and in the presence of interaction @xcite .    for an established steady state regime
+, it is expected that some formal advantages may be given by an approach to ne processes in which the gibbs - like ensembles play a prominent role .
+the construction of such gibbs - like ensembles for the ne steady state can be obtained either by using the maclennan - zubarev approaches @xcite or the ne density matrix approach developed by hershfield in ref .
+the latter has been extensively used for calculating quantum electron transport properties , with or without interaction @xcite .    in the following ,
+we show that the ne statistics of the open quantum system , i.e. the central region @xmath0 contains , information not only of the ne conditions but also about the mb interaction .
+we now consider a model for the central region made of a single electron level in the presence of interaction . in this section
+all quantities are either real or complex number functions of a single energy argument .      in a recent paper @xcite ,
+we have shown , using maclennan - zubarev and hershfield approaches , that the steady state can be interpreted as an effective equilibrium state with a corresponding ne density matrix , or equivalently , with a corresponding ne statistics .
+such a ne statistic can be defined by a ne distribution function @xmath11 .
+it enters the relation between the different gfs defined in the central region @xmath0 as follows : @xmath12 with @xmath13 and with @xmath14 .
+we recall that the spectral function @xmath15 of the central region is obtained from @xmath16 .
+( [ eq : gf_and_fne ] ) bears resemblance with the so - called kadanoff - baym ansatz @xcite , but as we have shown in ref . [ ] , it is a strictly exact result for the steady state regime .    at equilibrium , @xmath10 is simply the fermi distribution @xmath17 .
+out of equilibrium , the distribution function will depend on the set - up , i.e. on the forces driving the system ( gradient of chemical potential and/or temperature between the leads ) , and on the interaction present in the region @xmath0 .    in the absence of interaction ,
+the ne distribution function for the electron is simply given by @xcite @xmath18 where @xmath19 is the spectral function of the embedding ( lead @xmath20 ) self - energy .
+it is simply a double - step function , with more or less steep steps ( depending on the temperature @xmath21 and @xmath22 ) located around @xmath23 and @xmath24 , and separated by @xmath25 ( @xmath26 is the applied bias ) .    in the presence of interaction in the central region @xmath0 ,
+the ne distribution is given by @xcite @xmath27 using the definitions @xmath28 and @xmath29 , with @xmath30 , we obtain : @xmath31    eq .  ( [ eq : fne ] ) is the `` universal '' expression of the electron ne distribution function . it is universal with respect to the interaction , in the same sense that the gfs have an universal expression via the use of the interaction self - energies . however , as expected for ne conditions , the ne distribution function is not as universal as its equilibrium counterpart , since it depends on both the set - up that drives the system out of equilibrium ( via @xmath32 ) and on the mb interaction @xmath33 ( which are themselves dependent on the ne conditions ) .
+we comment more on these properties in appendix [ app : fne_withwithout_inter ] .    from eq .
+( [ eq : fne ] ) , we can see that the ne distribution @xmath10 arises from two terms @xmath34 a dynamically renormalized distribution @xmath35 , with the renormalisation @xmath36 given by the sum of the spectral functions of the leads @xmath37 and of the interaction @xmath38 , and an extra term @xmath39 corresponding to the inelastic processes given by @xmath40 , and renormalised by the same factor @xmath36 .    the non - interacting distribution @xmath32 is formed by two fermi - dirac distributions shifted by the bias @xmath26 .
+however , the full ne distribution presents richer features ( peaks and dips ) characteristics of the electron population redistribution arising from both the ne and interaction effects .
+one can obtain both accumulation or depletion ( i.e. population inversion ) in some energy windows , such features in the ne distribution provide information about the efficiency of relaxation / equilibration processes in the system .
+furthermore , another important property of the ne distribution @xmath10 is related to its functional form .
+indeed , any feynmann diagrams for the interaction self - energy @xmath41 ( taken at any order and for electron - electron e - e or electron - phonon e - ph interaction ) is expressed in terms of the different electron gfs and phonon gfs .
+the renormalisation of the phonon gfs , if present , is also obtained from another set of diagrams using the electron gfs ( in the case of e - ph interaction ) .    since all gfs ( either the retarded , the advanced or the lesser , the greater , or the ( anti)time - order ) can be expressed in terms of spectral function @xmath42 alone or in terms of both the spectral function and the ne distribution , see eq.([eq : gf_and_fne ] ) ,
+any self - energy is a functional of the spectral functions and of the ne distribution function . in appendix [ app : fne_functional ] , we show explicitly how such a functional dependence is obtained by considering different lowest - order diagrams for the self - energies in case of both e - e and e - ph interaction .    therefore , from the general expression eq .
+( [ eq : fne ] ) defining @xmath10 , we can conclude that @xmath43 $ ] .
+the fact that @xmath10 is a functional of itself and of the spectral function permits us to devise an approach to solve self - consistently the problem by using an iterative scheme .
+such a scheme is developed in the next section and bears resemblance with conventional self - consistent negf calculations .
+the method we present in this section has however some advantages compared to conventional negf calculations .
+first of all , we are now dealing with two real functions @xmath11 and @xmath15 instead of complex number functions for the gfs .
+more importantly these two functions have well behaved ( for numerical purposes ) asymptotic limits : the spectral function @xmath15 has a finite energy - support , i.e. @xmath44 for @xmath45 $ ] otherwise @xmath46 , and @xmath47 for @xmath48 and @xmath49 for @xmath50 where the energy domain @xmath51 is roughly the bias window @xmath52 \pm$ ] several @xmath53 .
+hence by using only @xmath11 and @xmath15 , we avoid having to deal with the slow decaying behaviour in @xmath54 of the real part of the advanced and retarded gfs and self - energies .
+such slow decay in @xmath54 comes from the fourier transform of the heavyside function defining the causality in the retarded ( the anti - causality in the advanced ) quantities .
+we are not obliged to work with large ( i.e. long ranged ) energy grids . in principle , one should work with a grid larger than @xmath51 in order to include the possible effects of `` hot electrons '' excited well above the bias window due to the interaction . in practice
+, we have found that the energy grid could be only the support of the spectral function @xmath55 $ ] .      the algorithm to perform ne steady state calculations
+is as follows :    * start with an initial ( @xmath56 ) spectral function @xmath57 and ne distribution @xmath58 , for example those corresponding to the non - interacting case : @xmath59 and @xmath60 . *
+calculate the corresponding initial self - energies @xmath61 for the chosen model of mb interaction .
+* calculate the next iteration ne distribution @xmath62 from eq .
+( [ eq : fne ] ) as follows @xmath63 with @xmath64 $ ] .
+note that the quantities @xmath65 are also real functions . *
+calculate the next iteration spectral function from either + @xmath66 _ method ( a ) _ : using the following expression @xmath67 + @xmath66 _ method ( b ) _ : using the definition of the spectral functions @xmath68 , we define @xmath69 where @xmath70 should be considered as intermediate ( dummy ) functions defined from the @xmath71-th iteration spectral function @xmath72 as @xmath73 \mp i \pi   a_c^{(n)}(\omega ) \ , \ ] ] where @xmath74 $ ] is the hilbert transform of function @xmath75 , i.e. @xmath74= 1/\pi\ p.v .
+\int dy\ f(y)/(x - y ) $ ] . + and @xmath76 is an intermediate updated version of the self - energy obtained from @xmath77 $ ] .
+* ensure normalisation of @xmath78 when using approximated functionals for the ne distribution such as @xmath79 or @xmath80 ( see below ) .
+* repeat the iteration process , from step 3- , until the desired convergence is achieved ( either for the ne distribution @xmath81 or for the spectral function @xmath82 or for both ) .
+it should be noted that , similarly to the spectral functions , the spectral `` densities '' of the self - energy of the leads @xmath83 , and of the interaction self - energy @xmath84 are bounded , i.e. there have zero values outside an energy interval which is roughly the same as @xmath55 $ ] .
+hence we do not have to worry about the long - ranged dependence in @xmath54 of the real part of @xmath70 ; and we recover spectral functions @xmath82 which exist only on a finite energy - support .    furthermore _ method ( a ) _ for the calculation of the spectral function
+presents the great advantage of being extremely simple , in comparison to _ method ( b ) _ @xcite .
+however , we have noticed that , in some cases when the initial spectral function of the iterative loop is too different from the expected result , the convergence process might be slower ( if not possible at all ) for _ method ( a ) _ than for _ method ( b)_. hence _ method ( b ) _ appears to be more robust upon the choice of the initial conditions .
+it is entirely possible to combined both schemes in the same algorithm , starting first with _
+method ( b ) _ and when some degree of convergence is reached switching to _ method ( a ) _ to obtain a more accurate level of convergence .
+the method devised in the previous section can appear at first glance as just another reformulation of conventional negf calculations .
+one performs calculations with another set of two independent ( but inter - related ) functions : the ne distribution @xmath10 and the spectral function @xmath42 . in conventional negf technique , one deals instead with the two independent gfs @xmath85 and @xmath86 . as mentioned above
+, there is indeed a one - to - one correspondence between these two sets of functions .
+however , our method offers many advantages and not only on the numerical point of view as explained previously .
+indeed , as the ne distribution is a functional of itself and of the spectral function , it offers a more direct and natural way of performing approximated calculations , by considering some specific subsets of inelastic processes .
+such approximations are advantageous to minimize the computational cost of the calculations , which is an important point for future applications to large and more realistic systems .
+ultimately @xmath10 , given by eq .
+( [ eq : fne ] ) , can be expressed as an infinite series expansion in terms of the non - interacting ne distribution @xmath32 , the spectral function @xmath42 and the interaction parameters ( @xmath87 or @xmath88 ) . therefore instead of performing the calculations with the exact expression eq .
+( [ eq : fne ] ) , we can always truncate the series expansion to a desired level of accuracy ( i.e. selecting a specific subset of inelastic processes ) , suitable for the system and the properties under study .
+we provide , in the next section , some example of approximated ne distributions and compare their performance against exact calculations using the full @xmath10 distribution .
+we recall that the latter are strictly equivalent to negf calculations ( with the same model of self - energies ) .
+we now consider numerical applications for a model of e - ph interacting system , and we test the different approximations available for the functional forms of the ne distribution .
+the hamiltonian for the region @xmath0 is @xmath89 where @xmath90 ( @xmath91 ) is the creation ( annihilation ) operator of an electron in the molecular level @xmath92 .
+the electron is coupled , via its charge density @xmath93 , to the vibration mode ( phonon ) of energy @xmath94 and the strength of the coupling is given by the constant @xmath87 , and @xmath95 ( @xmath96 ) creates ( annihilates ) a quantum in the vibron mode @xmath94 .    for the transport set - up , the central region @xmath0
+is connected to two ( @xmath1 and @xmath2 ) one - dimensional semi - infinite tight - binding chains via the hopping integral @xmath97 and @xmath98 .
+the corresponding @xmath6 self - energy is obtained from the gf at the end of the semi - infinite tight - binding chain and is given by @xmath99 .
+a dispersion relation links the energy @xmath100 with the momentum @xmath101 of an electron in the lead @xmath20 : @xmath102 .
+the parameters @xmath103 and @xmath104 are the on - site and off - diagonal elements of the tight - binding chains .
+with such a choice of lead self - energy , we go beyond the wideband limit ( unless @xmath104 is much larger than any other parameters ) .
+the self - energies @xmath41 for the interaction between the electron and the vibration mode are calculated using the born approximation @xcite .
+their expressions are given in appendix [ app : scba ] .
+finally , in the most general cases , the left and right contacts are different ( @xmath105 ) and there are asymmetric potential drops , i.e. @xmath106 , with the condition @xmath107 ( i.e. @xmath108 ) .
+we provide typical examples of the charge redistribution in the central region induced by both the ne effects and the interaction . for a given model of interaction self - energies , the full self - consistent calculations provided by the algorithm in sec .
+[ sec : algo ] are strictly equivalent to conventional negf calculations .
+hence the results obtained for @xmath10 with our method ( and full self - consistency ) are equal to those obtained from negf - scba calculations @xcite .
+figure [ fig:1 ] shows how the ne distribution evolves upon increasing the ne conditions , i.e. the applied bias , for a typical set of parameters characterising the off - resonant transport regime .
+one can clearly observe the difference between the non - interacting ne distribution @xmath32 and the full distribution @xmath10 .
+the latter presents features ( peaks and dips ) which correspond to accumulation or depletion of the electron population induced by inelastic scattering effects .
+such features are directly related to the peaks in the spectral function .
+this single example confirms explicitly that , generally , @xmath109 as shown analytically in appendix [ app : fne_withwithout_inter ] .      as mentioned in section [ sec : approx_fne ] , for a given choice of interaction self - energies , our approach is fully equivalent to negf calculations .
+both methods corresponds to a partial resummation of a family of diagrams associated with the interaction self - energy .
+however , we can further approximate the expression of the ne distribution eq .
+( [ eq : fne ] ) .
+this corresponds to another way of partially resuming the diagrams corresponding to @xmath41 .    a lowest order expansion ( loe ) , in terms of the characteristic interaction parameter ,
+gives an approximated ne distribution in the following form : @xmath110    using the expressions for the self - energies @xmath111 given in appendix [ app : scba ] for the limit @xmath112 , we find that : @xmath113 \right .
+\\ & \left .
+- a_c(\omega-\omega_0)\ [ 1-f^{\rm ne}_0(\omega-\omega_0)]\ f^{\rm ne}_0(\omega)\ \right ] \ , \end{split}\ ] ] where the terms in @xmath114 represent ne inelastic correction terms ( to the non - interacting distribution @xmath115 ) arising from phonon emission by electron and hole .
+such correction terms are proportional to the ratio @xmath116 , where @xmath117 represents to total escape ( injection ) rate of electron or hole from ( into ) the central region @xmath0 .
+the order of the interaction parameter is @xmath114 as in lowest order perturbation theory .
+( [ eq : fne_loe2 ] ) represents the simplest functional form of the ne distribution @xmath118(\omega)$ ] .
+however , it is a lowest order series expansion in terms of the parameter @xmath87 and is only valid for weak coupling , as we will show below .
+it should be noted that the inelastic processes can only occur when the bias @xmath26 is larger or equal to the excitation energy , @xmath119 , otherwise the factors associated with phonon emission by electron [ @xmath120 or by hole [ @xmath121 are zero over the whole energy range @xcite .
+another possible approximation is to consider eq .
+( [ eq : fne ] ) using only the non - interacting distribution @xmath115 in the evaluation of the self - energies @xmath122 .
+one then gets @xmath123
+/ \mathcal{n}(\omega ) \ , \end{split}\ ] ] with @xmath124 and @xmath125 \right . \\ & \left .
++ a_c(\omega+\omega_0)\ f^{\rm ne}_0(\omega+\omega_0 ) \right ] .
+\end{split}\ ] ]    in figure [ fig:2 ] , we show different ne distributions calculated with different approximations : the non - interaction distribution @xmath115 , the full self - consistent distribution @xmath10 , different approximations for the loe distribution @xmath79 and @xmath80 .
+@xmath126 $ ] is calculated from eq .
+( [ eq : fne_loe2 ] ) using the full self - consistent spectral function @xmath127 , @xmath128 $ ] is calculated from eq .
+( [ eq : fne_loe2 ] ) using the non - interacting spectral function @xmath129 .
+finally @xmath130 is obtained from a self - consistent calculation for the spectral function ( see sec .  [
+sec : algo ] ) using the functional form eq .
+( [ eq : fne_loe2 ] ) for @xmath131loe , or eq .
+( [ eq : fne_o1 ] ) for @xmath132 .
+one can see in the upper panel ( a ) of figure [ fig:2 ] that , for weak e - ph coupling , any approximations for @xmath79 give the same results , and provide a good representation of the exact @xmath10 .
+the distribution @xmath133 provides a better representation for @xmath10 .
+the amplitude of @xmath79 is slightly different from @xmath10 , because it is obtained from a series expansion and is not fully renormalised by the factor @xmath36 such a renormalisation is however included in @xmath133 .    for larger e - ph coupling , the difference between @xmath79 and @xmath10 increases , as can be expected from any perturbation series expansion .
+the loe gives physical results only when the electron - phonon coupling is such as @xmath134 < 0.5 $ ] .
+otherwise one gets non - physical results for the ne distribution , i.e. @xmath135 or @xmath136 , as shown in the lower panel ( c ) of figure [ fig:2 ] .
+such a behaviour never occurs for the distribution @xmath133 since it contains the proper renormalisation .
+therefore , in general , it is better to use an approximated distribution like @xmath80 than the loe .    another important point to mention
+is shown in the panels ( b ) and ( c ) in figure [ fig:2 ] : the inelastic processes ( see side band peak located around @xmath137 ) are only reproduced in the loe when some form of self - consistent has been used , i.e. either in the form of @xmath126 $ ] or @xmath138 .
+the loe distribution calculated with the non - interacting spectral function @xmath129 is not able to reproduce such effects .
+finally it should also be noted that all the self - consistent calculations including approximated distributions , like @xmath79 or @xmath80 , converge much more faster than the full calculation for @xmath10 ( see footnote [ ] for more details ) .
+such a numerical improvement is important for the calculations of more realistic and larger systems .
+figure [ fig:3 ] shows a typical result for the dynamical conductance @xmath139 obtained in the off - resonance transport regime .
+the current is calculated as in ref .
+[ ] using different approximations for the ne distribution function .
+the conductance @xmath140 calculated with the approximated distribution @xmath80 provides a good representation of the conductance calculated with the exact distribution @xmath10 .
+the peak position are well reproduced , but the amplitude of the conductance peaks is slightly larger with @xmath80 .
+this is due to the lack of full renormalisation of @xmath80 in comparison to @xmath10 .
+the approximated distribution @xmath80 always gives a slightly larger electron population as shown in fig .
+[ fig:2 ] .
+we do not show the results obtained with @xmath79 since for coupling strengths @xmath141 , @xmath79 gives non - physical results as shown in panel ( c ) of figure [ fig:2 ] .
+the inelastic effects are best represented by the inelastic electron tunnelling spectra ( iets ) provided from the second derivative of the current versus the applied bias .
+figure [ fig:4 ] shows such a signal normalised by the conductance . as expected for the off - resonance regime @xcite , we obtain a peak in the iets for the voltage threshold @xmath142 . the exact iets signal calculated with the distribution @xmath10
+is well presented by the iets calculated with the approximated distribution @xmath80 .
+more interestingly , the results obtained with the loe approximated distribution @xmath79 also give a good representation of the iets signal , even for a coupling strength @xmath143 .
+we interpret such a behaviour in the following manner : for small applied bias , where the transport is mostly tunneling and away from any resonant transport mechanisms , the loe distribution @xmath79 is still realistic ( i.e. @xmath144 ) and quite close to the distribution @xmath80 .
+hence both distributions provide similar results for the iets signal .
+however , whenever the bias is large enough to include any resonances ( main resonance or any phonon - side band peak ) , the loe distribution will provide a non - physical behaviour as shown in panel ( c ) of figure [ fig:2 ] .
+in order to extend the previous results to more realistic systems , we need to include several electron states and eventually several vibration modes in the central region . for that
+, we follow the same reasoning as in section  [ sec : onelevel ] , and consider the gfs as being matrices @xmath145 in the electron level ( or site ) representation .
+the self - energies are also matrix in such a representation .
+we then define a new matrix for the ne distribution @xmath146 as follows : @xmath147 \ .\ ] ] with a few lines of algebra , we find that @xmath148^{-1 } \\ & = \underline{g}^r_c \underline{\sigma}^ < \underline{g}^a_c \left [ \underline{g}^r_c\ [ ( \underline{g}^r_c)^{-1 } - ( \underline{g}^a_c)^{-1}]\ \underline{g}^a_c \right]^{-1 } \\ & = \underline{g}^r_c \underline{\sigma}^ < [ \underline{\sigma}^a - \underline{\sigma}^r]^{-1 } ( \underline{g}^r_c ) ^{-1 } \\ & = \underline{g}^r_c   \left ( \underline{f}_0^{\rm ne } \underline{\gamma}_{l+r } - i \underline{\sigma}_{\rm int}^ <
+\right ) \left [ \underline{g}^r_c \left ( \underline{\gamma}_{l+r } + \underline{\gamma}_{\rm int } \right ) \right]^{-1 } \ , \end{split}\ ] ] where @xmath149 .    the equation eq .
+( [ eq : fnenm ] ) for @xmath146 is more complicated than eq .
+( [ eq : fne ] ) because of the presence of the retarded gf terms which do not cancel in the general matrix form .
+furthermore , the physical interpretation of @xmath150 is more complicated .
+however the diagonal matrix elements @xmath151 represent the occupations of the level @xmath71 , and the off - diagonal matrix elements represent some form of probability rate of transition between states .
+it should noticed that , however , all the functional analysis we have performed in section [ sec : fne ] and appendix [ app : fne_functional ] still hold for the matrix case , i.e. the interaction self - energy is functional of the spectral function and of the ne distribution .
+furthermore , @xmath152 is also a functional of the spectral function , @xmath153 , which is now given in a matrix form , and @xmath154 - i \pi
+a_{c , nm}(\omega)$ ] .
+hence we can still use the functional property of the ne distribution , that is @xmath155 $ ] , to devise a self - consistently iterative scheme to solve the problem .
+however now , we have to take into account all the different matrix elements of the ne distribution and spectral functions .
+we can choose for convenience that the coupling of the central region @xmath0 to the lead @xmath20 is diagonal in the @xmath156 representation : @xmath157 .
+hence the non - interacting ne distribution @xmath158 is diagonal as well , with matrix elements : @xmath159 with @xmath160 the population of the eigenvalue @xmath161 of state @xmath71 given from the statistics of the lead @xmath20 .
+furthermore if the interaction is such that @xmath162 is also diagonal , the terms in @xmath163 cancel in eq .
+( [ eq : fnenm ] ) ; and we end up with a set of @xmath164 equations like eq .
+( [ eq : fne ] ) for @xmath165 which need to be solve self - consistently for the @xmath71 distributions and the @xmath71 spectral functions @xmath166 .
+however , in the most general cases , @xmath162 is not diagonal , and one would need to solve the problem in a matrix form .
+for example , a generalisation of the self - energies for electron - phonon coupling , given in appendix [ app : scba ] , would be @xcite @xmath167 where the coupling matrix elements @xmath168 correspond to an excitation of the vibration mode @xmath169 ( emission or absorption of a quantum ) with electronic transition between state @xmath71 and @xmath170 .
+we provide in appendix [ app:2levelmodel ] a specific example of a two - level model coupled to different vibration modes and show how to calculate the different matrix elements of @xmath150 .
+as far as we know , calculations for realistic systems ( i.e. several electron levels and vibration modes ) have not yet been performed for the full range of ne and mb effects .
+ne distribution functions have been used in large systems but only for non - interacting cases or for cases where the interactions are treated in a mean - field manner @xcite .
+the effects of ne and mb effects for e - ph coupled realistic systems have been considered , however only at the level of a lowest order expansion for the coupling , and in conjunction with some form of self - consistency @xcite .
+the really important point in the use of ne distributions for complex systems is that both the ne and mb effects are taken into account in the statistics of the finite size open quantum system ( the central region @xmath0 ) .
+the ne distributions give the ( fractional ) electron population in the corresponding electronic levels in the presence of the ne conditions and for a given model of the mb effects ( self - energies ) .
+one could envisage incorporating such ne statistics in density - functional - based codes able to deal with fractional occupation numbers for the corresponding kohn - sham states .
+we have developed an alternative scheme to calculate the non - equilibrium ( steady state ) properties of open quantum systems .
+the method is based on the use of ne distribution and spectral functions .
+the method presents several advantages , but is strictly equivalent to conventional steady - state negf calculations , when using the same level of approximations for the mb interaction .
+this is because there is a one - to - one correspondence with the ne distribution and spectral functions and the different gfs used in negf .
+the advantages of our method resides in the fact that the ne distribution and spectral functions have well behaved features for numerical applications , and that , for the single level model , one works with purely real - number quantities .    furthermore , our approach offers the possibility to introduce further approximations , not only at the level of the mb interaction ( as in negf ) , but also at the level of the functional forms used for the ne distributions .
+introducing approximations at this level is important to reduce the computational cost of the method . for the model of electron - phonon
+coupled system we have studied , such approximations provide a good representation of the full exact results , for either the ne distributions themselves or for physical measurable quantities such as the conductance and the iets signal .
+an extension to systems consisting of several electron levels and several vibration modes has also been provided .
+the concept of ne distribution functions also give more direct physical information about the open quantum system , for example in terms of depletion or accumulation of the electron population induced by the ne and mb effects .
+the ne distribution is also a useful concept to study other properties of the open quantum system such as the ne charge susceptibility @xcite and the ne fluctuation - dissipation relations @xcite .
+we expect that such a method will be useful for the study of large and more realistic systems @xcite , such a single - molecule thermoelectric devices , as some approximated version of the ne distributions could be implemented in density - functional - based calculations @xcite .
+hn warmly thanks l.k .
+dash for her precious comments and for her negf - scba code which served as the basis and as a reference tool for the present study .
+hn acknowledges engaging discussions with t.n .
+todorov on distribution functions for quantum transport .
+from the general expression of @xmath11 in eq .
+( [ eq : fne ] ) , there is no _ a priori _ reason for @xmath10 to be equal to the ne non - interacting distribution @xmath32 .    in the very special cases where the interaction self - energy @xmath40 follows the non - interacting statistics , i.e. in the sense that @xmath171 we obtain straightforwardly from eq .
+( [ eq : fne ] ) that @xmath172 .
+then all quantities , gfs and self - energies , follow the statistics given by the non - interacting case , as suggested in ref .
+[ ] . however this is generally not true .
+indeed , even when the interactions are present only in the central region , it is not possible to ignore their indirect mb effects which spread throughout the systems .
+such effects need to be incorporated into the local statistics .
+the latter can not simply arise from the ( non - interacting ) leads statistics only .
+for example , in the anderson impurity model , the kondo cloud generated by electron - electron interaction expands over more than the single site where the interaction is present . for electron - phonon interaction ,
+when one performs a lang - firsov unitary transformation to diagonalise the interacting part of the hamiltonian , one needs to keep the effects of such a transformation onto the effective coupling matrix elements between the ( now diagonal ) central region and the leads hamiltonians . in simple words
+, one could say that the electron - phonon interaction is now crossing at the contacts between the central region and the leads .
+therefore , there is no reason to assume that the corresponding statistics would be given by the non - interacting one .
+moreover , there are clear indications from numerical calculations that @xmath109 .
+this has been shown for electron - electron interaction ( for example , see figure 3 in ref .  [ ] ) and for electron - phonon interaction ( for example , see figure 5 and 6 in ref .
+[ ] , figure 6 in ref .
+[ ] and figure 7 in ref .
+we also provide a few examples in section [ sec : examplefnecalc ] .
+we can also convince ourself that generally @xmath109 by considering the following example for electron - phonon interaction .
+the lowest order diagram for which the self - energies @xmath122 are not vanishing is the fock diagram @xcite ( see appendix [ app : scba ] ) : @xmath173 .
+\end{split}\ ] ] one can use the ratio @xmath174 to define a distribution function @xmath175 such as @xmath176 . at low temperature @xmath112 and the ratio @xmath177 defines a distribution @xmath178 which is clearly different from @xmath32 . indeed if @xmath179 , one has @xmath180 which is not possible from the definition of eq .
+( [ eq : sigmafock_ratio1 ] ) .    to further convince ourselves , let assume that @xmath181 were following the distribution @xmath32 .
+then from eq .
+( [ eq : sigmafock_ratio1 ] ) , we would have @xmath182 where @xmath15 is the spectral function of the central region @xmath0 . the inequality in eq .
+( [ eq : sigmafock_ratio2 ] ) holds even for the symmetric electron - hole case @xcite .
+hence , we can safely conclude that , in the most general cases , the two distribution functions @xmath10 and @xmath32 differ from each other .
+the electron - phonon self - energies in the central region @xmath0 are calculated within the self - consistent born approximation .
+the details of the calculations are reported elsewhere @xcite so we briefly recall the different expressions for the self - energies @xmath183 with @xmath184 with @xmath185 and @xmath186 and @xmath187 with the usual definitions for the bare vibron gf @xmath188 : @xmath189 \\
+d_0^r(\omega ) & = \frac{1}{\omega - \omega_0 + i 0^+ }       - \frac{1}{\omega + \omega_0 + i 0^+ } \ ,     \end{split}\ ] ] where @xmath190 is the averaged number of excitations in the vibration mode of frequency @xmath94 given by the bose - einstein distribution at temperature @xmath191 .
+we are mostly interested to see how the inelastic effects are reproduced by our method based on the ne distribution .
+therefore we ignore the contribution of the static part of the interaction , i.e. the hartree - like self - energy @xmath192 , in the calculations .
+note however that since the ne distribution is defined from the lesser and greater components of the interaction self - energies , the hartree - like component is not relevant for the calculation of @xmath10 .
+we analyse in this appendix the dependence of @xmath10 on the mb effects using a conventional diagrammatic ne approach for the interactions .
+the lowest order non vanishing lesser and greater self - energies have the form of a convolution product of the following type : @xmath193 where @xmath194 is related to a boson propagator .    for electron - phonon interaction , @xmath194
+is given by @xmath195 , where @xmath196 is the phonon propagator and @xmath87 is the electron - phonon coupling constant .
+different levels of approximation can be used by considering the bare phonon propagator @xmath197 , or a partially dressed phonon propagator @xmath198 or the fully dressed phonon propagator @xmath199 .    for electron - electron interaction ,
+@xmath194 is the screened coulomb interaction @xmath200 in which the screening is obtained according to different levels of approximation .
+we describe a few of them in the following .
+_ electron - phonon interaction. _ when dealing with the bare phonon , the lesser interaction self - energy becomes @xmath201 clearly such a self - energy is a functional of the ne distribution @xmath202 and of the spectral function @xmath203 .
+one obtains a similar results for the greater self - energy @xmath204 .    for the partially dressed @xmath205 or the fully dressed phonon propagator @xmath206
+, we have the following expressions for the propagator @xmath207 or @xmath208 $ ] with @xmath209 being the polarisation function . at the lowest order ,
+the polarisation is given by the electron - hole bubble diagram and its lesser and greater components are @xmath210 which is again a functional of @xmath10 and @xmath42 . therefore we find that for any phonon propagator , we have @xmath211 $ ] .
+_ electron - electron interaction. _ the screened coulomb interaction @xmath212 can be calculated within different level of approximation for dielectric function @xmath213 ( @xmath88 is the fourier @xmath214-component of the bare coulomb interaction ) .    in the plasmon - pole approximation @xcite , we have @xmath215 , where @xmath216 is the bulk plasmon energy and @xmath217 the plasmon dispersion relation .
+the dynamic part of the screened coulomb potential @xmath218 can be rewritten as @xmath219 which involves a coupling constant @xmath220 and the bosonic propagator @xmath221 of the plasmon modes .
+this corresponds to the similar case of the bare phonon propagator described above . using the same reasoning
+we find that the interacting self - energy @xmath40 is a functional of @xmath10 and @xmath42 .    within the @xmath222 approximation @xcite , the screened coulomb interaction is given by @xmath223 .
+this expression is a formally equivalent to the case of the fully dressed phonon propagator since @xmath208= d_0(\omega ) + d_0(\omega ) \gamma_0 ^ 2   p(\omega ) \mathcal{d}(\omega)$ ] . hence applying the previous analysis
+, we find again that @xmath211 $ ] .
+_ vertex corrections and higher order diagrams. _ we can also consider higher order diagrams for the electron - phonon and electron - electron , as well as vertex corrections to build more elaborate self - energies . from our earlier work [ ]
+, it can been seen from the expressions of the second order and vertex correction diagrams that the self - energies @xmath122 can always be expressed as functional of the ne distribution @xmath11 and of the spectral function @xmath15 @xcite .
+for the two - terminal quantum devices we consider , the current @xmath224 is given by the famous meir and wingreen expression @xcite : @xmath225   ,    \end{split}\ ] ] where we recall that @xmath226 is the spectral function of the lead @xmath20 self - energy , i.e. @xmath227 .    for the single impurity model , the trace drops off and one deals with functions only . using the definitions @xmath228 and @xmath229 , we obtain @xmath230    the lowest order expansion of the current , in terms of elastic and inelastic processes , is obtained by introducing the approximated form eq .
+( [ eq : fne_loe2 ] ) for the ne distribution .
+the current is built on two contribution @xmath231 with @xmath232 the second line is simply obtained from the definition of the non - interaction ne distribution eq .
+( [ eq : f0ne ] ) .
+we can identify @xmath233 in eq .
+( [ eq : i_elas ] ) as a landauer - like current expression with the transmission given by the usual formula @xmath234 + [ \gamma_r(\omega ) g_c^r(\omega ) \gamma_l(\omega ) g^a(\omega ) ] \equiv   { 2\gamma_l\gamma_r}/{\gamma_{l+r } } \ 2\pi a_c(\omega)$ ] .
+this is a purely elastic transmission when the gfs or @xmath15 are calculated in the absence of interaction . in the presence of interaction
+, we are dealing with elastic transport with renormalised gfs @xcite .
+the second contribution to the current is given by @xmath235   \right .
+\\   - & \left .
+a_c(\omega ) f^{\rm ne}_0(\omega)\ a_c(\omega-\omega_0 ) [ 1-f^{\rm ne}_0(\omega-\omega_0 ) ] \ \right ] .
+\end{split}\ ] ] this is simply the lowest order inelastic contribution to the current , corresponding to vibron emission by electron and hole . when eq .
+( [ eq : i_inel ] ) is recast in terms of the fermi distributions @xmath236 and @xmath237 entering the definition of @xmath32 , one recovers the lowest order expansion results obtained from scattering theory @xcite and from negf @xcite if the spectral function @xmath42 is calculated in the absence of interaction .
+the important point here is that our results are obtained in a rather straightforward manner by using the concept of ne distribution .
+they are equivalent to others when working within with same degree of approximation for the interaction self - energy . however , with the use of approximated forms for the ne distribution , we can still perform self - consistent calculations , which go beyond second order perturbation theory .
+in this appendix , we provide an example for a model of the central region consisting of two levels @xmath238 with two different kind of e - ph coupling , a local holstein - like coupling on each site and an off - diagonal su - schrieffer - heeger - like coupling between the two levels .
+the interaction self - energies are non - diagonal 2x2 matrix with elements @xmath239 given ( in the limit of low temperature ) by : @xmath240 where @xmath241 and @xmath242 are the energy and coupling constant for the local e - ph interaction on level @xmath243 and @xmath244 and @xmath245 are the corresponding quantities for the non - local e - ph interaction between level 1 and 2 .    for simplicity
+we consider the coupling to the lead is diagonal , i.e. @xmath246 and therefore the non - interacting ne distribution matrix @xmath158 is also diagonal , with elements @xmath247 given by eq .
+( [ eq : f0nen ] ) .
+we focuss in the following on the loe of @xmath150 .
+this approximation still shows how the different components of the ne distribution matrix are obtained in the presence of a non - diagonal interaction self - energy .
+where we kept only the lowest order terms , @xmath249 is a contraction for @xmath250 and @xmath251 is the non - interacting gf of the region @xmath0 .
+such a gf is diagonal with elements @xmath252 in the two - level representation .
+hence we obtain the following loe for @xmath150 : @xmath253 , \end{aligned}\ ] ] where @xmath254 is ratio @xmath255 and @xmath256 are the matrix elements of @xmath257        after substitution into the definition of the self - energy eq .
+( [ eq : se2x2 ] ) , we obtain from eq .
+( [ eq : fnm ] ) the following matrix elements of @xmath261 : @xmath262 \right .
+\\ & \left .
+- a_{c , ii}(\omega-\omega_i)\ [ 1-f^{\rm ne}_{0,i}(\omega-\omega_i)]\ f^{\rm ne}_{0,i}(\omega)\ \right ) \ , \end{split}\ ] ] for the diagonal elements ( @xmath243 ) and for the off - diagonal elements : @xmath263 f^{\rm ne}_{0,1}(\omega+\omega_{\rm od})\      a_{c,12}(\omega+\omega_{\rm od})\ \right .
+\\ & \left .
+od})\ [ 1-f^{\rm ne}_{0,1}(\omega-\omega_{\rm od})]\ f^{\rm ne}_{0,1}(\omega)\ \right ) \ . \end{split}\ ] ] the matrix element @xmath264 is obtained from the expression of @xmath265 by swapping the indices @xmath266 .    from eqs .
+( [ eq : fneiiloe]-[eq : fne12loe ] ) and ( [ eq : fnenmloe2 ] ) , we can see that the diagonal elements @xmath267 are real and given by an expression similar to the result eq .
+( [ eq : fne_loe2 ] ) obtained for the single - level model .
+the off - diagonal elements @xmath268 acquire an imaginary part via the presence of the ratio @xmath254 . in some cases ,
+such an imaginary can be negligible or even vanishing .
+the interesting point in the loe is that each matrix element @xmath268 is to be determined self - consistently with the corresponding matrix element @xmath269 of the spectral function .
+there is no mixing between the different @xmath269 and @xmath268 .
+obviously , beyond the loe , there will be some mixing between the different matrix elements of the ne distribution and the spectral function , since @xmath152 is generally not diagonal and @xmath270 is given by @xmath271 \left [ \begin{array}{cc } a_{c,11 } &   a_{c,12 } \\
+a_{c,21 } &   a_{c,22 } \\
+\end{array }   \right ] \ .\end{aligned}\ ] ]                                                                                          for convergence criteria , we calculate the difference , between successive iteration , of the quantity @xmath276 on the energy grid @xmath241 ( with @xmath277 grid points ) as follows : @xmath278 . for the conventional negf calculation the quantity @xmath279 is the retarded gf @xmath280 , for our new method
+the quantity @xmath279 is either the spectral function @xmath15 or the ne distribution @xmath11 . for the calculations presented in this paper ,
+the energy grid has @xmath281 points between @xmath282 and @xmath283 , while the support of the spectral function is typically within the range @xmath284 $ ] , and the leads spectral support is @xmath285=[-4.0,+4.0]$ ] . for a tolerance of @xmath286 ,
+the convergence is achieved in typically @xmath287 to @xmath288 iterations for the negf ( depending on the value of the applied bias ) . for our method ( with the same number of grid points ) , the convergence is achieved in @xmath289 to 50 iterations . using the approximated ne distributions @xmath79 or @xmath80 ,
+the convergence is even faster ( @xmath290 to 40 ) . for the single site model , the gain in computing ( human ) time is almost not perceivable
+, however the gain should be important when the method is implemented for larger and more realistic systems .
+furthermore , we usually consider an energy grid 3 or 4 times larger than the energy support @xmath285 $ ] of the leads so that the real parts of the retarded or advanced gf and self - energies are negligible at the grid ends . with our new method
+, we can work with an energy grid smaller than @xmath285 $ ] .
+hence , for the same energy resolution , one would gain a factor of at least 4 on the number of grid points .
+this is important factor when one considers that the self - energy calculations of the first order diagrams scale as @xmath291 and as @xmath292 for the second order diagrams @xcite .
+our approach could be seen as a proof of principle for the extension to the ne conditions of the spectral density functionals method developed at equilibrium in ref .
+the use of the ne distributions has also been recently introduced in ne versions of the dynamical mean field theory @xcite .
+equality between the two expressions in eq .
+( [ eq : sigmafock_ratio2 ] ) would hold only in the limit @xmath293 .
+but this corresponds to a pathological case of phonon with zero frequency and generates only an infinite static renormalisation , and no inelastic self - energies , @xmath294 , which is not relevant for any study and is far from any realistic conditions .

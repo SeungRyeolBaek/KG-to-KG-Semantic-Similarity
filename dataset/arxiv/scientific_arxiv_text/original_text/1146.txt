@@ -1,0 +1,232 @@
+the mixed volume is one of the fundamental notions in the theory of convex bodies .
+it plays a central role in the brunn 
+minkowski theory and in the theory of sparse polynomial systems .
+the mixed volume is the polarization of the volume form on the space of convex bodies in @xmath2 .
+more precisely , let @xmath7 be @xmath8 convex bodies in @xmath2 and @xmath9 the euclidean volume of a body @xmath10 .
+then the mixed volume of @xmath11 is @xmath12 where @xmath13 denotes the minkowski sum of bodies @xmath14 and @xmath15 .
+it is not hard to see that the mixed volume is symmetric and multilinear with respect to minkowski addition .
+also it coincides with the volume on the diagonal , i.e. @xmath16 and is invariant under translations .
+moreover , it satisfies the following _ monotonicity property _
+, which is not apparent from the definition , see ( * ? ? ?
+* ( 5.25 ) ) .
+if @xmath17 are convex bodies such that @xmath18 for @xmath19 then @xmath20 the main goal of this paper is to give a geometric criterion for strict monotonicity in the class of convex polytopes .
+we give two equivalent criteria in terms of essential collections of faces and mixed cells in mixed polyhedral subdivisions , see theorem  [ t : main2 ] and theorem  [ t : main3 ] .
+the criterion is especially simple when all @xmath21 are equal ( corollary  [ c : mv = v ] ) which is the situation in our application to sparse polynomial systems . in the general case of convex bodies
+this is still an open problem , see @xcite for special cases and conjectures .
+the role of mixed volumes in algebraic geometry originates in the work of bernstein , kushnirenko , and khovanskii , who gave a vast generalization of the classical bezout formula for the intersection number of hypersurfaces in the projective space , see @xcite . this beautiful result which links algebraic geometry and convex geometry through toric varieties and sparse polynomial systems
+is commonly known as the bkk bound . in particular , it says that if @xmath22 is an @xmath8-variate laurent polynomial system over an algebraically closed field @xmath23 then the number of its isolated solutions in the algebraic torus @xmath24 is at most @xmath25 , where @xmath26 are the newton polytopes of the  @xmath27 .
+( here @xmath28 denotes @xmath29 . ) systems that have precisely @xmath30 solutions in @xmath24 must satisfy a _
+non - degeneracy condition _ which means that certain subsystems have to be inconsistent , see theorem  [ t : bkk ] .
+let @xmath22 be a laurent polynomial system over @xmath23 with newton polytopes @xmath5 . replacing each @xmath27 with a generic linear combination of @xmath31 over @xmath23 produces an equivalent system with the same number of solutions in @xmath24 .
+such an operation replaces each individual newton polytope @xmath26 with the convex - hull of their union , @xmath32 .
+thus , starting with a system for which @xmath33 , one obtains a system with all newton polytopes equal to @xmath34 and which has less than @xmath35 solutions in @xmath24 , i.e. is degenerate .
+the geometric criterion of corollary  [ c : mv = v ] allows us to characterize such systems without checking the non - degeneracy condition , which could be hard .
+in fact , theorem  [ t : ber ] delivers a simple characterization in terms of the coefficient matrix @xmath36 and the augmented exponent matrix @xmath37 of the system ( see section  [ s : pol ] for definitions ) . in particular
+, it says that if @xmath34 has a proper face such that the rank of the corresponding submatrix of @xmath36 is less than the rank of the corresponding submatrix of @xmath37 then the system has less than @xmath35 isolated solutions in @xmath24 .
+here is another consequence of theorem  [ t : ber ] .
+if no maximal minor of @xmath36 vanishes then the system has the maximal number @xmath35 of isolated solutions in @xmath24 ( corollary [ c : nice ] ) .
+this can be thought of as a generalization of cramer s rule for linear systems .
+this project began at the einstein workshop on lattice polytopes at freie universitt berlin in december 2016 .
+we are grateful to mnica blanco , christian haase , benjamin nill , and francisco santos for organizing this wonderful event and to the harnack haus for their hospitality .
+in this section we recall necessary definitions and results from convex geometry and set up notation .
+in addition , we recall the notion of essential collections of polytopes for which we give several equivalent definitions , as well as define mixed polyhedral subdivisions and the combinatorial cayley trick .    throughout the paper we use
+@xmath38 $ ] to denote the set @xmath39 .      for a convex body @xmath14 in @xmath2
+the function @xmath40 , given by @xmath41 is the _ support function _ of @xmath14 .
+we sometimes enlarge the domain of @xmath42 to @xmath43 . for every @xmath44 , we write @xmath45 to denote the supporting hyperplane for @xmath14 with outer normal @xmath46 @xmath47 we use @xmath48 to denote the face @xmath49 of @xmath14 .
+let @xmath50 be the @xmath8-dimensional mixed volume of @xmath8 convex bodies @xmath7 in @xmath2 , see ( [ e : mv ] ) above .
+we have the following equivalent definition .
+* theorem 5.1.7)[t : mv ] let @xmath51 be non - negative real numbers . then @xmath52 is a polynomial in @xmath51 whose coefficient of the monomial @xmath53 equals @xmath50 .
+let @xmath54 be convex bodies in @xmath2 , not necessarily distinct .
+we say that a multiset @xmath55 is an _ essential collection _ if for any subset
+@xmath56 $ ] of size at most @xmath8 we have @xmath57    note that every sub - collection of an essential collection is essential .
+also @xmath58 , where @xmath14 is repeated @xmath59 times , is essential if and only if @xmath60 .
+the following is a well - known property of essential collections .
+* theorem 5.1.8)[t : essential ] let @xmath7 be @xmath8 convex bodies in @xmath2 .
+the following are equivalent :    1 .
+@xmath61 ; 2 .
+there exist segments @xmath62 for @xmath19 with linearly independent directions ; 3 .
+@xmath63 is essential .
+another useful result is the inductive formula for the mixed volume , see ( * ? ? ?
+* theorem 5.1.7 , ( 5.19 ) ) .
+we present a variation of this formula for convex polytopes .
+let @xmath14 be a convex body and @xmath64 convex polytopes in @xmath2 .
+given @xmath65 , let @xmath66 denote the @xmath67-dimensional mixed volume of @xmath68 translated to the orthogonal subspace  @xmath69 .
+then we have @xmath70    note that the above sum is finite , since there are only finitely many @xmath65 for which @xmath71 is essential .
+namely , these @xmath46 are among the outer unit normals to the facets of @xmath72 .
+let @xmath73 be convex polytopes .
+the _ cayley polytope _
+@xmath74 is the convex hull in @xmath75 of the union of the polytopes @xmath76 for @xmath77 , where @xmath78 is the standard basis for @xmath79 .
+a finite polyhedral subdivision of @xmath80 is called _ mixed _ if it corresponds to a polyhedral subdivision of @xmath74 with vertices in @xmath81 via the map sending a polytope @xmath82 of the subdivision of @xmath74 to the polytope @xmath83 , where @xmath84 is the image by the projection @xmath85 of @xmath86 .
+the polytope @xmath82 is determined by @xmath87 ( and vice versa ) and will be denoted @xmath88 .
+this correspondence is called the _ combinatorial cayley trick _ , see @xcite for instance .
+a mixed polyhedral subdivision of @xmath80 is called _ pure _ if the corresponding subdivision of @xmath74 is a triangulation .
+let @xmath83 be a polytope in a pure mixed polyhedral subdivision of @xmath80
+. then all @xmath89 are simplices and @xmath90 .
+the polytope @xmath87 , as well as the corresponding simplex @xmath88 of the triangulation of @xmath74 , is called _ fully mixed _ if @xmath91 for @xmath92
+. when @xmath93 , the polytope @xmath87 is fully mixed if and only if @xmath94 and @xmath95 for @xmath92 so that @xmath87 is an @xmath8-dimensional parallelotope .
+the following result is well - known , see ( * ? ? ?
+* theorem 2.4 ) or ( * ? ? ? * theorem 6.7 ) .
+we include a proof for reader s convenience .
+[ l : key ] for convex polytopes @xmath96 in @xmath2 , the quantity @xmath97 is equal to the sum of the euclidean volumes of the fully mixed polytopes in any pure mixed polyhedral subdivision of @xmath98 .
+consider a triangulation @xmath99 of @xmath100 and let @xmath101 . to any simplex @xmath102 of @xmath99 , we associate the simplex @xmath103 ) .
+the image of this map is a triangulation of @xmath104
+. then we may compute the euclidean volume of @xmath105 as the sum of the euclidean volumes of the polytopes in the corresponding pure mixed subdivision :    @xmath106 the latter equality coming from the fact that @xmath99 is a triangulation .
+the coefficient of @xmath107 in the last expression is precisely the total euclidean volume of the fully mixed polytopes in our fully mixed subdivision , and by theorem  [ t : mv ] coincides with the mixed volume of @xmath5 .
+in this section we present our first criterion for strict monotonicity of the mixed volume and its corollaries .
+let @xmath14 be a subset of a convex polytope @xmath108 and let @xmath109 be a facet .
+@xmath14 touches @xmath110 _ when the intersection @xmath111 is non - empty .
+we will often make use of the following proposition , which gives a criterion for strict monotonicity in a very special case , see @xcite .
+[ p : mix ] let @xmath112 be convex polytopes in @xmath2 and @xmath113
+. then @xmath114 if and only if @xmath115 touches every face @xmath116 for @xmath46 in the set @xmath117    the above statement easily follows from ( [ e : induct ] ) and the observation @xmath118 with equality if and only if @xmath115 touches @xmath119
+. see ( * ? ? ?
+* sec 5.1 ) for details .
+here is the first criterion for strict monotonicity .
+[ t : main2 ] let @xmath0 and @xmath1 be convex polytopes in @xmath2 such that @xmath120 for every @xmath121 $ ]
+. given @xmath65 consider the set @xmath122 \
+|\ p_i \text { touches } q^u_i \}.\ ] ] then @xmath123 if and only if there exists @xmath65 such that the collection @xmath124\setminus t_u\}$ ] is essential .
+assume that there exists @xmath65 such that the collection @xmath124\setminus t_u\}$ ] is essential .
+note that @xmath125 is a proper subset of @xmath38 $ ] , otherwise @xmath126 is a collection of @xmath8 polytopes contained in translates of an @xmath67-dimensional subspace , hence , can not be essential . without loss of generality
+we may assume that @xmath38\setminus t_u=\{1,\dots , k\}$ ] for some @xmath127 .
+since @xmath26 does not touch @xmath128 for @xmath92 there is a hyperplane @xmath129 which separates @xmath26 and @xmath128 .
+let @xmath130 be the half - space containing @xmath26 .
+then the truncated polytope @xmath131 satisfies @xmath132 .
+we claim that the collection @xmath133 is essential .
+indeed , by assumption there exist @xmath8 segments @xmath134 with linearly independent directions such that @xmath135 for @xmath136 . among the first @xmath137 of these segments no more than one can be parallel to @xmath46 , hence , by projecting them along @xmath46 , translating , and possibly reordering
+, we may assume that @xmath138 for @xmath139 .
+since the direction vectors of @xmath140 are linearly independent in the orthogonal subspace @xmath69 , the collection in ( [ e : new ] ) is essential .    now by proposition  [ p : mix ]
+we obtain @xmath141 finally , by monotonicity we have @xmath142 and @xmath143 .
+therefore , @xmath144    conversely , assume @xmath123 .
+then , by monotonicity , for some @xmath145 we have @xmath146 by proposition  [ p : mix ] there exists @xmath65 such that @xmath147 is essential and @xmath148 . by choosing a segment in @xmath149 not parallel to @xmath69 ( which exists since @xmath150 , but @xmath151 does not touch @xmath152 ) we see that @xmath153 is essential .
+it remains to notice that @xmath154 for @xmath155 and , hence , the collection @xmath124\setminus t_u\}$ ] is essential as well .
+[ r : full - dim ] note that if @xmath1 are @xmath8-dimensional then we can simplify the criterion of theorem  [ t : main2 ] as follows : @xmath123 if and only if there exists @xmath65 such that the collection @xmath126 is essential .
+[ ex:2-dimth ] for @xmath156 theorem  [ t : main2 ] says that @xmath157 if and only if , up to reordering , there exists a facet ( i.e. a side ) @xmath119 such that the corresponding face @xmath158 is not touched by @xmath159 .
+a particular instance of theorem  [ t : main2 ] , especially important for applications to polynomial systems , is the case when @xmath0 are arbitrary polytopes and @xmath160 , where @xmath34 is the convex hull of the union @xmath6 .
+we will assume that @xmath34 is @xmath8-dimensional , otherwise @xmath161 is not essential and , hence , both @xmath162 and @xmath163 are zero .
+then the strict monotonicity has the following simple geometric interpretation .
+[ c : mv = v ] let @xmath0 be polytopes in  @xmath2 contained in an @xmath8-dimensional polytope @xmath34
+. then @xmath164 if and only if for some @xmath165 $ ] there exist @xmath166 polytopes among @xmath0 that do not touch a codimension  @xmath166 face of @xmath34 .    by theorem  [ t : main2 ] and remark  [ r : full - dim ]
+, we have @xmath164 if and only if there exists @xmath65 such that the collection @xmath167 , where @xmath168 is repeated @xmath169 times , is essential .
+the last condition is equivalent to @xmath170 , which gives @xmath171 where @xmath166 is the codimension of @xmath168 .
+this precisely means that there exist @xmath166 polytopes among the @xmath26 which do not touch @xmath168 .
+corollary  [ c : mv = v ] can be reformulated as follows .
+let @xmath0 be polytopes in  @xmath2 contained in an @xmath8-dimensional polytope @xmath34 .
+then @xmath164 if and only if there is a proper face of @xmath34 of dimension @xmath172 which is touched by at most @xmath172 of the polytopes @xmath0 . in particular , if a vertex of @xmath34 does not belong to any of the polytopes @xmath96 , then @xmath164 .    [ ex:2-dimcor ] let @xmath173 be convex polytopes in @xmath174 and @xmath34 be the convex hull of their union
+. then corollary  [ c : mv = v ] shows that @xmath175 if and only if either @xmath115 or @xmath159 does not touch some side of @xmath34 .
+one can obtain a more direct proof of corollary  [ c : mv = v ] by modifying the proof of theorem 2.6 in @xcite .
+[ ex : first ] let @xmath176 be a finite set in @xmath2 with @xmath8-dimensional convex hull @xmath34 and choose a subset @xmath177 . define @xmath178 for @xmath19 and let @xmath26 be the convex hull of @xmath179
+. then corollary  [ c : mv = v ] leads to @xmath180 . indeed ,
+if @xmath181 $ ] has size @xmath166 and @xmath182 is a face of codimension @xmath166 , then @xmath183 and @xmath184 .
+therefore , the subsets @xmath185 and @xmath186 can not be disjoint , i.e. the union of any @xmath166 of the @xmath26 touches every codimension face of @xmath34 .
+going back to the statement of corollary  [ c : mv = v ] it is natural to ask : if there is a codimension @xmath166 face of @xmath34 not touched by more than @xmath166 polytopes among @xmath5 , can the inequality @xmath164 be improved ?
+the answer is clearly no if we do not restrict ourselves to the class of _ lattice polytopes_. recall that for any collection of lattice polytopes @xmath0 the normalized mixed volume @xmath187 is an integer .
+we have the following improvement of corollary  [ c : mv = v ] in this case .
+[ p : stronger ] let @xmath0 be lattice polytopes in  @xmath2 contained in an @xmath8-dimensional lattice polytope @xmath34 .
+suppose there exists a facet @xmath188 which is not touched by @xmath189 , for some @xmath190 .
+moreover , suppose that @xmath191 then @xmath192 .    by the essentiality of @xmath191 and
+since @xmath193 it follows that for any @xmath194 the collection @xmath195 , where @xmath168 is repeated @xmath196 times , is essential . by proposition  [ p : mix ]
+we obtain @xmath197    now to obtain @xmath192 we use ( [ e : claim ] ) successively with @xmath198 : @xmath199 multiplying each of the above terms by @xmath200 we get a decreasing sequence of @xmath201 integers , the last being no less than @xmath202 , which provides the required inequality .
+we remark that the essentiality conditions above can not be removed .
+indeed , let @xmath203 be the standard @xmath8-simplex , @xmath168 one of its facets , and @xmath204 for @xmath19 .
+then if @xmath205 equal the vertex of @xmath34 not contained in @xmath168 , then @xmath206 regardless of @xmath59 .
+it would be interesting to obtain a more general statement than proposition  [ p : stronger ] which deals with faces of larger codimension .    given a polytope @xmath34 , corollary  [ c : mv = v ] provides a characterization of collections @xmath5 such that @xmath204 for @xmath19 and @xmath207 .
+clearly , when @xmath34 and the @xmath26 are lattice polytopes there are only finitely many such collections . describing them explicitly is a hard combinatorial problem . in the case
+when @xmath34 is the standard simplex , @xmath203 , this problem was solved by esterov and gusev in @xcite .
+in this section we obtain another criterion for the strict monotonicity property ( theorem  [ t : main3 ] ) based on mixed polyhedral subdivisions and the combinatorial cayley trick .
+recall that for polytopes @xmath208 in @xmath2 , we have @xmath209 if and only if the collection @xmath210 is essential , which is equivalent to @xmath211 for all @xmath181 $ ] , see theorem  [ t : essential ] .
+we now describe a generalization of this criterion .
+consider again polytopes @xmath212 for @xmath213 .
+for any non - zero vector @xmath214 consider the convex polytopes    @xmath215    [ t : main3 ] let @xmath0 and @xmath1 be convex polytopes in @xmath2 such that @xmath120 for every @xmath121 $ ] .
+the following conditions are equivalent :    1 .
+@xmath216 , 2 .
+there exists a fully mixed simplex with vertices in @xmath217 which is contained in the closure of @xmath218 , 3 .   there exists a non - zero vector @xmath214 such that the collection @xmath219 is essential .    consider a fully mixed simplex @xmath220 and let @xmath221 be the corresponding fully mixed polytope in the mixed subdivision of @xmath222 .
+then @xmath223 is contained in the closure of @xmath218 if and only if there is a supporting hyperplane of @xmath100 which separates the convex sets @xmath100 and @xmath223 .
+this is equivalent to the existence of @xmath224 with @xmath225 such that @xmath226 we note that is equivalent to @xmath227 , and so @xmath228 , for @xmath213 .
+since @xmath229 have linearly independent directions , this gives that @xmath219 is essential .
+this shows the equivalence between @xmath230 and @xmath231 .    assuming that @xmath232 is a fully mixed simplex verifying , it is easy to show the existence of a triangulation of @xmath233 with vertices in @xmath217 which contains @xmath223 and restricts to a triangulation of @xmath100 . by the combinatorial cayley trick
+, this gives a pure mixed subdivision @xmath234 of @xmath235 restricting to a pure mixed subdivision @xmath236 of @xmath98 and a fully mixed polytope @xmath237 contained in @xmath238 .
+therefore , @xmath239 by lemma [ l : key ] .
+the implication @xmath240 is proved .
+assume now that @xmath239 .
+by proposition  [ p : mix ] there exists @xmath65 such that @xmath147 is essential and @xmath148 ( see the proof of theorem [ t : main2 ] ) .
+thus we may choose a segment @xmath241 , segments @xmath242 for @xmath243 , and segments @xmath244 for @xmath245 such that the corresponding @xmath8 direction vectors are linearly independent .
+this shows that @xmath219 is essential since @xmath246 and @xmath247 are contained in @xmath248 for @xmath213 .
+we have proved the implication @xmath249 .
+note that if @xmath26 touches @xmath128 then @xmath250 and if @xmath26 does not touch @xmath128 then @xmath251 .
+therefore , the condition ( 3 ) in the above theorem is equivalent to the condition in theorem  [ t : main2 ] .
+consider a finite set @xmath252 where @xmath253 .
+let @xmath254 be the coordinates of @xmath255 for @xmath256 .
+consider a laurent polynomial system with coefficients in an algebraically closed field @xmath23 @xmath257 where @xmath258 and as usual @xmath259 stands for the monomial @xmath260 .
+we shall assume that no polynomial @xmath27 is the null polynomial .
+call @xmath261 the _ individual support _ of @xmath27 and @xmath262 the _ total support _ of the system .
+the _ newton polytope _
+@xmath26 of @xmath27 is the convex hull of @xmath179 and the _ newton polytope _
+@xmath34 of the system is the convex hull of @xmath176 .
+the matrices @xmath263 are the _ coefficient _ and _ exponent _ matrices of the system , respectively .
+choose @xmath65 and let @xmath264 .
+then the _ restricted system _ corresponding to @xmath46 is the system @xmath265 where @xmath266 with @xmath267 if @xmath268 and @xmath269 , otherwise .
+finally , a system ( [ e : system ] ) is called _ non - degenerate _ if for every @xmath65 the corresponding restricted system is inconsistent .
+the relation between mixed volumes and polynomial systems originates in the following fundamental result , known as the bkk bound , discovered by bernstein , kushnirenko , and khovanskii , see @xcite .
+[ t : bkk ] the system has at most @xmath270 isolated solutions in @xmath24 counted with multiplicity .
+moreover , it has precisely @xmath270 solutions in @xmath24 counted with multiplicity if and only if it is non - degenerate .
+systems with fixed individual supports and generic coefficients are non - degenerate .
+moreover , the non - degeneracy condition is not needed if one passes to the toric compactification @xmath271 associated with the polytope @xmath272 .
+namely , a system has at most @xmath270 isolated solutions in @xmath271 counted with multiplicity , and if it has a finite number of solutions in @xmath271 then this number equals @xmath273 counted with multiplicity .
+there are two operations on that preserve its number of solutions in the torus @xmath24 .
+first , left multiplication of @xmath36 by an invertible matrix of @xmath274 produces an equivalent system .
+the second operation consists in multiplying each equation by a given monomial and making a monomial change of coordinates of @xmath24 .
+this second operation corresponds to left multiplication of the _ augmented exponent matrix _
+@xmath275 ( obtained from @xmath108 by adding a first row of @xmath276 ) by a matrix in @xmath277 .    [
+r : left ] consider a non - degenerate system with coefficient matrix @xmath36
+. left multiplication of @xmath36 by an invertible matrix preserves the total support of the system , but does not preserve the individual supports and newton polytopes in general .
+however , since this operation produces an equivalent system , theorem [ t : bkk ] shows that the mixed volumes of the corresponding @xmath8-tuples of newton polytopes are equal .
+assume that has precisely @xmath278 solutions in @xmath24 counted with multiplicity and @xmath36 has a non - zero maximal minor .
+up to renumbering , we may assume that this minor is given by the first @xmath8 columns of @xmath36 .
+left multiplication of by the inverse of the corresponding submatrix of @xmath36 gives an equivalent system with invidual supports @xmath279 for @xmath19 .
+thus this new system has precisely @xmath280 solutions in @xmath24 counted with multiplicity . by theorem [ t : bkk ]
+this number of solutions is at most @xmath281 , where @xmath282 is the convex hull of @xmath283 . on the other hand , by monotonicity of the mixed volume we have @xmath284 .
+we conclude that @xmath285 .
+the second equality is also a consequence of corollary [ c : mv = v ] , see example [ ex : first ] .
+[ t : ber ] assume @xmath286 . if a system has @xmath287 isolated solutions in @xmath24 counted with multiplicity , then for any proper face @xmath110 of @xmath34 the submatrix @xmath288 of @xmath36 with columns indexed by @xmath289 \ , , \ , a_j \in
+f \cap { { \mathcal{a}}}\}$ ] satisfies @xmath290 or equivalently , @xmath291    conversely , if is satisfied for all proper faces @xmath110 of @xmath34 and if the system is non - degenerate , then it has precisely @xmath287 isolated solutions in @xmath24 counted with multiplicity .
+first , note that for any proper face @xmath110 of @xmath34 we have @xmath292 . consider a proper face @xmath110 of @xmath34 of codimension @xmath293 and assume that @xmath294 .
+then there exist an invertible matrix @xmath15 and @xmath181 $ ] of size @xmath295 such that the submatrix of @xmath296 with rows indexed by @xmath297 and columns indexed by @xmath298 is the null matrix .
+the matrix @xmath299 is the coefficient matrix of an equivalent system with the same total support , see remark [ r : left ]
+. denote by @xmath300 the individual newton polytopes of this equivalent system .
+then the polytopes @xmath282 for @xmath301 do not touch the face @xmath110 of @xmath34 . since @xmath302 and @xmath295
+, it follows then from corollary  [ c : mv = v ] that @xmath303 .
+theorem [ t : bkk ] applied to the system with coefficient matrix @xmath299 gives that it has at most @xmath304 isolated solutions in @xmath24 counted with multiplicity .
+the same conclusion holds for the equivalent system . therefore ,
+if has @xmath35 isolated solutions in @xmath24 counted with multiplicity , then is satisfied for all proper faces @xmath110 of @xmath34 .
+conversely , assume that is non - degenerate and that is satisfied for all proper faces @xmath110 of @xmath34
+. then has @xmath305 isolated solutions in @xmath24 counted with multiplicity by theorem [ t : bkk ] .
+suppose that @xmath306 .
+then by corollary  [ c : mv = v ] there exists a proper face @xmath110 of @xmath34 of codimension @xmath293 and @xmath181 $ ] of size @xmath295 such that the polytopes @xmath26 for @xmath301 do not touch @xmath110 .
+but then @xmath307 , which gives a contradiction .
+thus @xmath308 and has @xmath35 isolated solutions in @xmath24 counted with multiplicity .    as an immediate consequence of theorem [ t : ber ] from which we keep the notations , we get the following
+.    consider any laurent polynomial system with @xmath286 . if there exists a proper face @xmath110 of @xmath34 such that @xmath309 , then the system has either infinitely many solutions , or strictly less than @xmath287 solutions in @xmath24 counted with multiplicity .
+assume the existence of a proper face @xmath110 of @xmath34 such that @xmath310 . if has precisely @xmath287 solutions in @xmath24 counted with multiplicity , then it is non - degenerate by theorem  [ t : bkk ] and thus @xmath311 by theorem  [ t : ber ] , a contradiction .
+a very nice consequence of theorem [ t : ber ] is the following result , which can be considered as a generalization of cramer s rule to polynomial systems .
+[ c : nice ] assume that @xmath286 and that no maximal minor of @xmath36 vanishes .
+then the system has the maximal number of @xmath312 isolated solutions in @xmath24 counted with multiplicity .
+note that @xmath313 since @xmath286 ( recall that @xmath314 is the number of columns of @xmath36 ) .
+thus a maximal minor of @xmath36 has size @xmath8 and the fact that no maximal minor of @xmath36 vanishes implies that for any @xmath315 $ ] the submatrix of @xmath36 with rows indexed by @xmath38 $ ] and columns indexed by @xmath316 has maximal rank .
+this rank is equal to @xmath8 if @xmath317 or to @xmath318 if @xmath319 .
+since @xmath320 for any face @xmath110 of @xmath34 , we get that @xmath321 for any proper face @xmath110 of @xmath34 .
+moreover , no restricted system is consistent for otherwise this would give a non - zero vector in the kernel of the corresponding submatrix of @xmath36 .
+thus is non - degenerate and the result follows from theorem [ t : ber ] .
+when the polytope @xmath322 is the standard simplex , the system is linear and it has precisely @xmath323 solution in @xmath24 if and only if no maximal minor of @xmath324 vanishes , in accordance with cramer s rule for linear systems .
+we conclude with a few examples illustrating the results of the previous section .
+let @xmath325 and @xmath326 be individual supports , and @xmath327 the total support of a system .
+the newton polytopes @xmath328 , @xmath329 , and @xmath330 are depicted in figure  [ f : ex1 ] , where the vertices of @xmath115 and @xmath159 are labeled by @xmath331 and @xmath332 , respectively .
+we use the labeling in figure  [ f : ex1 ] to order the columns of the augmented matrix @xmath333 a general system with these supports has the following coefficient matrix @xmath334 where @xmath335 are non - zero .
+one can see that each side of @xmath34 is touched by at least one of the @xmath26 and , hence , @xmath336 , see example  [ ex:2-dimcor ] . also one can check that the rank conditions @xmath337 are satisfied for every face @xmath110 of @xmath34 .
+( in fact , both ranks equal 2 when @xmath110 is a side and 1 when @xmath110 is a vertex . )
+the augmented exponent matrix and the coefficient matrix are as follows .
+@xmath341 this time the side of @xmath34 labeled by @xmath342 is not touched by @xmath159 and , hence , @xmath343 .
+also , the rank condition for @xmath342 fails : @xmath344 and @xmath345 .
+the submatrix of @xmath36 corresponding to the edge @xmath110 labeled @xmath349 has rank @xmath276 which is less than @xmath350 . therefore the associated system has less than @xmath351 isolated solutions in @xmath352 .
+( in fact , it has two solutions . ) in particular , this is a degenerate system .
+assume that @xmath353 with @xmath286 and any proper face @xmath110 of @xmath34 is a simplex which intersects @xmath176 only at its vertices .
+assume furthermore that @xmath321 for any proper face @xmath110 of @xmath34 . then is non - degenerate and thus has precisely @xmath312 solutions in @xmath24 counted with multiplicity according to theorem [ t : bkk ] . indeed ,
+if @xmath110 is a proper face of @xmath34 , then the corresponding restricted system has total support @xmath354 .
+if this restricted system is consistent , then there is a non - zero vector in the kernel of @xmath355 and thus @xmath356 which gives a contradiction .

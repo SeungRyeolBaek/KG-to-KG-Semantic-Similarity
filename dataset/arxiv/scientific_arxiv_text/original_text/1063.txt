@@ -1,0 +1,202 @@
+chiral perturbation theory is a low energy effective field theory of the strong interaction .
+the work @xcite presents analytic expressions for the two - loop contribution to the pion mass and decay constant in su(3 ) chiral perturbation theory with suitable expansions in powers of @xmath3 . in an upcoming work @xcite
+, we will present analogous expressions for the pion decay constant .
+work is also underway to find similar simple analytic representations for the kaon and eta mass and decay constants to two loops .    due to the goldstone nature of the particles involved , scalar , tensor and derivatives of sunset diagrams
+appear in these calculations , with various mass configurations and with up to three distinct masses .
+much work has been done on sunset diagrams ( an incomplete list is given in references @xcite-@xcite ) , and a variety of analytic results exist in the literature for the one - and two - mass scale configurations @xcite .
+papers directly relevant to this work are the following . in @xcite ,
+analytic results have been given for the master integrals at the pseudothreshold @xmath4 and threshold @xmath5 , the former of which may be used to obtain the single , and many of the double , mass scale analytic expressions . gasser and saino @xcite use integral representations to give results in closed form for several basic two - loop integrals appearing in chpt , including the sunset , with one mass - scale .
+for unequal masses , fully analytic results are given by @xcite gives in terms of newly defined elliptic generalizations of the clausen and glaisher functions , but the application of methods or approximation schemes that give the three mass scale sunsets as expansions in powers of the mass ratio allow for a more transparent interpretation of the results being considered . in @xcite , just such an expansion is given for the most general sunset integral in terms of lauricella functions .
+however , none of the series presented in @xcite converge for the physical values of the meson masses .
+the interest in analytic or semi - analytic expressions arises from the desire to make as direct a contact as possible with results in lattice field theories .
+recent advances in lattice qcd now allow for quark masses in these theories to be varied independently , allowing for realistic quark masses .
+the availability of analytic results for pseudo - scalar masses and decay constants , for example , would allow for easy and computationally efficient comparison with lattice results .    aside from the derivation of analytic expressions for the pseudo - scalar meson masses and decay constants to two - loops ,
+the application of sunset diagrams to chiral perturbation theory is also of general interest . in this context
+, sunset diagrams have been studied quite early ( @xcite ) , where not only the single mass scale sunset ( which appears in su(2 ) chiral perturbation theory ) is considered , but also the cases with more than one mass scale which are common in the su(3 ) theory . in su(3 ) chiral perturbation theory , the sunset is the simplest diagram that appears at two loops , and a careful study of it paves the way for the study of the other diagrams that appear at this order ( i.e. vertices , boxes and acnodes ) . the work @xcite gives a terse but comprehensive summary of results .
+another possible use of the sunsets is to expand them out using methods such as expansion in regions @xcite , and then use this to reduce the su(3 ) low energy constants to the su(2 ) ones .
+the process of relating the su(3 ) to su(2 ) low - energy - constants has been done using an alternative method in @xcite but it has not yet been done for the full set of low - energy - constants at next - to - next - to - leading order . it must be noted in the context of @xcite that the sunset technology is also important when considering vertices , as many of the latter get related to the sunsets when using , for example , the method of expansion by regions .    in this paper , we use the mellin - barnes method to derive results for all the single and double mass scale integrals .
+it has been shown in @xcite that the mellin - barnes method is an efficient one for obtaining expansions in ratios of two mass scales should they appear in feynman diagrams in general .
+this work therefore serves as an independent verification of the existing results in the literature .
+the mellin - barnes method is also an appropriate tool for chiral perturbation theory applications as it ab initio allows us to express the integrals as expansions in mass ratios .
+a further reason for mellin - barnes as our tool of choice is the availability of powerful public computer packages in this approach .
+the availability of such codes has made such a study of sunsets ( and two - loop diagrams in general ) in chiral perturbation theory much more accessible .
+the mathematica based package ` tarcer ` @xcite applies the results of tarasov s work @xcite to recursively reduce all sunset diagrams to the master integrals .
+several packages @xcite have automatized many aspects of the application of mellin - barnes methods to feynman integrals .
+the sunsets appearing in chiral perturbation theory have been implemented numerically in the package ` chiron ` @xcite using the methods of @xcite .
+one of the goals of the present work is to improve on this implementation .
+in addition , there are two other packages ` bokasum ` @xcite and ` tsil ` @xcite that can be used to numerically calculate sunset integrals .
+we present along with this paper several mathematica notebooks ( lodged as ancillary files along with the arxiv submission ) which contain the details of our calculations , as well as a demonstration of how to apply the above packages to the calculation of sunset integrals .
+the notebooks are thoroughly annotated , and can be used in a stand - alone capacity , or in conjunction with this note .
+these may also serve as a pedagogical introductions to the analytic evaluation of sunsets diagram .
+the primary goal of this paper is to show the use of the packages of @xcite ; the results as presented here have been checked in a number of other ways as well . the relations from @xcite have been implemented independently using ` form ` @xcite .
+the expansions around @xmath6 were also derived using the methods of @xcite and numerical results have been compared with the results from analytical expressions of @xcite .
+this paper is organized as follows . in section 2 ,
+we give the five different sunset configurations that will be explicitly considered in this work , and show from where they arise . in section 3
+we give an overview of the sunset integrals , their divergences , and their renormalization in chiral perturbation theory . in section 4
+, we briefly discuss the mellin - barnes method of evaluating feynman integrals . in section 5 , we demonstrate the use of the package ` tarcer ` @xcite to reduce the tensor and derivatives of the sunsets to master integrals . in section 6 ,
+we explain the use of the packages @xcite to derive the results for the one - mass scale master integral .
+we also explain how the ` tarcer ` package @xcite alone can be used to derive this result . in section 7 , we describe briefly the two different categories of two - mass scale sunset diagrams and their evaluation , and present a complete set of results in appendix a. in section 8 , we explain how three mass scale sunsets can be handled either by means of an expansion in the external momentum , or by a more sophisticated application of the mellin - barnes method to . in section 9 , we present a one - dimensional integral representation of an important configuration that arises in the su(2 ) chiral perturbation theory , and in section 10 with a discussion of some numerical issues of the new results presented herein .
+we conclude in section 11 with a discussion of the import and limitations of this work , and possible future work in this field . in appendix
+b , we give a brief description of all the public codes used in this work , and in appendix c , we present a dictionary that allows for an easy translation between the definition used in this work for the sunset and other integrals , and those used in the various programs and papers . in appendix d
+, we list the ancillary files provided with this paper .
+expressions for the pseudoscalar meson masses and decay constants in two loop chiral perturbation theory are given in appendix a of @xcite .
+as a concrete example , the pion mass is given by : @xmath7 where @xmath8 is the bare mass , @xmath9 is the one - loop contribution , @xmath10 is the two - loop model - dependent counterterm contribution , and @xmath11 is the chiral loop contribution .
+it is in this last term that the sunset integrals appear : @xmath12    the @xmath13 in the above expression refer to the scalar sunset integral @xmath14 as defined in eq.([sunsetdef ] ) of section 3 , where the first three arguments pertain to the masses entering the propagators , and the last is the square of the energy entering the loop .
+the @xmath15 and @xmath16 are the scalar integrals that make up the passarino - veltman decomposition of vector and tensor sunsets , and are defined precisely in eq.([h1 ] ) and eq.([h21 ] ) respectively .    in the case of the meson decay constants , in addition to the variety of sunset integrals appearing above , also appear derivatives of the sunsets ( i.e.@xmath17 , @xmath18 and @xmath19 ) . the work of finding an analytic expression for the pion mass ( as well as the other pseudoscalar meson masses and decay constants ) reduces to analytically evaluating these sunset integrals .    in the subsequent sections of this paper ,
+we explain how to analytically evaluate each of the different types of integrals appearing in expressions such as eq.([pionmass ] ) above .
+in particular , we show in detail how to evaluate the following integrals as representative of the different types of integrals and the different types of mass configurations that may appear in expressions for the pseudoscalar masses and decay constants :        ' '' ''    * integral * & * characteristic * +    ' '' ''    @xmath20 & one mass scale +    ' '' ''    @xmath21 & two mass scales +    ' '' ''    @xmath22 & three mass scales with smallest parameter as external momentum +    ' '' ''    @xmath23 & three mass scales with an internal mass as smallest parameter +    ' '' ''    @xmath24 & tensor sunset derivative +    the evaluation of all these integrals requires writing them in terms of master integrals , and then analytically evaluating the master integrals .
+this is explained in greater detail in the next section .
+the analytic evaluation of the master integrals can be done using a variety of methods , and many of these have previously been used to derive the plethora of results that exist in the literature . in this paper , we use the mellin - barnes approach , which appears to be the most efficient method by which to evaluate the three mass scale integrals , such as @xmath23 that appears in the expressions for eta mass and decay constant .
+the integrals given in the table above are all amenable to a mellin - barnes treatment .
+however , for @xmath22 , we instead take an expansion in the external momentum @xmath25 , as it provides a result that is as accurate as a mellin - barnes expansion ( to the same order ) but that is much easier to calculate .
+a similar expansion can not be done for @xmath26 in either the external momentum @xmath27 due to poor convergence , or in @xmath3 as it gives rise to an infrared divergence .
+the sunset integral , shown in fig.([sunset ] ) , is defined as : @xmath28^{\alpha } [ r^2-m_2 ^ 2]^{\beta } [ ( q+r - p)^2-m_3 ^ 2]^{\gamma } } \label{sunsetdef}\end{aligned}\ ] ]    vector and tensor sunset integrals have four - momenta , such as @xmath29 or @xmath30 , sitting in the numerator .
+two tensor integrals that appear in the calculation of meson masses and decay constants in chiral perturbation theory are : @xmath31^{\alpha } [ r^2-m_2 ^ 2]^{\beta } [ ( q+r - p)^2-m_3 ^ 2]^{\gamma } } \nonumber \\      \nonumber \\      h_{\mu \nu}^d \{m_1,m_2,m_3 ; p^2\ } = \frac{1}{i^2 } \int \frac{d^dq}{(2\pi)^d } \frac{d^dr}{(2\pi)^d } \frac{q_{\mu } q_{\nu}}{[q^2-m_1 ^ 2]^{\alpha } [ r^2-m_2 ^ 2]^{\beta } [ ( q+r - p)^2-m_3 ^ 2]^{\gamma } } \nonumber\end{aligned}\ ] ]    these may be decomposed into linear combinations of scalar integrals via the passarino - veltman decomposition as : @xmath32    to obtain the scalar integral @xmath33 , we take the scalar product of @xmath34 with @xmath35 : @xmath36^{\alpha } [ r^2-m_2 ^ 2]^{\beta } [ ( q+r - p)^2-m_3 ^ 2]^{\gamma } } \equiv \frac{1}{p^2 } \langle \langle q.p \rangle \rangle \label{h1}\end{aligned}\ ] ] where we have defined @xmath37 as the scalar sunset diagram with unit powers of the propagators , and with @xmath38 in the numerator .
+similarly , @xmath16 may be expressed as : @xmath39    in @xcite tarasov has shown by using the method of integration by parts that all sunset diagrams , including those of higher than @xmath40 dimensions , may be rewritten as linear combinations of a set of four master integrals and bilinears of one - loop tadpole integrals .
+these basic integrals are @xmath41 and the one - loop tadpole integral : @xmath42    application of tarasov s relations becomes crucial when evaluating another class of integrals that show up in chiral perturbation theory calculations , namely the derivatives of scalar and tensor sunsets ( e.g. @xmath43 ) .
+these may be evaluated by means of the following well - known formula relating derivatives and integrals in different dimensions @xcite : @xmath44    the mathematica package ` tarcer ` @xcite automatizes the reduction of any sunset integral to the master integrals .
+many results exist in the literature regarding these master integrals .
+one result that we use frequently in the subsequent sections is that of the two - mass scale master integral with zero external momentum @xmath45 .
+this is given in @xcite as : @xmath46 - \frac{x}{2 } \text { ln}^2 \left [ x \right ] + \left ( 2 + x \right ) \left [ \frac{\pi^2}{12 } + \frac{3}{2 } \right ] \bigg\ } \nonumber \\      & - ( \mu^2)^{-2\epsilon } \bigg\ { m^2 \log \left ( \frac{m^2}{\mu^2 } \right ) \left [ 1 - \log \left ( \frac{m^2}{\mu^2 } \right ) \right ] + 2 m^2 \log \left ( \frac{m^2}{\mu^2 } \right ) \left [ 1 - \log \left ( \frac{m^2}{\mu^2 } \right ) \right ] \bigg\ } \nonumber \\       & + \frac{m^2}{2 } \bigg\ { \bigg [ 2 + x \bigg ] \frac{1}{\epsilon^2 } + \bigg [ x \left ( 1 - 2   \log \left ( \frac{m^2}{\mu^2 } \right ) \right ) + 2 \left ( 1 - 2   \log \left ( \frac{m^2}{\mu^2 } \right ) \right ) \bigg ] \frac{1}{\epsilon } \bigg\ } + \mathcal{o}(\epsilon ) \label{k111}\end{aligned}\ ] ] where @xmath47 , \qquad \sigma = \sqrt{1-\frac{4}{x } }   \end{aligned}\ ] ]    eq.([k111 ] ) above is given in the modified version of the @xmath48 scheme normally used in chiral perturbation theory ( @xmath49 ) .
+the change from the minimal subtraction ( ms ) scheme to @xmath49 involves making the replacement : @xmath50    analytical expressions for the divergent parts of the sunset master integrals have been derived in @xcite , amongst other places .
+the following are the divergent parts of the master integrals in the @xmath49 scheme : @xmath51 \frac{1}{\epsilon^2 } \nonumber \\      & + \left [ m_1 ^ 2+m_3 ^ 2+m_3 ^ 2 - \frac{s}{2 } - 2m_1 ^ 2 \log \left(\frac{m_1 ^ 2}{\mu ^2}\right ) -   2m_2 ^ 2 \log \left(\frac{m_2 ^ 2}{\mu ^2}\right)- 2m_3 ^ 2 \log \left(\frac{m_3 ^ 2}{\mu ^2}\right ) \right ] \frac{1}{\epsilon } \bigg\ } \nonumber \\ h_{\{2,1,1\}}^{div } & \{m_1,m_2,m_3;s\ } = \frac{1}{512 \pi^4 } \bigg\ { \frac{1}{\epsilon^2 } - \left [ 1 + 2 \log \left(\frac{m_1 ^ 2}{\mu ^2}\right ) \right ] \frac{1}{\epsilon } \bigg\ }      \nonumber \\ h_{\{1,2,1\}}^{div } & \{m_1,m_2,m_3;s\ } = \frac{1}{512 \pi^4 } \bigg\ { \frac{1}{\epsilon^2 } - \left [ 1 + 2 \log \left(\frac{m_2 ^ 2}{\mu ^2}\right ) \right ] \frac{1}{\epsilon } \bigg\ }      \nonumber \\
+h_{\{1,1,2\}}^{div } & \{m_1,m_2,m_3;s\ }
+= \frac{1}{512 \pi^4 } \bigg\ { \frac{1}{\epsilon^2 } - \left [ 1 + 2 \log \left(\frac{m_3 ^ 2}{\mu ^2}\right ) \right ] \frac{1}{\epsilon } \bigg\ } \label{divparts}\end{aligned}\ ] ]    in the remainder of this paper , unless explicitly stated , @xmath52 will be used to denote the finite part of the sunset integral in the @xmath49 scheme .
+eq.([chiralmsbar ] ) may be reverse engineered and used in combination with eq.([divparts ] ) to find the full results in any other subtraction scheme .
+we give a brief overview of the basic mellin - barnes approach to feynman integrals here . for a more comprehensive overview
+see @xcite .
+the mellin transform is defined as follows : @xmath53(s ) = \int\limits_0^\infty f(t)t^{s-1}dt , \hspace{0.2 in } s \in \mathcal{c}\end{aligned}\ ] ] its inverse is given by : @xmath54(x ) = \frac{1}{2\pi i } \int\limits_{c - i\infty}^{c+i\infty }   x^{-s}g(s)ds\end{aligned}\ ] ]    the following formula derived from the inverse mellin transform is used in high energy physics to write massive propagators as combinations of massless propagators : @xmath55    the expression obtained after application of this formula and evaluation of the momentum integral is known as the mellin - barnes representation of a feynman integral .    in some cases , it may be possible to simplify the mellin - barnes representation of an integral by the application of the following two barnes lemmas @xcite : @xmath56 where @xmath57    the evaluation of the mellin - barnes integrals may then be performed either numerically , or analytically by the addition of residues . in case of multiple mellin - barnes parameters , results from the theory of several complex variables may have to be used for analytic evaluation @xcite .
+in this section , we demonstrate how to handle both the tensor sunset integrals , as well as the derivatives of the sunsets , by reducing them to master integrals .
+in particular , we show how to evaluate the integral @xmath59 , by making extensive use of the package ` tarcer ` @xcite .
+the computer implementation of what follows is given in the ancillary file ` reductiontomi.nb ` .
+the first step is to decompose @xmath60 into master integrals . from eq.([h21 ] ) , we have : @xmath61    differentiating with respect to @xmath62 gives : @xmath63    the next step involves evaluating the scalar sunset integrals with @xmath64 and @xmath65 in the numerator .
+the following command allows us to express the first of these integrals in terms of the master integrals .
++ ` tarcerrecurse[tfi[d , s , { 0 , 0 , 2 , 0 , 0 } , { { 1 , mpi } , { 0 , 0},{0 , 0},{1 , mk},{1 , mk } } ] ] ` + the output , @xmath66 , is a function of the dimensional parameter @xmath40 , the external momentum @xmath62 , the masses @xmath67 and @xmath68 , the integrals @xmath69 , @xmath70 , @xmath71 , @xmath72 and @xmath73 .
+this expression is then differentiated with respect to @xmath62 , the resulting expression , @xmath74 , also being a function of the same parameters and integrals as @xmath66 , but in addition also being a function of the differentiated master integrals @xmath75 , @xmath76 , @xmath77 .
+each of these differentiated master integrals can be expressed as a sunset integral in a higher ( @xmath78 ) dimension by use of eq.([dh ] ) , and each of these higher dimensional sunsets can in turn be expressed in terms of the @xmath40 dimensional master integrals by further use of ` tarcer ` .
+for example , the integral @xmath79 is equal to @xmath80 . by use of the command : + ` tarcerrecurse[tfi[d+2 , s , { { 3 , mpi } , { 0 , 0},{0 , 0},{2 , mk},{2 , mk } } ] ] ` + we get an expression for @xmath81 in terms of @xmath40 dimensional master integrals .
+we repeat this process for each of the differentiated master integrals that appear , and substitute them ( and @xmath25 ) into the expression for @xmath74 .
+we can similarly obtain an expression for @xmath82 and @xmath83 , and substituting all these expressions into eq.([h21prime ] ) with @xmath25 gives us our desired expression for @xmath59 .
+the expressions we obtain for @xmath84 and @xmath19 , given in the notebook ` reductiontomi.nb ` , have been positively checked against expressions obtained from a direct differentiation of eq.(2.13 ) and eq.(2.14 ) respectively of @xcite .
+all one mass scale case sunset integrals can be reduced to a single master integral , namely @xmath86 where @xmath87 is the mass in question .
+below , we show how to evaluate the one mass scale sunset integral @xmath88 , and therefore give a pedagogical demonstration of the use of the mellin - barnes approach to evaluating feynman integrals .
+we also demonstrate the use of the public packages @xcite and @xcite .
+the accompanying mathematica notebook ` onemassmb.nb ` has a detailed computer implementation of what follows .
+we begin by applying eq.([mbformula ] ) to the definition of the sunset integral eq.([sunsetdef ] ) , and then evaluating the integrals over the loop momenta , to get the following mellin - barnes representation : @xmath89    to make contact with results in the literature , we extract a factor of @xmath90 .
+the above is also obtained automatically by use of the public code @xcite .
+the next step is to resolve ( i.e separate ) the singularities in @xmath91 and the finite part by shifting the contour across the points @xmath92 and @xmath93 .
+this can be done in an automatic manner by use of the package @xcite .
+the result is an expression consisting of two terms : @xmath94    the first term contains the divergences , and the second piece is a finite one - fold contour integral which is to be evaluated by adding up residues .
+since the singularities in @xmath91 have been extracted , we can set @xmath91 to 0 in the second term .    expressing the divergent piece as a laurent series around @xmath95 , we get : @xmath96    the convergent piece is calculated by summing up the residues at the points @xmath97 .
+the residues at non - zero integers @xmath98 for @xmath99 are given by : @xmath100 summing this up from @xmath101 to @xmath102 gives : @xmath103 the residue at @xmath104 = 0 is : @xmath105    combining the convergent and divergent pieces , we get the full result , expressed as a laurent series in @xmath91 : @xmath106    by pulling out a factor of @xmath107 and setting @xmath87 to 1 , this can be expressed more succinctly as : @xmath108    this reproduces the result derived in eq.(13 ) of @xcite .    the result given in eq.([gs1mass ] ) above is prior to the application of any subtraction procedure .
+the @xmath49 scheme may be applied by multiplying both terms of eq.([intmbdef ] ) by the additional factor : @xmath109^{2\epsilon}\end{aligned}\ ] ]    the inclusion of these two factors gives the following result for the @xmath49 subtracted single mass scale sunset integral : @xmath110      the ` tarcer ` package @xcite has the added functionality of performing a laurent series expansion in the small parameter @xmath111 for the master integrals .
+the command for such an expansion is :    ` tarcerexpand [ expression , d \rightarrow 4- 2\epsilon ] `    for one mass - scale sunsets , using this feature , ` tarcer ` can be used directly to derive expressions for the integrals @xmath14 , @xmath33 , @xmath112 , @xmath113 , @xmath18 , @xmath114 , i.e. for all the sunset results that appear in @xcite .
+this has been demonstrated in the notebook ` onemasstarcer.nb ` , in which is derived a very comprehensive set of relations with detailed annotations , and completely verifies all the sunset relations in @xcite .    note that the ` tarcerexpand ` command has been found to work for all the cases of interest , since this is a pure single mass scale example .
+we find that for other more complicated mass configurations , including the case when we have a single mass scale with @xmath6 , this command is unable to reproduce the laurent expansion of the integral .
+however , that ` tarcer ` can reproduce all the results for the sunsets in @xcite so efficiently indicates the power and utility of this package .
+there are eight possible independent mass configurations of the sunset master integrals with two masses .
+three of these fall into the pseudothreshold configurations , in which @xmath116 . in the two - loop calculation of the pseudoscalar meson masses and decay constants ,
+these are the only two - mass configurations that arise . results for the pseudothresholds , calculated directly using an integral representation of the sunsets , are given in @xcite .
+we rederived the three pseudothreshold results @xmath117 , @xmath118 and @xmath119 using mellin - barnes representations , and expressions for these are given below :    @xmath120\end{aligned}\ ] ]    @xmath121\end{aligned}\ ] ]    @xmath122\end{aligned}\ ] ]    where @xmath123 .
+these results are valid for all real values of @xmath124 .
+the other two mass pseudothreshold expressions may be obtained from the above by a simple re - ordering of the masses and indices . in the notebook ` twomasspt.nb ` , we demonstrate the above calculations by means of the example @xmath125 .
+the evaluation of non - pseudothreshold two mass sunset configurations results in three complications that do not arise in the pseudothreshold case .
+firstly , their mellin - barnes representation is a linear combination of complex - plane integrals of which at least one is two - fold , and which therefore requires a more sophisticated approach in its evaluation .
+these two - fold mellin - barnes integrals result in nested infinite sums , many of which can not be expressed as common analytic functions .
+therefore , completely analytic expressions for these integrals can not be obtained easily , and we are forced instead to take as many terms of these sums as yields the degree of accuracy we desire .
+secondly , the specific form of these infinite series depends on the numerical values of the two masses @xmath87 and @xmath126 , or more specifically their ratio @xmath127 .
+thirdly , there exists a range of values of @xmath128 for which it is not possible to use the mellin - barnes method ( given the current state of the art ) to evaluate these integrals . for these values of @xmath128 ,
+recourse must be had to other techniques , such as expansion in the external momentum @xmath62 .
+the non - pseudothreshold mass configurations do not appear in the calculation of the pseudoscalar meson masses and decay constants to two - loops in chiral perturbation theory , but they may appear elsewhere .
+thus for completeness we provide results for these as well in appendix a. the notebook ` twomassresults.nb ` contains all the pseudothreshold and non - pseudothreshold two mass scale sunset integrals .
+three mass scale sunset integrals result in two - fold mellin barnes representations , which can be evaluated using the method of @xcite . however ,
+for purposes of evaluating the pion mass and decay constant , we take an expansion in the external momentum @xmath62 : @xmath130    for the pion mass and decay constant the external momentum is always @xmath131 , which is much smaller than the @xmath132 and @xmath133 that can appear in the propagators . therefore
+, the above series converges fairly fast , and only a few of higher order terms are required . for integrals with @xmath134 or @xmath27 , the mellin - barnes approach may be more suitable .
+the derivatives of the integrals above can be evaluated using a combination of eq.(6 ) and ` tarcer ` @xcite .
+it turns out that derivatives to all orders of the sunset integral with @xmath6 can be expressed in terms of the single master integral @xmath135 given in eq.([k111 ] ) .
+[ [ two - fold - mellin - barnes - representations - hd_111-left - m_k2-m_k2-m_pi2-m_eta2-right ] ] two - fold mellin - barnes representations : @xmath136 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    for the three mass scale sunset integrals in which the external momentum is not the smallest parameter , such as those that appear in the kaon and eta masses and decay constants , the expansion in @xmath62 does not converge well .
+an expansion in one of the propagator masses must also be precluded as they lead to infrared divergences .
+the simplest method by which to obtain analytic expressions for these integrals to the order desired is by evaluating their two - fold mellin - barnes representation , a detailed explanation of which is given in @xcite . in this section
+, we list the main intermediate results in the evaluation of @xmath137 to exemplify the method in brief .
+the first step is to find the mellin - barnes representation of the integral @xmath137 and to resolve its singularity structure .
+this can be done semi - automatically by a combined use of the packages ` ambre.m ` and ` mb.m ` .
+the result is a linear combination of four parts .
+the first consists of the divergent parts and the finite part containing the @xmath138-scale dependent logarithms .
+the second and third parts are one - fold mellin - barnes integrals , the evaluation of which can be performed by simply adding up residues up to the desired order in powers of the mass ratio .
+the fourth part is proportional to the two - fold mellin - barnes representation : @xmath139 where @xmath140 , @xmath141 , @xmath142 , @xmath143 .
+the singularity structure above gives rise to four distinct cones , i.e. the above integral will converge to four distinct expressions depending on the particular value of the mass ratios @xmath144 and @xmath145 .
+these regions are given in table [ 3massconestable ] and plotted in fig.([3massconesfigure ] ) .
+g.  amoros , j.  bijnens and p.  talavera , nucl .
+b * 568 * ( 2000 ) 319 [ hep - ph/9907264 ] .
+f.  a.  berends , a.  i.  davydychev and n.  i.  ussyukina , phys .
+b * 426 * ( 1998 ) 95 [ hep - ph/9712209 ] .
+j.  gasser and m.  e.  sainio , eur .
+j.  c * 6 * ( 1999 ) 297 [ hep - ph/9803251 ] .
+j.  van der bij and m.  j.  g.  veltman , nucl .
+b * 231 * ( 1984 ) 205 .
+doi:10.1016/0550 - 3213(84)90284 - 0 f.  hoogeveen , nucl .
+b * 259 * ( 1985 ) 19 .
+doi:10.1016/0550 - 3213(85)90295 - 0 a.  i.  davydychev and j.  b.  tausk , nucl .
+b * 397 * ( 1993 ) 123 .
+g.  weiglein , r.  scharf and m.  bohm , nucl .
+b * 416 * ( 1994 ) 606 doi:10.1016/0550 - 3213(94)90325 - 5 [ hep - ph/9310358 ] .
+a.  i.  davydychev and v.  a.  smirnov , nucl .
+b * 554 * ( 1999 ) 391 doi:10.1016/s0550 - 3213(99)00269 - 2 [ hep - ph/9903328 ] .
+s.  laporta and e.  remiddi , nucl .
+b * 704 * ( 2005 ) 349 doi:10.1016/j.nuclphysb.2004.10.044 [ hep - ph/0406160 ] .
+o.  v.  tarasov , phys .
+b * 638 * ( 2006 ) 195 doi:10.1016/j.physletb.2006.05.033 [ hep - ph/0603227 ] .
+m.  caffo , h.  czyz , s.  laporta and e.  remiddi , nuovo cim .
+a * 111 * ( 1998 ) 365 [ hep - th/9805118 ] .
+m.  caffo , h.  czyz , s.  laporta and e.  remiddi , acta phys .
+b * 29 * ( 1998 ) 2627 [ hep - th/9807119 ] .
+m.  caffo , h.  czyz and e.  remiddi , nucl .
+b * 581 * ( 2000 ) 274 doi:10.1016/s0550 - 3213(00)00274 - 1 [ hep - ph/9912501 ] .
+m.  argeri , p.  mastrolia and e.  remiddi , nucl .
+b * 631 * ( 2002 ) 388 doi:10.1016/s0550 - 3213(02)00176 - 1 [ hep - ph/0202123 ] .
+m.  caffo , h.  czyz , m.  gunia and e.  remiddi , comput .
+commun .
+* 180 * ( 2009 ) 427 doi:10.1016/j.cpc.2008.10.011 [ arxiv:0807.1959 [ hep - ph ] ] . f.  jegerlehner and m.  y.  kalmykov , nucl .
+b * 676 * ( 2004 ) 365 doi:10.1016/j.nuclphysb.2003.10.012 [ hep - ph/0308216 ] .
+l.  adams , c.  bogner and s.  weinzierl , j.  math .  phys .
+* 56 * ( 2015 ) no.7 , 072303 doi:10.1063/1.4926985 [ arxiv:1504.03255 [ hep - ph ] ] .
+p.  post and j.  b.  tausk , mod .
+a * 11 * ( 1996 ) 2115 [ hep - ph/9604270 ] .
+f.  a.  berends , m.  buza , m.  bohm and r.  scharf , z.  phys .
+c * 63 * ( 1994 ) 227 .
+doi:10.1007/bf01411014 b.  a.  kniehl , a.  v.  kotikov , a.  onishchenko and o.  veretin , nucl .
+b * 738 * ( 2006 ) 306 [ hep - ph/0510235 ] .
+m.  y.  kalmykov and b.  a.  kniehl , phys .
+b * 714 * ( 2012 ) 103 doi:10.1016/j.physletb.2012.06.045 [ arxiv:1205.1697 [ hep - th ] ] .
+s.  groote , j.  g.  korner and a.  a.  pivovarov , eur .
+j.  c * 72 * ( 2012 ) 2085 doi:10.1140/epjc / s10052 - 012 - 2085-z [ arxiv:1204.0694 [ hep - ph ] ] .
+h.  czyz , a.  grzelinska and r.  zabawa , phys .
+b * 538 * ( 2002 ) 52 [ hep - ph/0204039 ] .    r.  kaiser and j.  schweizer , jhep * 0606 * ( 2006 ) 009 [ hep - ph/0603153 ] j.  gasser , c.  haefeli , m.  a.  ivanov and m.  schmid , phys .
+* 41 * ( 2010 ) 939 .
+s.  friot , d.  greynat and e.  de rafael , phys .
+b * 628 * ( 2005 ) 73 [ hep - ph/0505038 ] .
+j.  bijnens , eur .
+j.  c * 75 * ( 2015 ) 1 , 27 [ arxiv:1412.0887 [ hep - ph ] ] .
+r.  mertig and r.  scharf , comput .
+commun .
+* 111 * ( 1998 ) 265 [ hep - ph/9801383 ] .
+o.  v.  tarasov , nucl .
+b * 502 * ( 1997 ) 455 [ hep - ph/9703319 ] .
+j.  gluza , k.  kajda and t.  riemann , comput .
+commun .
+* 177 * ( 2007 ) 879 [ arxiv:0704.2423 [ hep - ph ] ] .
+a.  v.  smirnov and v.  a.  smirnov , eur .
+j.  c * 62 * ( 2009 ) 445 [ arxiv:0901.0386 [ hep - ph ] ] .
+m.  czakon , comput .
+commun .
+* 175 * ( 2006 ) 559 [ hep - ph/0511200 ] .
+d.  kosower , http://www.hepforge.org/downloads/mbtools/barnesroutines-1.0.tar.gz    v.  a.  smirnov , springer tracts mod .
+* 250 * , 1 ( 2012 ) .
+s.  friot and d.  greynat , j.  math .
+* 53 * ( 2012 ) 023508 [ arxiv:1107.0328 [ math - ph ] ] .
+b.  jantzen , j.  math .
+* 54 * ( 2013 ) 012304 [ arxiv:1211.2637 [ math - ph ] ] .
+k.  a.  olive _ et al . _
+[ particle data group collaboration ] , chin .
+c * 38 * ( 2014 ) 090001 .
+doi:10.1088/1674 - 1137/38/9/090001 j.  a.  m.  vermaseren , math - ph/0010025 .
