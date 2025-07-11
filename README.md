@@ -1,5 +1,5 @@
 # Dataset
-Our datasets are available in the dataset/ folder.
+Our datasets are available in the dataset/ folder.   
 📦dataset   
  ┣ 📂cc_news   
  ┃ ┣ 📂graph   
@@ -10,12 +10,11 @@ Our datasets are available in the dataset/ folder.
    ┣ 📂text   
    ┗ 📂verbalized   
 
-The folder named text/ contains the text data (original text documents and modified text documents)
-The folder named graph/ contains the knowledge graph (Each knowledge graph constructed from each text document in text/ folder)
-The folder named verbalized/ contains the verbalized knowledge graph (Each verbalized knowledge graph constructed from each text knowledge graph in graph/ folder)
+The folder named `text/` contains the text data (original text documents and modified text documents)
+The folder named `graph/` contains the knowledge graph (Each knowledge graph constructed from each text document in `text/` folder)
+The folder named `verbalized/` contains the verbalized knowledge graph (Each verbalized knowledge graph constructed from each text knowledge graph in `graph/` folder)
 
-In each folder, text/, graph/, and verbalized/ folder, documents (text or KG) are classified by modification options as follows
- 
+In each folder, `text/`, `graph/`, and `verbalized/` folder, documents (text or KG) are classified by modification options as follows   
 ┗ 📂synonym_replacement   
   ┣ 📂0.3   
   ┗ 📂0.6   
@@ -25,12 +24,13 @@ In each folder, text/, graph/, and verbalized/ folder, documents (text or KG) ar
 ┗ 📂dipper_paraphraser   
   ┣ 📂60_0   
   ┗ 📂60_20   
-Each text document in text/, and verbalized/ folder are stored in each .txt files and each knowledge graph in graph/ are stored in each .json files.
+
+Each text document in `text/`, and `verbalized/` folder are stored in each `.txt` files and each knowledge graph in `graph/` are stored in each `.json` files.
 
 
 # Dataset generation
 You can generate the dataset with your own text documents with the codes in the dataset_generation folder.
-The folder structure is as follows:
+The folder structure is as follows:   
 📦dataset_generation   
  ┣ 📂kg-construction   
  ┃ ┣ 📜kg-construction.py   
