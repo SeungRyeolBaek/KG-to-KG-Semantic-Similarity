@@ -88,7 +88,8 @@ Run one of the python code in `scoring/` folder. The similarity scores are then 
 
 After you run each scoring methods, then you can evaluate the performance of each scoring methods based in the results recorded in `Result/` folder by following process:
 1. Run `ranking.py` in the `evaluation/` folder
-2. Run `metric.py` in the `evaluation/` folder
-After this process, the performance results (metric values) of each methods on each setting with each dataset are recorded in the folder named `Metric_Results/`
+2. Run `metric.py` in the `evaluation/` folder   
+
+After this process, the performance results (metric values) of each methods on each setting with each dataset are recorded in the folder named `Metric_Results/`.   
 If you want to display those results in a single text files, run `python3 evaluation\result_display.py > ~~.txt`
 
