@@ -12,24 +12,10 @@ load_dotenv()
 
 # OpenAI API 키 설정
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-# os.environ["NEO4J_URI"] = os.getenv("NEO4J_URI")
-# os.environ["NEO4J_USERNAME"] = os.getenv("NEO4J_USERNAME")
-# os.environ["NEO4J_PASSWORD"] = os.getenv("NEO4J_PASSWORD")
-
-# graph = Neo4jGraph()
 
 # LLM 및 LLMGraphTransformer 초기화
 llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
 llm_transformer = LLMGraphTransformer(llm=llm)
-
-# 텍스트 파일이 저장된 디렉토리 및 JSON 저장 디렉토리 설정
-# input_dir = 'bookcorpus_text/synonym_replacement/0.6'
-# json_output_dir = 'bookcorpus_graph/synonym_replacement/0.6'
-# input_dir = 'bookcorpus_text/context_replacement/0.3'
-# json_output_dir = 'bookcorpus_graph/context_replacement/0.3'
-# 텍스트 파일이 저장된 디렉토리 및 JSON 저장 디렉토리 설정
-# input_dir = 'bookcorpus_text/dipper_paraphraser/60_0'
-# json_output_dir = 'bookcorpus_graph/dipper_paraphraser/60_0'
 
 # 텍스트 파일이 저장된 디렉토리 및 JSON 저장 디렉토리 설정
 input_dir = 'bookcorpus_text/original_text'

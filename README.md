@@ -1,3 +1,7 @@
+
+This is the implementation of "Measuring Graph-to-Graph Semantic Similarity in Knowledge Graphs:
+An Empirical Evaluation of Knowledge Graph Embeddings"
+
 # Dataset
 Our datasets are available in the dataset/ folder.   
 📦dataset   
