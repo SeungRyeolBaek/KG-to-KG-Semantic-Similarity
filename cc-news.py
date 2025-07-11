@@ -4,9 +4,9 @@ import os
 
 # 설정 -----------------------------------------------------------------
 SAVE_ROOT   = "cc_news_text/original_text"   # 저장 폴더
-TARGET_SIZE = 600                            # 파일 개수
-MIN_TOK     = 300                            # 길이 하한
-MAX_TOK     = 500                            # 길이 상한
+TARGET_SIZE = 550                            # 파일 개수
+MIN_TOK     = 1000                            # 길이 하한
+MAX_TOK     = 1200                            # 길이 상한
 
 # 1. CC-News 스트리밍 로드 ---------------------------------------------
 ds = load_dataset("cc_news", split="train", streaming=True)
