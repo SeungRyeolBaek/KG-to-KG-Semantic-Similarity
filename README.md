@@ -15,6 +15,7 @@ The folder named `graph/` contains the knowledge graph (Each knowledge graph con
 The folder named `verbalized/` contains the verbalized knowledge graph (Each verbalized knowledge graph constructed from each text knowledge graph in `graph/` folder)
 
 In each folder, `text/`, `graph/`, and `verbalized/` folder, documents (text or KG) are classified by modification options as follows   
+   
 ┗ 📂synonym_replacement   
   ┣ 📂0.3   
   ┗ 📂0.6   
