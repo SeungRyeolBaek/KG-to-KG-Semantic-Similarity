@@ -16,15 +16,15 @@ The folder named `verbalized/` contains the verbalized knowledge graph (Each ver
 
 In each folder, `text/`, `graph/`, and `verbalized/` folder, documents (text or KG) are classified by modification options as follows   
    
-┗ 📂synonym_replacement   
-  ┣ 📂0.3   
-  ┗ 📂0.6   
-┗ 📂context_replacement   
-  ┣ 📂0.3   
-  ┗ 📂0.6   
-┗ 📂dipper_paraphraser   
-  ┣ 📂60_0   
-  ┗ 📂60_20   
+📂synonym_replacement   
+┣ 📂0.3   
+┗ 📂0.6   
+📂context_replacement   
+┣ 📂0.3   
+┗ 📂0.6   
+📂dipper_paraphraser   
+┣ 📂60_0   
+┗ 📂60_20   
 
 Each text document in `text/`, and `verbalized/` folder are stored in each `.txt` files and each knowledge graph in `graph/` are stored in each `.json` files.
 
